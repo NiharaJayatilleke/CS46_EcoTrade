@@ -1,0 +1,42 @@
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #68A678;
+    color: white;
+  }
+
+  /* Style the search input */
+  .topnav input[type="text"] {
+    float: right; /* Push the input to the right */
+    padding: 10px; /* Add some padding for spacing inside the input */
+    border: none; /* Remove the input border */
+    border-radius: 20px; /* Apply rounded corners */
+    margin: 6px; /* Add margin for spacing */
+    outline: none; /* Remove the default outline */
+    background-color: #f2f2f2; /* Background color for the input */
+    transition: background-color 0.3s; /* Add a transition for a smooth effect */
+    width:200px;
+    height: 20px;
+  }
+  
+  /* Style the search input on focus */
+  .topnav input[type="text"]:focus {
+    background-color: #ddd; /* Change background color when input is focused */
+  }

@@ -1,6 +1,18 @@
-DROP TABLE IF EXISTS User;
+CREATE TABLE Pre_Owned_Item_Ad (
+    p_id INT AUTO_INCREMENT,
+    item_name VARCHAR(255),
+    price DOUBLE,
+    category VARCHAR(255),
+    seller_id INT,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(255),
+    PRIMARY KEY(p_id),
+    FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
+);
 
-CREATE TABLE User (
+DROP TABLE IF EXISTS General_User;
+
+CREATE TABLE General_User (
     id INT AUTO_INCREMENT,
     username VARCHAR(255),
     email VARCHAR(255),
@@ -10,18 +22,12 @@ CREATE TABLE User (
     PRIMARY KEY(id)
 );
 
-CREATE TABLE pre_Owned_Item_Ad (
-    p_id INT AUTO_INCREMENT,
-    item_name VARCHAR(255),
-    price DOUBLE,
-    category VARCHAR(255),
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    status VARCHAR(255),
-    PRIMARY KEY(p_id),
-    FOREIGN KEY (seller_id) REFERENCES User(id) ON DELETE CASCADE
-);
 
-INSERT INTO Users (name, age) VALUES ('Nihara', '20');
-INSERT INTO Users (name, age) VALUES ('Inuka', '21');
-INSERT INTO Users (name, age) VALUES ('Nethmi', '22');
-INSERT INTO Users (name, age) VALUES ('Rusiru', '23');
+CREATE TABLE forgot_password (
+
+    pwdResetid INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    pwdResetemail TEXT NOT NULL,
+    pwdResetSelector TEXT NOT NULL,
+    pwdresetToken LONGTEXT NOT NULL,
+    pwdResetExpires TEXT NOT NULL
+);

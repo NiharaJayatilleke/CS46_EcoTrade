@@ -1,0 +1,13 @@
+.msg-flash {
+    background-color: rgb(227, 238, 188);
+    color: rgb(9, 36, 59);
+    padding: 18px 0;
+    border: 1px solid rgb(185, 184, 181); /* Added a semicolon here */
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin: 8px 10px 10px;
+    
+    
+}
+
