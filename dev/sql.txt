@@ -31,3 +31,4 @@ CREATE TABLE forgot_password (
     pwdresetToken LONGTEXT NOT NULL,
     pwdResetExpires TEXT NOT NULL
 );
+
