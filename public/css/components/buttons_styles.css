@@ -1,0 +1,15 @@
+.form-btn{
+    background-color:#68A678;
+    color: white;
+    padding: 15px 20px;
+    margin: 8px 10px 10px;
+    border: none;
+    cursor: pointer;
+    width: 96%;
+    transition: -2s all;
+}
+.form-btn:hover {
+    opacity: 0.8;
+    background-color:rgb(86, 106, 50);
+}
+
