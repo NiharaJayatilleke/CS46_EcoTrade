@@ -1,7 +1,22 @@
-h1 {
-    color:darkolivegreen;
+/*CSS Library*/
+
+/*COMPONENTS*/
+@import url('components/topnavbar_styles.css');
+@import url('components/form_styles.css');
+@import url('components/buttons_styles.css');
+@import url('components/flash_message_styles.css');
+
+
+
+/* FONTS */
+@font-face {
+    font-family: ARIAL;
+    src: url(fonts/ARIAL.TTF);
 }
 
-body {
-    background-color:rgb(237, 237, 216);
+body{
+    margin: 0;
+    font-family: ARIAL;
+    font-size: small;
+    text-align: left;
 }
