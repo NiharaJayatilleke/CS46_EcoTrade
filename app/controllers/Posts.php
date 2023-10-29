@@ -1,7 +1,7 @@
 <?php
-    class Posts extends Controller {
-        public function __construct() {
-            echo 'In the Posts controller';
+    class Posts{
+        public function __construct(){
+            echo 'This is the posts controller';
         }
     }
 ?>

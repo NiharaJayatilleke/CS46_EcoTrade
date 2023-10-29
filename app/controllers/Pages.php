@@ -1,27 +1,20 @@
 <?php
-    class Pages extends Controller {
-        public function __construct() {
-            $this->pagesModel = $this->model('M_Pages'); 
+    class Pages extends Controller{
+        public function __construct(){
+            $this->pagesModel =$this->model('M_Pages');
         }
 
-        public function index() {}
+        public function index(){
+            $data = [];
+            $this->view('pages/v_index',$data);
 
-        // public function about($name, $age) {
-        //     $data = [
-        //         'userName' => $name,
-        //         'userAge' => $age
-        //     ];
-        //     $this->view('v_about', $data);
-        // }
-
-        public function about() {
+        }
+        public function about(){
             $users = $this->pagesModel->getUsers();
-
             $data = [
                 'users' => $users
             ];
-
-            $this->view('v_about', $data);
+            $this->view('v_about',$data);
         }
     }
 ?>
