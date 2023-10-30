@@ -1,4 +1,5 @@
-DROP TABLE IF EXISTS General_User;
+DROP DATABASE IF EXISTS ecotrade_db;
+CREATE DATABASE ecotrade_db;
 
 CREATE TABLE General_User (
     id INT AUTO_INCREMENT,
@@ -10,21 +11,23 @@ CREATE TABLE General_User (
     PRIMARY KEY(id)
 );
 
-CREATE TABLE Pre_Owned_Item_Ad (
+CREATE TABLE Item_Ads (
     p_id INT AUTO_INCREMENT,
-    item_name VARCHAR(255),
-    price DOUBLE,
-    category VARCHAR(255),
     seller_id INT,
+    item_name VARCHAR(255),
+    item_category VARCHAR(255),
+    item_desc TEXT
+    item_price DOUBLE,
+    item_location VARCHAR(255),
+    selling_format VARCHAR(255),
+    negotiable VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(255),
     PRIMARY KEY(p_id),
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
-
 CREATE TABLE forgot_password (
-
     pwdResetid INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     pwdResetemail TEXT NOT NULL,
     pwdResetSelector TEXT NOT NULL,

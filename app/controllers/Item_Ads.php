@@ -1,7 +1,16 @@
 <?php
     class Item_Ads extends Controller{
         public function __construct(){
-            $this->pagesModel =$this->model('M_Pages');
+            $this->itemAdsModel =$this->model('M_Item_Ads');
+        }
+
+        public function index() {
+            $data = [
+                'title' => 'Item Ads',
+                'description' => 'This is the Item Ads page'
+            ];
+
+            $this->view('item_ads/v_index', $data);
         }
 
         public function itemAd(){
@@ -18,11 +27,15 @@
                     'item_desc' => trim($_POST['item_desc']),
                     'item_price' => trim($_POST['item_price']),
                     'item_location' => trim($_POST['item_location']),
+                    'selling_format' => trim($_POST['selling_format']),
+                    'negotiable' => trim($_POST['negotiable']),
 
                     'item_name_err' => '',
                     'item_category_err' => '',
                     'item_price_err' => '',
                     'item_location_err' => '',
+                    'selling_format_err' => '',
+                    'negotiable_err' => '',
                 ];
 
                 //Validate each inputs
@@ -57,20 +70,20 @@
                 }
 
                 //Validation is completed and no error then add item ad to the database
-                if(empty($data['item_name_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])&&empty($data['agree_err'])){
+                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])){
                  
-                //     //Add item ad to the database
-                //     if($this->userModel->register($data)){
-                //         // create a flash message
-                //         flash('reg_flash', 'You are successfully registered!');
-                //         redirect('Users/login');
-                //     }
-                //     else{
-                //         die('Something went wrong');
-                //     }
+                    //Add item ad to the database
+                    if($this->itemAdsModel->itemAd($data)){
+                        // create a flash message
+                        flash('post_msg', 'Your ad has been posted successfully!');
+                        redirect('Item_Ads/index');
+                    }
+                    else{
+                        die('Something went wrong');
+                    }
                 }
                 else{
-                    //load view
+                    //load view with errors
                     $this->view('item_ads/v_create', $data);
                 }
             }
@@ -82,11 +95,15 @@
                     'item_desc' => '',
                     'item_price' => '',
                     'item_location' => '',
+                    'selling_format' => '',
+                    'negotiable' => '',
 
                     'item_name_err' => '',
                     'item_category_err' => '',
                     'item_price_err' => '',
                     'item_location_err' => '',
+                    'selling_format_err' => '',
+                    'negotiable_err' => '',
                 ];
 
                 //load view
