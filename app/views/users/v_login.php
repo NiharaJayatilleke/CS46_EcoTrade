@@ -2,8 +2,6 @@
     <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
-
-
     <div class="form-container">
         <div class="form-header">
         <center><h1>Login</h1></center>
