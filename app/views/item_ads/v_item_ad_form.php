@@ -3,6 +3,7 @@
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
     <div class="form-container">
+    <!-- <div class="ad-container"> -->
         <div class="form-header">
         <center><h1>Fill up the form to post your ad</h1></center>
         <!-- <p><b>Welcome to EcoTrade! Please sign up to continue.</b></p> -->
@@ -32,7 +33,7 @@
 
             <!-- item_description -->
             <div class="form-input-title">Description</div>
-            <input type="text" name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="item_desc" value="<?php echo $data['item_desc']; ?>">
+            <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="item_desc" value="<?php echo $data['item_desc']; ?>" rows = "1" columns = "10"></textarea>
             <!-- <span class="form-invalid"><?php echo $data['item_desc_err']; ?></span> -->
 
             <p>Upload Photos</p><br>
