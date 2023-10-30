@@ -13,7 +13,7 @@
       <div class="item"><a href="">Home</a></div>
       <div class="item"><a href="<?php echo URLROOT ?>/Users/login">Login</a></div>
       <div class="item"><a href="<?php echo URLROOT ?>/Users/register">SignUp</a></div>
-      <div class="item"><a href="<?php echo URLROOT ?>/ItemAds/itemAd">Post ad</a></div>
+      <div class="item"><a href="<?php echo URLROOT ?>/Item_Ads/itemAd">Post ad</a></div>
       <div class="item"><a href="#wishlist">Saved Ads</a></div>
       <div class="item" onclick="toggle()"><img src="../public/img/menu.png" alt="menu" class="menu" width="80" height="30"></div>
     </div>
