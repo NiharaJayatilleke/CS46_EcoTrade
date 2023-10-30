@@ -6,7 +6,7 @@
 
     <div class="form-container">
         <div class="form-header">
-        <center><h1>Moderator Sign Up</h1></center>
+        <center><h1>Moderator Registration</h1></center>
         <p><b>Welcome to EcoTrade!</b></p>
         </div>
         <form action="<?php echo URLROOT?>/Admin/register_moderator" method="POST">

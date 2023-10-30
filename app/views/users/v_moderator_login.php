@@ -7,7 +7,7 @@
         <center><h1>Moderator Login</h1></center>
         <p><b>Welcome to EcoTrade! Please Login to continue.</b></p>
         </div>
-        <form action="<form action="<?php echo URLROOT?>/Moderators/login" method="POST">A
+        <form action="<form action="<?php echo URLROOT?>/Moderators/login" method="POST">
 
             <!-- email -->
             <div class="form-input-title">Email</div>
