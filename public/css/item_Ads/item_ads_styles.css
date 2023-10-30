@@ -1,3 +1,39 @@
+/* AD INDEX PAGE */
+.ad-index-container{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 15px;
+    background-color:  #fff;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 500px;
+    border: 1px solid #d3d3d3;
+}
+
+.ad-index-container .ad-header{
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+}
+.ad-index-container .ad-body .ad-body-image{
+    display: block;
+    margin-left: 50px;
+    margin-right: auto;
+    width: 50%;
+}
+.ad-index-container .ad-body .ad-body-desc{
+    margin-top: 15px;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.ad-index-container .ad-footer .ad-price{
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+
+/* CREATE ITEM AD */
 .ad-container {
     margin-left: auto;
     margin-right: auto;
