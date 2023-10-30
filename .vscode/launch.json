@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost/ecotrade",
+            "url": "http://localhost/ecotrade/Item_Ads/itemAd",
             "webRoot": "${workspaceFolder}"
         }
     ]
