@@ -46,22 +46,21 @@
             <input type="text" name="item_location" id="item_location" class="item_location" value="<?php echo $data['item_location']; ?>" >
             <span class="form-invalid"><?php echo $data['item_location_err']; ?></span>
 
-
-            <!-- RADIO BUTTONS: WILL BE UPDATED SOON -->
-
-            
-          
-            
-
-
-            <!-- WITHOUT RADIO BUTTONS -->
-            <div class="form-input-title">Please enter your preferred way of selling</div>
-            <input type="text" name="selling_format" id="selling_format" class="selling_format" value="<?php echo $data['selling_format']; ?>" >
+            <!-- selling_format -->
+            <div class="form-input-title">Please select your preferred way of selling</div>
+            <input type="radio" name="selling_format" id="auction" class="selling_format" value="auction" <?php if ($data['selling_format'] === 'auction') { echo 'checked'; } ?>>
+            <label for="auction">Auction</label>
+            <input type="radio" name="selling_format" id="buy_now" class="selling_format" value="buy_now" <?php if ($data['selling_format'] === 'buy_now') { echo 'checked'; } ?>>
+            <label for="buy_now">Buy It Now</label><br>
             <span class="form-invalid"><?php echo $data['selling_format_err']; ?></span>
 
+            <!-- negotiable -->
             <div class="form-input-title">Is the price negotiable?</div>
-            <input type="text" name="negotiable" id="negotiable" class="negotiable" value="<?php echo $data['negotiable']; ?>" >
-            <span class="form-invalid"><?php echo $data['negotiable_err']; ?></span> 
+            <input type="radio" name="negotiable" id="yes" class="negotiable" value="yes" <?php if ($data['negotiable'] === 'yes') { echo 'checked'; } ?>>
+            <label for="yes">Yes</label>
+            <input type="radio" name="negotiable" id="no" class="negotiable" value="no" <?php if ($data['negotiable'] === 'no') { echo 'checked'; } ?>>
+            <label for="no">No</label><br> 
+            <span class="form-invalid"><?php echo $data['negotiable_err']; ?></span>
 
             <!-- submit button -->
             <input type="submit" value="Post Ad" class="form-btn">
