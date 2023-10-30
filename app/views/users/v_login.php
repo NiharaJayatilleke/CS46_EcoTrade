@@ -7,7 +7,7 @@
         <center><h1>Login</h1></center>
         <p><b>Welcome to EcoTrade! Please Login to continue.</b></p>
         </div>
-        <form action="" method="POST">
+        <form action="<form action="<?php echo URLROOT?>/Users/login" method="POST">
 
             <!-- email -->
             <div class="form-input-title">Email</div>
