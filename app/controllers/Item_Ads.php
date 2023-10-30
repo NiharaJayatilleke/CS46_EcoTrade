@@ -1,5 +1,5 @@
 <?php
-    class ItemAds extends Controller{
+    class Item_Ads extends Controller{
         public function __construct(){
             $this->pagesModel =$this->model('M_Pages');
         }
@@ -33,7 +33,7 @@
 
                 //Validate item_category
                 if(empty($data['item_category'])){
-                    $data['item_category_err'] = 'Please enter a category for your item';
+                    $data['item_category_err'] = 'Please select a category for your item';
                 } 
 
                 //Validate item_price
@@ -44,6 +44,16 @@
                 //validate item_location
                 if(empty($data['item_location'])){
                     $data['item_location_err'] = 'Please enter the location of your item';
+                }
+
+                //validate selling_format
+                if(empty($data['selling_format'])){
+                    $data['selling_format_err'] = 'Please select an option';
+                }
+
+                //validate negotiable
+                if(empty($data['negotiable'])){
+                    $data['negotiable_err'] = 'Please select an option';
                 }
 
                 //Validation is completed and no error then add item ad to the database
@@ -61,7 +71,7 @@
                 }
                 else{
                     //load view
-                    $this->view('item_ads/v_item_ad_form', $data);
+                    $this->view('item_ads/v_create', $data);
                 }
             }
             else {
@@ -80,7 +90,7 @@
                 ];
 
                 //load view
-                $this->view('item_ads/v_item_ad_form', $data);
+                $this->view('item_ads/v_create', $data);
             }
         }
     }
