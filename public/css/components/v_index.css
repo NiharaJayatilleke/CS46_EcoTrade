@@ -1,0 +1,24 @@
+.bg-img{
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    z-index: -1; 
+    width: 100vw
+}
+
+.bg-img img{
+    width:100vw; 
+    height: 50vh
+}
+
+.item.search input {
+    margin-top:40px;
+    margin-left:20px;
+    width: 20%; 
+  }
+
+img.searchicon{
+    margin-top:50px;
+    margin-left:0px;
+}
+  

@@ -2,7 +2,9 @@
   width: 100vw;
   height: 60px;
   background-color: black;
-}
+  /* position: fixed;
+  top: 0 */
+  }
 
 .topnav .items{
   width: 100vw;
@@ -15,7 +17,7 @@
   margin-top: 10px;
 }
 
-.topnav .items .search{
+/* .topnav .items .search{
   width: 280px;
   margin-left: 30px;
   background-color: rgb(0, 0, 0);
@@ -23,7 +25,7 @@
 
 .topnav .items .search input{
   padding-bottom: 5px;
-}
+} */
 
 .topnav .items .logo{
   width: 60px;
@@ -46,6 +48,7 @@
   text-decoration: none;
 }
 
-.topnav .items .links .menu{
-  width: 30px;
+.topnav .items .links .user{
+  height: 22px;
+  width: 22px;
 }
