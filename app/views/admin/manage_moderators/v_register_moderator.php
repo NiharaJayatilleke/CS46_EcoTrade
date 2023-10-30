@@ -12,14 +12,18 @@
         <form action="<?php echo URLROOT?>/Admin/register_moderator" method="POST">
 
             <!-- First Name -->
-            <div class="form-input-title">First Name</div>
-            <input type="text" name="firstname" placeholder="Firstname" id="firstname" class="firstname" value="<?php echo $data['firstname']; ?>">
+            <div class="form-input-title">Full Name</div>
+            <input type="text" name="firstname" placeholder="First name" id="firstname" class="firstname" value="<?php echo $data['firstname']; ?>">
             <span class="form-invalid"><?php echo $data['firstname_err']; ?></span>
 
-            <!-- Last Name -->
+            </br>
+            <input type="text" name="lastname" placeholder="Last name" id="lastname" class="lastname" value="<?php echo $data['lastname']; ?>">
+            <span class="form-invalid"><?php echo $data['lastname_err']; ?></span>
+
+            <!-- Last Name
             <div class="form-input-title">Last Name</div>
             <input type="text" name="lastname" placeholder="Lastname" id="lastname" class="lastname" value="<?php echo $data['lastname']; ?>">
-            <span class="form-invalid"><?php echo $data['firstname_err']; ?></span>
+            <span class="form-invalid"><?php echo $data['firstname_err']; ?></span> -->
 
             <!-- username -->
             <div class="form-input-title">Username</div>
