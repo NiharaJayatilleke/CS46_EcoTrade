@@ -38,7 +38,7 @@
 
             <!-- price -->
             <div class="form-input-title">Price</div>
-            <input type="text" name="item_price" id="item_price" class="item_price" value="<?php echo $data['item_price']; ?>" >
+            <input type="number" name="item_price" id="item_price" class="item_price" value="<?php echo $data['item_price']; ?>" >
             <span class="form-invalid"><?php echo $data['item_price_err']; ?></span>
 
             <!-- location -->
@@ -48,24 +48,8 @@
 
 
             <!-- RADIO BUTTONS: WILL BE UPDATED SOON -->
-            <!-- Is the Item open for Auction(bidding)? 
-            <div class="form-input-title">Please select your preferred way of selling</div>
-            <input type="radio" name="selling_format" id="auction" class="selling_format" value="<?php echo $data['auction']; ?>">
-            <label for="auction">Auction</label>
-            <input type="radio" name="selling_format" id="buy_now" class="selling_format" value="<?php echo $data['buy_now']; ?>">
-            <label for="buy_now">Buy It Now</label><br>
-            <span class="form-invalid"><?php echo $data['selling_format_err']; ?></span>
 
-             Is the price negotiable? 
-            <input type="checkbox" name="negotiable" id="negotiable" class="negotiable" value="<?php echo $data['negotiable']; ?>">
-            <label for="negotiable"> Yes</label> 
-
-            <div class="form-input-title">Is the price negotiable?</div>
-            <input type="radio" name="negotiable" id="yes" class="negotiable" value="<?php echo $data['yes']; ?>">
-            <label for="yes">Yes</label>
-            <input type="radio" name="negotiable" id="no" class="snegotiable" value="<?php echo $data['no']; ?>">
-            <label for="no">No</label><br> 
-            span class="form-invalid"><?php echo $data['negotiable_err']; ?></span> -->
+            
           
             
 

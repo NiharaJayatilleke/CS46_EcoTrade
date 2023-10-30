@@ -73,12 +73,11 @@
                 if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])){
                  
                     //Add item ad to the database
-                    if($this->itemAdsModel->itemAd($data)){
+                    if($this->itemAdsModel->create($data)){
                         // create a flash message
                         flash('post_msg', 'Your ad has been posted successfully!');
                         redirect('Item_Ads/index');
-                    }
-                    else{
+                    }else{
                         die('Something went wrong');
                     }
                 }
