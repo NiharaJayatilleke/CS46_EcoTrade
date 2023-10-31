@@ -186,10 +186,11 @@
                 }
             }
             else {
+                $ad = $this->itemAdsModel->getAdById($adId);
                 // initial form
                 $data = [
-                    'item_name' => '',
-                    'item_category' => '',
+                    'item_name' => $ad->item_name,
+                    'item_category' => $ad->item_category   ,
                     'item_desc' => '',
                     'item_price' => '',
                     'item_location' => '',

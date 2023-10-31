@@ -13,13 +13,22 @@
     background-color:rgb(86, 106, 50);
 }
 
-.post-edit-btn{ /*check */
-    background-color:#68A678;
-    color: white;
-    padding: 5px 5px;
-    margin: 8px 10px 10px;
-    border: none;
-    cursor: pointer;
-    width: 96%;
-    transition: -2s all;
+
+.post-control-btns {
+    display: flex;
+    align-items: center;
 }
+
+.ad-edit-btn {
+    background-color: #68A678;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ad-edit-btn:hover {
+    background-color: #269acc;
+}
+
