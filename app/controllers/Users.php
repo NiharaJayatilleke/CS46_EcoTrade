@@ -3,246 +3,759 @@
         public function __construct(){
             $this->userModel = $this->model('M_Users');
         }
+
         public function register(){
-            if($_SERVER['REQUEST_METHOD'] =='POST'){
-                // form is submitting
-                //Validate the data
+            $data = [
+                'title' => 'Register'
+            ];
+            $this->view('users/v_register', $data);
+        }
+
+        public function secondhandBuyerRegister(){
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+                // Submitted form data
+                // input data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-                //input data
+    
                 $data = [
-                    'username' => trim($_POST['username']),
+                    'name' => trim($_POST['name']),
                     'email' => trim($_POST['email']),
-                    'number' => trim($_POST['number']),
                     'password' => trim($_POST['password']),
+                    'username' => trim($_POST['username']),
                     'confirm_password' => trim($_POST['confirm_password']),
-
-                    'username_err' => '',
-                    'email_err' => '',
-                    'number_err' => '',
-                    'password_err' => '',
-                    'confirm_password_err' => '',
-                    'agree_err' => ''
-
+                    'user_type' => trim($_POST['user_type']),
+                    'contact_no' => trim($_POST['contact_no']),
+                    'err' => ''
                 ];
-
-                //Validate each inputs
-                //Validate username
-                if(empty($data['username'])){
-                    $data['username_err'] = 'Please enter a username';
+    
+                // Validate data
+                // Validate name
+                if (empty($data['name'])){
+                    $data['err'] = 'Please enter name';
                 }
-
-                //Validate email
-                if(empty($data['email'])){
-                    $data['email_err'] = 'Please enter an email';
-                }
-                else{
-                    //check email is already registered or not
-                    if($this->userModel->findUserByEmail($data['email'])){
-                        $data['email_err'] = 'This email is already registered';
-                    }
-                }   
-
-                //Validate number
-                if(empty($data['number'])) {
-                    $data['number_err'] = 'Please enter a contact number';
-                }
-
-                //validate password
-                if(empty($data['password'])){
-                    $data['password_err'] = 'Please enter a password';
-                }
-                else if(strlen($data['password'])<6){
-                        $data['password_err']='Password must be at least 6 characters';
-                    }
-                else{
-                    if(empty($data['confirm_password'])){
-                        $data['confirm_password_err']='Please confirm the password';
-                    }
-
-                    if($data['password']!=$data['confirm_password']){
-                            $data['confirm_password_err']='Passwords do not match';
-                        
-
+    
+                // Validate email
+                if (empty($data['email'])){
+                    $data['err'] = 'Please enter email';
+                } else {
+                    // Check email
+                    if ($this->userModel->findUserByEmail($data['email'])){
+                        $data['err'] = 'Email is already taken';
                     }
                 }
-
-                // Check if the user has agreed to the terms
-                if (!isset($_POST['agree'])) {
-                    $data['agree_err'] = 'You must agree to the terms and conditions.';
-                  }
-
-                //Validation is completed and no error then Register the user
-                if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])&&empty($data['agree_err'])){
-
-
-                    //Hash password
-                    $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
-
-                    //Register user
-                    if($this->userModel->register($data)){
-                        // create a flash message
-                        flash('reg_flash', 'You are successfully registered!');
-                        redirect('Users/login');
+    
+                // Validate username
+                if (empty($data['username'])){
+                    $data['err'] = 'Please enter username';
+                } else {
+                    // Check email
+                    if ($this->userModel->findUserByUsername($data['username'])){
+                        $data['err'] = 'Username is already taken';
                     }
-                    else{
+                }
+    
+                // Validate password
+                if (empty($data['password'])){
+                    $data['err'] = 'Please enter password';
+                } elseif (strlen($data['password']) < 6){
+                    $data['err'] = 'Password must be at least 6 characters';
+                }
+    
+                // Validate confirm password
+                if (empty($data['confirm_password'])){
+                    $data['err'] = 'Please confirm password';
+                } else {
+                    if ($data['password'] != $data['confirm_password']){
+                        $data['err'] = 'Passwords do not match';
+                    }
+                }
+    
+                // // Validate user type
+                // if (empty($data['user_type'])){
+                //     $data['err'] = 'Please select user type';
+                // }
+    
+                // Validate contact number
+                if (empty($data['contact_no'])){
+                    $data['err'] = 'Please enter contact number';
+                }
+    
+                // Validation is completed and no error found
+                if (empty($data['err'])){
+                    // Hash password
+                    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+    
+                    // Register user
+                    if ($this->userModel->register($data)){
+                        redirect('/Users/login');
+                    } else {
                         die('Something went wrong');
                     }
+                } else {
+                    // Load view with errors
+                    $this->view('users/v_secondhand_buyer_register', $data);
                 }
-                else{
-                    //load view
-                    $this->view('users/v_register', $data);
-                }
-            }
-            else {
-                // initial form
+    
+            } else {
+                // Initial form data
                 $data = [
-                    'username' => '',
+                    'name' => '',
                     'email' => '',
-                    'number' => '',
+                    'username' => '',
                     'password' => '',
                     'confirm_password' => '',
-
-                    'username_err' => '',
-                    'email_err' => '',
-                    'number_err' => '',
-                    'password_err' => '',
-                    'confirm_password_err' => '',
-                    'agree_err' => ''
-
+                    'user_type' => '',
+                    'contact_no' => '',
+                    'err' => '',
                 ];
-
-                //load view
-                $this->view('users/v_register', $data);
+    
+                // Load view
+                $this->view('users/v_secondhand_buyer_register', $data);
+            }
+        }
+    
+        public function secondhandSellerRegister(){
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+                // Submitted form data
+                // input data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $data = [
+                    'name' => trim($_POST['name']),
+                    'email' => trim($_POST['email']),
+                    'password' => trim($_POST['password']),
+                    'username' => trim($_POST['username']),
+                    'confirm_password' => trim($_POST['confirm_password']),
+                    'user_type' => trim($_POST['user_type']),
+                    'contact_no' => trim($_POST['contact_no']),
+                    'err' => ''
+                ];
+    
+                // Validate data
+                // Validate name
+                if (empty($data['name'])){
+                    $data['err'] = 'Please enter name';
+                }
+    
+                // Validate email
+                if (empty($data['email'])){
+                    $data['err'] = 'Please enter email';
+                } else {
+                    // Check email
+                    if ($this->userModel->findUserByEmail($data['email'])){
+                        $data['err'] = 'Email is already taken';
+                    }
+                }
+    
+                // Validate username
+                if (empty($data['username'])){
+                    $data['err'] = 'Please enter username';
+                } else {
+                    // Check email
+                    if ($this->userModel->findUserByUsername($data['username'])){
+                        $data['err'] = 'Username is already taken';
+                    }
+                }
+    
+                // Validate password
+                if (empty($data['password'])){
+                    $data['err'] = 'Please enter password';
+                } elseif (strlen($data['password']) < 6){
+                    $data['err'] = 'Password must be at least 6 characters';
+                }
+    
+                // Validate confirm password
+                if (empty($data['confirm_password'])){
+                    $data['err'] = 'Please confirm password';
+                } else {
+                    if ($data['password'] != $data['confirm_password']){
+                        $data['err'] = 'Passwords do not match';
+                    }
+                }
+    
+                // // Validate user type
+                // if (empty($data['user_type'])){
+                //     $data['err'] = 'Please select user type';
+                // }
+    
+                // Validate contact number
+                if (empty($data['contact_no'])){
+                    $data['err'] = 'Please enter contact number';
+                }
+    
+                // Validation is completed and no error found
+                if (empty($data['err'])){
+                    // Hash password
+                    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+    
+                    // Register user
+                    if ($this->userModel->register($data)){
+                        redirect('/Users/login');
+                    } else {
+                        die('Something went wrong');
+                    }
+                } else {
+                    // Load view with errors
+                    $this->view('users/v_secondhand_seller_register', $data);
+                }
+    
+            } else {
+                // Initial form data
+                $data = [
+                    'name' => '',
+                    'email' => '',
+                    'username' => '',
+                    'password' => '',
+                    'confirm_password' => '',
+                    'user_type' => '',
+                    'contact_no' => '',
+                    'err' => '',
+                ];
+    
+                // Load view
+                $this->view('users/v_secondhand_seller_register', $data);
+            }
+        }
+    
+        public function recycleSellerRegister(){
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+                // Submitted form data
+                // input data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $data = [
+                    'name' => trim($_POST['name']),
+                    'email' => trim($_POST['email']),
+                    'password' => trim($_POST['password']),
+                    'username' => trim($_POST['username']),
+                    'confirm_password' => trim($_POST['confirm_password']),
+                    'user_type' => trim($_POST['user_type']),
+                    'contact_no' => trim($_POST['contact_no']),
+                    'err' => ''
+                ];
+    
+                // Validate data
+                // Validate name
+                if (empty($data['name'])){
+                    $data['err'] = 'Please enter name';
+                }
+    
+                // Validate email
+                if (empty($data['email'])){
+                    $data['err'] = 'Please enter email';
+                } else {
+                    // Check email
+                    if ($this->userModel->findUserByEmail($data['email'])){
+                        $data['err'] = 'Email is already taken';
+                    }
+                }
+    
+                // Validate username
+                if (empty($data['username'])){
+                    $data['err'] = 'Please enter username';
+                } else {
+                    // Check email
+                    if ($this->userModel->findUserByUsername($data['username'])){
+                        $data['err'] = 'Username is already taken';
+                    }
+                }
+    
+                // Validate password
+                if (empty($data['password'])){
+                    $data['err'] = 'Please enter password';
+                } elseif (strlen($data['password']) < 6){
+                    $data['err'] = 'Password must be at least 6 characters';
+                }
+    
+                // Validate confirm password
+                if (empty($data['confirm_password'])){
+                    $data['err'] = 'Please confirm password';
+                } else {
+                    if ($data['password'] != $data['confirm_password']){
+                        $data['err'] = 'Passwords do not match';
+                    }
+                }
+    
+                // // Validate user type
+                // if (empty($data['user_type'])){
+                //     $data['err'] = 'Please select user type';
+                // }
+    
+                // Validate contact number
+                if (empty($data['contact_no'])){
+                    $data['err'] = 'Please enter contact number';
+                }
+    
+                // Validation is completed and no error found
+                if (empty($data['err'])){
+                    // Hash password
+                    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+    
+                    // Register user
+                    if ($this->userModel->register($data)){
+                        redirect('/Users/login');
+                    } else {
+                        die('Something went wrong');
+                    }
+                } else {
+                    // Load view with errors
+                    $this->view('users/v_recycle_seller_register', $data);
+                }
+    
+            } else {
+                // Initial form data
+                $data = [
+                    'name' => '',
+                    'email' => '',
+                    'username' => '',
+                    'password' => '',
+                    'confirm_password' => '',
+                    'user_type' => '',
+                    'contact_no' => '',
+                    'err' => '',
+                ];
+    
+                // Load view
+                $this->view('users/v_recycle_seller_register', $data);
             }
         }
 
+        // public function register(){
+        //     if($_SERVER['REQUEST_METHOD'] =='POST'){
+        //         // form is submitting
+        //         //Validate the data
+        //         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        //         //input data
+        //         $data = [
+        //             'username' => trim($_POST['username']),
+        //             'email' => trim($_POST['email']),
+        //             'number' => trim($_POST['number']),
+        //             'password' => trim($_POST['password']),
+        //             'confirm_password' => trim($_POST['confirm_password']),
+
+        //             'username_err' => '',
+        //             'email_err' => '',
+        //             'number_err' => '',
+        //             'password_err' => '',
+        //             'confirm_password_err' => '',
+        //             'agree_err' => ''
+
+        //         ];
+
+        //         //Validate each inputs
+        //         //Validate username
+        //         if(empty($data['username'])){
+        //             $data['username_err'] = 'Please enter a username';
+        //         }
+
+        //         //Validate email
+        //         if(empty($data['email'])){
+        //             $data['email_err'] = 'Please enter an email';
+        //         }
+        //         else{
+        //             //check email is already registered or not
+        //             if($this->userModel->findUserByEmail($data['email'])){
+        //                 $data['email_err'] = 'This email is already registered';
+        //             }
+        //         }   
+
+        //         //Validate number
+        //         if(empty($data['number'])) {
+        //             $data['number_err'] = 'Please enter a contact number';
+        //         }
+
+        //         //validate password
+        //         if(empty($data['password'])){
+        //             $data['password_err'] = 'Please enter a password';
+        //         }
+        //         else if(strlen($data['password'])<6){
+        //                 $data['password_err']='Password must be at least 6 characters';
+        //             }
+        //         else{
+        //             if(empty($data['confirm_password'])){
+        //                 $data['confirm_password_err']='Please confirm the password';
+        //             }
+
+        //             if($data['password']!=$data['confirm_password']){
+        //                     $data['confirm_password_err']='Passwords do not match';
+                        
+
+        //             }
+        //         }
+
+        //         // Check if the user has agreed to the terms
+        //         if (!isset($_POST['agree'])) {
+        //             $data['agree_err'] = 'You must agree to the terms and conditions.';
+        //           }
+
+        //         //Validation is completed and no error then Register the user
+        //         if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])&&empty($data['agree_err'])){
+
+
+        //             //Hash password
+        //             $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
+
+        //             //Register user
+        //             if($this->userModel->register($data)){
+        //                 // create a flash message
+        //                 flash('reg_flash', 'You are successfully registered!');
+        //                 redirect('Users/login');
+        //             }
+        //             else{
+        //                 die('Something went wrong');
+        //             }
+        //         }
+        //         else{
+        //             //load view
+        //             $this->view('users/v_register', $data);
+        //         }
+        //     }
+        //     else {
+        //         // initial form
+        //         $data = [
+        //             'username' => '',
+        //             'email' => '',
+        //             'number' => '',
+        //             'password' => '',
+        //             'confirm_password' => '',
+
+        //             'username_err' => '',
+        //             'email_err' => '',
+        //             'number_err' => '',
+        //             'password_err' => '',
+        //             'confirm_password_err' => '',
+        //             'agree_err' => ''
+
+        //         ];
+
+        //         //load view
+        //         $this->view('users/v_register', $data);
+        //     }
+        // }
+
         public function login(){
-            if($_SERVER['REQUEST_METHOD']=='POST'){
-                //Form is submitting
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+                // Form is submitting
+                // Sanitize POST data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-                $data =[
-                    'email' =>trim($_POST['email']),
-                    'password'=>trim($_POST['password']),
-
-                    'email_err' =>'',
-                    'password_err'=>''
+    
+                // Input data
+                $data = [
+                    'email' => trim($_POST['email']),
+                    'username' => trim($_POST['email']),
+                    'password' => trim($_POST['password']),
+                    'remember_me' => isset($_POST['remember_me']),
+                    'err' => ''
                 ];
-                //validate the email
-                if(empty($data['email'])){
-                    $data['email_err']='Please enter the email';
+    
+                // Validate data
+                // Validate email
+                if (empty($data['email'])){
+                    $data['err'] = 'Please enter email';
                 }
                 else{
-                    if($this->userModel->findUserByEmail($data['email'])){
-                        //User is found
+                    if ($this->userModel->findUserByEmail($data['email']) or $this->userModel->findUserByUsername($data['username'])){
+                        // User found
                     }
                     else{
-                        //User is not found
-                        $data['email_err'] = 'User not found';
+                        // User not found
+                        $data['err'] = 'No user found';
                     }
                 }
-
-                //Validate the password
-                if(empty($data['password'])){
-                    $data['password_err']='Please enter the password';
+    
+                // Validate password
+                if (empty($data['password'])){
+                    $data['err'] = 'Please enter password';
                 }
-
-                //If no error found the login the user
-                if(empty($data['email_err'])&&empty($data['password_err'])){
-                    //log the user
-                    $loggedUser = $this->userModel->login($data['email'],$data['password']);
-
-                    if($loggedUser){
-                        //User the authenticated
-                        //create user sessions
-                        $this->createUserSession($loggedUser);
+    
+                // Check if error is empty
+                if (empty($data['err'])){
+                    // log the user
+                    $loggedInUser = $this->userModel->login($data['email'], $data['password'], $data['username']);
+                    if ($loggedInUser){
+                        // Create session
+                        $this->createUserSession($loggedInUser);
+    
+                        // If "Remember Me" is checked, set a cookie
+                        if ($data['remember_me']) {
+                            $this->setRememberMeCookie($loggedInUser->id);
+                        }
                     }
                     else{
-                        $data['password_err']='Password incorrect';
-
-                        //Load view with errors
+                        $data['err'] = 'Password incorrect';
+    
+                        // Load view with errors
                         $this->view('users/v_login', $data);
                     }
                 }
                 else{
-                    //Load view with errors
+                    // Load view with errors
                     $this->view('users/v_login', $data);
                 }
-
             }
             else{
-                //initial form
-                $data =[
-                    'email' =>'',
-                    'password'=>'',
-
-                    'email_err' =>'',
-                    'password_err'=>''
+                // Initial form load
+                $data = [
+                    'email' => '',
+                    'username' => '',
+                    'password' => '',
+                    'err' => ''
                 ];
-
-                //Load view
+    
+                // Load view
                 $this->view('users/v_login', $data);
             }
         }
+
+            private function setRememberMeCookie($userId) {
+                // Generate a unique token or identifier
+                $token = uniqid();
         
-        public function terms(){
-            $this->view('users/terms'); // Load the 'terms.php' view
-        }
-
-        public function forgot_password(){
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                // Handle the password reset request
-                // Validate and process the request, send reset instructions, and update the database as needed
-                // Display a message to inform the user that reset instructions have been sent
-                echo "Password reset instructions have been sent to your email address.";
-            }
-            else {
-                // Display the password reset request form
-                $data = [
-                    'email' => '',
-                    'email_err' => ''
-                ];
-                $this->view('users/forgot_password', $data);
-            }
-        }
-
-        public function createUserSession($user){
-            $_SESSION['user_id']=$user->id;
-            $_SESSION['user_email']=$user->email;
-            $_SESSION['user_name']=$user->username;
-
-            redirect('Pages/index');
-        }
-
-        public function logout(){
-            unset($_SESSION['user_id']);
-            unset($_SESSION['user_email']);
-            unset($_SESSION['user_name']);
-            session_destroy();
-
-            redirect('Users/login');
-        }
+                // Store the token in the database (you may need to create a "remember_tokens" table for this)
+                $this->userModel->storeRememberToken($userId, $token);
         
-        public function isLoggedIn(){
-            if(isset($_SESSION['user_id'])){
-                return true;
+                // Set a cookie with the token (you may want to set an expiration time)
+                setcookie('remember_me', $token, time() + 3600 * 24 * 30, '/');
             }
-            else{
-                return false;
-            }
-        }
+        
+        // public function login(){
+        //     if($_SERVER['REQUEST_METHOD']=='POST'){
+        //         //Form is submitting
+        //         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        public function profile(){
-            // Check if the user is logged in
-            if (!$this->isLoggedIn()) {
-                // Redirect the user to the login page if they are not logged in
+        //         $data =[
+        //             'email' =>trim($_POST['email']),
+        //             'password'=>trim($_POST['password']),
+
+        //             'email_err' =>'',
+        //             'password_err'=>''
+        //         ];
+        //         //validate the email
+        //         if(empty($data['email'])){
+        //             $data['email_err']='Please enter the email';
+        //         }
+        //         else{
+        //             if($this->userModel->findUserByEmail($data['email'])){
+        //                 //User is found
+        //             }
+        //             else{
+        //                 //User is not found
+        //                 $data['email_err'] = 'User not found';
+        //             }
+        //         }
+
+        //         //Validate the password
+        //         if(empty($data['password'])){
+        //             $data['password_err']='Please enter the password';
+        //         }
+
+        //         //If no error found the login the user
+        //         if(empty($data['email_err'])&&empty($data['password_err'])){
+        //             //log the user
+        //             $loggedUser = $this->userModel->login($data['email'],$data['password']);
+
+        //             if($loggedUser){
+        //                 //User the authenticated
+        //                 //create user sessions
+        //                 $this->createUserSession($loggedUser);
+        //             }
+        //             else{
+        //                 $data['password_err']='Password incorrect';
+
+        //                 //Load view with errors
+        //                 $this->view('users/v_login', $data);
+        //             }
+        //         }
+        //         else{
+        //             //Load view with errors
+        //             $this->view('users/v_login', $data);
+        //         }
+
+        //     }
+        //     else{
+        //         //initial form
+        //         $data =[
+        //             'email' =>'',
+        //             'password'=>'',
+
+        //             'email_err' =>'',
+        //             'password_err'=>''
+        //         ];
+
+        //         //Load view
+        //         $this->view('users/v_login', $data);
+        //     }
+        // }
+        
+        // public function terms(){
+        //     $this->view('users/terms'); // Load the 'terms.php' view
+        // }
+
+        // public function forgot_password(){
+        //     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        //         // Handle the password reset request
+        //         // Validate and process the request, send reset instructions, and update the database as needed
+        //         // Display a message to inform the user that reset instructions have been sent
+        //         echo "Password reset instructions have been sent to your email address.";
+        //     }
+        //     else {
+        //         // Display the password reset request form
+        //         $data = [
+        //             'email' => '',
+        //             'email_err' => ''
+        //         ];
+        //         $this->view('users/forgot_password', $data);
+        //     }
+        // }
+
+        // public function createUserSession($user){
+        //     $_SESSION['user_id']=$user->id;
+        //     $_SESSION['user_email']=$user->email;
+        //     $_SESSION['user_name']=$user->username;
+
+        //     redirect('Pages/index');
+        // }
+
+        // public function logout(){
+        //     unset($_SESSION['user_id']);
+        //     unset($_SESSION['user_email']);
+        //     unset($_SESSION['user_name']);
+        //     session_destroy();
+
+        //     redirect('Users/login');
+        // }
+        
+        // public function isLoggedIn(){
+        //     if(isset($_SESSION['user_id'])){
+        //         return true;
+        //     }
+        //     else{
+        //         return false;
+        //     }
+        // }
+
+        // public function profile(){
+        //     // Check if the user is logged in
+        //     if (!$this->isLoggedIn()) {
+        //         // Redirect the user to the login page if they are not logged in
+        //         redirect('Users/login');
+        //     }
+        
+        //     // Load the profile view
+        //     $this->view('users/profile/profile');
+        // }
+        
+
+        //dasun
+
+        public function checkLogin() {
+            if (!isset($_SESSION['user_id'])) {
                 redirect('Users/login');
+            } else {
+                $userType = $_SESSION['user_type'];
+                switch ($userType) {
+                    case 'secondhand_seller':
+                        redirect('secondhand_seller/v_index');
+                        break;
+                    case 'secondhand_buyer':
+                        redirect('secondhand_buyer/v_index');
+                        break;
+                    case 'recycle_seller':
+                        redirect('recycle_seller/v_index');
+                        break;
+                    default:
+                        redirect('pages/v_index');
+                }
             }
-        
-            // Load the profile view
-            $this->view('users/profile/profile');
         }
-        
+    
+        public function viewProfile(){
+            $data = [
+                'title' => 'Profile',
+                'email' => $_SESSION['user_email'],
+                'username' => $_SESSION['username'],
+                'name' => $_SESSION['user_name'],
+                'contact_no' => $_SESSION['contact_no']
+            ];
+            $this->view('users/profile', $data);
+        }
+    
+        public function updateProfile(){
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+                // Submitted form data
+                // input data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $data = [
+                    'name' => trim($_POST['name']),
+                    'email' => trim($_POST['email']),
+                    'username' => trim($_POST['username']),
+                    'contact_no' => trim($_POST['contact_no']),
+                    'err' => ''
+                ];
+    
+                // Validate data
+                // Validate name
+                if (empty($data['name'])){
+                    $data['err'] = 'Please enter name';
+                }
+    
+                // Validate email
+                if (empty($data['email'])){
+                    $data['err'] = 'Please enter email';
+                } else {
+                    // Check email
+                    if ($data['email'] != $_SESSION['user_email'] and $this->userModel->findUserByEmail($data['email'])){
+                        $data['err'] = 'Email is already taken';
+                    }
+                }
+    
+                // Validate username
+                if (empty($data['username'])){
+                    $data['err'] = 'Please enter username';
+                } else {
+                    // Check email
+                    if ($data['username'] != $_SESSION['username'] and $this->userModel->findUserByUsername($data['username'])){
+                        $data['err'] = 'Username is already taken';
+                    }
+                }
+    
+                // Validate contact number
+                if (empty($data['contact_no'])){
+                    $data['err'] = 'Please enter contact number';
+                }
+    
+                // Validation is completed and no error found
+                if (empty($data['err'])){
+                    // Update user
+                    if ($this->userModel->updateProfile($data)){
+                        $_SESSION['user_email'] = $data['email'];
+                        $_SESSION['username'] = $data['username'];
+                        $_SESSION['user_name'] = $data['name'];
+                        $_SESSION['contact_no'] = $data['contact_no'];
+                        redirect($_SESSION['user_type'].'/index');
+                    } else {
+                        die('Something went wrong');
+                    }
+                } else {
+                    // Load view with errors
+                    $this->view('users/profile', $data);
+                }
+    
+            } else {
+                // Initial form data
+                $data = [
+                    'name' => '',
+                    'email' => '',
+                    'username' => '',
+                    'contact_no' => '',
+                    'err' => '',
+                ];
+    
+                // Load view
+                $this->view('users/profile', $data);
+            }
+        }
     }
-?>
+

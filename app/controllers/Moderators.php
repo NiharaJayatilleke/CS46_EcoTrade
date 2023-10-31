@@ -1,97 +1,120 @@
 <?php
     class Moderators extends Controller{
         public function __construct(){
-            $this->moderatorModel = $this->model('M_Users');
+            $this->moderatorModel = $this->model('M_Moderators');
         }
+
 
         public function login(){
-            if($_SERVER['REQUEST_METHOD']=='POST'){
-                //Form is submitting
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+                // Form is submitting
+                // Sanitize POST data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-                $data =[
-                    'email' =>trim($_POST['email']),
-                    'password'=>trim($_POST['password']),
-
-                    'email_err' =>'',
-                    'password_err'=>''
+    
+                // Input data
+                $data = [
+                    'email' => trim($_POST['email']),
+                    'username' => trim($_POST['email']),
+                    'password' => trim($_POST['password']),
+                    'remember_me' => isset($_POST['remember_me']),
+                    'err' => ''
                 ];
-                //validate the email
-                if(empty($data['email'])){
-                    $data['email_err']='Please enter the email';
+    
+                // Validate data
+                // Validate email
+                if (empty($data['email'])){
+                    $data['err'] = 'Please enter email';
                 }
                 else{
-                    if($this->moderatorModel->findUserByEmail($data['email'])){
-                        //User is found
+                    if ($this->userModel->findUserByEmail($data['email']) or $this->userModel->findUserByUsername($data['username'])){
+                        // User found
                     }
                     else{
-                        //User is not found
-                        $data['email_err'] = 'User not found';
+                        // User not found
+                        $data['err'] = 'No user found';
                     }
                 }
-
-                //Validate the password
-                if(empty($data['password'])){
-                    $data['password_err']='Please enter the password';
+    
+                // Validate password
+                if (empty($data['password'])){
+                    $data['err'] = 'Please enter password';
                 }
-
-                //If no error found the login the user
-                if(empty($data['email_err'])&&empty($data['password_err'])){
-                    //log the user
-                    $loggedUser = $this->moderatorModel->login($data['email'],$data['password']);
-
-                    if($loggedUser){
-                        //User the authenticated
-                        //create user sessions
-                        $this->createUserSession($loggedUser);
+    
+                // Check if error is empty
+                if (empty($data['err'])){
+                    // log the user
+                    $loggedInUser = $this->userModel->login($data['email'], $data['password'], $data['username']);
+                    if ($loggedInUser){
+                        // Create session
+                        $this->createUserSession($loggedInUser);
+    
+                        // If "Remember Me" is checked, set a cookie
+                        if ($data['remember_me']) {
+                            $this->setRememberMeCookie($loggedInUser->id);
+                        }
                     }
                     else{
-                        $data['password_err']='Password incorrect';
-
-                        //Load view with errors
-                        $this->view('users/v_moderator_login', $data);
+                        $data['err'] = 'Password incorrect';
+    
+                        // Load view with errors
+                        $this->view('users/v_login', $data);
                     }
                 }
                 else{
-                    //Load view with errors
-                    $this->view('users/v_moderator_login', $data);
+                    // Load view with errors
+                    $this->view('users/v_login', $data);
                 }
-
             }
             else{
-                //initial form
-                $data =[
-                    'email' =>'',
-                    'password'=>'',
-
-                    'email_err' =>'',
-                    'password_err'=>''
+                // Initial form load
+                $data = [
+                    'email' => '',
+                    'username' => '',
+                    'password' => '',
+                    'err' => ''
                 ];
-
-                //Load view
-                $this->view('users/v_moderator_login', $data);
+    
+                // Load view
+                $this->view('users/v_login', $data);
             }
         }
 
-        public function createUserSession($user){
-            $_SESSION['user_id']=$user->id;
-            $_SESSION['user_email']=$user->email;
-            $_SESSION['user_name']=$user->username;
+        public function forgot_password(){
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                // Handle the password reset request
+                // Validate and process the request, send reset instructions, and update the database as needed
+                // Display a message to inform the user that reset instructions have been sent
+                echo "Password reset instructions have been sent to your email address.";
+            }
+            else {
+                // Display the password reset request form
+                $data = [
+                    'email' => '',
+                    'email_err' => ''
+                ];
+                $this->view('users/forgot_password', $data);
+            }
+        }
+
+        public function createModeratorSession($user){
+            $_SESSION['moderator_id']=$user->id;
+            $_SESSION['moderator_email']=$user->email;
+            $_SESSION['moderator_name']=$user->username;
 
             redirect('Pages/index');
         }
 
         public function logout(){
-            unset($_SESSION['user_id']);
-            unset($_SESSION['user_email']);
-            unset($_SESSION['user_name']);
+            unset($_SESSION['moderator_id']);
+            unset($_SESSION['moderator_email']);
+            unset($_SESSION['moderator_name']);
             session_destroy();
 
-            redirect('Users/v_moderator_login');
+            redirect('Moderators/login');
         }
         
         public function isLoggedIn(){
-            if(isset($_SESSION['user_id'])){
+            if(isset($_SESSION['moderator_id'])){
                 return true;
             }
             else{

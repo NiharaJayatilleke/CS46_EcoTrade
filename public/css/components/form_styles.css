@@ -1,4 +1,191 @@
-.form-container{
+/* Complete CSS with cleaner text and adjusted layout */
+
+/* Form Container */
+.form-container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid #d3d3d3;
+    border-radius: 15px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    height: 45px;
+    padding: 12px;
+    margin: 10px 0;
+    background: #ffffff;
+    font-size: 16px;
+    outline: none;
+    display: block;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border: 2px solid #1ca362;
+}
+
+/* Titles and Error Messages */
+.form-input-title {
+    margin: 15px 0;
+}
+
+.form-invalid {
+    color: #e74c3c;
+    margin: 15px 0;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 10px;
+    padding: 14px;
+}
+
+/* Reveal Animation */
+.form-container.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+/* Form and Media Queries */
+.form-container form {
+    overflow: hidden;
+    position: relative;
+    padding: 20px 30px;
+}
+
+@media screen and (max-width: 700px) {
+    .form-container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form-container {
+        width: 90%;
+    }
+}
+
+/* Other Elements */
+.form-container .other-options {
+    text-align: center;
+    padding: 0 30px 15px;
+}
+
+.form-container .other-options p {
+    color: #777;
+}
+
+.form-container .other-options a {
+    color: #1ca362;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.form-container .other-options a:hover {
+    color: #0e8d5c;
+}
+
+/* Header Style */
+.form-container h1 {
+    text-align: center;
+    background: linear-gradient(to right, #76c891, #5e8c61);
+    border-radius: 15px;
+    padding: 15px 30px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Submit Button */
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="email"]:hover {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #1ca362;
+    color: #ffffff;
+    padding: 14px;
+    margin: 10px 0 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0e8d5c;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Password Strength Text */
+.strength-text {
+    font-size: 14px;
+}
+
+/* Error Message */
+.error-msg {
+    text-align: center;
+    color: #e74c3c;
+    font-size: 16px;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 10px;
+    padding: 14px;
+    margin: 15px 0;
+}
+
+/* User Selection Container */
+.user-selection-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* User Selection List */
+.user-selection-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.user-selection-list li {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    border-radius: 10px;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.user-selection-list li:hover {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.user-selection-list li.selected {
+    background-color: #45a049;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+
+
+/* .form-container{
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -9,6 +196,7 @@
     border: 1px solid #d3d3d3;
 }
 
+
 input[type=text], input[type=password]{
     border: 1px solid #d5d2d2;
     border-radius: 5px;
@@ -17,7 +205,7 @@ input[type=text], input[type=password]{
     padding-top: 13px;
     padding-left: 15px;
     margin-right: 30px ;
-    margin-top: 5px; /**/
+    margin-top: 5px; 
     background: #f1f1f1;
 
     font-size: 15px;
@@ -31,10 +219,162 @@ input[type=text]:focus,[type=password]:focus {
 
 .form-input-title{
     margin-top: 10px; 
-    margin-bottom: 5px; /**/
+    margin-bottom: 5px; 
 }
 
 .form-invalid{
     color: rgb(192, 35, 35);
     margin-bottom: 20px;
+} 
+
+.form-container.reveal{
+    opacity: 1;
+    transform: translateY(0px);
 }
+
+.form-container form{
+    overflow: hidden;
+    position: relative;
+    padding: 10px 30px 30px 30px;
+}
+
+@media screen and (max-width: 700px) {
+    .form-container {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form-container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .form-container {
+        width: 90%;
+    }
+}
+
+.form-container .other-options{
+    text-align: center;
+    padding: 0px 30px 15px 30px;
+}
+
+.form-container .other-options p{
+    color: #cccccc;
+}
+
+.form-container .other-options a{
+    color: #063e12;
+    text-decoration: none;
+}
+
+.form-container h1{
+    text-align: center;
+    background: linear-gradient(to right, rgb(118, 200, 145), rgb(94, 140, 97));
+    border-radius: 20px 20px 0 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #000000;
+}
+
+.form-container form{
+    margin-top: 10px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #ffffff;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    outline: none;
+    transition: ease-in 0.3s;
+}
+
+input[placeholder]{
+    color: rgba(0, 0, 0, 0.47);
+}
+
+input[type=text]:hover, input[type=password]:hover, input[type=email]:hover {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #1ca362;
+    color: #000000;
+    padding: 12px 20px;
+    margin: 8px 0 0 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type=submit]:hover {
+    background-color: #1ca362;
+    box-shadow: 0 0 10px 0.1px rgba(0, 0, 0, 0.25);
+}
+
+.strength-text{
+    font-size: 12px;
+}
+
+.error-msg{
+    text-align: center;
+    color: red;
+    font-size: 15px;
+    background-color: rgba(255, 0, 0, 0.07);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.user-selection-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.form-input-title {
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+
+ 
+.user-selection-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.user-selection-list li {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.user-selection-list li:hover {
+    box-shadow: 0 0 6px 0.1px rgba(0, 0, 0, 0.22);
+}
+
+.user-selection-list li.selected {
+    background-color: #45a049;
+    color: #fff;
+}
+
+.additional-fields {
+    margin-top: 10px;
+    display: none;
+}
+
+ */

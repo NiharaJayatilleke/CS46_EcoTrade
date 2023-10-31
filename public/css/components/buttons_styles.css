@@ -1,4 +1,46 @@
-.form-btn{
+/* Updated CSS to place buttons in an irregular order */
+.form-container .type-select {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Adjust the order of the buttons using the 'order' property */
+.form-container .type-select .type-select-btn:nth-child(1) {
+    order: 2; /* Change the order to 2 for the first button */
+}
+
+.form-container .type-select .type-select-btn:nth-child(2) {
+    order: 1; /* Change the order to 1 for the second button */
+}
+
+.form-container .type-select .type-select-btn:nth-child(3) {
+    order: 3; /* Change the order to 3 for the third button */
+}
+
+.form-container .type-select .type-select-btn {
+    text-align: center;
+    width: auto;
+    margin: 0 5px;
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-shadow: 0 0 8px 0.1px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    background-color: white;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.form-container .type-select .type-select-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #45be76, rgba(33, 124, 57, 0.789));
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* .form-btn{
     background-color:#68A678;
     color: white;
     padding: 15px 20px;
@@ -13,3 +55,23 @@
     background-color:rgb(86, 106, 50);
 }
 
+.form-container .type-select .type-select-btn{
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 30px 0 30px 0;
+    box-shadow: 0 0 10px 0.1px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    background-color: white;
+}
+
+.form-container .type-select .type-select-btn:hover{
+    scale: 1.05;
+    background: linear-gradient(to right, rgb(45, 190, 118), rgba(33, 124, 57, 0.789));
+}
+
+
+ */

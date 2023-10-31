@@ -1,11 +1,12 @@
 DROP DATABASE IF EXISTS ecotrade_db;
 CREATE DATABASE ecotrade_db;
 
-CREATE TABLE General_User (
+CREATE TABLE user (
     id INT AUTO_INCREMENT,
-    username VARCHAR(255),
+    name VARCHAR(255),
     email VARCHAR(255),
-    tel_no INT,
+    username VARCHAR(255),
+    contactNo INT,
     password VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
@@ -24,7 +25,7 @@ CREATE TABLE Item_Ads (
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(255),
     PRIMARY KEY(p_id),
-    FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
+    FOREIGN KEY (seller_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE forgot_password (
@@ -35,3 +36,26 @@ CREATE TABLE forgot_password (
     pwdResetExpires TEXT NOT NULL
 );
 
+CREATE TABLE Moderator (
+    id INT AUTO_INCREMENT,
+    firstname VARCHAR(255),
+    lastname VARCHAR(255),
+    username VARCHAR(255),
+    email VARCHAR(255),
+    tel_no INT,
+    password VARCHAR(255),
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE Administrator (
+    id INT AUTO_INCREMENT,
+    username VARCHAR(255),
+    email VARCHAR(255),
+    tel_no INT,
+    password VARCHAR(255),
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+);
+
+INSERT INTO Administrator(username,email, password) VALUES ("inu","inuka@12", "123123");

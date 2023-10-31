@@ -3,27 +3,26 @@
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
 
-
     <div class="form-container">
         <div class="form-header">
         <center><h1>Moderator Registration</h1></center>
         <p><b>Welcome to EcoTrade!</b></p>
         </div>
-        <form action="<?php echo URLROOT?>/Admin/register_moderator" method="POST">
+        <form action="<?php echo URLROOT?>/Moderators/create_moderator" method="POST">
 
             <!-- First Name -->
             <div class="form-input-title">Full Name</div>
             <input type="text" name="firstname" placeholder="First name" id="firstname" class="firstname" value="<?php echo $data['firstname']; ?>">
-            <span class="form-invalid"><?php echo $data['firstname_err']; ?></span>
+            <span class="form-invalid"></span>
 
             </br>
             <input type="text" name="lastname" placeholder="Last name" id="lastname" class="lastname" value="<?php echo $data['lastname']; ?>">
-            <span class="form-invalid"><?php echo $data['lastname_err']; ?></span>
+            <span class="form-invalid"></span>
 
             <!-- Last Name
             <div class="form-input-title">Last Name</div>
             <input type="text" name="lastname" placeholder="Lastname" id="lastname" class="lastname" value="<?php echo $data['lastname']; ?>">
-            <span class="form-invalid"><?php echo $data['firstname_err']; ?></span> -->
+            <span class="form-invalid">< ?></span> -->
 
             <!-- username -->
             <div class="form-input-title">Username</div>
