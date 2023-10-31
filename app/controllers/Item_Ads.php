@@ -5,9 +5,10 @@
         }
 
         public function index() {
+            $ads = $this->itemAdsModel->getAds();
+            
             $data = [
-                'title' => 'Item Ads',
-                'description' => 'This is the Item Ads page'
+                'ads' => $ads,
             ];
 
             $this->view('item_ads/v_index', $data);
@@ -109,5 +110,6 @@
                 $this->view('item_ads/v_create', $data);
             }
         }
+
     }
 ?>

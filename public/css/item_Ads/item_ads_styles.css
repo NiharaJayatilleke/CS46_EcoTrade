@@ -10,17 +10,31 @@
     border: 1px solid #d3d3d3;
 }
 
-.ad-index-container .ad-header{
+/* .ad-index-container .ad-header{
     padding: 5px;
     display: flex;
     flex-direction: row;
+} */
+
+.ad-index-container .ad-header .ad-user-name{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
 }
+
+.ad-index-container .ad-header .ad-created-at{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
 .ad-index-container .ad-body .ad-body-image{
     display: block;
     margin-left: 50px;
     margin-right: auto;
     width: 50%;
 }
+
 .ad-index-container .ad-body .ad-body-desc{
     margin-top: 15px;
     margin-left: 10px;
