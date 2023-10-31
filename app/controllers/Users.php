@@ -241,7 +241,7 @@
             }
         
             // Load the profile view
-            $this->view('users/profile');
+            $this->view('users/profile/profile');
         }
         
     }
