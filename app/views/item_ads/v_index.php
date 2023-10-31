@@ -4,10 +4,9 @@
 
     <h2>View your Ads here at the Secondhand Marketplace</h2>
 
-
-    <div class = "ad-index-container">
+    <!-- <div class = "ad-index-container">
         <div class = "ad-header">
-            <div class = "ad-header-title"><h2>Sofa<h2></div>
+            <div class = "ad-header-title"><h2>Sofa<h2></div> 
         </div>
         <div class = "ad-body">
             <div class = "ad-body-image">
@@ -18,7 +17,23 @@
         <div class = "ad-footer">
             <div class = "ad-price">Rs. 50,000</div>
         </div>
+    </div> -->
+
+    <?php foreach($data['ads'] as $ad): ?>
+    <div class = "ad-index-container">
+        <div class = "ad-header">
+            <div class = "ad-user-name"><?php echo $ad->user_name ?></div>
+            <div class = "ad-created-at"><?php echo $ad->item_created_at ?></div>
+            <div class = "ad-item-name"><h2><?php echo $ad->item_name ?><h2></div>
+        </div>
+        <div class = "ad-body">
+            <div class = "ad-body-desc"><?php echo $ad->item_desc ?></div>
+        </div>
+        <div class = "ad-footer">
+            <div class = "ad-price"><?php echo $ad->item_price ?></div>
+        </div>
     </div>
+    <?php endforeach; ?>
 
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>

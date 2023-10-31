@@ -6,6 +6,12 @@
             $this->db = new Database();
         }
 
+        public function getAds(){
+            $this->db->query('SELECT * FROM v_ads');
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
         public function create($data) {
             $this->db->query('INSERT INTO Item_Ads(seller_id,item_name,item_category,item_desc,item_price,item_location,selling_format,negotiable) VALUES(:seller_id, :item_name, :item_category, :item_desc, :item_price, :item_location, :selling_format, :negotiable)'); 
             $this->db->bind(':seller_id',$_SESSION['user_id']);         
