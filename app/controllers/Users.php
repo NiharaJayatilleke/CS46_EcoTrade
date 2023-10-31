@@ -232,5 +232,17 @@
                 return false;
             }
         }
+
+        public function profile(){
+            // Check if the user is logged in
+            if (!$this->isLoggedIn()) {
+                // Redirect the user to the login page if they are not logged in
+                redirect('Users/login');
+            }
+        
+            // Load the profile view
+            $this->view('users/profile');
+        }
+        
     }
 ?>
