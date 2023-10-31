@@ -13,3 +13,13 @@
     background-color:rgb(86, 106, 50);
 }
 
+.post-edit-btn{ /*check */
+    background-color:#68A678;
+    color: white;
+    padding: 5px 5px;
+    margin: 8px 10px 10px;
+    border: none;
+    cursor: pointer;
+    width: 96%;
+    transition: -2s all;
+}
