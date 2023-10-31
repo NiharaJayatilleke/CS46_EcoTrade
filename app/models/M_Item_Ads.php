@@ -12,6 +12,12 @@
             return $results;
         }
 
+        public function getAdById($adId){
+            $this->db->query('SELECT * FROM v_ads WHERE ad_id = :id');
+            $this->db->bind(':id',$postId);
+            $row = $this->db->single();
+            return $row;
+        }
         public function create($data) {
             $this->db->query('INSERT INTO Item_Ads(seller_id,item_name,item_category,item_desc,item_price,item_location,selling_format,negotiable) VALUES(:seller_id, :item_name, :item_category, :item_desc, :item_price, :item_location, :selling_format, :negotiable)'); 
             $this->db->bind(':seller_id',$_SESSION['user_id']);         
