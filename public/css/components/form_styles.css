@@ -213,7 +213,7 @@ input[type=text], input[type=password]{
     display: block;
 }
 
-input[type=text]:focus,[type=password]:focus {
+input[type=text]:focus,[type=password] {
     border: 1px solid #7bd664;
 }
 
@@ -225,6 +225,7 @@ input[type=text]:focus,[type=password]:focus {
 .form-invalid{
     color: rgb(192, 35, 35);
     margin-bottom: 20px;
+<<<<<<< HEAD
 } 
 
 .form-container.reveal{
@@ -378,3 +379,8 @@ input[type=submit]:hover {
 }
 
  */
+=======
+}
+
+
+>>>>>>> b60fa65bdf1bef76d7bfbd632c95185fcd1239c5
