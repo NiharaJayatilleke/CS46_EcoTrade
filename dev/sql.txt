@@ -38,8 +38,8 @@ CREATE TABLE Item_Ads (
 CREATE VIEW v_ads AS
     SELECT
         Item_Ads.p_id as ad_id,
-        General_User.id as user_id,
-        General_User.username as user_name,
+        General_User.id as seller_id,
+        General_User.username as seller_name,
         Item_Ads.item_name as item_name,
         Item_Ads.item_desc as item_desc,
         Item_Ads.item_price as item_price,

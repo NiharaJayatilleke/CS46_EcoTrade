@@ -2,7 +2,8 @@
     <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
-    <h2>View your Ads here at the Secondhand Marketplace</h2>
+    <h2>Hi <?php echo $_SESSION['user_name']; ?>, Welcome to the Secondhand Marketplace</h2>
+    <h2>View our Ads here</h2>
 
     <!-- <div class = "ad-index-container">
         <div class = "ad-header">
@@ -31,6 +32,12 @@
         </div>
         <div class = "ad-footer">
             <div class = "ad-price"><?php echo $ad->item_price ?></div>
+            <?php if($ad->user_id == $_SESSION['user_id']): ?> 
+                <h1>hi<h1>
+                <div class = "post-control-btns">
+                    <a href = "<?php echo URLROOT?>/Item_Ads/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn">EDIT</button></a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
     <?php endforeach; ?>
