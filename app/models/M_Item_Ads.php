@@ -14,7 +14,7 @@
 
         public function getAdById($adId){
             $this->db->query('SELECT * FROM v_ads WHERE ad_id = :id');
-            $this->db->bind(':id',$postId);
+            $this->db->bind(':id',$adId);
             $row = $this->db->single();
             return $row;
         }
