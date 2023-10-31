@@ -1,4 +1,4 @@
-.form-btn{
+/* .form-btn{
     background-color:#68A678;
     color: white;
     padding: 15px 20px;
@@ -12,4 +12,32 @@
     opacity: 0.8;
     background-color:rgb(86, 106, 50);
 }
+ */
 
+
+ /* Base button style */
+.form-btn {
+    background-color: #68A678; /* Green */
+    color: white;
+    padding: 15px 20px;
+    margin: 8px 10px 10px;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    width: 96%;
+    transition: background-color 0.2s, transform 0.2s;
+    font-weight: bold;
+}
+
+/* Button hover effect */
+.form-btn:hover {
+    background-color: #578d5d; /* Darker Green */
+    transform: scale(1.05); /* Slight scale-up */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Button active effect (when clicked) */
+.form-btn:active {
+    transform: scale(0.95); /* Slight scale-down when clicked */
+    box-shadow: none; /* Remove shadow when clicked */
+}

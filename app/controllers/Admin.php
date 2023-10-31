@@ -84,7 +84,7 @@
                     'username' => trim($_POST['username']),
                     'email' => trim($_POST['email']),
                     'number' => trim($_POST['number']),
-                    'password' => trim($_POST['password']),
+                    'password' => "12345678",
                     'confirm_password' => trim($_POST['confirm_password']),
 
                     'firstname_err' => '',
@@ -101,12 +101,12 @@
                 //Validate each inputs
                 //Validate firstname
                 if(empty($data['firstname'])){
-                    $data['firstname_err'] = 'Please enter a firstname';
+                    $data['firstname_err'] = 'Please enter your first name';
                 }
                 
                 //Validate secondname
                 if(empty($data['lastname'])){
-                    $data['lastname_err'] = 'Please enter a lastname';
+                    $data['lastname_err'] = 'Please enter your last name';
                 }
 
                 //Validate username
@@ -223,13 +223,13 @@
         //     }
         // }
 
-        // public function createUserSession($user){
-        //     $_SESSION['user_id']=$user->id;
-        //     $_SESSION['user_email']=$user->email;
-        //     $_SESSION['user_name']=$user->username;
+        public function createUserSession($user){
+            $_SESSION['user_id']=$user->id;
+            $_SESSION['user_email']=$user->email;
+            $_SESSION['user_name']=$user->username;
 
-        //     redirect('Pages/index');
-        // }
+            redirect('Pages/index');
+        }
 
         public function logout(){
             unset($_SESSION['user_id']);

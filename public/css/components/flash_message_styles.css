@@ -1,13 +1,30 @@
-.msg-flash {
+/* .msg-flash {
     background-color: rgb(227, 238, 188);
     color: rgb(9, 36, 59);
     padding: 18px 0;
-    border: 1px solid rgb(185, 184, 181); /* Added a semicolon here */
+    border: 1px solid rgb(185, 184, 181); 
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
     margin: 8px 10px 10px;
     
     
+} */
+
+.msg-flash {
+    background-color: #F2EABD; /* Pale Yellow */
+    color: #0E3B5D; /* Dark Blue */
+    padding: 20px;
+    border: 2px solid #B9B8B5; /* Light Gray */
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
+.msg-flash:hover {
+    background-color: #F3EAC1; /* Slightly lighter yellow on hover */
+    transform: scale(1.02); /* Slight scale-up on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
