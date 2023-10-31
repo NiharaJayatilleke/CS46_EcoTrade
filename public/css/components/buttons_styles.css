@@ -8,11 +8,11 @@
     width: 96%;
     transition: -2s all;
 }
+
 .form-btn:hover {
     opacity: 0.8;
     background-color:rgb(86, 106, 50);
 }
-
 
 .post-control-btns {
     display: flex;
@@ -29,6 +29,5 @@
 }
 
 .ad-edit-btn:hover {
-    background-color: #269acc;
+    background-color: rgb(86, 106, 50);
 }
-

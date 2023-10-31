@@ -191,11 +191,11 @@
                 $data = [
                     'item_name' => $ad->item_name,
                     'item_category' => $ad->item_category   ,
-                    'item_desc' => '',
-                    'item_price' => '',
-                    'item_location' => '',
-                    'selling_format' => '',
-                    'negotiable' => '',
+                    'item_desc' => $ad->item_desc,
+                    'item_price' => $ad->item_price,
+                    'item_location' => $ad->item_location,
+                    'selling_format' => $ad->selling_format,
+                    'negotiable' => $ad->negotiable,
 
                     'item_name_err' => '',
                     'item_category_err' => '',
