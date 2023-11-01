@@ -13,4 +13,7 @@
 
     //WEBSITE NAME
     define('SITENAME', 'Ecotrade');
+
+    //PUBROOT
+    define('PUBROOT', dirname(dirname(dirname(__FILE__))).'/public');
 ?>

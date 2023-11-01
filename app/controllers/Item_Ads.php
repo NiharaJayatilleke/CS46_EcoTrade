@@ -26,6 +26,8 @@
                     'item_name' => trim($_POST['item_name']),
                     'item_category' => trim($_POST['item_category']),
                     'item_desc' => trim($_POST['item_desc']),
+                    'item_img' => $_FILES['item_img'],
+                    'item_img_name' => time().'_'.$_FILES['item_img']['name'],
                     'item_price' => trim($_POST['item_price']),
                     'item_location' => trim($_POST['item_location']),
                     'selling_format' => trim($_POST['selling_format']),
@@ -50,6 +52,13 @@
                     $data['item_category_err'] = 'Please select a category for your item';
                 } 
 
+                //profile image
+                if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
+                    //echo 'Image uploaded';
+                } else {
+                    $data['item_images_err'] = 'Image upload unsuccessful';
+                }
+
                 //Validate item_price
                 if(empty($data['item_price'])) {
                     $data['item_price_err'] = 'Please enter the price of your item';
@@ -71,7 +80,7 @@
                 }
 
                 //Validation is completed and no error then add item ad to the database
-                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])){
+                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])&&empty($data['item_images_err'])){
                  
                     //Add item ad to the database
                     if($this->itemAdsModel->create($data)){
@@ -120,7 +129,6 @@
 
                 //input data
                 $data = [
-                    // 'ad_id' => $adId,
                     'p_id' => $adId,
                     'item_name' => trim($_POST['item_name']),
                     'item_category' => trim($_POST['item_category']),
