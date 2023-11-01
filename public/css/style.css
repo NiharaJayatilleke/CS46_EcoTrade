@@ -6,6 +6,7 @@
 @import url('components/buttons_styles.css');
 @import url('components/flash_message_styles.css');
 @import url('components/sidebar_styles.css');
+@import url('components/profile_styles.css');
 
 /* ITEM ADS */
 @import url('item_Ads/item_ads_styles.css');

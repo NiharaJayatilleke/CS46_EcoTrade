@@ -233,7 +233,7 @@
             }
         }
 
-        public function profile(){
+        public function create_profile(){
             // Check if the user is logged in
             if (!$this->isLoggedIn()) {
                 // Redirect the user to the login page if they are not logged in
@@ -241,8 +241,55 @@
             }
         
             // Load the profile view
-            $this->view('users/profile/profile');
+            $this->view('users/profile/v_create');
         }
+
+        public function update_profile(){
+
+              // Check if the user is logged in
+              if (!$this->isLoggedIn()) {
+                // Redirect the user to the login page if they are not logged in
+                redirect('Users/login');
+            }
+             // Load the profile view
+            $this->view('users/profile/v_update');
+        }
+
+        
+        public function delete_profile(){
+
+            // Check if the user is logged in
+            if (!$this->isLoggedIn()) {
+              // Redirect the user to the login page if they are not logged in
+              redirect('Users/login');
+          }
+           // Load the profile view
+          $this->view('users/profile/v_update');
+      }
+
+      
+      public function security_profile(){
+
+        // Check if the user is logged in
+        if (!$this->isLoggedIn()) {
+          // Redirect the user to the login page if they are not logged in
+          redirect('Users/login');
+      }
+       // Load the profile view
+      $this->view('users/profile/v_update');
+   }
+
+  
+  public function notifications_profile(){
+
+    // Check if the user is logged in
+    if (!$this->isLoggedIn()) {
+      // Redirect the user to the login page if they are not logged in
+      redirect('Users/login');
+   }
+    // Load the profile view
+    $this->view('users/profile/v_update');
+   }
         
     }
 ?>

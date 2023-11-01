@@ -1,0 +1,135 @@
+.row{
+    /* display: grid;
+    grid-template-areas: 'left' 'right'; */
+
+    display: flex;
+    gap: 20px;
+
+}
+
+.col-md-9{
+    /* display: flex; */
+    /* margin-top: 60px; */
+    /* grid-area: 'right'; */
+}
+.as_name{
+    font-size: 28px;
+}
+
+.col-md-3{
+    /* grid-area: 'left'; */
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.d-block{
+    width: 20vw;
+}
+
+
+.profile-updatebt{
+    margin-right: 20px;
+    padding:10px 30px;
+    background-color: #7bd664;
+    border-color: #7bd664;
+}
+.profile-Canclebt{
+    padding:10px 30px;
+    background-color: #7bd664;
+    border-color: #7bd664;
+}
+
+.profile-buttons{
+    margin-top: 30px;
+    
+    /* padding:10px 30px; */
+}
+
+.right-below{
+    display: flex;
+    gap: 30px;
+}
+
+.profile-image img{
+    border-radius: 50%;
+    width: 10vw;
+    margin-top: 10px;
+
+}
+
+.nav-elements{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+}
+
+.nav-elements a{
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    padding: 20px 5px;
+    background-color: #7bd664;
+    border-radius: 2px;
+
+}
+.media-body{
+    text-align: center;
+    margin-top: 3px;
+}
+.form-control{
+    width:50px;
+}
+
+.form-label{
+    font-size:16px;
+}
+
+.form-group{
+    width: 500px;
+}
+
+
+/* .home-back{
+    margin-top: 2rem;
+    align-items: right;
+} */
+.right-right{
+    align-items: right;
+}
+
+/* Style the file input button */
+.account-settings-fileinput {
+    background-color: #1e262e;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+
+.account-settings-fileinput::-webkit-file-upload-button {
+    font-size: 0; /* Hide the text */
+    color: transparent;
+}
+.account-settings-fileinput-container {
+    border: 2px solid #1e262e;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    text-align: center; /* Center the text horizontally */
+    line-height: 40px; /* Adjust line height to center vertically */
+}
+/* .col-md-3 pt-0{
+    background-color: red;
+} */
+
