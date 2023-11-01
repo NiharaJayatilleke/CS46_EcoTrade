@@ -50,13 +50,11 @@
     width: 96%;
     transition: -2s all;
 }
-
 .form-btn:hover {
     opacity: 0.8;
     background-color:rgb(86, 106, 50);
 }
 
-<<<<<<< HEAD
 .form-container .type-select .type-select-btn{
     text-align: center;
     width: 80%;
@@ -77,22 +75,3 @@
 
 
  */
-=======
-.post-control-btns {
-    display: flex;
-    align-items: center;
-}
-
-.ad-edit-btn {
-    background-color: #68A678;
-    color: #fff;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.ad-edit-btn:hover {
-    background-color: rgb(86, 106, 50);
-}
->>>>>>> b60fa65bdf1bef76d7bfbd632c95185fcd1239c5
