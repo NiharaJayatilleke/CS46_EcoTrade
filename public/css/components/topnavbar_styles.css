@@ -2,6 +2,7 @@
   width: 100vw;
   height: 60px;
   background-color: black;
+  
   /* position: fixed;
   top: 0 */
   }
@@ -15,6 +16,7 @@
   width: 10vw;
   font-size: 17px;
   margin-top: 10px;
+  
 }
 
 /* .topnav .items .search{
@@ -32,6 +34,7 @@
   height: 40px;
   margin-left: 10px;
   margin-right: 10px;
+  /* position: fixed; */
 }
 
 .topnav .items .links{
@@ -51,4 +54,9 @@
 .topnav .items .links .user{
   height: 22px;
   width: 22px;
+}
+
+.items{
+  position: absolute;
+
 }
