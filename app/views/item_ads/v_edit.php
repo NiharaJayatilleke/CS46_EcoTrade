@@ -9,7 +9,7 @@
         <center><h2>Edit Ad</h2></center>
         </div>
 
-        <form action="<?php echo URLROOT?>/Item_Ads/edit" method="POST">
+        <form action="<?php echo URLROOT?>/Item_Ads/edit/<?php echo $data['p_id']; ?>" method="POST">
             <!-- item_name -->
             <div class="form-input-title">Item Name</div>
             <input type="text" name="item_name" id="item_name" class="item_name" value="<?php echo $data['item_name']; ?>">
@@ -34,7 +34,7 @@
 
             <!-- item_description -->
             <div class="form-input-title">Description</div>
-            <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?> ></textarea>
+            <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?></textarea>
 
             <p>Upload Photos</p><br>
 

@@ -1,6 +1,8 @@
 DROP DATABASE IF EXISTS ecotrade_db;
 CREATE DATABASE ecotrade_db;
 
+USE ecotrade_db;
+
 CREATE TABLE General_User (
     id INT AUTO_INCREMENT,
     username VARCHAR(255),
@@ -38,7 +40,7 @@ CREATE TABLE Item_Ads (
 CREATE VIEW v_ads AS
     SELECT
         Item_Ads.p_id as ad_id,
-        General_User.id as seller_id,
+        General_User.id as seller_id, 
         General_User.username as seller_name,
         Item_Ads.item_name as item_name,
         Item_Ads.item_desc as item_desc,
@@ -46,7 +48,7 @@ CREATE VIEW v_ads AS
         Item_Ads.created_at as item_created_at
     FROM Item_Ads INNER JOIN General_User
     ON Item_Ads.seller_id = General_User.id
-ORDER BY Item_Ads.created_at
+ORDER BY Item_Ads.created_at DESC;
     
 
 

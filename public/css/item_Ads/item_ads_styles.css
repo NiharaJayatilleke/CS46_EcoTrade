@@ -47,7 +47,6 @@
 } */
 
 /* NEW STYLES FOR INDEX PAGE */
-
 /* Style for the entire page */
 body {
     font-family: Arial, sans-serif;
@@ -118,13 +117,6 @@ body {
     font-weight: bold;
 }
 
-
-
-
-
-
-
-
 /* CREATE ITEM AD */
 .ad-container {
     margin-left: auto;
@@ -174,3 +166,188 @@ input[type=text], input[type=number]{
 input[type=text]:focus,[type=password] {
     border: 1px solid #7bd664;
 }
+
+/* .icon {
+    filter: grayscale(100%);
+} */
+
+
+/*Item image styles*/
+/* .form-drag-area{
+    border: 1px solid #d5d2d2;
+    border-radius: 5px;
+    width: 99%;
+    height: 100px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: #f1f1f1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    transition: 300ms ease-in;
+}
+
+.form-drag-area.active{
+    border: 2px dashed #7bd664;
+    background-color: antiquewhite;
+}
+
+.form-drag-area .icon img{
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 5%;
+    display: block;
+    transition: 300ms ease-in;
+}  */
+
+/* .form-drag-area-text{
+    font-weight: bold;
+    text-align: center;
+} */
+
+
+
+
+/* new styles for adding images */
+/* Style the form drag-and-drop area */
+/* .form-drag-area {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    transition: 300ms ease-in;
+}
+
+.form-drag-area .icon {
+    margin-bottom: 10px;
+}
+
+#item_img_placeholder {
+    width: 100px;
+    height: 100px;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-drag-area-text {
+    font-size: 14px;
+    color: #777;
+    margin: 2px 0;
+}
+
+.form-drag-area-or {
+    font-weight: bold;
+    font-size: 13px;
+    color: #696969;
+    margin: 5px 0;
+}
+
+.form-drag-area-btn {
+    color: #777;
+    padding: 7px 2px 2px 0px;
+    width: 40%;
+    height: 20px;
+    background: #f1f1f1;
+    border: 1px solid #d5d2d2;
+    border-radius: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 0 auto;
+}
+
+.form-drag-area-btn:hover {
+    background-color: rgb(165, 165, 165);
+    color: #dddddd;
+} */
+
+.form-drag-area {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    transition: 300ms ease-in;
+}
+
+.left-column {
+    flex: 1; /* Left column takes up 50% of the space */
+}
+
+#item_img_placeholder {
+    width: 150px; /* Adjust the size as needed */
+    height: 150px; /* Adjust the size as needed */
+    background-color: #f1f1f1;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-column {
+    flex: 1; /* Right column takes up 50% of the space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-drag-area-text {
+    font-size: 14px;
+    color: #777;
+    margin: 2px 0;
+}
+
+.form-drag-area-or {
+    font-weight: bold;
+    font-size: 13px;
+    color: #696969;
+    margin: 5px 0;
+}
+
+.form-drag-area-btn {
+    color: #777;
+    padding: 7px 2px 2px 0px;
+    width: 100%; /* Take up the full width */
+    background: #f1f1f1;
+    border: 1px solid #d5d2d2;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.form-drag-area-btn:hover {
+    background-color: rgb(165, 165, 165);
+    color: #dddddd;
+}
+
+
+
+
+/* styles 30 13.35*/
+/* .form-drag-area {} 
+.form-drag-area.active {}
+.form-drag-area .right-content {} 
+.form-drag-area .form-upload{}
+.form-drag-area .icon{}
+.form-drag-area .icon img{}
+.form-drag-area .description{}
+.form-drag-area .form-upload:hover{}
+.form-validation{}
+.form-validation.active{}
+.form-validation > div{} if its not active for each division we can reduce opacity
+.form-validation > div.active{}
+.form-validation > div.img{} */
+
+
+
+

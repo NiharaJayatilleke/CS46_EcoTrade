@@ -120,7 +120,8 @@
 
                 //input data
                 $data = [
-                    'ad_id' => $adId,
+                    // 'ad_id' => $adId,
+                    'p_id' => $adId,
                     'item_name' => trim($_POST['item_name']),
                     'item_category' => trim($_POST['item_category']),
                     'item_desc' => trim($_POST['item_desc']),
@@ -128,7 +129,6 @@
                     'item_location' => trim($_POST['item_location']),
                     'selling_format' => trim($_POST['selling_format']),
                     'negotiable' => trim($_POST['negotiable']),
-
                     'item_name_err' => '',
                     'item_category_err' => '',
                     'item_price_err' => '',
@@ -187,10 +187,19 @@
             }
             else {
                 $ad = $this->itemAdsModel->getAdById($adId);
+
+                //check for owner as a security measure to prevent editing through url
+                if($ad->seller_id != $_SESSION['user_id']){
+                    redirect('Item_Ads/index');
+                }
+
+
                 // initial form
                 $data = [
+                    // 'ad_id' => $adId,
+                    'p_id' => $adId,
                     'item_name' => $ad->item_name,
-                    'item_category' => $ad->item_category   ,
+                    'item_category' => $ad->item_category,
                     'item_desc' => $ad->item_desc,
                     'item_price' => $ad->item_price,
                     'item_location' => $ad->item_location,
@@ -208,6 +217,24 @@
                 //load view
                 $this->view('item_ads/v_edit', $data);
             }
+        }
+
+        public function delete($adId){
+            $ad = $this->itemAdsModel->getAdById($adId);
+
+            //check for owner to prevent deleting through url
+            if($ad->seller_id != $_SESSION['user_id']){
+                redirect('Item_Ads/index');
+            }else{
+                if($this->itemAdsModel->delete($adId)){
+                    flash('post_msg', 'Your ad has been deleted successfully!');
+                    redirect('Item_Ads/index');
+                }
+                else{
+                    die('Something went wrong');
+                }
+            }
+            
         }
 
     }

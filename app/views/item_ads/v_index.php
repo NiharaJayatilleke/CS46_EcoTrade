@@ -5,11 +5,13 @@
     <h2>Hi <?php echo $_SESSION['user_name']; ?>, Welcome to the Secondhand Marketplace</h2>
     <h2>View our Ads here</h2>
 
+    <?php flash('post_msg'); ?>
+
     <?php foreach($data['ads'] as $ad): ?>
     <div class = "ad-index-container">
         <div class = "ad-header">
-            <div class = "ad-user-name"><?php echo $ad->user_name ?></div>
-            <div class = "ad-created-at"><?php echo $ad->item_created_at ?></div>
+            <div class = "ad-user-name"><?php echo $ad->seller_name ?></div>
+            <div class = "ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
             <div class = "ad-item-name"><h2><?php echo $ad->item_name ?><h2></div>
         </div>
         <div class = "ad-body">
@@ -17,9 +19,10 @@
         </div>
         <div class = "ad-footer">
             <div class = "ad-price"><?php echo $ad->item_price ?></div>
-            <?php if($ad->user_id == $_SESSION['user_id']): ?> 
+            <?php if($ad->seller_id == $_SESSION['user_id']): ?> 
                 <div class = "post-control-btns">
                     <a href = "<?php echo URLROOT?>/Item_Ads/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn">EDIT</button></a>
+                    <a href = "<?php echo URLROOT?>/Item_Ads/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn">DELETE</button></a>
                 </div>
             <?php endif; ?>
         </div>
