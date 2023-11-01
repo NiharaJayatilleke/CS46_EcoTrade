@@ -38,14 +38,21 @@ CREATE TABLE Item_Ads (
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
+DROP VIEW IF EXISTS v_ads
+
 CREATE VIEW v_ads AS
     SELECT
         Item_Ads.p_id as ad_id,
         General_User.id as seller_id, 
         General_User.username as seller_name,
         Item_Ads.item_name as item_name,
+        Item_Ads.item_category as item_category,
         Item_Ads.item_desc as item_desc,
+        Item_Ads.item_image as item_image,
         Item_Ads.item_price as item_price,
+        Item_Ads.item_location as item_location,
+        Item_Ads.selling_format as selling_format,
+        Item_Ads.negotiable as negotiable,
         Item_Ads.created_at as item_created_at
     FROM Item_Ads INNER JOIN General_User
     ON Item_Ads.seller_id = General_User.id

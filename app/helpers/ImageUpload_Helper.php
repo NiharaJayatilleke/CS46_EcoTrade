@@ -1,8 +1,8 @@
 <?php
     function uploadImage($img, $img_name, $location) {
-         $target = PUBROOT.$location.$img_name;
+        $target = PUBROOT.$location.$img_name;
 
-         return move_uploaded_file($img, $target);
+        return move_uploaded_file($img, $target);
     }
 
     function updateImage($old, $img, $img_name, $location) {

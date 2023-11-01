@@ -26,8 +26,8 @@
                     'item_name' => trim($_POST['item_name']),
                     'item_category' => trim($_POST['item_category']),
                     'item_desc' => trim($_POST['item_desc']),
-                    'item_img' => $_FILES['item_img'],
-                    'item_img_name' => time().'_'.$_FILES['item_img']['name'],
+                    'item_img' => $_FILES['item_images'],
+                    'item_img_name' => time().'_'.$_FILES['item_images']['name'],
                     'item_price' => trim($_POST['item_price']),
                     'item_location' => trim($_POST['item_location']),
                     'selling_format' => trim($_POST['selling_format']),
@@ -35,6 +35,7 @@
 
                     'item_name_err' => '',
                     'item_category_err' => '',
+                    'item_images_err' => '',
                     'item_price_err' => '',
                     'item_location_err' => '',
                     'selling_format_err' => '',
@@ -52,7 +53,7 @@
                     $data['item_category_err'] = 'Please select a category for your item';
                 } 
 
-                //profile image
+                //item image
                 if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
                     //echo 'Image uploaded';
                 } else {
@@ -102,6 +103,8 @@
                     'item_name' => '',
                     'item_category' => '',
                     'item_desc' => '',
+                    'item_img' => '',
+                    'item_img_name' => '',
                     'item_price' => '',
                     'item_location' => '',
                     'selling_format' => '',
@@ -109,6 +112,7 @@
 
                     'item_name_err' => '',
                     'item_category_err' => '',
+                    'item_images_err' => '',
                     'item_price_err' => '',
                     'item_location_err' => '',
                     'selling_format_err' => '',
