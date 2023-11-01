@@ -14,36 +14,3 @@
     background-color:rgb(86, 106, 50);
 }
 
-.post-control-btns {
-    display: flex;
-    align-items: center;
-}
-
-.ad-edit-btn {
-    background-color: #68A678;
-    color: #fff;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 10px;
-    cursor: pointer;
-}
-
-.ad-edit-btn:hover {
-    background-color: rgb(86, 106, 50);
-}
-
-.ad-delete-btn {
-    background-color: #c74141;
-    color: #fff;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 10px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-.ad-delete-btn:hover {
-    background-color: rgb(147, 55, 43);
-}

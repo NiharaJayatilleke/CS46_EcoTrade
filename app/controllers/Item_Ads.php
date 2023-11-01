@@ -54,9 +54,12 @@
                 } 
 
                 //item image
+                // if(empty($data['item_image'])) {
+                //     $data['item_images_err'] = 'Please enter an image of your item';
+                // }
                 if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
                     //echo 'Image uploaded';
-                } else {
+                }else {
                     $data['item_images_err'] = 'Image upload unsuccessful';
                 }
 

@@ -2,32 +2,40 @@
     <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
-    <h2>Hi <?php echo $_SESSION['user_name']; ?>, Welcome to the Secondhand Marketplace</h2>
-    <h2>View our Ads here</h2>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+    <div class = "user-greeting">
+        <p>Hi <b><?php echo $_SESSION['user_name']; ?></b>, Welcome to the Secondhand Marketplace!</p>
+    </div>
     <?php flash('post_msg'); ?>
 
-    <?php foreach($data['ads'] as $ad): ?>
-    <div class = "ad-index-container">
-        <div class = "ad-header">
-            <div class = "ad-user-name"><?php echo $ad->seller_name ?></div>
-            <div class = "ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
-            <div class = "ad-item-name"><h2><?php echo $ad->item_name ?><h2></div>
-        </div>
-        <div class = "ad-body">
-            <div class = "ad-body-desc"><?php echo $ad->item_desc ?></div>
-        </div>
-        <div class = "ad-footer">
-            <div class = "ad-price"><?php echo $ad->item_price ?></div>
-            <?php if($ad->seller_id == $_SESSION['user_id']): ?> 
-                <div class = "post-control-btns">
-                    <a href = "<?php echo URLROOT?>/Item_Ads/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn">EDIT</button></a>
-                    <a href = "<?php echo URLROOT?>/Item_Ads/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn">DELETE</button></a>
+    <div class = "ads-container">
+        <?php foreach($data['ads'] as $ad): ?>
+        <div class = "ad-index-container">
+            <div class = "ad-header">
+                <div class = "ad-user-name"><?php echo $ad->seller_name ?></div>
+                <div class = "ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
+                <div class = "ad-item-name"><h3><?php echo $ad->item_name ?><h3></div>
+            </div>
+            <div class = "ad-body">
+                <div class = "ad-body-desc"><?php echo $ad->item_desc ?></div>
+                <div class = "ad-body-image">
+                    <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
                 </div>
-            <?php endif; ?>
+            </div>
+            <div class = "ad-footer">
+                <div class = "ad-price">Rs. <?php echo $ad->item_price ?></div>
+                <?php if($ad->seller_id == $_SESSION['user_id']): ?> 
+                    <div class = "post-control-btns">
+                        <a href = "<?php echo URLROOT?>/Item_Ads/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                        <a href = "<?php echo URLROOT?>/Item_Ads/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn"><i class="fas fa-trash-alt"></i></button></a>
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
+        <?php endforeach; ?>
     </div>
-    <?php endforeach; ?>
+    
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>
 
