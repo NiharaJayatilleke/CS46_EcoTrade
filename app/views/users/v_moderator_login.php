@@ -20,10 +20,10 @@
             <input type="password" name="password" placeholder="Password" id="password" class="password" value="<?php echo $data['password'];?>">
             <span class="form-invalid"><?php echo $data['password_err'];?></span>
 
-            <!-- Forgot password link -->
+            <!-- Forgot password link
             <div><br>
             <a href="<?php echo URLROOT; ?>/users/forgot_password">Forgot Password?</a>
-            </div>
+            </div> -->
 
             <!-- submit button -->
             <br>

@@ -7,7 +7,7 @@
         <center><h2>Fill up the form to post your ad</h2></center>
         </div>
 
-        <form action="<?php echo URLROOT?>/Item_Ads/itemAd" method="POST">
+        <form action="<?php echo URLROOT?>/Item_Ads/itemAd" method="POST" enctype="multipart/form-data">
             <!-- item_name -->
             <div class="form-input-title">Item Name</div>
             <input type="text" name="item_name" id="item_name" class="item_name" value="<?php echo $data['item_name']; ?>">
@@ -34,7 +34,21 @@
             <div class="form-input-title">Description</div>
             <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="item_desc" value="<?php echo $data['item_desc']; ?>" rows = "10" cols = "59"></textarea>
 
-            <p>Upload Photos</p><br>
+            <p>Upload an Image</p>
+            <!-- item images -->
+            <div class = "form-drag-area" id="form-drag-area">
+                <div class = "icon">
+                    <img id = "item_img_placeholder" src = "<?php echo URLROOT; ?>/img/items/placeholder.png" alt="placeholder" width = "40px" height = "40px"></img>
+                </div>
+                <div class="form-drag-area-text">Drag and drop files here</div>
+                <div class="form-drag-area-or">or</div>
+                <div class="form-drag-area-btn">Browse Files</div>
+                    <input type="file" name="item_images" id="item_images" class="item_images" style ="display:none">
+                
+                <div class="form-validation">
+                    <span class="form-invalid"><?php echo $data['item_images_err']; ?></span>
+                </div>
+            </div>
 
             <!-- price -->
             <div class="form-input-title">Price</div>
@@ -67,5 +81,8 @@
             
         </form>
     </div>
+
+<!-- Javascript for image upload -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/ads.js"></script>
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>

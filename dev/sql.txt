@@ -1,12 +1,13 @@
 DROP DATABASE IF EXISTS ecotrade_db;
 CREATE DATABASE ecotrade_db;
 
-CREATE TABLE user (
+USE ecotrade_db;
+
+CREATE TABLE General_User (
     id INT AUTO_INCREMENT,
-    name VARCHAR(255),
-    email VARCHAR(255),
     username VARCHAR(255),
-    contactNo INT,
+    email VARCHAR(255),
+    tel_no INT,
     password VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
@@ -26,6 +27,7 @@ CREATE TABLE Item_Ads (
     item_name VARCHAR(255),
     item_category VARCHAR(255),
     item_desc TEXT,
+    item_image VARCHAR(255),
     item_price DOUBLE,
     item_location VARCHAR(255),
     selling_format VARCHAR(255),
@@ -33,13 +35,13 @@ CREATE TABLE Item_Ads (
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(255),
     PRIMARY KEY(p_id),
-    FOREIGN KEY (seller_id) REFERENCES user(id) ON DELETE CASCADE
+    FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
 CREATE VIEW v_ads AS
     SELECT
         Item_Ads.p_id as ad_id,
-        General_User.id as seller_id,
+        General_User.id as seller_id, 
         General_User.username as seller_name,
         Item_Ads.item_name as item_name,
         Item_Ads.item_desc as item_desc,
@@ -47,7 +49,7 @@ CREATE VIEW v_ads AS
         Item_Ads.created_at as item_created_at
     FROM Item_Ads INNER JOIN General_User
     ON Item_Ads.seller_id = General_User.id
-ORDER BY Item_Ads.created_at
+ORDER BY Item_Ads.created_at DESC;
     
 
 
@@ -55,26 +57,3 @@ ORDER BY Item_Ads.created_at
 
 
 
-CREATE TABLE Moderator (
-    id INT AUTO_INCREMENT,
-    firstname VARCHAR(255),
-    lastname VARCHAR(255),
-    username VARCHAR(255),
-    email VARCHAR(255),
-    tel_no INT,
-    password VARCHAR(255),
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(id)
-);
-
-CREATE TABLE Administrator (
-    id INT AUTO_INCREMENT,
-    username VARCHAR(255),
-    email VARCHAR(255),
-    tel_no INT,
-    password VARCHAR(255),
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(id)
-);
-
-INSERT INTO Administrator(username,email, password) VALUES ("inu","inuka@12", "123123");
