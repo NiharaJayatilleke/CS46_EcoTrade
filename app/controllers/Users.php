@@ -137,6 +137,7 @@
                     'number' => trim($_POST['number']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
+                    'user_type' => trim($_POST['user_type']),
 
                     'username_err' => '',
                     'email_err' => '',
@@ -212,7 +213,7 @@
                 }
                 else{
                     //load view
-                    $this->view('users/pSellerRegister', $data);
+                    $this->view('users/v_pSellerRegister', $data);
                 }
             }
             else {
@@ -234,7 +235,7 @@
                 ];
 
                 //load view
-                $this->view('users/pSellerRegister', $data);
+                $this->view('users/v_pSellerRegister', $data);
             }
         }
 
@@ -251,6 +252,7 @@
                     'number' => trim($_POST['number']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
+                    'user_type' => trim($_POST['user_type']),
 
                     'username_err' => '',
                     'email_err' => '',
@@ -326,7 +328,7 @@
                 }
                 else{
                     //load view
-                    $this->view('users/rSellerRegister', $data);
+                    $this->view('users/v_rSellerRegister', $data);
                 }
             }
             else {
@@ -348,7 +350,7 @@
                 ];
 
                 //load view
-                $this->view('users/rSellerRegister', $data);
+                $this->view('users/v_rSellerRegister', $data);
             }
         }
 
@@ -365,6 +367,7 @@
                     'number' => trim($_POST['number']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
+                    'user_type' => trim($_POST['user_type']),
 
                     'username_err' => '',
                     'email_err' => '',
@@ -440,7 +443,7 @@
                 }
                 else{
                     //load view
-                    $this->view('users/rCollectorRegister', $data);
+                    $this->view('users/v_rCollectorRegister', $data);
                 }
             }
             else {
@@ -462,7 +465,7 @@
                 ];
 
                 //load view
-                $this->view('users/rCollectorRegister', $data);
+                $this->view('users/v_rCollectorRegister', $data);
             }
         }
         public function rCenterRegister(){
@@ -478,6 +481,7 @@
                     'number' => trim($_POST['number']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
+                    'user_type' => trim($_POST['user_type']),
 
                     'username_err' => '',
                     'email_err' => '',
@@ -553,7 +557,7 @@
                 }
                 else{
                     //load view
-                    $this->view('users/rCenterRegister', $data);
+                    $this->view('users/v_rCenterRegister', $data);
                 }
             }
             else {
@@ -575,7 +579,7 @@
                 ];
 
                 //load view
-                $this->view('users/rCenterRegister', $data);
+                $this->view('users/v_rCenterRegister', $data);
             }
         }
 

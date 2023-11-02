@@ -9,16 +9,16 @@
         <center><h1>Moderator Registration</h1></center>
         <p><b>Welcome to EcoTrade!</b></p>
         </div>
-        <form action="<?php echo URLROOT?>/Admin/register_moderator" method="POST">
+        <form action="<?php echo URLROOT?>/Admin/moderatorRegister" method="POST">
 
             <!-- First Name -->
-            <div class="form-input-title">Full Name</div>
+            <!-- <div class="form-input-title">Full Name</div>
             <input type="text" name="firstname" placeholder="First name" id="firstname" class="firstname" value="<?php echo $data['firstname']; ?>">
             <span class="form-invalid"><?php echo $data['firstname_err']; ?></span>
 
             </br>
             <input type="text" name="lastname" placeholder="Last name" id="lastname" class="lastname" value="<?php echo $data['lastname']; ?>">
-            <span class="form-invalid"><?php echo $data['lastname_err']; ?></span>
+            <span class="form-invalid"><?php echo $data['lastname_err']; ?></span> -->
 
             <!-- Last Name
             <div class="form-input-title">Last Name</div>
@@ -64,6 +64,8 @@
             <div>
             <span class="form-invalid"><?php echo $data['agree_err']; ?></span>
             </div>
+
+            <input type="text" name="user_type" id="user_type" value="Moderator" required="" hidden="" style="display: none;">
 
             <!-- submit button -->
             

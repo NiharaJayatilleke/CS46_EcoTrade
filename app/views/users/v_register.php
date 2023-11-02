@@ -2,7 +2,7 @@
     <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
     <div class="form-container" style="margin-top: 10vh">
-        <h1>User Type Selection</h1>
+        <h1><center>Who are you?<center></h1>
         <?php if (!empty($data['err'])){?>
         <div class="error-msg">
             <span class="form-invalid"><?php echo $data["err"] ?></span>
@@ -11,33 +11,23 @@
 
         <div class="type-select">
             <a href="<?php echo URLROOT ?>/users/pBuyerRegister">
-                <div class="type-select-btn">
-                    Secondhand Buyer
-                </div>
+            <input type="submit" value="Secondhand Buyer" class="form-btn">
             </a>
 
             <a href="<?php echo URLROOT ?>/users/pSellerRegister">
-                <div class="type-select-btn">
-                Secondhand Seller
-                </div>
+            <input type="submit" value="Secondhand Seller" class="form-btn">
             </a>
 
             <a href="<?php echo URLROOT ?>/users/rSellerRegister">
-                <div class="type-select-btn">
-                    Recycle item Seller
-                </div>
+            <input type="submit" value="Recycle item Seller" class="form-btn">
             </a>
 
             <a href="<?php echo URLROOT ?>/users/rCollectorRegister">
-                <div class="type-select-btn">
-                Recycle item Collector
-                </div>
+            <input type="submit" value="Recycle item Collector" class="form-btn">
             </a>
 
             <a href="<?php echo URLROOT ?>/users/rCenterRegister">
-                <div class="type-select-btn">
-                Recycle Center
-                </div>
+            <input type="submit" value="Recycle Center" class="form-btn">
             </a>
         </div>
 

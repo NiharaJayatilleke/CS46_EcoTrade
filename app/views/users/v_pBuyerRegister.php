@@ -48,6 +48,8 @@
             <span class="form-invalid"><?php echo $data['agree_err']; ?></span>
             </div>
 
+            <input type="text" name="user_type" id="user_type" value="pBuyer" required="" hidden="" style="display: none;">
+
             <!-- submit button -->
             
             <input type="submit" value="Sign Up" class="form-btn">

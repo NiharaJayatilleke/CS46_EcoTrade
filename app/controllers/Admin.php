@@ -1,8 +1,11 @@
 <?php
     class Admin extends Controller{
         public function __construct(){
-            $this->adminModel = $this->model('M_Users');
+            $this->adminModel = $this->model('M_Admin');
+            // $this->moderatorModel = $this->model('M_Moderators');
+
         }
+        
         public function login(){
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 //Form is submitting
@@ -39,21 +42,21 @@
                     //log the user
                     $loggedUser = $this->adminModel->login($data['email'],$data['password']);
 
-                    // if($loggedUser){
-                    //     //User the authenticated
-                    //     //create user sessions
-                    //     $this->createUserSession($loggedUser);
-                    // }
-                    // else{
-                    //     $data['password_err']='Password incorrect';
+                    if($loggedUser){
+                        //User the authenticated
+                        //create user sessions
+                        $this->createUserSession($loggedUser);
+                    }
+                    else{
+                        $data['password_err']='Password incorrect';
 
-                    //     //Load view with errors
-                    //     $this->view('admin/manage_moderators/v_register_moderator', $data);
-                    // }
+                        //Load view with errors
+                        $this->view('admin/v_login', $data);
+                    }
                 }
                 else{
                     //Load view with errors
-                    $this->view('admin/v_admin_login', $data);
+                    $this->view('admin/v_login', $data);
                 }
 
             }
@@ -68,10 +71,10 @@
                 ];
 
                 //Load view
-                $this->view('admin/v_admin_login', $data);
+                $this->view('admin/v_login', $data);
             }
         }
-        public function register_moderator(){
+        public function moderatorRegister(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 // form is submitting
                 //Validate the data
@@ -162,7 +165,7 @@
                     $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
 
                     //Register user
-                    if($this->adminModel->register_moderator($data)){
+                    if($this->adminModel->moderatorRegister($data)){
                         // create a flash message
                         flash('reg_flash', 'You successfully registered a moderator to the system!');
                         redirect('Users/login');
@@ -199,37 +202,13 @@
             }
         }
 
-        
-        // public function terms(){
-        //     $this->view('users/terms'); // Load the 'terms.php' view
-        // }
+        public function createUserSession($user){
+            $_SESSION['user_id']=$user->id;
+            $_SESSION['user_email']=$user->email;
+            $_SESSION['user_name']=$user->username;
 
-        //PASSWPRD HAS TO BE SENT TO ADMIN 
-
-        // public function forgot_password(){
-        //     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        //         // Handle the password reset request
-        //         // Validate and process the request, send reset instructions, and update the database as needed
-        //         // Display a message to inform the user that reset instructions have been sent
-        //         echo "Password reset instructions have been sent to your email address.";
-        //     }
-        //     else {
-        //         // Display the password reset request form
-        //         $data = [
-        //             'email' => '',
-        //             'email_err' => ''
-        //         ];
-        //         $this->view('users/forgot_password', $data);
-        //     }
-        // }
-
-        // public function createUserSession($user){
-        //     $_SESSION['user_id']=$user->id;
-        //     $_SESSION['user_email']=$user->email;
-        //     $_SESSION['user_name']=$user->username;
-
-        //     redirect('Pages/index');
-        // }
+            redirect('Pages/index');
+        }
 
         public function logout(){
             unset($_SESSION['user_id']);
