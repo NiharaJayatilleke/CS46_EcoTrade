@@ -35,7 +35,7 @@
             <div class="form-input-title">Description</div>
             <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?></textarea>
 
-            <p>Upload an Image</p>
+            <div class="form-input-title">Upload an Image</div>
             <!-- item images -->
             <div class = "form-drag-area" id="form-drag-area">
                 <div class = "icon">

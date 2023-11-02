@@ -103,7 +103,7 @@
 			<div class="head-title">
 				<div class="left">
                     <br>
-					<h1>Dashboard</h1>
+					<h1>Admin Dashboard</h1>
 					<!-- <ul class="breadcrumb">
 						<li>
 							<a href="#">Dashboard</a>

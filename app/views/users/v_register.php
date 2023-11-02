@@ -1,8 +1,11 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
     <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
-    <div class="form-container" style="margin-top: 10vh"><br>
+
+    <div class="register-form-container" style="margin-top: 10vh"><br>
+        <div class="register-form-header">
         <h1><center>Who are you?<center></h1><br>
+        </div>
         <?php if (!empty($data['err'])){?>
         <div class="error-msg">
             <span class="form-invalid"><?php echo $data["err"] ?></span>
