@@ -3,7 +3,6 @@
         public function __construct(){
             $this->adminModel = $this->model('M_Admin');
             // $this->moderatorModel = $this->model('M_Moderators');
-
         }
         
         public function login(){
