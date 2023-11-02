@@ -7,8 +7,9 @@
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="profile-image">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt class="d-block ui-w-80">
+                        <img src="../public/img/profile.png" alt class="d-block ui-w-80">
                     </div>
+
                     <div class="list-group list-group-flush account-settings-links">
                     <div class="media-body">
                                     <label class="btn btn">
@@ -19,7 +20,7 @@
                                     <!-- <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div> -->
                         </div>
                         <div class="nav-elements">
-                        <a class="list-group-item list-group-item-action active" href="<?php echo URLROOT; ?>/users/create_profile">General</a>
+                            <a class="list-group-item list-group-item-action active" href="<?php echo URLROOT; ?>/users/create_profile">General</a>
                             <a class="list-group-item list-group-item-action" href="<?php echo URLROOT; ?>/users/update_profile/">Change password</a>
                             <!-- <a class="list-group-item list-group-item-action" href="#account-info">Info</a> -->
                             <a class="list-group-item list-group-item-action" href="<?php echo URLROOT; ?>/users/delete_profile/">delete profile</a>
@@ -31,7 +32,7 @@
                 <div class="col-md-9">
                     <div class="as_name">
                     <h4 class="font-weight-bold py-3 mb-4">
-                Notifications
+                Notifications 
                 </h4>
                 <hr>
                     </div>
@@ -80,13 +81,23 @@
                             <input type="text" class="form-control" value="seconhandbuyer">
                         </div>
                         <div>
-                        <button class="home-back" style="position:fixed; bottom:30px; right:30px ; padding:10px 30px;background-color:#7bd664;border:1px;border-color: #7bd664;">
+                       
+                        <!-- <button class="home-back" style="position:fixed; bottom:30px; right:30px ; padding:10px 30px;background-color:#7bd664;border:1px;border-color: #7bd664;">
                                     Back to home
+                         </button> -->
+                         <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
+                         Back to Home
                          </button>
+                       
                         </div>
                     </div>
                 </div>
              
             </div>
         </div>
+        <script>
+function redirectToHome() {
+    window.location.href = '<?php echo URLROOT; ?>/Pages/index';
+}
+</script>
 <?php require APPROOT.'/views/inc/footer.php'; ?>
