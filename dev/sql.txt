@@ -18,19 +18,19 @@ CREATE TABLE Administrator (
     id INT AUTO_INCREMENT,
     username VARCHAR(255),
     email VARCHAR(255),
-    tel_no INT,
+    number INT,
     password VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );
 
-INSERT INTO Administrator (username, email, tel_no, password) VALUES ("Inuka", "inuka@gmail.com", "0776373532", "admin123");
+INSERT INTO Administrator (username, email, number, password) VALUES ("Inuka", "inuka@gmail.com", "0776373532", "admin123");
 
 CREATE TABLE Moderators (
     id INT AUTO_INCREMENT,
     username VARCHAR(255),
     email VARCHAR(255),
-    tel_no INT,
+    number INT,
     password VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
