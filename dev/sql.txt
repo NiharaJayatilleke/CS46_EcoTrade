@@ -7,7 +7,30 @@ CREATE TABLE General_User (
     id INT AUTO_INCREMENT,
     username VARCHAR(255),
     email VARCHAR(255),
-    number INT NOT NULL,
+    tel_no INT,
+    password VARCHAR(255),
+    userType VARCHAR(255),
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE Administrator (
+    id INT AUTO_INCREMENT,
+    username VARCHAR(255),
+    email VARCHAR(255),
+    tel_no INT,
+    password VARCHAR(255),
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+);
+
+INSERT INTO Administrator (username, email, tel_no, password) VALUES ("Inuka", "inuka@gmail.com", "0776373532", "admin123");
+
+CREATE TABLE Moderators (
+    id INT AUTO_INCREMENT,
+    username VARCHAR(255),
+    email VARCHAR(255),
+    tel_no INT,
     password VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
@@ -38,8 +61,6 @@ CREATE TABLE Item_Ads (
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
-DROP VIEW IF EXISTS v_ads;
-
 CREATE VIEW v_ads AS
     SELECT
         Item_Ads.p_id as ad_id,
@@ -57,10 +78,3 @@ CREATE VIEW v_ads AS
     FROM Item_Ads INNER JOIN General_User
     ON Item_Ads.seller_id = General_User.id
 ORDER BY Item_Ads.created_at DESC;
-    
-
-
-
-
-
-
