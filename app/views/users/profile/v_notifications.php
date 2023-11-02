@@ -12,10 +12,13 @@
 
                     <div class="list-group list-group-flush account-settings-links">
                     <div class="media-body">
-                                    <label class="btn btn">
+                                    <!-- <label class="btn btn">
                                         Upload new photo
                                         <input type="file" class="account-settings-fileinput">
-                                    </label> &nbsp;
+                                    </label> &nbsp; -->
+                                    <div class="file-upload">
+                              <label for="upload-photo"> </label>
+                              <input type="file" id="upload-photo" name="photo" accept="image/*"></div>
                                     <!-- <button type="button" class="btn btn-default md-btn-flat">Reset</button> -->
                                     <!-- <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div> -->
                         </div>

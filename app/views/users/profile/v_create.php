@@ -1,7 +1,6 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 
-
-    <div class="container">
+ <div class="container">
         
         <!-- <div class="card overflow-hidden"> -->
             <div class="row no-gutters row-bordered row-border-light">
@@ -12,10 +11,14 @@
 
                     <div class="list-group list-group-flush account-settings-links">
                     <div class="media-body">
-                                    <label class="btn btn">
+                                    <!-- <label class="btn btn">
                                         Upload new photo
-                                        <input type="file" class="account-settings-fileinput">
-                                    </label> &nbsp;
+                                        <input type="file" class="account-settings-fileinput" placeholder="upload">
+                                    </label> &nbsp; -->
+                <div class="file-upload">
+                <label for="upload-photo"> </label>
+                <input type="file" id="upload-photo" name="photo" accept="image/*"></div>
+
                                     <!-- <button type="button" class="btn btn-default md-btn-flat">Reset</button> -->
                                     <!-- <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div> -->
                         </div>
@@ -31,7 +34,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="as_name">
-                    <h4 class="font-weight-bold py-3 mb-4">
+                    <h4 class="font-weight-bold py-3 mb-4" style="color: Black;">
                 Account settings
                 </h4>
                 <hr>
@@ -78,7 +81,7 @@
                     <div class="right-right">
                         <div class="form-group">
                             <label class="form-label">User-type</label>
-                            <input type="text" class="form-control" value="seconhandbuyer">
+                            <input type="text" class="form-control" value="<?php echo $data['user']->userType; ?>"disabled>
                         </div>
                         <div>
                        
