@@ -1,7 +1,7 @@
 .topnav{
   width: 100vw;
   height: 60px;
-  background-color: black;
+  background-color: rgb(18, 37, 6);
   
   /* position: fixed;
   top: 0 */
@@ -10,13 +10,13 @@
 .topnav .items{
   width: 100vw;
   display: flex;
+  margin-left: 15px;
 }
 
 .topnav .items .item{
-  width: 10vw;
-  font-size: 17px;
+  width: 7vw;
+  font-size: 16px;
   margin-top: 10px;
-  
 }
 
 /* .topnav .items .search{
@@ -33,7 +33,7 @@
   width: 60px;
   height: 40px;
   margin-left: 10px;
-  margin-right: 10px;
+  margin-right: 30px;
   /* position: fixed; */
 }
 
@@ -60,4 +60,9 @@
 .items{
   position: absolute;
 
+}
+
+.sidebr{
+  margin-right: 28px;
+  margin-bottom: 10px;
 }

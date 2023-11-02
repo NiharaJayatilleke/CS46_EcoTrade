@@ -3,7 +3,7 @@
 <div class="sidebar">
    <div class="logo-details"> 
    <i class='bx bx-recycle' ></i>
-    <span class="logo_name">Ecotrade</span>
+    <span class="logo_name">EcoTrade</span>
    </div>
 <ul class="nav-links">
 <li>
@@ -16,7 +16,7 @@
     <div class="icon-link">
         <a href="#">
             <i class='bx bx-collection'></i>
-        <span class="link_name">category</span>
+        <span class="link_name">Category</span>
     </a>
     <i class='bx bxs-chevron-down arrow'></i>
     </div>

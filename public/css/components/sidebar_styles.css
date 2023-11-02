@@ -6,34 +6,35 @@
 
 .sidebar{
     position:fixed;
-    display: block;
+    display: none;
     top:0;
     right:0;
-    height:100%;
-    width:260px;
-    background:#11101d;
-    margin-top: 50px;
+    height:230px;
+    width:250px;
+    background:rgba(18, 37, 6, 0.418);
+    color: #fff;
+    margin-top: 60px;
 }
 
-.sidebar .logo-details{
-    height: 30 px;
-    width:100%;
+.logo-details {
     display: flex;
+    align-items: center;
+    /* padding: 20px; */
     align-items:center;
-    margin-left:40px;
-
+    margin-left:33px;
 }
+
 .sidebar .logo-details i{
-    font-size:30px;
+    font-size:25px;
     color:#fff;
-    background:rgb(0, 0, 0);
-    height: 50 px;
     min-width: 78 px;
     text-align:center;
-    line-height: 50px;
+    margin: 10px 25px 0px 0px;
+    /* line-height: 50px; */
 }
+
 .sidebar .logo-details .logo_name{
-    font-size:22px;
+    font-size:19px;
     color:#fff;
     font-weight: 600;
     margin-left: 10px;
@@ -42,17 +43,37 @@
 
 .sidebar .nav-links{
     height:100%;
-    padding-top:30px;
+    /* padding-top:30px; */
 }
-
-
 
 .sidebar .nav-links li{
     list-style:none;
     position:relative;
     border-bottom: #fff;
-
+    margin-top: 15px;
+    padding: 5px 20px 5px 5px; 
 }
+
+.nav-links i {
+    margin-right: 10px;
+    font-size: 25px;
+    margin-top:3px;
+}
+
+.sidebar .nav-links li i{
+    /* height:30px; */
+    min-width:78px;
+    text-align: center;
+    /* line-height:50 px; */
+    color: #fff;
+}
+
+.nav-links li {
+    padding: 0px 20px;
+    transition: all 0.3s ease;
+    border-bottom: #fff;
+}
+
 .sidebar .nav-links li:hover{
     list-style:none;
     position:relative;
@@ -64,23 +85,10 @@
     align-items:center;
     justify-content:space-between;
     
-
 }
 
-.sidebar .nav-links li i{
-    height:30px;
-    min-width:78px;
-    text-align: center;
-    line-height:50 px;
-    color: #fff;
-    font-size: 20 px;
-}
-.sidebar .nav-links li a{
-    display:flex;
-    align-items:center;
-    text-decoration:none;
 
-}
+
 .sidebar .nav-links li a .link_name{
     font-size: 18px;
     font-weight:400;
@@ -110,62 +118,23 @@
     width:calc(100%-260px);  
 } */
 
-
-
-/*ChatGPT*/
-
-/* 
-/* Sidebar Styles */
-.sidebar {
-    background-color: #000; /* Black background color */
-    color: #fff; /* Text color */
-    width: 250px; /* Adjust the width as needed */
-    position: fixed;
-    height: 40%;
-    overflow-y: auto;
-    display: none;
-}
-
-/* Logo Styles */
-.logo-details {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-}
-
-.logo-details i {
-    font-size: 32px;
-}
-
-.logo_name {
-    font-size: 24px;
-    margin-left: 10px;
-}
-
 /* Navigation Links Styles */
 .nav-links {
     list-style: none;
     padding: 0;
 }
 
-.nav-links li {
-    padding: 0px 20px;
-    transition: all 0.3s ease;
-    border-bottom: #fff;
-}
+
 
 .nav-links a {
     color: #fff;
     text-decoration: none;
     display: flex;
     align-items: center;
+
 }
 
-.nav-links i {
-    margin-right: 10px;
-    font-size: 25px;
-    margin-top:20px
-}
+
 
 /* Submenu Styles */
 .sub-menu {
@@ -196,7 +165,7 @@
 /* Hover Styles */
 .nav-links li:hover,
 .sub-menu li:hover {
-    background-color: #333; /* Darker background color on hover */
+    background-color: rgba(18, 37, 6, 0.646); /* Darker background color on hover */
 }
 
 .icon-link:hover .arrow {

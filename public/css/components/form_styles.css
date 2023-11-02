@@ -70,4 +70,7 @@ input[type=text]:focus,[type=password] {
     margin-bottom: 20px;
 }
 
+.other-options1{
+    align-self: center;
+}
 

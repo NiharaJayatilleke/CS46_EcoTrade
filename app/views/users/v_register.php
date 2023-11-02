@@ -38,8 +38,8 @@
             </div>
         </div>
 
-        <div class="other-options">
-            <p>If you already have an account? <a href="<?php echo URLROOT ?>/users/login">Login</a><br><br></p>
+        <div class="other-options1">
+            <p><center>Do you already have an account?<a href="<?php echo URLROOT ?>/users/login">Login</a></center><br><br></p>
         </div>
     </div>
     
