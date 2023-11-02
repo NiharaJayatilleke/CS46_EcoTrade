@@ -10,12 +10,12 @@ body {
     color: #333;
 }
 
-header {
+/* header {
     background-color: #333;
     color: #fff;
     padding: 20px;
     text-align: center;
-}
+} */
 
 .user-greeting {
     font-size: 15px;
@@ -32,10 +32,10 @@ header {
 
 .ad-index-container {
     width: 28%; 
-    background: #fff;
+    background: #ffffff27; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 50px;
-    padding: 20px;
+    padding: 10px; 
     border-radius: 5px;
     text-align: center;
 }
@@ -58,11 +58,13 @@ header {
 
 .ad-item-name {
     font-size: 18px;
+    text-align: left;
 }
 
 .ad-body-desc {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     color: #555;
+    text-align: justify;
 }
 
 .ad-body-image img {
@@ -81,28 +83,66 @@ header {
     font-size: 15px;
     font-weight: bold;
     color: #333;
+    text-align: left;
 }
 
 .post-control-btns {
     display: flex;
-    align-items: center;
+    align-items: right;
+    margin-left: 280px;
 }
 
 .ad-edit-btn,
 .ad-delete-btn {
-    background-color: #6b6b6b;
+    background-color: #8e8e8e;
     color: #fff;
-    padding: 5px 15px;
+    padding: 5px 7px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
+    align-self: right;
 }
 
 .ad-edit-btn:hover,
 .ad-delete-btn:hover {
     background-color: #444;
 }
+
+
+
+.ad-contact-btn, .ad-offer-btn, .ad-bid-btn {
+    background-color: #789476;
+    color: #fff;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    align-self: left;
+}
+
+/* .ad-contact-btn,
+.ad-offer-btn,
+.ad-bid-btn {
+    display: block; 
+    margin: 10px 20px 20px 20px; 
+    background-color: #6b6b6b;
+    color: #fff;
+    padding: 5px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; 
+    align-self: left;
+}
+
+.ad-contact-btn:hover,
+.ad-offer-btn:hover,
+.ad-bid-btn:hover {
+    background-color: #444;
+} */
+
 
 @media screen and (max-width: 768px) {
     .ads-container {
