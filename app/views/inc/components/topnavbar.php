@@ -7,7 +7,7 @@
       </a>
     </div>
     <div class="links">
-      <div class="item"><a href="">Home</a></div>
+      <div class="item"><a href="<?php echo URLROOT ?>/Pages/index">Home</a></div>
       <div class="item"><a href="<?php echo URLROOT ?>/Users/login">Login</a></div>
       <div class="item"><a href="<?php echo URLROOT ?>/Users/register">SignUp</a></div>
       <div class="item"><a href="<?php echo URLROOT ?>/Item_Ads/itemAd">Post ad</a></div>

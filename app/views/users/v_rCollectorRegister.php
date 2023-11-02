@@ -7,7 +7,7 @@
         <center><h1>Sign Up</h1></center>
         <p><b>Welcome to EcoTrade! Please sign up to continue.</b></p>
         </div>
-        <form action="<?php echo URLROOT?>/Users/pCollectorRegister/" method="POST">
+        <form action="<?php echo URLROOT?>/Users/rCollectorRegister/" method="POST">
             <!-- username -->
             <div class="form-input-title">Username</div>
             <input type="text" name="username" placeholder="Username" id="username" class="username" value="<?php echo $data['username']; ?>">
