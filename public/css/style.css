@@ -11,6 +11,9 @@
 /* ITEM ADS */
 @import url('item_Ads/item_ads_styles.css');
 
+/*ADMIN DASHBOARD*/
+@import url('pages/admin_dashboard_styles.css');
+
 /* FONTS */
 @font-face {
     font-family: ARIAL;
