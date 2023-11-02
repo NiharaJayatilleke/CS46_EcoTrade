@@ -143,7 +143,7 @@
                     'item_category' => trim($_POST['item_category']),
                     'item_desc' => trim($_POST['item_desc']),
                     'item_img' => $_FILES['item_images'],
-                    'item_img_name' => time().'_'.$_FILES['item_images']['name'],
+                    'item_img_name' => time().'_'.$_FILES['item_images']['name'], /**/ 
                     'item_price' => trim($_POST['item_price']),
                     'item_location' => trim($_POST['item_location']),
                     'selling_format' => trim($_POST['selling_format']),
@@ -179,7 +179,7 @@
                 $oldImage = PUBROOT.'/img/items/'.$ad->item_image;
                 
                 //No new image is uploaded
-                if($_FILES['item_image']['name'] == ''){
+                if($_FILES['item_images']['name'] == ''){
                     $data['item_img_name'] = $ad->item_image;
                 }else{
                     //New image is uploaded

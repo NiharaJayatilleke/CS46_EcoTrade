@@ -104,7 +104,6 @@ header {
     background-color: #444;
 }
 
-/* Media Query for responsiveness */
 @media screen and (max-width: 768px) {
     .ads-container {
         flex-direction: column;
@@ -113,12 +112,7 @@ header {
     .ad-index-container {
         width: 100%;
     }
-}
-
-
-
-
-
+} 
 
 
 
