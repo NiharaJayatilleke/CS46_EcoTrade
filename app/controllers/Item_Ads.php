@@ -177,16 +177,21 @@
                 // }
                 $ad = $this->itemAdsModel->getAdById($adId);
                 $oldImage = PUBROOT.'/img/items/'.$ad->item_image;
-                
-                //No new image is uploaded
-                if($_FILES['item_images']['name'] == ''){
-                    $data['item_img_name'] = $ad->item_image;
+
+                if($_POST['intentionally_removed'] == 'removed'){
+                    //Delete old image
+                    deleteImage($oldImage);
+                    $data['item_img_name'] = null;
                 }else{
-                    //New image is uploaded
-                    updateImage($oldImage, $data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/');
+                    //No new image is uploaded
+                    if($_FILES['item_images']['name'] == ''){
+                        $data['item_img_name'] = $ad->item_image;
+                    }else{
+                        //New image is uploaded
+                        updateImage($oldImage, $data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/');
+                    }
                 }
         
-
                 //Validate item_price
                 if(empty($data['item_price'])) {
                     $data['item_price_err'] = 'Please enter the price of your item';
@@ -267,6 +272,10 @@
             if($ad->seller_id != $_SESSION['user_id']){
                 redirect('Item_Ads/index');
             }else{
+                $ad = $this->itemAdsModel->getAdById($adId);
+                $oldImage = PUBROOT.'/img/items/'.$ad->item_image;
+                deleteImage($oldImage);
+
                 if($this->itemAdsModel->delete($adId)){
                     flash('post_msg', 'Your ad has been deleted successfully!');
                     redirect('Item_Ads/index');
