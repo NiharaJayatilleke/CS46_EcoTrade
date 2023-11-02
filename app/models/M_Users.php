@@ -7,12 +7,14 @@
         }
         //Register the user
         public function register($data){
-            $this->db->query('INSERT INTO General_User(username,email,password,number,userType) VALUES(:username, :email, :password, :number,:userType)');          
+
+            $this->db->query('INSERT INTO General_User(username,email,password,number,userType) VALUES(:username, :email, :password, :number, :userType)');          
             $this->db->bind(':username',$data['username']);
             $this->db->bind(':email',$data['email']);
-            $this->db->bind(':password',$data['password']); 
-            $this->db->bind(':number',$data['number']); 
-            $this->db->bind(':userType',$data['user_type']); 
+            $this->db->bind(':password',$data['password']);
+            $this->db->bind(':number',$data['number']);
+            $this->db->bind(':userType', $data['user_type']);
+
             
             if($this->db->execute()){
                 return true;
@@ -73,7 +75,6 @@
                 return false;
             }
         }
-        
         
     }
 

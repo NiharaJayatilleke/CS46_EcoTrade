@@ -54,14 +54,16 @@
                 } 
 
                 //item image
-                // if(empty($data['item_image'])) {
-                //     $data['item_images_err'] = 'Please enter an image of your item';
-                // }
-                if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
-                    //echo 'Image uploaded';
-                }else {
-                    $data['item_images_err'] = 'Image upload unsuccessful';
+                if(empty($data['item_image']['size'] > 0)){
+                    if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
+                        //echo 'Image uploaded';
+                    }else {
+                        $data['item_images_err'] = 'Image upload unsuccessful';
+                    }
+                }else{
+                    $data['item_image'] = null;
                 }
+                
 
                 //Validate item_price
                 if(empty($data['item_price'])) {
@@ -140,12 +142,16 @@
                     'item_name' => trim($_POST['item_name']),
                     'item_category' => trim($_POST['item_category']),
                     'item_desc' => trim($_POST['item_desc']),
+                    'item_img' => $_FILES['item_images'],
+                    'item_img_name' => time().'_'.$_FILES['item_images']['name'], /**/ 
                     'item_price' => trim($_POST['item_price']),
                     'item_location' => trim($_POST['item_location']),
                     'selling_format' => trim($_POST['selling_format']),
                     'negotiable' => trim($_POST['negotiable']),
+
                     'item_name_err' => '',
                     'item_category_err' => '',
+                    'item_images_err' => '',
                     'item_price_err' => '',
                     'item_location_err' => '',
                     'selling_format_err' => '',
@@ -163,6 +169,29 @@
                     $data['item_category_err'] = 'Please select a category for your item';
                 } 
 
+                //Validate item_image
+                // if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
+                //     //echo 'Image uploaded';
+                // }else {
+                //     $data['item_images_err'] = 'Image upload unsuccessful';
+                // }
+                $ad = $this->itemAdsModel->getAdById($adId);
+                $oldImage = PUBROOT.'/img/items/'.$ad->item_image;
+
+                if($_POST['intentionally_removed'] == 'removed'){
+                    //Delete old image
+                    deleteImage($oldImage);
+                    $data['item_img_name'] = null;
+                }else{
+                    //No new image is uploaded
+                    if($_FILES['item_images']['name'] == ''){
+                        $data['item_img_name'] = $ad->item_image;
+                    }else{
+                        //New image is uploaded
+                        updateImage($oldImage, $data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/');
+                    }
+                }
+        
                 //Validate item_price
                 if(empty($data['item_price'])) {
                     $data['item_price_err'] = 'Please enter the price of your item';
@@ -184,8 +213,8 @@
                 }
 
                 //Validation is completed and no error then add item ad to the database
-                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])){
-                 
+                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])&&empty($data['item_images_err'])){
+
                     //Add item ad to the database
                     if($this->itemAdsModel->edit($data)){
                         // create a flash message
@@ -211,11 +240,12 @@
 
                 // initial form
                 $data = [
-                    // 'ad_id' => $adId,
                     'p_id' => $adId,
                     'item_name' => $ad->item_name,
                     'item_category' => $ad->item_category,
                     'item_desc' => $ad->item_desc,
+                    'item_img' => '',
+                    'item_img_name' => $ad->item_image,
                     'item_price' => $ad->item_price,
                     'item_location' => $ad->item_location,
                     'selling_format' => $ad->selling_format,
@@ -223,6 +253,7 @@
 
                     'item_name_err' => '',
                     'item_category_err' => '',
+                    'item_images_err' => '',
                     'item_price_err' => '',
                     'item_location_err' => '',
                     'selling_format_err' => '',
@@ -241,6 +272,10 @@
             if($ad->seller_id != $_SESSION['user_id']){
                 redirect('Item_Ads/index');
             }else{
+                $ad = $this->itemAdsModel->getAdById($adId);
+                $oldImage = PUBROOT.'/img/items/'.$ad->item_image;
+                deleteImage($oldImage);
+
                 if($this->itemAdsModel->delete($adId)){
                     flash('post_msg', 'Your ad has been deleted successfully!');
                     redirect('Item_Ads/index');

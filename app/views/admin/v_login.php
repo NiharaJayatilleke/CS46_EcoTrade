@@ -3,11 +3,10 @@
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
     <div class="form-container">
-        <div class="form-header">
-        <center><h1>Moderator Login</h1></center>
-        <p><b>Welcome to EcoTrade! Please Login to continue.</b></p>
+        <div class="form-header"><br><br>
+        <center><h1>Administrator Login</h1></center><br>
         </div>
-        <form action="<form action="<?php echo URLROOT?>/Moderators/login" method="POST">
+        <form action="<?php echo URLROOT?>/Admin/login" method="POST">
 
             <!-- email -->
             <div class="form-input-title">Email</div>
@@ -20,10 +19,6 @@
             <input type="password" name="password" placeholder="Password" id="password" class="password" value="<?php echo $data['password'];?>">
             <span class="form-invalid"><?php echo $data['password_err'];?></span>
 
-            <!-- Forgot password link
-            <div><br>
-            <a href="<?php echo URLROOT; ?>/users/forgot_password">Forgot Password?</a>
-            </div> -->
 
             <!-- submit button -->
             <br>
