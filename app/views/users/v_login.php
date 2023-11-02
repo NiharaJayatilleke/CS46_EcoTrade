@@ -4,9 +4,11 @@
 
     <div class="form-container">
         <div class="form-header">
+        <br>
         <center><h1>Login</h1></center>
-        <p><b>Welcome to EcoTrade! Please Login to continue.</b></p>
+        <!-- <p><b>Welcome to EcoTrade! Please Login to continue.</b></p> -->
         </div>
+        <br>
         <form action="<?php echo URLROOT?>/Users/login" method="POST">
 
             <!-- email -->

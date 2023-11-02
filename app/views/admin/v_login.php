@@ -3,9 +3,8 @@
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
     <div class="form-container">
-        <div class="form-header">
-        <center><h1>Administrator Login</h1></center>
-        <p><b>Welcome to EcoTrade! Please Login to continue.</b></p>
+        <div class="form-header"><br><br>
+        <center><h1>Administrator Login</h1></center><br>
         </div>
         <form action="<?php echo URLROOT?>/Admin/login" method="POST">
 
