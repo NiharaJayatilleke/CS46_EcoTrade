@@ -1,25 +1,155 @@
 .bg-img{
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    z-index: -1; 
-    width: 100vw
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  z-index: -1; 
+  width: 100vw
 }
 
 .bg-img img{
-    width:100vw; 
-    height: 50vh
+  width:100vw; 
+  height: 50vh
 }
 
 .item.search input {
-    margin-top:40px;
-    margin-left:20px;
-    width: 20%; 
-    
-  }
+  margin-top:170px;
+  margin-left:20px;
+  width: 20%; 
+  
+}
 
 img.searchicon{
-    margin-top:50px;
-    margin-left:0px;
+  margin-top:180px;
+  margin-left:0px;
 }
+.big-options {
   
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+  margin-top: 8%;
+}
+
+.option {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 45%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+  /* Set a fixed height for the .option elements */
+  height: 400px; /* You can adjust the height as needed */
+}
+
+.left-side,
+.right-side {
+  
+  width: 100%; /* Each side takes up 50% of the .option width */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-section {
+  width: 50%;
+  display: flex;
+}
+
+.card-image img{
+  
+  width: 100%; /* Ensure the image takes up the full width of the container */
+  height: 100%; /* Maintain the aspect ratio */
+  object-fit: cover; /* Prevent image cropping by covering the container */
+  filter: brightness(70%) blur(5px);
+}
+.option h1 {
+  position: absolute;
+  font-size: 32px; /* Adjust the font size */
+  margin-top: 60px;
+  margin-left: 100px;
+  text-align: center;
+  color: #0A8707; /* Set the text color to white */
+  text-shadow: 0 0 10px rgba(0, 128, 0, 0.2); /* Add a subtle green glow */
+  
+  font-family: "Your Professional Font", sans-serif; /* Replace "Your Professional Font" with the actual font name */
+  
+}
+
+.option h2 {
+  position: absolute;
+  font-size: 32px; /* Adjust the font size */
+  margin-top: 40px;
+  margin-left: 150px;
+  flex-direction: column;
+  white-space: nowrap;
+  color: #0A8707; /* Set the text color to white */
+  text-shadow: 20 60 10px rgba(51, 52, 51, 0.2); /* Add a subtle green glow */
+  font-family: "Your Professional Font", sans-serif; /* Replace "Your Professional Font" with the actual font name */
+}
+.enter-button {
+  position: absolute; /* Position the button absolutely within the card-image container */
+  bottom: 10px; /* Adjust the vertical position as needed */
+  right: 10px; /* Adjust the horizontal position as needed */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+.greenish-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  
+
+  
+}
+
+footer {
+  position: absolute;
+  top: 2537px;
+  left: 84px;
+  background-color: var(--text-color-dark-text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.social-media-icon1 {
+  border-radius: var(--br-481xl);
+}
+.newsletter,
+.social,
+.subscribe-parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.social {
+  align-items: flex-start;
+  gap: var(--gap-5xs);
+}
+.newsletter,
+.subscribe-parent {
+  align-items: center;
+}
+.subscribe-parent {
+  gap: var(--gap-5xl);
+  font-size: var(--body-heavy-size);
+  color: var(--gray-scale-gray-400);
+}
+.newsletter {
+  background-color: var(--gray-scale-gray-900);
+  padding: var(--padding-41xl);
+  gap: var(--gap-55xl);
+}

@@ -12,16 +12,12 @@
 
                 //input data
                 $data = [
-                    'firstname' => trim($_POST['firstname']),
-                    'lastname' => trim($_POST['lastname']),
                     'username' => trim($_POST['username']),
                     'email' => trim($_POST['email']),
                     'number' => trim($_POST['number']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
 
-                    'firstname_err' => '',
-                    'lastname_err' => '',
                     'username_err' => '',
                     'email_err' => '',
                     'number_err' => '',
@@ -32,16 +28,6 @@
                 ];
 
                 //Validate each inputs
-                //Validate firstname
-                if(empty($data['firstname'])){
-                    $data['firstname_err'] = 'Please enter a firstname';
-                }
-                
-                //Validate secondname
-                if(empty($data['lastname'])){
-                    $data['lastname_err'] = 'Please enter a lastname';
-                }
-
                 //Validate username
                 if(empty($data['username'])){
                     $data['username_err'] = 'Please enter a username';
@@ -53,7 +39,7 @@
                 }
                 else{
                     //check email is already registered or not
-                    if($this->moderatorModel->findModeratorByEmail($data['email'])){
+                    if($this->userModel->findModeratorByEmail($data['email'])){
                         $data['email_err'] = 'This email is already registered';
                     }
                 }   
@@ -94,10 +80,10 @@
                     //Hash password
                     $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
 
-                    //Register Moderator
-                    if($this->moderatorModel->register($data)){
+                    //Register user
+                    if($this->userModel->register($data)){
                         // create a flash message
-                        flash('reg_flash', 'You successfully registered a moderator to the system!');
+                        flash('reg_flash', 'You are successfully registered!');
                         redirect('Moderators/login');
                     }
                     else{
@@ -153,7 +139,7 @@
                     }
                     else{
                         //Moderator is not found
-                        $data['email_err'] = 'User not found';
+                        $data['email_err'] = 'Moderator not found';
                     }
                 }
 
@@ -229,7 +215,7 @@
         public function terms(){
             $this->view('moderators/terms'); // Load the 'terms.php' view
         }
-        
+
 
         
     }
