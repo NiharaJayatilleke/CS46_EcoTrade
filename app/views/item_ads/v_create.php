@@ -33,7 +33,7 @@
 
             <!-- item_description -->
             <div class="form-input-title">Description</div>
-            <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="item_desc" value="<?php echo $data['item_desc']; ?>" rows = "10" cols = "59"></textarea>
+            <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?></textarea>
 
             <p>Upload an Image</p>
             <!-- item images -->
