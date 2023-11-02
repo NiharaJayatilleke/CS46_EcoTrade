@@ -109,8 +109,6 @@ body {
     background-color: #444;
 }
 
-
-
 .ad-contact-btn, .ad-offer-btn, .ad-bid-btn {
     background-color: #789476;
     color: #fff;
@@ -135,13 +133,18 @@ body {
     cursor: pointer;
     text-align: center; 
     align-self: left;
+}*/
+
+.ad-wishlist-btn img {
+    width: 20px;
+    height: 20px;
 }
 
 .ad-contact-btn:hover,
 .ad-offer-btn:hover,
 .ad-bid-btn:hover {
     background-color: #444;
-} */
+} 
 
 
 @media screen and (max-width: 768px) {
@@ -162,6 +165,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
+    border-radius: 10px;
     padding: 15px;
     background-color:  #fff;
     box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);

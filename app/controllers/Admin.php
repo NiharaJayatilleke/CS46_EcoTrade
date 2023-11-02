@@ -5,6 +5,10 @@
             // $this->moderatorModel = $this->model('M_Moderators');
         }
         
+        public function index(){
+            $this->view('admin/v_dashboard');
+        }
+
         public function login(){
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 //Form is submitting

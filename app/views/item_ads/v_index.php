@@ -41,6 +41,8 @@
                     <?php if($ad->selling_format == 'auction'): ?> 
                         <a href = ""><button class="ad-bid-btn">Bid</button></a>
                     <?php endif; ?>
+                    <!-- <a href = ""><button class="ad-wishlist-btn"><i class="fas fa-heart"></i></button></a> -->
+                    <!-- <a href="#"><button class="ad-wishlist-btn"><img src="/img/icons/wishlist.png" alt="Wishlist Icon"></button></a> -->
                 </div>
             </div>  
         </div>
