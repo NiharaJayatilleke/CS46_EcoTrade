@@ -43,18 +43,18 @@
                     if($loggedUser){
                         //User the authenticated
                         //create user sessions
-                        $this->createUserSession($loggedUser);
+                        $this->createusersession($loggedUser);
                     }
                     else{
                         $data['password_err']='Password incorrect';
 
                         //Load view with errors
-                        $this->view('users/v_moderator_login', $data);
+                        $this->view('moderators/v_moderator_login', $data);
                     }
                 }
                 else{
                     //Load view with errors
-                    $this->view('users/v_moderator_login', $data);
+                    $this->view('moderators/v_moderator_login', $data);
                 }
 
             }
@@ -69,7 +69,7 @@
                 ];
 
                 //Load view
-                $this->view('users/v_moderator_login', $data);
+                $this->view('moderators/v_moderator_login', $data);
             }
         }
 
@@ -87,7 +87,7 @@
             unset($_SESSION['user_name']);
             session_destroy();
 
-            redirect('Users/v_moderator_login');
+            redirect('Users/login');
         }
         
         public function isLoggedIn(){
