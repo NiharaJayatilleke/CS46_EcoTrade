@@ -24,6 +24,7 @@
                 <option value="kitchenware">Kitchenware</option>
                 <option value="home_deco">Home Deco</option>
                 <option value="sports_equip">Sports Equipment</option>
+                <option value="appliances">Appliances</option>
                 <option value="other">Other</option>
             </select>
 
@@ -39,7 +40,7 @@
             <div class = "form-drag-area" id="form-drag-area">
                 <div class = "icon">
                     <?php if($data['item_img_name'] != null): ?>
-                        <img id = "item_img_placeholder" src = "<?php echo URLROOT; ?>/img/items/<?php echo $data['item_img_name']; ?>" alt="Item Image" width = "40px" height = "40px"></img>
+                        <img id = "item_img_placeholder" name = "item_images" src = "<?php echo URLROOT; ?>/img/items/<?php echo $data['item_img_name']; ?>" alt="Item Image" width = "40px" height = "40px"></img>
                     <?php else: ?> 
                         <img id = "item_img_placeholder" src = "<?php echo URLROOT; ?>/img/items/placeholder.png" alt="placeholder" width = "40px" height = "40px"></img>
                     <?php endif; ?>
