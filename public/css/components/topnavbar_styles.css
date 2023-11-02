@@ -38,7 +38,7 @@
 }
 
 .topnav .items .links{
-  position: fixed;
+  position: absolute;
   right: 10px;
   padding: 10px;
   display: flex;
