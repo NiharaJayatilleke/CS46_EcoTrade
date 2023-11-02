@@ -18,7 +18,7 @@
             <!-- <button class="enter-button">Enter Now</button> -->
         </div>
         <div class="right-side">
-          
+            <a href="<?php echo URLROOT; ?>/Item_Ads/index">
             <img src="../public/img/secondhandmarket.jpg" alt="Second Hand Market Image" width="500px">
         </div>
     </div>
@@ -32,7 +32,7 @@
         <div class="card-section">
         <div class="right-side"> 
         
-            <a href="<?php echo URLROOT; ?>/users/forgot_password">
+            <a href="<?php echo URLROOT; ?>/users/login">
             <img src="../public/img/recyclemarket.webp" alt="Second Hand Market Image" width="500px">
             </a>
         </div>
