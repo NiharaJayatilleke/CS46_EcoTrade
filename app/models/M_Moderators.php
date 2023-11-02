@@ -5,13 +5,13 @@
         public function __construct(){
             $this->db = new Database();
         }
-        //Register the user
+        //Register the Moderator
         public function register($data){
-            $this->db->query('INSERT INTO Moderators(username,email,password, userType) VALUES(:username, :email, :password, :userType)');          
+            $this->db->query('INSERT INTO Moderators(username,email,password) VALUES(:username, :email, :password)');          
             $this->db->bind(':username',$data['username']);
             $this->db->bind(':email',$data['email']);
             $this->db->bind(':password',$data['password']);  
-            $this->db->bind(':userType', $data['user_type']);
+            // $this->db->bind(':userType', $data['user_type']);
             
             if($this->db->execute()){
                 return true;
@@ -22,7 +22,7 @@
         }
 
         // Find the user
-        public function findUserByEmail($email){
+        public function findModeratorByEmail($email){
             $this->db->query('SELECT * FROM Moderators WHERE email =:email');
             $this->db->bind(':email',$email);
 
@@ -36,7 +36,7 @@
             }
         }
 
-        // Login the user
+        // Login the Moderator
         public function login($email,$password){
             $this->db->query('SELECT * FROM Moderators WHERE email =:email');
             $this->db->bind(':email',$email);

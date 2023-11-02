@@ -5,11 +5,11 @@
 
 
     <div class="form-container">
-        <div class="form-header">
-        <center><h1>Moderator Registration</h1></center>
-        <p><b>Welcome to EcoTrade!</b></p>
+        <div class="form-header"><br>
+        <center><h1>Moderator Registration</h1></center><br>
+        <p><b>Welcome to EcoTrade!</b></p><br>
         </div>
-        <form action="<?php echo URLROOT?>/Admin/moderatorRegister" method="POST">
+        <form action="<?php echo URLROOT?>/Moderators/register" method="POST">
 
             <!-- First Name -->
             <!-- <div class="form-input-title">Full Name</div>
@@ -65,7 +65,7 @@
             <span class="form-invalid"><?php echo $data['agree_err']; ?></span>
             </div>
 
-            <input type="text" name="user_type" id="user_type" value="Moderator" required="" hidden="" style="display: none;">
+            <!-- <input type="text" name="user_type" id="user_type" value="Moderator" required="" hidden="" style="display: none;"> -->
 
             <!-- submit button -->
             
