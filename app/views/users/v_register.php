@@ -10,25 +10,29 @@
         <?php } ?>
 
         <div class="type-select">
+            <div class="platform1">
             <a href="<?php echo URLROOT ?>/users/pBuyerRegister">
-            <input type="submit" value="Secondhand Buyer" class="form-btn"><br><br>
+            <input type="submit" value="Secondhand Buyer" class="form-btn1"><br><br>
             </a>
 
             <a href="<?php echo URLROOT ?>/users/pSellerRegister">
-            <input type="submit" value="Secondhand Seller" class="form-btn"><br><br>
+            <input type="submit" value="Secondhand Seller" class="form-btn1"><br><br>
             </a>
+            </div>
 
+            <div class="platform2">
             <a href="<?php echo URLROOT ?>/users/rSellerRegister">
-            <input type="submit" value="Recycle item Seller" class="form-btn"><br><br>
+            <input type="submit" value="Recycle item Seller" class="form-btn1"><br><br>
             </a>
 
             <a href="<?php echo URLROOT ?>/users/rCollectorRegister">
-            <input type="submit" value="Recycle item Collector" class="form-btn"><br><br>
+            <input type="submit" value="Recycle item Collector" class="form-btn1"><br><br>
             </a>
 
             <a href="<?php echo URLROOT ?>/users/rCenterRegister">
-            <input type="submit" value="Recycle Center" class="form-btn"><br><br>
+            <input type="submit" value="Recycle Center" class="form-btn1"><br><br>
             </a>
+            </div>
         </div>
 
         <div class="other-options">
