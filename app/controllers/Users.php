@@ -264,7 +264,7 @@
               redirect('Users/login');
           }
            // Load the profile view
-          $this->view('users/profile/v_update');
+          $this->view('users/profile/v_delete');
       }
 
       
@@ -276,7 +276,7 @@
           redirect('Users/login');
       }
        // Load the profile view
-      $this->view('users/profile/v_update');
+      $this->view('users/profile/v_security');
    }
 
   
@@ -288,7 +288,7 @@
       redirect('Users/login');
    }
     // Load the profile view
-    $this->view('users/profile/v_update');
+    $this->view('users/profile/v_notifications');
    }
         
     }

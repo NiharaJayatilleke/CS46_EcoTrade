@@ -7,8 +7,9 @@
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="profile-image">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt class="d-block ui-w-80">
+                        <img src="../public/img/profile.png" alt class="d-block ui-w-80">
                     </div>
+
                     <div class="list-group list-group-flush account-settings-links">
                     <div class="media-body">
                                     <label class="btn btn">
@@ -48,10 +49,10 @@
                                     <label class="form-label">Username</label>
                                     <input type="text" class="form-control" value="Anne">
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="form-label">Name</label>
                                     <input type="text" class="form-control" value="Nelle Maxwell">
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label class="form-label">E-mail</label>
                                     <input type="text" class="form-control" value="nmaxwell@mail.com">
@@ -80,13 +81,25 @@
                             <input type="text" class="form-control" value="seconhandbuyer">
                         </div>
                         <div>
-                        <button class="home-back" style="position:fixed; bottom:30px; right:30px ; padding:10px 30px;background-color:#7bd664;border:1px;border-color: #7bd664;">
+                       
+                        <!-- <button class="home-back" style="position:fixed; bottom:30px; right:30px ; padding:10px 30px;background-color:#7bd664;border:1px;border-color: #7bd664;">
                                     Back to home
+                         </button> -->
+                         <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
+                         Back to Home
                          </button>
+
+                       
                         </div>
                     </div>
                 </div>
              
             </div>
         </div>
+        <script>
+function redirectToHome() {
+    window.location.href = '<?php echo URLROOT; ?>/Pages/index';
+}
+</script>
+
 <?php require APPROOT.'/views/inc/footer.php'; ?>

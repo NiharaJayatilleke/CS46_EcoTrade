@@ -7,7 +7,7 @@
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="profile-image">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt class="d-block ui-w-80">
+                    <img src="<?php echo URLROOT; ?>/public/img/profile.png" alt="Profile Image" class="d-block ui-w-80">
                     </div>
                     <div class="list-group list-group-flush account-settings-links">
                     <div class="media-body">
@@ -80,8 +80,11 @@
                             <input type="text" class="form-control" value="seconhandbuyer">
                         </div>
                         <div>
-                        <button class="home-back" style="position:fixed; bottom:30px; right:30px ; padding:10px 30px;background-color:#7bd664;border:1px;border-color: #7bd664;">
+                        <!-- <button class="home-back" style="position:fixed; bottom:30px; right:30px ; padding:10px 30px;background-color:#7bd664;border:1px;border-color: #7bd664;">
                                     Back to home
+                         </button> -->
+                         <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
+                         Back to Home
                          </button>
                         </div>
                     </div>
@@ -89,4 +92,9 @@
              
             </div>
         </div>
+        <script>
+function redirectToHome() {
+    window.location.href = '<?php echo URLROOT; ?>/Pages/index';
+}
+</script>
 <?php require APPROOT.'/views/inc/footer.php'; ?>
