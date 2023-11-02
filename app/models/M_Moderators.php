@@ -70,10 +70,9 @@
 
         public function edit($data){
             print_r($data);
-            $this->db->query('UPDATE Moderators SET username = :username, email = :email, number = :number, password = :password WHERE id = :id');
+            $this->db->query('UPDATE Moderators SET username = :username, number = :number, password = :password WHERE id = :id');
             $this->db->bind(':id',$data['id']);
             $this->db->bind(':username',$data['username']);
-            $this->db->bind(':email',$data['email']);
             $this->db->bind(':number',$data['number']);
             $this->db->bind(':password',$data['password']);  
             // $this->db->bind(':userType', $data['user_type']);
@@ -86,6 +85,19 @@
             }
         }
         
+
+
+    public function delete($modId){
+        $this->db->query('DELETE FROM Moderators WHERE id = :id');
+        $this->db->bind(':id',$modId);
+
+        if($this->db->execute()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
+}
 
 ?>
