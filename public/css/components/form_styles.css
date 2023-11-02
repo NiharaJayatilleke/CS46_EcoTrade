@@ -1,13 +1,43 @@
-.form-container{
+.login-form-container{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 160px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color:  #ffffffea;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 500px;
+    border: 1px solid #d3d3d3;
+}
+
+.register-form-container{
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
     border-radius: 10px;
     padding: 15px;
-    background-color:  #fff;
+    background-color:  #ffffffea;
     box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
     width: 500px;
     border: 1px solid #d3d3d3;
+}
+
+.reg-form-container{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color:  #ffffffea;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 500px;
+    border: 1px solid #d3d3d3;
+}
+
+.form-header{
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
 input[type=text], input[type=password]{
@@ -31,7 +61,7 @@ input[type=text]:focus,[type=password] {
 }
 
 .form-input-title{
-    margin-top: 10px; 
+    margin-top: 20px; 
     margin-bottom: 5px; /**/
 }
 

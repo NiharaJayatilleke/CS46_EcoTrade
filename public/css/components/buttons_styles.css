@@ -1,11 +1,12 @@
 .form-btn{
-    background-color:#68A678;
+    background-color:#75a080;
     color: white;
     padding: 15px 20px;
-    margin: 8px 10px 10px;
+    margin: 20px 10px 10px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
-    width: 96%;
+    width: 97%;
     transition: -2s all;
 }
 
@@ -23,6 +24,6 @@
 
 .form-btn:hover {
     opacity: 0.8;
-    background-color:rgb(86, 106, 50);
+    background-color:#75a080f3;
 }
 

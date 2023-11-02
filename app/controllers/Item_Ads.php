@@ -218,7 +218,7 @@
                     //Add item ad to the database
                     if($this->itemAdsModel->edit($data)){
                         // create a flash message
-                        flash('post_msg', 'Your ad has been updated successfully!');
+                        // flash('post_msg', 'Your ad has been updated successfully!');
                         redirect('Item_Ads/index');
                     }else{
                         die('Something went wrong');
