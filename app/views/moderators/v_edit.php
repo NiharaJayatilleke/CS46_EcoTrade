@@ -23,15 +23,17 @@
             <input type="text" name="lastname" placeholder="Lastname" id="lastname" class="lastname" value="<?php echo $data['lastname']; ?>">
             <span class="form-invalid"><?php echo $data['firstname_err']; ?></span> -->
 
+            <!-- email -->
+            <div class="form-input-title">Email</div>
+            <input type="text" name="email" placeholder="Email" id="email" class="email" value="<?php echo $data['email']; ?>" disabled>
+            <span class="form-invalid"><?php echo $data['email_err']; ?></span>
+            
             <!-- username -->
             <div class="form-input-title">Username</div>
             <input type="text" name="username" placeholder="Username" id="username" class="username" value="<?php echo $data['username']; ?>">
             <span class="form-invalid"><?php echo $data['username_err']; ?></span>
 
-            <!-- email -->
-            <div class="form-input-title">Email</div>
-            <input type="text" name="email" placeholder="Email" id="email" class="email" value="<?php echo $data['email']; ?>">
-            <span class="form-invalid"><?php echo $data['email_err']; ?></span>
+            
 
             <!-- contact number -->
             <div class="form-input-title">Contact Number</div>

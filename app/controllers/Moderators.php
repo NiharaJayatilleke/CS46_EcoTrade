@@ -226,7 +226,7 @@
                 $data = [
                     'id' => $modId,
                     'username' => trim($_POST['username']),
-                    'email' => trim($_POST['email']),
+                    // 'email' => trim($_POST['email']),
                     'number' => trim($_POST['number']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
@@ -330,6 +330,20 @@
                 //load view
                 $this->view('moderators/v_edit', $data);
             }
+        }
+
+        public function delete($modId){
+            $moderator = $this->moderatorModel->getModeratorById($modId);
+
+                if($this->moderatorModel->delete($modId)){
+                    flash('post_msg', 'Your moderator has been deleted successfully!');
+                    redirect('Admin/index');
+                }
+                else{
+                    die('Something went wrong');
+                }
+            
+            
         }
 
 

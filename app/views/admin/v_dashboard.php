@@ -171,8 +171,8 @@
 								<td><?php echo $moderator->created_at ?></td>
 								<td>
 									<div class = "mod-control-btns">
-										<a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->$id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-										<a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->$id?>"><button class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button></a>
+										<a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+										<a href = "<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button></a>
 									</div>
 								</td>
 							</tr>
