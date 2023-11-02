@@ -78,10 +78,3 @@ CREATE VIEW v_ads AS
     FROM Item_Ads INNER JOIN General_User
     ON Item_Ads.seller_id = General_User.id
 ORDER BY Item_Ads.created_at DESC;
-    
-
-
-
-
-
-

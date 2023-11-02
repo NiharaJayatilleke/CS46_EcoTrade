@@ -47,7 +47,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label class="form-label">Username</label>
-                                    <input type="text" class="form-control" value="Anne">
+                                    <input type="text" class="form-control" value="<?php echo $data['user']->username; ?>">
                                 </div>
                                 <!-- <div class="form-group">
                                     <label class="form-label">Name</label>
@@ -55,15 +55,15 @@
                                 </div> -->
                                 <div class="form-group">
                                     <label class="form-label">E-mail</label>
-                                    <input type="text" class="form-control" value="nmaxwell@mail.com">
-                                    <!-- <div class="alert alert-warning mt-3">
-                                        Your email is not confirmed. Please check your inbox.<br>
-                                        <a href="javascript:void(0)">Resend confirmation</a>
-                                    </div> -->
+                                    <!-- <input type="text" class="form-control" value="nmaxwell@mail.com"> -->
+                                    <input type="text" class="form-control" value="<?php echo $data['user']->email; ?>"disabled>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Contact number</label>
-                                    <input type="text" class="form-control" value="0112532962">
+                                    <!-- <input type="text" class="form-control" value="0112532962"> -->
+                                    <input type="text" class="form-control" value="<?php echo $data['user']->number; ?>">
+                                    <!-- <input type="text" class="form-control" value="<?php echo $_SESSION['user_number']; ?>"> -->
+
                                 </div>
 
                                 <div class="profile-buttons">
