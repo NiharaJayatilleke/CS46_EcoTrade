@@ -2,12 +2,17 @@
     class Admin extends Controller{
         public function __construct(){
             $this->adminModel = $this->model('M_Admin');
-            // $this->moderatorModel = $this->model('M_Moderators');
+            $this->moderatorModel = $this->model('M_Moderators');
         }
         
         public function index(){
-            $this->view('admin/v_dashboard');
+            $moderators = $this->moderatorModel->getModerators();
+
+            $data = ['moderators' => $moderators];
+
+            $this->view('admin/v_dashboard', $data);
         }
+
 
         public function login(){
             if($_SERVER['REQUEST_METHOD']=='POST'){

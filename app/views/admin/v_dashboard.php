@@ -3,9 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-
 	<!-- Boxicons -->
-	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<!-- <link rel="stylesheet" href="style.css">
 
@@ -16,6 +14,8 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
     <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 	<!-- SIDEBAR -->
 	<!-- <section id="sidebar">
@@ -163,43 +163,20 @@
 							</tr>
 						</thead>
 						<tbody>
+                            <?php foreach($data['moderators'] as $moderator) : ?>
 							<tr>
+								<td><p><?php echo $moderator->username ?></p></td>
+								<td><?php echo $moderator->email ?></td>
+								<td><?php echo $moderator->number ?></td>
+								<td><?php echo $moderator->created_at ?></td>
 								<td>
-									<!-- <img src="img/people.png"> -->
-									<p>John Doe</p>
+									<div class = "mod-control-btns">
+										<a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->$id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+										<a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->$id?>"><button class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button></a>
+									</div>
 								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
 							</tr>
-							<tr>
-								<td>
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span>
-                                <span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
+                            <?php endforeach; ?>
 						</tbody>
 					</table>
 				</div>
