@@ -1,0 +1,38 @@
+.wishlist {
+    font-family: Arial, sans-serif;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.wishlist-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.wishlist-table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+}
+
+.row {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.row.header {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+.column {
+    padding: 10px;
+    flex: 1;
+}
+
+.column img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
