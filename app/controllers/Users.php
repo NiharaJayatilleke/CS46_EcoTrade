@@ -211,7 +211,7 @@
             $_SESSION['user_id']=$user->id;
             $_SESSION['user_email']=$user->email;
             $_SESSION['user_name']=$user->username;
-
+            $_SESSION['user_number'] = $user->number;
             redirect('Pages/index');
         }
 
@@ -219,6 +219,8 @@
             unset($_SESSION['user_id']);
             unset($_SESSION['user_email']);
             unset($_SESSION['user_name']);
+            unset($_SESSION['user_number']);
+
             session_destroy();
 
             redirect('Users/login');
@@ -240,9 +242,14 @@
                 redirect('Users/login');
             }
         
+            $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+            $data = [
+                'user' => $user
+            ];
             // Load the profile view
-            $this->view('users/profile/v_create');
+            $this->view('users/profile/v_create', $data);
         }
+        
 
         public function update_profile(){
 
@@ -254,6 +261,36 @@
              // Load the profile view
             $this->view('users/profile/v_update');
         }
+
+//     Handle the form submission in your Users.php controller
+//     public function update_profile() {
+//     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//         // Get the updated data from the form
+//         $newUsername = $_POST['newUsername'];
+//         $newContactNumber = $_POST['newContactNumber'];
+
+//         // Perform validation on the data (e.g., check for empty values, data format, etc.)
+
+//         // Update the user's information in the database
+//         $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+//         $user->username = $newUsername;
+//         $user->number = $newContactNumber;
+
+//         // Save the updated user data to the database (you may use a method like updateUserDetails in your model)
+//         // Example: $this->userModel->updateUserDetails($user);
+
+//         // Redirect back to the user's profile page
+//         redirect('users/create_profile');
+//     } else {
+//         // Load the user profile page
+//         $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+//         $data = [
+//             'user' => $user
+//         ];
+//         $this->view('users/profile/v_create', $data);
+//     }
+// }
+
 
         
         public function delete_profile(){
@@ -273,10 +310,9 @@
         // Check if the user is logged in
         if (!$this->isLoggedIn()) {
           // Redirect the user to the login page if they are not logged in
-          redirect('Users/login');
-      }
+          redirect('Users/login'); }
        // Load the profile view
-      $this->view('users/profile/v_security');
+        $this->view('users/profile/v_security');
    }
 
   
