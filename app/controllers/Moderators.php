@@ -229,5 +229,8 @@
         public function terms(){
             $this->view('moderators/terms'); // Load the 'terms.php' view
         }
+        
+
+        
     }
 ?>

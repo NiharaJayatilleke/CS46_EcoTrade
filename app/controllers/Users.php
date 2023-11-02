@@ -23,6 +23,7 @@
                     'number' => trim($_POST['number']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
+                    'user_type' => trim($_POST['user_type']),
 
                     'username_err' => '',
                     'email_err' => '',
