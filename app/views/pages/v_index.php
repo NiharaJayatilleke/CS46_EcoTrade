@@ -1,10 +1,13 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
+
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_index_styles.css">
-<h1 style="margin-top:60px; font-size:15px; color:white; margin-left:20px;">Welcome <?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : ''; ?>!</h1>
+
+<!-- <h1 style="margin-top:25px; font-size:15px; color:; margin-left:40px;">Welcome <?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : ''; ?>!</h1> -->
+
 <div class="item search" style="display: flex">
-  <input type="text" placeholder="Search in ecotrade">
+  <input type="text" class = "placeholder-text" placeholder="Search in EcoTrade">
   <img src="<?php echo URLROOT; ?>/public/img/search.png" alt="search" class="searchicon" width="20px" height="20px">
 </div>
 <div class="bg-img">
@@ -31,7 +34,6 @@
 </div>
         <div class="card-section">
         <div class="right-side"> 
-        
             <a href="<?php echo URLROOT; ?>/users/login">
             <img src="../public/img/recyclemarket.webp" alt="Second Hand Market Image" width="500px">
             </a>

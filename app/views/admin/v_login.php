@@ -2,7 +2,7 @@
     <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
-    <div class="form-container">
+    <div class="login-form-container">
         <div class="form-header"><br><br>
         <center><h1>Administrator Login</h1></center><br>
         </div>

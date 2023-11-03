@@ -2,10 +2,10 @@
     <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
-    <div class="form-container">
+    <div class="login-form-container">
         <div class="form-header">
         <br>
-        <center><h1>Moderator Login</h1></center>
+        <center><h1>Moderator Login</h1></center><br>
         <!-- <p><b>Welcome to EcoTrade! Please Login to continue.</b></p> -->
         </div>
         <br>

@@ -4,7 +4,7 @@
 
 
 
-    <div class="form-container">
+    <div class="reg-form-container">
         <div class="form-header"><br>
         <center><h1>Moderator Registration</h1></center><br>
         <p><b>Welcome to EcoTrade!</b></p><br>

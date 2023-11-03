@@ -3,7 +3,7 @@
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
     <div class="reg-form-container">
-        <div class="form-header">
+        <div class="login-form-header">
         <center><h1>Sign Up</h1></center>
         <p><b>Welcome to EcoTrade! Please sign up to continue.</b></p>
         </div>

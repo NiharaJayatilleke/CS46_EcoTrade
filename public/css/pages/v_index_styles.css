@@ -12,29 +12,32 @@
 }
 
 .item.search input {
-  margin-top:170px;
-  margin-left:20px;
+  margin-top:240px;
+  margin-left:40px;
   width: 20%; 
-  
+  align-items: center;
+}
+
+.placeholder-text{
+  text-align: center;
+  padding: 0px 2px 2px 5px;
 }
 
 img.searchicon{
-  margin-top:180px;
-  margin-left:0px;
+  margin-top:250px;
+  align-self: left;
 }
 .big-options {
-  
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 20px;
-  margin-top: 8%;
+  margin: 90px;
 }
 
 .option {
   background-color: #f2f2f2;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 10px;
   width: 45%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -73,7 +76,8 @@ img.searchicon{
   margin-top: 60px;
   margin-left: 100px;
   text-align: center;
-  color: #0A8707; /* Set the text color to white */
+  color: #448041;
+  /* color: #0A8707; */
   text-shadow: 0 0 10px rgba(0, 128, 0, 0.2); /* Add a subtle green glow */
   
   font-family: "Your Professional Font", sans-serif; /* Replace "Your Professional Font" with the actual font name */
@@ -84,10 +88,12 @@ img.searchicon{
   position: absolute;
   font-size: 32px; /* Adjust the font size */
   margin-top: 40px;
+  margin-bottom: 20px;
   margin-left: 150px;
   flex-direction: column;
   white-space: nowrap;
-  color: #0A8707; /* Set the text color to white */
+  /* color: #497347; */
+  color: #448041; /* Set the text color to white */
   text-shadow: 20 60 10px rgba(51, 52, 51, 0.2); /* Add a subtle green glow */
   font-family: "Your Professional Font", sans-serif; /* Replace "Your Professional Font" with the actual font name */
 }
