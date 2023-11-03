@@ -3,8 +3,8 @@
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
     <div class="register-form-container" style="margin-top: 10vh"><br>
-        <div class="register-form-header">
-        <h1><center>Who are you?<center></h1><br>
+        <div class="login-form-header">
+        <h1><center>Who are you?<center></h1><br><br>
         </div>
         <?php if (!empty($data['err'])){?>
         <div class="error-msg">

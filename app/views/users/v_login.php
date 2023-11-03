@@ -23,7 +23,7 @@
             <span class="form-invalid"><?php echo $data['password_err'];?></span>
 
             <!-- Forgot password link -->
-            <div><br>
+            <div class ="form-footer-text"><br>
             <a href="<?php echo URLROOT; ?>/users/forgot_password">Forgot Password?</a>
             </div>
 

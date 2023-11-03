@@ -4,9 +4,9 @@
 
 
 
-    <div class="form-container">
-        <div class="form-header">
-        <center><h1>Reset Password</h1></center>
+    <div class="login-form-container">
+        <div class="login-form-header">
+        <center><h1>Reset Password</h1></center><br>
         <p><b>Please enter the email address associated with your registered account.</b></p>
         
         </div>

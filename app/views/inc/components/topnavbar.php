@@ -11,7 +11,7 @@
       <div class="item"><a href="<?php echo URLROOT ?>/Users/login">Login</a></div>
       <div class="item"><a href="<?php echo URLROOT ?>/Users/register">Sign Up</a></div>
       <div class="item"><a href="<?php echo URLROOT ?>/Item_Ads/itemAd">Post Ad</a></div>
-      <div class="item"><a href="#wishlist">Saved Ads</a></div>
+      <div class="item"><a href="<?php echo URLROOT ?>/Wishlist/index">Saved Ads</a></div>
       <div class="item user-dropdown">
         <div class="sidebr">
           <a href="#" >

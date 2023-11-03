@@ -20,6 +20,11 @@
     cursor: pointer;
     width: 60%;
     transition: -2s all;
+    background-image: linear-gradient(to right, #6bb787  0%, #2f5c3a 51%, #6bb787 100%);
+}
+
+.form-btn1{
+    background-position: right center;
 }
 
 .form-btn:hover {

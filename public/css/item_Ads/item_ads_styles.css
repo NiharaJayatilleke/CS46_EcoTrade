@@ -1,5 +1,5 @@
 /* AD INDEX PAGE */
-body, h1, h2, p {
+/* body, h1, h2, p {
     margin: 0;
     padding: 0;
 }
@@ -15,11 +15,11 @@ header {
     color: #fff;
     padding: 20px;
     text-align: center;
-}
+} */
 
 .user-greeting {
     font-size: 15px;
-    color: #fff;
+    color: #3f3f3f;
     margin: 30px 50px;
 }
 
