@@ -15,9 +15,9 @@
                 <div class="row">
                     <div class="column">
                         <img src="../public/img/wishlist/product1.png" alt="Product Image">
-                        <p>Bose Sport Earbuds - Wireless Earphones - Bluetooth In Ear Headphones for Workouts and Running, Triple Black</p>
+                        <p>Bose drone - Wireless drone - Bluetooth In Ear Headphones and RC, Triple Black</p>
                     </div>
-                    <div class="column">$2000</div>
+                    <div class="column">Rs. 20000</div>
                     <div class="column">Electronic</div>
                     <div class="column">
                         <button>VIEW AD</button>
@@ -29,9 +29,9 @@
                 <div class="row">
                     <div class="column">
                         <img src="../public/img/wishlist/product2.png" alt="Product Image">
-                        <p>Simple Mobile 5G LTE Galexy 12 Mini 512GB Gaming Phone</p>
+                        <p>Simple headphone 5G LTE Galexy 12</p>
                     </div>
-                    <div class="column">$2000</div>
+                    <div class="column">Rs. 10000</div>
                     <div class="column">Electronic</div>
                     <div class="column">
                         <button>VIEW AD</button>
@@ -43,9 +43,9 @@
                 <div class="row">
                     <div class="column">
                         <img src="../public/img/wishlist/product3.png" alt="Product Image">
-                        <p>Portable Wshing Machine, 11lbs capacity Model 18NMFIAM</p>
+                        <p>Air Conditioner, 24kwh capacity Model 18NMFIAM</p>
                     </div>
-                    <div class="column">$2000</div>
+                    <div class="column">Rs. 50000</div>
                     <div class="column">Electronic</div>
                     <div class="column">
                         <button>VIEW AD</button>

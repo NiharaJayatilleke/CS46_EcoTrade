@@ -4,7 +4,7 @@
 
     <div class="reg-form-container">
         <div class="login-form-header">
-        <center><h1>Sign Up</h1></center>
+        <center><h1>Sign Up</h1></center><br>
         <p><b>Welcome to EcoTrade! Please sign up to continue.</b></p>
         </div>
         <form action="<?php echo URLROOT?>/Users/pBuyerRegister/" method="POST">
