@@ -717,6 +717,58 @@
             // Load the profile view
             $this->view('users/profile/v_create', $data);
         }
+
+
+        // public function update_profile(){
+        
+        
+        //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //         // Form submission, update user info
+        //         $newUsername = trim($_POST['newUsername']);
+        //         $newContactNumber = trim($_POST['newContactNumber']);
+        
+        //         // Initialize an array to store validation errors
+        //         $errors = [];
+        
+        //         // Validate the new username
+        //         if (empty($newUsername)) {
+        //             $errors['newUsername'] = 'New username is required.';
+        //         }
+        
+        //         // Validate the new contact number
+        //         if (empty($newContactNumber)) {
+        //             $errors['newContactNumber'] = 'New contact number is required.';
+        //         }
+        
+        //         // Check if there are any validation errors
+        //         if (empty($errors)) {
+        //             // Call the updateUserInfo method in your model to update the user's information
+        //             if ($this->userModel->updateUserInfo($newUsername, $newContactNumber)) {
+        //                 // User information updated successfully
+        //                 flash('profile_update', 'Your profile has been updated successfully');
+        //                 redirect('users/create_profile');
+        //             } else {
+        //                 // Error occurred during update
+        //                 die('Something went wrong while updating the profile');
+        //             }
+        //         } else {
+        //             // There are validation errors, re-display the form with error messages
+        //             $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+        //             $data = [
+        //                 'user' => $user,
+        //                 'errors' => $errors
+        //             ];
+        //             $this->view('users/profile/v_create', $data);
+        //         }
+        //     } else {
+        //         // Display the update form
+        //         $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+        //         $data = [
+        //             'user' => $user
+        //         ];
+        //         $this->view('users/profile/v_create', $data);
+        //     }
+        // }
         
 
         public function update_profile(){
@@ -729,38 +781,7 @@
              // Load the profile view
             $this->view('users/profile/v_update');
         }
-
-//     Handle the form submission in your Users.php controller
-//     public function update_profile() {
-//     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//         // Get the updated data from the form
-//         $newUsername = $_POST['newUsername'];
-//         $newContactNumber = $_POST['newContactNumber'];
-
-//         // Perform validation on the data (e.g., check for empty values, data format, etc.)
-
-//         // Update the user's information in the database
-//         $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-//         $user->username = $newUsername;
-//         $user->number = $newContactNumber;
-
-//         // Save the updated user data to the database (you may use a method like updateUserDetails in your model)
-//         // Example: $this->userModel->updateUserDetails($user);
-
-//         // Redirect back to the user's profile page
-//         redirect('users/create_profile');
-//     } else {
-//         // Load the user profile page
-//         $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-//         $data = [
-//             'user' => $user
-//         ];
-//         $this->view('users/profile/v_create', $data);
-//     }
-// }
-
-
-        
+     
         public function delete_profile(){
 
             // Check if the user is logged in
@@ -794,6 +815,8 @@
     // Load the profile view
     $this->view('users/profile/v_notifications');
    }
-        
+      
+   
+   
     }
 ?>

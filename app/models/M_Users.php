@@ -62,7 +62,7 @@
             $this->db->bind(':user_id', $user_id);
             return $this->db->single();
         }
-        
+
         public function updateUserInfo($newUsername, $newContactNumber) {
             $this->db->query('UPDATE General_User SET username = :newUsername, number = :newContactNumber WHERE id = :user_id');
             $this->db->bind(':newUsername', $newUsername);
@@ -75,6 +75,7 @@
                 return false;
             }
         }
+        
         
     }
 
