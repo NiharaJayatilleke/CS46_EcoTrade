@@ -4,7 +4,7 @@
 <!-- <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_wishlist_styles.css"> -->
 
         <div class="wishlist">
-            <div class="wishlist-header">Wishlist</div>
+            <br><div class="wishlist-header">Wishlist</div><br>
             <div class="wishlist-table">
                 <div class="row header">
                     <div class="column">PRODUCTS</div>
