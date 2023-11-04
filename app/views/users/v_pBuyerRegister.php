@@ -54,7 +54,7 @@
             
             <input type="submit" value="Sign Up" class="form-btn">
 
-            <footer>Already have an account? <a href="<?php echo URLROOT; ?>/users/v_login">Login here</a></footer>
+            <footer>Already have an account? <a href="<?php echo URLROOT; ?>/users/login">Login here</a></footer>
 
 
         </form>
