@@ -18,8 +18,8 @@
                 </div>
                 <?php if($ad->seller_id == $_SESSION['user_id']): ?> 
                     <div class = "post-control-btns">
-                        <a href = "<?php echo URLROOT?>/Item_Ads/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                        <a href = "<?php echo URLROOT?>/Item_Ads/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn"><i class="fas fa-trash-alt"></i></button></a>
+                        <a href = "<?php echo URLROOT?>/ItemAds/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                        <a href = "<?php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn"><i class="fas fa-trash-alt"></i></button></a>
                     </div>
                 <?php endif; ?>
                 <div class = "ad-item-name"><h3><?php echo $ad->item_name ?><h3></div>
