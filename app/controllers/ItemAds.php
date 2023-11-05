@@ -1,5 +1,5 @@
 <?php
-    class Item_Ads extends Controller{
+    class ItemAds extends Controller{
         public function __construct(){
             $this->itemAdsModel =$this->model('M_Item_Ads');
         }
@@ -92,7 +92,7 @@
                     if($this->itemAdsModel->create($data)){
                         // create a flash message
                         flash('post_msg', 'Your ad has been posted successfully!');
-                        redirect('Item_Ads/index');
+                        redirect('ItemAds/index');
                     }else{
                         die('Something went wrong');
                     }
@@ -219,7 +219,7 @@
                     if($this->itemAdsModel->edit($data)){
                         // create a flash message
                         // flash('post_msg', 'Your ad has been updated successfully!');
-                        redirect('Item_Ads/index');
+                        redirect('ItemAds/index');
                     }else{
                         die('Something went wrong');
                     }
@@ -234,7 +234,7 @@
 
                 //check for owner as a security measure to prevent editing through url
                 if($ad->seller_id != $_SESSION['user_id']){
-                    redirect('Item_Ads/index');
+                    redirect('ItemAds/index');
                 }
 
 
@@ -270,7 +270,7 @@
 
             //check for owner to prevent deleting through url
             if($ad->seller_id != $_SESSION['user_id']){
-                redirect('Item_Ads/index');
+                redirect('ItemAds/index');
             }else{
                 $ad = $this->itemAdsModel->getAdById($adId);
                 $oldImage = PUBROOT.'/img/items/'.$ad->item_image;
@@ -278,7 +278,7 @@
 
                 if($this->itemAdsModel->delete($adId)){
                     flash('post_msg', 'Your ad has been deleted successfully!');
-                    redirect('Item_Ads/index');
+                    redirect('ItemAds/index');
                 }
                 else{
                     die('Something went wrong');
