@@ -65,6 +65,18 @@ img.searchicon{
 } 
 
 
+/* .enter-button {
+  position: absolute; 
+  bottom: 10px; 
+  right: 10px; 
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+} */
+
 .big-options {
   display: flex;
   justify-content: space-around;
@@ -79,73 +91,48 @@ img.searchicon{
   width: 45%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column;
   text-align: center;
   overflow: hidden;
-  /* Set a fixed height for the .option elements */
-  height: 400px; /* You can adjust the height as needed */
+  height: 300px; /* Remove the fixed height to allow content to determine height */
 }
 
 .left-side,
 .right-side {
-  
-  width: 100%; /* Each side takes up 50% of the .option width */
+  flex: 1;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.card-section {
-  width: 50%;
-  display: flex;
+
+.right-side {
+  background-color: #f2f2f2; /* Background color for the right side */
 }
 
-.card-image img{
-  
-  width: 100%; /* Ensure the image takes up the full width of the container */
-  height: 100%; /* Maintain the aspect ratio */
-  object-fit: cover; /* Prevent image cropping by covering the container */
-  filter: brightness(70%) blur(5px);
-}
-.option h1 {
-  position: absolute;
-  font-size: 32px; /* Adjust the font size */
-  margin-top: 60px;
-  margin-left: 100px;
-  text-align: center;
-  color: #448041;
-  /* color: #0A8707; */
-  text-shadow: 0 0 10px rgba(0, 128, 0, 0.2); /* Add a subtle green glow */
-  
-  font-family: "Your Professional Font", sans-serif; /* Replace "Your Professional Font" with the actual font name */
-  
+.left-side h1,
+.left-side h2 {
+  font-size: 32px;
+  color: #ffffff;
+  /* color: #448041; */
 }
 
-.option h2 {
-  position: absolute;
-  font-size: 32px; /* Adjust the font size */
-  margin-top: 40px;
-  margin-bottom: 20px;
-  margin-left: 150px;
-  flex-direction: column;
-  white-space: nowrap;
-  /* color: #497347; */
-  color: #448041; /* Set the text color to white */
-  text-shadow: 20 60 10px rgba(51, 52, 51, 0.2); /* Add a subtle green glow */
-  font-family: "Your Professional Font", sans-serif; /* Replace "Your Professional Font" with the actual font name */
+.left-side-A {
+  background-color:  #15a087; /* Yellow background for left side of A */
+  color: #ffffff;
 }
-.enter-button {
-  position: absolute; /* Position the button absolutely within the card-image container */
-  bottom: 10px; /* Adjust the vertical position as needed */
-  right: 10px; /* Adjust the horizontal position as needed */
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+
+.left-side-B {
+  background-color: #008000; /* Green background for left side of B */
+  color: #ffffff;
 }
+.right-side img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  filter: brightness(100%) ;
+}
+
 
 .greenish-image {
   position: relative; 
