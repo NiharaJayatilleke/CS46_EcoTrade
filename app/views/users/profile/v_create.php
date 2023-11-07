@@ -6,22 +6,18 @@
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="profile-image">
-                        <img src="../public/img/profile.png" alt class="d-block ui-w-80">
+                       <div class="image-container">
+                        <img src="../public/img/profile.png" alt class="d-block ui-w-80" id="profile-pic">
+                       </div>
                     </div>
-
-                    <div class="list-group list-group-flush account-settings-links">
+                    
                     <div class="media-body">
-                                    <!-- <label class="btn btn">
-                                        Upload new photo
-                                        <input type="file" class="account-settings-fileinput" placeholder="upload">
-                                    </label> &nbsp; -->
-                <div class="file-upload">
-                <label for="upload-photo"> </label>
-                <input type="file" id="upload-photo" name="photo" accept="image/*"></div>
+                            <div class="file-upload">
+                            <label for="upload-photo">Upload Photo</label>
+                            <input type="file" id="upload-photo" name="photo" accept="image/*"></div>
+                    </div>
+                    <div class="list-group list-group-flush account-settings-links">
 
-                                    <!-- <button type="button" class="btn btn-default md-btn-flat">Reset</button> -->
-                                    <!-- <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div> -->
-                        </div>
                         <div class="nav-elements">
                             <a class="list-group-item list-group-item-action active" href="<?php echo URLROOT; ?>/users/create_profile">General</a>
                             <a class="list-group-item list-group-item-action" href="<?php echo URLROOT; ?>/users/update_profile/">Change password</a>
@@ -99,10 +95,19 @@
              
             </div>
         </div>
-        <script>
+<script>
+
 function redirectToHome() {
     window.location.href = '<?php echo URLROOT; ?>/Pages/index';
 }
+
+let profilePic = document.getElementById("profile-pic");
+let inputFile = document.getElementById("upload-photo");
+
+inputFile.onchange = function(){
+    profilePic.src = URL.createObjectURL(inputFile.files[0])
+}
+
 </script>
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>
