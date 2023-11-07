@@ -1,6 +1,3 @@
-/* Reset some default browser styles */
-
-
 
 body, h1, h4, p {
     margin: 0;
@@ -22,16 +19,6 @@ body {
     padding: 20px;
 }
 
-/* Profile image styling */
-.profile-image img {
-    max-width: 100%;
-    border: 2px solid #fff;
-    border-radius: 50%;
-}
-
-.file-upload{
-
-}
 /* Navigation elements styling */
 .list-group {
     margin-top: 20px;
@@ -114,9 +101,6 @@ body {
     gap: 20px;
 }
 
-.col-md-9 {
-    /* Add col-md-9 styles here */
-}
 
 .as_name {
     font-size: 28px;
@@ -156,19 +140,12 @@ body {
     gap: 30px;
 }
 
-.profile-image img {
-    border-radius: 50%;
-    width: 10vw;
-    margin-top: 10px;
-}
-
 /* Navigation elements styles */
 .nav-elements {
-    margin-top: 30px;
+    margin-top: 2px;
     display: flex;
-    flex-direction: column;
-  
-    
+    flex-direction: column;  
+    margin-bottom: 20px; 
 }
 
 .nav-elements a:hover {
@@ -187,19 +164,6 @@ body {
     border-radius: 10px;
 }
 
-.media-body {
-    text-align: center;
-    margin-top: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border-radius: 50px; */
-}
-
-.form-control {
-    width: 50px;
-}
-
 .form-label {
     font-size: 16px;
 }
@@ -209,32 +173,45 @@ body {
     margin-top: 30px;
 }
 
-/* File input button styles */
-.account-settings-fileinput {
-    background-color: #1e262e;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
+.profile-image img {
+    border-radius: 50%;
+    width: 10vw;
+    /* margin-top: 10px; */
+    max-width: 100%;
+    border: 2px solid #fff;
 }
 
-.account-settings-fileinput::-webkit-file-upload-button {
-    font-size: 0;
-    color: transparent;
-}
 
-.account-settings-fileinput-container {
-    border: 2px solid #1e262e;
-    padding: 10px;
-    border-radius: 5px;
-    display: inline-block;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
+.profile-image {
     text-align: center;
-    line-height: 40px;
+}
+
+/* Container for the image to maintain its size */
+.image-container {
+    width: 150px; /* Set the desired width for the profile image */
+    height: 150px; /* Set the desired height for the profile image */
+    overflow: hidden;
+    border-radius: 50%; /* To make the image circular, you can adjust the border-radius as needed */
+    position: relative;
+}
+
+.image-container img {
+    width: 100%; /* Ensure the image takes the full width of its container */
+    height: 100%; /* Ensure the height takes the full height of its container */
+    object-fit: cover; /* Maintain the aspect ratio and center the image */
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%; /* Make the image a perfect circle */
+    border: 2px solid #fff;
+}
+
+.media-body {
+    text-align: center;
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border-radius: 50px; */
 }
 
 .media-body .file-upload {
@@ -255,11 +232,13 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 30px;
+    margin-top: 10px;
 }
 
-.media-body .file-upload label:before {
-    content: "Upload Photo";
+.media-body .file-upload input{
+    display: none;
 }
+
 .file-upload{
     border-radius: 10px;
 }
