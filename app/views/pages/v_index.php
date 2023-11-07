@@ -22,11 +22,11 @@
     <img src="../public/img/home.png" alt="">
 </div>
 
-<div class="big-options">
+<!-- <div class="big-options">
     <div class="option">
         <div class="left-side">
             <h1>Second Hand Market</h1>
-            <!-- <button class="enter-button">Enter Now</button> -->
+            
         </div>
         <div class="right-side">
             <a href="<?php echo URLROOT; ?>/Item_Ads/index">
@@ -37,19 +37,43 @@
         <div class="card-section">
         <div class="left-side">
             <h2>Recycle Selling</h2>
-             <!-- <button class="enter-button">Enter Now</button> -->
+           
         </div>
-</div>
+        </div>
         <div class="card-section">
         <div class="right-side"> 
             <a href="<?php echo URLROOT; ?>/users/login">
             <img src="../public/img/recyclemarket.webp" alt="Second Hand Market Image" width="500px">
             </a>
         </div>
-</div>
+        </div>
+      </div>
+    
+</div> -->
+
+<div class="big-options">
+    <div class="option">       
+            <div class="left-side left-side-A">
+            <a href="<?php echo URLROOT; ?>/ItemAds/index">
+                <h1>Second Hand Market Place</h1>
+            </div>
+        </a>
+        <div class="right-side">
+            <img src="../public/img/secondhandmarket.jpg" alt="Second Hand Market Image" width="500px">
+        </div>
     </div>
-    <!-- Repeat the same structure for the second option -->
+    <div class="option">     
+            <div class="left-side left-side-B">
+            <a href="<?php echo URLROOT; ?>/users/login">
+                <h2>Recycle Selling</h2>
+            </div>
+        </a>
+        <div class="right-side">
+            <img src="../public/img/recyclemarket.webp" alt="Recycle Selling Image" width="500px">
+        </div>
+    </div>
 </div>
+
 <div class="greenish-image">
     <img src="../public/img/bottomimg.jpg" alt="greenish">
     <div class="text-on-layer"><b>We're the Best<br> Second-Hand Marketplace for<br> Reuse and Recycle<b></div>
