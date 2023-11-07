@@ -51,8 +51,7 @@
     <!-- Repeat the same structure for the second option -->
 </div>
 <div class="greenish-image">
-    <img src="../public/img/green.png" alt="greenish">
+    <img src="../public/img/bottomimg.jpg" alt="greenish">
+    <div class="text-on-layer"><b>We're the Best<br> Second-Hand Marketplace for<br> Reuse and Recycle<b></div>
 </div>
-
-
 <?php require APPROOT.'/views/inc/footer.php'; ?>

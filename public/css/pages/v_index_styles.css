@@ -147,19 +147,44 @@ img.searchicon{
   cursor: pointer;
 }
 
+.greenish-image {
+  position: relative; 
+}
 
+.greenish-image::before {
+  content: ""; /* Create a pseudo-element for the black layer */
+  position: absolute; /* Position the black layer absolutely */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity (0.5 for 50% opacity) and color as needed */
+  z-index: 1; /* Ensure the black layer is above the image */
+}
 
 .greenish-image img {
   display: block;
   width: 100%;
   height: auto;
-  z-index: 2;
-  
-
-  
+  z-index: 2; /* Make sure the image is on top of the black layer */
 }
 
-footer {
+.text-on-layer {
+  position: absolute;
+  top: 50%; /* Adjust the vertical position as needed */
+  left: 50%; /* Adjust the horizontal position as needed */
+  transform: translate(-50%, -50%); /* Center the text within the parent */
+  color: white;
+  font-size: 40px; 
+  text-align: center;
+  white-space: pre-line; 
+  letter-spacing: 1px;
+  line-height: 1.5;
+  z-index: 3; 
+  font-family: 'Lato', sans-serif;
+}
+
+/* footer {
   position: absolute;
   top: 2537px;
   left: 84px;
@@ -169,31 +194,5 @@ footer {
   align-items: flex-start;
   justify-content: flex-start;
 }
-.social-media-icon1 {
-  border-radius: var(--br-481xl);
-}
-.newsletter,
-.social,
-.subscribe-parent {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-.social {
-  align-items: flex-start;
-  gap: var(--gap-5xs);
-}
-.newsletter,
-.subscribe-parent {
-  align-items: center;
-}
-.subscribe-parent {
-  gap: var(--gap-5xl);
-  font-size: var(--body-heavy-size);
-  color: var(--gray-scale-gray-400);
-}
-.newsletter {
-  background-color: var(--gray-scale-gray-900);
-  padding: var(--padding-41xl);
-  gap: var(--gap-55xl);
-}
+ */
+
