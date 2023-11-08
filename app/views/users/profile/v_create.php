@@ -5,33 +5,26 @@
         <!-- <div class="card overflow-hidden"> -->
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
-                    <!-- <div class="profile-image">
-                       <div class="image-container">
-                        <img src="../public/img/profile.png" alt class="d-block ui-w-80" id="profile-pic">
-                       </div>
-                    </div> -->
                     <div class="profile-image">
                         <div class="image-container">
                             <?php
                             if (!empty($data['user']->profile_image)) {
-                                echo '<img src="' . URLROOT . '/public/img/a/' . $data['user']->profile_image . '" alt="Profile Image" class="d-block ui-w-80" id="profile-pic">';
+                                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['user']->profile_image . '" alt="Profile Image" class="d-block ui-w-80" id="profile-pic">';
                             } else {
                                 echo '<img src="' . URLROOT . '/public/img/profile.png" alt="Default Profile Image" class="d-block ui-w-80" id="profile-pic">';
                             }
                             ?>
                         </div>
-                    </div>                 
+                    </div>  
+                    <form method="POST" action="<?php echo URLROOT; ?>/users/create_profile" enctype="multipart/form-data">               
                     <div class="media-body">
-                            <div class="file-upload">
-                            <label for="upload-photo">Upload Photo</label>
-                            <input type="file" id="upload-photo" name="photo" accept="image/*"></div>
-                            <!-- <div class="file-upload">
-                            <label for="upload-photo">Upload Photo</label>
+                        <div class="file-upload">
+                            <label for="upload-photo">Browse</label>
                             <input type="file" id="upload-photo" name="photo" accept="image/*">
-                            <button type="submit">Upload</button> 
-                            </div> -->
-
+                        </div>
                     </div>
+                    <button type="submit">Save Photo</button> 
+                    </form>
                     <div class="list-group list-group-flush account-settings-links">
 
                         <div class="nav-elements">
@@ -48,8 +41,8 @@
                     <div class="as_name">
                     <h4 class="font-weight-bold py-3 mb-4" style="color: Black;">
                 Account settings
-                </h4>
-                <hr>
+                    </h4>
+                    <hr>
                     </div>
                 
                 <div class="right-below">
