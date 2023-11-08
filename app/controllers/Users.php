@@ -718,8 +718,7 @@
                     // Check if there was no file error
                     if ($image['error'] === UPLOAD_ERR_OK) {
                         // Define the directory to store the images
-                        $uploadDir = '../public/img/a/';
-            
+                        $uploadDir = '../public/img/profilepic/';    
                         // Generate a unique filename
                         $user_id = $_SESSION['user_id'];
                         $filename = $user_id . '_' . time() . '_' . $image['name'];
@@ -738,8 +737,6 @@
                     }
                 }
             }
-            
-
             $user = $this->userModel->getUserDetails($_SESSION['user_id']);
             $data = [
                 'user' => $user
