@@ -17,13 +17,14 @@
                         </div>
                     </div>  
                     <form method="POST" action="<?php echo URLROOT; ?>/users/create_profile" enctype="multipart/form-data">               
-                    <div class="media-body">
-                        <div class="file-upload">
-                            <label for="upload-photo">Browse</label>
-                            <input type="file" id="upload-photo" name="photo" accept="image/*">
+                        <div class="media-body">
+                            <div class="file-upload">
+                                <label for="upload-photo">Browse Photo</label>
+                                <input type="file" id="upload-photo" name="photo" accept="image/*">
+                            </div>
+                            <button type="submit">Save</button> 
                         </div>
-                    </div>
-                    <button type="submit">Save Photo</button> 
+                        <!-- <button type="submit">Save Photo</button>  -->
                     </form>
                     <div class="list-group list-group-flush account-settings-links">
 
@@ -76,9 +77,9 @@
 
                                 <div class="profile-buttons">
                                     <button class="profile-updatebt">
-                                        Update
+                                        Edit
                                     </button>
-                                    <button class="profile-Canclebt">Cancle</button>
+                                    <!-- <button class="profile-Canclebt">Cancle</button> -->
                                 </div>
                             </div>
                         </div>
