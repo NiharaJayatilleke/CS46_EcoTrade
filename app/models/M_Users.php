@@ -63,6 +63,18 @@
             return $this->db->single();
         }
 
+        public function updateProfileImage($user_id, $filename) {
+            $this->db->query('UPDATE General_User SET profile_image = :filename WHERE id = :user_id');
+            $this->db->bind(':filename', $filename);
+            $this->db->bind(':user_id', $user_id);
+            
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
         //update username and contact number
         public function updateUserInfo($newUsername, $newContactNumber) {
             $this->db->query('UPDATE General_User SET username = :newUsername, number = :newContactNumber WHERE id = :user_id');
