@@ -5,16 +5,32 @@
         <!-- <div class="card overflow-hidden"> -->
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
-                    <div class="profile-image">
+                    <!-- <div class="profile-image">
                        <div class="image-container">
                         <img src="../public/img/profile.png" alt class="d-block ui-w-80" id="profile-pic">
                        </div>
-                    </div>
-                    
+                    </div> -->
+                    <div class="profile-image">
+                        <div class="image-container">
+                            <?php
+                            if (!empty($data['user']->profile_image)) {
+                                echo '<img src="' . URLROOT . '/public/img/a/' . $data['user']->profile_image . '" alt="Profile Image" class="d-block ui-w-80" id="profile-pic">';
+                            } else {
+                                echo '<img src="' . URLROOT . '/public/img/profile.png" alt="Default Profile Image" class="d-block ui-w-80" id="profile-pic">';
+                            }
+                            ?>
+                        </div>
+                    </div>                 
                     <div class="media-body">
                             <div class="file-upload">
                             <label for="upload-photo">Upload Photo</label>
                             <input type="file" id="upload-photo" name="photo" accept="image/*"></div>
+                            <!-- <div class="file-upload">
+                            <label for="upload-photo">Upload Photo</label>
+                            <input type="file" id="upload-photo" name="photo" accept="image/*">
+                            <button type="submit">Upload</button> 
+                            </div> -->
+
                     </div>
                     <div class="list-group list-group-flush account-settings-links">
 
