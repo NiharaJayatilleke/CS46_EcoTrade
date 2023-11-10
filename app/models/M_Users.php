@@ -55,14 +55,6 @@
             }
         }
 
-        //get user details
-
-        public function getUserDetails($user_id) {
-            $this->db->query('SELECT * FROM General_User WHERE id = :user_id');
-            $this->db->bind(':user_id', $user_id);
-            return $this->db->single();
-        }
-
         public function updateProfileImage($user_id, $filename) {
             $this->db->query('UPDATE General_User SET profile_image = :filename WHERE id = :user_id');
             $this->db->bind(':filename', $filename);
@@ -74,6 +66,16 @@
                 return false;
             }
         }
+
+        //get user details
+
+        public function getUserDetails($user_id) {
+            $this->db->query('SELECT * FROM General_User WHERE id = :user_id');
+            $this->db->bind(':user_id', $user_id);
+            return $this->db->single();
+        }
+
+
         
         //update username and contact number
         public function updateUserInfo($newUsername, $newContactNumber) {

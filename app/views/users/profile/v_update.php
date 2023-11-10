@@ -32,73 +32,71 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div id="change-password-section" class="col-md-9">
                     <div class="as_name">
                     <h4 class="font-weight-bold py-3 mb-4">
-                Password settings
-                </h4>
-                <hr>
+                    Password settings
+                    </h4>
+                    <hr>
                     </div>
                 
-                <div class="right-below">
-                    <div class="tab-content">
-                        <div class="tab-pane fade active show" id="account-general">
-                            <div class="card-body media align-items-center">
-                                
-                            </div>
-                            <!-- <hr class="border-light m-0"> -->
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label class="form-label">Username</label>
-                                    <input type="text" class="form-control" value="Anne">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" value="Nelle Maxwell">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">E-mail</label>
-                                    <input type="text" class="form-control" value="nmaxwell@mail.com">
-                                    <!-- <div class="alert alert-warning mt-3">
-                                        Your email is not confirmed. Please check your inbox.<br>
-                                        <a href="javascript:void(0)">Resend confirmation</a>
-                                    </div> -->
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Contact number</label>
-                                    <input type="text" class="form-control" value="0112532962">
-                                </div>
+                    <div class="right-below">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="account-general">
+                                <div class="card-body media align-items-center"> </div>
+                                <!-- <hr class="border-light m-0"> -->
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label class="form-label">Username</label>
+                                        <input type="text" class="form-control" value="Anne">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Name</label>
+                                        <input type="text" class="form-control" value="Nelle Maxwell">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">E-mail</label>
+                                        <input type="text" class="form-control" value="nmaxwell@mail.com">
+                                        <!-- <div class="alert alert-warning mt-3">
+                                            Your email is not confirmed. Please check your inbox.<br>
+                                            <a href="javascript:void(0)">Resend confirmation</a>
+                                        </div> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Contact number</label>
+                                        <input type="text" class="form-control" value="0112532962">
+                                    </div>
 
-                                <div class="profile-buttons">
-                                    <button class="profile-updatebt">
-                                        Update
-                                    </button>
-                                    <button class="profile-Canclebt">Cancle</button>
+                                    <div class="profile-buttons">
+                                        <button class="profile-updatebt">
+                                            Update
+                                        </button>
+                                        <button class="profile-Canclebt">Cancle</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="right-right">
-                        <div class="form-group">
-                            <label class="form-label">User-type</label>
-                            <input type="text" class="form-control" value="seconhandbuyer">
-                        </div>
+                        <div class="right-right">
+                            <div class="form-group">
+                                <label class="form-label">User-type</label>
+                                <input type="text" class="form-control" value="seconhandbuyer">
+                            </div>
                         <div>
-                       
-                        <!-- <button class="home-back" style="position:fixed; bottom:30px; right:30px ; padding:10px 30px;background-color:#7bd664;border:1px;border-color: #7bd664;">
-                                    Back to home
-                         </button> -->
-                         <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
-                         Back to Home
-                         </button>
-                       
-                        </div>
+                        
+                     <!-- <button class="home-back" style="position:fixed; bottom:30px; right:30px ; padding:10px 30px;background-color:#7bd664;border:1px;border-color: #7bd664;">
+                                        Back to home
+                     </button> -->
+                     <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
+                     Back to Home
+                     </button>
+                        
                     </div>
                 </div>
-             
             </div>
+             
         </div>
-        <script>
+    </div>
+<script>
 function redirectToHome() {
     window.location.href = '<?php echo URLROOT; ?>/Pages/index';
 }

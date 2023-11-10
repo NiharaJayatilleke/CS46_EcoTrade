@@ -746,102 +746,104 @@
         }
 
 
-        // public function update_profile(){
+        public function edit_profile(){
         
         
-        //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //         // Form submission, update user info
-        //         $newUsername = trim($_POST['newUsername']);
-        //         $newContactNumber = trim($_POST['newContactNumber']);
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Form submission, update user info
+                $newUsername = trim($_POST['newUsername']);
+                $newContactNumber = trim($_POST['newContactNumber']);
         
-        //         // Initialize an array to store validation errors
-        //         $errors = [];
+                // Initialize an array to store validation errors
+                $errors = [];
         
-        //         // Validate the new username
-        //         if (empty($newUsername)) {
-        //             $errors['newUsername'] = 'New username is required.';
-        //         }
+                // Validate the new username
+                if (empty($newUsername)) {
+                    $errors['newUsername'] = 'username cannot be empty.';
+                }
         
-        //         // Validate the new contact number
-        //         if (empty($newContactNumber)) {
-        //             $errors['newContactNumber'] = 'New contact number is required.';
-        //         }
+                // Validate the new contact number
+                if (empty($newContactNumber)) {
+                    $errors['newContactNumber'] = 'contact number cannot be empty.';
+                } elseif (!ctype_digit($newContactNumber) || strlen($newContactNumber) < 9) {
+                    $errors['newContactNumber'] = 'Contact number must have at least 10 digits.';   
+                }
         
-        //         // Check if there are any validation errors
-        //         if (empty($errors)) {
-        //             // Call the updateUserInfo method in your model to update the user's information
-        //             if ($this->userModel->updateUserInfo($newUsername, $newContactNumber)) {
-        //                 // User information updated successfully
-        //                 flash('profile_update', 'Your profile has been updated successfully');
-        //                 redirect('users/create_profile');
-        //             } else {
-        //                 // Error occurred during update
-        //                 die('Something went wrong while updating the profile');
-        //             }
-        //         } else {
-        //             // There are validation errors, re-display the form with error messages
-        //             $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-        //             $data = [
-        //                 'user' => $user,
-        //                 'errors' => $errors
-        //             ];
-        //             $this->view('users/profile/v_create', $data);
-        //         }
-        //     } else {
-        //         // Display the update form
-        //         $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-        //         $data = [
-        //             'user' => $user
-        //         ];
-        //         $this->view('users/profile/v_create', $data);
-        //     }
-        // }
-        
-
-        public function update_profile(){
-
-              // Check if the user is logged in
-              if (!$this->isLoggedIn()) {
-                // Redirect the user to the login page if they are not logged in
-                redirect('Users/login');
+                // Check if there are any validation errors
+                if (empty($errors)) {
+                    // Call the updateUserInfo method in your model to update the user's information
+                    if ($this->userModel->updateUserInfo($newUsername, $newContactNumber)) {
+                        // User information updated successfully
+                        flash('profile_edit', 'Your profile has been updated successfully');
+                        redirect('users/create_profile');
+                    } else {
+                        // Error occurred during update
+                        die('Something went wrong while updating the profile');
+                    }
+                } else {
+                    // There are validation errors, re-display the form with error messages
+                    $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+                    $data = [
+                        'user' => $user,
+                        'errors' => $errors
+                    ];
+                    $this->view('users/profile/v_create', $data);
+                }
+            } else {
+                // Display the update form
+                $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+                $data = [
+                    'user' => $user
+                ];
+                $this->view('users/profile/v_create', $data);
             }
-             // Load the profile view
-            $this->view('users/profile/v_update');
         }
-     
-        public function delete_profile(){
+        
 
-            // Check if the user is logged in
-            if (!$this->isLoggedIn()) {
-              // Redirect the user to the login page if they are not logged in
-              redirect('Users/login');
-          }
-           // Load the profile view
-          $this->view('users/profile/v_delete');
-      }
+        // public function update_profile(){
+
+        //       // Check if the user is logged in
+        //       if (!$this->isLoggedIn()) {
+        //         // Redirect the user to the login page if they are not logged in
+        //         redirect('Users/login');
+        //     }
+        //      // Load the profile view
+        //     $this->view('users/profile/v_update');
+        // }
+     
+//         public function delete_profile(){
+
+//             // Check if the user is logged in
+//             if (!$this->isLoggedIn()) {
+//               // Redirect the user to the login page if they are not logged in
+//               redirect('Users/login');
+//           }
+//            // Load the profile view
+//           $this->view('users/profile/v_delete');
+//       }
 
       
-      public function security_profile(){
+//       public function security_profile(){
 
-        // Check if the user is logged in
-        if (!$this->isLoggedIn()) {
-          // Redirect the user to the login page if they are not logged in
-          redirect('Users/login'); }
-       // Load the profile view
-        $this->view('users/profile/v_security');
-   }
+//         // Check if the user is logged in
+//         if (!$this->isLoggedIn()) {
+//           // Redirect the user to the login page if they are not logged in
+//           redirect('Users/login'); }
+//        // Load the profile view
+//         $this->view('users/profile/v_security');
+//    }
 
   
-  public function notifications_profile(){
+//   public function notifications_profile(){
 
-    // Check if the user is logged in
-    if (!$this->isLoggedIn()) {
-      // Redirect the user to the login page if they are not logged in
-      redirect('Users/login');
-   }
-    // Load the profile view
-    $this->view('users/profile/v_notifications');
-   }
+//     // Check if the user is logged in
+//     if (!$this->isLoggedIn()) {
+//       // Redirect the user to the login page if they are not logged in
+//       redirect('Users/login');
+//    }
+//     // Load the profile view
+//     $this->view('users/profile/v_notifications');
+//    }
       
    
    

@@ -266,3 +266,7 @@ form  button[type="submit"] {
 form button[type="submit"]:hover {
     background-color: #949c96; /* Change the hover background color as desired */
 }
+
+.form-invalid {
+    color: red;
+}

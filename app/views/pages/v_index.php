@@ -15,11 +15,11 @@
  <div class="search-container" >
   <input type="text" class="search-input" placeholder="Search in EcoTrade">
   <button class="search-button">
-    <img src="<?php echo URLROOT; ?>/public/img/search.png" alt="search" class="search-icon">
+    <img src="<?php echo URLROOT; ?>/public/img/index/search.png" alt="search" class="search-icon">
   </button>  
 </div>
 <div class="bg-img">
-    <img src="../public/img/home.png" alt="">
+    <img src="../public/img/index/home.png" alt="">
 </div>
 
 <!-- <div class="big-options">
@@ -59,7 +59,7 @@
             </div>
         </a>
         <div class="right-side">
-            <img src="../public/img/secondhandmarket.jpg" alt="Second Hand Market Image" width="500px">
+            <img src="../public/img/index/secondhandmarket.jpg" alt="Second Hand Market Image" width="500px">
         </div>
     </div>
     <div class="option">     
@@ -69,13 +69,13 @@
             </div>
         </a>
         <div class="right-side">
-            <img src="../public/img/recyclemarket.webp" alt="Recycle Selling Image" width="500px">
+            <img src="../public/img/index/recyclemarket.webp" alt="Recycle Selling Image" width="500px">
         </div>
     </div>
 </div>
 
 <div class="greenish-image">
-    <img src="../public/img/bottomimg.jpg" alt="greenish">
+    <img src="../public/img/index/bottomimg.jpg" alt="greenish">
     <div class="text-on-layer"><b>We're the Best<br> Second-Hand Marketplace for<br> Reuse and Recycle<b></div>
 </div>
 <?php require APPROOT.'/views/inc/footer.php'; ?>
