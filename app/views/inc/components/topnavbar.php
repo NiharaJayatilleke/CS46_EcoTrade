@@ -3,7 +3,7 @@
   <div class="items">
     <div class="item logo">
       <a href="">
-        <img src="../public/img/logo.png" alt="Logo" class="logo" width="80" height="30">
+        <img src="../public/img/index/logo.png" alt="Logo" class="logo" width="80" height="30">
       </a>
     </div>
     <div class="links">
@@ -23,7 +23,7 @@
         <div class="sidebr">
           <a href="#" >
             <?php if(isset($_SESSION['user_id'])){
-            echo '<img src="../public/img/user.png" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
+            echo '<img src="../public/img/index/user.png" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
           }
           ?>
           </a>
