@@ -57,6 +57,7 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+   
 }
 
 /* Profile buttons */
@@ -104,7 +105,23 @@ body {
 
 .as_name {
     font-size: 28px;
+    /* margin-top:50px; */
 }
+
+
+.as_name h4 {
+    position: fixed;
+    top: 60px;
+  
+}
+
+.as_name hr {
+    /* top: 90px; */
+    margin-top:90px;
+   
+    
+}
+
 
 .col-md-3 {
     width: 20vw;
@@ -112,6 +129,8 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
+
 
 .d-block {
     width: 20vw;
@@ -171,6 +190,7 @@ body {
 .form-group {
     width: 500px;
     margin-top: 30px;
+    
 }
 
 .profile-image img {
@@ -275,4 +295,9 @@ form button[type="submit"]:hover {
 
 .form-invalid {
     color: red;
+}
+
+.confirmpassword {
+    /* width: 100%; */
+    margin-top: 132px;
 }
