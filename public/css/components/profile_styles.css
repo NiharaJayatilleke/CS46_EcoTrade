@@ -247,7 +247,13 @@ body {
 .file-upload{
     border-radius: 10px;
 }
-
+.all-sections{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
 form  button[type="submit"] {
     background-color: #d12a2a; /* Change this color to your desired color */

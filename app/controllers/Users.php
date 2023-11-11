@@ -703,7 +703,7 @@
             }
         }
 
-        public function create_profile(){
+        public function profile(){
             // Check if the user is logged in
             if (!$this->isLoggedIn()) {
                 // Redirect the user to the login page if they are not logged in
@@ -775,7 +775,7 @@
                     if ($this->userModel->updateUserInfo($newUsername, $newContactNumber)) {
                         // User information updated successfully
                         flash('profile_edit', 'Your profile has been updated successfully');
-                        redirect('users/create_profile');
+                        redirect('users/profile');
                     } else {
                         // Error occurred during update
                         die('Something went wrong while updating the profile');
@@ -800,51 +800,7 @@
         }
         
 
-        // public function update_profile(){
 
-        //       // Check if the user is logged in
-        //       if (!$this->isLoggedIn()) {
-        //         // Redirect the user to the login page if they are not logged in
-        //         redirect('Users/login');
-        //     }
-        //      // Load the profile view
-        //     $this->view('users/profile/v_update');
-        // }
-     
-//         public function delete_profile(){
-
-//             // Check if the user is logged in
-//             if (!$this->isLoggedIn()) {
-//               // Redirect the user to the login page if they are not logged in
-//               redirect('Users/login');
-//           }
-//            // Load the profile view
-//           $this->view('users/profile/v_delete');
-//       }
-
-      
-//       public function security_profile(){
-
-//         // Check if the user is logged in
-//         if (!$this->isLoggedIn()) {
-//           // Redirect the user to the login page if they are not logged in
-//           redirect('Users/login'); }
-//        // Load the profile view
-//         $this->view('users/profile/v_security');
-//    }
-
-  
-//   public function notifications_profile(){
-
-//     // Check if the user is logged in
-//     if (!$this->isLoggedIn()) {
-//       // Redirect the user to the login page if they are not logged in
-//       redirect('Users/login');
-//    }
-//     // Load the profile view
-//     $this->view('users/profile/v_notifications');
-//    }
-      
    
    
     }
