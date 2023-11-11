@@ -7,7 +7,7 @@
    </div>
 <ul class="nav-links">
 <li>
-    <a href="<?php echo URLROOT ?>/Users/create_profile">
+    <a href="<?php echo URLROOT ?>/Users/profile">
     <i class='bx bxs-user-circle'></i>
         <span class="link_name">Profile</span>
 </a>
