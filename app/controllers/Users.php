@@ -54,6 +54,8 @@
                 //Validate number
                 if(empty($data['number'])) {
                     $data['number_err'] = 'Please enter a contact number';
+                }elseif (!ctype_digit($data['number']) || strlen($data['number']) < 9) {
+                    $data['number_err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
                 }
 
                 //validate password
@@ -169,6 +171,8 @@
                 //Validate number
                 if(empty($data['number'])) {
                     $data['number_err'] = 'Please enter a contact number';
+                }elseif (!ctype_digit($data['number']) || strlen($data['number']) < 9) {
+                    $data['number_err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
                 }
 
                 //validate password
@@ -284,6 +288,8 @@
                 //Validate number
                 if(empty($data['number'])) {
                     $data['number_err'] = 'Please enter a contact number';
+                }elseif (!ctype_digit($data['number']) || strlen($data['number']) < 9) {
+                    $data['number_err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
                 }
 
                 //validate password
@@ -399,6 +405,8 @@
                 //Validate number
                 if(empty($data['number'])) {
                     $data['number_err'] = 'Please enter a contact number';
+                }elseif (!ctype_digit($data['number']) || strlen($data['number']) < 9) {
+                    $data['number_err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
                 }
 
                 //validate password
@@ -513,6 +521,8 @@
                 //Validate number
                 if(empty($data['number'])) {
                     $data['number_err'] = 'Please enter a contact number';
+                }elseif (!ctype_digit($data['number']) || strlen($data['number']) < 9) {
+                    $data['number_err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
                 }
 
                 //validate password

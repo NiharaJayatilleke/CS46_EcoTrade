@@ -1,8 +1,7 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 
     <div class="container">
-        
-        <!-- <div class="card overflow-hidden"> -->
+       
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="profile-image">
@@ -24,16 +23,10 @@
                             </div>
                             <button type="submit">Save</button> 
                         </div>
-                        <!-- <button type="submit">Save Photo</button>  -->
                     </form>
                     <div class="list-group list-group-flush account-settings-links">
 
                         <div class="nav-elements">
-                            <!-- <a class="list-group-item list-group-item-action active" href="<?php echo URLROOT; ?>/users/profile">General</a>
-                            <a class="list-group-item list-group-item-action" href="<?php echo URLROOT; ?>/users/update_profile/">Change password</a>
-                            <a class="list-group-item list-group-item-action" href="<?php echo URLROOT; ?>/users/delete_profile/">delete profile</a>
-                            <a class="list-group-item list-group-item-action" href="<?php echo URLROOT; ?>/users/security_profile/">security</a>
-                            <a class="list-group-item list-group-item-action" href="<?php echo URLROOT; ?>/users/notifications_profile">Notifications</a> -->
                             <a class="list-group-item list-group-item-action active" onclick="loadContent('general')">General</a>
                             <a class="list-group-item list-group-item-action" onclick="loadContent('change-password')">Change password</a>
                             <a class="list-group-item list-group-item-action" onclick="loadContent('delete-profile')">Delete profile</a>
@@ -136,24 +129,12 @@
                                     <!-- <hr class="border-light m-0"> -->
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label class="form-label">Username</label>
-                                            <input type="text" class="form-control" value="Anne">
+                                            <label class="form-label">Old Password</label>
+                                            <input type="text" class="form-control" value="">
                                         </div>
                                         <div class="form-group">
-                                            <label class="form-label">Name</label>
-                                            <input type="text" class="form-control" value="Nelle Maxwell">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">E-mail</label>
-                                            <input type="text" class="form-control" value="nmaxwell@mail.com">
-                                            <!-- <div class="alert alert-warning mt-3">
-                                                Your email is not confirmed. Please check your inbox.<br>
-                                                <a href="javascript:void(0)">Resend confirmation</a>
-                                            </div> -->
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Contact number</label>
-                                            <input type="text" class="form-control" value="0112532962">
+                                            <label class="form-label">New Password</label>
+                                            <input type="text" class="form-control" value="">
                                         </div>
 
                                         <div class="profile-buttons">
@@ -167,14 +148,12 @@
                             </div>
                             <div class="right-right">
                                 <div class="form-group">
-                                    <label class="form-label">User-type</label>
-                                    <input type="text" class="form-control" value="seconhandbuyer">
+                                    <div class="confirmpassword">
+                                    <label class="form-label" >Confirm New Password</label>
+                                    <input type="text" class="form-control" value="">
+                                    </div>
                                 </div>
                             <div>
-                            
-                        <!-- <button class="home-back" style="position:fixed; bottom:30px; right:30px ; padding:10px 30px;background-color:#7bd664;border:1px;border-color: #7bd664;">
-                                            Back to home
-                        </button> -->
                         <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                         Back to Home
                         </button>
@@ -414,7 +393,11 @@ inputFile.onchange = function(){
     profilePic.src = URL.createObjectURL(inputFile.files[0])
 }
 
+// const initialMarginTop = document.querySelector('.as_name').offsetHeight;
 
+//         // Apply the initial margin-top value to the container
+//         document.getElementById('as-name-container').style.marginTop = initialMarginTop + 'px';
+//     });
         
 </script>
 
