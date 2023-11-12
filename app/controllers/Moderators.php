@@ -213,7 +213,7 @@
         }
 
         public function terms(){
-            $this->view('moderators/terms'); // Load the 'terms.php' view
+            $this->view('moderators/v_terms'); // Load the 'terms.php' view
         }
 
         public function edit($modId){
@@ -261,6 +261,8 @@
                 //Validate number
                 if(empty($data['number'])) {
                     $data['number_err'] = 'Please enter a contact number';
+                }elseif (!ctype_digit($data['number']) || strlen($data['number']) < 9) {
+                    $data['number_err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
                 }
 
                 //validate password

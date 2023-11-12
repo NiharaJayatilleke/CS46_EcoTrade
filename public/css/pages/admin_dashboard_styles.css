@@ -171,6 +171,7 @@ SIDEBAR */
 	/* left: 280px; */
     left: 130px;
 	transition: .3s ease;
+	/* z-index: auto;  */
 }
 #sidebar.hide ~ #content {
 	width: calc(100% - 60px);
@@ -416,6 +417,7 @@ SIDEBAR */
 	margin-top: 24px;
 	width: 100%;
 	color: var(--dark);
+	
 }
 #content main .table-data > div {
 	border-radius: 10px;
