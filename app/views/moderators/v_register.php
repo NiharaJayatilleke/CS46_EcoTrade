@@ -55,7 +55,7 @@
                 <label for="agree">
                     <input type="checkbox" name="agree" id="agree" value="yes"/> I agree
                     with the
-                    <a href="<?php echo URLROOT; ?>/Users/terms" title="term of services">terms of service</a>
+                    <a href="<?php echo URLROOT; ?>/moderators/terms" title="term of services">terms of service</a>
 
                 </label>
                 <!-- Display the agree_err message -->

@@ -665,7 +665,7 @@
         }
         
         public function terms(){
-            $this->view('users/terms'); // Load the 'terms.php' view
+            $this->view('users/v_terms'); // Load the 'terms.php' view
         }
 
         public function forgot_password(){
@@ -681,7 +681,7 @@
                     'email' => '',
                     'email_err' => ''
                 ];
-                $this->view('users/forgot_password', $data);
+                $this->view('users/v_forgot_password', $data);
             }
         }
 
