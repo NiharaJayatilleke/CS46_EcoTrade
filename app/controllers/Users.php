@@ -828,7 +828,8 @@
                 // Form submission, update user password
                 $oldPassword = trim($_POST['oldPassword']);
                 $newPassword = trim($_POST['newPassword']);
-                $confirmPassword = trim($_POST['confirmPassword']);
+                // $confirmPassword = trim($_POST['confirmPassword']);
+                $confirmPassword = isset($_POST['confirmPassword']) ? trim($_POST['confirmPassword']) : '';
         
                 // Initialize an array to store validation errors
                 $errors = [];
@@ -863,7 +864,8 @@
                     if ($this->userModel->updatePassword($_SESSION['user_id'], $oldPassword, $newPassword)) {
                         flash('update_password', 'New password updated successfully');
                         //echo 'Reached here'; 
-                        redirect('users/profile');
+                        // redirect('users/profile');
+                        redirect('users/updatePassword#change-password-section');
                     } else {
                         // Error occurred during password update
                         die('Something went wrong while updating the password');
