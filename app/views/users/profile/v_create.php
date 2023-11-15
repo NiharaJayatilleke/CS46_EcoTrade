@@ -111,12 +111,13 @@
                                 <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                                 Back to Home
                                 </button>                      
-                        </div>
+                            </div>
                       </div>
                     </div>
                     </div>
 
-                    <!-- <div id="change-password-section" class="col-md-9">
+
+                    <div id="change-password-section" class="col-md-9">
                         <div class="as_name">
                         <h4 class="font-weight-bold py-3 mb-4">
                         Password settings
@@ -134,20 +135,20 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label class="form-label">Old Password</label>
-                                            <input type="text" name="oldPassword" class="form-control" value="">
-                                            <?php if (!empty($errors['oldPassword'])) : ?>
-                                                <div class="text-danger"><?php echo $errors['oldPassword']; ?></div>
+                                            <input type="password" name="oldPassword" class="form-control" value="">
+                                            <?php if (!empty($data['errors']['oldPassword'])) : ?>
+                                                <div class="form-invalid"><?php echo $data['errors']['oldPassword']; ?></div>
                                             <?php endif; ?>
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label">New Password</label>
-                                            <input type="text" name="newPassword" class="form-control" value="">
-                                            <?php if (!empty($errors['newPassword'])) : ?>
-                                                <div class="text-danger"><?php echo $errors['newPassword']; ?></div>
+                                            <input type="password" name="newPassword" class="form-control" value="">
+                                            <?php if (!empty($data['errors']['newPassword'])) : ?>
+                                                <div class="form-invalid"><?php echo $data['errors']['newPassword']; ?></div>
                                             <?php endif; ?>
                                         </div>
 
-                                        <div class="profile-buttons">
+                                        <div class="profile-buttons" id="profile-buttons">
                                             <button class="profile-updatebt">
                                                 Update
                                             </button>
@@ -155,18 +156,26 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            <!-- </form> -->
                             <?php flash('update_password'); ?>
                             </div>
-                            <form id="changePasswordForm" method="POST" action="<?php echo URLROOT; ?>/users/updatePassword">
+                            <!-- <form id="changePasswordForm" method="POST" action="<?php echo URLROOT; ?>/users/updatePassword"> -->
                             <div class="right-right">
+                                <!-- <div class="form-group">
+                                            <label class="form-label">New Password</label>
+                                            <input type="password" name="newPassword" class="form-control" value="">
+                                            <?php if (!empty($data['errors']['newPassword'])) : ?>
+                                                <div class="form-invalid"><?php echo $data['errors']['newPassword']; ?></div>
+                                            <?php endif; ?>
+                                        </div> -->
                                 <div class="form-group">
                                     <div class="confirmpassword">
                                     <label class="form-label" >Confirm New Password</label>
-                                    <?php if (!empty($errors['confirmPassword'])) : ?>
-                                        <div class="text-danger"><?php echo $errors['confirmPassword']; ?></div>
+                                    <input type="password" name="confirmPassword"class="form-control" value="">
+                                    <?php if (!empty($data['errors']['confirmPassword'])) : ?>
+                                        <div class="form-invalid"><?php echo $data['errors']['confirmPassword']; ?></div>
                                     <?php endif; ?>
-                                    <input type="text" name="confirmPassword"class="form-control" value="">
+
                                     </div>
                                 </div>
                                 <div>
@@ -177,10 +186,11 @@
                             </div>
                             </form>
                         </div>
-                    </div> -->
+                    </div>
 
 
-                    <div id="change-password-section" class="col-md-9">
+
+                    <!-- <div id="change-password-section" class="col-md-9">
                         <div class="as_name">
                         <h4 class="font-weight-bold py-3 mb-4">
                         Password settings
@@ -199,9 +209,6 @@
                                         <div class="form-group">
                                             <label class="form-label">Old Password</label>
                                             <input type="password" name="oldPassword" class="form-control" value="">
-                                            <!-- <?php if (!empty($errors['oldPassword'])) : ?>
-                                                <div class="form-invalid"><?php echo $errors['oldPassword']; ?></div>
-                                            <?php endif; ?> -->
                                             <?php if (!empty($data['errors']['oldPassword'])) : ?>
                                                 <div class="form-invalid"><?php echo $data['errors']['oldPassword']; ?></div>
                                             <?php endif; ?>
@@ -209,32 +216,24 @@
                                         <div class="form-group">
                                             <label class="form-label">New Password</label>
                                             <input type="password" name="newPassword" class="form-control" value="">
-                                            <!-- <?php if (!empty($errors['newPassword'])) : ?>
-                                                <div class="form-invalid"><?php echo $errors['newPassword']; ?></div>
-                                            <?php endif; ?> -->
                                             <?php if (!empty($data['errors']['newPassword'])) : ?>
                                                 <div class="form-invalid"><?php echo $data['errors']['newPassword']; ?></div>
                                             <?php endif; ?>
                                         </div>
                                         <div class="form-group">
-                                            <!-- <div class="confirmpassword"> -->
                                             <label class="form-label" >Confirm New Password</label>
                                             <input type="password" name="confirmPassword"class="form-control" value="">
-                                            <!-- <?php if (!empty($errors['confirmPassword'])) : ?>
-                                                <div class="form-invalid"><?php echo $errors['confirmPassword']; ?></div>
-                                            <?php endif; ?>    -->
                                             <?php if (!empty($data['errors']['confirmPassword'])) : ?>
                                                 <div class="form-invalid"><?php echo $data['errors']['confirmPassword']; ?></div>
                                             <?php endif; ?>
                                
-                                            <!-- </div> -->
                                         </div>
 
                                         <div class="profile-buttons" id="profile-buttons">
                                             <button class="profile-updatebt">
                                                 Update
                                             </button>
-                                            <!-- <button class="profile-Canclebt">Cancle</button> -->
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +248,7 @@
                                 </div>
                             </div>                     
                         </div>
-                    </div>
+                    </div> -->
 
 
 
