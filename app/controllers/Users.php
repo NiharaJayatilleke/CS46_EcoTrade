@@ -757,9 +757,14 @@
 
 
         public function edit_profile(){
-        
+
+            if (!$this->isLoggedIn()) {
+                // Redirect the user to the login page if they are not logged in
+                redirect('Users/login');
+            }
         
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                
                 // Form submission, update user info
                 $newUsername = trim($_POST['newUsername']);
                 $newContactNumber = trim($_POST['newContactNumber']);
@@ -807,11 +812,80 @@
                 ];
                 $this->view('users/profile/v_create', $data);
             }
-        }
+        } 
+
+
+        public function updatePassword() {
+            if (!$this->isLoggedIn()) {
+                // Redirect the user to the login page if they are not logged in
+                redirect('Users/login');
+            }
         
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+                // Form submission, update user password
+                $oldPassword = trim($_POST['oldPassword']);
+                $newPassword = trim($_POST['newPassword']);
+                $confirmPassword = trim($_POST['confirmPassword']);
+        
+                // Initialize an array to store validation errors
+                $errors = [];
+        
+                // Validate the old password
+                if (empty($oldPassword)) {
+                    $errors['oldPassword'] = 'Please enter your old password.';
+                } elseif (!$this->userModel->verifyOldPassword($_SESSION['user_id'], $oldPassword)) {
+                    $errors['oldPassword'] = 'Incorrect old password.';
+                }
+        
+                // Validate the new password and confirm password
+                if (empty($newPassword)) {
+                    $errors['newPassword'] = 'New password cannot be empty.';
+                } elseif (strlen($newPassword) < 6) {
+                    $errors['newPassword'] = 'New password must be at least 6 characters.';
+                }
+                
+                if (empty($confirmPassword)) {
+                    $errors['confirmPassword'] = 'Please confirm your new password.';
+                } elseif ($newPassword !== $confirmPassword) {
+                    $errors['confirmPassword'] = 'New password and confirm password do not match.';
+                }
 
 
-   
-   
+                // error_log('Form submitted successfully');
+
+                // Check if there are any validation errors
+                if (empty($errors)) {
+                    // Call the updatePassword method in your model to update the user's password
+                    // echo 'Before if condition';
+                    if ($this->userModel->updatePassword($_SESSION['user_id'], $oldPassword, $newPassword)) {
+                        flash('update_password', 'New password updated successfully');
+                        //echo 'Reached here'; 
+                        redirect('users/profile');
+                    } else {
+                        // Error occurred during password update
+                        die('Something went wrong while updating the password');
+                    }
+                } else {
+                    // There are validation errors, re-display the form with error messages
+                    $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+                    $data = [
+                        'user' => $user,
+                        'errors' => $errors
+                    ];
+                    $this->view('users/profile/v_create', $data);
+                }
+            } else {
+                // Display the password update form
+                $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+                $data = [
+                    'user' => $user
+                ];
+                $this->view('users/profile/v_create', $data);
+            }
+        }     
+
     }
 ?>
