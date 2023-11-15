@@ -77,7 +77,7 @@
 
 
         
-        //update username and contact number
+        // update username and contact number
         public function updateUserInfo($newUsername, $newContactNumber) {
             $this->db->query('UPDATE General_User SET username = :newUsername, number = :newContactNumber WHERE id = :user_id');
             $this->db->bind(':newUsername', $newUsername);
@@ -91,7 +91,44 @@
             }
         }
         
+       public function updatePassword($user_id, $oldPassword, $newPassword) {
+            // If new password is provided, verify the old password first
+            if (!empty($newPassword) && !empty($oldPassword)) {
+                $user_id = $_SESSION['user_id'];
+                if (!$this->verifyOldPassword($user_id, $oldPassword)) {
+                    return false; // Old password doesn't match
+                }
+            }
         
+            // Build the query based on whether the new password is provided
+            if (!empty($newPassword)) {
+                $this->db->query('UPDATE General_User SET password = :newPassword WHERE id = :user_id');
+                $this->db->bind(':newPassword', password_hash($newPassword, PASSWORD_DEFAULT));
+            }
+        
+            //$this->db->bind(':user_id', $_SESSION['user_id']); // You need to have the user's ID available
+            $this->db->bind(':user_id', $user_id); 
+
+            // return $this->db->execute();
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public function verifyOldPassword($user_id, $old_password) {
+            $this->db->query('SELECT password FROM General_User WHERE id = :user_id');
+            $this->db->bind(':user_id', $user_id);
+        
+            $row = $this->db->single();
+        
+            $hashed_password = $row->password;
+         
+            return password_verify($old_password, $hashed_password);
+        }
+        
+                
     }
 
 ?>
