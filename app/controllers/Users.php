@@ -815,7 +815,7 @@
         } 
 
 
-        public function updatePassword() {
+        public function update() {
             if (!$this->isLoggedIn()) {
                 // Redirect the user to the login page if they are not logged in
                 redirect('Users/login');
@@ -865,10 +865,12 @@
                         flash('update_password', 'New password updated successfully');
                         //echo 'Reached here'; 
                         // redirect('users/profile');
-                        redirect('users/updatePassword#change-password-section');
+                        redirect('users/profile');
+                        
                     } else {
                         // Error occurred during password update
                         die('Something went wrong while updating the password');
+                        
                     }
                 } else {
                     // There are validation errors, re-display the form with error messages
