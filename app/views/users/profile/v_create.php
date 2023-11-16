@@ -242,28 +242,39 @@
                         </div>
                     
                         <div class="right-below">
-                            <div class="tab-content">
+                            <div class="delete-container">
                                 <div class="tab-pane fade active show" id="account-deletion">
                                     <div class="card-body media align-items-center"> </div>
-                                    <div class="card-body">
+                                    <div class="card-delete-body">
                                     <p>You'll permanently lose your:</p>
                                         <ul>
                                             <li>Profile</li>
                                             <li>Saved ads</li>
                                             <li>Messages</li>
                                         </ul>
-                                        <form id="delete-profile-form" method="POST" action="<?php echo URLROOT; ?>/users/deleteProfile">
+                                        <form id="delete-profile-form" method="POST" action="<?php echo URLROOT; ?>/users/delete#delete-profile">
                                             <div class="form-group">
+                                                <div class="deletelabel">
                                                 <label for="password">Enter Password</label>
                                                 <input type="password" id="password" name="password" class="form-control" required>
+                                                 </div>
                                             </div>
                                             <div class="profile-buttons">
-                                            <button class="profile-updatebt" >
+                                            <button class="profile-deletebt" >
                                                 Delete Profile
                                             </button>
                                             </div>
                                         </form>
-
+                                        <?php if (!empty(flash('password_error'))) : ?>
+                                            <div class="alert alert-danger mt-3">
+                                                <?php echo flash('password_error'); ?>
+                                            </div>
+                                        <?php endif; ?>
+                                        <?php if (!empty(flash('account_deletion_error'))) : ?>
+                                            <div class="alert alert-danger mt-3">
+                                                <?php echo flash('account_deletion_error'); ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
