@@ -75,7 +75,7 @@
                                             </div>
                                             <div class="profile-buttons">
                                                 <button class="profile-updatebt">
-                                                    Edit
+                                                    Edit profile
                                                 </button>
                                                 <!-- <button class="profile-Canclebt">Cancle</button> -->
                                             </div>
@@ -137,7 +137,7 @@
 
                                         <div class="profile-buttons" id="profile-buttons">
                                             <button class="profile-updatebt">
-                                                Update
+                                                Update password
                                             </button>
                                             <!-- <button class="profile-Canclebt">Cancle</button> -->
                                         </div>
@@ -245,53 +245,32 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade active show" id="account-deletion">
                                     <div class="card-body media align-items-center"> </div>
-                                    <!-- <hr class="border-light m-0"> -->
                                     <div class="card-body">
-                                        <div class="form-group">
-                                            <label class="form-label">Username</label>
-                                            <input type="text" class="form-control" value="Anne">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Name</label>
-                                            <input type="text" class="form-control" value="Nelle Maxwell">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">E-mail</label>
-                                            <input type="text" class="form-control" value="nmaxwell@mail.com">
-                                            <!-- <div class="alert alert-warning mt-3">
-                                                Your email is not confirmed. Please check your inbox.<br>
-                                                <a href="javascript:void(0)">Resend confirmation</a>
-                                            </div> -->
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Contact number</label>
-                                            <input type="text" class="form-control" value="0112532962">
-                                        </div>
-
-                                        <div class="profile-buttons">
-                                            <button class="profile-updatebt">
-                                                Update
+                                    <p>You'll permanently lose your:</p>
+                                        <ul>
+                                            <li>Profile</li>
+                                            <li>Saved ads</li>
+                                            <li>Messages</li>
+                                        </ul>
+                                        <form id="delete-profile-form" method="POST" action="<?php echo URLROOT; ?>/users/deleteProfile">
+                                            <div class="form-group">
+                                                <label for="password">Enter Password</label>
+                                                <input type="password" id="password" name="password" class="form-control" required>
+                                            </div>
+                                            <div class="profile-buttons">
+                                            <button class="profile-updatebt" >
+                                                Delete Profile
                                             </button>
-                                            <button class="profile-Canclebt">Cancle</button>
-                                        </div>
+                                            </div>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
-                            <div class="right-right">
-                                <div class="form-group">
-                                    <label class="form-label">User-type</label>
-                                    <input type="text" class="form-control" value="seconhandbuyer">
-                                </div>
                             <div>
-                            
-                        <!-- <button class="home-back" style="position:fixed; bottom:30px; right:30px ; padding:10px 30px;background-color:#7bd664;border:1px;border-color: #7bd664;">
-                                            Back to home
-                        </button> -->
                         <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                         Back to Home
                         </button>
-                            
-                        </div>
                     </div>
                     </div>
                     </div>
