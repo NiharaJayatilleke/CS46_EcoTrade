@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="all-sections">
-                    <div id="general-section" class="col-md-9">
+                    <div id="general" class="col-md-9">
                         <div class="as_name">
                             <h4 class="font-weight-bold py-3 mb-4" style="color: Black;">
                             Account settings
@@ -51,7 +51,7 @@
                                     <!-- <hr class="border-light m-0"> -->
                                     <div class="card-body">
                                         <form method="POST" action="<?php echo URLROOT; ?>/users/edit_profile">
-                                            
+                                 
                                             <div class="form-group">
                                                 <label class="form-label">Username</label>
                                                 <input type="text" class="form-control" name="newUsername" value="<?php echo $data['user']->username; ?>">
@@ -59,29 +59,20 @@
                                                 <div class="form-invalid"><?php echo $data['errors']['newUsername']; ?></div>
                                             <?php endif; ?>
                                             </div>
-                                            <!-- <div class="form-group">
-                                                <label class="form-label">Name</label>
-                                                <input type="text" class="form-control" value="Nelle Maxwell">
-                                            </div> -->
                                             <div class="form-group">
                                                 <label class="form-label">E-mail</label>
-                                                <!-- <input type="text" class="form-control" value="nmaxwell@mail.com"> -->
                                                 <input type="text" class="form-control" value="<?php echo $data['user']->email; ?>"disabled>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Contact number</label>
-                                                <!-- <input type="text" class="form-control" value="0112532962"> -->
                                                 <input type="text" class="form-control" name="newContactNumber" value="<?php echo $data['user']->number; ?>">
                                                     
                                                 <?php if (!empty($data['errors']['newContactNumber'])) : ?>
                                                     <div class="form-invalid"><?php echo $data['errors']['newContactNumber']; ?></div>
                                                 <?php endif; ?>
-                                                <!-- <input type="text" class="form-control" value="<?php echo $_SESSION['user_number']; ?>"> -->
+                                                
 
                                             </div>
-                                            <!-- display error messages when fields are empty -->
-
-
                                             <div class="profile-buttons">
                                                 <button class="profile-updatebt">
                                                     Edit
@@ -103,11 +94,7 @@
                                     <input type="text" class="form-control" value="<?php echo $data['user']->userType; ?>"disabled>
                                 </div>
                             <div>
-                            
-                            
-                                <!-- <button class="home-back" style="position:fixed; bottom:30px; right:30px ; padding:10px 30px;background-color:#7bd664;border:1px;border-color: #7bd664;">
-                                            Back to home
-                                </button> -->
+
                                 <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                                 Back to Home
                                 </button>                      
@@ -117,7 +104,7 @@
                     </div>
 
 
-                    <div id="change-password-section" class="col-md-9">
+                    <div id="change-password" class="col-md-9">
                         <div class="as_name">
                         <h4 class="font-weight-bold py-3 mb-4">
                         Password settings
@@ -128,7 +115,7 @@
                         <div class="right-below">
                         
                             <div class="tab-content">
-                            <form id="changePasswordForm" method="POST" action="<?php echo URLROOT; ?>/users/updatePassword">
+                            <form id="changePasswordForm" method="POST" action="<?php echo URLROOT; ?>/users/update#change-password">
                                 <div class="tab-pane fade active show" id="account-change-password">
                                     <div class="card-body media align-items-center"> </div>
                                   
@@ -152,22 +139,15 @@
                                             <button class="profile-updatebt">
                                                 Update
                                             </button>
-                                            <button class="profile-Canclebt">Cancle</button>
+                                            <!-- <button class="profile-Canclebt">Cancle</button> -->
                                         </div>
                                     </div>
                                 </div>
-                            <!-- </form> -->
+                            <div style="margin-top: 30px;">
                             <?php flash('update_password'); ?>
                             </div>
-                            <!-- <form id="changePasswordForm" method="POST" action="<?php echo URLROOT; ?>/users/updatePassword"> -->
+                            </div>
                             <div class="right-right">
-                                <!-- <div class="form-group">
-                                            <label class="form-label">New Password</label>
-                                            <input type="password" name="newPassword" class="form-control" value="">
-                                            <?php if (!empty($data['errors']['newPassword'])) : ?>
-                                                <div class="form-invalid"><?php echo $data['errors']['newPassword']; ?></div>
-                                            <?php endif; ?>
-                                        </div> -->
                                 <div class="form-group">
                                     <div class="confirmpassword">
                                     <label class="form-label" >Confirm New Password</label>
@@ -175,22 +155,22 @@
                                     <?php if (!empty($data['errors']['confirmPassword'])) : ?>
                                         <div class="form-invalid"><?php echo $data['errors']['confirmPassword']; ?></div>
                                     <?php endif; ?>
-
                                     </div>
                                 </div>
                                 <div>
+                                </form>
                                 <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                                 Back to Home
                                 </button>
                                 </div>
                             </div>
-                            </form>
+                            
                         </div>
                     </div>
 
 
 
-                    <!-- <div id="change-password-section" class="col-md-9">
+                    <!-- <div id="change-password" class="col-md-9">
                         <div class="as_name">
                         <h4 class="font-weight-bold py-3 mb-4">
                         Password settings
@@ -253,7 +233,7 @@
 
 
                 
-                    <div id="delete-profile-section" class="col-md-9">
+                    <div id="delete-profile" class="col-md-9">
                         <div class="as_name">
                         <h4 class="font-weight-bold py-3 mb-4">
                         Account deletion
@@ -317,7 +297,7 @@
                     </div>
 
 
-                    <div id="security-section" class="col-md-9">
+                    <div id="security" class="col-md-9">
                         <div class="as_name">
                         <h4 class="font-weight-bold py-3 mb-4">
                         Account security
@@ -381,7 +361,7 @@
                     </div>
 
 
-                    <div id="notifications-section" class="col-md-9">
+                    <div id="notifications" class="col-md-9">
                         <div class="as_name">
                         <h4 class="font-weight-bold py-3 mb-4">
                         Notifications 
@@ -451,34 +431,26 @@
 <script>
 
 function loadContent(section) {
-    // console.log('Loading section:', section);
 
     // Hide all sections
-    document.getElementById('general-section').style.display = 'none';
-    document.getElementById('change-password-section').style.display = 'none';
-    document.getElementById('delete-profile-section').style.display = 'none';
-    document.getElementById('security-section').style.display = 'none';
-    document.getElementById('notifications-section').style.display = 'none';
+    document.getElementById('general').style.display = 'none';
+    document.getElementById('change-password').style.display = 'none';
+    document.getElementById('delete-profile').style.display = 'none';
+    document.getElementById('security').style.display = 'none';
+    document.getElementById('notifications').style.display = 'none';
 
     // Show the selected section
-    document.getElementById(section + '-section').style.display = 'block';
+    document.getElementById(section ).style.display = 'block';
 
-    // Update the currentSection variable
-    // currentSection = section;
-
-    window.location.hash = '#' + section + '-section';
+    window.location.hash = '#' + section ;
 }
-
- // Initial load (show default section)
-// loadContent('general');
-
 
 // Function to handle initial section based on URL hash
 function handleInitialSection() {
     var hash = window.location.hash;
     if (hash) {
         // Extract the section name from the hash
-        var section = hash.substring(1, hash.length - 8); // Remove '-section' suffix
+        var section = hash.substring(1); // Remove '-section' suffix
         loadContent(section);
         currentSection = section;
     }else {
@@ -496,13 +468,12 @@ window.onload = handleInitialSection;
 
 
 // Function to redirect to the current active section
-function redirectToCurrentSection() {
-    window.location.href = '<?php echo URLROOT; ?>/users/profile#' + currentSection + '-section';
+function redirectToCurrentSection() { 
+    window.location.href = '<?php echo URLROOT; ?>/users/profile#' + currentSection ;
 }
 
 // Event listener for the "Update" or "Edit" buttons
 document.getElementById('profile-buttons').addEventListener('click', redirectToCurrentSection);
-
 
 
 function redirectToHome() {
@@ -515,7 +486,8 @@ let inputFile = document.getElementById("upload-photo");
 inputFile.onchange = function(){
     profilePic.src = URL.createObjectURL(inputFile.files[0])
 }
-        
+     
+
 </script>
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>
