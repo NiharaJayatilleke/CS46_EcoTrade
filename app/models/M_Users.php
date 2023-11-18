@@ -127,6 +127,13 @@
          
             return password_verify($old_password, $hashed_password);
         }
+
+        public function deleteUser($userId) {
+            $this->db->query('DELETE FROM General_User WHERE id = :user_id');
+            $this->db->bind(':user_id', $userId);
+    
+            return $this->db->execute();
+        }
         
                 
     }
