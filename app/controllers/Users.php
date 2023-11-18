@@ -893,34 +893,45 @@
 
 
         public function delete() {
+            if (!$this->isLoggedIn()) {
+                // Redirect the user to the login page if they are not logged in
+                redirect('Users/login');
+            }
+
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Sanitize and validate the password input
                 $password = trim($_POST['password']);
 
-                // Fetch the user's data from the database based on the current user's session or however you manage sessions
-                $user = $this->userModel->getUserById($_SESSION['user_id']);
+                // Get the user details
+                $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+            
+                    // Verify the entered password
+                if ($this->userModel->verifyOldPassword($_SESSION['user_id'], $password)) {
 
-                // Verify the entered password against the hashed password stored in the database
-                if (password_verify($password, $user->password)) {
-                    // Passwords match, delete the user's account
-                    if ($this->userModel->deleteUser($user->id)) {
-                        // Account deletion successful
-                        redirect('users/logout'); // Redirect to logout or any other page
+                    // Password is correct, delete the user
+                    if ($this->userModel->deleteUser($_SESSION['user_id'])) {
+                        // Logout the user and redirect to the login page
+                        $this->logout();
+                        header('Location: ' . URLROOT . '/users/register');
+                        exit();
                     } else {
-                        // Error handling if account deletion fails
-                        // You can set an error message and redirect to an error page or show the message on the same page
-                        flash('account_deletion_error', 'Error deleting the account.');
-                        redirect('users/profile#delete-profile');
+                        flash('account_deletion_error', 'Error deleting the profile. Please try again.');
+                        header('Location: ' . URLROOT . '/users/profile#delete-profile');
+                        exit();
                     }
                 } else {
-                    // Passwords do not match
+                    // Password is incorrect, show error message
                     flash('password_error', 'Incorrect password. Please try again.');
-                    redirect('users/profile#delete-profile');
+                    header('Location: ' . URLROOT . '/users/profile#delete-profile');
+                    exit();
                 }
-            } else {
-                // Handle non-POST requests as needed
+                } else {
+                // Redirect to the profile page if accessed without form submission
+                header('Location: ' . URLROOT . '/users/profile');
+                exit();
+                }
+                    
             }
-        }
 
 
     }

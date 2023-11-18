@@ -252,11 +252,11 @@
                                             <li>Saved ads</li>
                                             <li>Messages</li>
                                         </ul>
-                                        <form id="delete-profile-form" method="POST" action="<?php echo URLROOT; ?>/users/delete#delete-profile">
+                                        <form id="delete-profile-form" method="POST" action="<?php echo URLROOT; ?>/users/delete">
                                             <div class="form-group">
                                                 <div class="deletelabel">
                                                 <label for="password">Enter Password</label>
-                                                <input type="password" id="password" name="password" class="form-control" required>
+                                                <input type="password" id="password-delete" name="password" class="form-control" required>
                                                  </div>
                                             </div>
                                             <div class="profile-buttons">
@@ -266,14 +266,10 @@
                                             </div>
                                         </form>
                                         <?php if (!empty(flash('password_error'))) : ?>
-                                            <div class="alert alert-danger mt-3">
                                                 <?php echo flash('password_error'); ?>
-                                            </div>
                                         <?php endif; ?>
                                         <?php if (!empty(flash('account_deletion_error'))) : ?>
-                                            <div class="alert alert-danger mt-3">
                                                 <?php echo flash('account_deletion_error'); ?>
-                                            </div>
                                         <?php endif; ?>
                                     </div>
                                 </div>
