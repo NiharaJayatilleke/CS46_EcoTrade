@@ -1,4 +1,5 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
+<body id="profile-body">
 
     <div class="container">
        
@@ -93,12 +94,11 @@
                                     <label class="form-label">User-type</label>
                                     <input type="text" class="form-control" value="<?php echo $data['user']->userType; ?>"disabled>
                                 </div>
-                            <div>
-
-                                <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
-                                Back to Home
-                                </button>                      
-                            </div>
+                                <div>
+                                    <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
+                                    Back to Home
+                                    </button>                      
+                                </div>
                       </div>
                     </div>
                     </div>
@@ -246,13 +246,13 @@
                                 <div class="tab-pane fade active show" id="account-deletion">
                                     <div class="card-body media align-items-center"> </div>
                                     <div class="card-delete-body">
-                                    <p>You'll permanently lose your:</p>
+                                    <p id="deletesentence">You'll permanently lose your:</p>
                                         <ul>
                                             <li>Profile</li>
                                             <li>Saved ads</li>
                                             <li>Messages</li>
                                         </ul>
-                                        <form id="delete-profile-form" method="POST" action="<?php echo URLROOT; ?>/users/delete">
+                                        <form id="delete-profile-form" method="POST" action="<?php echo URLROOT; ?>/users/delete#delete-profile">
                                             <div class="form-group">
                                                 <div class="deletelabel">
                                                 <label for="password">Enter Password</label>
@@ -455,5 +455,6 @@ inputFile.onchange = function(){
      
 
 </script>
+</body>
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>
