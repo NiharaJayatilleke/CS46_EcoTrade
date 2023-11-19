@@ -5,10 +5,14 @@ body, h1, h4, p {
 }
 
 /* Basic styling for the body */
-body {
+/* body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2 !important;
-}
+} */
+/* #profile-body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2 !important;
+} */
 
 .container {
     background-color: #fff ;
@@ -16,66 +20,14 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     margin: 20px;
-    padding: 20px;
+    padding: 20px ;
+    
 }
 
 /* Navigation elements styling */
 .list-group {
     margin-top: 20px;
     width:100%
-}
-
-.list-group-item {
-    border: none;
-    border-radius: 0;
-    color: #333;
-    border-radius: 30px;
-}
-
-.list-group-item.active {
-    background-color: #7bd664;
-    color: #fff;
-}
-.list-group-item.active {
-    background-color: #7bd664;
-    color: #000000;
-}
-
-/* Account settings section */
-.as_name h4 {
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-/* Form input styling */
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-   
-}
-
-/* Profile buttons */
-.profile-buttons {
-    margin-top: 20px;
-}
-
-.profile-updatebt, .profile-Canclebt {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.profile-updatebt {
-    background-color: #7bd664;
-    color: #000000;
-    margin-right: 10px;
 }
 
 .profile-Canclebt {
@@ -90,7 +42,7 @@ body {
     right: 30px;
     padding: 10px 30px;
     background-color: #7bd664;
-    border: 1px solid #7bd664;
+    border: 1px solid #ffffff !important;
     color: #000000;
     border-radius: 5px;
     cursor: pointer;
@@ -142,16 +94,22 @@ body {
     padding: 10px 30px;
     background-color: #7bd664;
     border-color: #7bd664;
+    /* border-color: #d6d3d3; */
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .profile-Canclebt {
     padding: 10px 30px;
     background-color: #7bd664;
     border-color: #7bd664;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .profile-buttons {
-    margin-top: 30px;
+    margin-top: 40px;
+  
 }
 
 .right-below {
@@ -165,6 +123,7 @@ body {
     display: flex;
     flex-direction: column;  
     margin-bottom: 20px; 
+    cursor: pointer;
 }
 
 .nav-elements a:hover {
@@ -299,7 +258,7 @@ form button[type="submit"]:hover {
 
 .confirmpassword {
     
-    margin-top: 132px;
+    margin-top: 122px;
 }
 
 
@@ -322,8 +281,8 @@ form button[type="submit"]:hover {
     margin-top: 20px;
 }
 
-p {
-    font-size: 18px;
+#deletesentence  {
+    font-size: 18px ;
     margin-bottom: 10px;
 }
 
@@ -352,6 +311,7 @@ ul li {
 
 .profile-buttons {
     margin-top: 20px;
+    
 }
 
 .profile-deletebt {
