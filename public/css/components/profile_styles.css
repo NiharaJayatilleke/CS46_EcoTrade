@@ -281,6 +281,12 @@ form button[type="submit"]:hover {
     margin-top: 20px;
 }
 
+/* #Deleteaccount{
+    font-size: 20px ;
+    margin-bottom: 30px;
+    font-weight: bold;
+} */
+
 #deletesentence  {
     font-size: 18px ;
     margin-bottom: 10px;

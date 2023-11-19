@@ -246,6 +246,7 @@
                                 <div class="tab-pane fade active show" id="account-deletion">
                                     <div class="card-body media align-items-center"> </div>
                                     <div class="card-delete-body">
+                                    <!-- <h4 id="Deleteaccount">Delete Account?</h4> -->
                                     <p id="deletesentence">You'll permanently lose your:</p>
                                         <ul>
                                             <li>Profile</li>
