@@ -28,7 +28,7 @@ img.searchicon{
 }  */
 
 
-.search-container {
+.search-container-index {
   display: flex;
   align-items: center;
   margin-top: 270px; 
@@ -46,7 +46,7 @@ img.searchicon{
   font-size: 16px !important;
 }
 
-.search-button {
+.search-button-index {
   background: #117e3b; 
   border: none;
   border-radius: 0;
@@ -59,11 +59,11 @@ img.searchicon{
   
 }
 
-.search-button:hover {
+.search-button-index:hover {
   background:#729e7d;
 }
 
-.search-icon {
+.search-icon-index {
   height: 16px;
   position: relative;
   top: 2px;
