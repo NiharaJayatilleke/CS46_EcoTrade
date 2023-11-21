@@ -64,7 +64,7 @@
     </div>
     <div class="option">     
             <div class="left-side left-side-B">
-            <a href="<?php echo URLROOT; ?>/users/login">
+            <a href="<?php echo URLROOT; ?>/Recyclehome/index">
                 <h2>Recycle Selling</h2>
             </div>
         </a>
