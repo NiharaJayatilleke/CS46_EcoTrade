@@ -4,28 +4,30 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
 }
-button{
+
+button {
     margin-bottom: 1%;
     cursor: pointer;
     color: #ffffff;
-    background-color:#0D4929;
+    background-color: #0D4929;
     border-radius: 30%;
     /* border: #ffffff; */
 }
-.b1{
+
+.b1 {
     margin-bottom: 1%;
     cursor: pointer;
     color: #ffffff;
-    background-color:#006EDB;
+    background-color: #006EDB;
 }
 
-
-h1{
+h1 {
     color: #fcfcfc;
     margin-top: 2%;
     margin-bottom: 1%;
 }
-.p1{
+
+.p1 {
     color: #fcfcfc;
     margin-top: 0%;
     margin-bottom: 1%;
@@ -41,7 +43,11 @@ h1{
     height: 210px;
 }
 
-.photo-left,
+.photo-left{
+    position: absolute;
+    top: 32%;
+    transform: translateY(-50%);
+}
 .photo-right {
     position: absolute;
     top: 32%;
@@ -50,7 +56,6 @@ h1{
 
 .photo-left {
     left: 10px;
-    
 }
 
 .photo-right {
@@ -65,7 +70,8 @@ h1{
 
 .content-center {
     text-align: center;
-    width: 605px
+    max-width: 605px; /* Set a maximum width for larger screens */
+    width: 100%; /* Make it take full width on smaller screens */
 }
 
 .welcome-text {
@@ -75,20 +81,20 @@ h1{
 
 .search-bar {
     margin-bottom: 5px;
-    width:600px
-    
+    max-width: 600px; /* Set a maximum width for larger screens */
+    width: 100%; /* Make it take full width on smaller screens */
 }
 
 .search-bar input {
     padding: 2px;
-    width: 450px;
+    width: 100%; /* Make it take full width on smaller screens */
 }
 
 .find-ads {
     margin-bottom: 20px;
 }
 
-.cont2{
+.cont2 {
     outline: 1px solid red;
 }
 
@@ -108,14 +114,48 @@ h1{
     margin: 10px;
 }
 
-.head1{
+.head1 {
     text-align: center;
 }
 
-.p2{
+.p2 {
     text-align: center;
 }
 
-.photo{
+.photo {
     cursor: pointer;
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 600px) {
+    .main-content {
+        height: auto; /* Adjust height for smaller screens */
+    }
+
+
+    .photo-left{
+        position: relative; /* Adjust position for smaller screens */
+        top: auto;
+        transform: none;
+        margin-bottom: 10px;
+    }
+    .photo-right {
+        position: relative; /* Adjust position for smaller screens */
+        top: auto;
+        transform: none;
+        margin-bottom: 10px;
+    }
+
+    .photos img {
+        width: 100%; /* Make images take full width for smaller screens */
+        height: auto;
+    }
+
+    .content-center {
+        max-width: 100%; /* Adjust max-width for smaller screens */
+    }
+
+    .search-bar {
+        max-width: 100%; /* Adjust max-width for smaller screens */
+    }
 }

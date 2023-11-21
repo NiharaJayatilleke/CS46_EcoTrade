@@ -54,7 +54,7 @@
 <div class="big-options">
     <div class="option">       
             <div class="left-side left-side-A">
-            <a href="<?php echo URLROOT; ?>/ItemAds/index">
+            <a href="<?php echo URLROOT; ?>/Sechome/index">
                 <h1>Second Hand Market Place</h1>
             </div>
         </a>
