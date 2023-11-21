@@ -39,7 +39,7 @@ img.searchicon{
 .search-input-index {
   flex: 1;
   padding: 10px; 
-  border: 1px solid #ccc!important;
+  border: 1px solid #faf5f5!important;
   /* border: none!important; */
   border-radius: 0!important;
   /* border-radius: 4px!important; */
@@ -49,6 +49,7 @@ img.searchicon{
 .search-button {
   background: #117e3b; 
   border: none;
+  border-radius: 0;
   /* border-radius: 4px; */
   padding: 10px 15px;
   align-items: center;

@@ -14,7 +14,7 @@
 
  <div class="search-container" >
   <input type="text" class="search-input-index" placeholder="Search in EcoTrade" style="margin-right:0;padding:7px 10px;">
-  <button class="search-button" style="margin-left:0;margin-top:5.5px">
+  <button class="search-button" style="margin-left:0;margin-top:9px">
       <img src="<?php echo URLROOT; ?>/public/img/index/search.png" alt="search" class="search-icon">
       <div class="bg-img" style="padding-left:0">
           <img src="../public/img/index/home.png" alt="">
