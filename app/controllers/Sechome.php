@@ -1,5 +1,5 @@
 <?php
-    class Wishlist extends Controller{
+    class Sechome extends Controller{
         public function __construct(){
             $this->pagesModel =$this->model('M_Pages');
         }

@@ -2,12 +2,12 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
-<!-- <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_wishlist_styles.css"> -->
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_sechome.css">
 
 
         <div class="main-content">
             <div class="photo-left">
-                <img src="/public/img/sechome/girl1.png" alt="Photo 1">
+                <img src="../public/img/sechome/girl1.png" alt="Photo 1">
             </div>
             <div class="content-center">
                 <div class="welcome-text">
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="photo-right">
-                <img src="/public/img/sechome/girl1.png" alt="Photo 2">
+                <img src="../public/img/sechome/girl2.png" alt="Photo 2">
             </div>
         </div>
 
@@ -36,29 +36,29 @@
         
             <div class="category-photos">
                 <div class="photo" onclick="location.href='navBar.html';">
-                    <img src="/public/img/sechome/p1.png" alt="Category 1">
+                    <img src="../public/img/sechome/p1.png" alt="Category 1">
                     <p>Motors</p>
                 </div>
                 <div class="photo">
-                    <img src="/public/img/sechome/p2.png" alt="Category 2">
+                    <img src="../public/img/sechome/p2.png" alt="Category 2">
                     <p>Mobiles And Electronics</p>
                 </div>
                 <div class="photo">
-                    <img src="/public/img/sechome/p3.png" alt="Category 3">
+                    <img src="../public/img/sechome/p3.png" alt="Category 3">
                     <p>Others</p>
                 </div>
             </div>
             <div class="category-photos">
                 <div class="photo">
-                    <img src="/public/img/sechome/p4.png" alt="Category 1">
+                    <img src="../public/img/sechome/p4.png" alt="Category 1">
                     <p>Hobby, Sport & Kids</p>
                 </div>
                 <div class="photo">
-                    <img src="/public/img/sechome/p5.png" alt="Category 2">
+                    <img src="../public/img/sechome/p5.png" alt="Category 2">
                     <p>Fashion & Beauty</p>
                 </div>
                 <div class="photo">
-                    <img src="/public/img/sechome/p6.png" alt="Category 3">
+                    <img src="../public/img/sechome/p6.png" alt="Category 3">
                     <p>Home and Garden</p>
                 </div>
             </div>
