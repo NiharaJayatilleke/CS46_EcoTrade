@@ -12,10 +12,10 @@
   <img src="<?php echo URLROOT; ?>/public/img/search.png" alt="search" class="searchicon" width="20px" height="20px">
 </div> -->
 
- <div class="search-container" >
+ <div class="search-container-index" >
   <input type="text" class="search-input-index" placeholder="Search in EcoTrade" style="margin-right:0;padding:7px 10px;">
-  <button class="search-button" style="margin-left:0;margin-top:5.5px">
-      <img src="<?php echo URLROOT; ?>/public/img/index/search.png" alt="search" class="search-icon">
+  <button class="search-button-index" style="margin-left:0;margin-top:9px">
+      <img src="<?php echo URLROOT; ?>/public/img/index/search.png" alt="search" class="search-icon-index">
       <div class="bg-img" style="padding-left:0">
           <img src="../public/img/index/home.png" alt="">
       </div>
