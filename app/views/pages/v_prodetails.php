@@ -60,7 +60,7 @@
         <div class="b1">
             <img class="i1" src="../public/img/prodetails/profile.png" alt="profile">
             <div class="b1_2">
-                <p>Mahesh</p>
+                <p>Mahesh Bandara</p>
             </div>
         </div>
         <div class="b1">
