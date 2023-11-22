@@ -3,16 +3,11 @@
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_help.css">
 
-<div class="div">
-  <img
-    loading="lazy"
-    srcset="..."
-    class="img"
-  />
+
   <div class="div-2">
     <img
       loading="lazy"
-      srcset="..."
+      src="../public/img/help/Rectangle16.png"
       class="img-2"
     />
     <div class="div-3">HELP CENTER</div>
@@ -61,11 +56,7 @@
                     <div class="div-21">+1-202-555-0126</div>
                     <div class="div-22">
                       <div class="div-23">Call now</div>
-                      <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/e405c5c4-3eec-4d6c-ba68-5536bbc36f33?"
-                        class="img-5"
-                      />
+                   
                     </div>
                   </div>
                 </div>
@@ -94,11 +85,8 @@
                     <div class="div-30">Support@clicon.com</div>
                     <div class="div-31">
                       <div class="div-32">Contact Us</div>
-                      <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/f988d529-0c90-483c-8eeb-fb2e0a064cf2?"
-                        class="img-7"
-                      />
+                     
+                     
                     </div>
                   </div>
                 </div>
