@@ -11,7 +11,7 @@
             </div>
             <div class="content-center">
                 <div class="welcome-text">
-                    <h1>Welcome to EcoTrade</h1>
+                    <h1 class="sechomewelcome">Welcome to EcoTrade</h1>
                     <p class="p1">The new marketplace for modern Sri Lankans</p>
                     <button class="b1">All of Sri Lanka</button>
                 </div>

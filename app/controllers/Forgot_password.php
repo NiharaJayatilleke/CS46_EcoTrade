@@ -2,9 +2,9 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-require_once '../models/ResetPassword.php';
-require_once '../helpers/session_helper.php';
-require_once '../models/User.php';
+require_once '../models/M_Forgot_password.php';
+require_once '../helpers/Session_Helper.php';
+require_once '../models/M_Users.php';
 //Require PHP Mailer
 require_once '../PHPMailer/src/PHPMailer.php';
 require_once '../PHPMailer/src/Exception.php';
@@ -16,38 +16,38 @@ class ResetPasswords{
     private $mail;
     
     public function __construct(){
-        $this->resetModel = new ResetPassword;
-        $this->userModel = new User;
+        $this->resetModel = new M_Forgot_password;
+        $this->userModel = new M_Users;
         //Setup PHPMailer
-        $this->mail = new PHPMailer();
-        $this->mail->isSMTP();
-        $this->mail->Host = 'smtp.mailtrap.io';
-        $this->mail->SMTPAuth = true;
-        $this->mail->Port = 2525;
-        $this->mail->Username = '8181a0ad24174c';
-        $this->mail->Password = '2105c85b93bab0';
+        $phpmailer = new PHPMailer();
+        $phpmailer->isSMTP();
+        $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+        $phpmailer->SMTPAuth = true;
+        $phpmailer->Port = 2525;
+        $phpmailer->Username = '1006762a04bd51';
+        $phpmailer->Password = '0fb4b6124d8537';
     }
 
     public function sendEmail(){
         //Sanitize POST data
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        $usersEmail = trim($_POST['usersEmail']);
+        $usersEmail = trim($_POST['email']);
 
         if(empty($usersEmail)){
             flash("reset", "Please input email");
-            redirect("../reset-password.php");
+            redirect("../views/v_forgot_password.php");
         }
 
         if(!filter_var($usersEmail, FILTER_VALIDATE_EMAIL)){
             flash("reset", "Invalid email");
-            redirect("../reset-password.php");
+            redirect("../views/v_forgot_password.php");
         }
         //Will be used to query the user from the database
         $selector = bin2hex(random_bytes(8));
         //Will be used for confirmation once the database entry has been matched
         $token = random_bytes(32);
         //URL will vary depending on where the website is being hosted from
-        $url = 'http://localhost/login-system/create-new-password.php?selector='.$selector.'&validator='.bin2hex($token);
+        $url = 'http://localhost/ecotrade/users/create-new-password.php?selector='.$selector.'&validator='.bin2hex($token);
         //Expiration date will last for half an hour
         $expires = date("U") + 1800;
         if(!$this->resetModel->deleteEmail($usersEmail)){
@@ -72,7 +72,7 @@ class ResetPasswords{
         $this->mail->send();
 
         flash("reset", "Check your email", 'form-message form-message-green');
-        redirect("../reset-password.php");
+        redirect("../views/v_forgot_password.php");
     }
 
     public function resetPassword(){
