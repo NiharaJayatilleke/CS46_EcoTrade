@@ -17,12 +17,12 @@
                 </div>
                 <div class="search-bar">
                     <input type="text" placeholder="Search...">
-                    <button>Search</button>
+                    <button class="sechbutton">Search</button>
                 </div>
                 <div class="find-ads">
                     <p class="p1">Find the best deals on Vehicles, Property, Electronics and more. Choose from a wide range of high quality ADs from
                         trusted sellers.</p>
-                    <button>Explore Ads</button>
+                    <button class="sechbutton">Explore Ads</button>
                 </div>
             </div>
             <div class="photo-right">
