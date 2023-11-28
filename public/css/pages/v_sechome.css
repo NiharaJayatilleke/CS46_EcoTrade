@@ -5,7 +5,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-button {
+.sechbutton{
     margin-bottom: 1%;
     cursor: pointer;
     color: #ffffff;
@@ -88,10 +88,12 @@ button {
 .search-bar input {
     padding: 2px;
     width: 100%; /* Make it take full width on smaller screens */
+    
 }
 
 .find-ads {
     margin-bottom: 20px;
+    
 }
 
 .cont2 {
