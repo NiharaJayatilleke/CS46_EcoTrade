@@ -90,7 +90,7 @@ header {
 .post-control-btns {
     display: flex;
     align-items: right;
-    margin-left: 280px;
+    margin-left: 250px;
 }
 
 .ad-edit-btn,
@@ -101,13 +101,28 @@ header {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 5px; 
+    align-self: right;
+}
+
+.ad-report-btn {
+    background-color: #b29393;
+    color: #fff;
+    padding: 5px 7px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px; 
     align-self: right;
 }
 
 .ad-edit-btn:hover,
 .ad-delete-btn:hover {
     background-color: #444;
+}
+
+.ad-report-btn:hover {
+    background-color: #af7b7b;
 }
 
 .ad-contact-btn, .ad-offer-btn, .ad-bid-btn {
