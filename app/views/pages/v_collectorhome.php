@@ -12,7 +12,7 @@
     </div>
     <div class="cont">
         <div class="pro" id="pro1">
-            <img src="img1.png" alt="Product img" class="img">
+            <img src="../public/img/prodetails/productDetails2.jpeg" alt="Product img" class="img">
             <div class="imgdesc" id="name">
                 <h2>
                     <!-- Product type and product brand should be extracted from backend -->
