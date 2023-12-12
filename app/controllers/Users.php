@@ -933,10 +933,10 @@
                     
         }
 
-        // Reset password view page
-        public function reset_password(){
-            $this->view('users/v_Reset_newpassword'); // Load the 'v_Reset_newpassword.php' view
-        }
+        // // Reset password view page
+        // public function reset_password(){
+        //     $this->view('users/v_Reset_newpassword'); // Load the 'v_Reset_newpassword.php' view
+        // }
 
 
     }

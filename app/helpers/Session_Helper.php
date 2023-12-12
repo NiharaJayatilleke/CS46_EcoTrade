@@ -22,6 +22,12 @@
                 echo '<div class="'.$class.'" id="'.$class.'">'.$_SESSION[$name].'</div>';
                 unset($_SESSION[$name]);
                 unset($_SESSION[$name.'_class']);
+
+                echo '<script>
+                        setTimeout(function() {
+                            document.getElementById("'.$class.'").style.display = "none";
+                        }, 5000); // 5000 milliseconds = 5 seconds
+                      </script>';
             }
         }
     }
