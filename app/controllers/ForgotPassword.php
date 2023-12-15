@@ -46,11 +46,16 @@ class forgotPassword extends Controller{
         }
 
         // Check if 'selector' and 'validator' are set in $_POST
-        $selector = isset($_POST['selector']) ? $_POST['selector'] : '';
-        $validator = isset($_POST['validator']) ? $_POST['validator'] : '';
+        $selector = bin2hex(random_bytes(8));
+        $validator = bin2hex(random_bytes(32));
 
-        $url = "localhost/ecotrade/forgotpassword/reset_password";
-        // $url = "localhost/ecotrade/users/reset_password?selector=.$selector.&validator=.$validator";
+        $expires = time() + 3600;
+
+        // $this->forgotPasswordModel->storePasswordResetToken($usersEmail, $selector, $token, $expires);
+        $this->forgotPasswordModel->storePasswordResetToken($usersEmail, $selector, $validator, $expires);
+
+        // $url = "localhost/ecotrade/forgotpassword/reset_password?selector=$selector&validator=$token";
+        $url = "localhost/ecotrade/forgotpassword/reset_password?selector=$selector&validator=$validator";
 
         $this->mail->isSMTP();
         $this->mail->Host = 'smtp.gmail.com';
@@ -78,20 +83,35 @@ class forgotPassword extends Controller{
     }
 
     public function reset_password() {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // $tokenData = null;
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['selector']) && isset($_GET['validator'])) {
+            $selector = $_GET['selector'];
+            $validator = $_GET['validator'];
+    
+            $tokenData = $this->forgotPasswordModel->getPasswordResetToken($selector);
+    
+            // if ($tokenData && hash_equals($tokenData['pwdresetToken'], $validator)) {
+            if ($tokenData && hash_equals($tokenData->pwdresetToken, $validator)) {
+                // Token is valid, display the password reset form
+                $this->view('users/v_Reset_newpassword', ['selector' => $selector]);
+            } else {
+                // Token is invalid or not found
+                die('Invalid token');
+            }
+        } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $selector = null;
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
     
             // Validate the new password and confirm password
+            $selector = isset($_POST['selector']) ? trim($_POST['selector']) : '';
             $newPassword = isset($_POST['newPassword']) ? trim($_POST['newPassword']) : '';
-            
             $confirmPassword = isset($_POST['confirmPassword']) ? trim($_POST['confirmPassword']) : '';
     
             // Initialize an array to store validation errors
             $errors = [];
     
             if (empty($newPassword)) {
-                
                 $errors['newPassword'] = 'New password cannot be empty.';
             } elseif (strlen($newPassword) < 6) {
                 $errors['newPassword'] = 'New password must be at least 6 characters.';
@@ -107,7 +127,6 @@ class forgotPassword extends Controller{
             if (empty($errors)) {
                 // Call the updatePassword method in your model to update the user's password
                 if ($this->userModel->resetPassword($user_id, $newPassword)) {
-                    
                     flash('newReset', 'Password updated successfully');
                     redirect("../ecotrade/users/login");
                 } else {
@@ -117,7 +136,7 @@ class forgotPassword extends Controller{
             } else {
                 // There are validation errors, re-display the form with error messages
                 $data = [
-                    
+                    'selector' => $selector,
                     'errors' => $errors
                 ];
                 $this->view('users/v_Reset_newpassword', $data);
@@ -126,62 +145,5 @@ class forgotPassword extends Controller{
             // Display the password reset form
             $this->view('users/v_Reset_newpassword');
         }
-    }
-      
-
-
-
-    // public function resetPassword(){
-
-
-    //     $selector = isset($_GET['selector']) ? $_GET['selector'] : '';
-    //     $validator = isset($_GET['validator']) ? $_GET['validator'] : '';
-
-    //     // Construct the URL for redirection
-    //     $url = '../v_Reset_newpassword.php?selector=' . $selector . '&validator=' . $validator;
-
-    //     if(empty($_POST['pwd'] || $_POST['pwd-repeat'])){
-    //         flash("newReset", "Please fill out all fields");
-    //         redirect("../views/v_Reset_newpassword");
-    //     }else if($data['pwd'] != $data['pwd-repeat']){
-    //         flash("newReset", "Passwords do not match");
-    //         redirect("views/v_Reset_newpassword");
-    //     }else if(strlen($data['pwd']) < 6){
-    //         flash("newReset", "Invalid password");
-    //         redirect("views/v_Reset_newpassword");
-    //     }
-
-    //     $currentDate = date("U");
-    //     if (!$row = $this->forgotPasswordModel->resetPassword($data['selector'], $currentDate)) {
-    //         flash("newReset", "Sorry. The link is no longer valid");
-    //         redirect($url);
-    //     }
-
-    //     $tokenBin = hex2bin($data['validator']);
-    //     $tokenCheck = password_verify($tokenBin, $row->pwdResetToken);
-    //     if(!$tokenCheck){
-    //         flash("newReset", "You need to re-Submit your reset request");
-    //         redirect($url);
-    //     }
-
-    //     $tokenEmail = $row->pwdResetEmail;
-    //     if(!$this->userModel->findUserByEmailOrUsername($tokenEmail, $tokenEmail)){
-    //         flash("newReset", "There was an error");
-    //         redirect($url);
-    //     }
-
-    //     $newPwdHash = password_hash($data['pwd'], PASSWORD_DEFAULT);
-    //     if(!$this->userModel->resetPassword($newPwdHash, $tokenEmail)){
-    //         flash("newReset", "There was an error");
-    //         redirect($url);
-    //     }
-
-    //     if(!$this->forgotPasswordModel->deleteEmail($tokenEmail)){
-    //         flash("newReset", "There was an error");
-    //         redirect($url);
-    //     }
-
-    //     flash("newReset", "Password Updated", 'form-message form-message-green');
-    //     redirect($url);
-    // }
+    } 
 }
