@@ -18,7 +18,6 @@ class forgotPassword extends Controller{
         $this->mail = new PHPMailer(true);
     }
 
-
     public function sendEmail(){
         //Sanitize POST data
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -29,32 +28,30 @@ class forgotPassword extends Controller{
         if(empty($usersEmail)){
             // flash("reset", "Please input email");
             $data['email'] = $usersEmail;
-            $data['email_err'] = "Please input email";
+            $data['email_err'] = "Please Input Email";
             $this->view('users/v_forgot_password', $data);
             return ;
             // redirect("../ecotrade/users/forgot_password");
         }
-        if (!$this->userModel->findUserByEmail($usersEmail)) {
-            // flash("reset", "Email not found ");
 
+        $user_id=$this->userModel->findUserByEmail($usersEmail);
+        if (!$user_id) {
+            // flash("reset", "Email not found ");
             $data['email'] = $usersEmail;
             $data['email_err'] = "Email not found ";
-         
+            
             $this->view('users/v_forgot_password', $data);
             return ;
             // redirect("../ecotrade/users/forgot_password");
         }
 
-        // Check if 'selector' and 'validator' are set in $_POST
         $selector = bin2hex(random_bytes(8));
         $validator = bin2hex(random_bytes(32));
 
-        $expires = time() + 3600;
+        $expires = time() + 60*5;//expires in 5 minutes
 
-        // $this->forgotPasswordModel->storePasswordResetToken($usersEmail, $selector, $token, $expires);
         $this->forgotPasswordModel->storePasswordResetToken($usersEmail, $selector, $validator, $expires);
 
-        // $url = "localhost/ecotrade/forgotpassword/reset_password?selector=$selector&validator=$token";
         $url = "localhost/ecotrade/forgotpassword/reset_password?selector=$selector&validator=$validator";
 
         $this->mail->isSMTP();
@@ -70,6 +67,7 @@ class forgotPassword extends Controller{
         $message = "<p>We recieved a password reset request.</p>";
         $message .= "<p>Here is your password reset link: </p>";
         $message .= "<a href='".$url."'>".$url."</a>";
+        $message .= "<script>window.open('$url', '_blank');</script>";  // open the link in a new tab
 
         $this->mail->setFrom('ecotrade46@gmail.com', $subject);
         $this->mail->isHTML(true);
@@ -83,11 +81,13 @@ class forgotPassword extends Controller{
     }
 
     public function reset_password() {
+        $user_id = null;
+        $user_email = null;
         // $tokenData = null;
         if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['selector']) && isset($_GET['validator'])) {
             $selector = $_GET['selector'];
             $validator = $_GET['validator'];
-    
+            
             $tokenData = $this->forgotPasswordModel->getPasswordResetToken($selector);
     
             // if ($tokenData && hash_equals($tokenData['pwdresetToken'], $validator)) {
@@ -96,7 +96,8 @@ class forgotPassword extends Controller{
                 $this->view('users/v_Reset_newpassword', ['selector' => $selector]);
             } else {
                 // Token is invalid or not found
-                die('Invalid token');
+                die('The password reset link has expired. Please request a new one.');
+
             }
         } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $selector = null;
@@ -104,13 +105,15 @@ class forgotPassword extends Controller{
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
     
             // Validate the new password and confirm password
-            $selector = isset($_POST['selector']) ? trim($_POST['selector']) : '';
             $newPassword = isset($_POST['newPassword']) ? trim($_POST['newPassword']) : '';
             $confirmPassword = isset($_POST['confirmPassword']) ? trim($_POST['confirmPassword']) : '';
-    
+
+            $selector = isset($_GET['selector']) ? trim($_GET['selector']) : '';
+            $validator = isset($_GET['validator']) ? trim($_GET['validator']) : '';
+
             // Initialize an array to store validation errors
             $errors = [];
-    
+            
             if (empty($newPassword)) {
                 $errors['newPassword'] = 'New password cannot be empty.';
             } elseif (strlen($newPassword) < 6) {
@@ -125,21 +128,35 @@ class forgotPassword extends Controller{
     
             // Check if there are any validation errors
             if (empty($errors)) {
-                // Call the updatePassword method in your model to update the user's password
-                if ($this->userModel->resetPassword($user_id, $newPassword)) {
-                    flash('newReset', 'Password updated successfully');
-                    redirect("../ecotrade/users/login");
-                } else {
-                    // Error occurred during password update
-                    die('Something went wrong while updating the password');
+                $tokenData = $this->forgotPasswordModel->getPasswordResetToken($selector);
+                $usersEmail = $tokenData->pwdResetemail;
+                $user_id = $this->userModel->findUserByEmail($usersEmail);
+
+                if ($tokenData && hash_equals($tokenData->pwdresetToken, $validator)) {
+
+
+                    // Call the updatePassword method in your model to update the user's password
+                    if ($this->userModel->resetPassword($user_id, $newPassword)) {
+                        flash('newReset', 'Password updated successfully');
+                        redirect("../ecotrade/users/login");
+                    } else {
+                        // Error occurred during password update
+                        die('Something went wrong while updating the password');
+                    }
+                }else{
+                    // Token is invalid or not found
+                    die('The password reset link has expired. Please request a new one.');
                 }
             } else {
                 // There are validation errors, re-display the form with error messages
                 $data = [
                     'selector' => $selector,
-                    'errors' => $errors
+                    'validator' => $validator,
+                    'errors' => $errors,
+                    'user_id' => $user_id,
                 ];
-                $this->view('users/v_Reset_newpassword', $data);
+                // $this->view('users/v_Reset_newpassword', $data);
+                $this->view('users/v_Reset_newpassword',$data);
             }
         } else {
             // Display the password reset form
