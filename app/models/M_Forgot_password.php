@@ -24,6 +24,7 @@ class M_Forgot_password{
         $this->db->bind(':selector', $selector);
         $this->db->bind(':current_time', time());
 
+        // return $this->db->single();
         return $this->db->single();
     }
 
