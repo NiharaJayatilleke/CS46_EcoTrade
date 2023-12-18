@@ -39,6 +39,13 @@ header {
     padding: 10px; 
     border-radius: 5px;
     text-align: center;
+    transition: 300ms ease-in;
+}
+.ad-index-container:hover {
+    background: rgba(255, 255, 255, 0.532);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01);
+    border-radius: 8px;
 }
 
 .ad-header {
@@ -47,6 +54,7 @@ header {
 
 .ad-user-name {
     font-weight: bold;
+    color:#333;
     text-align: left;
 }
 
@@ -59,6 +67,7 @@ header {
 
 .ad-item-name {
     font-size: 18px;
+    color:#333;
     text-align: left;
 }
 

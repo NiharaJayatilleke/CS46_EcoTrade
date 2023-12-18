@@ -22,7 +22,7 @@
                 <div class="find-ads">
                     <p class="p1">Find the best deals on Vehicles, Property, Electronics and more. Choose from a wide range of high quality ADs from
                         trusted sellers.</p>
-                    <button class="sechbutton">Explore Ads</button>
+                    <a href="<?php echo URLROOT; ?>/ItemAds/index"><button class="sechbutton">Explore Ads</button></a>
                 </div>
             </div>
             <div class="photo-right">

@@ -925,13 +925,18 @@
                     header('Location: ' . URLROOT . '/users/profile#delete-profile');
                     exit();
                 }
-                } else {
+            } else {
                 // Redirect to the profile page if accessed without form submission
                 header('Location: ' . URLROOT . '/users/profile');
                 exit();
-                }
-                    
             }
+                    
+        }
+
+        // // Reset password view page
+        // public function reset_password(){
+        //     $this->view('users/v_Reset_newpassword'); // Load the 'v_Reset_newpassword.php' view
+        // }
 
 
     }

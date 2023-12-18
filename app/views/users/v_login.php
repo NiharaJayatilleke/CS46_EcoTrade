@@ -33,6 +33,7 @@
         </form>
 
         <?php flash('reg_flash');?>
+        <?php flash('newReset');?>
         
     </div>
 
