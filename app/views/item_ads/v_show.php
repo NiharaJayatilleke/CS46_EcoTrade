@@ -62,7 +62,7 @@
         <div class="b1">
             <img class="i1" src="<?php echo URLROOT?>/public/img/prodetails/profile.png" alt="profile">
             <div class="b1_2">
-                <p>Mahesh Bandara</p>
+                <p><?php echo $ad->seller_name ?></p>
             </div>
         </div>
         <div class="b1">
