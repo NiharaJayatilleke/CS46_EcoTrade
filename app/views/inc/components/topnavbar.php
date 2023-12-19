@@ -8,8 +8,10 @@
     </div>
     <div class="links">
       <div class="item"><a href="<?php echo URLROOT ?>/Pages/index">Home</a></div>
+      <?php if (!isset($_SESSION['user_id'])) : ?>
       <div class="item"><a href="<?php echo URLROOT ?>/Users/login">Login</a></div>
       <div class="item"><a href="<?php echo URLROOT ?>/Users/register">Sign Up</a></div>
+      <?php endif; ?>
       <!-- <div class="item"><a href="<?php echo URLROOT ?>/ItemAds/itemAd">Post Ad</a></div> -->
       <div class="item">
                 <?php if (isset($_SESSION['user_id'])) : ?>
@@ -32,13 +34,6 @@
     </div>
   </div>
 </div>
-<!-- <section class="home-section">
-    <div class="home-content">
-        <a><img src="../public/img/user.png" alt="user" class="user" width="80" height="30"></a>
-        <span class="text">Dropdown Sidebar</span>
-    </div>
-</section> -->
-
 
 <script>
 sidebar=document.querySelector(".sidebar")

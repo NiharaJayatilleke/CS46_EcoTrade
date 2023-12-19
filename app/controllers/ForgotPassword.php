@@ -31,7 +31,7 @@ class forgotPassword extends Controller{
             $data['email_err'] = "Please Input Email";
             $this->view('users/v_forgot_password', $data);
             return ;
-            // redirect("../ecotrade/users/forgot_password");
+           
         }
 
         $user_id=$this->userModel->findUserByEmail($usersEmail);
@@ -42,13 +42,13 @@ class forgotPassword extends Controller{
             
             $this->view('users/v_forgot_password', $data);
             return ;
-            // redirect("../ecotrade/users/forgot_password");
+         
         }
 
         $selector = bin2hex(random_bytes(8));
         $validator = bin2hex(random_bytes(32));
 
-        $expires = time() + 60*5;//expires in 5 minutes
+        $expires = time() + 60*2;//expires in  minutes
 
         $this->forgotPasswordModel->storePasswordResetToken($usersEmail, $selector, $validator, $expires);
 
@@ -90,7 +90,6 @@ class forgotPassword extends Controller{
             
             $tokenData = $this->forgotPasswordModel->getPasswordResetToken($selector);
     
-            // if ($tokenData && hash_equals($tokenData['pwdresetToken'], $validator)) {
             if ($tokenData && hash_equals($tokenData->pwdresetToken, $validator)) {
                 // Token is valid, display the password reset form
                 $this->view('users/v_Reset_newpassword', ['selector' => $selector]);
@@ -107,10 +106,9 @@ class forgotPassword extends Controller{
             // Validate the new password and confirm password
             $newPassword = isset($_POST['newPassword']) ? trim($_POST['newPassword']) : '';
             $confirmPassword = isset($_POST['confirmPassword']) ? trim($_POST['confirmPassword']) : '';
-
+           
             $selector = isset($_GET['selector']) ? trim($_GET['selector']) : '';
             $validator = isset($_GET['validator']) ? trim($_GET['validator']) : '';
-
             // Initialize an array to store validation errors
             $errors = [];
             
@@ -125,25 +123,32 @@ class forgotPassword extends Controller{
             } elseif ($newPassword !== $confirmPassword) {
                 $errors['confirmPassword'] = 'New password and confirm password do not match.';
             }
-    
-            // Check if there are any validation errors
+
             if (empty($errors)) {
                 $tokenData = $this->forgotPasswordModel->getPasswordResetToken($selector);
-                $usersEmail = $tokenData->pwdResetemail;
-                $user_id = $this->userModel->findUserByEmail($usersEmail);
 
+                // Check if $tokenData is truthy (not false or null)
                 if ($tokenData && hash_equals($tokenData->pwdresetToken, $validator)) {
+                    $usersEmail = $tokenData->pwdResetemail;
 
+                    // Find the user by email
+                    $user_id = $this->userModel->findUserByEmail($usersEmail);
 
-                    // Call the updatePassword method in your model to update the user's password
-                    if ($this->userModel->resetPassword($user_id, $newPassword)) {
-                        flash('newReset', 'Password updated successfully');
-                        redirect("../ecotrade/users/login");
+                    // Check if $user_id is truthy (not false or null)
+                    if ($user_id) {
+                        // Call the updatePassword method in your model to update the user's password
+                        if ($this->userModel->resetPassword($user_id, $newPassword)) {
+                            flash('newReset', 'Password updated successfully');
+                            redirect("../ecotrade/users/login");
+                        } else {
+                            // Error occurred during password update
+                            die('Something went wrong while updating the password');
+                        }
                     } else {
-                        // Error occurred during password update
-                        die('Something went wrong while updating the password');
+                        // User not found
+                        die('User not found.');
                     }
-                }else{
+                } else {
                     // Token is invalid or not found
                     die('The password reset link has expired. Please request a new one.');
                 }
@@ -155,9 +160,9 @@ class forgotPassword extends Controller{
                     'errors' => $errors,
                     'user_id' => $user_id,
                 ];
-                // $this->view('users/v_Reset_newpassword', $data);
-                $this->view('users/v_Reset_newpassword',$data);
+                $this->view('users/v_Reset_newpassword', $data);
             }
+
         } else {
             // Display the password reset form
             $this->view('users/v_Reset_newpassword');
