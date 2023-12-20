@@ -39,7 +39,7 @@
             <!-- item images -->
             <div class = "form-drag-area" id="form-drag-area">
                 <div class = "icon">
-                    <img id = "item_img_placeholder" src = "<?php echo URLROOT; ?>/img/items/placeholder.png" alt="placeholder" width = "40px" height = "40px"></img>
+                    <img id = "item_img_placeholder" src = "<?php echo URLROOT;?>/public/img/itemAds/placeholder.png" alt="placeholder" width = "40px" height = "40px"></img>
                 </div>
                 <div class="form-drag-area-text">Drag and drop files here</div>
                 <div class="form-drag-area-or">or</div>

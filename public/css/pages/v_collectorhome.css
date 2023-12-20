@@ -77,10 +77,10 @@ body{
         margin: 10px;
         text-align: center;
         text-decoration: none;
-        background-color: #3498db;
+        background-color: #135805;
         color: #ffffff;
-        border-radius: 5px;
-        border: 2px solid #3498db;
+        border-radius: 20px;
+       
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
     }

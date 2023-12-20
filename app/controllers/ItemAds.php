@@ -14,6 +14,16 @@
             $this->view('item_ads/v_index', $data);
         }
 
+        public function show($id) {
+            $ad = $this->itemAdsModel->getAdById($id);
+            
+            $data = [
+                'ad' => $ad,
+            ];
+
+            $this->view('item_ads/v_show', $data);
+        }
+
         public function itemAd(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 //form is submitting
