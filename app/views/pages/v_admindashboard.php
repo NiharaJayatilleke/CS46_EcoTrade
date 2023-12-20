@@ -4,11 +4,14 @@
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_admindashboard.css">
 
 
-<div class="sidebar">
+<div class="adminsidebar">
     <a href="#" onclick="showAdminDashboard()">Admin Dashboard</a>
     <a href="#" onclick="showReportedAds()">Reported Ads</a>
     <a href="#" onclick="showViewAccounts()">View Accounts</a>
+    <a href="#" onclick="showReports()">Reports</a>
+    <a href="#" onclick="showModerators()">Moderators</a>
     <a href="#" onclick="logout()">Logout</a>
+
 </div>
 
 <div class="content">
@@ -132,6 +135,19 @@
         document.getElementById('reportedAds').style.display = 'none';
         document.getElementById('viewAccounts').style.display = 'block';
     }
+
+    function showReports() {
+        document.getElementById('adminDashboard').style.display = 'none';
+        document.getElementById('reportedAds').style.display = 'none';
+        document.getElementById('viewAccounts').style.display = 'block';
+    }
+
+    function showModerators() {
+        document.getElementById('adminDashboard').style.display = 'none';
+        document.getElementById('reportedAds').style.display = 'none';
+        document.getElementById('viewAccounts').style.display = 'block';
+    }
+
 
     // Add similar functions for other actions
 </script>
