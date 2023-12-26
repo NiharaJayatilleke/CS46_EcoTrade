@@ -79,3 +79,13 @@ CREATE VIEW v_ads AS
     FROM Item_Ads INNER JOIN General_User
     ON Item_Ads.seller_id = General_User.id
 ORDER BY Item_Ads.created_at DESC;
+
+CREATE TABLE Messages(
+    message_id INT AUTO_INCREMENT,
+    ad_id INT,
+    user_id INT,
+    content TEXT NOT NULL,
+    PRIMARY KEY(message_id),
+    FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
+    FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
+);
