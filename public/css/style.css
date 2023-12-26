@@ -10,6 +10,7 @@
 
 /* ITEM ADS */
 @import url('item_Ads/item_ads_styles.css');
+@import url('item_Ads/message_styles.css');
 
 /*ADMIN DASHBOARD*/
 @import url('pages/admin_dashboard_styles.css');
