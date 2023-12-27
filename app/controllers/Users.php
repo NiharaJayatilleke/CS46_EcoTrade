@@ -8,7 +8,8 @@
             $data = [
                 'title' => 'Register'
             ];
-            $this->view('users/v_register', $data);
+            // $this->view('users/v_register', $data);
+            $this->view('users/signup', $data);
         }
         public function pBuyerRegister(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
