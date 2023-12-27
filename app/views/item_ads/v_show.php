@@ -90,8 +90,10 @@
     </div>
     <!-- Message Input -->
     <div class = "message-input">
-        <input class = "message-input-field" name = "send-message" id = "send-message" type = "text" placeholder = "Type your message here...">
-        <button class = "message-btn" id = "message-btn" type = "submit">Send</button>
+        <input type = "text" class = "message-input-field" name = "send-message" id = "send-message" placeholder = "Type your message here...">
+        <!-- <button class = "message-btn" id = "message-btn" type = "submit">Send</button> -->
+        <input type="submit" value="Post Ad" class="form-btn"> class = "message-btn" id = "message-btn"></div>
+
     </div>
     
     <!-- Message -->
