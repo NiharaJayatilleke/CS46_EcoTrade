@@ -1,0 +1,48 @@
+.btns {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    margin-top: 200px;
+    margin-left: 115px;
+    margin-right: 115px;
+}
+
+/* Make Offer Button */
+.offer {
+    background-color: #729e7d;
+    border: #729e7d;
+    border-radius: 20px;
+    border-style: solid;
+    padding: 13px 15px;
+}
+
+/* Bid Button */
+.bid {
+    background-color: #729e7d;
+    border: #729e7d;
+    border-radius: 20px;
+    border-style: solid;
+    margin-top: 10px;
+    padding: 13px 15px;
+}
+
+.offer:hover, .bid:hover {
+    opacity: 0.8;
+    background-color:#75a080f3;
+    transform: scale(1.01);
+}
+
+
+.swal2-popup {
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.swal2-input{
+    background-color: #fff;
+    height: 40px !important;
+}
+
+.swal2-confirm.swal2-styled{
+    background-color:#729e7d !important;
+}
