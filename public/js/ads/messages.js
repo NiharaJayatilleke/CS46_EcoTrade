@@ -16,10 +16,32 @@ $(document).ready(function () {
                 dataType:"text",
 
                 success:function(message){
-                    alert("Test");
                     $("#test").text(message);
                 }
             })
+
+            // Refresh the messages thread
+            $.ajax({
+                url:URLROOT +"/Messages/showMessages/"+ CURRENT_AD,
+                dataType:"html",
+
+                success:function(results){
+                    $("#results").html(results);
+                }
+            })
+
+            $("#send-message").val("");
+
+        }
+    })
+
+    //Messages visible on page load
+    $.ajax({
+        url:URLROOT +"/Messages/showMessages/"+ CURRENT_AD,
+        dataType:"html",
+
+        success:function(results){
+            $("#results").html(results);
         }
     })
 })

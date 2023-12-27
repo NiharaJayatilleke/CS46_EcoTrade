@@ -7,8 +7,8 @@ body {
 
 /* Container styles */
 .main-container1 {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 12%;
+    margin-right: 12%;
     margin-top: 3%;
     padding: 2%;
     border: 1px solid #D4E7F3;
@@ -41,19 +41,24 @@ body {
 .container2 {
     display: flex;
     width: 100%;
-    border: 1px solid #D4E7F3;
+    /* border: 1px solid #D4E7F3; */
+    /* border: 1px solid #bdbdbd; */
     background-color: #fff;
+    margin-top: 0px;
 }
 
 .left-container {
     width: 60%;
-    border-right: 1px solid #D4E7F3;
     padding: 2%;
+    margin-right: 30px;
 }
 
 .right-container {
     width: 40%;
-    padding: 2%;
+    padding: 1%; 
+    border-left: 1px solid #D4E7F3;
+    background-color: #e3e3e33f;
+    margin-top: 15px;
 }
 
 /* Image styles */
@@ -63,8 +68,8 @@ body {
 
 .big-photo {
     border: 1px solid #D4E7F3;
-    height: 400px;
-    margin-left: 3%;
+    height: 300px;
+    margin-left: 2%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,26 +91,41 @@ body {
 .b1 {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 98%;
+    height: 40px;
     cursor: pointer;
-    border: 1px solid #D4E7F3;
-    background-color: #fff;
+    border-bottom:1px solid #bdbdbd;
+    background-color: #e3e3e33f;
     padding: 1%;
 }
 
 .b1 p {
     width: 100%;
     margin-top: 2%;
-    background-color: #F5F5F5;
+    /* background-color: #F5F5F5; */
     font-size: 14px;
 }
 
-.b1_2 p {
-    margin: 10%;
+.b1 img {
+    height: 35px;
+    width: 35px;
+    margin-left: 5%;
 }
 
-.b1 img {
-    height: 50px;
+.b3 {
+    display: flex;
+    align-items: center;
+    width: 98%;
+    height: 40px;
+    cursor: pointer;
+    border-bottom:1px solid #bdbdbd;
+    background-color: #e3e3e33f;
+    padding: 1%;
+}
+
+.b3 img {
+    height: 30px;
+    width: 30px;
     margin-left: 5%;
 }
 
@@ -120,13 +140,21 @@ body {
 
 /* Icon styles */
 .i1 {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 10px 10px 10px 10px;
+    margin: 5px 5px 5px 5px; 
+}
+
+.i2 {
+    padding-top: 10px 10px 10px 10px;
+    margin: 5px 5px 5px 5px; 
+    height: 30px;
+    width: 30px;
 }
 
 /* Heading styles */
 .heading {
     display: flex;
+    flex-direction: column;
 }
 
 .heading p {
