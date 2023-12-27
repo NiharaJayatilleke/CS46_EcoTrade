@@ -44,12 +44,13 @@ body{
         text-align: center;
         transition-property: all;
         justify-content: center;
+        background-color: azure;
         
         /* text-decoration: none; */
         /* align-items: center; */
     }
     .pro:hover{
-        background-color: azure;
+        background-color: rgba(240, 255, 255, 0.44);
         /* width: 500px; */
         transform: translate3d(0px, -5px, 0px);
     
@@ -70,6 +71,26 @@ body{
     .imgdesc{
         font-size: 1em;
     }
+    .imgdesc h4 {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #135805;
+        color: #ffffff;
+        border-radius: 20px;
+       
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    
+    .imgdesc h4:hover {
+        background-color: #2980b9;
+        border-color: #2980b9;
+        color: #ffffff;
+    }
+    
     .imgdesc a:hover{
         /* font-size: 2rem; */
         /* transform: translate3d(0px, -5px, 0px); */
