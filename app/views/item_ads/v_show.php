@@ -84,36 +84,51 @@
 
 <br><br>
 <!-- Message Sellers (Q&A) -->
-<div class = "message-seller-container">
-    <div class = "message-header">
-        <h3>Message Seller</h3>
-    </div>
-    <!-- Message Input -->
-    <div class = "message-input">
-        <input class = "message-input-field" name = "send-message" id = "send-message" type = "text" placeholder = "Type your message here...">
-        <button class = "message-btn" id = "message-btn" type = "submit">Send</button>
-    </div>
-    
-    <!-- Message -->
-    <div class = "message-container">
-        <div class = "message-left">
-            <!-- profile image -->
-            <img id = "user_placeholder" src = "<?php echo URLROOT;?>/public/img/itemAds/user.png" alt="placeholder" width = "20px" height = "20px"></img>
-
+<form method="post">
+    <div class = "message-seller-container">
+        <div class = "message-header">
+            <h3>Message Seller</h3>
         </div>
-        <div class = "message-right">
-            <div class = "message-header">
-                <div class = "message-user-name">User Name</div>
-                <div class = "message-created-at">Created At</div>
+
+        <!-- Message Input -->
+        <div class = "message-input">
+            <input type = "text" class = "message-input-field" name = "send-message" id = "send-message" placeholder = "Type your message here...">
+            <!-- <button class = "message-btn" id = "message-btn" type = "submit">Send</button> -->
+            <input type="submit" value="Send" class = "message-btn" id = "message-btn"> 
+        </div>
+
+        <!-- Testing -->
+        <div id = "test"></div>
+        
+        <!-- Message -->
+        <div class = "message-container">
+            <div class = "message-left">
+                <!-- profile image -->
+                <img id = "user_placeholder" src = "<?php echo URLROOT;?>/public/img/itemAds/user.png" alt="placeholder" width = "20px" height = "20px"></img>
+
             </div>
-            <div class = "message-body">
-                <div class = "message-body-cont">Message Content</div>
-            </div>
+            <div class = "message-right">
+                <div class = "message-header">
+                    <div class = "message-user-name">User Name</div>
+                    <div class = "message-created-at">Created At</div>
+                </div>
+                <div class = "message-body">
+                    <div class = "message-body-cont">Message Content</div>
+                </div>
+        </div>
     </div>
-</div>
+</form>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type ="text/JavaScript">
+    var URLROOT ="<?php echo URLROOT; ?>"
+    var CURRENT_AD = "<?php echo $data['ad']->ad_id ?>";
+</script>
 
 <!-- Javascript for messages -->
- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/messages.js"></script>
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/messages.js"></script>
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>
 

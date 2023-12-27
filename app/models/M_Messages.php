@@ -7,10 +7,10 @@
         }
 
         public function sendMessage($data){
-            $this->db->query('INSERT INTO Messages(post_id,user_id,content) VALUES(:post_id, :user_id, :content)'); 
-            $this->db->bind(':post_id',$_SESSION['post_id']);         
+            $this->db->query('INSERT INTO Messages(ad_id,user_id,content) VALUES(:ad_id, :user_id, :content)'); 
+            $this->db->bind(':ad_id',$data['ad_id']);         
             $this->db->bind(':user_id',$data['user_id']);
-            $this->db->bind(':content',$data['content']);
+            $this->db->bind(':content',$data['message']);
 
             
             if($this->db->execute()){
@@ -19,6 +19,12 @@
             else{
                 return false;
             }
+        }
+
+        public function getMessages($ad_id){
+            $this->db->query('SELECT * FROM Messages WHERE ad_id = :ad_id ORDER BY created_at DESC');
+            $this->db->bind(':ad_id', $ad_id);
+            return $this->db->resultSet();
         }
     }
 ?>
