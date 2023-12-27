@@ -98,24 +98,11 @@
         </div>
 
         <!-- Testing -->
-        <div id = "test"></div>
-        
-        <!-- Message -->
-        <div class = "message-container">
-            <div class = "message-left">
-                <!-- profile image -->
-                <img id = "user_placeholder" src = "<?php echo URLROOT;?>/public/img/itemAds/user.png" alt="placeholder" width = "20px" height = "20px"></img>
+        <!-- <div id = "test"></div> -->
 
-            </div>
-            <div class = "message-right">
-                <div class = "message-header">
-                    <div class = "message-user-name">User Name</div>
-                    <div class = "message-created-at">Created At</div>
-                </div>
-                <div class = "message-body">
-                    <div class = "message-body-cont">Message Content</div>
-                </div>
-        </div>
+        <!-- Message Thread -->
+        <div id = "results"></div>
+
     </div>
 </form>
 

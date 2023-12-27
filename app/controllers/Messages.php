@@ -35,12 +35,13 @@
             foreach($messages as $message){
                 echo '<div class = "message-container">';
                 echo '<div class = "message-left">';
-                echo '<img id = "user_placeholder" src = "' . URLROOT . '/public/img/itemAds/user.png" alt="placeholder" width = "20px" height = "20px"></img>';
+                echo '<img id = "user_placeholder" src = "' . URLROOT . '/public/img/itemAds/man.jpg" alt="placeholder" width = "20px" height = "20px"></img>';
                 echo '</div>';
                 echo '<div class = "message-right">';
                 echo '<div class = "message-header">';
-                echo '<div class = "message-user-name">' . $message->user_id . '</div>';
-                echo '<div class = "message-created-at">' .convertTime($message->created_at ) . '</div>';
+                echo '<div class = "message-user-name">' . $message->username . '</div>';
+                // echo '<div class = "message-created-at">' .convertTime($message->created_at) . '</div>';
+                echo '<div class = "message-created-at">' . $message->created_at . '</div>';
                 echo '</div>';
                 echo '<div class = "message-body">';
                 echo '<div class = "message-body-cont">' . $message->content . '</div>';
