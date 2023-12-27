@@ -40,8 +40,7 @@
                 echo '<div class = "message-right">';
                 echo '<div class = "message-header">';
                 echo '<div class = "message-user-name">' . $message->username . '</div>';
-                // echo '<div class = "message-created-at">' .convertTime($message->created_at) . '</div>';
-                echo '<div class = "message-created-at">' . $message->created_at . '</div>';
+                echo '<div class = "message-created-at">' .convertTime($message->msg_created_at) . '</div>';
                 echo '</div>';
                 echo '<div class = "message-body">';
                 echo '<div class = "message-body-cont">' . $message->content . '</div>';

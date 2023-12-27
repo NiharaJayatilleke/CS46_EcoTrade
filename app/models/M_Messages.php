@@ -24,7 +24,7 @@
         public function getMessages($ad_id){
             $this->db->query('SELECT * FROM Messages INNER JOIN General_User ON
                             Messages.user_id = General_User.id 
-                            WHERE ad_id = :ad_id ORDER BY Messages.created_at DESC');
+                            WHERE ad_id = :ad_id ORDER BY Messages.msg_created_at DESC');
             $this->db->bind(':ad_id', $ad_id);
             return $this->db->resultSet();
         }
