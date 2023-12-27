@@ -84,7 +84,7 @@
         
         <div class = "btns">
             <input type="submit" class="offer" value="Make Offer">
-            <input type="submit" class="bid" value="Bid">
+            <input type="submit" class="bid" value="Place Bid">
         </div>
     </div>
 </div>
