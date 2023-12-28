@@ -93,3 +93,13 @@ CREATE TABLE Messages(
     FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
+CREATE TABLE Offers(
+    offer_id INT AUTO_INCREMENT,
+    ad_id INT,
+    user_id INT,
+    offer_amount INT,
+    ofr_created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(offer_id),
+    FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
+    FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
+);
