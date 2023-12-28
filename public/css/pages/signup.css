@@ -23,19 +23,36 @@
 }
 
 .button-box{
-    width: 300px;
+    width: 255px;
     height: 40px;
     display:flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    margin: 35px auto;
+    justify-content: space-around;
+    margin: 40px auto;
     position: relative;
     box-shadow: 0 0 20px 9px #036c2b18;
     border-radius: 30px;
 }
 
-.toggle-btn{
-    padding: 5px 60px;
+.toggle-btn1{
+    padding-top: 5px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    padding-left: 40px;
+    height: 50%;
+    width: 300px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+.toggle-btn2{
+    padding-top: 5px;
+    padding-right: 35px;
+    padding-bottom: 5px;
+    padding-left: 15px;
     height: 50%;
     width: 300px;
     cursor: pointer;
@@ -48,8 +65,10 @@
 #btn{
     top: 0;
     left: 0;
+    padding-right: 20px;
+    padding-left: 5px;
     position: absolute;
-    width: 190px;
+    width: 120px;
     height: 40px;
     background: linear-gradient(to right, #219657b5, #31b36eb4);
     border-radius: 30px;
@@ -57,14 +76,14 @@
 }
 
 .input-group{
-    top: 180px;
+    top: 120px;
     position: absolute;
     width: 280px;
     transition: .5s;
 }
 .input-field{
     width: 100%;
-    padding: 10px 0;
+    padding: 5px 0;
     /* margin: 5px 0; */
     border-left: 0;
     border-top: 0;
@@ -103,4 +122,19 @@ span{
 
 #signup{
     left: 450px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    top: 100%;
+    width: 100%;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+}
+
+.terms {
+    margin-top: 10px;
+    color: #666;
 }
