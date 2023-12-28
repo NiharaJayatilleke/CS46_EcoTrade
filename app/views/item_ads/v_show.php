@@ -87,6 +87,7 @@
             <input type="submit" class="offer" id="make-offer" value="Make Offer" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
             <input type="submit" class="bid" id="place-bid" value="Place Bid" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
         </div>
+
     </div>
 </div>
 
