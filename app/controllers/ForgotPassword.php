@@ -48,7 +48,7 @@ class forgotPassword extends Controller{
         $selector = bin2hex(random_bytes(8));
         $validator = bin2hex(random_bytes(32));
 
-        $expires = time() + 60*2;//expires in  minutes
+        $expires = time() + 60*2;//expires in 2 minutes
 
         $this->forgotPasswordModel->storePasswordResetToken($usersEmail, $selector, $validator, $expires);
 
