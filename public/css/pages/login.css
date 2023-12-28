@@ -16,10 +16,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 380px;
-    height: 280px;
-    position: relative;
-    margin: 6% auto;
+    width: 400px; /* Increased width */
+    height: 400px; /* Increased height */
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centering the box */
     background: #fff;
     padding: 5px;
     overflow: hidden;
@@ -27,10 +29,10 @@
 }
 
 .input-group2{
-    top: 50px;
     position: absolute;
-    left: 50px;
-    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 280px;
 }
 
@@ -44,6 +46,10 @@
     border-bottom: 1px solid #999;
     outline: none;
     background: transparent;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(to right, #09562db4, #37db84b5); /* Adjusted color on hover */
 }
 
 .submit-btn{
@@ -83,13 +89,18 @@ footer{
     text-align: center;
     color: #999;
     font-size: 12px;
+    padding: 10px; 
 }
 
 .terms {
     margin-top: 10px;
     color: #666;
 }
-
+@media screen and (max-width: 768px) {
+    .form-box2 {
+        width: 90%;
+    }
+}
 /* .input-box{
     width: 100%;
     padding: 5px 0;

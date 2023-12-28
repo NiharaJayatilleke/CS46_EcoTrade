@@ -3,15 +3,15 @@
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
     <div class="hero">
-        <div class = "form-box">
-            <div class = "button-box">
-                <div class = 'btn' id = "btn"></div>
+        <div class="form-box">
+            <div class="button-box">
+                <div class='btn' id="btn"></div>
                 <button type="button" class="toggle-btn1" onclick="personal()">Personal Account</button>
-                <button type="button" class="toggle-btn2" onclick="collector()"> Collector Account</button>
+                <button type="button" class="toggle-btn2" onclick="collector()">Collector Account</button>
             </div>
             <div class="form-container">
                 <form class="input-group" id="personal" action="<?php echo URLROOT; ?>/Users/rPersonalRegister/" method="POST">
-                    <h2>personal account</h2>
+                    <!-- <h2>personal account</h2> -->
                     <!-- username -->
                     <input name="username" placeholder="Username" id="username" class="input-field" value="<?php echo $data['username']; ?>">
                     <span class="form-invalid"><?php echo $data['username_err']; ?></span>
@@ -42,11 +42,8 @@
                     <input type="submit" value="Sign Up" class="submit-btn"> <br>
                     <footer>Already have an account? <a href="<?php echo URLROOT; ?>/users/login">Login here</a></footer>
                 </form>
-            </div>
-
-            <div class="form-container">
-                <form class="input-group" id="collector" action="<?php echo URLROOT; ?>/Users/rCollectorRegister/" method="POST">
-                    <h2>collector account</h2>
+                <form class="input-group" id="collector" action="<?php echo URLROOT; ?>/Users/rCollectorRegister/" method="POST" style="display: none;">
+                    <!-- <h2>collector account</h2> -->
                     <!-- username -->
                     <input name="username" placeholder="Username" id="username" class="input-field" value="<?php echo $data['username']; ?>">
                     <span class="form-invalid"><?php echo $data['username_err']; ?></span>
@@ -78,25 +75,28 @@
                     <footer>Already have an account? <a href="<?php echo URLROOT; ?>/users/login">Login here</a></footer>
                 </form>
             </div>
-
+        </div>
         <script>
             var x = document.getElementById("personal");
             var y = document.getElementById("collector");
             var z = document.getElementById("btn");
 
-            function collector(){
+            function collector() {
                 x.style.left = "-400px";
                 y.style.left = "50px";
                 z.style.left = "110px";
+                y.style.display = "block";
+                x.style.display = "none";
             }
 
-            function personal(){
+            function personal() {
                 x.style.left = "50px";
                 y.style.left = "450px";
                 z.style.left = "0px";
+                x.style.display = "block";
+                y.style.display = "none";
             }
         </script>
-
         <?php require APPROOT.'/views/inc/footer.php'; ?>
 
 
