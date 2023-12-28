@@ -3,18 +3,21 @@
     padding: 0;
 }
 
-.hero{
+.hero2{
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('../../img/signup/banner.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('../../img/login/banner1.jpg');
     background-position: center;
     background-size: cover;
     position: absolute;
 }
 
-.form-box{
+.form-box2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 380px;
-    height: 520px;
+    height: 280px;
     position: relative;
     margin: 6% auto;
     background: #fff;
@@ -23,65 +26,14 @@
     border-radius: 30px;
 }
 
-.button-box{
-    width: 255px;
-    height: 40px;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 40px auto;
-    position: relative;
-    box-shadow: 0 0 20px 9px #036c2b18;
-    border-radius: 30px;
-}
-
-.toggle-btn1{
-    padding-top: 5px;
-    padding-right: 30px;
-    padding-bottom: 5px;
-    padding-left: 40px;
-    height: 50%;
-    width: 300px;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    outline: none;
-    position: relative;
-}
-
-.toggle-btn2{
-    padding-top: 5px;
-    padding-right: 35px;
-    padding-bottom: 5px;
-    padding-left: 15px;
-    height: 50%;
-    width: 300px;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    outline: none;
-    position: relative;
-}
-
-#btn{
-    top: 0;
-    left: 0;
-    padding-right: 20px;
-    padding-left: 5px;
+.input-group2{
+    top: 50px;
     position: absolute;
-    width: 120px;
-    height: 40px;
-    background: linear-gradient(to right, #219657b5, #31b36eb4);
-    border-radius: 30px;
-    transition: .5s;
-}
-
-.input-group{
-    top: 120px;
-    position: absolute;
+    left: 50px;
+    
     width: 280px;
-    transition: .5s;
 }
+
 .input-field{
     width: 100%;
     padding: 5px 0;
@@ -99,7 +51,7 @@
     padding: 10px 30px;
     cursor: pointer;
     display: block;
-    margin: auto;
+    margin: 20px auto;
     background: linear-gradient(to right, #219657b5, #31b36eb4);
     border: 0;
     outline: none;
@@ -121,14 +73,12 @@ span{
     left: 50px;
 }
 
-#signup{
-    left: 450px;
-}
 
 footer{
     position: absolute;
     bottom: 0;
     top: 100%;
+    margin-top: 12px;
     width: 100%;
     text-align: center;
     color: #999;
