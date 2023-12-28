@@ -8,6 +8,12 @@
 @import url('components/sidebar_styles.css');
 @import url('components/profile_styles.css');
 
+/*REGISTRATION*/
+@import url('pages/signup.css');
+
+/* LOGIN */
+@import url('pages/login.css');
+
 /* ITEM ADS */
 @import url('item_Ads/item_ads_styles.css');
 @import url('item_Ads/message_styles.css');

@@ -4,13 +4,14 @@
             $this->userModel = $this->model('M_Users');
         }
 
+        // public function register(){
+        //     $data = [
+        //         'title' => 'Register'
+        //     ];
+        //     // $this->view('users/v_register', $data);
+        //     $this->view('users/signup', $data);
+        // }
         public function register(){
-            $data = [
-                'title' => 'Register'
-            ];
-            $this->view('users/v_register', $data);
-        }
-        public function pBuyerRegister(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 // form is submitting
                 //Validate the data
@@ -101,7 +102,7 @@
                 }
                 else{
                     //load view
-                    $this->view('users/v_pBuyerRegister', $data);
+                    $this->view('users/signup', $data);
                 }
             }
             else {
@@ -123,7 +124,7 @@
                 ];
 
                 //load view
-                $this->view('users/v_pBuyerRegister', $data);
+                $this->view('users/signup', $data);
             }
         }
 
@@ -452,7 +453,7 @@
                 }
                 else{
                     //load view
-                    $this->view('users/v_rCollectorRegister', $data);
+                    $this->view('users/signup', $data);
                 }
             }
             else {
@@ -474,7 +475,7 @@
                 ];
 
                 //load view
-                $this->view('users/v_rCollectorRegister', $data);
+                $this->view('users/signup', $data);
             }
         }
         public function rCenterRegister(){
@@ -640,12 +641,12 @@
                         $data['password_err']='Password incorrect';
 
                         //Load view with errors
-                        $this->view('users/v_login', $data);
+                        $this->view('users/login', $data);
                     }
                 }
                 else{
                     //Load view with errors
-                    $this->view('users/v_login', $data);
+                    $this->view('users/login', $data);
                 }
 
             }
@@ -660,7 +661,7 @@
                 ];
 
                 //Load view
-                $this->view('users/v_login', $data);
+                $this->view('users/login', $data);
             }
         }
         

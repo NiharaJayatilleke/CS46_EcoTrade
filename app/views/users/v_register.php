@@ -1,5 +1,4 @@
-<?php require APPROOT.'/views/inc/header.php'; ?>
-    <!-- Top NAVIGATION -->
+<!-- <?php require APPROOT.'/views/inc/header.php'; ?>
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
     <div class="register-form-container" style="margin-top: 10vh"><br>
@@ -43,11 +42,5 @@
         </div>
     </div>
     
-
-    <!--?xml version="1.0" standalone="no"?-->
-    <!-- <div class="svg">
-        <img class="svg-1" src="<?php echo URLROOT ?>/images/svg-1.png" alt="">
-        <img class="svg-2" src="<?php echo URLROOT ?>/images/svg-7.png" alt="">
-    </div> -->
 <?php require APPROOT.'/views/inc/footer.php'; ?>
-
+ -->
