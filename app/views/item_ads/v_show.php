@@ -83,8 +83,9 @@
         </div>
         
         <div class = "btns">
-            <input type="submit" class="offer" value="Make Offer">
-            <input type="submit" class="bid" value="Place Bid">
+            <!-- offer and bid icons are disabled for seller -->
+            <input type="submit" class="offer" id="make-offer" value="Make Offer" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
+            <input type="submit" class="bid" id="place-bid" value="Place Bid" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
         </div>
     </div>
 </div>
@@ -129,6 +130,9 @@
 
 <!-- JS for Offers -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/offers.js"></script>
+
+<!-- JS for Bids -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/bids.js"></script>
 
 <!-- JS for other interactions -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>

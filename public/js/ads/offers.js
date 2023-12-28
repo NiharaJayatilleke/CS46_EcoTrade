@@ -13,8 +13,23 @@ document.querySelector('.offer').addEventListener('click', function(e) {
         }
     }).then((result) => {
         if (result.isConfirmed) {
-            // Submit the price
-            console.log(result.value);
+
+            $.ajax({
+                url: URLROOT + "/Offers/submitOffer/" + CURRENT_AD,
+                method: "post",
+                data: {
+                    offer_amount: result.value
+                },
+                dataType: "text",
+
+                success: function(message) {
+                    Swal.fire({
+                        title: message,
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            })
         }
     });
 });
