@@ -18,11 +18,27 @@
                 
                 if($this->offersModel->addOffer($data)){
                     flash('offer_success','Offer submitted successfully');
+
+                    // Prepare the notification
+                    $notificationData = [
+                        'user_id' => $seller_Id, //SELLER ID
+                        'message' => "You have received a new offer of " . $data['offer_amount'] . " for your ad " . $data['ad_id'],
+                        'read' => 0
+                    ];
+
+                    // Insert the notification into the database
+                    if($this->notificationsModel->addNotification($notificationData)){
+                        flash('notification_success', 'Notification sent to the seller');
+                    } else {
+                        flash('notification_error', 'Could not send notification to the seller');
+                    }
+
                     // redirect('item_ads/show/'.$id);
                 }
                 else{
                     die('Something went wrong');
-                }    
+                }   
+                
              //Notify the seller
             }
         }
