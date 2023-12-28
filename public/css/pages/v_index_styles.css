@@ -3,59 +3,49 @@
   top: 0; 
   left: 0; 
   z-index: -1; 
-  width: 100vw
+  width: 100vw;
+  padding-left:0
 }
 
 .bg-img img{
   width:100vw; 
   height: 60vh
 }
-/* 
-.item.search input {
-  margin-top:240px;
-  margin-left:40px;
-  width: 20%; 
-  align-items: center;
-}
- .placeholder-text{
-  text-align: center;
-  padding: 0px 2px 2px 5px;
-} 
-
-img.searchicon{
-  margin-top:250px;
-  align-self: left;
-}  */
-
 
 .search-container-index {
   display: flex;
   align-items: center;
   margin-top: 270px; 
   margin-left: 45px;
-  width: 30%;
+  width: 34%;
 }
 
 .search-input-index {
   flex: 1;
-  padding: 10px; 
-  border: 1px solid #faf5f5!important;
-  /* border: none!important; */
-  border-radius: 0!important;
-  /* border-radius: 4px!important; */
-  font-size: 16px !important;
+  margin-right:0;
+  padding:8px 10px;
+  border: 1px solid #f1f1f1;
+  /* border-radius: 0!important; */
+  font-size: 16px ;
+  outline:none;
+  margin-top: 5px;
+  width: 95%;
+  background: #f1f1f1;
+  height:25px;
+  display: block;
 }
 
 .search-button-index {
   background: #117e3b; 
-  border: none;
+  /* border: none; */
+  border: 1px solid #117e3b;
   border-radius: 0;
-  /* border-radius: 4px; */
   padding: 10px 15px;
-  align-items: center;
-  /* margin-left: 5px;  */
+  /* align-items: center; */
   cursor: pointer;
   transition: background 0.3s;
+  margin-left:0;
+  margin-top:5px
   
 }
 
@@ -69,18 +59,40 @@ img.searchicon{
   top: 2px;
 } 
 
-
-/* .enter-button {
-  position: absolute; 
-  bottom: 10px; 
-  right: 10px; 
-  background-color: #007bff;
+.search-category-index option:checked {
   color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
+}
+
+.search-category-index {
+  margin-left: 0px;
+  /* padding: 8px; */
+  margin-top: 5px;
+  padding:12px 1px;
+  /* background: #729e7d;
+  border: 1px solid #729e7d; */
+
+  /* background: #729e7d;
+  border: 1px solid #729e7d; */
+
+  background:#117e3b; 
+  border: 1px solid #117e3b; 
+}
+
+
+
+.selectad-category{
+  color:brown;
+}
+
+.search-category-index {
+  background-size: 15px; /*size of the arrow icon */
+  color: white; /* text color to white */
+}
+
+.dropdown-options li {
+  padding: 10px;
   cursor: pointer;
-} */
+}
 
 .big-options {
   display: flex;
