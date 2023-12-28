@@ -10,8 +10,8 @@
                 <button type="button" class="toggle-btn2" onclick="collector()">Collector Account</button>
             </div>
             <div class="form-container">
-                <form class="input-group" id="personal" action="<?php echo URLROOT; ?>/Users/rPersonalRegister/" method="POST">
-                    <!-- <h2>personal account</h2> -->
+                <form class="input-group" id="personal" action="<?php echo URLROOT; ?>/Users/pBuyerRegister/" method="POST">
+                    <h2>personal account</h2>
                     <!-- username -->
                     <input name="username" placeholder="Username" id="username" class="input-field" value="<?php echo $data['username']; ?>">
                     <span class="form-invalid"><?php echo $data['username_err']; ?></span>
@@ -43,7 +43,7 @@
                     <footer>Already have an account? <a href="<?php echo URLROOT; ?>/users/login">Login here</a></footer>
                 </form>
                 <form class="input-group" id="collector" action="<?php echo URLROOT; ?>/Users/rCollectorRegister/" method="POST" style="display: none;">
-                    <!-- <h2>collector account</h2> -->
+                    <h2>collector account</h2>
                     <!-- username -->
                     <input name="username" placeholder="Username" id="username" class="input-field" value="<?php echo $data['username']; ?>">
                     <span class="form-invalid"><?php echo $data['username_err']; ?></span>
