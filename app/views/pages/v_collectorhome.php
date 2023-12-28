@@ -12,7 +12,11 @@
     </div>
     <div class="cont">
         <div class="pro" id="pro1">
-            <img src="../public/img/prodetails/productDetails2.jpeg" alt="Product img" class="img">
+
+            <img src="../public/img/collectorpage/img1.png" alt="Product img" class="img">
+
+           
+
             <div class="imgdesc" id="name">
                 <h2>
                     <!-- Product type and product brand should be extracted from backend -->
@@ -21,12 +25,12 @@
                     Product Brand:<a href="url">Lenovo</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
         <div class="pro" id="pro2">
-            <img src="img2.jpg" alt="Product img" class="img">
+            <img src="../public/img/collectorpage/img2.jpg" alt="Product img" class="img">
             <div class="imgdesc" id="name">
                 <h2>
                     <!-- Product type and product brand should be extracted from backend -->
@@ -35,12 +39,12 @@
                     Product Brand:<a href="url">Phillips</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
         <div class="pro" id="pro3">
-            <img src="img3.jpg" alt="Product img" class="img">
+            <img src="../public/img/collectorpage/img3.jpg" alt="Product img" class="img">
             <div class="imgdesc" id="name">
                 <h2>
                     <!-- Product type and product brand should be extracted from backend -->
@@ -49,13 +53,13 @@
                     Product Brand:<a href="url">Samsung</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
 
         </div>
         <div class="pro" id="pro4">
-            <img src="ups-battery.jpg" alt="Product img" class="img">
+            <img src="../public/img/collectorpage/img1.png" alt="Product img" class="img">
             <div class="imgdesc" id="name">
                 <h2>
                     <!-- Product type and product brand should be extracted from backend -->
@@ -64,12 +68,12 @@
                     Product Brand:<a href="url">Others</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
         <div class="pro" id="pro5">
-            <img src="battery1.webp" alt="Product img" class="img">
+            <img src="../public/img/collectorpage/img1.png" alt="Product img" class="img">
             <div class="imgdesc" id="name">
                 <h2>
                     <!-- Product type and product brand should be extracted from backend -->
@@ -78,12 +82,12 @@
                     Product Brand:<a href="url">APC</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
         <div class="pro" id="pro6">
-            <img src="frige.jpg" alt="Product img" class="img">
+            <img src="../public/img/collectorpage/img1.png" alt="Product img" class="img">
             <div class="imgdesc" id="name">
                 <h2>
                     <!-- Product type and product brand should be extracted from backend -->
@@ -92,12 +96,12 @@
                     Product Brand:<a href="url">L.G.</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
         <div class="pro" id="pro7">
-            <img src="fridge2.jfif" alt="Product img" class="img">
+            <img src="../public/img/collectorpage/img1.png" alt="Product img" class="img">
             <div class="imgdesc" id="name">
                 <h2>
                     <!-- Product type and product brand should be extracted from backend -->
@@ -106,12 +110,12 @@
                     Product Brand:<a href="url">Whirlpool</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
         <div class="pro" id="pro8">
-            <img src="cable1.jfif" alt="Product img" class="img">
+            <img src="../public/img/collectorpage/img1.png" alt="Product img" class="img">
             <div class="imgdesc" id="name">
                 <h2>
                     <!-- Product type and product brand should be extracted from backend -->
@@ -120,12 +124,12 @@
                     Product Brand:<a href="url">Phillips</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
         <div class="pro" id="pro9">
-            <img src="cables2.jfif" alt="Product img" class="img">
+            <img src="../public/img/collectorpage/img1.png" alt="Product img" class="img">
             <div class="imgdesc" id="name">
                 <h2>
                     <!-- Product type and product brand should be extracted from backend -->
@@ -134,7 +138,7 @@
                     Product Brand:<a href="url">Others</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
@@ -148,7 +152,7 @@
                     Product Brand:<a href="url">Others</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
@@ -162,7 +166,7 @@
                     Product Brand:<a href="url">Kingston</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
@@ -176,7 +180,7 @@
                     Product Brand:<a href="url">Dell</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
@@ -190,7 +194,7 @@
                     Product Brand:<a href="url">ASUS</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
@@ -204,7 +208,7 @@
                     Product Brand:<a href="url">AS Rock</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>
@@ -218,7 +222,7 @@
                     Product Brand:<a href="url">Apple</a>
                 </h2>
                 <a href="productfull.html" target="_blank">
-                    <h4>click here for more info</h4>
+                    <h4>View Add</h4>
                 </a>
             </div>
         </div>

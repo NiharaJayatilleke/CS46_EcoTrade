@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use a modern font */
+}
+
+.adminsidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    background-color: rgb(18, 37, 6);; /* Change background color */
+    padding-top: 20px;
+    color: #ecf0f1; /* Change text color */
+    text-align: center;
+    left: 0;
+    top: 0;
+    display:block;
+}
+
+.adminsidebar a {
+    margin-top: 38px;
+    padding: 13px; /* Increase padding for a larger clickable area */
+    text-decoration: none;
+    font-size: 20px;
+    color: #ecf0f1;
+    display: block;
+    transition: 0.3s;
+}
+
+.adminsidebar a:hover {
+    background-color: #1c853b; /* Change hover background color */
+    color: #fff; /* Change hover text color */
+}
+
+.post-image {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px;
+    vertical-align: middle; /* Add some spacing between image and text */
+}
+
+
+.content {
+    margin-left: 250px;
+    padding: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    width: 120%; /* Increase the width as needed */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    padding: 12px; /* Increase padding for better spacing */
+    font-size: 15px; /* Adjust font size as needed */
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+/* v_reported_ads.css */
+
+#reportedAds {
+    display: none;
+}
+
+#reportedAds h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.adds table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.adds th, .adds td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.adds th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+.adds .post-image {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.adds button {
+    background-color: #0d5e07;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.adds button:hover {
+    background-color: #1c853b;
+}
+
+
+
+
+/* v_view_accounts.css */
+
+#viewAccounts {
+    display: none;
+    
+}
+
+#viewAccounts h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    margin-left: 26%;
+}
+.account-container {
+    margin: 0 auto; /* Center the container */
+}
+
+.account-container table {
+    width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.account-container th, .account-container td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.account-container th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+.account-container button {
+    background-color: #0d5e07;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.account-container button:hover {
+    background-color: #1c853b;
+}
