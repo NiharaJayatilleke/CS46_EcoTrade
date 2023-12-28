@@ -103,3 +103,14 @@ CREATE TABLE Offers(
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
     FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
+
+CREATE TABLE Notifications(
+    notif_id INT AUTO_INCREMENT,
+    user_id INT,
+    message TEXT,
+    seen VARCHAR(255),
+    notif_created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(notif_id),
+    FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
+);
+

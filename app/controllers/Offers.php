@@ -2,10 +2,11 @@
     class Offers extends Controller{
         public function __construct(){
             $this->offersModel =$this->model('M_Offers');
+            $this->notificationsModel =$this->model('M_Notifications');
+            $this->adsModel =$this->model('M_Item_Ads');
         }
 
         public function submitOffer($id){
-            file_put_contents('debug.log', print_r($_POST, true));
 
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
@@ -15,15 +16,42 @@
                     'offer_amount' => trim($_POST['offer_amount']),
                 ];
 
-                
-                if($this->offersModel->addOffer($data)){
-                    flash('offer_success','Offer submitted successfully');
-                    // redirect('item_ads/show/'.$id);
+                try {
+                    if ($this->offersModel->addOffer($data)) {
+                        flash('offer_success','Offer submitted successfully');
+
+                        // print_r($data);
+
+                        // $ad = $this->adsModel->getAdById($id);
+                        // $sellerId = $ad['seller_id'];
+                        
+                        // Notify the seller
+                        // $notificationData = [
+                        //     'user_id' => $sellerId, 
+                        //     'message' => "You have received a new offer of " . $data['offer_amount'] . " for your ad " . $data['ad_id'],
+                        //     'seen' => 0
+                        // ];
+
+                        $notificationData = [
+                            'user_id' => 1, 
+                            'message' => "You have received a new offer of ",
+                            'seen' => "0"
+                        ];
+
+                        if ($this->notificationsModel->addNotification($notificationData)) {
+                            flash('notification_success', 'Notification sent to the seller');
+                        } else {
+                            flash('notification_error', 'Could not send notification to the seller');
+                        }
+
+                    } else {
+                        die('Something went wrong with adding the offer');
+                    }
+
+                } catch (Exception $e) {
+                    die('Error: ' . $e->getMessage());
                 }
-                else{
-                    die('Something went wrong');
-                }    
-             //Notify the seller
+
             }
         }
     }
