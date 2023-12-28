@@ -34,7 +34,7 @@ document.querySelector('.offer').addEventListener('click', function(e) {
                     },
                     error: function(xhr, status, error) {
                         // Handle Ajax errors here
-                        console.error(xhr.responseText);
+                        // console.error(xhr.responseText);
                         Swal.fire({
                             title: 'Error',
                             text: 'An error occurred while submitting your offer.',
