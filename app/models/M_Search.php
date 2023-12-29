@@ -9,19 +9,28 @@ class M_Search {
 
     // Perform a basic search by item name
     public function searchItems($searchQuery, $category) {
-        $query = 'SELECT * FROM Items WHERE item_name LIKE :searchQuery';
-        $bindings = [':searchQuery' => '%' . $searchQuery . '%'];
-    
+        $query = 'SELECT * FROM v_ads WHERE 1';
+
         if (!empty($category)) {
             $query .= ' AND item_category = :category';
-            $bindings[':category'] = $category;
         }
-    
+
+        if (!empty($searchQuery)) {
+            $query .= ' AND item_name LIKE :search';
+        }
+
         $this->db->query($query);
-        $this->db->bindMultiple($bindings);
-    
+
+        if (!empty($category)) {
+            $this->db->bind(':category', $category);
+        }
+
+        if (!empty($searchQuery)) {
+            $this->db->bind(':search', "%{$searchQuery}%");
+        }
+
         $ads = $this->db->resultSet();
-    
+
         return $ads;
     }
     
