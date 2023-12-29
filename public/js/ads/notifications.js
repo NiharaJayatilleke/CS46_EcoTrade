@@ -16,6 +16,9 @@ $(document).ready(function() {
 
                 // Add the new notifications
                 $.each(data, function(i, notification) {
+                    console.log(notification);
+                    console.log(notification);
+                    console.log(notification);
                     var notificationItem = $('<div class="notif-dropdown-item"></div>');
                     notificationItem.append('<div class="message">' + notification.message + '</div>');
                     notificationItem.append('<a href="' + URLROOT + '/ItemAds/show/' + notification.ad_id + '" class="view-ad-link">View Ad</a>');

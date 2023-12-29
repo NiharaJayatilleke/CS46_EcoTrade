@@ -27,7 +27,7 @@
 
       <!-- Notifications -->
       <div class="item user-dropdown1">
-        <div class="sidebr1">
+        <div class="notif-wrapper">
           <a href="#" class="dropdown-toggle">
               <i class="fas fa-bell"></i>
               <span class="caret"></span>

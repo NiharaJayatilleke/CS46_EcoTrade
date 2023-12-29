@@ -3,6 +3,10 @@
     display: inline-block;
 }
 
+.notif-wrapper {
+    position: relative;
+}
+
 .dropdown-toggle {
     cursor: pointer;
 }
@@ -13,7 +17,7 @@
 
 .caret {
     position: absolute;
-    top: 101%;
+    top: 170%;
     right: -1px;
     transform: translateY(-50%);
     width: 0;
@@ -29,7 +33,7 @@
     display: flex !important;
     flex-direction: column;
     position: absolute;
-    top: 112%;
+    top: 190%;
     right: -15px;
     z-index: 1;
     min-width: 350px; 
@@ -54,7 +58,7 @@
     height: 40px;
     border-bottom: 1px solid #f1f2f4;
     padding: 10px 20px;
-    align-items: center;
+    align-items: left !important;
     font-weight: 600;
 }
 
