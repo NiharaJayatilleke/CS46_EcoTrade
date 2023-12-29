@@ -1,0 +1,93 @@
+/* v_addpayment.css */
+
+/* Global Styles */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centering the content */
+.w3-row-padding {
+  display: flex;
+  justify-content: center; /* Center the items horizontally */
+  align-items: center; /* Center the items vertically */
+  min-height: 100vh; /* Ensure the container takes at least the full height of the viewport */
+}
+
+/* Pricing Table Styles */
+.w3-third {
+  width: calc(33.3333% - 32px);
+  margin-top: -60px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  border: 2px;
+}
+
+.w3-ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0px;
+  padding-top: 0px;
+  border-radius: 10px; /* Rounded corners for the outline */
+}
+
+.w3-ul li {
+  padding: 8px 1px;
+  /* border: 1px solid #ddd; Outline for each pricing table */
+  /* Rounded corners for the outline */
+  display: flex; /* Align text to the middle */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+}
+.AddPayment_d1{
+  border: 1px solid #ddd;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100px;
+}
+ b{
+  color: #7e7e7e;
+}
+.AddPayment_d2{
+  height: 100px;
+}
+
+.AddPayment_d2 h2{
+  margin-top: 25px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+/* Highlight and scale up Basic, Pro, Premium texts */
+.w3-ul li.w3-green {
+  font-weight: bold;
+  display: flex; /* Enable flexbox layout */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 18px;
+  background-color: #4CAF50; /* Green background for the Pro row */
+}
+
+/* Button Styles */
+.w3-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.w3-button:hover {
+  background-color: #45a049;
+}

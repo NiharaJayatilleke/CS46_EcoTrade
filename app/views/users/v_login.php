@@ -1,7 +1,7 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
     <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
-
+    <body class="login-page"> 
     <div class="login-form-container">
         <div class="login-form-header">
         <br>
@@ -36,5 +36,5 @@
         <?php flash('newReset');?>
         
     </div>
-
+    </body>
 <?php require APPROOT.'/views/inc/footer.php'; ?>
