@@ -2,9 +2,9 @@
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
-<div class="container">
-    <h1>Search Results</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+<!-- <div class="container"> -->
     <?php if (!empty($data['ads'])) : ?>
         <div class="ads-container">
             <?php foreach ($data['ads'] as $ad) : ?>
@@ -47,10 +47,13 @@
             <?php endforeach; ?>
         </div>
     <?php else : ?>
-        <p>No results found.</p>
+        <div style="font-size: 15px;">
+        <p>No results found for <b>"<?php echo !empty($data['searchQuery']) ? htmlspecialchars($data['searchQuery']) : ''; ?>"</b> .</p>
+        <p>Try checking your spelling or use more general terms</p>
+        </div>
     <?php endif; ?>
 
-</div>
+<!-- </div> -->
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>
 
