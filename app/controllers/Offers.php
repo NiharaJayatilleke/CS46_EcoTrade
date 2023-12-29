@@ -26,7 +26,8 @@
                         // Notify the seller
                         $notificationData = [
                             'user_id' => $sellerId, 
-                            'message' => "You have received an offer of Rs." . $data['offer_amount'] . " for your ad " . $data['ad_id'],
+                            'ad_id' => $id,
+                            'message' => "You have received an offer of Rs." . $data['offer_amount'] . " for your ad #" . $data['ad_id'],
                             'seen' => 0
                         ];
 

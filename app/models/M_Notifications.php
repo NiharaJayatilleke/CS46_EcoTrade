@@ -7,8 +7,9 @@
         }
 
         public function addNotification($data){
-            $this->db->query('INSERT INTO Notifications(user_id,message,seen) VALUES(:user_id, :message, :seen)'); 
-            $this->db->bind(':user_id',$data['user_id']);         
+            $this->db->query('INSERT INTO Notifications(user_id, ad_id, message, seen) VALUES(:user_id, :ad_id, :message, :seen)'); 
+            $this->db->bind(':user_id',$data['user_id']);     
+            $this->db->bind(':ad_id',$data['ad_id']);    
             $this->db->bind(':message',$data['message']);
             $this->db->bind(':seen',$data['seen']);
 
