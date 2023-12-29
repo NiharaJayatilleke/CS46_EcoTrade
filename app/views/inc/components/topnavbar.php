@@ -6,6 +6,7 @@
         <img src="<?php echo URLROOT?>/public/img/index/logo.png" alt="Logo" class="logo" width="80" height="30">
       </a>
     </div>
+
     <div class="links">
       <div class="item"><a href="<?php echo URLROOT ?>/Pages/index">Home</a></div>
       <?php if (!isset($_SESSION['user_id'])) : ?>
@@ -20,7 +21,29 @@
                     <a href="<?php echo URLROOT ?>/Users/login">Post Ad</a>
                 <?php endif; ?>
       </div>
+
       <div class="item"><a href="<?php echo URLROOT ?>/Wishlist/index">Saved Ads</a></div>
+
+
+      <!-- Notifications -->
+      <div class="item user-dropdown">
+        <div class="sidebr1">
+          <a href="#" class="dropdown-toggle">
+              <i class="fas fa-bell"></i>
+              <span class="caret"></span>
+          </a>
+          <div class="notif-dropdown-menu">
+              <!-- Fetch notifications from the database and display them here -->
+              <?php foreach ($notifications as $notification): ?>
+                  <a href="#" class="notif-dropdown-item">
+                      <?php echo $notification['message']; ?>
+                  </a>
+              <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
+
+
       <div class="item user-dropdown">
         <div class="sidebr">
           <a href="#" >
@@ -29,8 +52,9 @@
           }
           ?>
           </a>
-        </div>
+        </div> 
       </div>
+      
     </div>
   </div>
 </div>
@@ -44,6 +68,8 @@ function Myfunction(){
   }
 }
 </script>
+
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/notifications.js"></script>
 
 
 
