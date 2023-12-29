@@ -48,9 +48,15 @@ body {
   justify-content: center;
   height: 100px;
 }
- b{
+
+ /* b{
+  color: #7e7e7e;
+} */
+
+.w3-padding-16{
   color: #7e7e7e;
 }
+
 .AddPayment_d2{
   height: 100px;
 }

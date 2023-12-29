@@ -9,7 +9,7 @@ class M_Search {
 
     // Perform a basic search by item name
     public function searchItems($searchQuery, $category) {
-        $query = 'SELECT * FROM item_ads WHERE 1';
+        $query = 'SELECT * FROM V_ads WHERE 1';
     
         // Check if both category and search query are provided
         if (!empty($category) && !empty($searchQuery)) {
