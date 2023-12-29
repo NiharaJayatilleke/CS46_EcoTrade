@@ -3,7 +3,7 @@
         public function __construct(){
             $this->offersModel =$this->model('M_Offers');
             $this->notificationsModel =$this->model('M_Notifications');
-            $this->adsModel =$this->model('M_Item_Ads');
+            $this->itemAdsModel =$this->model('M_Item_Ads');
         }
 
         public function submitOffer($id){
@@ -20,22 +20,14 @@
                     if ($this->offersModel->addOffer($data)) {
                         flash('offer_success','Offer submitted successfully');
 
-                        // print_r($data);
+                        $ad = $this->itemAdsModel->getAdById($id);
+                        $sellerId = $ad->seller_id;
 
-                        // $ad = $this->adsModel->getAdById($id);
-                        // $sellerId = $ad['seller_id'];
-                        
                         // Notify the seller
-                        // $notificationData = [
-                        //     'user_id' => $sellerId, 
-                        //     'message' => "You have received a new offer of " . $data['offer_amount'] . " for your ad " . $data['ad_id'],
-                        //     'seen' => 0
-                        // ];
-
                         $notificationData = [
-                            'user_id' => 1, 
-                            'message' => "You have received a new offer of ",
-                            'seen' => "0"
+                            'user_id' => $sellerId, 
+                            'message' => "You have received a new offer of " . $data['offer_amount'] . " for your ad " . $data['ad_id'],
+                            'seen' => 0
                         ];
 
                         if ($this->notificationsModel->addNotification($notificationData)) {
