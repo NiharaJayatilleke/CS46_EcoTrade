@@ -8,7 +8,6 @@ class Search extends Controller {
         // Get the search query from the form input
         $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
         $category = isset($_GET['category']) ? $_GET['category'] : '';
-        // $category = $_GET['category'];
 
         // Perform a search based on the category in your database
         $ads = $this->searchModel->searchItems($searchQuery, $category);
@@ -16,13 +15,11 @@ class Search extends Controller {
         // Pass the results to the view or perform further actions
         $data = [
             'ads' => $ads,
+            'searchQuery' => $searchQuery,
         ];
 
-        $this->view('pages/v_searchAd',  $data);
-        // $this->view('pages/v_searchAd', $data); //  view 
+        $this->view('item_ads/v_searchAd',  $data);
     }
-
-    // Add other methods as needed
 }
 ?>
 
