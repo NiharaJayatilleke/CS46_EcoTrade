@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('.dropdown-toggle').click(function(e) {
-        // e.preventDefault();
+        e.preventDefault();
 
         var dropdownMenu = $('.notif-dropdown-menu');
         var caret = $('.caret');
@@ -13,12 +13,15 @@ $(document).ready(function() {
             success: function(data) {
                 // Clear the old notifications
                 $('.notif-dropdown-menu').empty();
-            
+
                 // Add the new notifications
                 $.each(data, function(i, notification) {
-                    $('.notif-dropdown-menu').append('<a href="#" class="notif-dropdown-item">' + notification.message + '</a>');
+                    var notificationItem = $('<div class="notif-dropdown-item"></div>');
+                    notificationItem.append('<div class="message">' + notification.message + '</div>');
+                    notificationItem.append('<a href="' + URLROOT + '/ItemAds/show/' + notification.ad_id + '" class="view-ad-link">View Ad</a>');
+                    $('.notif-dropdown-menu').append(notificationItem);
                 });
-            
+
                 dropdownMenu.show();
                 caret.show();
             },
@@ -28,19 +31,14 @@ $(document).ready(function() {
         });
     });
 
-    $(document).on('click', '.notif-dropdown-item', function(event) {
-        event.stopPropagation();
-    });
-
     $(document).click(function(e) {
-        // Reference to the dropdown menu
         var dropdownMenu = $('.notif-dropdown-menu');
         var caret = $('.caret');
 
         if (!$(e.target).closest('.user-dropdown').length) {
-            // Hide the dropdown menu if the click is outside the user-dropdown
             dropdownMenu.hide();
             caret.hide();
         }
     });
 });
+

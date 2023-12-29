@@ -35,10 +35,15 @@
           <div class="notif-dropdown-menu">
               <!-- Fetch notifications from the database and display them here -->
               <?php foreach ($notifications as $notification): ?>
-                  <!-- <a href="<?php echo URLROOT ?>/ItemAds/show/<?php echo $notification['ad_id']; ?>" class="notif-dropdown-item"> -->
-                  <a href="<?php echo URLROOT ?>/Wishlist/index" class="notif-dropdown-item">
+
+                  <!-- <a href="#" class="notif-dropdown-item">
                     <?php echo $notification['message']; ?>
-                  </a>
+                  </a> -->
+
+                  <div class="notif-dropdown-item">
+                    <div class="message"><?php echo $notification['message']; ?></div>
+                    <a href="<?php echo URLROOT ?>/ItemAds/show/<?php echo $notification['ad_id']; ?>" class="view-ad-link">View Ad</a>
+                  </div>
               <?php endforeach; ?>
           </div>
         </div>

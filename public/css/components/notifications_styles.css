@@ -26,7 +26,8 @@
 }
 
 .notif-dropdown-menu {
-    display: none;
+    display: flex !important;
+    flex-direction: column;
     position: absolute;
     top: 112%;
     right: -15px;
@@ -43,19 +44,31 @@
     padding: 10px;
     text-decoration: none; 
     color: #333 !important; 
-    display: block;
+    /* display: block !important; */
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
     transition: background-color 0.3s;
     /* background-color: #9c9c9c81; */
     background-color: #fff;
     height: 40px;
     border-bottom: 1px solid #f1f2f4;
     padding: 10px 20px;
-    display: flex;
     align-items: center;
     font-weight: 600;
+}
+
+.notif-dropdown-item .message {
+    margin-bottom: 5px !important;
+    flex: 1 !important;
 }
 
 .notif-dropdown-item:hover {
     background-color: #f5f5f5; 
 }
 
+.notif-dropdown-item .view-ad-link {
+    margin-left: auto;
+    color: #007bff !important;
+    cursor: pointer;
+}
