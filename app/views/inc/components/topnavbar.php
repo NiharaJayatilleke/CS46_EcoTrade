@@ -26,7 +26,7 @@
 
 
       <!-- Notifications -->
-      <div class="item user-dropdown">
+      <div class="item user-dropdown1">
         <div class="sidebr1">
           <a href="#" class="dropdown-toggle">
               <i class="fas fa-bell"></i>
@@ -35,8 +35,9 @@
           <div class="notif-dropdown-menu">
               <!-- Fetch notifications from the database and display them here -->
               <?php foreach ($notifications as $notification): ?>
-                  <a href="#" class="notif-dropdown-item">
-                      <?php echo $notification['message']; ?>
+                  <!-- <a href="<?php echo URLROOT ?>/ItemAds/show/<?php echo $notification['ad_id']; ?>" class="notif-dropdown-item"> -->
+                  <a href="<?php echo URLROOT ?>/Wishlist/index" class="notif-dropdown-item">
+                    <?php echo $notification['message']; ?>
                   </a>
               <?php endforeach; ?>
           </div>

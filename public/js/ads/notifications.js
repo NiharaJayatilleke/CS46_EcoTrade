@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('.dropdown-toggle').click(function(e) {
-        e.preventDefault();
+        // e.preventDefault();
 
         var dropdownMenu = $('.notif-dropdown-menu');
         var caret = $('.caret');
@@ -26,6 +26,10 @@ $(document).ready(function() {
                 console.error('Error fetching notifications');
             }
         });
+    });
+
+    $(document).on('click', '.notif-dropdown-item', function(event) {
+        event.stopPropagation();
     });
 
     $(document).click(function(e) {

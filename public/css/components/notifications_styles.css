@@ -13,7 +13,7 @@
 
 .caret {
     position: absolute;
-    top: 80%;
+    top: 101%;
     right: -1px;
     transform: translateY(-50%);
     width: 0;
@@ -28,7 +28,7 @@
 .notif-dropdown-menu {
     display: none;
     position: absolute;
-    top: 90%;
+    top: 112%;
     right: -15px;
     z-index: 1;
     min-width: 350px; 
@@ -47,7 +47,7 @@
     transition: background-color 0.3s;
     /* background-color: #9c9c9c81; */
     background-color: #fff;
-    height: 60px;
+    height: 40px;
     border-bottom: 1px solid #f1f2f4;
     padding: 10px 20px;
     display: flex;
