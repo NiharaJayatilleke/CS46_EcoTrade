@@ -5,7 +5,10 @@
         }
 
         public function index(){
-            $data = [];
+            $user = $this->pagesModel->getUserProfileImage($_SESSION['user_id']);
+            $data = [
+                'user' => $user,
+            ];
             $this->view('pages/v_index',$data);
 
         }

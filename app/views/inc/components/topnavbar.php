@@ -32,7 +32,7 @@
               <i class="fas fa-bell"></i>
               <span class="caret"></span>
           </a>
-          <div class="notif-dropdown-menu">
+          <div class="notif-dropdown-menu" >
               <!-- Fetch notifications from the database and display them here -->
               <?php foreach ($notifications as $notification): ?>
 
@@ -53,14 +53,16 @@
       <div class="item user-dropdown">
         <div class="sidebr">
           <a href="#" >
-            <?php if(isset($_SESSION['user_id'])){
-            echo '<img src="../public/img/index/user.png" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
-          }
-          ?>
+          <?php
+            if (isset($data['user']) && !empty($data['user'])) {
+                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['user'] . '" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
+            } else {
+                echo '<img src="' . URLROOT . '/public/img/profile.png" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
+            }
+            ?>
           </a>
         </div> 
-      </div>
-      
+      </div>      
     </div>
   </div>
 </div>
