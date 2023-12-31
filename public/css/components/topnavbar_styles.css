@@ -16,7 +16,7 @@
 .topnav .items .item{
   width: 7vw;
   font-size: 16px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 /* .topnav .items .search{
@@ -34,6 +34,7 @@
   height: 40px;
   margin-left: 10px;
   margin-right: 30px;
+  margin-top: 5px;
   /* position: fixed; */
 }
 
@@ -43,22 +44,23 @@
   padding: 10px;
   margin: 0px 0px 10px;
   display: flex;
-  text-align: right;
+  text-align: center;
   color: white;
 }
 
 .topnav .items .links a{
   color: white;
   text-decoration: none;
+  
 }
 
 .topnav .items .links .user{
   /* height: 22px;
   width: 22px; */
-  width: 25px; 
+  width: 39px; 
   height: auto;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .items{
