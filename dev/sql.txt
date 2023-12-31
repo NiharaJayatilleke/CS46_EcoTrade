@@ -104,7 +104,8 @@ CREATE TABLE Offers(
     FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
-DROP TABLE Notifications;
+
+DROP TABLE IF EXISTS Notifications;
 
 CREATE TABLE Notifications(
     notif_id INT AUTO_INCREMENT,
