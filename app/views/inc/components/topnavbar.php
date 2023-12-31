@@ -52,6 +52,8 @@
 
       <div class="item user-dropdown">
         <div class="sidebr">
+          <div class="profile-image">
+              <!-- <div class="image-container"> -->
           <a href="#" >
           <?php
             if (isset($data['user']) && !empty($data['user'])) {
@@ -61,6 +63,8 @@
             }
             ?>
           </a>
+        <!-- </div>  -->
+        </div> 
         </div> 
       </div>      
     </div>
@@ -78,8 +82,6 @@ function Myfunction(){
 </script>
 
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/notifications.js"></script>
-
-
 
 
 
