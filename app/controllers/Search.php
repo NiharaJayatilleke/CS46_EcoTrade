@@ -18,7 +18,7 @@ class Search extends Controller {
             'searchQuery' => $searchQuery,
         ];
 
-        $this->view('item_ads/v_searchAd',  $data);
+        $this->view('item_ads/v_index',  $data);
     }
 }
 ?>

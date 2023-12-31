@@ -1,22 +1,3 @@
-/* AD INDEX PAGE */
-
-/* body, h1, h2, p {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #a6b69a;
-    color: #333;
-} 
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-} */
 
 .user-greeting {
     font-size: 15px;
@@ -146,20 +127,7 @@ header {
     align-self: left;
 }
 
-/* .ad-contact-btn,
-.ad-offer-btn,
-.ad-bid-btn {
-    display: block; 
-    margin: 10px 20px 20px 20px; 
-    background-color: #6b6b6b;
-    color: #fff;
-    padding: 5px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center; 
-    align-self: left;
-}*/
+
 
 .ad-wishlist-btn img {
     width: 20px;
@@ -238,27 +206,6 @@ input[type=text]:focus,[type=password] {
     border: 1px solid #7bd664;
 }
 
-/* .icon {
-    filter: grayscale(100%);
-} */
-
-
-/*Item image styles*/
-/* .form-drag-area{
-    border: 1px solid #d5d2d2;
-    border-radius: 5px;
-    width: 99%;
-    height: 100px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background: #f1f1f1;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-    transition: 300ms ease-in;
-}
-
 .form-drag-area.active{
     border: 2px dashed #7bd664;
     background-color: antiquewhite;
@@ -273,16 +220,7 @@ input[type=text]:focus,[type=password] {
     transition: 300ms ease-in;
 }  */
 
-/* .form-drag-area-text{
-    font-weight: bold;
-    text-align: center;
-} */
 
-
-
-
-/* new styles for adding images 
-Style the form drag-and-drop area */
 .form-drag-area {
     /* border: 2px dashed #ccc; */
     border-radius: 5px;
@@ -341,17 +279,68 @@ Style the form drag-and-drop area */
     color: #dddddd;
 }
 
-/* styles 30 13.35
-.form-drag-area {} 
-.form-drag-area.active {}
-.form-drag-area .right-content {} 
-.form-drag-area .form-upload{}
-.form-drag-area .icon{}
-.form-drag-area .icon img{}
-.form-drag-area .description{}
-.form-drag-area .form-upload:hover{}
-.form-validation{}
-.form-validation.active{}
-.form-validation > div{} if its not active for each division we can reduce opacity
-.form-validation > div.active{}
-.form-validation > div.img{} */
+
+/* css for search bar in v_index page */
+
+
+.search-container-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;/* this brings search bar to the center of the page */
+    margin-top: 20px;
+}
+
+.search-container-index {
+    display: flex;
+    align-items: center;
+}
+
+.search-category-index {
+    margin-right: 0px;
+    padding: 12px 0px;
+    background: #219657b5;
+    /* border: 1px solid #117e3b; */
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.search-input-index {
+    flex: 1;
+    margin-right: 0px;
+    padding: 8px 15px;
+    /* border: 1px solid #f1f1f1; */
+    border: 1px solid #000;
+    font-size: 16px;
+    outline: none;
+    margin-top: 0px;
+    width: 40vw;
+    background: #f1f1f1;
+    height: 25px;
+    display: block;
+}
+
+.search-button-index {
+    background: #219657b5;
+    /* border: 1px solid #117e3b; */
+    border: 1px solid #000;
+    border-radius: 0;
+    padding: 11px 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-left: 0;
+    margin-top: 0px;
+}
+
+.search-button-index:hover {
+    background: #729e7d;
+}
+
+.search-icon-index {
+    height: 15px;
+    position: relative;
+    top: 2px;
+}
+
+.selectad-category option {
+    padding: 12px;
+}

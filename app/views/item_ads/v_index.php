@@ -4,12 +4,48 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <div class = "user-greeting">
+    <!-- <div class = "user-greeting">
         <p>Hi <b><?php echo $_SESSION['user_name']; ?></b>, Welcome to the Secondhand Marketplace!</p>
     </div>
-    <?php flash('post_msg'); ?>
-    <!--  -->
+    <?php flash('post_msg'); ?> -->
 
+    <?php
+    if (isset($_SESSION['user_name'])) {
+        ?>
+        <div class="user-greeting">
+            <p>Hi <b><?php echo $_SESSION['user_name']; ?></b>, Welcome to the Secondhand Marketplace!</p>
+        </div>
+        <?php
+    }
+    flash('post_msg');
+    ?>
+    
+    <div class="search-container-wrapper">
+        <form action="<?php echo URLROOT; ?>/Search/SearchAd" method="GET">
+            <div class="search-container-index">
+                <select name="category" class="search-category-index">
+                    <option value="" selected>All</option>
+                    <div class="selectad-category">
+                        <option value="furniture">Furniture</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="books">Books</option>
+                        <option value="kitchenware">Kitchenware</option>
+                        <option value="home_deco">Home Deco</option>
+                        <option value="sports_equip">Sports Equipment</option>
+                        <option value="appliances">Appliances</option>
+                        <!-- <option value="other">Other</option> -->
+                    </div>
+                </select>
+                <input class="search-input-index" name="search" placeholder="Search in EcoTrade">
+                <button class="search-button-index">
+                    <img src="<?php echo URLROOT; ?>/public/img/index/search.png" alt="search" class="search-icon-index">
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <?php if (!empty($data['ads'])) : ?>
     <div class = "ads-container">
         <?php foreach($data['ads'] as $ad): ?>
             <a href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
@@ -52,7 +88,12 @@
             </a>
         <?php endforeach; ?>
     </div>
-    
+    <?php else : ?>
+        <div style="font-size: 20px;margin: 30px 50px;">
+        <p>No results found for <b>"<?php echo !empty($data['searchQuery']) ? htmlspecialchars($data['searchQuery']) : ''; ?>"</b> .</p>
+        <p>Try checking your spelling or use more general terms</p>
+        </div>
+    <?php endif; ?>
     
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>
