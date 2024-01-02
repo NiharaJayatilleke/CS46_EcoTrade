@@ -282,11 +282,11 @@ input[type=text]:focus,[type=password] {
 
 /* css for search bar in v_index page */
 
-
+/* 
 .search-container-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;/* this brings search bar to the center of the page */
+    justify-content: center;
     margin-top: 20px;
 }
 
@@ -299,7 +299,7 @@ input[type=text]:focus,[type=password] {
     margin-right: 0px;
     padding: 12px 0px;
     background: #219657b5;
-    /* border: 1px solid #117e3b; */
+    
     border: 1px solid #000;
     cursor: pointer;
 }
@@ -308,7 +308,7 @@ input[type=text]:focus,[type=password] {
     flex: 1;
     margin-right: 0px;
     padding: 8px 15px;
-    /* border: 1px solid #f1f1f1; */
+    
     border: 1px solid #000;
     font-size: 16px;
     outline: none;
@@ -321,7 +321,7 @@ input[type=text]:focus,[type=password] {
 
 .search-button-index {
     background: #219657b5;
-    /* border: 1px solid #117e3b; */
+   
     border: 1px solid #000;
     border-radius: 0;
     padding: 11px 15px;
@@ -343,4 +343,4 @@ input[type=text]:focus,[type=password] {
 
 .selectad-category option {
     padding: 12px;
-}
+} */

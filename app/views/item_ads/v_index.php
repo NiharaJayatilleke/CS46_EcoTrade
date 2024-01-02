@@ -20,7 +20,7 @@
     flash('post_msg');
     ?>
     
-    <div class="search-container-wrapper">
+    <!-- <div class="search-container-wrapper">
         <form action="<?php echo URLROOT; ?>/Search/SearchAd" method="GET">
             <div class="search-container-index">
                 <select name="category" class="search-category-index">
@@ -34,7 +34,7 @@
                         <option value="home_deco">Home Deco</option>
                         <option value="sports_equip">Sports Equipment</option>
                         <option value="appliances">Appliances</option>
-                        <!-- <option value="other">Other</option> -->
+                       
                     </div>
                 </select>
                 <input class="search-input-index" name="search" placeholder="Search in EcoTrade">
@@ -43,7 +43,7 @@
                 </button>
             </div>
         </form>
-    </div>
+    </div> -->
 
     <?php if (!empty($data['ads'])) : ?>
     <div class = "ads-container">
