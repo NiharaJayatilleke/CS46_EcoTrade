@@ -78,3 +78,9 @@
             </div>
     
         </div>
+
+        <input type="submit" value="proceed to checkout" class="submit-btn">
+
+    </form>
+
+</div>    

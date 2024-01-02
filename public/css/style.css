@@ -7,6 +7,7 @@
 @import url('components/flash_message_styles.css');
 @import url('components/sidebar_styles.css');
 @import url('components/profile_styles.css');
+
 @import url('components/notifications_styles.css');
 
 /*REGISTRATION*/
@@ -14,6 +15,7 @@
 
 /* LOGIN */
 @import url('pages/login.css');
+
 
 /* ITEM ADS */
 @import url('item_Ads/item_ads_styles.css');
