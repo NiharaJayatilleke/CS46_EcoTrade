@@ -2,9 +2,7 @@
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_paymentportal.css">
-
-<body class=".paymentpage"> 
-
+<body class="paymentpage">
 <div class="container">
 
     <form action="">
@@ -80,4 +78,10 @@
             </div>
     
         </div>
+
+        <input type="submit" value="proceed to checkout" class="submit-btn">
+
+    </form>
+
+</div>    
 </body>
