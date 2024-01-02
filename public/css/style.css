@@ -7,10 +7,21 @@
 @import url('components/flash_message_styles.css');
 @import url('components/sidebar_styles.css');
 @import url('components/profile_styles.css');
-@import url('components/footer.css');
+
+@import url('components/notifications_styles.css');
+
+/*REGISTRATION*/
+@import url('pages/signup.css');
+
+/* LOGIN */
+@import url('pages/login.css');
+
 
 /* ITEM ADS */
 @import url('item_Ads/item_ads_styles.css');
+@import url('item_Ads/message_styles.css');
+@import url('item_Ads/offer_styles.css');
+@import url('item_Ads/other_interactions_styles.css');
 
 /*ADMIN DASHBOARD*/
 @import url('pages/admin_dashboard_styles.css');
@@ -38,7 +49,7 @@ body{
     font-size: small;
     text-align: left;
     /* background-color: #a6b69a; */
-    background-color: #a6b69a;
+    background-color: #a6b69aba; 
     color: #333;
 }
 

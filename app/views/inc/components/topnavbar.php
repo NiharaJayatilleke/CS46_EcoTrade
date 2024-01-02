@@ -6,10 +6,13 @@
         <img src="<?php echo URLROOT?>/public/img/index/logo.png" alt="Logo" class="logo" width="80" height="30">
       </a>
     </div>
+
     <div class="links">
       <div class="item"><a href="<?php echo URLROOT ?>/Pages/index">Home</a></div>
+      <?php if (!isset($_SESSION['user_id'])) : ?>
       <div class="item"><a href="<?php echo URLROOT ?>/Users/login">Login</a></div>
       <div class="item"><a href="<?php echo URLROOT ?>/Users/register">Sign Up</a></div>
+      <?php endif; ?>
       <!-- <div class="item"><a href="<?php echo URLROOT ?>/ItemAds/itemAd">Post Ad</a></div> -->
       <div class="item">
                 <?php if (isset($_SESSION['user_id'])) : ?>
@@ -18,27 +21,55 @@
                     <a href="<?php echo URLROOT ?>/Users/login">Post Ad</a>
                 <?php endif; ?>
       </div>
+
       <div class="item"><a href="<?php echo URLROOT ?>/Wishlist/index">Saved Ads</a></div>
-      <div class="item user-dropdown">
-        <div class="sidebr">
-          <a href="#" >
-            <?php if(isset($_SESSION['user_id'])){
-            echo '<img src="../public/img/index/user.png" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
-          }
-          ?>
+
+
+      <!-- Notifications -->
+      <div class="item user-dropdown1">
+        <div class="notif-wrapper">
+          <a href="#" class="dropdown-toggle">
+              <i class="fas fa-bell"></i>
+              <span class="caret"></span>
           </a>
+          <div class="notif-dropdown-menu" >
+              <!-- Fetch notifications from the database and display them here -->
+              <?php foreach ($notifications as $notification): ?>
+
+                  <!-- <a href="#" class="notif-dropdown-item">
+                    <?php echo $notification['message']; ?>
+                  </a> -->
+
+                  <div class="notif-dropdown-item">
+                    <div class="message"><?php echo $notification['message']; ?></div>
+                    <a href="<?php echo URLROOT ?>/ItemAds/show/<?php echo $notification['ad_id']; ?>" class="view-ad-link">View Ad</a>
+                  </div>
+              <?php endforeach; ?>
+          </div>
         </div>
       </div>
+
+
+      <div class="item user-dropdown">
+        <div class="sidebr">
+          <div class="profile-image">
+              <!-- <div class="image-container"> -->
+          <a href="#" >
+          <?php
+            if (isset($data['user']) && !empty($data['user'])) {
+                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['user'] . '" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
+            } else {
+                echo '<img src="' . URLROOT . '/public/img/profile.png" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
+            }
+            ?>
+          </a>
+        <!-- </div>  -->
+        </div> 
+        </div> 
+      </div>      
     </div>
   </div>
 </div>
-<!-- <section class="home-section">
-    <div class="home-content">
-        <a><img src="../public/img/user.png" alt="user" class="user" width="80" height="30"></a>
-        <span class="text">Dropdown Sidebar</span>
-    </div>
-</section> -->
-
 
 <script>
 sidebar=document.querySelector(".sidebar")
@@ -50,7 +81,7 @@ function Myfunction(){
 }
 </script>
 
-
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/notifications.js"></script>
 
 
 

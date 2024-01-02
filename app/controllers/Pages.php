@@ -5,9 +5,16 @@
         }
 
         public function index(){
-            $data = [];
+        if(isset($_SESSION['user_id'])) {
+            $user = $this->pagesModel->getUserProfileImage($_SESSION['user_id']);
+            $data = [
+                'user' => $user,
+            ];
             $this->view('pages/v_index',$data);
-
+        } else {   
+            $this->view('pages/v_index');
+        }
+        
         }
         public function about(){
             $users = $this->pagesModel->getUsers();
