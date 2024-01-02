@@ -5,16 +5,32 @@
 
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_index_styles.css">
 
-
+<form action="<?php echo URLROOT; ?>/Search/SearchAd" method="GET">
  <div class="search-container-index" >
-  <input type="text" class="search-input-index" placeholder="Search in EcoTrade" style="margin-right:0;padding:7px 10px;">
-  <button class="search-button-index" style="margin-left:0;margin-top:6px">
-      <img src="<?php echo URLROOT; ?>/public/img/index/search.png" alt="search" class="search-icon-index">
-      <div class="bg-img" style="padding-left:0">
-          <img src="../public/img/index/home.png" alt="">
+<select name="category" class="search-category-index">
+      <option value="" selected>All</option>
+      <div class="selectad-category">
+        <option value="furniture">Furniture</option>
+        <option value="electronics">Electronics</option>
+        <option value="clothing">Clothing</option>
+        <option value="books">Books</option>
+        <option value="kitchenware">Kitchenware</option>
+        <option value="home_deco">Home Deco</option>
+        <option value="sports_equip">Sports Equipment</option>
+        <option value="appliances">Appliances</option>
+        <!-- <option value="other">Other</option> -->
       </div>
-    </div>
-  </button>  
+    </select>
+  <input  class="search-input-index" name="search" placeholder="Search in EcoTrade" style=""> 
+  <button class="search-button-index" >
+      <img src="<?php echo URLROOT; ?>/public/img/index/search.png" alt="search" class="search-icon-index">
+      <div class="bg-img" >
+          <img src="../public/img/index/home.png" alt="">
+      </div> 
+  </button> 
+ </div> 
+</form>
+
 
 <div class="big-options">
     <div class="option">       

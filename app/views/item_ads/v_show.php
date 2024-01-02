@@ -3,7 +3,6 @@
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_prodetails.css">
 
-
 <div class="main-container1">
     <div class="main2"></div>
         <div class = "item-name"><h1><?php echo $data['ad']->item_name ?><h1></div>
@@ -25,16 +24,17 @@
             <div class="desMain">
                 <div class="heading">
                     <div class = "price"><h1>Rs. <?php echo $data['ad']->item_price ?></h1></div>
-                    <div class = "desc"><?php echo $data['ad']->item_desc ?></div>
                     <p>Negotiable</p>
+                    <p>Condition: Brand New</p>
+                    <p>Quantity: 1</p>
                 </div>
 
                 <div class="description">
                     <div class="desHead">
-                        <h3> Description</h1>
+                        <h3> Product Description</h1>
                     </div>
                     <div class="desP">
-                        <p>YOM 1971 YOR 1979<br>300 TDI Engine R380 Gearbox</p>
+                        <?php echo $data['ad']->item_desc ?>
                     </div>
                 </div>
             </div>
@@ -60,32 +60,87 @@
 
     <div class="right-container">
         <div class="b1">
-            <img class="i1" src="<?php echo URLROOT?>/public/img/prodetails/profile.png" alt="profile">
-            <div class="b1_2">
-                <p>Mahesh Bandara</p>
+            <img class="i1" src="<?php echo URLROOT?>/public/img/prodetails/merchant.png" alt="merchant">
+            <div class="b2">
+            <p>Sold by <?php echo $data['ad']->seller_name?></p>
             </div>
         </div>
+
         <div class="b1">
-            <img src="<?php echo URLROOT?>/public/img/prodetails/phone1.png" alt="profile">
+        <img class="i1" src="<?php echo URLROOT?>/public/img/prodetails/location1.png" alt="location">
+            <!-- <i class="fas fa-map-marker-alt"></i> -->
             <div class="b2">
-            <h4>076XXXXXXX</h2>
-            <p>Click to show phone number</p>
-        </div>
-        </div>
-        <div class="b1">
-            <img src="<?php echo URLROOT?>/public/img/prodetails/phone2.png" alt="profile">
-            <div class="b2">
-            <h4>076XXXXXXX</h2>
-            <p>Click to show phone number</p>
+            <p><?php echo $data['ad']->item_location?></p>
             </div>
         </div>
+
+        <div class="b3">
+            <img class="i1" src="<?php echo URLROOT?>/public/img/prodetails/tel.png" alt="telephone">
+            <div class="b2">
+            <!-- <button id="show-number" class="number" data-number="<?php echo $data['ad']->number?>"> Click to show phone number</button> -->
+            <button id="show-number" class="number" data-number="0771717368"> Contact Seller</button>
+            </div>
+        </div>
+        
+        <div class = "btns">
+            <!-- offer and bid icons are disabled for seller -->
+            <input type="submit" class="offer" id="make-offer" value="Make Offer" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
+            <input type="submit" class="bid" id="place-bid" value="Place Bid" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
+        </div>
+
     </div>
 </div>
-</div>
-</div>
-    <script src="productDetails.js"></script>
-    </body>
-    </html>
+
+<br><br>
+<!-- Message Sellers (Q&A) -->
+<form method="post">
+    <div class = "message-seller-container">
+        <div class = "message-header">
+            <h3>Message Seller</h3>
+        </div>
+
+        <!-- Message Input -->
+        <div class = "message-input">
+            <input type = "text" class = "message-input-field" name = "send-message" id = "send-message" placeholder = "Type your message here...">
+            <!-- <button class = "message-btn" id = "message-btn" type = "submit">Send</button> -->
+            <input type="submit" value="Send" class = "message-btn" id = "message-btn"> 
+        </div>
+
+        <!-- Testing -->
+        <!-- <div id = "test"></div> -->
+
+        <!-- Message Thread -->
+        <div id = "results"></div>
+
+    </div>
+</form>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script type ="text/JavaScript">
+    var URLROOT ="<?php echo URLROOT; ?>"
+    var CURRENT_AD = "<?php echo $data['ad']->ad_id ?>";
+</script>
+
+<!-- JS for messages -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/messages.js"></script>
+
+<!-- JS for Offers -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/offers.js"></script>
+
+<!-- JS for Bids -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/bids.js"></script>
+
+<!-- JS for other interactions -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>
+
+<?php require APPROOT.'/views/inc/footer.php'; ?>
+
+
     
 
 

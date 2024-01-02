@@ -30,9 +30,8 @@
             $this->db->bind(':email',$email);
 
             $row = $this->db->single();
-
             if($this->db->rowCount() > 0){
-                return true;
+                return $row->id;
             }
             else{
                 return false;
@@ -137,7 +136,6 @@
 
 
         public function resetPassword($user_id, $newPassword) {
-      
             // Build the query based on whether the new password is provided
             if (!empty($newPassword)) {
                 $this->db->query('UPDATE General_User SET password = :newPassword WHERE id = :user_id');

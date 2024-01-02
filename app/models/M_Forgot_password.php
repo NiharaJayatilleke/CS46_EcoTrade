@@ -7,44 +7,26 @@ class M_Forgot_password{
         $this->db = new Database;
     }
 
-    public function deleteEmail($email){
-        $this->db->query('DELETE FROM pwdreset WHERE pwdResetEmail=:email');
-        $this->db->bind(':email',$email);
-        //Execute
-        if($this->db->execute()){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    public function insertToken($email, $selector, $hashedToken, $expires){
-        $this->db->query('INSERT INTO pwdreset (pwdResetEmail, pwdResetSelector, pwdResetToken, 
-        pwdResetExpires) VALUES (:email, :selector, :token, :expires)');
+    public function storePasswordResetToken($email, $selector, $token, $expires) {
+        $sql = "INSERT INTO forgot_password (pwdResetemail, pwdResetSelector, pwdresetToken, pwdResetExpires) VALUES (:email, :selector, :token, :expires)";
+        $this->db->query($sql);
         $this->db->bind(':email', $email);
         $this->db->bind(':selector', $selector);
-        $this->db->bind(':token', $hashedToken);
+        $this->db->bind(':token', $token);
         $this->db->bind(':expires', $expires);
-        //Execute
-        if($this->db->execute()){
-            return true;
-        }else{
-            return false;
-        }
+
+        return $this->db->execute();
     }
 
-    public function resetPassword($selector, $currentDate){
-        $this->db->query('SELECT * FROM pwdreset WHERE  pwdResetSelector=:selector AND pwdResetExpires >= :currentDate');
-        $this->db->bind(':selector',$selector);
-        $this->db->bind(':currentDate',$currentDate);
-        //Execute
-        $row = $this->db->single();
+    public function getPasswordResetToken($selector) {
+        $sql = "SELECT * FROM forgot_password WHERE pwdResetSelector = :selector AND pwdResetExpires >= :current_time";
+        $this->db->query($sql);
+        $this->db->bind(':selector', $selector);
+        $this->db->bind(':current_time', time());
 
-        //Check row
-        if($this->db->rowCount() > 0){
-            return $row;
-        }else{
-            return false;
-        }
+        // return $this->db->single();
+        return $this->db->single();
     }
+
+  
 }

@@ -1,0 +1,14 @@
+/* Styles for seller's number popup */
+.show-num-popup-class{
+    height: 150px !important;
+}
+
+/* .show-num-popup-class.swal2-title{
+    font-size: 10px !important;
+    font-weight: bold;
+} */
+
+.swal2-title{
+    font-size: 20px !important;
+    font-weight: bold;
+}

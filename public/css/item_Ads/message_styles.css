@@ -1,0 +1,110 @@
+/* Message Seller */
+/* .message-seller-container{} */
+
+.message-header{
+    margin-top: 5;
+    /* margin-bottom: 5; */
+    display: flex;
+    color: #333;
+} 
+.message-input{
+    margin-top: 5;
+    margin-bottom: 5;
+    margin-right: 480px;
+    color: #333;
+    background-color: #fff;
+    padding: 5px; 
+    display: flex;
+}
+
+.message-input-field{
+    margin-top: 5;
+    margin-bottom: 10px;
+    width: 40%;
+    color: #333;
+    background-color: #fff;
+    padding: 5px;
+    display: flex;
+}
+.message-btn{
+    color: #333;
+    width: 100px;
+    height: 42px;
+    margin-top: 5px;
+    margin-left: 0px;
+    background-color: #729e7dc6;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+
+}
+
+.message-container{
+    /* margin-top: 3%;
+    margin-bottom: 3%; */
+    /* padding: 2%; */
+    border: 1px solid #D4E7F3;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+}
+
+/* user photo */
+.message-left{
+    border-right: 1px solid #D4E7F3;
+    margin-top: 20px;
+    padding: 2%;
+}
+
+#user_placeholder{
+    width: 40px;
+    height: 30px;
+} 
+
+.message-right{
+    width: 80%;
+    padding: 1%;
+}
+
+
+.message-header{
+    margin-top: 0;
+    margin-bottom: 0;
+    /* padding-top: 1%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #333;
+}
+
+.message-user-name{
+    color: #555;
+    font-size: 14px;
+    margin-top: 1px;
+    margin-bottom: 0; */
+    /* padding-bottom: 1%; */
+}
+
+.message-created-at{
+    color: #555;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 1%;
+}
+
+.message-body{
+    /* margin-top: 3%;
+    margin-bottom: 3%; */
+    padding: 2%;
+    border: 1px solid #D4E7F3;
+    background-color: #fff;
+    height: 10px;
+}
+
+.message-body-cont{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 1%;
+    color: #333;
+    height: 5px;
+}

@@ -132,6 +132,7 @@
                                             <input type="password" name="newPassword" class="form-control" value="">
                                             <?php if (!empty($data['errors']['newPassword'])) : ?>
                                                 <div class="form-invalid"><?php echo $data['errors']['newPassword']; ?></div>
+                                            
                                             <?php endif; ?>
                                         </div>
 
@@ -145,6 +146,7 @@
                                 </div>
                             <div style="margin-top: 30px;">
                             <?php flash('update_password'); ?>
+                            
                             </div>
                             </div>
                             <div class="right-right">
@@ -456,6 +458,9 @@ inputFile.onchange = function(){
      
 
 </script>
-</body>
+<!-- <script>
+            console.log("Hello");
+            swal("Here's a message!");
+</script> -->
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>
