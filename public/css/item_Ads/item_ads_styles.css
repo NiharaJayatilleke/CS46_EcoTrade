@@ -279,6 +279,20 @@ input[type=text]:focus,[type=password] {
     color: #dddddd;
 }
 
+/* styles 30 13.35
+.form-drag-area {} 
+.form-drag-area.active {}
+.form-drag-area .right-content {} 
+.form-drag-area .form-upload{}
+.form-drag-area .icon{}
+.form-drag-area .icon img{}
+.form-drag-area .description{}
+.form-drag-area .form-upload:hover{}
+.form-validation{}
+.form-validation.active{}
+.form-validation > div{} if its not active for each division we can reduce opacity
+.form-validation > div.active{}
+.form-validation > div.img{} */
 
 /* css for search bar in v_index page */
 
@@ -344,3 +358,4 @@ input[type=text]:focus,[type=password] {
 .selectad-category option {
     padding: 12px;
 } */
+

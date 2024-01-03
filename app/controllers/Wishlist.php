@@ -9,5 +9,7 @@
             $this->view('pages/v_wishlist',$data);
 
         }
+
+        
     }
 ?>

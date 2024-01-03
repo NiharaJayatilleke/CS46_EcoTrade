@@ -71,7 +71,7 @@
 
                   <div class="notif-dropdown-item">
                     <div class="message"><?php echo $notification['message']; ?></div>
-                    <a href="<?php echo URLROOT ?>/ItemAds/show/<?php echo $notification['ad_id']; ?>" class="view-ad-link">View Ad</a>
+                    <a href="<?php echo URLROOT ?>/ItemAds/show/<?php echo $notification['ad_id']; ?>" class="view-ad-link" data-ad-id="<?php echo $notification['ad_id']; ?>">View Ad</a>
                   </div>
               <?php endforeach; ?>
           </div>

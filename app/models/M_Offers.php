@@ -19,5 +19,12 @@
                 return false;
             }
         }
+
+        public function getOffersByAd($id){
+            $this->db->query('SELECT * FROM Offers WHERE ad_id = :ad_id ORDER BY offer_amount DESC');
+            $this->db->bind(':ad_id',$id);
+            $results = $this->db->resultSet();
+            return $results;
+        }
     }
 ?>

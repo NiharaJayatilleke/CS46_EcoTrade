@@ -22,6 +22,7 @@
 @import url('item_Ads/message_styles.css');
 @import url('item_Ads/offer_styles.css');
 @import url('item_Ads/other_interactions_styles.css');
+@import url('item_Ads/seller_only_styles.css');
 
 /*ADMIN DASHBOARD*/
 @import url('pages/admin_dashboard_styles.css');
