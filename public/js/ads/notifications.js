@@ -38,10 +38,10 @@ $(document).ready(function() {
         var dropdownMenu = $('.notif-dropdown-menu');
         var caret = $('.caret');
 
-        if (!$(e.target).closest('.user-dropdown').length) {
+        if (!$(e.target).closest('.notif-wrapper').length) {
             dropdownMenu.hide();
             caret.hide();
         }
     });
-});
 
+});

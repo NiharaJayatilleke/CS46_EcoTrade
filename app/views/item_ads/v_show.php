@@ -88,6 +88,18 @@
             <input type="submit" class="bid" id="place-bid" value="Place Bid" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
         </div>
 
+        <!-- HTML for sellers to accept or reject offers -->
+        <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?>
+            <h3>Offers</h3>
+            <?php foreach ($data['offers'] as $offer) : ?>
+                <div class="offer-details">
+                    <p class="offer-message">New Offer: Rs.<?php echo $offer->offer_amount; ?></p>
+                    <button class="accept-offer">Accept</button>
+                    <button class="reject-offer">Reject</button>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+            
     </div>
 </div>
 

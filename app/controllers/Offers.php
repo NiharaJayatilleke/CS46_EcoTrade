@@ -47,5 +47,20 @@
 
             }
         }
+
+        // public function showOffers($id){
+        //     $ad = $this->itemAdsModel->getAdById($id);
+        //     $offers = $this->offersModel->getOffersByAd($id);
+
+        //     $data = [
+        //         'ad' => $ad,
+        //         'offers' => $offers
+        //     ];
+
+        //     var_dump($data);
+
+        //     $this->view('item_ads/v_show', $data); 
+        //     // return $offers;
+        // }
     }
 ?>

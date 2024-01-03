@@ -2,6 +2,7 @@
     class ItemAds extends Controller{
         public function __construct(){
             $this->itemAdsModel =$this->model('M_Item_Ads');
+            $this->offersModel =$this->model('M_Offers');
         }
 
         public function index() {
@@ -16,9 +17,11 @@
 
         public function show($id) {
             $ad = $this->itemAdsModel->getAdById($id);
+            $offers = $this->offersModel->getOffersByAd($id);
             
             $data = [
                 'ad' => $ad,
+                'offers' => $offers,
             ];
 
             $this->view('item_ads/v_show', $data);
