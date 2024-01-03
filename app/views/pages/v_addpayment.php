@@ -1,6 +1,7 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
+
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_addpayment.css">
 
 
@@ -27,10 +28,20 @@
     </li>
     
     <li class="w3-light-grey w3-padding-24">
-      <button class="w3-button w3-green w3-padding-large">Pay Now</button>
+    <button class="w3-button w3-green w3-padding-large" onclick="redirectToWebsite()">Pay Now</button>
+     
     </li>
   </ul>
+
+  <script>
+        function redirectToWebsite() {
+            // Replace "https://example.com" with the actual URL you want to link to
+            window.location.href = "http://localhost/ecotrade/PaymentPortal/index";
+        }
+    </script>
+
 </div>
 
 
 </div>
+<?php require APPROOT . '/views/inc/components/footer.php';?>
