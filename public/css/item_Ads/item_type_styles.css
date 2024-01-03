@@ -1,0 +1,46 @@
+.type-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 30px 40px;
+    background-color:  #fff;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 300px;
+    border: 1px solid #d3d3d3;
+    text-align: left;
+    position: relative;
+}
+
+.input-type-title {
+    font-size: 18px; 
+    margin-bottom: 10px; 
+}
+
+input[type="radio"] {
+    margin-right: 5px; 
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+button.continue {
+    font-size: 16px;
+    background-color: #fdfdfd !important;  
+    color: rgb(67, 67, 67) !important;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    margin-right: 60px !important;
+    cursor: pointer;
+    border-radius: 4px;
+    position: absolute; 
+    bottom: 0; 
+    right: 0; 
+}
+
+/* Optional: Add hover effect to the button */
+button.continue:hover {
+    background-color: #86d38a;
+}
