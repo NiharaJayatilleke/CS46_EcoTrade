@@ -8,6 +8,7 @@
         </div>
 
         <form action="<?php echo URLROOT?>/ItemAds/itemAd" method="POST" enctype="multipart/form-data">
+
             <!-- item_name -->
             <div class="form-input-title">Item Name</div>
             <input type="text" name="item_name" id="item_name" class="item_name" value="<?php echo $data['item_name']; ?>">

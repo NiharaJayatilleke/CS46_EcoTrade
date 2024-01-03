@@ -45,7 +45,7 @@
       <!-- <div class="item"><a href="<?php echo URLROOT ?>/ItemAds/itemAd">Post Ad</a></div> -->
       <div class="item">
                 <?php if (isset($_SESSION['user_id'])) : ?>
-                    <a href="<?php echo URLROOT ?>/ItemAds/itemAd">Post Ad</a>
+                    <a href="<?php echo URLROOT ?>/ItemAds/itemType">Post Ad</a>
                 <?php else : ?>
                     <a href="<?php echo URLROOT ?>/Users/login">Post Ad</a>
                 <?php endif; ?>

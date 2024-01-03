@@ -27,6 +27,21 @@
             $this->view('item_ads/v_show', $data);
         }
 
+        public function itemType(){
+            $itemType = $_POST['item_type'];
+
+            // Redirect based on the item type
+            if ($itemType == 'secondhand') {
+                $this->view('item_ads/v_create', $data);
+            } else if ($itemType == 'recycle') {
+                $this->view('item_ads/v_create', $data);
+            } else {
+                // Handle invalid item type
+            }
+
+            $this->view('item_ads/v_itemtype', $data);
+        }
+
         public function itemAd(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 //form is submitting
