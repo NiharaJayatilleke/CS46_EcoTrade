@@ -26,7 +26,9 @@
                 </form>
             </div>
 
-        <?php require APPROOT.'/views/inc/footer.php'; ?>
+        <!-- <?php require APPROOT.'/views/inc/footer.php'; ?> -->
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="path/to/your/animations.js"></script>
+        </body>
+</html>

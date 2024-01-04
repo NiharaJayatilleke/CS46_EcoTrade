@@ -59,4 +59,4 @@
     <img src="../public/img/index/bottomimg.jpg" alt="greenish">
     <div class="text-on-layer"><b>We're the Best<br> Second-Hand Marketplace for<br> Reuse and Recycle<b></div>
 </div>
-<?php require APPROOT.'/views/inc/footer.php'; ?>
+<?php require APPROOT.'/views/inc/components/footer.php'; ?>
