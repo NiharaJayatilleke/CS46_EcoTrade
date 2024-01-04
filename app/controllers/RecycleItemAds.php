@@ -15,7 +15,6 @@
         }
 
         public function recycleItemAd(){
-            echo 'recycleItemAd';
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 //form is submitting
 
@@ -66,7 +65,6 @@
                     $data['item_location_err'] = 'Please enter the location of your item';
                 }
 
-                print_r($data);
                 //Validation is completed and no error then add item ad to the database
                 if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_location_err'])&&empty($data['item_images_err'])){
                     //Add item ad to the database

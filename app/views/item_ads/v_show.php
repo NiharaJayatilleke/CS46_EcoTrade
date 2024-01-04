@@ -83,9 +83,14 @@
         </div>
         
         <div class = "btns">
-            <!-- offer and bid icons are disabled for seller -->
-            <input type="submit" class="offer" id="make-offer" value="Make Offer" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
-            <input type="submit" class="bid" id="place-bid" value="Place Bid" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
+            <!-- offer and bid icons are disabled for seller and only allowed if seller has chosen to -->
+            <?php if($data['ad']->negotiable == 'yes'): ?>
+                <input type="submit" class="offer" id="make-offer" value="Make Offer" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
+            <?php endif; ?>
+
+            <?php if($data['ad']->selling_format == 'auction'): ?>
+                <input type="submit" class="bid" id="place-bid" value="Place Bid" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
+            <?php endif; ?>
         </div>
 
         <!-- HTML for sellers to accept or reject offers -->
