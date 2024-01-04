@@ -28,13 +28,14 @@
         }
 
         public function itemType(){
-            $itemType = $_POST['item_type'];
+            $itemType = isset($_POST['item_type']) ? $_POST['item_type'] : '';
+            $data = [];
 
             // Redirect based on the item type
             if ($itemType == 'secondhand') {
                 $this->view('item_ads/v_create', $data);
             } else if ($itemType == 'recycle') {
-                $this->view('item_ads/v_create', $data);
+                $this->view('recycle_ads/v_re_create', $data);
             } else {
                 // Handle invalid item type
             }
@@ -314,6 +315,6 @@
             }
             
         }
-
+        
     }
 ?>
