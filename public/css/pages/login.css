@@ -109,19 +109,19 @@
 .check-box {
     margin: 30px 10px 30px 0;
 }
-
+/* 
 span {
     color: #777;
     font-size: 12px;
     bottom: 68px;
     position: absolute;
-}
+} */
 
 #login {
     left: 50px;
 }
 
-footer {
+/* footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -130,7 +130,7 @@ footer {
     font-size: 12px;
     padding: 10px;
     transition: all 0.3s ease;
-}
+} */
 
 .terms {
     margin-top: 10px;

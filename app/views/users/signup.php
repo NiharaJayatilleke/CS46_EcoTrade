@@ -22,7 +22,7 @@
                     <input name="number" placeholder="Contact Number" id="number" class="input-field" value="<?php echo $data['number']; ?>">
                     <span class="form-invalid"><?php echo $data['number_err']; ?></span>
                     <!-- password -->
-                    <input name="password" placeholder="Password" id="password" class="input-field" value="<?php echo $data['password']; ?>">
+                    <input type="password" name="password" placeholder="Password" id="password" class="input-field" value="<?php echo $data['password']; ?>">
                     <span class="form-invalid"><?php echo $data['password_err']; ?></span>
                     <!-- confirm password -->
                     <input name="confirm_password" placeholder="Confirm Password" id="confirm_password" class="input-field" value="<?php echo $data['confirm_password']; ?>">
@@ -97,6 +97,7 @@
                 y.style.display = "none";
             }
         </script>
-        <?php require APPROOT.'/views/inc/footer.php'; ?>
-
+        <!-- <?php require APPROOT.'/views/inc/footer.php'; ?> -->
+        </body>
+        </html>
 
