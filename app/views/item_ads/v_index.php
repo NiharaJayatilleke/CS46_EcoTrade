@@ -96,7 +96,7 @@
     <?php endif; ?>
     
 
-<?php require APPROOT.'/views/inc/footer.php'; ?>
+<?php require APPROOT.'/views/inc/components/footer.php'; ?>
 
 
     <!-- <div class = "ad-index-container">

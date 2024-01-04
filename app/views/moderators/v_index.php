@@ -1,0 +1,1 @@
+die('this is moderators index page');

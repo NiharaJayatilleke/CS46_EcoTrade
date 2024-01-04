@@ -463,4 +463,6 @@ inputFile.onchange = function(){
             swal("Here's a message!");
 </script> -->
 
-<?php require APPROOT.'/views/inc/footer.php'; ?>
+<!-- <?php require APPROOT.'/views/inc/footer.php'; ?> -->
+</body>
+</html>
