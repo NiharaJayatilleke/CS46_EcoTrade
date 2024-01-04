@@ -24,6 +24,12 @@
             }
         }
 
+        public function getAds(){
+            $this->db->query('SELECT * FROM Recycle_Item_Ads');
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
     }
 
 ?>

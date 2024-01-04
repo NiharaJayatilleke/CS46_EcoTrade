@@ -5,13 +5,13 @@
         }
 
         public function index() {
-            $ads = $this->itemAdsModel->getAds();
+            $ads = $this->recycleItemAdsModel->getAds();
             
             $data = [
                 'ads' => $ads,
             ];
 
-            $this->view('item_ads/v_index', $data);
+            $this->view('pages/v_collectorhome', $data);
         }
 
         public function recycleItemAd(){
@@ -73,7 +73,7 @@
                     if($this->recycleItemAdsModel->re_create($data)){
                         // create a flash message
                         flash('post_msg', 'Your ad has been posted successfully!');
-                        redirect('ItemAds/index');
+                        redirect('RecycleItemAds/index');
                     }else{
                         die('Something went wrong');
                     }
@@ -103,5 +103,6 @@
                 $this->view('recycle_ads/v_re_create', $data);
             }
         }    
+
     }
 ?>
