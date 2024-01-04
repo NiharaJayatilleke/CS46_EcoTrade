@@ -3,7 +3,7 @@
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_paymentportal.css">
 <body class="paymentpage">
-<div class="container">
+<div class="containerpaymentport">
 
     <form action="">
 
