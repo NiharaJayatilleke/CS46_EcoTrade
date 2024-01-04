@@ -34,7 +34,6 @@
                         <option value="home_deco">Home Deco</option>
                         <option value="sports_equip">Sports Equipment</option>
                         <option value="appliances">Appliances</option>
-                       
                     </div>
                 </select>
                 <input class="search-input-index" name="search" placeholder="Search in EcoTrade">
@@ -88,6 +87,7 @@
             </a>
         <?php endforeach; ?>
     </div>
+    
     <?php else : ?>
         <div style="font-size: 20px;margin: 30px 50px;">
         <p>No results found for <b>"<?php echo !empty($data['searchQuery']) ? htmlspecialchars($data['searchQuery']) : ''; ?>"</b> .</p>
