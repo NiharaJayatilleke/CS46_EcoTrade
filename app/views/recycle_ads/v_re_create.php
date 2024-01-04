@@ -7,7 +7,7 @@
         <center><h2>Fill up the form to post your ad</h2></center>
         </div>
 
-        <form action="<?php echo URLROOT?>/ItemAds/itemAd" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo URLROOT?>/RecycleItemAds/recycleItemAd" method="POST" enctype="multipart/form-data">
 
             <!-- item_name -->
             <div class="form-input-title">Item Name</div>
@@ -18,14 +18,15 @@
             <div class="form-input-title">Category</div>
             <!-- <label for="item_category">Item Category  </label> -->
             <select name="item_category" id="item_category" class="item_category">
-                <option value="furniture">Furniture</option>
+                <option value="cardboard">Carboard</option>
+                <option value="paper">Paper</option>
                 <option value="electronics">Electronics</option>
+                <option value="glass">Glass</option>
+                <option value="plastic">Plastic</option>
+                <option value="aluminium">Aluminium</option>
+                <option value="wood">Wood</option>
+                <option value="metal">Metal</option>
                 <option value="clothing">Clothing</option>
-                <option value="books">Books</option>
-                <option value="kitchenware">Kitchenware</option>
-                <option value="home_deco">Home Deco</option>
-                <option value="sports_equip">Sports Equipment</option>
-                <option value="appliances">Appliances</option>
                 <option value="other">Other</option>
             </select>
 
@@ -59,38 +60,17 @@
             </div>
 
             <!-- price -->
-            <div class="form-input-title">Price</div>
+            <!-- <div class="form-input-title">Price</div> 
             <input type="number" name="item_price" id="item_price" class="item_price" value="<?php echo $data['item_price']; ?>" >
-            <span class="form-invalid"><?php echo $data['item_price_err']; ?></span>
+            <span class="form-invalid"><?php echo $data['item_price_err']; ?></span>  -->
 
             <!-- location -->
             <div class="form-input-title">Location</div>
             <input type="text" name="item_location" id="item_location" class="item_location" value="<?php echo $data['item_location']; ?>" >
             <span class="form-invalid"><?php echo $data['item_location_err']; ?></span>
 
-            <!-- selling_format -->
-            <div class="form-input-title">Please select your preferred way of selling</div>
-            <input type="radio" name="selling_format" id="auction" class="selling_format" value="auction" <?php if ($data['selling_format'] === 'auction') { echo 'checked'; } ?>>
-            <label for="auction">Auction</label>
-            <input type="radio" name="selling_format" id="buy_now" class="selling_format" value="buy_now" <?php if ($data['selling_format'] === 'buy_now') { echo 'checked'; } ?>>
-            <label for="buy_now">Buy It Now</label><br>
-            <span class="form-invalid"><?php echo $data['selling_format_err']; ?></span>
-
-            <!-- Hidden form for auction details -->
-            <div id="auctionDetails" style="display: none;">
-                <label for="duration">Bidding Duration:</label>
-                <input type="number" id="duration" name="duration"><br>
-                <label for="startingBid">Starting Bid:</label>
-                <input type="number" id="startingBid" name="startingBid"><br>
-            </div>
-
-            <!-- negotiable -->
-            <div class="form-input-title">Is the price negotiable?</div>
-            <input type="radio" name="negotiable" id="yes" class="negotiable" value="yes" <?php if ($data['negotiable'] === 'yes') { echo 'checked'; } ?>>
-            <label for="yes">Yes</label>
-            <input type="radio" name="negotiable" id="no" class="negotiable" value="no" <?php if ($data['negotiable'] === 'no') { echo 'checked'; } ?>>
-            <label for="no">No</label><br> 
-            <span class="form-invalid"><?php echo $data['negotiable_err']; ?></span>
+            <br>
+            <p>Upon examination of your recyclable items, our dedicated collector will determine a fair and suitable price, taking into consideration the condition and value of the products.</p>
 
             <!-- submit button -->
             <input type="submit" value="Post Ad" class="form-btn">
@@ -100,9 +80,6 @@
 
 <!-- Javascript for image upload -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/ads.js"></script>
-
-<!-- Javascript for auction details -->
-<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/bidding_details.js"></script>
 
 <script>
     // Get the category select and the 'Other' category input
@@ -120,8 +97,5 @@
     });
 </script>
 
-<!-- <?php require APPROOT.'/views/inc/footer.php'; ?> -->
-
-</body>
-</html>
+<?php require APPROOT.'/views/inc/footer.php'; ?>
 
