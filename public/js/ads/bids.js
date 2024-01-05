@@ -1,5 +1,8 @@
 
-    document.querySelector('#place-bid').addEventListener('click', function(e) {
+var placeBidButton = document.querySelector('#place-bid');
+
+if (placeBidButton) {
+    placeBidButton.addEventListener('click', function(e) {
         e.preventDefault();
         Swal.fire({
             title: 'Place your bid',
@@ -21,3 +24,6 @@
             }
         });
     });
+}
+
+

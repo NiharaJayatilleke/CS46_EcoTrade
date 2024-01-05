@@ -62,5 +62,21 @@
         //     $this->view('item_ads/v_show', $data); 
         //     // return $offers;
         // }
+
+        public function handleUpdateOfferStatus() {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                $offerId = $_POST['offerId'];
+                $status = $_POST['status'];
+        
+                $this->offersModel->updateOfferStatus($offerId, $status);
+        
+                echo json_encode(['status' => 'success']);
+            } else {
+                echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
+            }
+        }
+
+
     }
 ?>
