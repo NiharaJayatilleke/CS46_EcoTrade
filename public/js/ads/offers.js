@@ -1,4 +1,4 @@
-// $(document).ready(function() {
+$(document).ready(function() {
 
 //     // Event handler for clicking on the "View Ad" link in the notification
 //     $(document).on('click', '.view-ad-link', function(e) {
@@ -99,19 +99,35 @@
     // });
 
     $('.accept-offer, .reject-offer').click(function() {
-        var offerId = $(this).parent().data('offer-id');
         var status = $(this).hasClass('accept-offer') ? 'accepted' : 'rejected';
-        var offerPrice = $(this).parent().find('.offer-message').text().split('Rs.')[1];
+
+         //confirmation dialog for accept offer
+        if (status === 'accepted') {
+            var confirmation = confirm('Please note, accepting this offer will replace any previously accepted offers if any. Are you sure you want to proceed?');
+            if (!confirmation) {
+                return; 
+            }
+        } 
+
+         //confirmation dialog for reject offer
+        if (status === 'rejected') {
+            var confirmation = confirm('Are you sure you want to reject this offer? You will not be able to see this offer once you reject it.');
+            if (!confirmation) {
+                return; // If the seller cancels the confirmation, stop the function
+            }
+        }
+
+        var offerId = $(this).parent().data('offer-id');
         var offerDiv = $(this).parent();
     
         $.ajax({
             url: URLROOT + "/Offers/handleUpdateOfferStatus",
             type: 'post',
-            data: { offerId: offerId, status: status },
+            data: { offerId: offerId, status: status, adId: CURRENT_AD },
             success: function(response) {
                 // Handle the response from the server
                 if (status === 'accepted') {
-                    $('.accepted-offer').find('#accepted-offer-price').text(offerPrice);
+                    $('.accepted-offer').find('#accepted-offer-price').text(response.offerPrice);
                     $('.accepted-offer').show();
                 }
                 offerDiv.remove(); // Remove the offer from the view
@@ -122,5 +138,5 @@
         });
     });
 
-// });
+});
 
