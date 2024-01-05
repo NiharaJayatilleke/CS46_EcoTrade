@@ -93,11 +93,15 @@
             <?php endif; ?>
         </div>
 
+        <!-- HTML for displaying the accepted offer price -->
+        <div class="accepted-offer" style="display: none;">
+            <p class="accepted-offer-message">The seller is willing to accept an offer of Rs.<span id="accepted-offer-price"></span></p>
+        </div>
         <!-- HTML for sellers to accept or reject offers -->
         <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?>
             <h3>Offers</h3>
             <?php foreach ($data['offers'] as $offer) : ?>
-                <div class="offer-details">
+                <div class="offer-details" data-offer-id="<?php echo $offer->offer_id; ?>">
                     <p class="offer-message">New Offer: Rs.<?php echo $offer->offer_amount; ?></p>
                     <button class="accept-offer">Accept</button>
                     <button class="reject-offer">Reject</button>
