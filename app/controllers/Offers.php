@@ -68,10 +68,21 @@
 
                 $offerId = $_POST['offerId'];
                 $status = $_POST['status'];
+
+                // If the seller accepts an offer, overwrite the status of all other offers for the same ad
+                if ($status == 'accepted') {
+                    $adId = $_POST['adId'];
+                    $this->offersModel->overwriteStatus($adId);
+                }
         
                 $this->offersModel->updateOfferStatus($offerId, $status);
-        
-                echo json_encode(['status' => 'success']);
+
+                if ($status == 'accepted') {
+                    $acceptedOffer = $this->offersModel->getAcceptedOffer($adId);
+                    echo json_encode(['status' => 'success', 'offerPrice' => $acceptedOffer->offer_amount]);
+                } else {
+                    echo json_encode(['status' => 'success']);
+                }
             } else {
                 echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
             }

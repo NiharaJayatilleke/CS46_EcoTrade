@@ -27,9 +27,19 @@
             return $results;
         }
 
+        public function overwriteStatus($adId){
+            $this->db->query('UPDATE offers SET offer_status = "overwritten" WHERE ad_id = :ad_id AND offer_status = "accepted"');
+            $this->db->bind(':ad_id',$adId);
+
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
         public function updateOfferStatus($offerId, $status){
-            var_dump($status);
-            var_dump($offerId);
             $this->db->query('UPDATE Offers SET offer_status = :offer_status WHERE offer_id = :offer_id');
             $this->db->bind(':offer_status',$status);
             $this->db->bind(':offer_id',$offerId);
@@ -40,6 +50,13 @@
             else{
                 return false;
             }
+        }
+
+        public function getAcceptedOffer($adId){
+            $this->db->query('SELECT * FROM Offers WHERE ad_id = :ad_id AND offer_status = "accepted"');
+            $this->db->bind(':ad_id',$adId);
+            $row = $this->db->single();
+            return $row;
         }
 
         // public function getOfferByStatus($status){
