@@ -13,7 +13,9 @@
                     <span class="email_error input_error" >Invalid email address. Please enter a valid email.</span>
 
                     <!-- password -->
-                    <input type="password" name="password" placeholder="Password" id="password" class="input-field" value="<?php echo $data['password']; ?>">
+
+                    <input  name="password" placeholder="Password" id="password" class="input-field" value="<?php echo $data['password']; ?>">
+
                     <span class="form-invalid"><?php echo $data['password_err']; ?></span>
 
                      <!-- Forgot password link -->
