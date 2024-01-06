@@ -94,9 +94,12 @@
         </div>
 
         <!-- HTML for displaying the accepted offer price -->
-        <br><div class="accepted-offer" style="display: none;">
-            <p class="accepted-offer-message">The seller is willing to accept an offer of Rs.<span id="accepted-offer-price"></span></p>
-        </div><br>
+        <?php if ($data['accepted_offer']->offer_status == 'accepted') : ?>
+            <br><div class="accepted-offer">
+                <p class="accepted-offer-message">The seller is willing to accept an offer of Rs.<span id="accepted-offer-price"><?php echo $data['accepted_offer']->offer_amount; ?></span></p>
+                <!-- <p class="accepted-offer-message">The seller is willing to accept an offer of Rs.<span id="accepted-offer-price"></span></p> -->
+            </div><br>
+        <?php endif; ?>
         
         <!-- HTML for sellers to accept or reject offers -->
         <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?>
