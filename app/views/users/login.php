@@ -12,7 +12,7 @@
                     <span class="form-invalid"><?php echo $data['email_err']; ?></span>
 
                     <!-- password -->
-                    <input name="password" placeholder="Password" id="password" class="input-field" value="<?php echo $data['password']; ?>">
+                    <input  name="password" placeholder="Password" id="password" class="input-field" value="<?php echo $data['password']; ?>">
                     <span class="form-invalid"><?php echo $data['password_err']; ?></span>
 
                      <!-- Forgot password link -->

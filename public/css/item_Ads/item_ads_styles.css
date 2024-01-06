@@ -186,7 +186,7 @@
     margin-top: 5px;
 }
 
-input[type=text], input[type=number]{
+input[type=text]{
     border: 1px solid #d5d2d2;
     border-radius: 5px;
     width: 95%;

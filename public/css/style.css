@@ -41,13 +41,18 @@
 
 /* FONTS */
 @font-face {
-    font-family: ARIAL;
-    src: url(fonts/ARIAL.TTF);
+    font-family: "San Francisco";
+    src: url(fonts/SF-Pro.ttf);
 }
 
-body{
+/* @font-face {
+    font-family: "Roboto";
+    src: url(fonts/Roboto.ttf);
+} */
+
+body {
     margin: 0;
-    font-family: ARIAL;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     font-size: small;
     text-align: left;
     /* background-color: #a6b69a; */
