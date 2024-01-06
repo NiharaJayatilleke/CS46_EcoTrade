@@ -78,10 +78,10 @@
 
             <!-- Hidden form for auction details -->
             <div id="auctionDetails" style="display: none;">
-                <label for="duration">Bidding Duration:</label>
+                <label for="duration">Auction Duration:</label>
                 <input type="number" id="duration" name="duration"><br>
-                <label for="startingBid">Starting Bid:</label>
-                <input type="number" id="startingBid" name="startingBid"><br>
+                <label for="starting_bid">Starting Bid:</label>
+                <input type="number" id="starting_bid" name="starting_bid"><br>
             </div>
 
             <!-- negotiable -->

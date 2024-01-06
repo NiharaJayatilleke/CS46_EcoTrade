@@ -137,3 +137,11 @@ CREATE TABLE Notifications(
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
 );
 
+CREATE TABLE Bidding_Details(
+    bd_id INT AUTO_INCREMENT,
+    ad_id INT,
+    auction_duration VARCHAR(255),
+    starting_bid DOUBLE,
+    PRIMARY KEY(bd_id),
+    FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
+);
