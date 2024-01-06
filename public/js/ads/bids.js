@@ -31,6 +31,7 @@ if (placeBidButton) {
                         <p>By selecting Bid, you are committing to buy this item if you are the winning bidder.</p>
                     `,
                     confirmButtonText: 'Bid',
+                    showCloseButton: true,
                 
                     preConfirm: () => {
                         let maxBidInput = document.getElementById('max-bid');
