@@ -19,5 +19,27 @@
                 return false;
             }
         }
+
+        public function getBiddingDetailsByAd($id){ 
+            $this->db->query('SELECT * FROM Bidding_Details WHERE ad_id = :ad_id');
+            $this->db->bind(':ad_id',$id);
+            $row = $this->db->single();
+            return $row;
+        }
+
+        public function getBidsByAd($id){ 
+            $this->db->query('SELECT * FROM Bids WHERE ad_id = :ad_id');
+            $this->db->bind(':ad_id',$id);
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
+        public function getHighestBidByAd($id) {
+            $this->db->query('SELECT * FROM Bids WHERE bid_amount = (SELECT MAX(bid_amount) FROM Bids WHERE ad_id = :ad_id) AND ad_id = :ad_id');            
+            $this->db->bind(':ad_id',$id);
+            $row = $this->db->single();
+            return $row;
+        }
+
     }
 ?>
