@@ -18,10 +18,12 @@
         public function show($id) {
             $ad = $this->itemAdsModel->getAdById($id);
             $offers = $this->offersModel->getOffersByAd($id);
+            $acceptedOffer = $this->offersModel->getAcceptedOfferByAd($id);
             
             $data = [
                 'ad' => $ad,
                 'offers' => $offers,
+                'accepted_offer' => $acceptedOffer
             ];
 
             $this->view('item_ads/v_show', $data);

@@ -52,7 +52,7 @@
             }
         }
 
-        public function getAcceptedOffer($adId){
+        public function getAcceptedOfferByAd($adId){
             $this->db->query('SELECT * FROM Offers WHERE ad_id = :ad_id AND offer_status = "accepted"');
             $this->db->bind(':ad_id',$adId);
             $row = $this->db->single();

@@ -78,7 +78,7 @@
                 $this->offersModel->updateOfferStatus($offerId, $status);
 
                 if ($status == 'accepted') {
-                    $acceptedOffer = $this->offersModel->getAcceptedOffer($adId);
+                    $acceptedOffer = $this->offersModel->getAcceptedOfferByAd($adId);
                     echo json_encode(['status' => 'success', 'offerPrice' => $acceptedOffer->offer_amount]);
                 } else {
                     echo json_encode(['status' => 'success']);

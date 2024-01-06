@@ -125,15 +125,19 @@ $(document).ready(function() {
             type: 'post',
             data: { offerId: offerId, status: status, adId: CURRENT_AD },
             success: function(response) {
+                console.log('AJAX request succeeded');
+                var responseObject = JSON.parse(response);
+                var priceElement = $('.accepted-offer').find('#accepted-offer-price');
                 // Handle the response from the server
                 if (status === 'accepted') {
-                    $('.accepted-offer').find('#accepted-offer-price').text(response.offerPrice);
+                    priceElement.text(responseObject.offerPrice);
                     $('.accepted-offer').show();
+                    console.log('Accepted offer div should be visible now');
                 }
                 offerDiv.remove(); // Remove the offer from the view
             },
-            error: function(error) {
-                console.error(error);
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('AJAX request failed:', textStatus, errorThrown);
             }
         });
     });
