@@ -79,11 +79,11 @@ body{
 
 .register-form-container{
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
-    width: 85%;
+    width: 87%;
     transform: translate(-50%, -50%);
-    height: 650px;
+    height: 700px;
     background: url('../../img/signup/register1.jpg') no-repeat;
     background-position: left center;
     background-size: cover;
