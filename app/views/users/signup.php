@@ -22,6 +22,14 @@
             <div class="form-box"> 
                 <form class="input-group" action="<?php echo URLROOT; ?>/Users/register" method="POST">
                     <h2>Register</h2>
+                    
+
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-contact' ></i></span>
+                        <input type="name" id="name" class="name" value="<?php echo $data['name']; ?>" required>
+                        <label>Name</label>
+
+                    </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-envelope'></i></span>
@@ -53,8 +61,8 @@
                     </div>
 
                     <div class="terms-forgot">
-                        <label><input type="checkbox"name="agree" id="agree" value="yes"/> I agree with the
-                        <a href="<?php echo URLROOT; ?>/Users/terms" title="term of services">terms of service</a>
+                        <label><input type="checkbox"name="agree" id="agree" value="yes"/> I agree to the
+                        <a href="<?php echo URLROOT; ?>/Users/terms" title="term of services">terms & conditions</a>
                     </div>
 
                     <button type="submit" class = "register-btn">Register</button>
