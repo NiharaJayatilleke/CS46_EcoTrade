@@ -145,3 +145,14 @@ CREATE TABLE Bidding_Details(
     PRIMARY KEY(bd_id),
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
 );
+
+CREATE TABLE Bids(
+    bid_id INT AUTO_INCREMENT,
+    ad_id INT,
+    user_id INT,
+    bid_amount INT,
+    bid_created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(bid_id),
+    FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
+    FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
+);
