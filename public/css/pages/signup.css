@@ -24,9 +24,9 @@ body{
         height: 450px;
     }
 
-    /* .register-form-container .welcome-content{
+    .register-form-container .welcome-content{
         width: 100%;
-    } */
+    }
 
     .reg-box{
         width: 100%;
@@ -59,7 +59,7 @@ body{
 } */
 
 .register-form-container{
-    animation: fadeIn 3s;
+    animation: fadeIn 3.0s;
 }
 
 
@@ -103,7 +103,7 @@ body{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    /* animation: slideIn 1s ease-in-out; */
+    animation: 1s ease;
 }
 
 /* .register-form-container .welcome-content{
@@ -212,7 +212,7 @@ body{
 .input-box input:valid ~ label,
 .input-box input.has-value ~ label {
     top: -5px;
-    color: #2d7b33;
+    color: #17751f;
 }
 
 .input-box .icon{
