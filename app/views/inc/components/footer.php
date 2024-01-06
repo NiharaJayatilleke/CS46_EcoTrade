@@ -12,6 +12,7 @@
 		<p class="footer-company-name">Company Name © 2015</p>
 	</div>
 
+	
 	<div class="footer-center">
 		<div>
 			<i class="fa fa-map-marker"></i>

@@ -16,6 +16,7 @@
                     <!-- <li>🌎 <strong>EcoTrade</strong> A place where Every Trade Counts!.</li> -->
                 </ul> 
             </div>
+
         </div>
         <div class="reg-box"> 
             <div class="form-box"> 
@@ -27,6 +28,7 @@
                         <input type="email" id="email" class="email" value="<?php echo $data['email']; ?>" required>
                         <label>Email</label>
                         <!-- <span class="form-invalid"><?php echo $data['username_err']; ?></span> -->
+
                     </div>
 
                     <div class="input-box">

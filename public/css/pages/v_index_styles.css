@@ -160,6 +160,7 @@
   position: relative; 
 }
 
+
 .greenish-image::before {
   content: ""; /* Create a pseudo-element for the black layer */
   position: absolute; /* Position the black layer absolutely */
@@ -193,15 +194,14 @@
   font-family: 'Lato', sans-serif;
 }
 
-/* footer {
-  position: absolute;
-  top: 2537px;
-  left: 84px;
+footer {
+  position: relative;
+  bottom: 0;
   background-color: var(--text-color-dark-text-primary);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
- */
+
 

@@ -12,6 +12,7 @@
             <input type="radio" id="recycle" name="item_type" value="recycle">
             <label for="recycle">Recyclable item</label><br>
 
-            <button class="continue" type="submit"><i class="fas fa-arrow-right"></i></button>        </div>
+            <button class="continue" type="submit"><i class="fas fa-arrow-right"></i></button>       
+        </div>
 
     <?php require APPROOT.'/views/inc/footer.php'; ?>

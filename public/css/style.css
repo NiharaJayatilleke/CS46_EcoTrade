@@ -6,7 +6,6 @@
 @import url('components/buttons_styles.css');
 @import url('components/flash_message_styles.css');
 @import url('components/sidebar_styles.css');
-@import url('components/profile_styles.css');
 @import url('components/footer.css');
 @import url('components/notifications_styles.css');
 
@@ -56,6 +55,6 @@ body {
     font-size: small;
     text-align: left;
     /* background-color: #a6b69a; */
-    background-color: #a6b69aba; 
+    /* background-color: #a6b69aba;  */
     color: #333;
 }
