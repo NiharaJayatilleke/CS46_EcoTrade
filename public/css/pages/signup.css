@@ -174,8 +174,8 @@ body{
 
 .form-box h2{
     font-size: 34px;
-    text-align: right; 
-    margin-right: 50px;
+    text-align: center; 
+    /* margin-right: 50px; */
 }
 
 .form-box .input-box{
