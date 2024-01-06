@@ -31,7 +31,7 @@
             $this->db->bind(':negotiable',$data['negotiable']);
             
             if($this->db->execute()){
-                return true;
+                return $this->db->lastInsertId();
             }
             else{
                 return false;

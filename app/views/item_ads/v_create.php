@@ -29,6 +29,12 @@
                 <option value="other">Other</option>
             </select>
 
+            <!-- Additional input for 'Other' category -->
+            <div id="otherCategory" style="display: none;">
+                <label for="otherCategoryInput">Please specify:</label>
+                <input type="text" id="otherCategoryInput" name="otherCategoryInput">
+            </div>
+
             <!-- <input type="text" name="item_category" id="item_category" class="item_category" value="<?php echo $data['item_category']; ?>"> -->
             <span class="form-invalid"><?php echo $data['item_category_err']; ?></span>
 
@@ -70,6 +76,14 @@
             <label for="buy_now">Buy It Now</label><br>
             <span class="form-invalid"><?php echo $data['selling_format_err']; ?></span>
 
+            <!-- Hidden form for auction details -->
+            <div id="auctionDetails" style="display: none;">
+                <label for="duration">Auction Duration:</label>
+                <input type="number" id="duration" name="duration"><br>
+                <label for="starting_bid">Starting Bid:</label>
+                <input type="number" id="starting_bid" name="starting_bid"><br>
+            </div>
+
             <!-- negotiable -->
             <div class="form-input-title">Is the price negotiable?</div>
             <input type="radio" name="negotiable" id="yes" class="negotiable" value="yes" <?php if ($data['negotiable'] === 'yes') { echo 'checked'; } ?>>
@@ -87,7 +101,27 @@
 <!-- Javascript for image upload -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/ads.js"></script>
 
+<!-- Javascript for auction details -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/bidding_details.js"></script>
+
+<script>
+    // Get the category select and the 'Other' category input
+    var categorySelect = document.getElementById('item_category');
+    var otherCategoryInput = document.getElementById('otherCategory');
+
+    // Add an event listener to the category select
+    categorySelect.addEventListener('change', function() {
+        // If the 'Other' option is selected, show the 'Other' category input
+        if (categorySelect.value == 'other') {
+            otherCategoryInput.style.display = 'block';
+        } else {
+            otherCategoryInput.style.display = 'none';
+        }
+    });
+</script>
+
 <!-- <?php require APPROOT.'/views/inc/footer.php'; ?> -->
 
 </body>
 </html>
+

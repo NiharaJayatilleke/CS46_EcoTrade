@@ -46,3 +46,16 @@
 .swal2-confirm.swal2-styled{
     background-color:#729e7d !important;
 }
+
+/* Accepted Offer */
+.accepted-offer-message{
+    font-size: 20px !important;
+    font-weight: bold;
+}
+
+#accepted-offer-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4CAF50; /* red color */
+    /* border: 1px solid #000000; black border */
+}

@@ -13,15 +13,24 @@ body, h1, h4, p {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2 !important;
 } */
-
+.hero{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('../../img/signup/banner.jpg');
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
 .container {
     background-color: #fff ;
-    border: 1px solid #ffffff;
+    /* border: 1px solid #ffffff; */
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     margin: 20px;
     padding: 20px ;
-    
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 /* Navigation elements styling */
@@ -41,10 +50,13 @@ body, h1, h4, p {
     bottom: 30px;
     right: 30px;
     padding: 10px 30px;
-    background-color: #7bd664;
+    background: linear-gradient(to right, #219657b5, #31b36eb4);
+    /* background-color: #7bd664; */
     border: 1px solid #ffffff !important;
-    color: #000000;
-    border-radius: 5px;
+    color: #ffffff;
+    /* border-radius: 5px; */
+    border-radius: 30px;
+    transition: .5s;
     cursor: pointer;
 }
 
@@ -92,18 +104,21 @@ body, h1, h4, p {
 .profile-updatebt {
     margin-right: 20px;
     padding: 10px 30px;
-    background-color: #7bd664;
+    background: linear-gradient(to right, #219657b5, #31b36eb4);
     border-color: #7bd664;
-    /* border-color: #d6d3d3; */
-    border-radius: 5px;
+    border-radius: 30px;
+    transition: .5s;
     cursor: pointer;
 }
 
 .profile-Canclebt {
     padding: 10px 30px;
-    background-color: #7bd664;
+    /* background-color: #7bd664; */
+    background: linear-gradient(to right, #219657b5, #31b36eb4);
     border-color: #7bd664;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    border-radius: 30px;
+    transition: .5s;
     cursor: pointer;
 }
 
@@ -127,7 +142,7 @@ body, h1, h4, p {
 }
 
 .nav-elements a:hover {
-    background-color: #6bb787;
+    background-color: #82eba9;
    
 }
 
@@ -136,10 +151,11 @@ body, h1, h4, p {
     color: black;
     border: 1px solid rgb(44, 44, 44);
     padding: 20px 5px;
-    background-color: #7bd664;
+    /* background-color: #7bd664; */
+    background: linear-gradient(to right, #219657b5, #31b36eb4);
     margin-left: 1%;
     font-size: 15px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 .form-label {
@@ -210,7 +226,9 @@ body, h1, h4, p {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    border-radius: 30px;
+    transition: .5s;
     margin-top: 7px;
     margin-left: 30px;
 }
@@ -234,19 +252,20 @@ body, h1, h4, p {
     flex-wrap: wrap;
 }
 
-form  button[type="submit"] {
-    background-color: #d12a2a; /* Change this color to your desired color */
+/* form  button[type="submit"] {
+    background-color: #d12a2a; 
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px; /* Adjust the border radius as needed */
+    /* border-radius: 5px;  */
+    border-radius: 30px;
+    transition: .5s;
     cursor: pointer;
-    transition: background-color 0.3s; /* Add a smooth transition effect */
-    display:flex;
+    transition: background-color 0.3s; 
     justify-content: center;
-    /* margin-left: 18px; */
+    
     margin-right: 30px;
-}
+} */
 
 form button[type="submit"]:hover {
     background-color: #949c96; /* Change the hover background color as desired */
@@ -265,7 +284,9 @@ form button[type="submit"]:hover {
 .delete-container {
     background-color: #fff;
     /* border: 1px solid #ccc; */
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    border-radius: 30px;
+    transition: .5s;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
     margin: 20px auto;
     padding: 20px 230px;
@@ -297,11 +318,11 @@ ul {
     padding: 0;
 }
 
-ul li {
+/* ul li {
     margin-bottom: 10px;
     font-size: 16px;
     color: #555;
-}
+} */
 
 
 .deletelabel label {
@@ -325,7 +346,9 @@ ul li {
     color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    border-radius: 30px;
+    transition: .5s;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -344,3 +367,10 @@ ul li {
         width: calc(100% - 20px);
     }
 }
+
+
+
+
+
+
+

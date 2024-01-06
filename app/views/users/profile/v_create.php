@@ -1,8 +1,8 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <body id="profile-body">
-
+    <div class="hero2">
     <div class="container">
-       
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/profile_styles.css">
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
                     <div class="profile-image">
@@ -55,18 +55,18 @@
                                  
                                             <div class="form-group">
                                                 <label class="form-label">Username</label>
-                                                <input type="text" class="form-control" name="newUsername" value="<?php echo $data['user']->username; ?>">
+                                                <input type="text" class="form-control input-field-box" name="newUsername" value="<?php echo $data['user']->username; ?>">
                                                 <?php if (!empty($data['errors']['newUsername'])) : ?>
                                                 <div class="form-invalid"><?php echo $data['errors']['newUsername']; ?></div>
                                             <?php endif; ?>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">E-mail</label>
-                                                <input type="text" class="form-control" value="<?php echo $data['user']->email; ?>"disabled>
+                                                <input type="text" class="form-control input-field-box" value="<?php echo $data['user']->email; ?>"disabled>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Contact number</label>
-                                                <input type="text" class="form-control" name="newContactNumber" value="<?php echo $data['user']->number; ?>">
+                                                <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $data['user']->number; ?>">
                                                     
                                                 <?php if (!empty($data['errors']['newContactNumber'])) : ?>
                                                     <div class="form-invalid"><?php echo $data['errors']['newContactNumber']; ?></div>
@@ -92,7 +92,7 @@
                             <div class="right-right">
                                 <div class="form-group">
                                     <label class="form-label">User-type</label>
-                                    <input type="text" class="form-control" value="<?php echo $data['user']->userType; ?>"disabled>
+                                    <input type="text" class="form-control input-field-box " value="<?php echo $data['user']->userType; ?>"disabled>
                                 </div>
                                 <div>
                                     <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
@@ -122,14 +122,14 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label class="form-label">Old Password</label>
-                                            <input type="password" name="oldPassword" class="form-control" value="">
+                                            <input type="password" name="oldPassword" class="form-control input-field-box" value="">
                                             <?php if (!empty($data['errors']['oldPassword'])) : ?>
                                                 <div class="form-invalid"><?php echo $data['errors']['oldPassword']; ?></div>
                                             <?php endif; ?>
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label">New Password</label>
-                                            <input type="password" name="newPassword" class="form-control" value="">
+                                            <input type="password" name="newPassword" class="form-control input-field-box" value="">
                                             <?php if (!empty($data['errors']['newPassword'])) : ?>
                                                 <div class="form-invalid"><?php echo $data['errors']['newPassword']; ?></div>
                                             
@@ -153,7 +153,7 @@
                                 <div class="form-group">
                                     <div class="confirmpassword">
                                     <label class="form-label" >Confirm New Password</label>
-                                    <input type="password" name="confirmPassword"class="form-control" value="">
+                                    <input type="password" name="confirmPassword"class="form-control input-field-box" value="">
                                     <?php if (!empty($data['errors']['confirmPassword'])) : ?>
                                         <div class="form-invalid"><?php echo $data['errors']['confirmPassword']; ?></div>
                                     <?php endif; ?>
@@ -190,21 +190,21 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label class="form-label">Old Password</label>
-                                            <input type="password" name="oldPassword" class="form-control" value="">
+                                            <input type="password" name="oldPassword" class="form-control input-field-box" value="">
                                             <?php if (!empty($data['errors']['oldPassword'])) : ?>
                                                 <div class="form-invalid"><?php echo $data['errors']['oldPassword']; ?></div>
                                             <?php endif; ?>
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label">New Password</label>
-                                            <input type="password" name="newPassword" class="form-control" value="">
+                                            <input type="password" name="newPassword" class="form-control input-field-box" value="">
                                             <?php if (!empty($data['errors']['newPassword'])) : ?>
                                                 <div class="form-invalid"><?php echo $data['errors']['newPassword']; ?></div>
                                             <?php endif; ?>
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label" >Confirm New Password</label>
-                                            <input type="password" name="confirmPassword"class="form-control" value="">
+                                            <input type="password" name="confirmPassword"class="form-control input-field-box" value="">
                                             <?php if (!empty($data['errors']['confirmPassword'])) : ?>
                                                 <div class="form-invalid"><?php echo $data['errors']['confirmPassword']; ?></div>
                                             <?php endif; ?>
@@ -259,7 +259,7 @@
                                             <div class="form-group">
                                                 <div class="deletelabel">
                                                 <label for="password">Enter Password</label>
-                                                <input type="password" id="password-delete" name="password" class="form-control" required>
+                                                <input type="password" id="password-delete" name="password" class="form-control input-field-box" required>
                                                  </div>
                                             </div>
                                             <div class="profile-buttons">
@@ -302,7 +302,7 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label class="form-label">Login</label>
-                                            <input type="text" class="form-control" value="Anne">
+                                            <input type="text" class="form-control input-field-box" value="Anne">
                                         </div>
 
                                         <div class="profile-buttons">
@@ -317,7 +317,7 @@
                             <div class="right-right">
                                 <div class="form-group">
                                     <label class="form-label">Two-factor-auth</label>
-                                    <input type="text" class="form-control" value="seconhandbuyer">
+                                    <input type="text" class="form-control input-field-box" value="seconhandbuyer">
                                 </div>
                             <div>
                         <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
@@ -346,15 +346,15 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label class="form-label">Username</label>
-                                            <input type="text" class="form-control" value="Anne">
+                                            <input type="text" class="form-control input-field-box" value="Anne">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label">Name</label>
-                                            <input type="text" class="form-control" value="Nelle Maxwell">
+                                            <input type="text" class="form-control input-field-box" value="Nelle Maxwell">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label">E-mail</label>
-                                            <input type="text" class="form-control" value="nmaxwell@mail.com">
+                                            <input type="text" class="form-control input-field-box" value="nmaxwell@mail.com">
                                             <!-- <div class="alert alert-warning mt-3">
                                                 Your email is not confirmed. Please check your inbox.<br>
                                                 <a href="javascript:void(0)">Resend confirmation</a>
@@ -362,7 +362,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label">Contact number</label>
-                                            <input type="text" class="form-control" value="0112532962">
+                                            <input type="text" class="form-control input-field-box" value="0112532962">
                                         </div>
 
                                         <div class="profile-buttons">
@@ -377,7 +377,7 @@
                             <div class="right-right">
                                 <div class="form-group">
                                     <label class="form-label">User-type</label>
-                                    <input type="text" class="form-control" value="seconhandbuyer">
+                                    <input type="text" class="form-control input-field-box" value="seconhandbuyer">
                                 </div>
                             <div>
                             
@@ -395,7 +395,7 @@
             </div>
         </div>
     </div>
-
+    </div>
 
 <script>
 

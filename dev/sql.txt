@@ -62,6 +62,20 @@ CREATE TABLE Item_Ads (
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
+CREATE TABLE Recycle_Item_Ads (
+    r_id INT AUTO_INCREMENT,
+    seller_id INT,
+    item_name VARCHAR(255),
+    item_category VARCHAR(255),
+    item_desc TEXT,
+    item_image VARCHAR(255),
+    item_location VARCHAR(255),
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(255),
+    PRIMARY KEY(r_id),
+    FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
+);
+
 CREATE VIEW v_ads AS
     SELECT
         Item_Ads.p_id as ad_id,
@@ -93,11 +107,15 @@ CREATE TABLE Messages(
     FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
+
+DROP TABLE IF EXISTS Offers;
+
 CREATE TABLE Offers(
     offer_id INT AUTO_INCREMENT,
     ad_id INT,
     user_id INT,
     offer_amount INT,
+    offer_status VARCHAR(255) DEFAULT NULL,
     ofr_created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(offer_id),
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
@@ -119,3 +137,22 @@ CREATE TABLE Notifications(
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
 );
 
+CREATE TABLE Bidding_Details(
+    bd_id INT AUTO_INCREMENT,
+    ad_id INT,
+    auction_duration VARCHAR(255),
+    starting_bid DOUBLE,
+    PRIMARY KEY(bd_id),
+    FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
+);
+
+CREATE TABLE Bids(
+    bid_id INT AUTO_INCREMENT,
+    ad_id INT,
+    user_id INT,
+    bid_amount INT,
+    bid_created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(bid_id),
+    FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
+    FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
+);
