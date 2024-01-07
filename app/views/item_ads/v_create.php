@@ -90,7 +90,7 @@
                     <option value="5">5 days</option>
                     <option value="7">1 week</option>
                     <option value="14">2 weeks</option>
-                    <option value="30">1 month</option>
+                    <!-- <option value="30">1 month</option> -->
                 </select><br><br>
                 <!-- <label for="end_time">Auction End Time:</label>
                 <input type="datetime-local" id="end_time" name="end_time"><br> -->

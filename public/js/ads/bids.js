@@ -18,11 +18,15 @@ if (placeBidButton) {
                 let nextBid2 = nextBid1 + bidIncrement;
                 let nextBid3 = nextBid2 + bidIncrement;
 
+                let remainingTimeParts = data.remainingTime.match(/\d+\D+/g);
+                let relevantParts = remainingTimeParts.filter(part => !part.startsWith('0'));
+                let displayTime = relevantParts.slice(0, 2).join('');
+
                 Swal.fire({  
                     title: 'Place your bid',
                     html: `
                         <p> Current Bid: Rs. ${currentHighestBid} </p>
-                        <p>${data.numBids} ${data.numBids === 1 ? 'bid' : 'bids'} · 35m 43s left</p>
+                        <p>${data.numBids} ${data.numBids === 1 ? 'bid' : 'bids'} · ${displayTime} left</p>
                         <button onclick="confirmBid(${nextBid1})"> Bid Rs. ${nextBid1} </button> 
                         <button onclick="confirmBid(${nextBid2})"> Bid Rs. ${nextBid2} </button> 
                         <button onclick="confirmBid(${nextBid3})"> Bid Rs. ${nextBid3} </button>  
