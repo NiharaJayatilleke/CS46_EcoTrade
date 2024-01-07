@@ -15,6 +15,8 @@
 /* LOGIN */
 @import url('pages/login.css');
 
+/* FORGOT PASSWORD */
+@import url('pages/forgot_password.css');
 
 /* ITEM ADS */
 @import url('item_Ads/item_ads_styles.css');
