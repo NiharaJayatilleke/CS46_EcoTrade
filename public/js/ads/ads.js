@@ -52,6 +52,16 @@ function showImage(){
             imgPlaceholder.setAttribute("src", fileURL);
             imgPlaceholder.style.display = "block";            
             // document.querySelector("#item_img_placeholder").style.backgroundImage = 'url(' + fileURL + ')';
+
+            var icon = document.querySelector("#item_img_placeholder_icon");
+            var text = document.querySelector(".ad-form-drag-area-text");
+            var or = document.querySelector(".ad-form-drag-area-or");
+            var button = document.querySelector(".ad-form-drag-area-btn");
+
+            icon.style.display = "none";
+            text.style.display = "none";
+            or.style.display = "none";
+            button.style.display = "none";
         }
         fileReader.readAsDataURL(file);
 
