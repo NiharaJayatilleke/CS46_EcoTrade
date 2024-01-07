@@ -1,4 +1,5 @@
 
+/* 
 .user-greeting {
     font-size: 15px;
     color: #3f3f3f;
@@ -150,11 +151,13 @@
         width: 100%;
     }
 } 
+*/
 
 
 
 
 /* CREATE ITEM AD */
+/*
 .ad-container {
     margin-left: auto;
     margin-right: auto;
@@ -207,6 +210,7 @@ input[type=text], input[type=number]{
     border: 1px solid #7bd664;
 } */
 
+/*
 .form-drag-area.active{
     border: 2px dashed #7bd664;
     background-color: antiquewhite;
@@ -222,8 +226,9 @@ input[type=text], input[type=number]{
 }  */
 
 
+/*
 .form-drag-area {
-    /* border: 2px dashed #ccc; */
+    border: 2px dashed #ccc; 
     border-radius: 5px;
     padding: 20px;
     text-align: center;
@@ -279,6 +284,7 @@ input[type=text], input[type=number]{
     background-color: rgb(165, 165, 165);
     color: #dddddd;
 }
+*/
 
 /* styles 30 13.35
 .form-drag-area {} 

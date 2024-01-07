@@ -58,6 +58,7 @@
                     'item_name' => trim($_POST['item_name']),
                     'item_category' => trim($_POST['item_category']),
                     'item_desc' => trim($_POST['item_desc']),
+                    'item_condition' => trim($_POST['item_condition']),
                     'item_img' => $_FILES['item_images'],
                     'item_img_name' => time().'_'.$_FILES['item_images']['name'],
                     'item_price' => trim($_POST['item_price']),
@@ -69,6 +70,7 @@
 
                     'item_name_err' => '',
                     'item_category_err' => '',
+                    'item_condition_err' => '',
                     'item_images_err' => '',
                     'item_price_err' => '',
                     'item_location_err' => '',
@@ -88,6 +90,21 @@
                 if(empty($data['item_category'])){
                     $data['item_category_err'] = 'Please select a category for your item';
                 } 
+
+                if ($_POST['item_category'] === 'other') {
+                    if (empty(trim($_POST['otherCategoryInput']))) {
+                        $data['item_category_err'] = 'Please specify the category';
+                    } else {
+                        $data['item_category'] = trim($_POST['otherCategoryInput']);
+                    }
+                } else {
+                    $data['item_category'] = $_POST['item_category'];
+                }
+
+                //Validate item_condition
+                if(empty($data['item_condition'])){
+                    $data['item_condition_err'] = 'Please select the condition of your item';
+                }
 
                 //item image
                 if(empty($data['item_image']['size'] > 0)){
@@ -126,6 +143,8 @@
                         $data['starting_bid_err'] = 'Please enter a starting amount for the auction';
                     }
                 }
+
+                $data['show_auction_fields'] = !empty($data['duration_err']) || !empty($data['starting_bid_err']);
 
                 //validate negotiable
                 if(empty($data['negotiable'])){
@@ -175,7 +194,7 @@
                     'item_location' => '',
                     'selling_format' => '',
                     'duration' => '',
-                    'starting' => '',
+                    'starting_bid' => '',
                     'negotiable' => '',
 
                     'item_name_err' => '',

@@ -1,0 +1,304 @@
+/* .ad-background{
+    background-color: rgb(40, 47, 35); 
+    background: url('../../img/signup/register2.jpg') no-repeat;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    background-size: cover;
+} */
+
+.ad-background {
+    position: relative;
+    /* padding-top: 20px; */
+    padding-bottom: 50px;
+}
+
+.ad-background::before {
+    content: "";
+    background: url('../../img/login/banner1.jpg') no-repeat;
+    background-size: cover;
+    filter: blur(10px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.ad-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    border-radius: 10px;
+    padding: 30px 50px;
+    background-color:  #fff;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 680px;
+    border: 1px solid #d3d3d3;
+}
+
+.ad-form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ad-form-header h2 {
+    font-size: 25px;
+    font-weight: 550;
+    color: rgb(83, 127, 56);
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+.ad-form-input-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 15px;
+    color:  rgb(83, 127, 56);
+    font: bold;
+}
+
+.ad_item_name,
+.ad_item_category,
+.ad_item_desc,
+.ad_item_condition,
+.ad_item_images,
+.ad_item_price,
+.ad_item_location {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    color: #515151; 
+    /* background-color: #f1f1f1cf; */
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+.ad_item_other_label{
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    color:  rgb(83, 127, 56);
+    /* font: bold; */
+}
+.ad_item_other_category{
+    width: 62%;
+    height: 40px;
+    border: 1px solid #ccc;
+    color: #515151; 
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    padding: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.ad_item_name input:focus,
+.ad_item_category input:focus,
+.ad_item_desc input:focus,
+.ad_item_condition input:focus,
+.ad_item_images input:focus,
+.ad_item_price input:focus,
+.ad_item_location input:focus,
+.ad_selling_format input:focus,
+.ad_duration input:focus,
+.ad_starting_bid input:focus,
+.ad_negotiable input:focus {
+    border-color: #2d7b33 !important;
+    outline: none !important;
+}
+
+.ad-form-drag-area {
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    transition: 300ms ease-in;
+    border: 2px dashed #ccc;
+} 
+
+.ad-form-drag-area.active{ /* CHECK */
+    border: 2px dashed #7bd664;
+    background-color: antiquewhite;
+}
+
+.ad-form-drag-area .ad-icon {
+    margin-bottom: 0px;
+    font-size: 7px;
+    color: #c4c4c4;
+}
+
+.ad-form-drag-area .ad-icon img{
+    /* width: 50px;
+    height: 50px; */
+    margin: 0 auto;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    transition: 300ms ease-in;
+}  
+
+#item_img_placeholder {
+    width: 30px;
+    height: 30px;
+    /* color:#777; */
+    /* border: 2px dashed #ccc; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms ease-in;
+    margin-top: 20px;
+}
+
+.ad-form-drag-area-text {
+    font-size: 14px;
+    color:#515151;
+    margin: 2px 0;
+    margin-top: 15px;
+}
+
+.ad-form-drag-area-or {
+    /* font-weight: bold; */
+    font-size: 13px;
+    /* color: #696969; */
+    color:#777;
+    margin: 5px 0;
+}
+
+.ad-form-drag-area-btn {
+    color: #515151;
+    padding: 7px 2px;
+    width: 28%;
+    height: 30px;
+    background: #f1f1f1;
+    border: 1px solid #d5d2d2;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.ad-form-drag-area-btn:hover {
+    background-color: rgb(165, 165, 165);
+    /* background-color: #17751f; */
+    color: #fffefe;
+}  
+
+.ad_selling_format + label, .ad_negotiable + label {
+    display: inline-block;
+    /* background-color: #f5f5f5; */
+    color: #333;
+    /* padding: 10px 15px; */
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: background-color 0.3s;
+    margin-right: 40px; 
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.ad_negotiable + label {
+    margin-right: 65px;
+}
+
+.ad_selling_format:checked + label {
+    /* background-color: #2d7b33; */
+    color: rgb(48, 65, 48);
+}
+
+#ad_auction_details {
+    display: none;
+}
+.ad_auction_duration,
+.ad_auction_starting_bid{
+    font-size: 16px;
+    font-weight: 500;
+    color:  rgb(83, 127, 56);
+    font: bold;
+}
+
+.ad_duration,
+.ad_starting_bid {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    color: #515151; 
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.ad-form-invalid {
+    margin-top: 25px;
+    color: #d9534f;
+    font-size: 14px;
+}
+
+.ad-form-btn {
+    /* background-color: #2d7b33; */
+    background-color: rgb(83, 127, 56);
+    color: #fff;
+    height: 50px;
+    width: 40%;
+    border-radius: 30px;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.ad-form-btn:hover {
+    /* background-color: #0c5312; */
+    background-color: rgb(66, 98, 46);
+}
+
+/*
+.ad-container textarea {
+    background: #f1f1f1;
+    border: 1px solid #d5d2d2;
+    border-radius: 5px;
+}
+
+.ad_item_category {
+    margin-top: 5px;
+    padding: 8px 0px 8px 2px; 
+    width: 99%; 
+    border: 1px solid #d5d2d2;
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.ad_selling_format{
+    margin-top: 5px;
+}
+
+.ad-form-drag-area-btn {
+    background-color: #2d7b33;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}*/
