@@ -53,30 +53,6 @@ body{
     100% {transform: scale(1);}
 }
 
-/* @keyframes rotate {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
-} */
-
-.register-form-container{
-    animation: fadeIn 3.0s;
-}
-
-
-/* .register-form-container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 75%;
-    transform: translate(-50%, -50%);
-    height: 550px;
-    background: url('../../img/signup/register1.jpg') no-repeat;
-    background-position: left center;
-    background-size: cover;
-    border-radius: 10px;
-    margin-top: 20px;
-} */
-
 .register-form-container{
     position: absolute;
     top: 52%;
@@ -89,6 +65,7 @@ body{
     background-size: cover;
     border-radius: 10px;
     margin-top: 10px;
+    animation: fadeIn 3.0s;
 }
 
 .register-form-container .welcome-content{
@@ -104,23 +81,10 @@ body{
     justify-content: space-between;
     flex-direction: column;
     animation: 1s ease;
+    animation: floatIn 1.5s ease-in-out;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
-
-/* .register-form-container .welcome-content{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 58%;
-    height: 100%;
-    background: transparent;
-    padding: 80px;
-    color: #e4e4e4;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    
-} */
-
 
 .welcome-content .logo{
     font-size: 25px;
@@ -170,6 +134,9 @@ body{
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     color: #e4e4e4;
+    animation: floatIn 1.5s ease-in-out;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    
 }
 
 .form-box h2{
@@ -212,7 +179,7 @@ body{
 .input-box input:valid ~ label,
 .input-box input.has-value ~ label {
     top: -5px;
-    color: #17751f;
+    color: #ddfadf;
 }
 
 .input-box .icon{
@@ -285,233 +252,22 @@ body{
     text-decoration: underline;
 }
 
-
-/* *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    background: #020410;
-}
-
-.background {
-    width: 100%; 
-    height: 100vh ; 
-    background: url('../../img/signup/register2.jpg') no-repeat;
-    background-position: center;
-    background-size: cover;
-    filter: blur(10px); 
-}
-
-@media only screen and (max-width: 600px) {
-    .register-form-container{
-        width: 90%;
-        height: 450px;
+@keyframes floatIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
     }
-
-    .register-form-container .welcome-content{
-        width: 100%;
-    }
-
-    .reg-box{
-        width: 100%;
+    100% {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
-@keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+.register-form-container .welcome-content {
+    animation: floatIn 1s ease-in-out;
 }
 
-.register-form-container{
-    animation: fadeIn 2s;
+.reg-box .form-box {
+    animation: floatIn 1s ease-in-out;
 }
 
-
-.register-form-container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 75%;
-    transform: translate(-50%, -50%);
-    height: 550px;
-    background: url('../../img/signup/register1.jpg') no-repeat;
-    background-position: left center;
-    background-size: cover;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-.register-form-container .welcome-content{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 58%;
-    height: 100%;
-    background: transparent;
-    padding: 80px;
-    color: #e4e4e4;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-
-.welcome-content .logo{
-    font-size: 25px;
-    
-}
-
-.welcome-content .img{
-    max-width: 85px;
-    max-height: 85px;
-    margin-left: 9px;
-    padding: 0;
-}
-
-.text-welcome h2 {
-    font-size: 40px;
-    line-height: 1;
-}
-
-.text-welcome h2 span{
-    font-size: 20px;
-}
-
-.text-welcome li{
-    font-size: 14px;
-    margin-top: 20px 0;
-}
-
-.register-form-container .reg-box{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: calc(100% - 58%);
-    height: 100%;
-}
-
-.reg-box .form-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    backdrop-filter: blur(20px);
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    color: #e4e4e4;
-}
-
-.form-box h2{
-    font-size: 34px;
-    text-align: right; 
-    margin-right: 50px;
-}
-
-.form-box .input-box{
-    position: relative;
-    width: 340px;
-    height: 50px;
-    border-bottom: 2px solid #e4e4e4;
-    margin: 30px 0;
-}
-
-.input-box input{
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    color: #e4e4e4;
-    font-weight: 500;
-}
-
-.input-box label{
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    font-size: 16px;
-    font-weight: 500;
-    pointer-events: none;
-    transition: .5s ease;
-}
-
-.input-box input:focus ~ label,
-.input-box input:valid ~ label,
-.input-box input.has-value ~ label {
-    top: -5px;
-    color: #2d7b33;
-}
-
-.input-box .icon{
-    position: absolute;
-    top: 13px;
-    right: 0;
-    font-size: 19px;
-}
-
-.form-box .terms-forgot{
-    font-size: 14.5px;
-    font-weight: 500;
-    margin: -15px 0 15px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.terms-forgot a{
-    color: #e4e4e4;
-    text-decoration: none;
-}
-
-.terms-forgot a:hover{
-    text-decoration: underline;
-}
-
-.register-btn{
-    width: 100%;
-    height: 45px;
-    border: none;
-    outline: none;
-    background: #2d7b33;
-    color: #e4e4e4;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px 0 20px;
-    transition: .5s;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-.register-btn:hover {
-    background: green;
-    color: #fff;
-    transition: background-color 0.5s ease;
-}
-
-.form-box .registred-already{
-    font-size: 14.5px;
-    font-weight: 500;
-    text-align: center;
-    margin-top: 25px;
-}
-
-.registred-already p{
-    color: #e4e4e4;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.registred-already a{
-    color: #e4e4e4;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.registred-already a:hover{
-    text-decoration: underline;
-} */

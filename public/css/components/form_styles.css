@@ -68,11 +68,12 @@ input[type=text]:focus {
 .form-invalid{
     color: rgb(192, 35, 35);
     margin-bottom: 20px;
-}
+} 
 
-.other-options1{
+
+/* .other-options1{
     align-self: center;
-}
+} */
 
 /* .form-footer-text{
     color: rgb(32, 59, 14);

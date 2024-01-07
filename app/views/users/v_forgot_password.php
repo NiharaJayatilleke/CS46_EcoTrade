@@ -1,5 +1,4 @@
-<?php require APPROOT.'/views/inc/header.php'; ?>
-    <!-- Top NAVIGATION -->
+<!-- <?php require APPROOT.'/views/inc/header.php'; ?>
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
 
@@ -12,13 +11,11 @@
         </div>
         <form action="<?php echo URLROOT; ?>/forgotPassword/sendEmail" method="POST">
 
-            <!-- email -->
             <div class="form-input-title">Email</div>
             <input type="text" name="email" placeholder="Email" id="email" class="email" value="<?php echo $data['email'];?>" >
             <span class="form-invalid"><?php echo $data['email_err'];?></span>
 
             
-            <!-- submit button -->
             <br>
             <input type="submit" value="Receive Email" class="form-btn">
               
@@ -27,4 +24,4 @@
         <?php flash('reset');?>
     </div>
 
-<?php require APPROOT.'/views/inc/footer.php'; ?>
+<?php require APPROOT.'/views/inc/footer.php'; ?> -->
