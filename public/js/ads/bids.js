@@ -22,7 +22,7 @@ if (placeBidButton) {
                     title: 'Place your bid',
                     html: `
                         <p> Current Bid: Rs. ${currentHighestBid} </p>
-                        <p>16 bids · 35m 43s left</p>
+                        <p>${data.numBids} ${data.numBids === 1 ? 'bid' : 'bids'} · 35m 43s left</p>
                         <button onclick="confirmBid(${nextBid1})"> Bid Rs. ${nextBid1} </button> 
                         <button onclick="confirmBid(${nextBid2})"> Bid Rs. ${nextBid2} </button> 
                         <button onclick="confirmBid(${nextBid3})"> Bid Rs. ${nextBid3} </button>  
