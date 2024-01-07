@@ -42,6 +42,11 @@
             <div class="form-input-title">Description</div>
             <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?></textarea>
 
+            <!-- item_condition -->
+            <div class="form-input-title">Condition</div>
+            <input type="text" name="item_condition" id="item_condition" class="item_condition" value="<?php echo $data['item_condition']; ?>">
+            <span class="form-invalid"><?php echo $data['item_condition_err']; ?></span>
+
             <div class="form-input-title">Upload an Image</div>
             <!-- item images -->
             <div class = "form-drag-area" id="form-drag-area">
@@ -77,9 +82,18 @@
             <span class="form-invalid"><?php echo $data['selling_format_err']; ?></span>
 
             <!-- Hidden form for auction details -->
-            <div id="auctionDetails" style="display: none;">
-                <label for="duration">Auction Duration:</label>
-                <input type="number" id="duration" name="duration"><br>
+            <div id="auction_details" style="display: none;">
+                <br><br><label for="duration">Auction Duration:</label>
+                <select id="duration" name="duration">
+                    <option value="1">1 day</option>
+                    <option value="3">3 days</option>
+                    <option value="5">5 days</option>
+                    <option value="7">1 week</option>
+                    <option value="14">2 weeks</option>
+                    <!-- <option value="30">1 month</option> -->
+                </select><br><br>
+                <!-- <label for="end_time">Auction End Time:</label>
+                <input type="datetime-local" id="end_time" name="end_time"><br> -->
                 <label for="starting_bid">Starting Bid:</label>
                 <input type="number" id="starting_bid" name="starting_bid"><br>
             </div>
