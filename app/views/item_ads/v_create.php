@@ -63,8 +63,8 @@
             <!-- item images -->
             <div class = "ad-form-drag-area" id="form-drag-area">
                 <div class = "ad-icon">
-                    <!-- <img id = "item_img_placeholder" src = "<?php echo URLROOT;?>/public/img/itemAds/placeholder.png" alt="placeholder"></img> -->
-                    <i id = "item_img_placeholder" class="fas fa-image fa-5x"></i>
+                    <img id = "item_img_placeholder" src = "" alt="placeholder"><i id = "item_img_placeholder_icon" class="fas fa-image fa-5x"></i></img>
+                    <!-- <i id = "item_img_placeholder" class="fas fa-image fa-5x"></i> -->
                 </div> 
                 <div class="ad-form-drag-area-text">Drag and drop files here</div>
                 <div class="ad-form-drag-area-or">or</div>

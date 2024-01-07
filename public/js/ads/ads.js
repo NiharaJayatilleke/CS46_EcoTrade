@@ -1,7 +1,7 @@
 //Ad images drag and drop
-const dropArea = document.querySelector(".form-drag-area");
-let dropText = document.querySelector(".form-drag-area-text");
-const browseButton = document.querySelector(".form-drag-area-btn");
+const dropArea = document.querySelector(".ad-form-drag-area");
+let dropText = document.querySelector(".ad-form-drag-area-text");
+const browseButton = document.querySelector(".ad-form-drag-area-btn");
 let inputPath = document.querySelector("#item_images");
 let file;
 
@@ -48,7 +48,10 @@ function showImage(){
         fileReader.onload = ()=>{
             let fileURL = fileReader.result;
 
-            document.querySelector("#item_img_placeholder").setAttribute("src", fileURL);
+            var imgPlaceholder = document.querySelector("#item_img_placeholder");
+            imgPlaceholder.setAttribute("src", fileURL);
+            imgPlaceholder.style.display = "block";            
+            // document.querySelector("#item_img_placeholder").style.backgroundImage = 'url(' + fileURL + ')';
         }
         fileReader.readAsDataURL(file);
 
