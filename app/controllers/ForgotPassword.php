@@ -160,12 +160,12 @@ class forgotPassword extends Controller{
                     'errors' => $errors,
                     'user_id' => $user_id,
                 ];
-                $this->view('users/v_Reset_newpassword', $data);
+                $this->view('users/reset_newpassword', $data);
             }
 
         } else {
             // Display the password reset form
-            $this->view('users/v_Reset_newpassword');
+            $this->view('users/reset_newpassword');
         }
     } 
 }
