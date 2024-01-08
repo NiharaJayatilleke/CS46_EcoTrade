@@ -29,7 +29,7 @@ class forgotPassword extends Controller{
             // flash("reset", "Please input email");
             $data['email'] = $usersEmail;
             $data['email_err'] = "Please Input Email";
-            $this->view('users/v_forgot_password', $data);
+            $this->view('users/forgot_password', $data);
             return ;
            
         }
@@ -40,7 +40,7 @@ class forgotPassword extends Controller{
             $data['email'] = $usersEmail;
             $data['email_err'] = "Email not found ";
             
-            $this->view('users/v_forgot_password', $data);
+            $this->view('users/forgot_password', $data);
             return ;
          
         }
