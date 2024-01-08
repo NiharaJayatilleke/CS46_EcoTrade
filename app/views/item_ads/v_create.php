@@ -63,8 +63,8 @@
             <!-- item images -->
             <div class = "ad-form-drag-area" id="form-drag-area">
                 <div class = "ad-icon">
-                    <!-- <img id = "item_img_placeholder" src = "<?php echo URLROOT;?>/public/img/itemAds/placeholder.png" alt="placeholder"></img> -->
-                    <i id = "item_img_placeholder" class="fas fa-image fa-5x"></i>
+                    <img id = "item_img_placeholder" src = "" alt="placeholder"><i id = "item_img_placeholder_icon" class="fas fa-image fa-5x"></i></img>
+                    <!-- <i id = "item_img_placeholder" class="fas fa-image fa-5x"></i> -->
                 </div> 
                 <div class="ad-form-drag-area-text">Drag and drop files here</div>
                 <div class="ad-form-drag-area-or">or</div>
@@ -95,8 +95,8 @@
             <span class="ad-form-invalid"><?php echo $data['selling_format_err']; ?></span>
 
             <!-- Hidden form for auction details -->
-            <?php if ($data['show_auction_fields']): ?>
-                <div id="auction_details" style="display: none;">
+                <div id="auction_details" style="display: <?php echo ($data['selling_format'] === 'auction' || $data['show_auction_fields']) ? 'block' : 'none'; ?>;">
+                <!-- <div id="auction_details" style="display: block;"> -->
                     <br><br><label for="duration"><p class = "ad_auction_duration">Auction Duration:</p></label>
                     <select id="duration" name="duration" class="ad_duration">
                         <option value="">Select the duration</option>
@@ -114,7 +114,7 @@
                     <input type="number" id="starting_bid" name="starting_bid" class="ad_starting_bid"><br>
                     <span class="ad-form-invalid"><?php echo $data['starting_bid_err']; ?></span><br>
                 </div>
-            <?php endif; ?>
+            
 
             <!-- negotiable -->
             <div class="ad-form-input-title">Is the price negotiable? </div>

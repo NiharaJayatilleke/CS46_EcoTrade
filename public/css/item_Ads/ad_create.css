@@ -7,14 +7,14 @@
 } */
 
 .ad-background {
-    position: relative;
+    /* position: relative; */
     /* padding-top: 20px; */
     padding-bottom: 50px;
 }
 
 .ad-background::before {
     content: "";
-    background: url('../../img/login/banner1.jpg') no-repeat;
+    background:linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)), url('../../img/login/banner1.jpg') no-repeat;
     background-size: cover;
     filter: blur(10px);
     position: absolute;
@@ -74,6 +74,7 @@
     padding: 8px;
     font-size: 16px;
     transition: border-color 0.3s;
+    margin-bottom: 5px;
 }
 .ad_item_other_label{
     font-size: 16px;
@@ -112,8 +113,10 @@
 
 .ad-form-drag-area {
     border-radius: 5px;
-    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     margin-top: 5px;
+    margin-bottom: 5px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -122,6 +125,8 @@
     text-align: center;
     transition: 300ms ease-in;
     border: 2px dashed #ccc;
+    /* width: 100%; 
+    height: 200px; */
 } 
 
 .ad-form-drag-area.active{ /* CHECK */
@@ -129,7 +134,7 @@
     background-color: antiquewhite;
 }
 
-.ad-form-drag-area .ad-icon {
+.ad-form-drag-area .ad-icon  {
     margin-bottom: 0px;
     font-size: 7px;
     color: #c4c4c4;
@@ -139,17 +144,29 @@
     /* width: 50px;
     height: 50px; */
     margin: 0 auto;
-    border-radius: 5%;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     transition: 300ms ease-in;
 }  
 
 #item_img_placeholder {
-    width: 30px;
-    height: 30px;
+    width: 100%;
+    height: 50%;
     /* color:#777; */
     /* border: 2px dashed #ccc; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms ease-in;
+    margin-top: 30px;
+    display: none;
+}
+
+.ad-form-drag-area .ad-icon .item_image_placeholder_icon {
+    width: 30px;
+    height: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -217,9 +234,9 @@
     color: rgb(48, 65, 48);
 }
 
-#ad_auction_details {
+/* #ad_auction_details {
     display: none;
-}
+} */
 .ad_auction_duration,
 .ad_auction_starting_bid{
     font-size: 16px;
