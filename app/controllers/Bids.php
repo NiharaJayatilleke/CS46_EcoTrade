@@ -36,5 +36,11 @@
         
             echo json_encode($response);
         }  
+
+        public function addBid($adId){
+
+            $bid_amount = $_POST['bidAmount'];
+            $this->auctionsModel->addBid($adId, $bid_amount);
+        }
     }
 ?>

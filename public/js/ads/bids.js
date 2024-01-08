@@ -76,6 +76,22 @@ if (placeBidButton) {
                     'Your bid was placed successfully.',
                     'success'
                 )
+
+                $.ajax({
+                    url: URLROOT +"/Bids/addBid/"+ CURRENT_AD,
+                    type: 'POST',
+                    data: {
+                        bidAmount: bidAmount
+                    },
+                    success: function(response) {
+                        // Handle the response from the server-side script
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                    }
+                });
+
+
             }
         });
     }

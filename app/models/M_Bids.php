@@ -41,5 +41,19 @@
             return $row;
         }
 
+        public function addBid($adId, $bidAmount){
+            $this->db->query('INSERT INTO Bids(ad_id, user_id, bid_amount) VALUES(:ad_id, :user_id, :bid_amount)'); 
+            $this->db->bind(':ad_id',$adId);         
+            $this->db->bind(':user_id',$_SESSION['user_id']);
+            $this->db->bind(':bid_amount',$bidAmount);
+
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
     }
 ?>
