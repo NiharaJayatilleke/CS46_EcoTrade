@@ -7,14 +7,14 @@
 } */
 
 .ad-background {
-    position: relative;
+    /* position: relative; */
     /* padding-top: 20px; */
     padding-bottom: 50px;
 }
 
 .ad-background::before {
     content: "";
-    background: url('../../img/login/banner1.jpg') no-repeat;
+    background:linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)), url('../../img/login/banner1.jpg') no-repeat;
     background-size: cover;
     filter: blur(10px);
     position: absolute;
@@ -113,7 +113,8 @@
 
 .ad-form-drag-area {
     border-radius: 5px;
-    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     margin-top: 5px;
     margin-bottom: 5px;
     text-align: center;
@@ -159,7 +160,7 @@
     align-items: center;
     justify-content: center;
     transition: 300ms ease-in;
-    margin-top: 20px;
+    margin-top: 30px;
     display: none;
 }
 
@@ -233,9 +234,9 @@
     color: rgb(48, 65, 48);
 }
 
-#ad_auction_details {
+/* #ad_auction_details {
     display: none;
-}
+} */
 .ad_auction_duration,
 .ad_auction_starting_bid{
     font-size: 16px;

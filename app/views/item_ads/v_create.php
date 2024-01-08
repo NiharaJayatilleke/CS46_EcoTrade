@@ -95,8 +95,8 @@
             <span class="ad-form-invalid"><?php echo $data['selling_format_err']; ?></span>
 
             <!-- Hidden form for auction details -->
-            <?php if ($data['show_auction_fields']): ?>
-                <div id="auction_details" style="display: none;">
+                <div id="auction_details" style="display: <?php echo ($data['selling_format'] === 'auction' || $data['show_auction_fields']) ? 'block' : 'none'; ?>;">
+                <!-- <div id="auction_details" style="display: block;"> -->
                     <br><br><label for="duration"><p class = "ad_auction_duration">Auction Duration:</p></label>
                     <select id="duration" name="duration" class="ad_duration">
                         <option value="">Select the duration</option>
@@ -114,7 +114,7 @@
                     <input type="number" id="starting_bid" name="starting_bid" class="ad_starting_bid"><br>
                     <span class="ad-form-invalid"><?php echo $data['starting_bid_err']; ?></span><br>
                 </div>
-            <?php endif; ?>
+            
 
             <!-- negotiable -->
             <div class="ad-form-input-title">Is the price negotiable? </div>

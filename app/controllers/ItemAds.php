@@ -206,6 +206,8 @@
                     'duration_err' => '',
                     'starting_bid_err' => '',
                     'negotiable_err' => '',
+
+                    // 'show_auction_fields' => true
                 ];
 
                 //load view
