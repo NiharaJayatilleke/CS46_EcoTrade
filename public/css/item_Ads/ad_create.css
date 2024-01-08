@@ -7,7 +7,7 @@
 } */
 
 .ad-background {
-    /* position: relative; */
+    /* position: relative; makes it long but removing this gives top margin error*/ 
     /* padding-top: 20px; */
     padding-bottom: 50px;
 }

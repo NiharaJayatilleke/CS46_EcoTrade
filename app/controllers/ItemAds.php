@@ -152,7 +152,7 @@
                 }
 
                 //Validation is completed and no error then add item ad to the database
-                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])&&empty($data['item_images_err'])){
+                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_condition_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])&&empty($data['item_images_err'])){
                     // var_dump($data);
                     //Add item ad to the database
                     $ad_id = $this->itemAdsModel->create($data);
@@ -188,6 +188,7 @@
                     'item_name' => '',
                     'item_category' => '',
                     'item_desc' => '',
+                    'item_condition' => '',
                     'item_img' => '',
                     'item_img_name' => '',
                     'item_price' => '',
@@ -199,6 +200,7 @@
 
                     'item_name_err' => '',
                     'item_category_err' => '',
+                    'item_condition_err' => '',
                     'item_images_err' => '',
                     'item_price_err' => '',
                     'item_location_err' => '',
