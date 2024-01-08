@@ -28,6 +28,8 @@
 @import url('item_Ads/ad_index_page.css');
 @import url('item_Ads/ad_create.css');
 @import url('item_Ads/v_prodetails.css');
+@import url('item_Ads/ad_buyer_view.css');
+@import url('item_Ads/ad_seller_view.css');
 
 /*ADMIN DASHBOARD*/
 @import url('pages/admin_dashboard_styles.css');

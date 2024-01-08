@@ -16,9 +16,9 @@
             </div>
             <div class="small-images">
                 <!-- <img id="s1" src="productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')"> -->
-                <!-- <img id="s1" src="<?php echo URLROOT?>/public/img/prodetails/productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')">
+                <img id="s1" src="<?php echo URLROOT?>/public/img/prodetails/productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')">
 
-                <img id="s2" src="<?php echo URLROOT?>/public/img/prodetails/productDetails2.jpeg" alt="Small Image 2" onclick="displayBigImage('/pics/productDetails2.jpeg')"> -->
+                <img id="s2" src="<?php echo URLROOT?>/public/img/prodetails/productDetails2.jpeg" alt="Small Image 2" onclick="displayBigImage('/pics/productDetails2.jpeg')">
                 <!-- Add more small images as needed -->
             </div>
             <div class="desMain">
@@ -103,7 +103,7 @@
         
         <!-- HTML for sellers to accept or reject offers -->
         <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?>
-            <!-- <h3>Offers</h3> -->
+            <h3>Offers</h3>
             <?php foreach ($data['offers'] as $offer) : ?>
                 <div class="offer-details" data-offer-id="<?php echo $offer->offer_id; ?>">
                     <p class="offer-message">New Offer: Rs.<?php echo $offer->offer_amount; ?></p>
@@ -123,7 +123,7 @@
             </div>
         </div>
 
-        <!-- <h3>Bid Details</h3> -->
+        <h3>Bid Details</h3>
         <ul class="bid-list">
             <?php foreach ($bidDetails as $bid) : ?>
                 <li class="bid-list-item">Bidder: <?php echo $bid['bidder']; ?> | Bid Value: $<?php echo $bid['bid_value']; ?></li>
