@@ -5,7 +5,7 @@
 }
 
 body{
-    background: rgb(3, 36, 3);
+    background: rgb(110, 111, 110);
 }
 
 .background {
@@ -15,7 +15,7 @@ body{
     background: url('../../img/signup/register2.jpg') no-repeat;
     background-position: center;
     background-size: cover;
-    filter: blur(10px); 
+    filter: blur(2px); 
 }
 
 @media only screen and (max-width: 600px) {
@@ -59,7 +59,7 @@ body{
     left: 50%;
     width: 87%;
     transform: translate(-50%, -50%);
-    height: 700px;
+    height: 560px;
     background: url('../../img/signup/register1.jpg') no-repeat;
     background-position: left center;
     background-size: cover;
@@ -109,8 +109,9 @@ body{
 }
 
 .text-welcome li{
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 20px 0;
+    line-height: 1.45;
 }
 
 .register-form-container .reg-box{
@@ -140,17 +141,17 @@ body{
 }
 
 .form-box h2{
-    font-size: 34px;
+    font-size: 30px;
     text-align: center; 
     /* margin-right: 50px; */
 }
 
 .form-box .input-box{
     position: relative;
-    width: 340px;
-    height: 50px;
+    width: 320px;
+    height: 45px;
     border-bottom: 2px solid #e4e4e4;
-    margin: 30px 0;
+    margin: 22px 0;
 }
 
 .input-box input{
@@ -159,7 +160,7 @@ body{
     background: transparent;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: 13px;
     color: #e4e4e4;
     font-weight: 500;
 }
@@ -168,8 +169,8 @@ body{
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translateY(-50%);
-    font-size: 16px;
+    transform: translateY(-40%);
+    font-size: 13px;
     font-weight: 500;
     pointer-events: none;
     transition: .5s ease;
@@ -190,7 +191,7 @@ body{
 }
 
 .form-box .terms-forgot{
-    font-size: 14.5px;
+    font-size: 12px;
     font-weight: 500;
     margin: -15px 0 15px;
     display: flex;
@@ -208,7 +209,7 @@ body{
 
 .register-btn{
     width: 100%;
-    height: 45px;
+    height: 40px;
     border: none;
     outline: none;
     background: #2d7b33;
@@ -230,7 +231,7 @@ body{
 }
 
 .form-box .registred-already{
-    font-size: 14.5px;
+    font-size: 13px;
     font-weight: 500;
     text-align: center;
     margin-top: 25px;
