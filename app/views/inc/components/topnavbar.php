@@ -5,7 +5,7 @@
   <div class="items">
     <div class="item logo">
       <a href="">
-        <img src="<?php echo URLROOT?>/public/img/index/logo.png" alt="Logo" class="logo" width="80" height="30">
+        <img src="<?php echo URLROOT?>/public/img/index/logo1.png" alt="Logo" class="logo" width="80" height="30">
       </a>
     </div>
   	

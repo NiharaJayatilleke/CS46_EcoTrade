@@ -61,7 +61,7 @@
 
 .login-form-container {
     position: absolute;
-    top: 52%;
+    top: 54%;
     left: 50%;
     width: 87%;
     transform: translate(-50%, -50%);
@@ -137,7 +137,7 @@
     backdrop-filter: blur(20px);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    color: black; /* Set font color to black */
+    color: black; 
     animation: floatIn 1.5s ease-in-out;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
