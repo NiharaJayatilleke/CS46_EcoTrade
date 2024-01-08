@@ -1,14 +1,3 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: rgb(3, 36, 3);
-}
-
 .background-login {
     width: 100%;
     height: 100vh;
@@ -16,7 +5,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    filter: blur(10px);
+    filter: blur(2px);
 }
 
 @media only screen and (max-width: 600px) {
@@ -76,7 +65,7 @@ body {
     left: 50%;
     width: 87%;
     transform: translate(-50%, -50%);
-    height: 700px;
+    height: 550px;
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../../img/login/login1.jpg') no-repeat;
     background-position: left center;
     background-size: cover;
@@ -116,8 +105,8 @@ body {
 }
 
 .login-welcome h2 {
-    font-size: 40px;
-    line-height: 1;
+    font-size: 35px;
+    line-height: .7;
 }
 
 .login-welcome h2 span {
@@ -154,7 +143,7 @@ body {
 }
 
 .login-form-box h2 {
-    font-size: 34px;
+    font-size: 31px;
     text-align: center;
 }
 
@@ -172,7 +161,7 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: 13.5px;
     color: #000000;
     font-weight: 500;
 }
@@ -182,7 +171,7 @@ body {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    font-size: 16px;
+    font-size: 13.5px;
     font-weight: 500;
     pointer-events: none;
     transition: .5s ease;
@@ -203,7 +192,7 @@ body {
 }
 
 .login-form-box .remember-me {
-    font-size: 14.5px;
+    font-size: 12px;
     font-weight: 500;
     margin: -15px 0 15px;
     display: flex;
@@ -221,13 +210,13 @@ body {
 
 .login-btn {
     width: 100%;
-    height: 45px;
+    height: 40px;
     border: none;
     outline: none;
     background: #2d7b33;
     color: white; 
     font-family: "SF Pro", sans-serif; 
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 500;
     border-radius: 5px;
     cursor: pointer;
@@ -245,13 +234,22 @@ body {
 }
 
 .login-form-box .login-already {
-    font-size: 14.5px;
+    font-size: 13px;
     font-weight: 500;
     text-align: center;
     margin-top: 25px;
 }
 
-.login-already p a{
+.login-already p {
     color: #000000;
+}
 
+.login-already a{
+    color: #000000;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-already a:hover{
+    text-decoration: underline;
 }

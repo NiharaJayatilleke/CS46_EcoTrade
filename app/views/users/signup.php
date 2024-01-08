@@ -11,8 +11,8 @@
             <div class = "text-welcome">
             <h2> Welcome!<br> <span> Where Sustainable Commerce Begins!</span></h2><br>
                 <ul>
-                    <li>🌿 <strong>Trade Responsibly:</strong> EcoTrade contributes to a sustainable and eco-friendly future</li>
-                    <li>🤝 <strong>Connect with Fellow Traders:</strong> Join a network of individuals and sustainable businesses</li>
+                    <li><i class='bx bx-leaf'></i><strong> Sustainable Trading:</strong> We contribute to a sustainable and eco-friendly future</li>
+                    <li><i class='bx bx-world'></i> <strong>Trade Networking:</strong> Join a network of individuals and sustainable businesses</li>
                     <!-- <li>🌎 <strong>EcoTrade</strong> A place where Every Trade Counts!.</li> -->
                 </ul> 
             </div>
