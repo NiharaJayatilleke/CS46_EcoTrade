@@ -16,9 +16,9 @@
             </div>
             <div class="small-images">
                 <!-- <img id="s1" src="productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')"> -->
-                <!-- <img id="s1" src="<?php echo URLROOT?>/public/img/prodetails/productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')">
+                <img id="s1" src="<?php echo URLROOT?>/public/img/prodetails/productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')">
 
-                <img id="s2" src="<?php echo URLROOT?>/public/img/prodetails/productDetails2.jpeg" alt="Small Image 2" onclick="displayBigImage('/pics/productDetails2.jpeg')"> -->
+                <img id="s2" src="<?php echo URLROOT?>/public/img/prodetails/productDetails2.jpeg" alt="Small Image 2" onclick="displayBigImage('/pics/productDetails2.jpeg')">
                 <!-- Add more small images as needed -->
             </div>
             <div class="desMain">
@@ -51,9 +51,7 @@
                     <p>Report This Ad</p>
                 </button>
                 <button class="b1">
-                <a href="<?php echo URLROOT; ?>/Wishlist/addToWishlist/<?php echo $data['ad']->ad_id; ?>">
-                    <img src="<?php echo URLROOT; ?>/public/img/prodetails/save.png" alt="report">
-                </a>
+                    <img src="<?php echo URLROOT?>/public/img/prodetails/save.png" alt="report">
                     <p>Save this Ad</p>
                 </button>
             </div>
@@ -118,7 +116,7 @@
         <!-- HTML for displaying the bids -->
         <div class="bid-info">
             <h2>Bidding Overview</h2>
-            <p>Time Remaining: <span id="timeRemaining"><?php echo $data['remaining_time'];?> </span></p>
+            <p>Time Remaining: <span id="timeRemaining">2 days 5 hours 30 minutes</span></p>
             <div class="bid-stats">
                 <p>Number of Bids: <span id="numBids">15</span></p>
                 <p>Average Bid Value: $<span id="avgBidValue">150</span></p>
@@ -127,8 +125,8 @@
 
         <h3>Bid Details</h3>
         <ul class="bid-list">
-            <?php foreach ($data['bids'] as $bid) : ?>
-                <li class="bid-list-item">Bidder: <?php echo $bid['user_id']; ?> | Bid Value: $<?php echo $bid['bid_amount']; ?></li>
+            <?php foreach ($bidDetails as $bid) : ?>
+                <li class="bid-list-item">Bidder: <?php echo $bid['bidder']; ?> | Bid Value: $<?php echo $bid['bid_value']; ?></li>
             <?php endforeach; ?>
         </ul>
             

@@ -27,13 +27,16 @@
 @import url('item_Ads/item_type_styles.css');
 @import url('item_Ads/ad_index_page.css');
 @import url('item_Ads/ad_create.css');
+@import url('item_Ads/v_prodetails.css');
+@import url('item_Ads/ad_buyer_view.css');
+@import url('item_Ads/ad_seller_view.css');
 
 /*ADMIN DASHBOARD*/
 @import url('pages/admin_dashboard_styles.css');
 @import url('pages/wishlist.css');
 @import url('pages/v_sechome.css');
 @import url('pages/v_recyclehome.css');
-@import url('pages/v_prodetails.css');
+/* @import url('pages/v_prodetails.css'); */
 @import url('pages/v_help.css');
 @import url('pages/v_errorpage.css');
 @import url('pages/v_collectorhome.css');
@@ -41,6 +44,8 @@
 @import url('pages/v_sellerpro.css');
 @import url('pages/v_addpayment.css');
 @import url('pages/v_paymentportal.css');
+
+
 
 /* FONTS */
 @font-face {

@@ -46,3 +46,26 @@
         width: 100%;
     }
 }
+
+/* BIDS */
+
+.bid-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bid-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.bid-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bid-list-item {
+    margin-bottom: 10px;
+}

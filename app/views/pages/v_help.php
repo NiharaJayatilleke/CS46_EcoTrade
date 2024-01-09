@@ -1,8 +1,7 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
-<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_help.css">
-
+<!-- <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_help.css"> -->
 
   <div class="div-2">
     <img
