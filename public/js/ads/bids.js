@@ -18,9 +18,10 @@ if (placeBidButton) {
                 let nextBid2 = nextBid1 + bidIncrement;
                 let nextBid3 = nextBid2 + bidIncrement;
 
-                let remainingTimeParts = data.remainingTime.match(/\d+\D+/g);
-                let relevantParts = remainingTimeParts.filter(part => !part.startsWith('0'));
-                let displayTime = relevantParts.slice(0, 2).join('');
+                // let remainingTimeParts = data.remainingTime.match(/\d+\D+/g);
+                // let relevantParts = remainingTimeParts.filter(part => !part.startsWith('0'));
+                // let displayTime = relevantParts.slice(0, 2).join('');
+                let displayTime = data.remainingTime;
 
                 Swal.fire({  
                     title: 'Place your bid',

@@ -103,7 +103,7 @@
         
         <!-- HTML for sellers to accept or reject offers -->
         <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?>
-            <!-- <h3>Offers</h3> -->
+            <h3>Offers</h3>
             <?php foreach ($data['offers'] as $offer) : ?>
                 <div class="offer-details" data-offer-id="<?php echo $offer->offer_id; ?>">
                     <p class="offer-message">New Offer: Rs.<?php echo $offer->offer_amount; ?></p>
@@ -116,17 +116,17 @@
         <!-- HTML for displaying the bids -->
         <div class="bid-info">
             <h2>Bidding Overview</h2>
-            <p>Time Remaining: <span id="timeRemaining">2 days 5 hours 30 minutes</span></p>
+            <p>Time Remaining: <span id="timeRemaining"><?php echo $data['remaining_time'];?> </span></p>
             <div class="bid-stats">
                 <p>Number of Bids: <span id="numBids">15</span></p>
                 <p>Average Bid Value: $<span id="avgBidValue">150</span></p>
             </div>
         </div>
 
-        <!-- <h3>Bid Details</h3> -->
+        <h3>Bid Details</h3>
         <ul class="bid-list">
-            <?php foreach ($bidDetails as $bid) : ?>
-                <li class="bid-list-item">Bidder: <?php echo $bid['bidder']; ?> | Bid Value: $<?php echo $bid['bid_value']; ?></li>
+            <?php foreach ($data['bids'] as $bid) : ?>
+                <li class="bid-list-item">Bidder: <?php echo $bid['user_id']; ?> | Bid Value: $<?php echo $bid['bid_amount']; ?></li>
             <?php endforeach; ?>
         </ul>
             

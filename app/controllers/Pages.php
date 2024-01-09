@@ -12,6 +12,7 @@
             ];
             $this->view('pages/v_index',$data);
         } else {   
+            // die("hello");
             $this->view('pages/v_index');
         }
         

@@ -20,7 +20,7 @@
 
                 //Validate the data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-                var_dump($_POST);
+                // var_dump($_POST);
 
                 //input data
                 $data = [
