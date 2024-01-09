@@ -17,11 +17,11 @@
     margin-bottom: 10px; 
 }
 
-input[type="radio"] {
+/* input[type="radio"] {
     margin-right: 5px; 
     margin-left: 20px;
     margin-top: 15px;
-}
+} */
 
 button.continue {
     font-size: 16px;
