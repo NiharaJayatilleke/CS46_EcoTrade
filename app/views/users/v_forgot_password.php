@@ -14,7 +14,7 @@
 
             <!-- email -->
             <div class="form-input-title">Email</div>
-            <input type="text" name="email" placeholder="Email" id="email" class="email" value="<?php echo $data['email'];?>" >
+            <input type="text"  name="email" placeholder="Email" id="email" class="email" value="<?php echo $data['email'];?>" >
             <span class="form-invalid"><?php echo $data['email_err'];?></span>
 
             
@@ -27,4 +27,6 @@
         <?php flash('reset');?>
     </div>
 
-<?php require APPROOT.'/views/inc/footer.php'; ?>
+
+</body>
+</html>

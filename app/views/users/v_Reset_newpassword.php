@@ -28,5 +28,6 @@
     </form>
     <?php flash('newReset');?>
     </div>
-<?php require APPROOT.'/views/inc/footer.php'; ?>
+</body>
+</html>
             

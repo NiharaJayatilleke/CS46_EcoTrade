@@ -95,7 +95,7 @@
                                     <input type="text" class="form-control input-field-box " value="<?php echo $data['user']->userType; ?>"disabled>
                                 </div>
                                 <div>
-                                    <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
+                                    <button class="home-back" style=" margin-top:200px; margin-left: 300px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                                     Back to Home
                                     </button>                      
                                 </div>
@@ -161,7 +161,7 @@
                                 </div>
                                 <div>
                                 </form>
-                                <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
+                                <button class="home-back" style=" margin-top:200px; margin-left: 300px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                                 Back to Home
                                 </button>
                                 </div>
@@ -245,10 +245,11 @@
                     
                         <div class="right-below">
                             <div class="delete-container">
-                                <div class="tab-pane fade active show" id="account-deletion">
+                                
                                     <div class="card-body media align-items-center"> </div>
                                     <div class="card-delete-body">
                                     <!-- <h4 id="Deleteaccount">Delete Account?</h4> -->
+                                    <div class="tab-pane fade active show" id="account-deletion">
                                     <p id="deletesentence">You'll permanently lose your:</p>
                                         <ul>
                                             <li>Profile</li>
@@ -267,6 +268,7 @@
                                                 Delete Profile
                                             </button>
                                             </div>
+                                           
                                         </form>
                                         <?php if (!empty(flash('password_error'))) : ?>
                                                 <?php echo flash('password_error'); ?>
@@ -274,13 +276,20 @@
                                         <?php if (!empty(flash('account_deletion_error'))) : ?>
                                                 <?php echo flash('account_deletion_error'); ?>
                                         <?php endif; ?>
+                             
                                     </div>
+                                    
+                                 
                                 </div>
+                                <button class="home-back" style=" margin-top:20px; margin-right: 0px;padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
+                                                Back to Home
+                                                </button>
+                           
                             </div>
                             <div>
-                        <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
+                            <!-- <button class="home-back" style=" margin-top:200px; margin-right: 100px; padding: 10px 50px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                         Back to Home
-                        </button>
+                        </button> -->
                     </div>
                     </div>
                     </div>
@@ -320,7 +329,7 @@
                                     <input type="text" class="form-control input-field-box" value="seconhandbuyer">
                                 </div>
                             <div>
-                        <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
+                            <button class="home-back" style=" margin-top:200px; margin-left: 300px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                         Back to Home
                         </button>
                             
@@ -384,7 +393,7 @@
                         <!-- <button class="home-back" style="position:fixed; bottom:30px; right:30px ; padding:10px 30px;background-color:#7bd664;border:1px;border-color: #7bd664;">
                                             Back to home
                         </button> -->
-                        <button class="home-back" style="position: fixed; bottom: 30px; right: 30px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
+                        <button class="home-back" style=" margin-top:200px; margin-left: 300px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                         Back to Home
                         </button>
                             

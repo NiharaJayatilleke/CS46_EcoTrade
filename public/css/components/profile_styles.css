@@ -46,9 +46,9 @@ body, h1, h4, p {
 
 /* Back to home button */
 .home-back {
-    position: fixed;
+    /* position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 30px; */
     padding: 10px 30px;
     background: linear-gradient(to right, #219657b5, #31b36eb4);
     /* background-color: #7bd664; */
@@ -81,11 +81,8 @@ body, h1, h4, p {
 
 .as_name hr {
     /* top: 90px; */
-    margin-top:90px;
-   
-    
+    margin-top:90px; 
 }
-
 
 .col-md-3 {
     width: 20vw;
@@ -93,8 +90,6 @@ body, h1, h4, p {
     flex-direction: column;
     align-items: center;
 }
-
-
 
 .d-block {
     width: 20vw;
@@ -283,12 +278,13 @@ form button[type="submit"]:hover {
 
 
 .delete-container {
-    background-color: #fff;
+    background-color: #570d0d;
     /* border: 1px solid #ccc; */
     /* border-radius: 5px; */
+    
     border-radius: 30px;
     transition: .5s;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
     padding: 20px 230px;
     box-sizing: border-box;
