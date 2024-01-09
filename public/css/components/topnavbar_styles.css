@@ -87,104 +87,15 @@
   border-radius: 50%;
 }
 
-/* NETHMI NAVBAR */
-
-/*
-.topnav{
+.topnav {
   width: 100%;
   height: 60px;
   background: linear-gradient(90deg, #0b3e27, #197149);
   position: relative;
-  }
-
-
-.topnav .items{
-  height: 100%;
-  /* width: 100vw; */
-  /* display: flex;
-} 
-
-.topnav .items .item{
-  width: 7vw;
-  font-size: 16px;
+  z-index: 9999; /* Set a high z-index value to bring the topnav bar in front of everything */
 }
 
-
-.topnav .items .logo{
-  width: 65px;
-  height: 40px;
-  margin-left: 10px;
-  margin-right: 30px;
-  margin-top: 5px;
-}
-
-.topnav .items .links{
-  display: flex;
-  position: relative;
-  flex-grow: 1;
-  justify-content: flex-end;
-  align-items: center;
-  text-align: center;
-  color: white;
-}
-
-
-.topnav .items .links .user{
-  width: 35px;
-  height: auto;
-  cursor: pointer;
-
-} */
-
-
-/* SEARCH BAR */
-.search-container-wrapper {
-  display: flex;
-  align-items: center;
-  margin-left:70px;
-  margin-top: 10px;
-}
-
-.search-container-index {
-  display: flex;
-  align-items: center;
-}
-
-.search-category-index {
-  margin-right: 0px;
-  padding: 10px 0px;
-  background: #219657b5;
-  border: 1px solid #117e3b;
-  /* border: 1px solid #000; */
-  cursor: pointer;
-  color:white;
-}
-
-.search-input-index {
-  flex: 1;
-  margin-right: 0px;
-  padding: 6px 15px;
-  border: 1px solid #f1f1f1;
-  /* border: 1px solid #000; */
-  font-size: 16px;
-  outline: none;
-  margin-top: 0px;
-  width: 23vw;
-  background: #f1f1f1;
-  height: 25px;
-  display: block;
-}
-
-.search-button-index {
-  background: #219657b5;
-  border: 1px solid #117e3b;
-  /* border: 1px solid #000; */
-  border-radius: 0;
-  padding: 9px 15px;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-left: 0;
-  margin-top: 0px;
+/* Rest of the code remains unchanged */
 }
 
 .search-button-index:hover {

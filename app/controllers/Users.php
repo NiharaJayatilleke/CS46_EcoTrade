@@ -686,7 +686,7 @@
             redirect('Pages/index');
         }
 
-        private function setRememberMeCookie($userId) {
+        private function setRememberMeCookie($userId){
         // Generate a unique token or identifier
         $token = uniqid();
 
