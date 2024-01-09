@@ -9,7 +9,9 @@
       </a>
     </div>
   	
-          <?php if (strpos($_SERVER['REQUEST_URI'], '/itemAds') !== false): ?>
+      <?php if (strpos($_SERVER['REQUEST_URI'], '/ItemAds/index') !== false || 
+          (strpos($_SERVER['REQUEST_URI'], '/Search/SearchAd') !== false && 
+           isset($_GET['category']) && isset($_GET['search']))): ?>
             <div class="search-container-wrapper">
                 <form action="<?php echo URLROOT; ?>/Search/SearchAd" method="GET">
                     <div class="search-container-index">
@@ -50,7 +52,7 @@
                     <a href="<?php echo URLROOT ?>/Users/login">Post Ad</a>
                 <?php endif; ?>
       </div>
-
+    <?php if (isset($_SESSION['user_id'])) : ?>
       <div class="item"><a href="<?php echo URLROOT ?>/Wishlist/index">Saved Ads</a></div>
 
 
@@ -93,7 +95,8 @@
           </a>
         </div> 
         </div> 
-      </div>      
+      </div>  
+    <?php endif; ?>
     </div>
   </div>
 </div>

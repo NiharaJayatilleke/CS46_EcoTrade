@@ -82,8 +82,8 @@
 
 .profile-image img{
   border: 2px solid white;
-  width: 40%;
-  height: 40%;
+  width: 35%;
+  height: 35%;
   border-radius: 50%;
 }
 
@@ -152,23 +152,25 @@
 
 .search-category-index {
   margin-right: 0px;
-  padding: 10px 0px;
+  padding: 6px 0px;
+  font-size: 13px;
   background: #219657b5;
   border: 1px solid #117e3b;
   /* border: 1px solid #000; */
   cursor: pointer;
   color:white;
+  margin-top: -8px;
 }
 
 .search-input-index {
   flex: 1;
   margin-right: 0px;
-  padding: 6px 15px;
+  padding: 14px 15px;
   border: 1px solid #f1f1f1;
   /* border: 1px solid #000; */
-  font-size: 16px;
+  font-size: 13px;
   outline: none;
-  margin-top: 0px;
+  margin-top: -8px;
   width: 23vw;
   background: #f1f1f1;
   height: 25px;
@@ -180,11 +182,11 @@
   border: 1px solid #117e3b;
   /* border: 1px solid #000; */
   border-radius: 0;
-  padding: 9px 15px;
+  padding: 5px 12px;
   cursor: pointer;
   transition: background 0.3s;
   margin-left: 0;
-  margin-top: 0px;
+  margin-top: -8px;
 }
 
 .search-button-index:hover {
