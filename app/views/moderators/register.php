@@ -69,7 +69,7 @@
                         <p>Are you an already registered Moderator? <a href ="<?php echo URLROOT ?>/Moderators/login" > Login </a> </p>
                     </div>
 
-                    <input type="text" name="user_type" id="user_type" value="pBuyer" required="" hidden="" style="display: none;">
+                    <!-- <input type="text" name="user_type" id="user_type" value="pBuyer" required="" hidden="" style="display: none;"> -->
                 </form>
             </div>
         </div>

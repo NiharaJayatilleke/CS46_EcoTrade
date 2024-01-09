@@ -32,6 +32,7 @@
 
 /* MODERATOR CSS */
 @import url('moderators/register.css');
+@import url('moderators/login.css');
 
 /*ADMIN DASHBOARD*/
 @import url('pages/admin_dashboard_styles.css');
