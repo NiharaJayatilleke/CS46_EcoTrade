@@ -74,6 +74,8 @@
                     <div class="registred-already">
                         <p> Already registered? <a href ="<?php echo URLROOT ?>/Users/login" > Login </a> </p>
                     </div>
+
+                    <input type="text" name="user_type" id="user_type" value="pBuyer" required="" hidden="" style="display: none;">
                 </form>
             </div>
         </div>

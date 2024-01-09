@@ -15,6 +15,7 @@
 
                 <input type="submit" value="Receive Email" class="submit-btn"> <br>
             </form>
+            <?php flash('reset');?>
         </div>
     </div>
 </div>
