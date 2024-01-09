@@ -41,5 +41,44 @@
             return $row;
         }
 
+        public function addBid($adId, $bidAmount){
+            $this->db->query('INSERT INTO Bids(ad_id, user_id, bid_amount) VALUES(:ad_id, :user_id, :bid_amount)'); 
+            $this->db->bind(':ad_id',$adId);         
+            $this->db->bind(':user_id',$_SESSION['user_id']);
+            $this->db->bind(':bid_amount',$bidAmount);
+
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function calculateRemainingTime($startTime, $duration){
+
+            //the end time
+            $endTime = clone $startTime;
+            $endTime->modify("+$duration days");
+
+            //the current time
+            $now = new DateTime();
+
+            //the remaining time
+            $remainingTime = $endTime->diff($now);
+
+            //Formating the remaining time as a string
+            $remainingTimeString = $remainingTime->format('%dd %hh %im %ss');
+
+            /*$remainingTimeParts = preg_split('/(\d+\D+)/', $remainingTime, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+            $relevantParts = array_filter($remainingTimeParts, function($part) {
+                return !str_starts_with($part, '0');
+            });
+            $displayTime = implode('', array_slice($relevantParts, 0, 2));
+
+            return $displayTime; */
+            return $remainingTimeString;
+        }
+
     }
 ?>

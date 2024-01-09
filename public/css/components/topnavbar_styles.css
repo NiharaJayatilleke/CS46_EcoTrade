@@ -82,8 +82,8 @@
 
 .profile-image img{
   border: 2px solid white;
-  width: 40%;
-  height: 40%;
+  width: 35%;
+  height: 35%;
   border-radius: 50%;
 }
 
@@ -96,7 +96,6 @@
 }
 
 /* Rest of the code remains unchanged */
-}
 
 .search-button-index:hover {
   background: #729e7d;

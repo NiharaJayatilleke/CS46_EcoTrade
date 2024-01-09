@@ -20,8 +20,17 @@
             $ad = $this->itemAdsModel->getAdById($id);
             $offers = $this->offersModel->getOffersByAd($id);
             $acceptedOffer = $this->offersModel->getAcceptedOfferByAd($id);
+            $bidDetails = $this->auctionsModel->getBiddingDetailsByAd($id);
+            $bids = $this->auctionsModel->getBidsByAd($id);
+
+            $startTime = new DateTime($bidDetails->starting_time);
+            $duration = $bidDetails->auction_duration;
+            $remainingTimeString = $this->auctionsModel->calculateRemainingTime($startTime, $duration);
             
             $data = [
+                'remaining_time' => $remainingTimeString,
+                'bid_details' => $bidDetails,
+                'bids' => $bids,
                 'ad' => $ad,
                 'offers' => $offers,
                 'accepted_offer' => $acceptedOffer

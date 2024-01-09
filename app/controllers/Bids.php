@@ -10,10 +10,12 @@
             $bids = $this->auctionsModel->getBidsByAd($id);
             $numBids = count($bids);
 
-            //Calculating the remaining time
+            // Get the remaining time
             $startTime = new DateTime($bidDetails->starting_time);
             $duration = $bidDetails->auction_duration;
+            $remainingTimeString = $this->auctionsModel->calculateRemainingTime($startTime, $duration);
 
+            /*
             //the end time
             $endTime = clone $startTime;
             $endTime->modify("+$duration days");
@@ -25,7 +27,8 @@
             $remainingTime = $endTime->diff($now);
 
             //Formating the remaining time as a string
-            $remainingTimeString = $remainingTime->format('%dd %hh %im %ss');
+            $remainingTimeString = $remainingTime->format('%dd %hh %im %ss'); 
+            */
 
             $response = array(
                 'highestBid' => $highestBid->bid_amount,
@@ -36,5 +39,11 @@
         
             echo json_encode($response);
         }  
+
+        public function addBid($adId){
+
+            $bid_amount = $_POST['bidAmount'];
+            $this->auctionsModel->addBid($adId, $bid_amount);
+        }
     }
 ?>

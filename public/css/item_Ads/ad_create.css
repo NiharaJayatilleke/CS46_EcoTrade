@@ -5,19 +5,25 @@
     padding-bottom: 50px;
     background-size: cover;
 } */
+body{
+    /* background-color: rgb(211, 211, 211); */
+    background-color: rgb(228, 228, 228);
+}
 
 .ad-background {
-    /* position: relative; makes it long but removing this gives top margin error*/ 
+    position: relative; /*makes it long but removing this gives top margin error*/ 
     /* padding-top: 20px; */
     padding-bottom: 50px;
 }
 
 .ad-background::before {
     content: "";
-    background:linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)), url('../../img/login/banner1.jpg') no-repeat;
+    background:linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)), url('../../img/login/banner1.jpg') no-repeat; 
+    /* background:linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)), url('../../img/itemAds/plant.jpg') no-repeat; */
     background-size: cover;
-    filter: blur(10px);
+    filter: blur(3px);
     position: absolute;
+    background-position: center top;
     top: 0;
     left: 0;
     width: 100%;
