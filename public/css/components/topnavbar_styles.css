@@ -14,7 +14,6 @@
 .topnav .items .item {
   width: 7vw;
   font-size: 14px;
-  color: white;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
@@ -37,17 +36,17 @@
   text-align: center;
 }
 
-.topnav .items .links a {
-  color: rgb(218, 239, 220);
+.topnav .items a {
+  color: rgb(197, 241, 201);
   text-decoration: none;
 }
 
-.topnav .items .links a:hover {
+.topnav .items a:hover {
   color: white;
 }
 
 .topnav .items .item:hover {
-  font-size: 14.7px;
+  font-size: 14.5px;
   transform: translateZ(0);
 }
 
@@ -60,7 +59,6 @@
   .topnav .items .item {
     width: 100%;
     font-size: 12px;
-    color: white;
   }
 
   .topnav .items .logo {
@@ -70,8 +68,7 @@
   }
 
   .topnav .items .links {
-    justify-content: center;
-    color: white;
+    justify-content: center;;
     text-decoration: none;
   }
 
@@ -105,13 +102,12 @@
   height: 100%;
   /* width: 100vw; */
   /* display: flex;
-} */
+} 
 
 .topnav .items .item{
   width: 7vw;
   font-size: 16px;
 }
-
 
 
 .topnav .items .logo{
@@ -132,11 +128,6 @@
   color: white;
 }
 
-.topnav .items .links a{
-  color: white;
-  text-decoration: none;
-  
-}
 
 .topnav .items .links .user{
   width: 35px;
