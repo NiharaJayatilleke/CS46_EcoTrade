@@ -123,6 +123,18 @@ CREATE TABLE Offers(
     FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
+CREATE TABLE Wishlist(
+    w_id INT AUTO_INCREMENT,
+    ad_id INT,
+    user_id INT,
+    w_created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(w_id),
+    FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
+    FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
+);
+
+
+
 
 DROP TABLE IF EXISTS Notifications;
 
@@ -160,3 +172,4 @@ CREATE TABLE Bids(
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
     FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
+

@@ -51,7 +51,9 @@
                     <p>Report This Ad</p>
                 </button>
                 <button class="b1">
-                    <img src="<?php echo URLROOT?>/public/img/prodetails/save.png" alt="report">
+                <a href="<?php echo URLROOT; ?>/Wishlist/addToWishlist/<?php echo $data['ad']->ad_id; ?>">
+                    <img src="<?php echo URLROOT; ?>/public/img/prodetails/save.png" alt="report">
+                </a>
                     <p>Save this Ad</p>
                 </button>
             </div>
