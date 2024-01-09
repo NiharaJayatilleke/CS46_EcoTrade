@@ -6,7 +6,6 @@
 @import url('components/buttons_styles.css');
 @import url('components/flash_message_styles.css');
 @import url('components/sidebar_styles.css');
-@import url('components/profile_styles.css');
 @import url('components/footer.css');
 @import url('components/notifications_styles.css');
 
@@ -16,6 +15,8 @@
 /* LOGIN */
 @import url('pages/login.css');
 
+/* FORGOT PASSWORD */
+@import url('pages/forgot_password.css');
 
 /* ITEM ADS */
 @import url('item_Ads/item_ads_styles.css');
@@ -24,6 +25,8 @@
 @import url('item_Ads/other_interactions_styles.css');
 @import url('item_Ads/seller_only_styles.css');
 @import url('item_Ads/item_type_styles.css');
+@import url('item_Ads/ad_index_page.css');
+@import url('item_Ads/ad_create.css');
 
 /*ADMIN DASHBOARD*/
 @import url('pages/admin_dashboard_styles.css');
@@ -41,16 +44,21 @@
 
 /* FONTS */
 @font-face {
-    font-family: ARIAL;
-    src: url(fonts/ARIAL.TTF);
+    font-family: "San Francisco";
+    src: url(fonts/SF-Pro.ttf);
 }
 
-body{
+/* @font-face {
+    font-family: "Roboto";
+    src: url(fonts/Roboto.ttf);
+} */
+
+body {
     margin: 0;
-    font-family: ARIAL;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     font-size: small;
     text-align: left;
     /* background-color: #a6b69a; */
-    background-color: #a6b69aba; 
+    /* background-color: #a6b69aba;  */
     color: #333;
 }
