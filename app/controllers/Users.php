@@ -686,6 +686,17 @@
             redirect('Pages/index');
         }
 
+        private function setRememberMeCookie($userId){
+        // Generate a unique token or identifier
+        $token = uniqid();
+
+        // Store the token in the database (you may need to create a "remember_tokens" table for this)
+        $this->userModel->storeRememberToken($userId, $token);
+
+        // Set a cookie with the token (you may want to set an expiration time)
+        setcookie('remember_me', $token, time() + 3600 * 24 * 30, '/');
+    }
+
         public function logout(){
             unset($_SESSION['user_id']);
             unset($_SESSION['user_email']);

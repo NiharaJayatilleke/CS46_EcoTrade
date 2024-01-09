@@ -92,7 +92,7 @@ class forgotPassword extends Controller{
     
             if ($tokenData && hash_equals($tokenData->pwdresetToken, $validator)) {
                 // Token is valid, display the password reset form
-                $this->view('users/v_Reset_newpassword', ['selector' => $selector]);
+                $this->view('users/reset_newpassword', ['selector' => $selector]);
             } else {
                 // Token is invalid or not found
                 die('The password reset link has expired. Please request a new one.');

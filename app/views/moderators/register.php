@@ -1,26 +1,20 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
-    <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
-    <div class="background"></div>
-    <div class = "register-form-container">
+    <div class="mod-background"></div>
+    <div class = "mod-register-form-container">
         <div class="welcome-content"> 
             <h2 class="logo">
                 <img class ="img" src="<?php echo URLROOT; ?>/img/signup/ecotrade.png" >EcoTrade</h2>
 
             <div class = "text-welcome">
-            <h2> Welcome!<br> <span> Where Sustainable Commerce Begins!</span></h2><br>
-                <ul>
-                    <li><i class='bx bx-leaf'></i><strong> Sustainable Trading:</strong> We contribute to a sustainable and eco-friendly future</li>
-                    <li><i class='bx bx-world'></i> <strong>Trade Networking:</strong> Join a network of individuals and sustainable businesses</li>
-                    <!-- <li>🌎 <strong>EcoTrade</strong> A place where Every Trade Counts!.</li> -->
-                </ul> 
+            <h2> Welcome Moderators!<br>
             </div>
 
         </div>
         <div class="reg-box"> 
             <div class="form-box"> 
-                <form class="input-group" action="<?php echo URLROOT; ?>/Users/register" method="POST">
+                <form class="input-group" action="<?php echo URLROOT; ?>/Moderators/register" method="POST">
                     <h2>Register</h2>
                     
 
@@ -63,7 +57,7 @@
 
                     <div class="terms-forgot">
                         <label><input type="checkbox"name="agree" id="agree" value="yes"/> I agree to the
-                        <a href="<?php echo URLROOT; ?>/Users/terms" title="term of services">terms & conditions</a>
+                        <a href="<?php echo URLROOT; ?>/moderators/terms" title="term of services">terms & conditions</a>
                     </div>
                     <div>
                         <span class="form-invalid"><?php echo $data['agree_err']; ?></span>
@@ -72,10 +66,10 @@
                     <button type="submit" class = "register-btn">Register</button>
 
                     <div class="registred-already">
-                        <p> Already registered? <a href ="<?php echo URLROOT ?>/Users/login" > Login </a> </p>
+                        <p>Are you an already registered Moderator? <a href ="<?php echo URLROOT ?>/Moderators/login" > Login </a> </p>
                     </div>
 
-                    <input type="text" name="user_type" id="user_type" value="pBuyer" required="" hidden="" style="display: none;">
+                    <!-- <input type="text" name="user_type" id="user_type" value="pBuyer" required="" hidden="" style="display: none;"> -->
                 </form>
             </div>
         </div>
@@ -84,6 +78,6 @@
             <!-- Javascript for image upload -->
             <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/signup.js"></script>
 
-</body>
-</html>
+    <?php require APPROOT.'/views/inc/footer.php'; ?>
+
 

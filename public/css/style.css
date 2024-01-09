@@ -17,6 +17,10 @@
 
 /* FORGOT PASSWORD */
 @import url('pages/forgot_password.css');
+@import url('pages/reset_password.css');
+
+/* ADMIN  */
+@import url('admin/login.css');
 
 /* ITEM ADS */
 @import url('item_Ads/item_ads_styles.css');
@@ -30,6 +34,10 @@
 @import url('item_Ads/v_prodetails.css');
 @import url('item_Ads/ad_buyer_view.css');
 @import url('item_Ads/ad_seller_view.css');
+
+/* MODERATOR CSS */
+@import url('moderators/register.css');
+@import url('moderators/login.css');
 
 /*ADMIN DASHBOARD*/
 @import url('pages/admin_dashboard_styles.css');

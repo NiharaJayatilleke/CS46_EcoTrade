@@ -16,7 +16,7 @@
 
         //Register the Moderator
         public function register($data){
-            $this->db->query('INSERT INTO Moderators(username,email,number,password) VALUES(:username, :email, :number, :password)');          
+            $this->db->query('INSERT INTO Moderators(username,email,number,password) VALUES(:username, :email, :number,  :password)');       
             $this->db->bind(':username',$data['username']);
             $this->db->bind(':email',$data['email']);
             $this->db->bind(':number',$data['number']);
