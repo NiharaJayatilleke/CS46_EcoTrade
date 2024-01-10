@@ -57,7 +57,7 @@
 
 
       <!-- Notifications -->
-      <div class="item user-dropdown1">
+      <div class="notif-dropdown">
         <div class="notif-wrapper">
           <a href="#" class="dropdown-toggle">
               <i class="fas fa-bell"></i>
@@ -65,7 +65,6 @@
           </a>
           <div class="notif-dropdown-menu" >
               <!-- Fetch notifications from the database and display them here -->
-              <?php foreach ($notifications as $notification): ?>
 
                   <!-- <a href="#" class="notif-dropdown-item">
                     <?php echo $notification['message']; ?>
@@ -75,7 +74,7 @@
                     <div class="message"><?php echo $notification['message']; ?></div>
                     <a href="<?php echo URLROOT ?>/ItemAds/show/<?php echo $notification['ad_id']; ?>" class="view-ad-link" data-ad-id="<?php echo $notification['ad_id']; ?>">View Ad</a>
                   </div>
-              <?php endforeach; ?>
+  
           </div>
         </div>
       </div>

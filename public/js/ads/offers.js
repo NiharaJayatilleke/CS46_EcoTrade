@@ -19,31 +19,31 @@ $(document).ready(function() {
         console.log('Offer button clicked');
         
             Swal.fire({
-                // title: 'Enter your offer',
-                // input: 'text',
-                // inputPlaceholder: 'Enter your price here',
-                // showCancelButton: true,
-                // confirmButtonText: 'Submit',
-                // preConfirm: (price) => {
-                //     if (!price) {
-                //         Swal.showValidationMessage('Please enter a price');
-                //     }
-                // }
-                title: 'Make an Offer',
-                html: `
-                    <p>Buy It Now price: $36.99</p>
-                    <p>5 offers left • 1 competing offer</p><br>
-                    <label for="offer-price">Your offer per item</label>
-                    <input type="number" id="offer-price" class="swal2-input">
-                `,
-                preConfirm: () => {
-                    return [
-                        document.getElementById('offer-price').value
-                    ]
-                },
+                title: 'Enter your offer',
+                input: 'text',
+                inputPlaceholder: 'Enter your price here',
+                showCancelButton: true,
                 confirmButtonText: 'Submit',
-                showLoaderOnConfirm: true,
-                allowOutsideClick: () => !Swal.isLoading()
+                preConfirm: (price) => {
+                    if (!price) {
+                        Swal.showValidationMessage('Please enter a price');
+                    }
+                }
+                // title: 'Make an Offer',
+                // html: `
+                //     <p>Buy It Now price: $36.99</p>
+                //     <p>5 offers left • 1 competing offer</p><br>
+                //     <label for="offer-price">Your offer per item</label>
+                //     <input type="number" id="offer-price" class="swal2-input">
+                // `,
+                // preConfirm: () => {
+                //     return [
+                //         document.getElementById('offer-price').value
+                //     ]
+                // },
+                // confirmButtonText: 'Submit',
+                // showLoaderOnConfirm: true,
+                // allowOutsideClick: () => !Swal.isLoading()
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Use a try-catch block to handle potential errors
