@@ -1,5 +1,8 @@
 /*CSS Library*/
 
+/* INDEX */
+@import url('pages/index.css');
+
 /*COMPONENTS*/
 @import url('components/topnavbar_styles.css');
 @import url('components/form_styles.css');
