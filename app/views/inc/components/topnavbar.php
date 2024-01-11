@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/topnavbar_styles.css">
   <div class="items">
     <div class="item logo">
-      <a href="">
+      <a href="<?php echo URLROOT ?>/Pages/index">
         <img src="<?php echo URLROOT?>/public/img/index/logo1.png" alt="Logo" class="logo" width="80" height="30">
       </a>
     </div>
@@ -53,9 +53,14 @@
                 <?php endif; ?>
       </div>
     <?php if (isset($_SESSION['user_id'])) : ?>
-      <div class="item"><a href="<?php echo URLROOT ?>/Wishlist/index">Saved Ads</a></div>
+      <!-- <div class="item"><a href="<?php echo URLROOT ?>/Wishlist/index">Saved Ads</a></div> -->
+      <div class="item">
+      <a href="<?php echo URLROOT ?>/Wishlist/index"> 
+       <img src="<?php echo URLROOT?>/public/img/index/wishlisticon.png" alt="wishlist" class="wishlistitem">
+      </a>
+     </div>
 
-
+     <div class="item">
       <!-- Notifications -->
       <div class="notif-dropdown">
         <div class="notif-wrapper">
@@ -77,6 +82,7 @@
   
           </div>
         </div>
+      </div>
       </div>
 
       
