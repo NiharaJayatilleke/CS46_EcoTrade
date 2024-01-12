@@ -43,7 +43,7 @@
 @import url('moderators/login.css');
 
 /*ADMIN DASHBOARD*/
-@import url('pages/admin_dashboard_styles.css');
+@import url('pages/amdin/admin_dashboard_styles.css');
 @import url('pages/wishlist.css');
 @import url('pages/v_sechome.css');
 @import url('pages/v_recyclehome.css');
