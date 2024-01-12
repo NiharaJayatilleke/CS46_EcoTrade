@@ -66,10 +66,26 @@ input[type=text]:focus {
     margin-bottom: 5px; /**/
 }
 
-.form-invalid{
+/* .form-invalid{
     color: rgb(192, 35, 35);
     margin-bottom: 20px;
-} 
+}  */
+
+.form-invalid {
+    color: rgb(192, 35, 35);
+    margin-bottom: 20px;
+    background-color: white;
+    border: 1px solid rgb(192, 35, 35);
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.form-invalid.show {
+    opacity: 1;
+}
 
 
 /* .other-options1{
