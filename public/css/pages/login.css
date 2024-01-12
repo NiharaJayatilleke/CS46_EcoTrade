@@ -71,14 +71,14 @@
     background-size: cover;
     border-radius: 10px;
     margin-top: 10px;
-    animation: fadeIn 3.0s;
+    animation: fadeIn 1s;
 }
 
 .login-form-container .login-welcome-content {
     position: absolute;
     top: 0;
     left: 0;
-    width: 65%;
+    width: 58%;
     height: 100%;
     background: transparent;
     padding: 100px;
@@ -87,9 +87,10 @@
     justify-content: space-between;
     flex-direction: column;
     animation: 1s ease;
-    animation: floatIn 1.5s ease-in-out;
+    animation: floatIn 1s ease-in-out;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .login-welcome-content .login-logo {
@@ -101,7 +102,7 @@
     max-height: 85px;
     margin-left: 9px;
     padding: 0;
-    animation: rotate 2s linear infinite;
+    /* animation: rotate 1.5s linear infinite; */
 }
 
 .login-welcome h2 {
@@ -124,7 +125,7 @@
     right: 0;
     width: calc(100% - 58%);
     height: 100%;
-    animation: slideOut 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) reverse ease-out;
+    animation: slideOut 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) reverse ease-out;
 }
 
 .login-box .login-form-box {
@@ -138,7 +139,7 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     color: black; 
-    animation: floatIn 1.5s ease-in-out;
+    animation: floatIn 1s ease-in-out;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
