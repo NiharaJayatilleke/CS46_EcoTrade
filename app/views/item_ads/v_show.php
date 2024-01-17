@@ -12,7 +12,10 @@
         <div class="sad-left-container">
         
             <div class="sad-big-photo">
-                <img src="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" alt="Ad Image" width="100" height="80">
+                <!-- <img class="sad-ad-img" src="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" alt="Ad Image"> -->
+                <a href="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" data-lightbox="sad-ad-img">
+                    <img class="sad-ad-img" src="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" alt="Ad Image">
+                </a>
             </div>
             <div class="sad-small-images">
                 <!-- <img id="s1" src="productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')"> -->
@@ -43,16 +46,20 @@
 
             <div class="sad-bottom">
                 <button class="sad-b1">
-                    <img src="<?php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote">
+                    <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
+                    <!-- <i class="fas fa-ad"></i> Ad icon -->
+                    <i class="fas fa-bullhorn"></i>
                     <p>Promote This Ad</p>
                 </button>
                 <button class="sad-b1">
-                    <img src="<?php echo URLROOT?>/public/img/prodetails/report.png" alt="report">
+                    <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/report.png" alt="report"> -->
+                    <i class="fas fa-flag"></i>
                     <p>Report This Ad</p>
                 </button>
                 <button class="sad-b1">
                 <a href="<?php echo URLROOT; ?>/Wishlist/addToWishlist/<?php echo $data['ad']->ad_id; ?>">
-                    <img src="<?php echo URLROOT; ?>/public/img/prodetails/save.png" alt="report">
+                    <!-- <img src="<?php echo URLROOT; ?>/public/img/prodetails/save.png" alt="report"> -->
+                    <i class="fas fa-heart"></i>
                 </a>
                     <p>Save this Ad</p>
                 </button>
