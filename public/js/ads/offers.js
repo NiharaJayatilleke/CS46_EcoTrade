@@ -29,6 +29,7 @@ $(document).ready(function() {
                         Swal.showValidationMessage('Please enter a price');
                     }
                 }
+              
                 // title: 'Make an Offer',
                 // html: `
                 //     <p>Buy It Now price: $36.99</p>
@@ -41,6 +42,7 @@ $(document).ready(function() {
                 //         document.getElementById('offer-price').value
                 //     ]
                 // },
+              
                 // confirmButtonText: 'Submit',
                 // showLoaderOnConfirm: true,
                 // allowOutsideClick: () => !Swal.isLoading()
@@ -118,12 +120,52 @@ $(document).ready(function() {
         var status = $(this).hasClass('accept-offer') ? 'accepted' : 'rejected';
 
          //confirmation dialog for accept offer
+        // if (status === 'accepted') {
+        //     var confirmation = confirm('Please note, accepting this offer will replace any previously accepted offers if any. Are you sure you want to proceed?');
+        //     if (!confirmation) {
+        //         return; 
+        //     }
+        // } 
+
         if (status === 'accepted') {
-            var confirmation = confirm('Please note, accepting this offer will replace any previously accepted offers if any. Are you sure you want to proceed?');
-            if (!confirmation) {
-                return; 
-            }
-        } 
+            Swal.fire({
+                title: 'Are you sure?',
+                html: '<p>By accepting this offer, you will finalize the transaction and no longer receive new offers for this item. Are you sure you want to proceed?</p>',
+                showCancelButton: true,
+                confirmButtonText: 'Accept Offer',
+                cancelButtonText: 'Wait, I want to consider more offers',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // User clicked 'Accept Offer', proceed with the acceptance process
+                    $.ajax({
+                        url: URLROOT + "/Offers/handleUpdateOfferStatus",
+                        type: 'post',
+                        data: { offerId: offerId, status: status, adId: CURRENT_AD },
+                        success: function(response) {
+                            console.log('AJAX request succeeded');
+                            var responseObject = JSON.parse(response);
+                            var priceElement = $('.accepted-offer').find('#accepted-offer-price');
+                            // Handle the response from the server
+                            if (status === 'accepted') {
+                                priceElement.text(responseObject.offerPrice);
+                                $('.accepted-offer').show();
+                                console.log('Accepted offer div should be visible now');
+                            }
+                            offerDiv.remove(); // Remove the offer from the view
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.error('AJAX request failed:', textStatus, errorThrown);
+                        }
+                    });
+
+                    $('.offers-list').hide();
+                } else {
+                    // User clicked 'Wait, I want to consider more offers', do nothing
+                    return; 
+                }
+            });
+        }
 
          //confirmation dialog for reject offer
         if (status === 'rejected') {
@@ -136,6 +178,7 @@ $(document).ready(function() {
         var offerId = $(this).parent().data('offer-id');
         var offerDiv = $(this).parent();
     
+        /*
         $.ajax({
             url: URLROOT + "/Offers/handleUpdateOfferStatus",
             type: 'post',
@@ -156,6 +199,7 @@ $(document).ready(function() {
                 console.error('AJAX request failed:', textStatus, errorThrown);
             }
         });
+        */
     });
 
 });
