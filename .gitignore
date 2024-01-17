@@ -1,4 +1,4 @@
 .DS_Store
 
-metals.lock.db
+.metals/.metals.lock.db
 
