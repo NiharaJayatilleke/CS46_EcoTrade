@@ -3,56 +3,63 @@
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_prodetails.css">
 
-<div class="main-container1">
-    <div class="main2"></div>
-        <div class = "item-name"><h1><?php echo $data['ad']->item_name ?><h1></div>
-        <div class = "p1"><p>Posted on <?php echo $data['ad']->item_created_at ?></p></div>
+<div class="sad-main-container1">
+    <div class="sad-main2"></div>
+        <div class = "sad-item-name"><h1><?php echo $data['ad']->item_name ?><h1></div>
+        <div class = "sad-p1"><p>Posted on <?php echo $data['ad']->item_created_at ?></p></div>
 
-        <div class="container2">
-        <div class="left-container">
+        <div class="sad-container2">
+        <div class="sad-left-container">
         
-            <div class="big-photo">
-                <img src="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" alt="Ad Image" width="100" height="80">
+            <div class="sad-big-photo">
+                <!-- <img class="sad-ad-img" src="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" alt="Ad Image"> -->
+                <a href="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" data-lightbox="sad-ad-img">
+                    <img class="sad-ad-img" src="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" alt="Ad Image">
+                </a>
             </div>
-            <div class="small-images">
+            <div class="sad-small-images">
                 <!-- <img id="s1" src="productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')"> -->
                 <!-- <img id="s1" src="<?php echo URLROOT?>/public/img/prodetails/productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')">
 
                 <img id="s2" src="<?php echo URLROOT?>/public/img/prodetails/productDetails2.jpeg" alt="Small Image 2" onclick="displayBigImage('/pics/productDetails2.jpeg')"> -->
                 <!-- Add more small images as needed -->
             </div>
-            <div class="desMain">
-                <div class="heading">
-                    <div class = "price"><h1>Rs. <?php echo $data['ad']->item_price ?></h1></div>
+            <div class="sad-desMain">
+                <div class="sad-heading">
+                    <div class = "sad-price"><h1>Rs. <?php echo $data['ad']->item_price ?></h1></div>
                     <p>Negotiable</p>
                     <p>Condition: Brand New</p>
                     <p>Quantity: 1</p>
                 </div>
 
-                <div class="description">
-                    <div class="desHead">
+                <div class="sad-description">
+                    <div class="sad-desHead">
                         <h3> Product Description</h1>
                     </div>
-                    <div class="desP">
+                    <div class="sad-desP">
                         <?php echo $data['ad']->item_desc ?>
                     </div>
                 </div>
             </div>
 
-            <div class="line"></div>
+            <div class="sad-line"></div>
 
-            <div class="bottom">
-                <button class="b1">
-                    <img src="<?php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote">
+            <div class="sad-bottom">
+                <button class="sad-b1">
+                    <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
+                    <!-- <i class="fas fa-ad"></i> Ad icon -->
+                    <i class="fas fa-bullhorn"></i>
                     <p>Promote This Ad</p>
                 </button>
-                <button class="b1">
-                    <img src="<?php echo URLROOT?>/public/img/prodetails/report.png" alt="report">
+                <button class="sad-b1">
+                    <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/report.png" alt="report"> -->
+                    <i class="fas fa-flag"></i>
                     <p>Report This Ad</p>
                 </button>
-                <button class="b1">
+                <button class="sad-b1">
                 <a href="<?php echo URLROOT; ?>/Wishlist/addToWishlist/<?php echo $data['ad']->ad_id; ?>">
-                    <img src="<?php echo URLROOT; ?>/public/img/prodetails/save.png" alt="report">
+                    <!-- <img src="<?php echo URLROOT; ?>/public/img/prodetails/save.png" alt="report"> -->
+                    <i class="fas fa-heart"></i>
                 </a>
                     <p>Save this Ad</p>
                 </button>
@@ -60,38 +67,41 @@
         
     </div>
 
-    <div class="right-container">
-        <div class="b1">
-            <img class="i1" src="<?php echo URLROOT?>/public/img/prodetails/merchant.png" alt="merchant">
-            <div class="b2">
+    <div class="sad-right-container">
+        <div class="sad-b3">
+            <!-- <img class="sad-i1" src="<?php echo URLROOT?>/public/img/prodetails/merchant.png" alt="merchant"> -->
+            <i class="fas fa-store fa-lg"></i>
+            <div class="sad-b3-p">
             <p>Sold by <?php echo $data['ad']->seller_name?></p>
             </div>
         </div>
 
-        <div class="b1">
-        <img class="i1" src="<?php echo URLROOT?>/public/img/prodetails/location1.png" alt="location">
-            <!-- <i class="fas fa-map-marker-alt"></i> -->
-            <div class="b2">
+        <div class="sad-b3">
+            <!-- <img class="i1" src="<?php echo URLROOT?>/public/img/prodetails/location1.png" alt="location"> -->
+            <!-- <i class="fas fa-map-pin"></i> -->
+            <i class="fas fa-map-marker-alt fa-lg"></i>
+            <div class="sad-b3-p">
             <p><?php echo $data['ad']->item_location?></p>
             </div>
         </div>
 
-        <div class="b3">
-            <img class="i1" src="<?php echo URLROOT?>/public/img/prodetails/tel.png" alt="telephone">
-            <div class="b2">
+        <div class="sad-b3">
+            <!-- <img class="sad-b3-i" src="<?php echo URLROOT?>/public/img/prodetails/tel.png" alt="telephone"> -->
+            <i class="fas fa-phone fa-lg"></i>
+            <div class="sad-b3-p">
             <!-- <button id="show-number" class="number" data-number="<?php echo $data['ad']->number?>"> Click to show phone number</button> -->
-            <button id="show-number" class="number" data-number="0771717368"> Contact Seller</button>
+            <button id="show-number" class="sad-number" data-number="0771717368"> Contact Seller</button>
             </div>
         </div>
         
-        <div class = "btns">
+        <div class = "sad-btns">
             <!-- offer and bid icons are disabled for seller and only allowed if seller has chosen to -->
             <?php if($data['ad']->negotiable == 'yes'): ?>
                 <input type="submit" class="offer" id="make-offer" value="Make Offer" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
             <?php endif; ?>
 
             <?php if($data['ad']->selling_format == 'auction'): ?>
-                <input type="submit" class="bid" id="place-bid" value="Place Bid" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
+                <button type="button" class="bid" id="place-bid"<?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>Place Bid</button>
             <?php endif; ?>
         </div>
 
@@ -127,7 +137,7 @@
             </div>
         </div>
 
-        <h3>Bid Details</h3>
+        <!-- <h3>Bid Details</h3> -->
         <ul class="bid-list">
             <?php foreach ($data['bids'] as $bid) : ?>
                 <li class="bid-list-item">Bidder: <?php echo $bid['user_id']; ?> | Bid Value: $<?php echo $bid['bid_amount']; ?></li>
@@ -162,10 +172,10 @@
 </form>
 
 <!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
 <!-- SweetAlert2 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
 
 <script type ="text/JavaScript">
     var URLROOT ="<?php echo URLROOT; ?>"

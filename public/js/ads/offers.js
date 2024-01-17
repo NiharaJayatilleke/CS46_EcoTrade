@@ -29,7 +29,7 @@ $(document).ready(function() {
                         Swal.showValidationMessage('Please enter a price');
                     }
                 }
-
+              
                 // title: 'Make an Offer',
                 // html: `
                 //     <p>Buy It Now price: $36.99</p>
@@ -42,7 +42,7 @@ $(document).ready(function() {
                 //         document.getElementById('offer-price').value
                 //     ]
                 // },
-
+              
                 // confirmButtonText: 'Submit',
                 // showLoaderOnConfirm: true,
                 // allowOutsideClick: () => !Swal.isLoading()

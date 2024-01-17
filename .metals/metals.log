@@ -12,3 +12,6 @@ INFO: Unsupported notification method: $/setTrace
 2024.01.02 20:32:33 INFO  Shutting down server
 2024.01.02 20:32:33 INFO  shutting down Metals
 2024.01.02 20:32:33 INFO  Exiting server
+2024.01.12 01:26:52 INFO  Started: Metals version 1.2.0 in folders '/Applications/XAMPP/xamppfiles/htdocs/ecotrade' for client Visual Studio Code 1.85.1.
+2024.01.12 01:26:52 WARN  Build server is not auto-connectable.
+2024.01.12 01:26:52 WARN  no build tool detected in workspace '/Applications/XAMPP/xamppfiles/htdocs/ecotrade'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 

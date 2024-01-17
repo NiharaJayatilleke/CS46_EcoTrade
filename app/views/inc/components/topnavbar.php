@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/topnavbar_styles.css">
   <div class="items">
     <div class="item logo">
-      <a href="">
+      <a href="<?php echo URLROOT ?>/Pages/index">
         <img src="<?php echo URLROOT?>/public/img/index/logo1.png" alt="Logo" class="logo" width="80" height="30">
       </a>
     </div>
@@ -53,11 +53,16 @@
                 <?php endif; ?>
       </div>
     <?php if (isset($_SESSION['user_id'])) : ?>
-      <div class="item"><a href="<?php echo URLROOT ?>/Wishlist/index">Saved Ads</a></div>
+      <!-- <div class="item"><a href="<?php echo URLROOT ?>/Wishlist/index">Saved Ads</a></div> -->
+      <div class="item">
+      <a href="<?php echo URLROOT ?>/Wishlist/index"> 
+       <img src="<?php echo URLROOT?>/public/img/index/wishlisticon.png" alt="wishlist" class="wishlistitem">
+      </a>
+     </div>
 
-
+     <div class="item">
       <!-- Notifications -->
-      <div class="item user-dropdown1">
+      <div class="notif-dropdown">
         <div class="notif-wrapper">
           <a href="#" class="dropdown-toggle">
               <i class="fas fa-bell"></i>
@@ -65,7 +70,6 @@
           </a>
           <div class="notif-dropdown-menu" >
               <!-- Fetch notifications from the database and display them here -->
-              <?php foreach ($notifications as $notification): ?>
 
                   <!-- <a href="#" class="notif-dropdown-item">
                     <?php echo $notification['message']; ?>
@@ -75,9 +79,10 @@
                     <div class="message"><?php echo $notification['message']; ?></div>
                     <a href="<?php echo URLROOT ?>/ItemAds/show/<?php echo $notification['ad_id']; ?>" class="view-ad-link" data-ad-id="<?php echo $notification['ad_id']; ?>">View Ad</a>
                   </div>
-              <?php endforeach; ?>
+  
           </div>
         </div>
+      </div>
       </div>
 
       

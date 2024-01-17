@@ -253,14 +253,14 @@ body, h1, h4, p {
     padding: 10px 20px;
     border: none;
     /* border-radius: 5px;  */
-    border-radius: 30px;
+    /* border-radius: 30px;
     transition: .5s;
     cursor: pointer;
     transition: background-color 0.3s; 
     justify-content: center;
     
     margin-right: 30px;
-} */
+} */ */
 
 form button[type="submit"]:hover {
     background-color: #949c96; /* Change the hover background color as desired */
