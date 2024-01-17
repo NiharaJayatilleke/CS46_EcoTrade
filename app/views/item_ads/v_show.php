@@ -104,6 +104,7 @@
         <?php endif; ?>
         
         <!-- HTML for sellers to accept or reject offers -->
+        <div class='offers-list'>
         <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?>
             <h3>Offers</h3>
             <?php foreach ($data['offers'] as $offer) : ?>
@@ -114,6 +115,7 @@
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
+        </div>
 
         <!-- HTML for displaying the bids -->
         <div class="bid-info">
