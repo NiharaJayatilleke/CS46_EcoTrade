@@ -1,0 +1,756 @@
+.bg-img{
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    z-index: -1; 
+    width: 100vw;
+    padding-left:0
+  }
+  
+  .bg-img img{
+    width:100vw; 
+    height: 60vh
+  }
+  
+  .search-container-index {
+    display: flex;
+    align-items: center;
+    margin-top: 270px; 
+    margin-left: 45px;
+    width: 34%;
+  }
+  
+  .search-input-index {
+    flex: 1;
+    margin-right:0;
+    padding:8px 10px;
+    border: 1px solid #f1f1f1;
+    /* border-radius: 0!important; */
+    font-size: 16px ;
+    outline:none;
+    margin-top: 5px;
+    width: 95%;
+    background: #f1f1f1;
+    height:25px;
+    display: block;
+  }
+  
+  .search-button-index {
+    /* background: #117e3b;  */
+    background:#219657b5;
+    border: 1px solid #117e3b;
+    border-radius: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-left:0;
+    margin-top:5px
+    
+  }
+  
+  .search-button-index:hover {
+    background:#729e7d;
+  }
+  
+  .search-icon-index {
+    height: 16px;
+    position: relative;
+    top: 2px;
+  } 
+  
+  .search-category-index option:checked {
+    color: white;
+  }
+  
+  .search-category-index {
+    margin-left: 0px;
+    margin-top: 5px;
+    padding:12px 1px;
+    background:#219657b5;
+    border: 1px solid #117e3b; 
+    cursor: pointer;
+    /* background: #729e7d;
+    border: 1px solid #729e7d; */
+  
+    /* background: #729e7d;
+    border: 1px solid #729e7d; */
+  
+    background:#219657b5;
+    border: 1px solid #117e3b; 
+    cursor: pointer;
+  }
+  
+  .selectad-category option {
+      padding: 12px; /* Adjust the padding as needed */
+  }
+  
+  
+  .selectad-category{
+    color:brown;
+  }
+  
+  .search-category-index {
+    background-size: 15px; /*size of the arrow icon */
+    color: white; /* text color to white */
+  }
+  
+  .dropdown-options li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .text-on-layer {
+    position: absolute;
+    top: 50%; /* Adjust the vertical position as needed */
+    left: 50%; /* Adjust the horizontal position as needed */
+    transform: translate(-50%, -50%); /* Center the text within the parent */
+    color: white;
+    font-size: 40px; 
+    text-align: center;
+    white-space: pre-line; 
+    letter-spacing: 1px;
+    line-height: 1.5;
+    z-index: 3; 
+    font-family: 'Lato', sans-serif;
+  }
+  
+  footer {
+    position: relative;
+    bottom: 0;
+    background-color: var(--text-color-dark-text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  body{
+      font-family: Poppins;
+      margin: 0;
+      background-color: #010101;
+      color: #eee;
+  }
+  svg{
+      width: 25px;
+  }
+  header{
+      width: 1200px;
+      max-width: 90%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 50px 1fr 50px;
+      grid-template-rows: 50px;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 100;
+  }
+  header .logo{
+      font-weight: bold;
+  }
+  header .menu{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-weight: 500;
+   
+  }   .menu .item a {
+      color: white;
+      /* Add any additional styling here if needed */
+  }
+  /* css slider */
+  .slider{
+      height: 100vh;
+      
+      position: relative;
+  }
+  .slider .list .item{
+      position: absolute;
+      inset: 0 0 0 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: .5s;
+  }
+  .slider .list .item img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+  .search-container-index {
+      display: flex;
+      align-items: center;
+      margin-top: 270px; 
+      margin-left: 45px;
+      width: 34%;
+    }
+    
+    .search-input-index {
+      flex: 1;
+      margin-right:0;
+      padding:8px 10px;
+      border: 1px solid #f1f1f1;
+      /* border-radius: 0!important; */
+      font-size: 16px ;
+      outline:none;
+      margin-top: 5px;
+      width: 95%;
+      background: #f1f1f1;
+      height:25px;
+      display: block;
+    }
+    
+    .search-button-index {
+      /* background: #117e3b;  */
+      background:#219657b5;
+      border: 1px solid #117e3b;
+      border-radius: 0;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-left:0;
+      margin-top:5px
+    }
+
+    .search-button-index:hover {
+        background: #729e7d;
+    }
+
+    .search-icon-index {
+        height: 16px;
+        position: relative;
+        top: 2px;
+    }
+
+    .search-category-index option:checked {
+        color: white;
+    }
+
+    .search-category-index {
+        margin-left: 0px;
+        margin-top: 5px;
+        padding: 12px 1px;
+        background: #219657b5;
+        border: 1px solid #117e3b;
+        cursor: pointer;
+        /* background: #729e7d;
+        border: 1px solid #729e7d; */
+
+        /* background: #729e7d;
+        border: 1px solid #729e7d; */
+
+        background: #219657b5;
+        border: 1px solid #117e3b;
+        cursor: pointer;
+    }
+
+
+    .slider .list .item::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-image: linear-gradient(to top, #000 20%, transparent);
+    }
+
+    .slider .list .item .content {
+        position: absolute;
+        left: 5%;
+        top: 30%;
+        width: 500px;
+        max-width: 80%;
+        z-index: 1;
+    }
+
+    .slider .list .item .content p:nth-child(1) {
+        text-transform: uppercase;
+        letter-spacing: 10px;
+    }
+
+    .slider .list .item .content #content1 {
+        margin-top: -149px;
+        font-size: 60px;
+        margin-left: -800px;
+    }
+
+    .slider .list .item .content h2 {
+        font-size: 100px;
+        margin: 0;
+
+    }
+
+    .slider .list .item.active {
+        opacity: 1;
+        z-index: 10;
+    }
+    /* ... previous CSS code ... */
+    .slider .list .item video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    /* ... next CSS code ... */
+
+    @keyframes showContent {
+        to {
+            transform: translateY(0);
+            filter: blur(0);
+            opacity: 1;
+        }
+    }
+    .slider .list .item.active p:nth-child(1),
+    .slider .list .item.active h2,
+    .slider .list .item.active p:nth-child(3) {
+        transform: translateY(30px);
+        filter: blur(20px);
+        opacity: 0;
+        animation: showContent .5s .7s ease-in-out 1 forwards;
+    }
+    .slider .list .item.active h2 {
+        animation-delay: 1s;
+    }
+    .slider .list .item.active p:nth-child(3) {
+        animation-duration: 1.3s;
+    }
+    .arrows {
+        position: absolute;
+
+        right: 50px;
+        z-index: 100;
+    }
+    .arrows button {
+        background-color: #eee5;
+        border: none;
+        font-family: monospace;
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        font-size: x-large;
+        color: #eee;
+        transition: .5s;
+        margin-top: 690px;
+    }
+    .arrows button:hover {
+        background-color: #eee;
+        color: black;
+    }
+    .thumbnail {
+        position: absolute;
+        bottom: 50px;
+        z-index: 11;
+        display: flex;
+        gap: 10px;
+        width: 90%;
+        height: 150px;
+        padding-left: 10%;
+        box-sizing: border-box;
+        overflow: auto;
+        justify-content: center;
+
+    }
+    .thumbnail::-webkit-scrollbar {
+        width: 0;
+    }
+    .thumbnail .item {
+        width: 100px;
+        height: 120px;
+        filter: brightness(.5);
+        transition: .5s;
+        flex-shrink: 0;
+    }
+    .thumbnail .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .thumbnail .item.active {
+        filter: brightness(1.5);
+    }
+    .thumbnail .item .content {
+        position: absolute;
+        inset: auto 10px 10px 10px;
+    }
+
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    /* 这是引入了一些字体 */
+    @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        /* 当用户手动导航或者 CSSOM scrolling API 触发滚动操作时 */
+        scroll-behavior: smooth;
+    }
+
+    body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        background: linear-gradient(#ffffff, #ffffff);
+    }
+
+    header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10000;
+    }
+
+    header .logo {
+        color: #359381;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 2em;
+        text-transform: uppercase;
+        /* 大写 */
+        letter-spacing: 2px;
+    }
+
+    header ul {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+
+    }
+
+    header ul li {
+        list-style: none;
+        margin-left: 20px;
+    }
+
+    header ul li a {
+        text-decoration: none;
+        padding: 6px 15px;
+        color: #fff;
+        border-radius: 20px;
+
+    }
+
+    header ul li a:hover,
+    header ul li a.active {
+        background: #359381;
+        color: #fff;
+    }
+
+    /* section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        padding: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    } */
+    .parallax {
+        position: relative;
+
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    /* section::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        background: linear-gradient(to top, #1c0522, transparent);
+        z-index: 1000;
+    } */
+
+    .parallax img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* object-fit CSS 属性指定可替换元素（例如：<img> 或 <video>）的内容应该如何适应到其使用高度和宽度确定的框。 */
+        object-fit: cover;
+        pointer-events: none;
+    }
+
+    section img#moon {
+        /* mix-blend-mode CSS 属性描述了元素的内容应该与元素的直系父元素的内容和元素的背景如何混合。 */
+        mix-blend-mode: screen;
+    }
+
+    section img#mountains_front {
+        z-index: 10;
+    }
+
+    #text {
+        position: fixed;
+
+        color: #fff;
+        white-space: nowrap;
+        font-size: 7.5vw;
+        z-index: 9;
+
+    }
+
+    .hill4 {
+        z-index: 10;
+    }
+
+    #btn {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 30px;
+        border-radius: 40px;
+        background: #fff;
+        color: #ffffff;
+        font-size: 1.5em;
+        z-index: 9;
+        transform: translateY(100px);
+    }
+
+    .sec {
+        position: relative;
+        padding: 100px;
+        background: #003329;
+        z-index: 10;
+    }
+
+    .sec h2 {
+
+        margin-bottom: 10px;
+        color: #fff;
+
+    }
+
+    .sec p {
+        font-size: 1em;
+        color: #fff;
+    }
+
+
+    .cards {
+        display: flex;
+        gap: 30%;
+        padding-left: 13%;
+        margin-bottom: 4%;
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .container .card {
+        position: relative;
+        width: 320px;
+        height: 450px;
+        background: #232323;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .container .card:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #4b8a40;
+        clip-path: circle(150px at 80% 20%);
+        transition: 0.5s ease-in-out;
+    }
+
+    .container .card:hover:before {
+        clip-path: circle(300px at 80% -20%);
+    }
+
+    .container .card:after {
+        content: 'View';
+        position: absolute;
+        top: 30%;
+        left: -20%;
+        font-size: 12em;
+        font-weight: 800;
+        font-style: italic;
+        color: rgba(255, 255, 25, 0.05)
+    }
+
+    .container .card .imgBx {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10000;
+        width: 100%;
+        height: 220px;
+        transition: 0.5s;
+    }
+
+    .container .card:hover .imgBx {
+        top: 0%;
+        transform: translateY(0%);
+
+    }
+
+    .container .card .imgBx img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
+        width: 270px;
+    }
+
+    .container .card .contentBx {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        transition: 1s;
+        z-index: 10;
+    }
+
+    .container .card:hover .contentBx {
+        height: 210px;
+    }
+
+    .container .card .contentBx h2 {
+        position: relative;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #fff;
+        margin: 0;
+    }
+
+    .container .card .contentBx .size,
+    .container .card .contentBx .color {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 20px;
+        transition: 0.5s;
+        opacity: 0;
+        visibility: hidden;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .container .card:hover .contentBx .size {
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0.5s;
+    }
+
+    .container .card:hover .contentBx .color {
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0.6s;
+    }
+
+    .container .card .contentBx .size h3,
+    .container .card .contentBx .color h3 {
+        color: #fff;
+        font-weight: 300;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-right: 10px;
+    }
+
+    .container .card .contentBx .size span {
+        width: 26px;
+        height: 26px;
+        text-align: center;
+        line-height: 26px;
+        font-size: 14px;
+        display: inline-block;
+        color: #111;
+        background: #fff;
+        margin: 0 5px;
+        transition: 0.5s;
+        color: #111;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .container .card .contentBx .size span:hover {
+        background: #9bdc28;
+    }
+
+    .container .card .contentBx .color span {
+        width: 20px;
+        height: 20px;
+        background: #ff0;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+
+    .container .card .contentBx .color span:nth-child(2) {
+        background: #9bdc28;
+    }
+
+    .container .card .contentBx .color span:nth-child(3) {
+        background: #03a9f4;
+    }
+
+    .container .card .contentBx .color span:nth-child(4) {
+        background: #e91e63;
+    }
+
+    .container .card .contentBx a {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #fff;
+        border-radius: 4px;
+        margin-top: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        color: #111;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: 0.5s;
+        margin-top: 0;
+    }
+
+    .container .card:hover .contentBx a {
+        opacity: 1;
+        transform: translateY(0px);
+        transition-delay: 0.75s;
+
+    }
+    @media screen and (max-width: 678px) {
+        .thumbnail {
+            justify-content: start;
+        }
+        .slider .list .item .content h2 {
+            font-size: 60px;
+        }
+        .arrows {
+            top: 10%;
+        }
+    }
