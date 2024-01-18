@@ -60,6 +60,7 @@
 
 <!-- slider -->
 
+    <!-- slider here rusiru-->
 
 <!-- slider -->
 
