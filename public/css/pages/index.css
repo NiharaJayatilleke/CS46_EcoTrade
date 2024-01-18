@@ -509,7 +509,7 @@
 
     #text {
         position: fixed;
-
+        align-content: center;
         color: #fff;
         white-space: nowrap;
         font-size: 7.5vw;

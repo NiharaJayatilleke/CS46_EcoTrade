@@ -8,7 +8,7 @@ window.addEventListener('scroll', () => {
     let value = window.scrollY;
 
     // Corrected the style property
-    leaf.style.top = value * 1.05 + 'px';
+    leaf.style.top = value * -1.05 + 'px';
     leaf.style.left = value * 1.05 + 'px';
     hill5.style.left = value * 1.05 + 'px';
     hill4.style.left = value * -1.05 + 'px';
