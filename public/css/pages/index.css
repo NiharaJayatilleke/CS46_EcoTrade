@@ -590,7 +590,6 @@
     }
 
     .container .card:after {
-        content: 'View';
         position: absolute;
         top: 30%;
         left: -20%;
@@ -739,7 +738,8 @@
 
     .container .card:hover .contentBx a {
         opacity: 1;
-        transform: translateY(0px);
+        transform: translateY(12px);
+        top: 10%;
         transition-delay: 0.75s;
 
     }

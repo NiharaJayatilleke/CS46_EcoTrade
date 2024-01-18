@@ -87,7 +87,7 @@
                     <h2>Secondhand <br>Market</h2>
                     <div class="size">
                         <h3>
-                            Discover budget-friendly, sustainable treasures in our second-hand marketplace.</h3>
+                            Discover budget-friendly, sustainable second-hand marketplace.</h3>
                     </div>
 
                     <a href="#">Explore Now</a>
@@ -104,7 +104,7 @@
                     <h2>Recycle <br>Market</h2>
                     <div class="size">
                         <h3>
-                            Discover budget-friendly, sustainable treasures in our second-hand marketplace.</h3>
+                        Discover a wallet-friendly and eco-conscious recycling market.</h3>
                     </div>
 
                     <a href="#">Explore Now</a>
