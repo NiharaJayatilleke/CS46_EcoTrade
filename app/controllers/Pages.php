@@ -10,9 +10,10 @@
             $data = [
                 'user' => $user,
             ];
-            $this->view('pages/v_index',$data);
+            $this->view('pages/index',$data);
         } else {   
-            $this->view('pages/v_index');
+            // die("hello");
+            $this->view('pages/index');
         }
         
         }

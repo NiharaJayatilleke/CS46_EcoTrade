@@ -1,0 +1,74 @@
+/* .mod-background{
+    width: 100%; 
+    height: 100vh ; 
+    background: url('../../img/moderators/register1.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(10px); 
+} */
+
+.mod-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.mod-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../img/moderators/register1.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; /* Ensure the background covers the entire screen */
+    filter: blur(10px);
+    z-index: -1; /* Place it behind the content */
+}
+
+
+.mod-register-form-container{
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    width: 87%;
+    transform: translate(-50%, -50%);
+    height: 560px;
+    background: url('../../img/moderators/register1.jpg') no-repeat;
+    background-position: left center;
+    background-size: cover;
+    border-radius: 10px;
+    margin-top: 10px;
+    animation: fadeIn 3.0s;
+}
+
+.mod-register-form-container .welcome-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 65%;
+    height: 100%;
+    background: transparent;
+    padding: 100px;
+    color: #e4e4e4;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    animation: 1s ease;
+    animation: floatIn 1.5s ease-in-out;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.mod-register-form-container .reg-box{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 58%);
+    height: 100%;
+    /* background: red; */
+    animation: slideOut 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) reverse ease-out;
+}

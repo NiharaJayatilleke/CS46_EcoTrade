@@ -4,12 +4,14 @@
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/topnavbar_styles.css">
   <div class="items">
     <div class="item logo">
-      <a href="">
-        <img src="<?php echo URLROOT?>/public/img/index/logo.png" alt="Logo" class="logo" width="80" height="30">
+      <a href="<?php echo URLROOT ?>/Pages/index">
+        <img src="<?php echo URLROOT?>/public/img/index/logo1.png" alt="Logo" class="logo" width="80" height="30">
       </a>
     </div>
   	
-          <?php if (strpos($_SERVER['REQUEST_URI'], '/itemAds') !== false): ?>
+      <?php if (strpos($_SERVER['REQUEST_URI'], '/ItemAds/index') !== false || 
+          (strpos($_SERVER['REQUEST_URI'], '/Search/SearchAd') !== false && 
+           isset($_GET['category']) && isset($_GET['search']))): ?>
             <div class="search-container-wrapper">
                 <form action="<?php echo URLROOT; ?>/Search/SearchAd" method="GET">
                     <div class="search-container-index">
@@ -50,12 +52,17 @@
                     <a href="<?php echo URLROOT ?>/Users/login">Post Ad</a>
                 <?php endif; ?>
       </div>
+    <?php if (isset($_SESSION['user_id'])) : ?>
+      <!-- <div class="item"><a href="<?php echo URLROOT ?>/Wishlist/index">Saved Ads</a></div> -->
+      <div class="item">
+      <a href="<?php echo URLROOT ?>/Wishlist/index"> 
+       <img src="<?php echo URLROOT?>/public/img/index/wishlisticon.png" alt="wishlist" class="wishlistitem">
+      </a>
+     </div>
 
-      <div class="item"><a href="<?php echo URLROOT ?>/Wishlist/index">Saved Ads</a></div>
-
-
+     <div class="item">
       <!-- Notifications -->
-      <div class="item user-dropdown1">
+      <div class="notif-dropdown">
         <div class="notif-wrapper">
           <a href="#" class="dropdown-toggle">
               <i class="fas fa-bell"></i>
@@ -63,7 +70,6 @@
           </a>
           <div class="notif-dropdown-menu" >
               <!-- Fetch notifications from the database and display them here -->
-              <?php foreach ($notifications as $notification): ?>
 
                   <!-- <a href="#" class="notif-dropdown-item">
                     <?php echo $notification['message']; ?>
@@ -73,16 +79,16 @@
                     <div class="message"><?php echo $notification['message']; ?></div>
                     <a href="<?php echo URLROOT ?>/ItemAds/show/<?php echo $notification['ad_id']; ?>" class="view-ad-link" data-ad-id="<?php echo $notification['ad_id']; ?>">View Ad</a>
                   </div>
-              <?php endforeach; ?>
+  
           </div>
         </div>
+      </div>
       </div>
 
       
       <div class="item user-dropdown">
         <div class="sidebr">
           <div class="profile-image">
-              <!-- <div class="image-container"> -->
           <a href="#" >
           <?php
             if (isset($data['user']) && !empty($data['user'])) {
@@ -92,10 +98,10 @@
             }
             ?>
           </a>
-        <!-- </div>  -->
         </div> 
         </div> 
-      </div>      
+      </div>  
+    <?php endif; ?>
     </div>
   </div>
 </div>

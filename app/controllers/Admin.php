@@ -59,12 +59,12 @@
                         $data['password_err']='Password incorrect';
 
                         //Load view with errors
-                        $this->view('admin/v_login', $data);
+                        $this->view('admin/login', $data);
                     }
                 }
                 else{
                     //Load view with errors
-                    $this->view('admin/v_login', $data);
+                    $this->view('admin/login', $data);
                 }
 
             }
@@ -79,7 +79,7 @@
                 ];
 
                 //Load view
-                $this->view('admin/v_login', $data);
+                $this->view('admin/login', $data);
             }
         }
         // public function moderatorRegister(){

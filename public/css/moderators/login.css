@@ -1,0 +1,68 @@
+.mod-background-login {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../../img/login/login.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(10px);
+}
+
+@media only screen and (max-width: 600px) {
+    .mod-login-form-container {
+        width: 90%;
+        height: 450px;
+    }
+
+    .mod-login-form-container .login-welcome-content {
+        width: 100%;
+    }
+
+    .login-box {
+        width: 100%;
+    }
+}
+
+
+.mod-login-form-container {
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    width: 87%;
+    transform: translate(-50%, -50%);
+    height: 550px;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../../img/moderators/login.jpg') no-repeat;
+    background-position: left center;
+    background-size: cover;
+    border-radius: 10px;
+    margin-top: 10px;
+    animation: fadeIn 3.0s;
+}
+
+.mod-login-form-container .login-welcome-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 65%;
+    height: 100%;
+    background: transparent;
+    padding: 100px;
+    color: black; /* Set font color to black */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    animation: 1s ease;
+    animation: floatIn 1.5s ease-in-out;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+
+.mod-login-form-container .login-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 58%);
+    height: 100%;
+    animation: slideOut 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) reverse ease-out;
+}

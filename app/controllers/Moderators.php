@@ -92,7 +92,7 @@
                 }
                 else{
                     //load view
-                    $this->view('moderators/v_register', $data);
+                    $this->view('moderators/register', $data);
                 }
             }
             else {
@@ -114,7 +114,7 @@
                 ];
 
                 //load view
-                $this->view('moderators/v_register', $data);
+                $this->view('moderators/register', $data);
             }
         }
         public function login(){
@@ -162,12 +162,12 @@
                         $data['password_err']='Password incorrect';
 
                         //Load view with errors
-                        $this->view('moderators/v_login', $data);
+                        $this->view('moderators/login', $data);
                     }
                 }
                 else{
                     //Load view with errors
-                    $this->view('moderators/v_login', $data);
+                    $this->view('moderators/login', $data);
                 }
 
             }
@@ -182,7 +182,7 @@
                 ];
 
                 //Load view
-                $this->view('moderators/v_login', $data);
+                $this->view('moderators/login', $data);
             }
         }
 
@@ -347,6 +347,9 @@
             
             
         }
+
+        //have to make this later -Inuka
+        
         public function index(){
             $data = [];
             //load view

@@ -12,7 +12,7 @@ body {
     text-align: center;  
 }
   
-.big-photo {
+.big-photo1 {
     width: 100%; /* Make the photo take the full width of the container */
     height: auto; /* Maintain aspect ratio */
     display: block;

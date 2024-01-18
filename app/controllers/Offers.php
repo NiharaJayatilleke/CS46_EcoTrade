@@ -62,5 +62,32 @@
         //     $this->view('item_ads/v_show', $data); 
         //     // return $offers;
         // }
+
+        public function handleUpdateOfferStatus() {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                $offerId = $_POST['offerId'];
+                $status = $_POST['status'];
+
+                // If the seller accepts an offer, overwrite the status of all other offers for the same ad
+                if ($status == 'accepted') {
+                    $adId = $_POST['adId'];
+                    $this->offersModel->overwriteStatus($adId);
+                }
+        
+                $this->offersModel->updateOfferStatus($offerId, $status);
+
+                if ($status == 'accepted') {
+                    $acceptedOffer = $this->offersModel->getAcceptedOfferByAd($adId);
+                    echo json_encode(['status' => 'success', 'offerPrice' => $acceptedOffer->offer_amount]);
+                } else {
+                    echo json_encode(['status' => 'success']);
+                }
+            } else {
+                echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
+            }
+        }
+
+
     }
 ?>

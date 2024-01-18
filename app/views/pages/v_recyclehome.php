@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_recyclehome.css">
 
 <div class="big-photo-container">
-    <img class="big-photo" src="../public/img/rec/recycleMarkertplace.png" alt="Big Photo">
+    <img class="big-photo1" src="../public/img/rec/recycleMarkertplace.png" alt="Big Photo">
 </div>
 <div class="d2">
    <div class="d2_1">
