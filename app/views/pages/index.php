@@ -90,7 +90,7 @@
                             Discover budget-friendly, sustainable second-hand marketplace.</h3>
                     </div>
 
-                    <a href="#">Explore Now</a>
+                    <a href="<?php echo URLROOT; ?>/Sechome/index">Explore Now</a>
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
                         Discover a wallet-friendly and eco-conscious recycling market.</h3>
                     </div>
 
-                    <a href="#">Explore Now</a>
+                    <a href="<?php echo URLROOT; ?>/Recyclehome/index">Explore Now</a>
                 </div>
             </div>
         </div>
