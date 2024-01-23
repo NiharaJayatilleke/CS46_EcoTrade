@@ -4,7 +4,7 @@
 
     <form action="<?php echo URLROOT?>/ItemAds/itemType" method="POST" enctype="multipart/form-data">
 
-        <div class="type-background">
+        <div class="type-background"></div>
         <div class="type-container">
             <!-- item_type -->
             <div class="type-input-type-title">Please select the item type</div>
@@ -18,7 +18,6 @@
             </div>
 
             <button class="continue" type="submit"><i class="fas fa-arrow-right"></i></button>       
-        </div>
         </div>
 
     <!-- <?php require APPROOT.'/views/inc/components/footer.php'; ?> -->
