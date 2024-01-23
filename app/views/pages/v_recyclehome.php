@@ -16,7 +16,7 @@
     </div>
     <div class="d3_2">
         <img src="../public/img/rec/pic3.png" alt="collector">
-        <a href="<?php echo URLROOT; ?>/Users/register">
+        <a href="<?php echo URLROOT; ?>/Collectors/register">
     <button class="sign-up-button">Sign Up Here</button>
 </a>
     
