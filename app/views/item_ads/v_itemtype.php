@@ -4,8 +4,6 @@
 
     <form action="<?php echo URLROOT?>/ItemAds/itemType" method="POST" enctype="multipart/form-data">
 
-    <form action="path_to_your_itemType_method" method="post">
-    <div class="type-background">
         <div class="type-background"></div>
         <div class="type-container">
             <!-- item_type -->
@@ -21,6 +19,5 @@
 
             <button class="continue" type="submit"><i class="fas fa-arrow-right"></i></button>       
         </div>
-    </form>
 
     <!-- <?php require APPROOT.'/views/inc/components/footer.php'; ?> -->
