@@ -41,13 +41,38 @@
 
         public function itemType(){
             $itemType = isset($_POST['item_type']) ? $_POST['item_type'] : '';
-            $data = [];
+
+            $data = [
+                'item_name' => '',
+                'item_category' => '',
+                'item_desc' => '',
+                'item_condition' => '',
+                'item_img' => '',
+                'item_img_name' => '',
+                'item_price' => '',
+                'item_location' => '',
+                'selling_format' => '',
+                'duration' => '',
+                'starting_bid' => '',
+                'negotiable' => '',
+
+                'item_name_err' => '',
+                'item_category_err' => '',
+                'item_condition_err' => '',
+                'item_images_err' => '',
+                'item_price_err' => '',
+                'item_location_err' => '',
+                'selling_format_err' => '',
+                'duration_err' => '',
+                'starting_bid_err' => '',
+                'negotiable_err' => '',
+            ];
 
             // Redirect based on the item type
             if ($itemType == 'secondhand') {
-                $this->view('item_ads/v_create', $data);
+                $this->view('item_ads/v_create');
             } else if ($itemType == 'recycle') {
-                $this->view('recycle_ads/v_re_create', $data);
+                $this->view('recycle_ads/v_re_create');
             } else {
                 // Handle invalid item type
             }
