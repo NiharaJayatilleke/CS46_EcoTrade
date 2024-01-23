@@ -9,10 +9,10 @@
       </a>
     </div>
   	
+    <div class="search-container-wrapper">
       <?php if (strpos($_SERVER['REQUEST_URI'], '/ItemAds/index') !== false || 
           (strpos($_SERVER['REQUEST_URI'], '/Search/SearchAd') !== false && 
            isset($_GET['category']) && isset($_GET['search']))): ?>
-            <div class="search-container-wrapper">
                 <form action="<?php echo URLROOT; ?>/Search/SearchAd" method="GET">
                     <div class="search-container-index">
                         <select name="category" class="search-category-index">
@@ -35,8 +35,8 @@
                         </button>
                     </div>
                 </form>
-            </div>
-          <?php endif; ?>
+                <?php endif; ?>
+              </div>
 
     <div class="links">
       <div class="item"><a href="<?php echo URLROOT ?>/Pages/index">Home</a></div>
