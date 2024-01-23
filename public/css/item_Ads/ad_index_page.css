@@ -79,8 +79,8 @@
 
 .post-control-btns {
     display: flex;
-    align-items: right;
-    margin-left: 250px;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 .ad-edit-btn,

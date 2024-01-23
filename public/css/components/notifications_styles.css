@@ -1,7 +1,7 @@
-.user-dropdown {
+/* .user-dropdown {
     position: relative;
     display: inline-block;
-}
+} */
 
 .notif-wrapper {
     position: relative;
@@ -19,7 +19,7 @@
 .caret {
     position: absolute;
     top: 170%;
-    right: -1px;
+    right: 3rem;
     transform: translateY(-50%);
     width: 0;
     height: 0;

@@ -51,7 +51,8 @@
                 'item_img_name' => '',
                 'item_price' => '',
                 'item_location' => '',
-                'selling_format' => '',
+                'selling_format'=>'',
+                'show_auction_fields' => '',
                 'duration' => '',
                 'starting_bid' => '',
                 'negotiable' => '',
@@ -70,9 +71,9 @@
 
             // Redirect based on the item type
             if ($itemType == 'secondhand') {
-                $this->view('item_ads/v_create');
+                $this->view('item_ads/v_create', $data);
             } else if ($itemType == 'recycle') {
-                $this->view('recycle_ads/v_re_create');
+                $this->view('recycle_ads/v_re_create',$data);
             } else {
                 // Handle invalid item type
             }
