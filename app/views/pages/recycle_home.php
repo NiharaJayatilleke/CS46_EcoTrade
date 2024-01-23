@@ -3,7 +3,7 @@
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_recyclehome.css">
 
-<div class="big-photo-container">
+<!-- <div class="big-photo-container">
     <img class="big-photo1" src="../public/img/rec/recycleMarkertplace.png" alt="Big Photo">
 </div>
 <div class="d2">
@@ -22,7 +22,7 @@
     
     </div>
    </div>
-</div>
+</div> -->
 
 <div class="slider">
         <!-- list Items -->
@@ -115,98 +115,12 @@
             </div>
         </div>
     </div>
-    <!-- <div class="cards">
-    <div class="container">
-        <div class="card">
-          <div class="imgBx">
-            <img src="/3516854-removebg-preview.png">
-          </div>
-          <div class="contentBx">
-            <h2>Secondhand <br>Market</h2>
-            <div class="size">
-              <h3>
-                Discover budget-friendly, sustainable treasures in our second-hand marketplace.</h3>
-            </div>
-      
-            <a href="#">Explore Now</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="card">
-          <div class="imgBx">
-            <img src="/image/4907875-removebg-preview.png">
-          </div>
-          <div class="contentBx">
-            <h2>Recycle <br>Market</h2>
-            <div class="size">
-              <h3>
-                Discover budget-friendly, sustainable treasures in our second-hand marketplace.</h3>
-            </div>
-      
-            <a href="#">Explore Now</a>
-          </div>
-        </div> -->
+ 
       </div>
     </div>
 
-    <script>
-    let items = document.querySelectorAll('.slider .list .item');
-let next = document.getElementById('next');
-let prev = document.getElementById('prev');
-let thumbnails = document.querySelectorAll('.thumbnail .item');
-
-// config param
-let countItem = items.length;
-let itemActive = 0;
-// event next click
-next.onclick = function(){
-    itemActive = itemActive + 1;
-    if(itemActive >= countItem){
-        itemActive = 0;
-    }
-    showSlider();
-}
-//event prev click
-prev.onclick = function(){1
-    itemActive = itemActive - 1;
-    if(itemActive < 0){
-        itemActive = countItem - 1;
-    }
-    showSlider();
-}
-// auto run slider
-let refreshInterval = setInterval(() => {
-    next.click();
-}, 29000)
-function showSlider(){
-    // remove item active old
-    let itemActiveOld = document.querySelector('.slider .list .item.active');
-    let thumbnailActiveOld = document.querySelector('.thumbnail .item.active');
-    itemActiveOld.classList.remove('active');
-    thumbnailActiveOld.classList.remove('active');
-
-    // active new item
-    items[itemActive].classList.add('active');
-    thumbnails[itemActive].classList.add('active');
-
-    // clear auto time run slider
-    clearInterval(refreshInterval);
-    refreshInterval = setInterval(() => {
-        next.click();
-    }, 29000)
-}
-
-// click thumbnail
-thumbnails.forEach((thumbnail, index) => {
-    thumbnail.addEventListener('click', () => {
-        itemActive = index;
-        showSlider();
-    })
-})
-</script>
-
+    <!-- Javascript for image upload -->
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/recycle/home.js"></script>
 
     </body>
 </html>

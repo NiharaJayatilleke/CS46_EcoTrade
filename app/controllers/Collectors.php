@@ -11,9 +11,9 @@
 
         }
 
-        public function register(){
+        public function about(){
             $data = [];
-            $this->view('pages/collector_about',$data);
+            $this->view('pages/users/collector/about',$data);
 
         }
     }
