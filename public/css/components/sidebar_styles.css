@@ -11,9 +11,11 @@
     right:0;
     height:230px;
     width:250px;
-    background:rgba(18, 37, 6, 0.418);
+    /*background:rgba(18, 37, 6, 0.418);*/
+    background: #1d1b31;
     color: #fff;
     margin-top: 60px;
+    z-index: 1;
 }
 
 .logo-details {
