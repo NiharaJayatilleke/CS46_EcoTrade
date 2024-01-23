@@ -116,6 +116,24 @@
 
 </div>
 
+<section>
+        <div class="shadow"></div>
+
+        <div class="login-container">
+            <div class="content opacity">
+                <h3 class="title">
+                    About
+                    <div class="border"></div>
+                </h3>
+                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque officiis quos expedita ipsa, a quidem inventore voluptates debitis accusamus tenetur qui et voluptas dicta, culpa earum, doloribus odio consectetur consequuntur soluta quasi nobis! Deserunt voluptatum reiciendis iure expedita sequi quisquam laboriosam temporibus exercitationem.</p>
+            </div>
+
+            <!-- <div class="imgContainer opacity">
+                <img src="../public/img/index/about.jpg" alt="">
+            </div> -->
+        </div>
+</section>
+
 <!-- JS as a separate file -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/index.js"></script>
 
