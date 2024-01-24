@@ -7,14 +7,12 @@
 
         public function index(){
             $data = [];
-            $this->view('pages/v_collectorhome',$data);
-
+            $this->view('pages/users/collectors/index',$data);
         }
 
         public function about(){
             $data = [];
-            $this->view('pages/users/collector/about',$data);
-
+            $this->view('pages/users/collectors/about',$data);
         }
     }
 ?>
