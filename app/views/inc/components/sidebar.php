@@ -1,16 +1,13 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 <div class="sidebar">
-   <div class="logo-details"> 
-   <i class='bx bx-recycle' ></i>
-    <span class="logo_name">EcoTrade</span>
-   </div>
+  
 <ul class="nav-links">
 <li>
     <a href="<?php echo URLROOT ?>/Users/profile">
     <i class='bx bxs-user-circle'></i>
         <span class="link_name">Profile</span>
-</a>
+    </a>
 </li>
 <li>
     <div class="icon-link">
@@ -24,7 +21,7 @@
         <li><a href="#">cardbord</a></li>
         <li><a href="#">plastic</a></li>
         <li><a href="#">xxx</a></li>
-</ul>
+    </ul>
 </li>
 <li>
     <a href="<?php echo URLROOT ?>/Users/logout">
@@ -34,3 +31,18 @@
 </li>
 </ul>
 </div>
+
+<script>
+    let arrow = document.querySelectorAll(".arrow")[0];
+    let sub_menu = document.querySelectorAll(".sub-menu")[0];
+
+    arrow.addEventListener("click", (e)=>{
+        sub_menu.classList.toggle("active");
+        // arrow.classList.toggle("rotate");
+
+        console.log("clicked");
+    });
+    
+
+
+</script>
