@@ -12,10 +12,11 @@
 <li>
     <div class="icon-link">
         <a href="#">
-            <i class='bx bx-collection'></i>
-        <span class="link_name">Category</span>
-    </a>
-    <i class='bx bxs-chevron-down arrow'></i>
+            <!-- <i class='bx bx-collection'></i> -->
+            <i class='bx bxs-chevron-down arrow'></i>
+        <span class="link_name">Categories</span>
+        </a>
+        <!-- <i class='bx bxs-chevron-down arrow'></i> -->
     </div>
     <ul class="sub-menu">
         <li><a href="#">cardbord</a></li>
@@ -27,7 +28,7 @@
     <a href="<?php echo URLROOT ?>/Users/logout">
         <i class='bx bx-log-out'></i>
         <span class="link_name">Logout</span>
-</a>
+    </a>
 </li>
 </ul>
 </div>
