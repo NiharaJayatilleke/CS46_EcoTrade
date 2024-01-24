@@ -555,8 +555,8 @@
 
     .cards {
         display: flex;
-        gap: 30%;
-        padding-left: 13%;
+        gap: 7%;
+        /* padding-left: 13%; */
         margin-bottom: 4%;
     }
 

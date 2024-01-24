@@ -2,7 +2,7 @@
     class Collectors extends Controller{
         public function __construct(){
             $this->pagesModel =$this->model('M_Pages');
-            $this->collectorModel =$this->model('M_Offers');
+            // $this->collectorModel =$this->model('M_Offers');
         }
 
         public function index(){
