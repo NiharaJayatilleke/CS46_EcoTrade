@@ -365,5 +365,22 @@ body {
   }
 
 
+/* Add media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .d2 {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .d2_1,
+    .d3 {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+
+
 
   
