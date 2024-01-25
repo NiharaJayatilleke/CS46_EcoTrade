@@ -74,7 +74,7 @@
               Consistent<br />
               hard work gains success. Greatness will come.
             </p>
-            <a href="" class="btn">Explore Now &#8594; </a>
+            <a href="<?php echo URLROOT; ?>/ItemAds/index" class="btn">Explore Now &#8594; </a>
           </div>
           <div class="col-2">
             <img src="../public/img/sechome/images/15-removebg-preview.png" alt="Two men being active" />
