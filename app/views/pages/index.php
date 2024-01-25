@@ -131,6 +131,13 @@
             <!-- <div class="imgContainer opacity">
                 <img src="../public/img/index/about.jpg" alt="">
             </div> -->
+
+            <div class="video">
+                <video autoplay loop muted plays-inline class="back-video"> s
+                    <source src = "../public/img/index/video.mp4" type="video/mp4">
+            </video>
+            </div>
+
         </div>
 </section>
 
