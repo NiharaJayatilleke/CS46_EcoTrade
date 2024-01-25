@@ -142,7 +142,8 @@
                 }
 
                 //item image
-                if(empty($data['item_image']['size'] > 0)){
+                // if(empty($data['item_image']['size'] > 0)){
+                if(isset($_FILES['item_image']) && $_FILES['item_image']['size'] > 0){
                     if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
                         //echo 'Image uploaded';
                     }else {
