@@ -773,3 +773,71 @@
             height: 100%;
         }
     }
+
+    .about-section {
+        display: flex;
+        background-color: #01332A;
+        overflow: hidden;
+        padding: 150px 100px;
+    }
+    
+    .about-image {
+        display: flex; 
+        width: 55%; 
+        height: 65vh;
+    }
+    
+    
+    .inner-container{
+        height: 65vh;
+        width: 55%;
+        float: right;
+        background-color: #fdfdfd;
+        padding: 120px;
+    }
+    
+    .inner-container h1{
+        margin-bottom: 30px;
+        font-size: 30px;
+        font-weight: 900;
+        color: green;
+    }
+    
+    .text{
+        font-size: 12.5px;
+        color: #545454;
+        line-height: 25px;
+        text-align: justify;
+    }
+    
+    .skills{
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        font-size: 13px;
+    }
+    
+    @media screen and (max-width:1200px){
+        .inner-container{
+            padding: 80px;
+        }
+    }
+    
+    @media screen and (max-width:1000px){
+        .about-section{
+            background-size: 100%;
+            padding: 100px 40px;
+        }
+        .inner-container{
+            width: 100%;
+        }
+    }
+    
+    @media screen and (max-width:600px){
+        .about-section{
+            padding: 0;
+        }
+        .inner-container{
+            padding: 60px;
+        }
+    }
