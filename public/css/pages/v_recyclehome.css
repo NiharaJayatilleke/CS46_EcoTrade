@@ -227,7 +227,8 @@
   display: flex;
   height: 100vh; 
   gap: 25%;
-  margin-left: 25%;
+  margin-left: 15%;
+  margin-bottom: 12%;
 }
 
 .rec-card-hover {
