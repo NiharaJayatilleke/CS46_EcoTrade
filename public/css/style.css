@@ -1,7 +1,7 @@
 /*CSS Library*/
 
 /* INDEX */
-@import url('pages/index.css');
+/* @import url('pages/index.css'); */
 
 /*COMPONENTS*/
 @import url('components/topnavbar_styles.css');
@@ -45,7 +45,7 @@
 /*ADMIN DASHBOARD*/
 @import url('pages/amdin/admin_dashboard_styles.css');
 @import url('pages/wishlist.css');
-@import url('pages/v_sechome.css');
+/* @import url('pages/v_sechome.css'); */
 @import url('pages/v_recyclehome.css');
 /* @import url('pages/v_prodetails.css'); */
 @import url('pages/v_help.css');

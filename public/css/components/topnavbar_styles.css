@@ -163,12 +163,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-
-  
+  text-align: center; 
   font-size: 16px ;
-  height: 2.5rem;
-  z-index: 9999;
+  height: 2.6rem;
+  width:90%;
+  z-index: 3;
 }
 
 .search-button-index {
@@ -180,8 +179,11 @@
   cursor: pointer;
   transition: background 0.3s;
   margin-left:0;
-  margin-top:5px
-  
+  /* margin-top:5px; */
+  z-index: 3;
+  justify-content: center;
+  text-align: center; 
+  border-radius: 0 50% 50% 0;
 }
 
 .search-button-index:hover {
@@ -200,11 +202,16 @@
 
 .search-category-index {
   margin-left: 0px;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   padding:12px 1px;
   background:#219657b5;
   border: 1px solid #117e3b; 
   cursor: pointer;
+  z-index: 3;
+  justify-content: center;
+  text-align: center; 
+  align-items: center;
+  border-radius: 5% 0 0 5% ;
  
 }
 
@@ -240,7 +247,6 @@
   .search-container-wrapper {
     position: relative;
     margin: 0 0;
-    /* display: none !important; */
   }
 }
 
