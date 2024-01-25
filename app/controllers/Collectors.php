@@ -7,7 +7,7 @@
 
         public function index(){
             $data = [];
-            $this->view('pages/users/collectors/index',$data);
+            $this->view('pages/users/collectors/v_index',$data);
         }
 
         public function about(){

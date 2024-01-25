@@ -119,18 +119,16 @@
 <section>
         <div class="shadow"></div>
 
-        <div class="login-container">
-            <div class="content opacity">
-                <h3 class="title">
-                    About
-                    <div class="border"></div>
-                </h3>
-                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque officiis quos expedita ipsa, a quidem inventore voluptates debitis accusamus tenetur qui et voluptas dicta, culpa earum, doloribus odio consectetur consequuntur soluta quasi nobis! Deserunt voluptatum reiciendis iure expedita sequi quisquam laboriosam temporibus exercitationem.</p>
-            </div>
+                <div class="about-section">
+                    <img src="../public/img/index/about.jpg" alt="About Image" class="about-image">
+                    <div class="inner-container">
+                        <h1>About Us</h1>
+                        <p class="text">
+                        "Embark on a journey with EcoTrade, where our passion intertwines with purpose. We are not just a platform; we are a movement, a community committed to shaping a sustainable tomorrow. Imagine a world where every act of recycling contributes to a greener canvas. At EcoTrade, we bring together buyers and collectors in a symphony of eco-conscious commerce. Our mission is to redefine waste as a resource, bridging the gap between individuals and businesses striving for a more sustainable future. Join us, not just as participants, but as guardians of our planet, as we weave a tapestry of change—one recyclable at a time. Together, let's turn the page to a new chapter, where responsibility meets innovation, and every action echoes in the rhythm of a thriving ecosystem."
+                        </p>
+                    </div>
+                </div>
 
-            <!-- <div class="imgContainer opacity">
-                <img src="../public/img/index/about.jpg" alt="">
-            </div> -->
 
             <div class="video">
                 <video autoplay loop muted plays-inline class="back-video"> s
