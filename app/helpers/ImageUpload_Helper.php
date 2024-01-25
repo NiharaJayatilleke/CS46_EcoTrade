@@ -2,7 +2,18 @@
     function uploadImage($img, $img_name, $location) {
         $target = PUBROOT.$location.$img_name;
 
-        return move_uploaded_file($img, $target);
+        if (!is_dir(dirname($target))) {
+            mkdir(dirname($target), 0777, true);
+        }
+
+        if (!move_uploaded_file($img, $target)) {
+            error_log("Failed to move uploaded file from $img to $target");
+            return false;
+        }
+
+        return true;
+
+        // return move_uploaded_file($img, $target);
     }
 
     function updateImage($old, $img, $img_name, $location) {
