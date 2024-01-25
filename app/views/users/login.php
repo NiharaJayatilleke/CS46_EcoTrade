@@ -87,12 +87,11 @@
                 </form>
             </div>
 
-        <?php require APPROOT.'/views/inc/footer.php'; ?> 
     </div>
 </div>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="path/to/your/animations.js"></script>
         <script src="/public/js/input_validation.js"></script>
-
+-->
         </body>
-</html> -->
+</html> 

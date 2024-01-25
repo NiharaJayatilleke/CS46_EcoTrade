@@ -2,7 +2,7 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
-<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_sechome.css">
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/pages/v_sechome.css">
 
 
         <!-- <div class="main-content">
@@ -32,7 +32,7 @@
 
         <div class="featured-categories">
             <h2 class="head1">Featured Category</h2>
-            <p class="p2">Browse through some of our most popular categories</p>
+            <p class="p2">Browsechomese through some of our most popular categories</p>
         
             <div class="category-photos">
                 <div class="photo" onclick="location.href='navBar.html';">
@@ -66,7 +66,7 @@
 
 
 
-        <div class="row">
+        <div class="rowsechome">
           <div class="col-2">
             <h1>Give Your Workout<br />A New Style!</h1>
             <p>
@@ -87,7 +87,7 @@
 
     <div class="categories">
       <div class="small-container">
-        <div class="row">
+        <div class="rowsechome">
           <div class="col-3">
             <img
               src="../public/img/sechome/images/category-1.jpg"
@@ -114,7 +114,7 @@
 
     <div class="small-container">
       <h2 class="title">Featured Products</h2>
-      <div class="row">
+      <div class="rowsechome">
         <div class="col-4">
           <img src="../public/img/sechome/images/product-1.jpg" alt="Red T-Shirt" />
           <h4>Red Printed T-Shirt</h4>
@@ -164,7 +164,7 @@
       </div>
 
       <h2 class="title">Latest Products</h2>
-      <div class="row">
+      <div class="rowsechome">
         <div class="col-4">
           <img src="../public/img/sechome/images/product-7.jpg" alt="Tri-Color Socks" />
           <h4>HRX 3pk Socks</h4>
@@ -213,7 +213,7 @@
           </div>
           <p>$245.00</p>
         </div>
-        <div class="row">
+        <div class="rowsechome">
           <div class="col-4">
             <img src="../public/img/sechome/images/product-10.jpg" alt="Black and Red Shoes" />
             <h4>Black Shoes</h4>
@@ -270,7 +270,7 @@
 
     <div class="offer">
       <div class="small-container">
-        <div class="row">
+        <div class="rowsechome">
           <div class="col-2">
             <img
               src="../public/img/sechome/images/exclusive.png"
@@ -296,7 +296,7 @@
 
     <div class="testimonial">
       <div class="small-container">
-        <div class="row">
+        <div class="rowsechome">
           <div class="col-3">
             <i class="fa fa-quote-left"></i>
             <p>
@@ -356,7 +356,7 @@
 
     <div class="brands">
       <div class="small-container">
-        <div class="row">
+        <div class="rowsechome">
           <div class="col-5">
             <img src="../public/img/sechome/images/logo-godrej.png" alt="godrej logo" />
           </div>
