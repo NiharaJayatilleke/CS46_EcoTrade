@@ -205,9 +205,7 @@
   background:#219657b5;
   border: 1px solid #117e3b; 
   cursor: pointer;
-  background:#219657b5;
-  border: 1px solid #117e3b; 
-  cursor: pointer;
+ 
 }
 
 .selectad-category option {
@@ -245,3 +243,4 @@
     /* display: none !important; */
   }
 }
+
