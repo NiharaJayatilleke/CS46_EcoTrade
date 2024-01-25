@@ -784,16 +784,31 @@
     .about-image {
         display: flex; 
         width: 55%; 
-        height: 65vh;
+        height: auto;
     }
     
     
     .inner-container{
-        height: 65vh;
+        height: auto;
         width: 55%;
         float: right;
         background-color: #fdfdfd;
-        padding: 120px;
+        padding: 60px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .about-section {
+            flex-direction: column;
+            padding: 50px 30px;
+        }
+    
+        .about-image, .inner-container {
+            width: 100%;
+        }
+    
+        .inner-container {
+            float: none;
+        }
     }
     
     .inner-container h1{
@@ -808,6 +823,8 @@
         color: #545454;
         line-height: 25px;
         text-align: justify;
+        padding: 0;
+
     }
     
     .skills{
@@ -819,7 +836,7 @@
     
     @media screen and (max-width:1200px){
         .inner-container{
-            padding: 80px;
+            padding: 25px;
         }
     }
     
