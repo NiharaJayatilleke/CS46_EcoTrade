@@ -19,30 +19,7 @@
     }
     flash('post_msg');
     ?>
-    
-    <!-- <div class="search-container-wrapper">
-        <form action="<?php echo URLROOT; ?>/Search/SearchAd" method="GET">
-            <div class="search-container-index">
-                <select name="category" class="search-category-index">
-                    <option value="" selected>All</option>
-                    <div class="selectad-category">
-                        <option value="furniture">Furniture</option>
-                        <option value="electronics">Electronics</option>
-                        <option value="clothing">Clothing</option>
-                        <option value="books">Books</option>
-                        <option value="kitchenware">Kitchenware</option>
-                        <option value="home_deco">Home Deco</option>
-                        <option value="sports_equip">Sports Equipment</option>
-                        <option value="appliances">Appliances</option>
-                    </div>
-                </select>
-                <input class="search-input-index" name="search" placeholder="Search in EcoTrade">
-                <button class="search-button-index">
-                    <img src="<?php echo URLROOT; ?>/public/img/index/search.png" alt="search" class="search-icon-index">
-                </button>
-            </div>
-        </form>
-    </div> -->
+
 
     <?php if (!empty($data['ads'])) : ?>
     <div class = "ads-container">

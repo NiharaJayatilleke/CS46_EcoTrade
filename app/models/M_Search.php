@@ -38,10 +38,8 @@ class M_Search {
         $ads = $this->db->resultSet();
     
         return $ads;
-    }
-    
+    }  
     // Add other search methods as needed
-
 }
 
 ?>
