@@ -10,7 +10,7 @@ class AuthMiddleware {
     public function checkAccess($allowedRoles) {
         if (!isset($_SESSION['user_id'])) {
             // User is not logged in, redirect to the login page
-            redirect('users/login');
+            redirect('Users/login');
         } else {
             // Check if the user's role is allowed to access the page
             $userRole = $_SESSION['user_type'];
@@ -21,4 +21,6 @@ class AuthMiddleware {
         }
     }
 }
+
+?>
 

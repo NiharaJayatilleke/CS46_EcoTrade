@@ -22,14 +22,14 @@
                         <span class="icon"><i class='bx bxs-envelope'></i></span>
                         <input type="email" name="email" id="email" class="email" value="<?php echo $data['email']; ?>" required>
                         <label>Email</label>
-                        <!-- <span class="form-invalid"><?php echo $data['email_err']; ?></span> -->
+                        <span class="form-invalid"><?php echo $data['email_err']; ?></span>
                     </div>
 
                     <div class="input-box-login">
                         <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
                         <input type="password" name="password" id="password" required >
                         <label>Password</label>
-                        <!-- <span class="form-invalid"><?php echo $data['password_err']; ?></span> -->
+                        <span class="form-invalid"><?php echo $data['password_err']; ?></span>
                     </div>
 
                     <div class="remember-me">

@@ -1,6 +1,9 @@
 <?php
     class Admin extends Controller{
         public function __construct(){
+
+            // $this->middleware = new AuthMiddleware();
+            
             $this->adminModel = $this->model('M_Admin');
             $this->moderatorModel = $this->model('M_Moderators');
         }
@@ -11,6 +14,11 @@
             $data = ['moderators' => $moderators];
 
             $this->view('admin/v_dashboard', $data);
+        }
+
+        public function dashboard(){
+            $data = [];
+            $this->view('admin/v_dashboard',$data);
         }
 
 
@@ -224,7 +232,7 @@
             unset($_SESSION['user_name']);
             session_destroy();
 
-            redirect('Pages/v_index');
+            redirect('Pages/index');
             // redirect('Users/login');
         }
         

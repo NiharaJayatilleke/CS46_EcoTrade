@@ -466,12 +466,26 @@
         color: #fff;
     }
 
-
     .cards {
         display: flex;
-        gap: 7%;
-        /* padding-left: 13%; */
+        flex-wrap: wrap; 
+        justify-content: space-between; 
+        gap: 2%; 
+        padding: 0 10%; 
         margin-bottom: 4%;
+    }
+    
+    @media (max-width: 768px) {
+        .cards {
+            gap: 4%; 
+        }
+    }
+    
+
+    @media (max-width: 480px) {
+        .cards {
+            gap: 10px;
+        }
     }
 
     .container {
