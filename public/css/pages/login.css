@@ -205,9 +205,9 @@
     text-decoration: none;
 }
 
-.remember-me a:hover {
+/* .remember-me a:hover {
     text-decoration: underline;
-}
+} */
 
 .login-btn {
     width: 100%;
