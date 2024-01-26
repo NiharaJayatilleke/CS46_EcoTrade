@@ -14,14 +14,19 @@
         <a href="#">
             <!-- <i class='bx bx-collection'></i> -->
             <i class='bx bxs-chevron-down arrow'></i>
-        <span class="link_name">Categories</span>
+        <span class="link_name">All Categories</span>
         </a>
         <!-- <i class='bx bxs-chevron-down arrow'></i> -->
     </div>
     <ul class="sub-menu">
-        <li><a href="#">cardbord</a></li>
-        <li><a href="#">plastic</a></li>
-        <li><a href="#">xxx</a></li>
+        <!-- <li><a href="#">All</a></li> -->
+        <li><a href="#">Furniture</a></li>
+        <li><a href="#">Electronics</a></li>
+        <li><a href="#">Clothing</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">Kitchenware</a></li>
+        <li><a href="#">Home Deco</a></li>
+        <li><a href="#">Appliances</a></li>
     </ul>
 </li>
 <li>

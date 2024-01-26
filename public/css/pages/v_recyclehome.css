@@ -95,7 +95,10 @@
     height: 100%;
 }
 
-
+.slider{
+  height: 100vh;
+  position :relative;
+}
 
   
 .slider .list .item::after{
@@ -140,6 +143,8 @@
     height: 100%;
     object-fit: cover;
 }
+
+
 /* ... next CSS code ... */
 
 @keyframes showContent {
@@ -168,6 +173,21 @@
 
     right: 50px;
     z-index: 100;
+}
+
+.slider .list .item{
+  position :absolute;
+  inset:0 0 0 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:0.5s;
+
+} 
+
+.slider .list .item img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
 }
 .arrows button{
     background-color: #eee5;
