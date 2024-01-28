@@ -29,7 +29,7 @@
             <?php
                 $allCategories = ['Furniture', 'Electronics', 'Clothing', 'Books', 'Kitchenware', 'Home Deco', 'Sports Equipment', 'Appliances'];
                 $selectedCategory = '';
-
+               
                 foreach ($allCategories as $category) {
                     $isChecked = in_array($category, explode(',', $selectedCategory)) ? 'checked' : ''; // Use explode to convert the comma-separated string to an array
                     echo "<li><input type='checkbox' id='{$category}Checkbox' name='category[]' value='{$category}' {$isChecked}><label for='{$category}Checkbox'><a href='#'>{$category}</a></label></li>";

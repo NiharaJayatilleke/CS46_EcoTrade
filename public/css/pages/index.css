@@ -1,316 +1,17 @@
-.bg-img{
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    z-index: -1; 
-    width: 100vw;
-    padding-left:0
-  }
-  
-  .bg-img img{
-    width:100vw; 
-    height: 60vh
-  }
- 
-  
-  .text-on-layer {
-    position: absolute;
-    top: 50%; /* Adjust the vertical position as needed */
-    left: 50%; /* Adjust the horizontal position as needed */
-    transform: translate(-50%, -50%); /* Center the text within the parent */
-    color: white;
-    font-size: 40px; 
-    text-align: center;
-    white-space: pre-line; 
-    letter-spacing: 1px;
-    line-height: 1.5;
-    z-index: 3; 
-    font-family: 'Lato', sans-serif;
-  }
-  
-  footer {
-    position: relative;
-    bottom: 0;
-    background-color: var(--text-color-dark-text-primary);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-  
-  
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-  body{
-      font-family: Poppins;
-      margin: 0;
-      background-color: #010101;
-      color: #eee;
-  }
-  svg{
-      width: 25px;
-  }
-  header{
-      width: 1200px;
-      max-width: 90%;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 50px 1fr 50px;
-      grid-template-rows: 50px;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      z-index: 100;
-  }
-  header .logo{
-      font-weight: bold;
-  }
-  header .menu{
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      font-weight: 500;
-   
-  }   .menu .item a {
-      color: white;
-      /* Add any additional styling here if needed */
-  }
-  /* css slider */
-  .slider{
-      height: 100vh;
-      
-      position: relative;
-  }
-  .slider .list .item{
-      position: absolute;
-      inset: 0 0 0 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: .5s;
-  }
-  .slider .list .item img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-  }
-  /* .search-container-index {
-      display: flex;
-      align-items: center;
-      margin-top: 270px; 
-      margin-left: 45px;
-      width: 34%;
-    } */
-    
-    .search-input-index {
-      flex: 1;
-      margin-right:0;
-      padding:8px 10px;
-      border: 1px solid #f1f1f1;
-      /* border-radius: 0!important; */
-      font-size: 16px ;
-      outline:none;
-      margin-top: 5px;
-      width: 95%;
-      background: #f1f1f1;
-      height:25px;
-      display: block;
-    }
-    
-    .search-button-index {
-      /* background: #117e3b;  */
-      background:#219657b5;
-      border: 1px solid #117e3b;
-      border-radius: 0;
-      padding: 10px 15px;
-      cursor: pointer;
-      transition: background 0.3s;
-      margin-left:0;
-      margin-top:5px
-    }
 
-    .search-button-index:hover {
-        background: #729e7d;
-    }
-
-    .search-icon-index {
-        height: 16px;
-        position: relative;
-        top: 2px;
-    }
-
-    .search-category-index option:checked {
-        color: white;
-    }
-
-    .search-category-index {
-        margin-left: 0px;
-        margin-top: 5px;
-        padding: 12px 1px;
-        background: #219657b5;
-        border: 1px solid #117e3b;
-        cursor: pointer;
-        /* background: #729e7d;
-        border: 1px solid #729e7d; */
-
-        /* background: #729e7d;
-        border: 1px solid #729e7d; */
-
-        background: #219657b5;
-        border: 1px solid #117e3b;
-        cursor: pointer;
-    }
-
-
-    .slider .list .item::after {
-        content: '';
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        background-image: linear-gradient(to top, #000 20%, transparent);
-    }
-
-    .slider .list .item .content {
-        position: absolute;
-        left: 5%;
-        top: 30%;
-        width: 500px;
-        max-width: 80%;
-        z-index: 1;
-    }
-
-    .slider .list .item .content p:nth-child(1) {
-        text-transform: uppercase;
-        letter-spacing: 10px;
-    }
-
-    .slider .list .item .content #content1 {
-        margin-top: -149px;
-        font-size: 60px;
-        margin-left: -800px;
-    }
-
-    .slider .list .item .content h2 {
-        font-size: 100px;
-        margin: 0;
-
-    }
-
-    .slider .list .item.active {
-        opacity: 1;
-        z-index: 10;
-    }
-    /* ... previous CSS code ... */
-    .slider .list .item video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    /* ... next CSS code ... */
-
-    @keyframes showContent {
-        to {
-            transform: translateY(0);
-            filter: blur(0);
-            opacity: 1;
-        }
-    }
-    .slider .list .item.active p:nth-child(1),
-    .slider .list .item.active h2,
-    .slider .list .item.active p:nth-child(3) {
-        transform: translateY(30px);
-        filter: blur(20px);
-        opacity: 0;
-        animation: showContent .5s .7s ease-in-out 1 forwards;
-    }
-    .slider .list .item.active h2 {
-        animation-delay: 1s;
-    }
-    .slider .list .item.active p:nth-child(3) {
-        animation-duration: 1.3s;
-    }
-    .arrows {
-        position: absolute;
-
-        right: 50px;
-        z-index: 100;
-    }
-    .arrows button {
-        background-color: #eee5;
-        border: none;
-        font-family: monospace;
-        width: 40px;
-        height: 40px;
-        border-radius: 5px;
-        font-size: x-large;
-        color: #eee;
-        transition: .5s;
-        margin-top: 690px;
-    }
-    .arrows button:hover {
-        background-color: #eee;
-        color: black;
-    }
-    .thumbnail {
-        position: absolute;
-        bottom: 50px;
-        z-index: 11;
-        display: flex;
-        gap: 10px;
-        width: 90%;
-        height: 150px;
-        padding-left: 10%;
-        box-sizing: border-box;
-        overflow: auto;
-        justify-content: center;
-
-    }
-    .thumbnail::-webkit-scrollbar {
-        width: 0;
-    }
-    .thumbnail .item {
-        width: 100px;
-        height: 120px;
-        filter: brightness(.5);
-        transition: .5s;
-        flex-shrink: 0;
-    }
-    .thumbnail .item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-    .thumbnail .item.active {
-        filter: brightness(1.5);
-    }
     .thumbnail .item .content {
         position: absolute;
         inset: auto 10px 10px 10px;
     }
 
 
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-    /* 这是引入了一些字体 */
     @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
 
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
+        /* font-family: 'Poppins', sans-serif; */
         /* 当用户手动导航或者 CSSOM scrolling API 触发滚动操作时 */
         scroll-behavior: smooth;
     }
@@ -428,6 +129,7 @@
         white-space: nowrap;
         font-size: 7.5vw;
         z-index: 9;
+        font-family: 'Poppins', sans-serif;
 
     }
 
@@ -742,7 +444,7 @@
     .inner-container h1{
         margin-bottom: 30px;
         font-size: 30px;
-        font-weight: 900;
+        /* font-weight: 900; */
         color: green;
     }
     
