@@ -11,6 +11,10 @@
     margin: 50px;
 }
 
+.ad-show-link {
+    text-decoration: none;
+}
+
 .ad-index-container {
     width: 28%; 
     background: #ffffff27; 
