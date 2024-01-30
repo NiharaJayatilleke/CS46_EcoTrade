@@ -43,7 +43,10 @@
 @import url('moderators/login.css');
 
 /*ADMIN DASHBOARD*/
-@import url('pages/amdin/admin_dashboard_styles.css');
+@import url('pages/admin/dashboard.css'); 
+
+
+/* @import url('pages/admin/admin_dashboard_styles.css'); */
 @import url('pages/wishlist.css');
 /* @import url('pages/v_sechome.css'); */
 /* @import url('pages/v_recyclehome.css'); */
@@ -51,7 +54,7 @@
 @import url('pages/v_help.css');
 @import url('pages/v_errorpage.css');
 @import url('pages/v_collectorhome.css');
-@import url('pages/v_admindashboard.css');
+/* @import url('pages/v_admindashboard.css'); */
 @import url('pages/v_sellerpro.css');
 @import url('pages/v_addpayment.css');
 @import url('pages/v_paymentportal.css');
