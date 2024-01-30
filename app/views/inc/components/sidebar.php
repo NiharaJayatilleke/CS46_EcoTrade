@@ -8,6 +8,26 @@
                 <span class="link_name">Profile</span>
             </a>
         </li>
+        <?php
+    // Check if the current page is one of the specified pages
+    $currentUri = $_SERVER['REQUEST_URI'];
+    $showCategories = (strpos($currentUri, '/ItemAds/index') !== false) || (strpos($currentUri, '/Search/SearchAd') !== false);
+
+    // Set the sidebar height based on the condition
+    $sidebarHeight = $showCategories ? '180px' : '125px';   
+    
+    ?>
+
+<style>
+    .sidebar {
+        height: <?php echo $sidebarHeight; ?>;
+    }
+</style>
+
+<?php
+
+    if ($showCategories) {
+        ?>
         <li>
             <div class="icon-link" id="categories-link" >
                 <a href="#">
@@ -15,8 +35,8 @@
                     <span class="link_name">All Categories</span>
                 </a>
             </div>
-            <!-- <form action="<?php echo URLROOT; ?>/Search/filtersechandAds" method="GET"> -->
             <ul class="sub-menu">
+
                 <li><input type="checkbox" id="furnitureCheckbox">Furniture</li>
                 <li><input type="checkbox" id="electronicsCheckbox">Electronics</li>
                 <li><input type="checkbox" id="clothingCheckbox">Clothing</li>
@@ -25,20 +45,13 @@
                 <li><input type="checkbox" id="homedecoCheckbox">Home Deco</li>
                 <li><input type="checkbox" id="sportsEquipmentCheckbox">Sports Equipment</li>
                 <li><input type="checkbox" id="appliancesCheckbox">Appliances</li>
-            <!--                 
-            <?php
-                $allCategories = ['Furniture', 'Electronics', 'Clothing', 'Books', 'Kitchenware', 'Home Deco', 'Sports Equipment', 'Appliances'];
-                $selectedCategory = '';
-               
-                foreach ($allCategories as $category) {
-                    $isChecked = in_array($category, explode(',', $selectedCategory)) ? 'checked' : ''; 
-                    echo "<li><input type='checkbox' id='{$category}Checkbox' name='category[]' value='{$category}' {$isChecked}><label for='{$category}Checkbox'><a href='#'>{$category}</a></label></li>";
-                }
-            ?> -->
+           
 
             </ul>
-            <!-- </form> -->
         </li>
+    <?php
+    }
+    ?>
         <li class="logout-link">
             <a href="<?php echo URLROOT ?>/Users/logout">
                 <i class='bx bx-log-out'></i>
