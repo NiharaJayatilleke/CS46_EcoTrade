@@ -10,39 +10,46 @@
 
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
-                $data = [
-                    'ad_id' => $id,
-                    'user_id' => $_SESSION['user_id'],
-                    'offer_amount' => trim($_POST['offer_amount']),
-                ];
+                if (empty($_POST['offer_amount'][0])) {
+                    http_response_code(400); //400 status code
+                    echo json_encode(['error' => 'Offer amount is required.']);
+                    exit;
+                } else {
+                    $data = [
+                        'ad_id' => $id,
+                        'user_id' => $_SESSION['user_id'],
+                        'offer_amount' => trim($_POST['offer_amount'][0]),
+                    ];
+                    // echo json_encode(['message' => 'submitOffer method called with id: ' . $id]);
 
-                try {
-                    if ($this->offersModel->addOffer($data)) {
-                        flash('offer_success','Offer submitted successfully');
+                    try {
+                        if ($this->offersModel->addOffer($data)) {
+                            flash('offer_success','Offer submitted successfully');
 
-                        $ad = $this->itemAdsModel->getAdById($id);
-                        $sellerId = $ad->seller_id;
+                            $ad = $this->itemAdsModel->getAdById($id);
+                            $sellerId = $ad->seller_id;
 
-                        // Notify the seller
-                        $notificationData = [
-                            'user_id' => $sellerId, 
-                            'ad_id' => $id,
-                            'message' => "You have received an offer of Rs." . $data['offer_amount'] . " for your ad #" . $data['ad_id'],
-                            'seen' => 0
-                        ];
+                            // Notify the seller
+                            $notificationData = [
+                                'user_id' => $sellerId, 
+                                'ad_id' => $id,
+                                'message' => "You have received an offer of Rs." . $data['offer_amount'] . " for your ad #" . $data['ad_id'],
+                                'seen' => 0
+                            ];
 
-                        if ($this->notificationsModel->addNotification($notificationData)) {
-                            flash('notification_success', 'Notification sent to the seller');
+                            if ($this->notificationsModel->addNotification($notificationData)) {
+                                flash('notification_success', 'Notification sent to the seller');
+                            } else {
+                                flash('notification_error', 'Could not send notification to the seller');
+                            }
+
                         } else {
-                            flash('notification_error', 'Could not send notification to the seller');
+                            die('Something went wrong with adding the offer');
                         }
 
-                    } else {
-                        die('Something went wrong with adding the offer');
+                    } catch (Exception $e) {
+                        die('Error: ' . $e->getMessage());
                     }
-
-                } catch (Exception $e) {
-                    die('Error: ' . $e->getMessage());
                 }
 
             }

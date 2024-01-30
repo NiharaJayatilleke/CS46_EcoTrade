@@ -97,11 +97,12 @@
         <div class = "sad-btns">
             <!-- offer and bid icons are disabled for seller and only allowed if seller has chosen to -->
             <?php if($data['ad']->negotiable == 'yes'): ?>
-                <input type="submit" class="offer" id="make-offer" value="Make Offer" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>
+                <!-- <input type="submit" class="offer" id="make-offer" value="Make Offer" php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>> -->
+                <input type="submit" class="offer" id="make-offer" value="Make Offer" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'style="display: none;"' : '' ?>>
             <?php endif; ?>
 
             <?php if($data['ad']->selling_format == 'auction'): ?>
-                <button type="button" class="bid" id="place-bid"<?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>>Place Bid</button>
+                <button type="button" class="bid" id="place-bid"<?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'style="display: none;"' : '' ?>>Place Bid</button>
             <?php endif; ?>
         </div>
 
@@ -116,8 +117,7 @@
         <!-- HTML for sellers to accept or reject offers -->
         <div class='offers-list'> 
         <!-- php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?> -->
-            <!-- php $acceptedOffer = array_search('accepted', array_column($data['offers'], 'offer_status')); ?>
-            php var_dump($acceptedOffer); ?> -->
+            <!-- php $acceptedOffer = array_search('accepted', array_column($data['offers'], 'offer_status')); ?>  -->
             <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && empty($data['accepted_offer'])) : ?>
             <h3>Offers</h3>
             <?php foreach ($data['offers'] as $offer) : ?>

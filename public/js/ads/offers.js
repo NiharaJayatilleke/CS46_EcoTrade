@@ -60,43 +60,57 @@ $(document).ready(function() {
 
                     }).then((result) => {
                         if (result.isConfirmed) {
+                            console.log("Offer amount: ", result.value);
                             // Use a try-catch block to handle potential errors
-                            try {
-                                // Send offer data to the server using Ajax
-                                $.ajax({
-                                    url: URLROOT + "/Offers/submitOffer/" + CURRENT_AD,
-                                    method: "post",
-                                    data: {
-                                        offer_amount: result.value
-                                    },
-                                    dataType: "text",
-
-                                    success: function(message) {
-                                        Swal.fire({
-                                            title: message,
-                                            icon: 'success',
-                                            confirmButtonText: 'Ok'
-                                        });
-                                    },
-                                    error: function(xhr, status, error) {
-                                        // Handle Ajax errors here
-                                        // console.error(xhr.responseText);
-                                        Swal.fire({
-                                            title: 'Error',
-                                            text: 'An error occurred while submitting your offer.',
-                                            icon: 'error',
-                                            confirmButtonText: 'Ok'
-                                        });
-                                    }
-                                });
-                            } catch (error) {
-                                console.error(error);
+                            if (!result.value) {
                                 Swal.fire({
                                     title: 'Error',
-                                    text: 'An unexpected error occurred.',
+                                    text: 'Please enter an offer amount.',
                                     icon: 'error',
                                     confirmButtonText: 'Ok'
                                 });
+                                return;
+                            } else {
+                                try {
+                                    // Send offer data to the server using Ajax
+                                    $.ajax({
+                                        url: URLROOT + "/Offers/submitOffer/" + CURRENT_AD,
+                                        method: "POST",
+                                        data: {
+                                            offer_amount: result.value
+                                        },
+                                        dataType: "text",
+
+                                        success: function(message) {
+                                            Swal.fire({
+                                                title: message,
+                                                text: 'Your offer has been submitted successfully.',
+                                                icon: 'success',
+                                                confirmButtonText: 'Ok'
+                                            });
+                                        },
+                                        error: function(xhr, status, error) {
+                                            // Handle Ajax errors here
+                                            // console.error(xhr.responseText);
+                                            var err = JSON.parse(xhr.responseText);
+                                            Swal.fire({
+                                                title: 'Error',
+                                                // text: 'An error occurred while submitting your offer.',
+                                                text: err.error,
+                                                icon: 'error',
+                                                confirmButtonText: 'Ok'
+                                            });
+                                        }
+                                    });
+                                } catch (error) {
+                                    console.error(error);
+                                    Swal.fire({
+                                        title: 'Error',
+                                        text: 'An unexpected error occurred.',
+                                        icon: 'error',
+                                        confirmButtonText: 'Ok'
+                                    });
+                                }
                             }
                         }
                     });
