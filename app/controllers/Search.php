@@ -36,6 +36,8 @@ class Search extends Controller {
         // $this->view('components/sidebar', $data);
         $this->view('item_ads/v_index', $data);
     }
+
+    
 }
 ?>
 

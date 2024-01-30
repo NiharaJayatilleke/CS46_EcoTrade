@@ -15,29 +15,29 @@
                     <span class="link_name">All Categories</span>
                 </a>
             </div>
-            <form action="<?php echo URLROOT; ?>/Search/filtersechandAds" method="GET">
+            <!-- <form action="<?php echo URLROOT; ?>/Search/filtersechandAds" method="GET"> -->
             <ul class="sub-menu">
-                <!-- <li><input type="checkbox" id="furnitureCheckbox"><label for="furnitureCheckbox" name="category[]" value="Furniture"><a href="#">Furniture</a></label></li>
-                <li><input type="checkbox" id="electronicsCheckbox"><label for="electronicsCheckbox" name="category[]" value="Electronics"><a href="#">Electronics</a></label></li>
-                <li><input type="checkbox" id="clothingCheckbox"><label for="clothingCheckbox" name="category[]" value="Clothing"><a href="#">Clothing</a></label></li>
-                <li><input type="checkbox" id="booksCheckbox"><label for="booksCheckbox" name="category[]" value="Books"><a href="#">Books</a></label></li>
-                <li><input type="checkbox" id="kitchenwareCheckbox"><label for="kitchenwareCheckbox" name="category[]" value="Kitchenware"><a href="#">Kitchenware</a></label></li>
-                <li><input type="checkbox" id="homedecoCheckbox"><label for="homedecoCheckbox" name="category[]" value="Home Deco"><a href="#">Home Deco</a></label></li>
-                <li><input type="checkbox" id="sportsEquipmentCheckbox"><label for="sportsEquipmentCheckbox" name="category[]" value="Sports Equipment"><a href="#">Sports Equipment</a></label></li>
-                <li><input type="checkbox" id="appliancesCheckbox"><label for="appliancesCheckbox" name="category[]" value="Appliances"><a href="#">Appliances</a></label></li> -->
-                
+                <li><input type="checkbox" id="furnitureCheckbox">Furniture</li>
+                <li><input type="checkbox" id="electronicsCheckbox">Electronics</li>
+                <li><input type="checkbox" id="clothingCheckbox">Clothing</li>
+                <li><input type="checkbox" id="booksCheckbox">Books</li>
+                <li><input type="checkbox" id="kitchenwareCheckbox">Kitchenware</li>
+                <li><input type="checkbox" id="homedecoCheckbox">Home Deco</li>
+                <li><input type="checkbox" id="sportsEquipmentCheckbox">Sports Equipment</li>
+                <li><input type="checkbox" id="appliancesCheckbox">Appliances</li>
+            <!--                 
             <?php
                 $allCategories = ['Furniture', 'Electronics', 'Clothing', 'Books', 'Kitchenware', 'Home Deco', 'Sports Equipment', 'Appliances'];
                 $selectedCategory = '';
                
                 foreach ($allCategories as $category) {
-                    $isChecked = in_array($category, explode(',', $selectedCategory)) ? 'checked' : ''; // Use explode to convert the comma-separated string to an array
+                    $isChecked = in_array($category, explode(',', $selectedCategory)) ? 'checked' : ''; 
                     echo "<li><input type='checkbox' id='{$category}Checkbox' name='category[]' value='{$category}' {$isChecked}><label for='{$category}Checkbox'><a href='#'>{$category}</a></label></li>";
                 }
-            ?>
+            ?> -->
 
             </ul>
-            </form>
+            <!-- </form> -->
         </li>
         <li class="logout-link">
             <a href="<?php echo URLROOT ?>/Users/logout">
@@ -86,5 +86,54 @@
         logoutLink.style.display = "block";
     });
 
+    
+</script>
+
+<script>
+    var categoryList=['furnitureCheckbox', 'electronicsCheckbox', 'clothingCheckbox', 'booksCheckbox', 'kitchenwareCheckbox', 'homedecoCheckbox', 'sportsEquipmentCheckbox', 'appliancesCheckbox']
+    var selectedCategory = [];
+    
+    categoryList.forEach((item) => {
+        var element=document.getElementById(item);
+        if (element) {
+            element.addEventListener('change', function () {
+                toggleContent(item);
+            });
+        }
+    });
+
+        function toggleContent(item) {
+            if (selectedCategory.includes(item)) {
+                selectedCategory = selectedCategory.filter(x => x !== item);
+            }else{
+                selectedCategory.push(item);
+            }
+            console.log(selectedCategory);
+            
+            var all_ads=document.getElementsByClassName('ad-index-container');
+            if(selectedCategory.length<=0){
+                // show all ads
+                for(var i=0;i<all_ads.length;i++) {
+                    var item = all_ads[i];
+                    item.style.display="block";
+                }
+            } else{
+                // hide all ads
+                for(var i=0;i<all_ads.length;i++) {
+                    var item = all_ads[i];
+                    item.style.display="none";
+                }
+                // show relevent ads
+                for(var i=0;i<selectedCategory.length;i++) {
+                    var ads=document.getElementsByClassName(selectedCategory[i]);
+                    console.log(selectedCategory[i]);
+                    for(var j=0;j<ads.length;j++) {
+                        var item = ads[j];
+                        item.style.display="block";
+                    }    
+                }
+            }
+            
+        }
 
 </script>
