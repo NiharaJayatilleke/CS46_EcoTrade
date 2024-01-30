@@ -24,8 +24,9 @@
     <?php if (!empty($data['ads'])) : ?>
     <div class = "ads-container">
         <?php foreach($data['ads'] as $ad): ?>
-            <a href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
+            <a class = "ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
                 <div class = "ad-index-container <?php echo $ad->item_category ?>Checkbox">
+
                     <div class = "ad-header">
                         <div class = "ad-body-image">
                             <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">

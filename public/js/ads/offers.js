@@ -15,77 +15,105 @@ $(document).ready(function() {
 
     if (makeOfferButton) { 
         makeOfferButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        console.log('Offer button clicked');
-        
-            Swal.fire({
-                title: 'Enter your offer',
-                input: 'text',
-                inputPlaceholder: 'Enter your price here',
-                showCancelButton: true,
-                confirmButtonText: 'Submit',
-                preConfirm: (price) => {
-                    if (!price) {
-                        Swal.showValidationMessage('Please enter a price');
-                    }
-                }
-              
-                // title: 'Make an Offer',
-                // html: `
-                //     <p>Buy It Now price: $36.99</p>
-                //     <p>5 offers left • 1 competing offer</p><br>
-                //     <label for="offer-price">Your offer per item</label>
-                //     <input type="number" id="offer-price" class="swal2-input">
-                // `,
-                // preConfirm: () => {
-                //     return [
-                //         document.getElementById('offer-price').value
-                //     ]
-                // },
-              
-                // confirmButtonText: 'Submit',
-                // showLoaderOnConfirm: true,
-                // allowOutsideClick: () => !Swal.isLoading()
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Use a try-catch block to handle potential errors
-                    try {
-                        // Send offer data to the server using Ajax
-                        $.ajax({
-                            url: URLROOT + "/Offers/submitOffer/" + CURRENT_AD,
-                            method: "post",
-                            data: {
-                                offer_amount: result.value
-                            },
-                            dataType: "text",
+            e.preventDefault();
+            console.log('Offer button clicked');
 
-                            success: function(message) {
-                                Swal.fire({
-                                    title: message,
-                                    icon: 'success',
-                                    confirmButtonText: 'Ok'
-                                });
-                            },
-                            error: function(xhr, status, error) {
-                                // Handle Ajax errors here
-                                // console.error(xhr.responseText);
+            $.ajax({
+                url: URLROOT +"/Offers/getOfferDetails/"+ CURRENT_AD,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+
+                    let price = data.binPrice;
+                    let count = data.numOffers;
+            
+                    Swal.fire({
+                        /*
+                        title: 'Enter your offer',
+                        input: 'text',
+                        inputPlaceholder: 'Enter your price here',
+                        showCancelButton: true,
+                        confirmButtonText: 'Submit',
+                        preConfirm: (price) => {
+                            if (!price) {
+                                Swal.showValidationMessage('Please enter a price');
+                            }
+                        }
+                        */
+                    
+                        title: 'Make an Offer',
+                        html: `
+                            <p>Buy It Now price: Rs. ${price}</p>
+                            <p>${count} offers made </p><br>
+                            <label for="offer-price">Your offer per item</label>
+                            <input type="number" id="offer-price" class="swal2-input">
+                        `,
+                        preConfirm: () => {
+                            return [
+                                document.getElementById('offer-price').value
+                            ]
+                        },
+                    
+                        confirmButtonText: 'Submit',
+                        showLoaderOnConfirm: true,
+                        allowOutsideClick: () => !Swal.isLoading()
+
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            console.log("Offer amount: ", result.value);
+                            // Use a try-catch block to handle potential errors
+                            if (!result.value) {
                                 Swal.fire({
                                     title: 'Error',
-                                    text: 'An error occurred while submitting your offer.',
+                                    text: 'Please enter an offer amount.',
                                     icon: 'error',
                                     confirmButtonText: 'Ok'
                                 });
+                                return;
+                            } else {
+                                try {
+                                    // Send offer data to the server using Ajax
+                                    $.ajax({
+                                        url: URLROOT + "/Offers/submitOffer/" + CURRENT_AD,
+                                        method: "POST",
+                                        data: {
+                                            offer_amount: result.value
+                                        },
+                                        dataType: "text",
+
+                                        success: function(message) {
+                                            Swal.fire({
+                                                title: message,
+                                                text: 'Your offer has been submitted successfully.',
+                                                icon: 'success',
+                                                confirmButtonText: 'Ok'
+                                            });
+                                        },
+                                        error: function(xhr, status, error) {
+                                            // Handle Ajax errors here
+                                            // console.error(xhr.responseText);
+                                            var err = JSON.parse(xhr.responseText);
+                                            Swal.fire({
+                                                title: 'Error',
+                                                // text: 'An error occurred while submitting your offer.',
+                                                text: err.error,
+                                                icon: 'error',
+                                                confirmButtonText: 'Ok'
+                                            });
+                                        }
+                                    });
+                                } catch (error) {
+                                    console.error(error);
+                                    Swal.fire({
+                                        title: 'Error',
+                                        text: 'An unexpected error occurred.',
+                                        icon: 'error',
+                                        confirmButtonText: 'Ok'
+                                    });
+                                }
                             }
-                        });
-                    } catch (error) {
-                        console.error(error);
-                        Swal.fire({
-                            title: 'Error',
-                            text: 'An unexpected error occurred.',
-                            icon: 'error',
-                            confirmButtonText: 'Ok'
-                        });
-                    }
+                        }
+                    });
                 }
             });
         });
