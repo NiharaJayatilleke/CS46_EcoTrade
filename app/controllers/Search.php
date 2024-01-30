@@ -20,23 +20,7 @@ class Search extends Controller {
 
         $this->view('item_ads/v_index',  $data);
     }
-    
-    public function filtersechandAds() {
-        // $category = isset($_GET['category']) ? $_GET['category'] : '';
-        // $category = isset($_GET['category']) ? $_GET['category'] : [];
-        $category = isset($_GET['category']) ? implode(',', $_GET['category']) : '';
-
-        $ads = $this->searchModel->filtersechandItems($category);
-
-        $data = [
-            'ads' => $ads,
-            'selectedCategory' => $category, // Add this line to pass the selected category to the view
-        ];
-       
-        // $this->view('components/sidebar', $data);
-        $this->view('item_ads/v_index', $data);
-    }
-
+   
     
 }
 ?>

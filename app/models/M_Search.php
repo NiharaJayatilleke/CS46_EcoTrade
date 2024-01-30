@@ -40,22 +40,6 @@ class M_Search {
         return $ads;
     } 
     
-    public function filtersechandItems( $category){
-        $query = 'SELECT * FROM Item_Ads WHERE status = "active"'; // Assuming status is used to mark active ads
-        
-        if (!empty($category)) {
-            $query .= ' AND item_category = :category';
-        }
-
-        $this->db->query($query);
-
-        if (!empty($category)) {
-            $this->db->bind(':category', $category);
-        }
-        $ads = $this->db->resultSet();
-
-        return $ads;
-    }
     // Add other search methods as needed
 
 }

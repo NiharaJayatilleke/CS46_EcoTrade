@@ -183,7 +183,8 @@
   z-index: 3;
   justify-content: center;
   text-align: center; 
-  border-radius: 0 50% 50% 0;
+  /* border-radius: 0 50% 50% 0; */
+  border-radius:  0 5% 5%  0 ;
 }
 
 .search-button-index:hover {
