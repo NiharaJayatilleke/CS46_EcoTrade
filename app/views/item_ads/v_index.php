@@ -24,7 +24,7 @@
     <?php if (!empty($data['ads'])) : ?>
     <div class = "ads-container">
         <?php foreach($data['ads'] as $ad): ?>
-            <a href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
+            <a class = "ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
                 <div class = "ad-index-container">
                     <div class = "ad-header">
                         <div class = "ad-body-image">

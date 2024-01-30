@@ -114,8 +114,11 @@
         <?php endif; ?>
         
         <!-- HTML for sellers to accept or reject offers -->
-        <div class='offers-list'>
-        <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?>
+        <div class='offers-list'> 
+        <!-- php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?> -->
+            <!-- php $acceptedOffer = array_search('accepted', array_column($data['offers'], 'offer_status')); ?>
+            php var_dump($acceptedOffer); ?> -->
+            <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && empty($data['accepted_offer'])) : ?>
             <h3>Offers</h3>
             <?php foreach ($data['offers'] as $offer) : ?>
                 <div class="offer-details" data-offer-id="<?php echo $offer->offer_id; ?>">

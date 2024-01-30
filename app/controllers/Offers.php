@@ -88,6 +88,19 @@
             }
         }
 
+        public function getOfferDetails($id){
+            $ad = $this->itemAdsModel->getAdById($id); 
+            $binPrice = $ad->item_price;
+            $offers = $this->offersModel->getOffersByAd($id);
+            $numOffers = count($offers);
+
+            $response = array(
+                'binPrice' => $binPrice,
+                'numOffers' => $numOffers
+            );
+        
+            echo json_encode($response);
+        }  
 
     }
 ?>
