@@ -3,8 +3,17 @@
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
     <div class="dashboard-container">
-        <ul>
-            
+        <div class="dashboard-sidenav">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class = "icon"></span>
+                        <span class = "title"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
         
     </div>
 
