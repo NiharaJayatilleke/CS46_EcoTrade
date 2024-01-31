@@ -66,6 +66,10 @@
             //the current time
             $now = new DateTime();
 
+            if ($now > $endTime) {
+                return 'Auction Ended';
+            }
+            
             //the remaining time
             $remainingTime = $endTime->diff($now);
 
