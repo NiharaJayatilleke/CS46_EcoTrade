@@ -4,6 +4,7 @@
             $this->itemAdsModel =$this->model('M_Item_Ads');
             $this->offersModel =$this->model('M_Offers');
             $this->auctionsModel =$this->model('M_Bids');
+            $this->usersModel =$this->model('M_Users');
         }
 
         public function index() {
@@ -22,12 +23,15 @@
             $acceptedOffer = $this->offersModel->getAcceptedOfferByAd($id);
             $bidDetails = $this->auctionsModel->getBiddingDetailsByAd($id);
             $bids = $this->auctionsModel->getBidsByAd($id);
+            $user = $this->usersModel->getUserDetails($ad->seller_id);
+            $number = $user->number;
 
             $startTime = new DateTime($bidDetails->starting_time);
             $duration = $bidDetails->auction_duration;
             $remainingTimeString = $this->auctionsModel->calculateRemainingTime($startTime, $duration);
             
             $data = [
+                'number' => $number,
                 'remaining_time' => $remainingTimeString,
                 'bid_details' => $bidDetails,
                 'bids' => $bids,
@@ -266,19 +270,25 @@
                     'item_name' => trim($_POST['item_name']),
                     'item_category' => trim($_POST['item_category']),
                     'item_desc' => trim($_POST['item_desc']),
+                    'item_condition' => trim($_POST['item_condition']),
                     'item_img' => $_FILES['item_images'],
                     'item_img_name' => time().'_'.$_FILES['item_images']['name'], /**/ 
                     'item_price' => trim($_POST['item_price']),
                     'item_location' => trim($_POST['item_location']),
                     'selling_format' => trim($_POST['selling_format']),
+                    'duration' => trim($_POST['duration']),
+                    'starting_bid' => trim($_POST['starting_bid']),
                     'negotiable' => trim($_POST['negotiable']),
 
                     'item_name_err' => '',
                     'item_category_err' => '',
+                    'item_condition_err' => '',
                     'item_images_err' => '',
                     'item_price_err' => '',
                     'item_location_err' => '',
                     'selling_format_err' => '',
+                    'duration_err' => '',
+                    'starting_bid_err' => '',
                     'negotiable_err' => '',
                 ];
 
@@ -368,19 +378,25 @@
                     'item_name' => $ad->item_name,
                     'item_category' => $ad->item_category,
                     'item_desc' => $ad->item_desc,
+                    'item_condition' => $ad->item_condition,
                     'item_img' => '',
                     'item_img_name' => $ad->item_image,
                     'item_price' => $ad->item_price,
                     'item_location' => $ad->item_location,
                     'selling_format' => $ad->selling_format,
+                    'duration' => $ad->auction_duration,
+                    'starting_bid' => $ad->starting_bid,
                     'negotiable' => $ad->negotiable,
 
                     'item_name_err' => '',
                     'item_category_err' => '',
+                    'item_condition_err' => '',
                     'item_images_err' => '',
                     'item_price_err' => '',
                     'item_location_err' => '',
                     'selling_format_err' => '',
+                    'duration_err' => '',
+                    'starting_bid_err' => '',
                     'negotiable_err' => '',
                 ];
 

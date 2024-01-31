@@ -16,5 +16,13 @@
             echo json_encode($notifications);
         }
 
+        public function markAsSeen($id) {
+            if($_SERVER['REQUEST_METHOD']=='POST'){
+                $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+                $notificationId = $_POST['notif_id'];
+                $this->notificationsModel->markAsSeen($notificationId);
+            }
+        }
+
     }
 ?>

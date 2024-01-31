@@ -89,8 +89,9 @@
             <!-- <img class="sad-b3-i" src="<?php echo URLROOT?>/public/img/prodetails/tel.png" alt="telephone"> -->
             <i class="fas fa-phone fa-lg"></i>
             <div class="sad-b3-p">
-            <!-- <button id="show-number" class="number" data-number="<?php echo $data['ad']->number?>"> Click to show phone number</button> -->
-            <button id="show-number" class="sad-number" data-number="0771717368"> Contact Seller</button>
+            <!-- <button id="show-number" class="number" data-number="php echo $data['ad']->number?>"> Click to show phone number</button> -->
+            <button id="show-number" class="sad-number" data-number="<?php echo $data['number']?>"> Contact Seller</button>
+            <script>console.log(document.querySelector('#show-number').dataset.number);</script>
             </div>
         </div>
         

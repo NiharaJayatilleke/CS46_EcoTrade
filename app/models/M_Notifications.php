@@ -22,7 +22,7 @@
         }
 
         public function getNotificationsByUser($id){
-            $this->db->query('SELECT * FROM Notifications WHERE user_id = :user_id');
+            $this->db->query('SELECT * FROM Notifications WHERE user_id = :user_id ORDER BY notif_id DESC');
             $this->db->bind(':user_id', $id);
             $results = $this->db->resultSet();
             return $results;
