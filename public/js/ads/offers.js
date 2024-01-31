@@ -203,8 +203,8 @@ $(document).ready(function() {
             }
         }
 
-        var offerId = $(this).parent().data('offer-id');
-        var offerDiv = $(this).parent();
+        var offerId = $(this).parent().parent().data('offer-id');
+        var offerDiv = $(this).parent().parent();
     
         /*
         $.ajax({

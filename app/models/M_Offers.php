@@ -49,6 +49,7 @@
         }
 
         public function updateOfferStatus($offerId, $status){
+            var_dump($offerId, $status);
             $this->db->query('UPDATE Offers SET offer_status = :offer_status WHERE offer_id = :offer_id');
             $this->db->bind(':offer_status',$status);
             $this->db->bind(':offer_id',$offerId);
