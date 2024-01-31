@@ -34,7 +34,7 @@
                 
             $data = [
                 'number' => $number,
-                'remaining_time' => $remainingTimeString,
+                'remaining_time' => $remainingTimeString ?? null,
                 'bid_details' => $bidDetails,
                 'bids' => $bids,
                 'ad' => $ad,
