@@ -123,6 +123,11 @@
     margin-left: 2%;
 }
 
+.sad-condition {
+    margin-top: 4%;
+    margin-left: 2%;
+}
+
 .sad-description {
     padding-top: 2%;
     margin-left: 3%;
@@ -209,6 +214,22 @@
     border-bottom:1px solid #bdbdbd;
     /* background-color: #e3e3e33f; */
     padding: 1%;
+}
+
+.sad-b3 .sad-number {
+    background: none; 
+    border: none; 
+    font-size: 1em; 
+    cursor: pointer;
+    /* padding: 10px;  */
+    /* text-decoration: underline;  */
+}
+
+.sad-b3 .sad-number:hover {
+    text-decoration: none;
+    color: #397f2b;
+    transform: scale(1.1); 
+    transition: transform 0.3s ease; 
 }
 
 .sad-b3 img {

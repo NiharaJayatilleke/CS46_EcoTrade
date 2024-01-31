@@ -6,19 +6,30 @@
     background-color: white;
 }
 
+.offer-title{
+    margin-left: 20px;
+}
+
 .offer-details {
     border: 1px solid #ccc;
     /* background-color: #f3eded; */
     border-radius: 8px;
     margin: 10px;
     padding: 10px;
-    width: 150px;
+    width: 200px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .offer-message {
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+.offer-details .offer-buttons {
+    display: flex;
+    gap: 10px;
 }
 
 .accept-offer, .reject-offer {
@@ -49,6 +60,7 @@
 
 /* BIDS */
 
+/*
 .bid-info {
     text-align: center;
     margin-bottom: 20px;
@@ -68,4 +80,45 @@
 
 .bid-list-item {
     margin-bottom: 10px;
+}
+*/
+.bid-info {
+    /* background-color: rgb(125, 183, 127);
+    color: white; */
+    padding: 20px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.bid-info h3 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.bid-info p {
+    margin: 5px 0;
+}
+
+.bid-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.bid-list {
+    list-style-type: none;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.bid-list-item {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.bid-list-item:nth-child(even) {
+    background-color: #8BC34A; /* Lighter green */
 }

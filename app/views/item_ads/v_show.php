@@ -27,9 +27,14 @@
             <div class="sad-desMain">
                 <div class="sad-heading">
                     <div class = "sad-price"><h1>Rs. <?php echo $data['ad']->item_price ?></h1></div>
-                    <p>Negotiable</p>
-                    <p>Condition: Brand New</p>
+                    <?php if ($data['ad']->negotiable == "yes") : ?>
+                        <p>Negotiable</p>
+                    <?php else : ?>
+                        <p>Non-Negotiable</p>
+                    <?php endif; ?>
+                    <div class = "sad-condition">Condition: <?php echo $data['ad']->item_condition ?></div>
                     <p>Quantity: 1</p>
+                    <br>
                 </div>
 
                 <div class="sad-description">
@@ -86,7 +91,7 @@
         </div>
 
         <div class="sad-b3">
-            <!-- <img class="sad-b3-i" src="<?php echo URLROOT?>/public/img/prodetails/tel.png" alt="telephone"> -->
+            <!-- <img class="sad-b3-i" src="<php echo URLROOT?>/public/img/prodetails/tel.png" alt="telephone"> -->
             <i class="fas fa-phone fa-lg"></i>
             <div class="sad-b3-p">
             <!-- <button id="show-number" class="number" data-number="php echo $data['ad']->number?>"> Click to show phone number</button> -->
@@ -119,32 +124,37 @@
         <div class='offers-list'> 
         <!-- php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?> -->
             <!-- php $acceptedOffer = array_search('accepted', array_column($data['offers'], 'offer_status')); ?>  -->
-            <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && empty($data['accepted_offer'])) : ?>
-            <h3>Offers</h3>
+            <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && empty($data['accepted_offer']) && $data['ad']->negotiable == "yes") : ?>
+            <div class="offer-title"><h3>Offers</h3></div>
             <?php foreach ($data['offers'] as $offer) : ?>
                 <div class="offer-details" data-offer-id="<?php echo $offer->offer_id; ?>">
                     <p class="offer-message">New Offer: Rs.<?php echo $offer->offer_amount; ?></p>
+                    <div class="offer-buttons">
                     <button class="accept-offer">Accept</button>
                     <button class="reject-offer">Reject</button>
+                    </div>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
         </div>
 
         <!-- HTML for displaying the bids -->
-        <div class="bid-info">
-            <h2>Bidding Overview</h2>
+        <?php if ($data['ad']->selling_format == 'auction') : ?>
+        <div class="bid-info"><br>
+            <h3>Bidding Overview</h3><br>
             <p>Time Remaining: <span id="timeRemaining"><?php echo $data['remaining_time'];?> </span></p>
             <div class="bid-stats">
                 <p>Number of Bids: <span id="numBids">15</span></p>
-                <p>Average Bid Value: $<span id="avgBidValue">150</span></p>
+                <p>Average Bid Value: Rs. <span id="avgBidValue">3500</span></p>
             </div>
         </div>
-
+        <?php endif; ?>
+        
         <!-- <h3>Bid Details</h3> -->
         <ul class="bid-list">
             <?php foreach ($data['bids'] as $bid) : ?>
-                <li class="bid-list-item">Bidder: <?php echo $bid['user_id']; ?> | Bid Value: $<?php echo $bid['bid_amount']; ?></li>
+                <!-- <php var_dump($bid); ?> -->
+                <li class="bid-list-item">Bidder: <?php echo $bid->user_id; ?> | Bid Value: Rs. <?php echo $bid->bid_amount; ?></li>
             <?php endforeach; ?>
         </ul>
             
