@@ -4,6 +4,7 @@
             $this->itemAdsModel =$this->model('M_Item_Ads');
             $this->offersModel =$this->model('M_Offers');
             $this->auctionsModel =$this->model('M_Bids');
+            $this->usersModel =$this->model('M_Users');
         }
 
         public function index() {
@@ -22,12 +23,15 @@
             $acceptedOffer = $this->offersModel->getAcceptedOfferByAd($id);
             $bidDetails = $this->auctionsModel->getBiddingDetailsByAd($id);
             $bids = $this->auctionsModel->getBidsByAd($id);
+            $user = $this->usersModel->getUserDetails($ad->seller_id);
+            $number = $user->number;
 
             $startTime = new DateTime($bidDetails->starting_time);
             $duration = $bidDetails->auction_duration;
             $remainingTimeString = $this->auctionsModel->calculateRemainingTime($startTime, $duration);
             
             $data = [
+                'number' => $number,
                 'remaining_time' => $remainingTimeString,
                 'bid_details' => $bidDetails,
                 'bids' => $bids,

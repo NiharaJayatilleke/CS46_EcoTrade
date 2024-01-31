@@ -68,7 +68,7 @@
 
         <div class="rowsechome">
           <div class="col-2">
-            <h1>Give Your Workout<br />A New Style!</h1>
+            <h1>The go-to for <br />secondhand essentials!</h1>
             <p>
               Success isn't always about greatness. It's about consistency.
               Consistent<br />
