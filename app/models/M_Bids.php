@@ -58,8 +58,10 @@
         public function calculateRemainingTime($startTime, $duration){
 
             //the end time
+            if (isset($duration) && is_numeric($duration)) {
             $endTime = clone $startTime;
             $endTime->modify("+$duration days");
+            }
 
             //the current time
             $now = new DateTime();

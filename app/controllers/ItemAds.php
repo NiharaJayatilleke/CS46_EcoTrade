@@ -26,10 +26,12 @@
             $user = $this->usersModel->getUserDetails($ad->seller_id);
             $number = $user->number;
 
-            $startTime = new DateTime($bidDetails->starting_time);
-            $duration = $bidDetails->auction_duration;
-            $remainingTimeString = $this->auctionsModel->calculateRemainingTime($startTime, $duration);
-            
+            if (isset($bidDetails->starting_time) && isset($bidDetails->auction_duration)) {
+                $startTime = new DateTime($bidDetails->starting_time);
+                $duration = $bidDetails->auction_duration;
+                $remainingTimeString = $this->auctionsModel->calculateRemainingTime($startTime, $duration);
+            }
+                
             $data = [
                 'number' => $number,
                 'remaining_time' => $remainingTimeString,

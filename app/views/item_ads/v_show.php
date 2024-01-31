@@ -108,7 +108,7 @@
         </div>
 
         <!-- HTML for displaying the accepted offer price -->
-        <?php if ($data['accepted_offer']->offer_status == 'accepted') : ?>
+        <?php if (isset($data['accepted_offer']->offer_status) == 'accepted') : ?>
             <br><div class="accepted-offer">
                 <p class="accepted-offer-message">The seller is willing to accept an offer of Rs.<span id="accepted-offer-price"><?php echo $data['accepted_offer']->offer_amount; ?></span></p>
                 <!-- <p class="accepted-offer-message">The seller is willing to accept an offer of Rs.<span id="accepted-offer-price"></span></p> -->
