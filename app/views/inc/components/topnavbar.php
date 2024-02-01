@@ -1,7 +1,7 @@
 
 <?php require APPROOT . '/views/inc/components/sidebar.php';?><div class="topnav">
-
-<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/topnavbar_styles.css">
+<!-- <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/topnavbar_styles.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <div class="items">
     <div class="item logo">
       <a href="<?php echo URLROOT ?>/Pages/index">
@@ -56,7 +56,13 @@
       <!-- <div class="item"><a href="<?php echo URLROOT ?>/Wishlist/index">Saved Ads</a></div> -->
       <div class="item">
       <a href="<?php echo URLROOT ?>/Wishlist/index"> 
+      
        <img src="<?php echo URLROOT?>/public/img/index/wishlisticon.png" alt="wishlist" class="wishlistitem">
+       <a href="" class="circlewishlist">
+       <i class="fa-solid fa-circle" style="color: #ff0000"></i>
+       <span class="wishlist-count"><?php echo 25; ?></span>
+       <!-- <span class="wishlist-count"><?php echo $numberOfFavoriteAds; ?></span> -->
+       </a>
       </a>
      </div>
 

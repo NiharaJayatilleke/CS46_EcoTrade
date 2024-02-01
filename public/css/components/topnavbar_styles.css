@@ -139,6 +139,19 @@
   filter: brightness(0) invert(1);
 }
 
+.circlewishlist{
+  /* color: #ff0000!important; */
+  position:relative;
+  left:-16px;
+}
+
+.wishlist-count {
+   font-size: 10px;
+    color: #fff;
+    position:relative;
+    left:-14px;
+}
+
 /* SEARCHBAR */
 .search-container-index {
   /* position: absolute; */
