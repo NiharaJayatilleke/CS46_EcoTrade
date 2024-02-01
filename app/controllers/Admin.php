@@ -13,13 +13,13 @@
 
             $data = ['moderators' => $moderators];
 
-            $this->view('admin/v_dashboard', $data);
+            $this->view('admin/dashboard', $data);
         }
 
-        public function dashboard(){
-            $data = [];
-            $this->view('admin/v_dashboard',$data);
-        }
+        // public function dashboard(){
+        //     $data = [];
+        //     $this->view('admin/v_dashboard',$data);
+        // }
 
 
         public function login(){
