@@ -1,3 +1,12 @@
+let toggle = document.querySelector('.dashboard-toggle');
+let sidenav = document.querySelector('.dashboard-sidenav');
+let main = document.querySelector('.dashboard-main');
+
+toggle.onclick = function(){
+    sidenav.classList.toggle('active');
+    main.classList.toggle('active');
+}
+
 let list = document. querySelectorAll('.dashboard-sidenav li');
 function activeLink(){
     list. forEach((item) =>
