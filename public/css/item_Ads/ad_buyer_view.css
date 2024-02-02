@@ -182,6 +182,10 @@
     margin-left: 5%;
 }
 
+.sad-b1 i.clicked {
+   color: red; /* Change this to the desired color when clicked */
+}
+
 /* RIGHT CONTAINER */
 .sad-right-container {
     width: 30%;
