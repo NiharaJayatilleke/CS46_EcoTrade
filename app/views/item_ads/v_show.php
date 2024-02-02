@@ -61,7 +61,7 @@
                     <i class="fas fa-flag"></i>
                     <p>Report This Ad</p>
                 </button>
-                <button class="sad-b1">
+                <button class="sad-b1" id="saveAdBtn">
                 <a href="<?php echo URLROOT; ?>/Wishlist/addToWishlist/<?php echo $data['ad']->ad_id; ?>">
                     <!-- <img src="<?php echo URLROOT; ?>/public/img/prodetails/save.png" alt="report"> -->
                     <i class="fas fa-heart" ></i>
@@ -209,6 +209,34 @@
 
 <!-- JS for other interactions -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>
+
+<script>
+    document.getElementById('saveAdBtn').addEventListener('click', function() {
+        // this.classList.toggle('clicked');
+        event.preventDefault(); // Prevent the default behavior of the anchor tag
+        var heartIcon = this.querySelector('i');
+        heartIcon.classList.toggle('clicked');
+        console.log('Heart icon clicked');
+
+        // Get the ad_id from the button's data attribute
+        var adId = <?php echo $data['ad']->ad_id; ?>;
+
+        // Send an AJAX request to the server
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '<?php echo URLROOT; ?>/Wishlist/addToWishlist/' + adId, true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Handle the response from the server if needed
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send();
+
+        console.log('Heart icon clicked');
+    });
+</script>
+
 
 <?php require APPROOT.'/views/inc/components/footer.php'; ?>
 

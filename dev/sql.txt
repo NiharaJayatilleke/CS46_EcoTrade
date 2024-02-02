@@ -132,6 +132,7 @@ CREATE TABLE Wishlist(
     PRIMARY KEY(w_id),
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
     FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
+    UNIQUE KEY unique_wishlist (user_id, ad_id)
 );
 
 
@@ -173,4 +174,5 @@ CREATE TABLE Bids(
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
     FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
+
 
