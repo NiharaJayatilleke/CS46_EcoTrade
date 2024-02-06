@@ -353,7 +353,7 @@
         public function index(){
             $data = [];
             //load view
-            $this->view('moderators/v_index', $data);
+            $this->view('admin/moderators', $data);
 
         }
 
