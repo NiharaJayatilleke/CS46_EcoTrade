@@ -6,6 +6,10 @@
     --black2: #636e72;
 }
 
+body{
+    overflow-x:hidden;
+}
+
 .dashboard-container{
     position: relative;
     width: 100%;
@@ -13,9 +17,9 @@
 
 .dashboard-sidenav{
     position: fixed;
-    top: 0; 
-    bottom: 0; 
-    width: 200px;
+    /* top: 0; 
+    bottom: 0;  */
+    width: 180px;
     height: 100%;
     background-color: var(--green);
     border-left: 10px solid var(--green);
@@ -24,13 +28,15 @@
 }
 
 .dashboard-sidenav.active{
-    width: 60px;
+    width: 70px;
 }
 
 .dashboard-sidenav ul{
     position: absolute;
-    left: -40px;
+    top: 0;
+    left: 0;
     width: 100%;
+    padding: 0;
 }
 
 .dashboard-sidenav ul li{
@@ -47,7 +53,7 @@
 }
 
 .dashboard-sidenav ul li:nth-child(1){
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     /* margin-left: -13.5px; */
     pointer-events: none;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -74,12 +80,12 @@
     display: block;
     min-width: 60px;
     height: 60px; 
-    line-height: 71px;
+    line-height: 70px;
     text-align: center;
 }
 
 .dashboard-sidenav ul li a .side-icon ion-icon{
-    font-size: 1.5em;
+    font-size: 1.75em;
 }
 
 .dashboard-sidenav ul li a .side-title{
@@ -87,6 +93,7 @@
     display: block;
     padding: 0 10px;
     line-height: 60px;
+    height: 60px;
     text-align: start;
     white-space: nowrap;
 }
@@ -100,7 +107,7 @@
     width: 50px;
     height: 50px;
     background: transparent;
-    border-radius: 30%;
+    border-radius: 50%;
     box-shadow: 35px 35px 0 10px var(--white);
     pointer-events: none;
 }
@@ -114,51 +121,50 @@
     width: 50px;
     height: 50px;
     background: transparent;
-    border-radius: 30%;
-    box-shadow: 40px -35px 0 10px var(--white);
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
     pointer-events: none;
 }
 
 .dashboard-main{
     position: absolute;
-    width: calc(100% - 600px);
-    left: 220px;
+    width: calc(100% - 300px);
+    left: 200px;
     min-height: 100vh;
     background: var(--white);
     transition: .5s;
 }
 
 .dashboard-main.active{
-    width: calc(100% - 600px);
+    width: calc(100% - 120px);
     left: 80px;
 }
 
 .dashboard-topbar{
     width: 100%;
-    height: 60px;
+    height: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center; 
-    padding: 5px 10px;
+    padding: 30px;
 }
 
 .dashboard-toggle{
     position: relative;
-    top:14px;
+    top:0;
     width: 60px;
     height: 60px;
     background: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2em;
+    font-size: 2.5em;
     cursor: pointer;
 }
 
 .dashboard-search{
     position: relative;
-    width: 300px;
+    width: 400px;
     margin: 0 10px;
-    left: center;
 }
 
 .dashboard-search label{
@@ -169,7 +175,7 @@
 .dashboard-search label input{
     position: relative;
     width: 100%;
-    height: 20px;
+    height: 40px;
     border-radius: 40px;
     padding: 5px 20px;
     padding-left: 35px;
@@ -185,6 +191,23 @@
     font-size: 1.2em;
 }
 
+.dashboard-user {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.dashboard-user img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .first-li {
     margin-top: -10px; 
     margin-left: 0;
@@ -199,7 +222,7 @@
     width: 100%;
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(4,1fr);
     grid-gap: 30px;
 }
 
@@ -223,15 +246,17 @@
 
 .dashboard-cardBox .dashboard-card .dashboard-cardName{
     position: relative;
-    font-size: 1em;
+    font-size: 1.1em;
     color: var(--black2);
     margin-top: 5px;
 
 }
 
 .dashboard-cardBox .dashboard-card .dashboard-iconBx{
-    font-size: 3em;
+    font-size: 2.5em;
     color: var(--black2);
+    /* position: relative;
+    right: -20px; */
 }
 
 .dashboard-cardBox .dashboard-card:hover{
@@ -244,5 +269,250 @@
     color: var(--white);
 }
 
+.details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    /* margin-top: 10px; */
+}
+
+.details .recentOrders {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardHeader h2 {
+    font-weight: 600;
+    color: var(--green);
+}
+
+.btn {
+    position: relative;
+    padding:  10px;
+    top: 10px;
+    background: var(--green);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+
+.details table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+.details table thead td {
+        font-weight: 600;
+    }
 
 
+.details .recentOrders table tr {
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.details .recentOrders table tr:last-child {
+    border-bottom: none;
+}
+
+.details .recentOrders table tbody tr:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+.details .recentOrders table tr td {
+    padding: 15px;
+}
+
+.details .recentOrders table tr td:last-child {
+    text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(2) {
+    text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(3) {
+    text-align: center;
+}
+
+.status.delivered {
+    padding: 2px 4px;
+    background: #8de02c;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.status.pending {
+    padding: 2px 4px;
+    background: #f9ca3f;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.status.return {
+    padding: 2px 4px;
+    background: #f00;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12x;
+    font-weight: 300;
+}
+
+.status.inprogress {
+    padding: 2px 4px;
+    background: #1795ce;;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.recentCustomers {
+    position: relative;
+    display: grid;
+    /* width: 100%; */
+    min-height: 500px;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+}
+
+.recentCustomers .imgBx {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.recentCustomers .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recentCustomers table tr:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+.recentCustomers table tr td {
+    padding: 0px 10px;
+}
+
+.recentCustomers table tr td h4 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2em;
+}
+
+.recentCustomers table tr td h4 span {
+    font-size: 14px;
+    color: var(--black2);
+}
+
+.recentCustomers table tr:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+.recentCustomers table tr:hover td h4 span {
+    color: var(--white);
+}
+
+@media (max-width: 991px) {
+    .dashboard-sidenav {
+        left: -300px;
+    }
+
+    .dashboard-sidenav.active {
+        width: 300px;
+        left: 0;
+    }
+
+    .dashboard-main {
+        width: 100%;
+        left: 0;
+    }
+
+    .dashboard-main.active {
+        left: 300px;
+    }
+    .dashboard-cardBox {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .details {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .recentOrders {
+        overflow-x: auto;
+    }
+
+    .status.inprogress {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-cardBox {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .cardHeader h2 {
+        font-size: 20px;
+    }
+
+    .dashboard-user {
+        min-width: 40px;
+    }
+
+    .dashboard-sidenav {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+
+    .dashboard-sidenav.active {
+        width: 100%;
+        left: 0;
+    }
+
+    .dashboard-toggle{
+        z-index: 10001;
+    }
+
+    .dashboard-main.active .dashboard-toggle{
+        position: fixed;
+        right: 0;
+        left: initial;
+        color: var(--white);
+    }
+}
