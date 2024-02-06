@@ -128,7 +128,8 @@ body{
 
 .dashboard-main{
     position: absolute;
-    width: calc(100% - 300px);
+    /* width: calc(100% - 300px); */
+    width: calc(100% - 260px);
     left: 200px;
     min-height: 100vh;
     background: var(--white);
@@ -136,8 +137,8 @@ body{
 }
 
 .dashboard-main.active{
-    width: calc(100% - 120px);
-    left: 80px;
+    width: calc(100% - 150px);
+    left: 90px;
 }
 
 .dashboard-topbar{
@@ -267,6 +268,26 @@ body{
 .dashboard-cardBox .dashboard-card:hover .dashboard-cardName,
 .dashboard-cardBox .dashboard-card:hover .dashboard-iconBx{
     color: var(--white);
+}
+
+.graphBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 35px;
+    min-height: 200px;
+}
+
+.graphBox .box {
+    position: relative;
+    background: #fff;
+    /* padding: 20px; */
+    /* margin-right: 20px; */
+    width: 100%;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
 }
 
 .details {
@@ -445,6 +466,11 @@ body{
 }
 
 @media (max-width: 991px) {
+    .graphBox {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
     .dashboard-sidenav {
         left: -300px;
     }

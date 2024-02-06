@@ -115,7 +115,7 @@
                         </div>
                     </div> -->
 
-                    <!-- <div class="dashboard-card">
+                    <div class="dashboard-card">
                         <div>
                             <div class="dashboard-numbers">80</div> 
                             <div class="dashboard-cardName">Comments</div>
@@ -123,17 +123,15 @@
                         <div class="dashboard-iconBx"> 
                             <ion-icon name="chatbubbles-outline"></ion-icon>     
                         </div>
-                    </div> -->
+                    </div>
+                </div>
 
-                    <div class="dashboard-card">
-                        <div>
-                            <div class="dashboard-numbers">1504</div> 
-                            <div class="dashboard-cardName">Users</div>
-                        </div>
-                        <div class="dashboard-iconBx"> 
-                            <ion-icon name="people-outline"></ion-icon>     
-                        </div>
-                        
+                <div class="graphBox">
+                    <div class="box">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="box">
+                        <canvas id="ads"></canvas>
                     </div>
                 </div>
 
@@ -321,9 +319,8 @@
 
 
     <!-- Javascript for image upload -->
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>
 
