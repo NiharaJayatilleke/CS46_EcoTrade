@@ -98,7 +98,7 @@
                 Cash for Your <span>Plastics!</span> Sell Now!
             </h3>
             <p class="rec-card-hover__text">Turn your plastic waste into money today! Click "Sell Now" and make a difference.</p>
-            <a href ="<?php echo URLROOT ?>/ItemAds/itemType" class="rec-card-hover__link">
+            <a href ="<?php echo URLROOT ?>/RecycleItemAds/recycleItemAd" class="rec-card-hover__link">
                 <span>Sell Now</span>
                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
