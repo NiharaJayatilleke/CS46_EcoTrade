@@ -153,14 +153,20 @@
         
         <!-- <h3>Bid Details</h3> -->
         <div ul class="bid-list">
-            <?php foreach ($data['bids'] as $bid) : ?>
+            <h3>Top 3 Bids</h3>
+            <?php $count = 0;
+            foreach ($data['bids'] as $bid) : 
+                if ($count == 3) break;
+            ?>
                 <!-- <php var_dump($bid); ?> -->
-                <li class="bid-list-item">Bidder: <?php echo $bid->username; ?> 
+                <li class="bid-list-item" id="bid-<?php echo $bid->bid_id; ?>"> Bidder: <?php echo $bid->username; ?> 
                 <a href="#" onclick="notifyBidder('<?php echo $bid->username; ?>')"><i class="fas fa-envelope"></i></a> | 
                 Bid Value: Rs. <?php echo $bid->bid_amount; ?>
                 <!-- <a href="#" onclick="return confirm('Are you sure you want to delete this bid? You won\'t be able to view it again once deleted.')"><i class="fas fa-trash"></i></a></li> -->
-                <a href="#" id="delete-button" data-bid-id="<?php echo $bid->bid_id; ?>"><i class="fas fa-trash"></i></a></li>
-            <?php endforeach; ?>
+                <a href="#" id="delete-button" class="delete-button" data-bid-id="<?php echo $bid->bid_id; ?>"><i class="fas fa-trash"></i></a></li>
+            <?php 
+                $count++;
+            endforeach; ?>
         </ul>
         </div>   
     </div>
