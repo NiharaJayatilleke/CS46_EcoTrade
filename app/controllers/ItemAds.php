@@ -23,8 +23,8 @@
             $acceptedOffer = $this->offersModel->getAcceptedOfferByAd($id);
             $bidDetails = $this->auctionsModel->getBiddingDetailsByAd($id);
             $bids = $this->auctionsModel->getBidsByAd($id);
-            $user = $this->usersModel->getUserDetails($ad->seller_id);
-            $number = $user->number;
+            $seller = $this->usersModel->getUserDetails($ad->seller_id);
+            $number = $seller->number;
 
             if (isset($bidDetails->starting_time) && isset($bidDetails->auction_duration)) {
                 $startTime = new DateTime($bidDetails->starting_time);

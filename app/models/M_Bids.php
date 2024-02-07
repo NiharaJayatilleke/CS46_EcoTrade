@@ -28,7 +28,8 @@
         }
 
         public function getBidsByAd($id){ 
-            $this->db->query('SELECT * FROM Bids WHERE ad_id = :ad_id');
+            // $this->db->query('SELECT * FROM Bids WHERE ad_id = :ad_id ORDER BY bid_amount DESC');
+            $this->db->query('SELECT Bids.*, General_User.username FROM Bids INNER JOIN General_User ON Bids.user_id = General_User.id WHERE ad_id = :ad_id ORDER BY bid_amount DESC');
             $this->db->bind(':ad_id',$id);
             $results = $this->db->resultSet();
             return $results;
@@ -47,6 +48,17 @@
             $this->db->bind(':user_id',$_SESSION['user_id']);
             $this->db->bind(':bid_amount',$bidAmount);
 
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function deleteBid($bidId){
+            $this->db->query('DELETE FROM Bids WHERE id = :id');
+            $this->db->bind(':id',$bidId);
             if($this->db->execute()){
                 return true;
             }

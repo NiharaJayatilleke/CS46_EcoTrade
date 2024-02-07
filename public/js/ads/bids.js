@@ -98,4 +98,67 @@ if (placeBidButton) {
     }
 }
 
+function notifyBidder(username) {
+    Swal.fire({
+        title: 'Enter your message for ' + username,
+        input: 'text',
+        inputPlaceholder: 'Your message',
+        showCancelButton: true,
+        inputValidator: (value) => {
+        if (!value) {
+            return 'You need to write something!'
+        }
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+        $.ajax({
+            url: 'send_message.php',  // replace with your server-side script URL
+            type: 'POST',
+            data: {
+                'username': username,
+                'message': result.value
+            },
+            success: function(data) {
+                Swal.fire('Success', 'Message sent successfully', 'success');
+            },
+            error: function() {
+                Swal.fire('Error', 'Failed to send message', 'error');
+            }
+        });
+        }
+    })
+}
+
+document.getElementById('delete-button').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    var bidId = this.dataset.bidId;  // assuming the bid id is stored in a data attribute
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to view this bid again once deleted.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: URLROOT +"/Bids/deleteBid/"+ bidId, 
+                type: 'POST',
+                data: {
+                    'bidId': bidId
+                },
+                success: function(data) {
+                    // remove the bid from the HTML
+                    document.getElementById('bid-' + bidId).remove();
+                },
+                error: function() {
+                    Swal.fire('Error', 'Failed to delete bid', 'error');
+                }
+            });
+        }
+    })
+});
 
