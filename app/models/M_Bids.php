@@ -57,7 +57,7 @@
         }
 
         public function deleteBid($bidId){
-            $this->db->query('DELETE FROM Bids WHERE id = :id');
+            $this->db->query('DELETE FROM Bids WHERE bid_id = :id');
             $this->db->bind(':id',$bidId);
             if($this->db->execute()){
                 return true;

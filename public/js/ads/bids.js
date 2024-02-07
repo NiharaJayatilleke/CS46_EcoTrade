@@ -129,7 +129,9 @@ function notifyBidder(username) {
     })
 }
 
-document.getElementById('delete-button').addEventListener('click', function(e) {
+// document.getElementById('delete-button').addEventListener('click', function(e) {
+document.querySelectorAll('.delete-button').forEach(function(button) {
+    button.addEventListener('click', function(e) {
     e.preventDefault();
 
     var bidId = this.dataset.bidId;  // assuming the bid id is stored in a data attribute
@@ -160,5 +162,6 @@ document.getElementById('delete-button').addEventListener('click', function(e) {
             });
         }
     })
+    });
 });
 
