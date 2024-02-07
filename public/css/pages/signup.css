@@ -19,7 +19,7 @@ body{
 
 .background {
     width: 100%; 
-    height: 100vh ; 
+    height:calc(100vh - 60px) ; 
     /* margin: -10px;  */
     background: url('../../img/signup/register2.jpg') no-repeat;
     background-position: center;
@@ -210,9 +210,13 @@ body{
     justify-content: space-between;
 }
 
+.terms-forgot label{
+    z-index:5;
+    cursor:pointer;
+}
 .terms-forgot a{
     color: #e4e4e4;
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 
 .terms-forgot a:hover{
