@@ -112,13 +112,32 @@
 }
 
 .bid-list-item {
+    display: flex;
+    align-items: center;
     background-color: #4CAF50; /* Green */
     color: white;
     padding: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
     margin-bottom: 10px;
     border-radius: 5px;
 }
 
 .bid-list-item:nth-child(even) {
     background-color: #8BC34A; /* Lighter green */
+}
+
+.bid-list-item .fas {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #0c370e;
+    cursor: pointer;
+}
+
+.bid-list-item .fa-envelope:hover {
+    color: #007bff;
+}
+
+.bid-list-item .fa-trash:hover {
+    color: #dc3545;
 }

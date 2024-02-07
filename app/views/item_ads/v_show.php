@@ -1,7 +1,8 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
-<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_prodetails.css">
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/v_buyer_view.css">
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/seller_only_styles.css">
 
 <div class="sad-main-container1">
     <div class="sad-main2"></div>
@@ -151,13 +152,17 @@
         <?php endif; ?>
         
         <!-- <h3>Bid Details</h3> -->
-        <ul class="bid-list">
+        <div ul class="bid-list">
             <?php foreach ($data['bids'] as $bid) : ?>
                 <!-- <php var_dump($bid); ?> -->
-                <li class="bid-list-item">Bidder: <?php echo $bid->user_id; ?> | Bid Value: Rs. <?php echo $bid->bid_amount; ?></li>
+                <li class="bid-list-item">Bidder: <?php echo $bid->username; ?> 
+                <a href="#" onclick="notifyBidder('<?php echo $bid->username; ?>')"><i class="fas fa-envelope"></i></a> | 
+                Bid Value: Rs. <?php echo $bid->bid_amount; ?>
+                <!-- <a href="#" onclick="return confirm('Are you sure you want to delete this bid? You won\'t be able to view it again once deleted.')"><i class="fas fa-trash"></i></a></li> -->
+                <a href="#" id="delete-button" data-bid-id="<?php echo $bid->bid_id; ?>"><i class="fas fa-trash"></i></a></li>
             <?php endforeach; ?>
         </ul>
-            
+        </div>   
     </div>
 </div>
 

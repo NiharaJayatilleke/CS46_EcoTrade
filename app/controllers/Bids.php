@@ -45,5 +45,21 @@
             $bid_amount = $_POST['bidAmount'];
             $this->auctionsModel->addBid($adId, $bid_amount);
         }
+
+        public function deleteBid($bidId){
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $bidId = $_POST['bidId'];
+                if ($this->auctionsModel->deleteBid($bidId)) {
+                    http_response_code(200);
+                    echo json_encode(['status' => 'success']);
+                } else {
+                    http_response_code(500);
+                    echo json_encode(['status' => 'error']);
+                }
+            } else {
+                http_response_code(405);
+                echo json_encode(['status' => 'error', 'message' => 'Method not allowed']);
+            }
+        }
     }
 ?>
