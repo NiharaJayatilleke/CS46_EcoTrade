@@ -189,3 +189,115 @@ document.querySelectorAll('.delete-button').forEach(function(button) {
     });
 });
 
+// document.getElementById('reopenBidding').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    var reopenBiddingButton = document.getElementById('reopenBidding');
+    if (reopenBiddingButton) {
+        reopenBiddingButton.addEventListener('click', function() {    
+            Swal.fire({
+                title: 'Bidding Duration',
+                text: 'For how long do you want to accept bids?',
+                input: 'select',
+                inputOptions: {
+                    '1': '1 day',
+                    '3': '3 days',
+                    '5': '5 days',
+                    '7': '1 week',
+                    '14': '2 weeks'
+                },
+                inputPlaceholder: 'Select the duration',
+                showCancelButton: true,
+                confirmButtonText: 'Next &rarr;',
+                inputValidator: (value) => {
+                    return new Promise((resolve) => {
+                        if (value) {
+                            resolve();
+                        } else {
+                            resolve('You need to select a duration');
+                        }
+                    });
+                },
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var duration = result.value;
+                    Swal.fire({
+                        title: 'Starting Bid',
+                        text: 'Enter the starting bid',
+                        input: 'number',
+                        showCancelButton: true,
+                        inputValidator: (value) => {
+                            return new Promise((resolve) => {
+                                if (value) {
+                                    resolve();
+                                } else {
+                                    resolve('You need to enter a starting bid');
+                                }
+                            });
+                        },
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            var startingBid = result.value;
+                            var durationText = duration == 1 ? 'day' : 'days';
+                            Swal.fire({
+                                title: 'All done!',
+                                html: `
+                                    <pre><code>Duration: ${duration} ${durationText} \nStarting Bid: Rs. ${startingBid}</code></pre>
+                                `,
+                                confirmButtonText: 'Confirm!'
+                            })
+                            // You can now use the duration and startingBid variables in your code
+                            // For example, you might want to send them to your server using AJAX
+                        }
+                    });
+                }
+            });
+        });
+    } else {
+        // console.error('Could not find the "reopenBidding" button.');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    let initialTimeRemaining;
+
+    window.onload = function() {
+        initialTimeRemaining = document.getElementById('timeRemaining').textContent;
+    }
+
+    var timeRemainingElement = document.getElementById('timeRemaining');
+    var parts = timeRemainingElement.textContent.trim().split(' ');
+    var remainingTime = parseInt(parts[0], 10) * 86400 + parseInt(parts[1], 10) * 3600 + parseInt(parts[2], 10) * 60 + parseInt(parts[3], 10);
+
+    function updateRemainingTime() {
+        if (initialTimeRemaining === 'Auction Ended ') {
+            timeRemainingElement.textContent = 'Auction Ended ';
+            //timeRemainingElement.textContent = "0d 0h 0m 0s";
+            return;
+        }
+
+        console.log(initialTimeRemaining);
+        if (remainingTime <= 0) {
+            // Stop the countdown
+            return;
+        }
+
+        // Calculate days, hours, minutes, and seconds
+        var days = Math.floor(remainingTime / 86400);
+        var hours = Math.floor((remainingTime % 86400) / 3600);
+        var minutes = Math.floor((remainingTime % 3600) / 60);
+        var seconds = remainingTime % 60;
+
+        // Format time as "dd hh mm ss"
+        // var formattedTime = ("0" + days).slice(-2) + "d " + ("0" + hours).slice(-2) + "h " + ("0" + minutes).slice(-2) + "m " + ("0" + seconds).slice(-2) + "s";
+        var formattedTime = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+        // Update the time remaining element
+        timeRemainingElement.textContent = formattedTime;
+
+        // Decrement the remaining time
+        remainingTime--;
+    }
+
+    // Update the remaining time every second
+    setInterval(updateRemainingTime, 1000);
+});

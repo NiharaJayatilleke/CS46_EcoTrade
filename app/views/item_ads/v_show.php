@@ -103,12 +103,12 @@
         
         <div class = "sad-btns">
             <!-- offer and bid icons are disabled for seller and only allowed if seller has chosen to -->
-            <?php if($data['ad']->negotiable == 'yes'): ?>
+            <?php if($data['ad']->negotiable == 'yes' && empty($data['accepted_offer'])): ?>
                 <!-- <input type="submit" class="offer" id="make-offer" value="Make Offer" php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'disabled' : '' ?>> -->
                 <input type="submit" class="offer" id="make-offer" value="Make Offer" <?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'style="display: none;"' : '' ?>>
             <?php endif; ?>
 
-            <?php if($data['ad']->selling_format == 'auction'): ?>
+            <?php if($data['ad']->selling_format == 'auction' && $data['remaining_time'] != 'Auction Ended'):?>
                 <button type="button" class="bid" id="place-bid"<?php echo ($_SESSION['user_id'] == $data['ad']->seller_id) ? 'style="display: none;"' : '' ?>>Place Bid</button>
             <?php endif; ?>
         </div>
@@ -156,7 +156,7 @@
                 <p>Number of Bids: <span id="numBids"><?php echo $data['bid_count'];?></span></p>
                 <!-- <p>Average Bid Value: Rs. <span id="avgBidValue">3500</span></p> -->
             </div>
-            <?php if ($data['remaining_time'] == 'Auction Ended') : ?>
+            <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && $data['remaining_time'] == 'Auction Ended') : ?>
                 <button id="reopenBidding">Reopen Bidding</button>
             <?php endif; ?>
         </div>
