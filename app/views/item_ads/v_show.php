@@ -125,9 +125,14 @@
         <div class='offers-list'> 
         <!-- php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?> -->
             <!-- php $acceptedOffer = array_search('accepted', array_column($data['offers'], 'offer_status')); ?>  -->
-            <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && empty($data['accepted_offer']) && $data['ad']->negotiable == "yes") : ?>
-            <div class="offer-title"><h3>Offers</h3></div>
-            <?php foreach ($data['offers'] as $offer) : ?>
+        <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && empty($data['accepted_offer']) && $data['ad']->negotiable == "yes") : ?>
+        <?php if (!empty($data['offers'])) : ?>
+            <div class="offer-title"><h3>Highest Offers</h3></div>
+            <?php 
+            $count = 0;
+            foreach ($data['offers'] as $offer) : 
+                if ($count == 3) break;
+            ?>
                 <div class="offer-details" data-offer-id="<?php echo $offer->offer_id; ?>">
                     <p class="offer-message">New Offer: Rs.<?php echo $offer->offer_amount; ?></p>
                     <div class="offer-buttons">
@@ -135,7 +140,10 @@
                     <button class="reject-offer">Reject</button>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php 
+                $count++;
+            endforeach; ?>
+        <?php endif; ?>
         <?php endif; ?>
         </div>
 
@@ -145,22 +153,27 @@
             <h3>Bidding Overview</h3><br>
             <p>Time Remaining: <span id="timeRemaining"><?php echo $data['remaining_time'];?> </span></p>
             <div class="bid-stats">
-                <p>Number of Bids: <span id="numBids">15</span></p>
-                <p>Average Bid Value: Rs. <span id="avgBidValue">3500</span></p>
+                <p>Number of Bids: <span id="numBids"><?php echo $data['bid_count'];?></span></p>
+                <!-- <p>Average Bid Value: Rs. <span id="avgBidValue">3500</span></p> -->
             </div>
+            <?php if ($data['remaining_time'] == 'Auction Ended') : ?>
+                <button id="reopenBidding">Reopen Bidding</button>
+            <?php endif; ?>
         </div>
         <?php endif; ?>
         
         <!-- <h3>Bid Details</h3> -->
         <div ul class="bid-list">
-            <h3>Top 3 Bids</h3>
+        <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && $data['ad']->selling_format == "auction") : ?>
+        <?php if (count($data['bids']) > 0): ?>
+            <h3>Highest Bids</h3>
             <?php $count = 0;
             foreach ($data['bids'] as $bid) : 
                 if ($count == 3) break;
             ?>
                 <!-- <php var_dump($bid); ?> -->
                 <li class="bid-list-item" id="bid-<?php echo $bid->bid_id; ?>"> Bidder: <?php echo $bid->username; ?> 
-                <a href="#" onclick="notifyBidder('<?php echo $bid->username; ?>')"><i class="fas fa-envelope"></i></a> | 
+                <a href="#" onclick="notifyBidder('<?php echo $bid->username; ?> ', '<?php echo $data['ad']->item_name ?>', '<?php echo $bid->user_id ?>')"><i class="fas fa-envelope"></i></a> | 
                 Bid Value: Rs. <?php echo $bid->bid_amount; ?>
                 <!-- <a href="#" onclick="return confirm('Are you sure you want to delete this bid? You won\'t be able to view it again once deleted.')"><i class="fas fa-trash"></i></a></li> -->
                 <a href="#" id="delete-button" class="delete-button" data-bid-id="<?php echo $bid->bid_id; ?>"><i class="fas fa-trash"></i></a></li>
@@ -168,6 +181,8 @@
                 $count++;
             endforeach; ?>
         </ul>
+        <?php endif; ?>
+        <?php endif; ?>
         </div>   
     </div>
 </div>

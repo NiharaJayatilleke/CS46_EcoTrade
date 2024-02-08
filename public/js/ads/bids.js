@@ -98,9 +98,9 @@ if (placeBidButton) {
     }
 }
 
-function notifyBidder(username) {
+function notifyBidder(username, itemName, bidderID) {
     Swal.fire({
-        title: 'Enter your message for ' + username,
+        /*title: 'Enter your message for ' + username,
         input: 'text',
         inputPlaceholder: 'Your message',
         showCancelButton: true,
@@ -108,15 +108,39 @@ function notifyBidder(username) {
         if (!value) {
             return 'You need to write something!'
         }
-        }
+        }*/
+        title: '<strong>Action Required: Confirm Your Bid for ' + itemName + '</strong>',
+        html: `
+        <form id="confirmationForm">
+            <label for="deadline">Confirmation Deadline:</label><br>
+            <input type="datetime-local" id="deadline" name="deadline"><br>
+        </form>
+        <p>
+            Dear ${username},<br><br>
+            Congratulations! You are the highest bidder for ${itemName}. Please confirm your intention to purchase the item by the above deadline.
+        </p>
+        `,
+        focusConfirm: false,
+        preConfirm: () => {
+            let deadline = document.getElementById('deadline').value;
+            if (!deadline) {
+            Swal.showValidationMessage('Please enter a deadline');
+            }
+            return { deadline: deadline };
+        },
+        confirmButtonText: 'Send'
     }).then((result) => {
         if (result.isConfirmed) {
+            // let message = `Dear ${username},\n\nCongratulations! You are the highest bidder for ${itemName}. Please confirm your intention to purchase the item by ${result.value.deadline}.`;
+            let message = `Congratulations! You are the highest bidder. Please confirm your intention to purchase the item by ${result.value.deadline}.`;
         $.ajax({
-            url: 'send_message.php',  // replace with your server-side script URL
+            url: URLROOT +"/Notifications/addNotification/"+ CURRENT_AD, 
             type: 'POST',
             data: {
-                'username': username,
-                'message': result.value
+                // 'username': username,
+                'message': message, 
+                'bidderId': bidderID,
+                // 'adId': adId
             },
             success: function(data) {
                 Swal.fire('Success', 'Message sent successfully', 'success');
