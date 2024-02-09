@@ -23,11 +23,40 @@ if (placeBidButton) {
                 // let displayTime = relevantParts.slice(0, 2).join('');
                 let displayTime = data.remainingTime;
 
+                function updatePopupRemainingTime(){
+                    var parts = displayTime.trim().split(' ');
+
+                    // total seconds
+                    let totalSeconds = parseInt(parts[0], 10) * 86400 + parseInt(parts[1], 10) * 3600 + parseInt(parts[2], 10) * 60 + parseInt(parts[3], 10);
+
+                    totalSeconds--;
+                
+                    // new days, hours, minutes, and seconds
+                    days = Math.floor(totalSeconds / 86400);
+                    totalSeconds %= 86400;
+                    hours = Math.floor(totalSeconds / 3600);
+                    totalSeconds %= 3600;
+                    minutes = Math.floor(totalSeconds / 60);
+                    seconds = totalSeconds % 60;
+                
+                    // Update displayTime
+                    displayTime = `${days}d ${hours}h ${minutes}m ${seconds}s left`;
+                
+                    document.getElementById('displayTime').innerHTML = displayTime;
+                
+                    if (totalSeconds <= 0) {
+                        clearInterval(intervalId);
+                        document.getElementById('displayTime').innerHTML = "Auction Ended";
+                    }
+                }
+                
+                let intervalId = setInterval(updatePopupRemainingTime, 1000);
+
                 Swal.fire({  
                     title: 'Place your bid',
                     html: `
                         <p> Current Bid: Rs. ${currentHighestBid} </p>
-                        <p>${data.numBids} ${data.numBids === 1 ? 'bid' : 'bids'} · ${displayTime} left</p>
+                        <p>${data.numBids} ${data.numBids === 1 ? 'bid' : 'bids'} ·  <span id="displayTime"> ${displayTime} left</p>
                         <button onclick="confirmBid(${nextBid1})"> Bid Rs. ${nextBid1} </button> 
                         <button onclick="confirmBid(${nextBid2})"> Bid Rs. ${nextBid2} </button> 
                         <button onclick="confirmBid(${nextBid3})"> Bid Rs. ${nextBid3} </button>  
@@ -52,6 +81,7 @@ if (placeBidButton) {
                     if (result.isConfirmed) {
                         confirmBid(result.value);
                     }
+                    clearInterval(intervalId);
                 });
             },
             error: function(error) {
@@ -98,9 +128,9 @@ if (placeBidButton) {
     }
 }
 
-function notifyBidder(username) {
+function notifyBidder(username, itemName, bidderID) {
     Swal.fire({
-        title: 'Enter your message for ' + username,
+        /*title: 'Enter your message for ' + username,
         input: 'text',
         inputPlaceholder: 'Your message',
         showCancelButton: true,
@@ -108,15 +138,39 @@ function notifyBidder(username) {
         if (!value) {
             return 'You need to write something!'
         }
-        }
+        }*/
+        title: '<strong>Action Required: Confirm Your Bid for ' + itemName + '</strong>',
+        html: `
+        <form id="confirmationForm">
+            <label for="deadline">Confirmation Deadline:</label><br>
+            <input type="datetime-local" id="deadline" name="deadline"><br>
+        </form>
+        <p>
+            Dear ${username},<br><br>
+            Congratulations! You are the highest bidder for ${itemName}. Please confirm your intention to purchase the item by the above deadline.
+        </p>
+        `,
+        focusConfirm: false,
+        preConfirm: () => {
+            let deadline = document.getElementById('deadline').value;
+            if (!deadline) {
+            Swal.showValidationMessage('Please enter a deadline');
+            }
+            return { deadline: deadline };
+        },
+        confirmButtonText: 'Send'
     }).then((result) => {
         if (result.isConfirmed) {
+            // let message = `Dear ${username},\n\nCongratulations! You are the highest bidder for ${itemName}. Please confirm your intention to purchase the item by ${result.value.deadline}.`;
+            let message = `Congratulations! You are the highest bidder. Please confirm your intention to purchase the item by ${result.value.deadline}.`;
         $.ajax({
-            url: 'send_message.php',  // replace with your server-side script URL
+            url: URLROOT +"/Notifications/addNotification/"+ CURRENT_AD, 
             type: 'POST',
             data: {
-                'username': username,
-                'message': result.value
+                // 'username': username,
+                'message': message, 
+                'bidderId': bidderID,
+                // 'adId': adId
             },
             success: function(data) {
                 Swal.fire('Success', 'Message sent successfully', 'success');
@@ -165,3 +219,115 @@ document.querySelectorAll('.delete-button').forEach(function(button) {
     });
 });
 
+// document.getElementById('reopenBidding').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    var reopenBiddingButton = document.getElementById('reopenBidding');
+    if (reopenBiddingButton) {
+        reopenBiddingButton.addEventListener('click', function() {    
+            Swal.fire({
+                title: 'Bidding Duration',
+                text: 'For how long do you want to accept bids?',
+                input: 'select',
+                inputOptions: {
+                    '1': '1 day',
+                    '3': '3 days',
+                    '5': '5 days',
+                    '7': '1 week',
+                    '14': '2 weeks'
+                },
+                inputPlaceholder: 'Select the duration',
+                showCancelButton: true,
+                confirmButtonText: 'Next &rarr;',
+                inputValidator: (value) => {
+                    return new Promise((resolve) => {
+                        if (value) {
+                            resolve();
+                        } else {
+                            resolve('You need to select a duration');
+                        }
+                    });
+                },
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var duration = result.value;
+                    Swal.fire({
+                        title: 'Starting Bid',
+                        text: 'Enter the starting bid',
+                        input: 'number',
+                        showCancelButton: true,
+                        inputValidator: (value) => {
+                            return new Promise((resolve) => {
+                                if (value) {
+                                    resolve();
+                                } else {
+                                    resolve('You need to enter a starting bid');
+                                }
+                            });
+                        },
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            var startingBid = result.value;
+                            var durationText = duration == 1 ? 'day' : 'days';
+                            Swal.fire({
+                                title: 'All done!',
+                                html: `
+                                    <pre><code>Duration: ${duration} ${durationText} \nStarting Bid: Rs. ${startingBid}</code></pre>
+                                `,
+                                confirmButtonText: 'Confirm!'
+                            })
+                            // You can now use the duration and startingBid variables in your code
+                            // For example, you might want to send them to your server using AJAX
+                        }
+                    });
+                }
+            });
+        });
+    } else {
+        // console.error('Could not find the "reopenBidding" button.');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    let initialTimeRemaining;
+
+    window.onload = function() {
+        initialTimeRemaining = document.getElementById('timeRemaining').textContent;
+    }
+
+    var timeRemainingElement = document.getElementById('timeRemaining');
+    var parts = timeRemainingElement.textContent.trim().split(' ');
+    var remainingTime = parseInt(parts[0], 10) * 86400 + parseInt(parts[1], 10) * 3600 + parseInt(parts[2], 10) * 60 + parseInt(parts[3], 10);
+
+    function updateRemainingTime() {
+        if (initialTimeRemaining === 'Auction Ended ') {
+            timeRemainingElement.textContent = 'Auction Ended ';
+            //timeRemainingElement.textContent = "0d 0h 0m 0s";
+            return;
+        }
+
+        // console.log(initialTimeRemaining);
+        if (remainingTime <= 0) {
+            // Stop the countdown
+            return;
+        }
+
+        //days, hours, minutes, and seconds
+        var days = Math.floor(remainingTime / 86400);
+        var hours = Math.floor((remainingTime % 86400) / 3600);
+        var minutes = Math.floor((remainingTime % 3600) / 60);
+        var seconds = remainingTime % 60;
+
+        // Format time as "dd hh mm ss"
+        // var formattedTime = ("0" + days).slice(-2) + "d " + ("0" + hours).slice(-2) + "h " + ("0" + minutes).slice(-2) + "m " + ("0" + seconds).slice(-2) + "s";
+        var formattedTime = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+        // Updating the time remaining element
+        timeRemainingElement.textContent = formattedTime;
+
+        // Decrement the remaining time
+        remainingTime--;
+    }
+
+    // Update the remaining time every second
+    setInterval(updateRemainingTime, 1000);
+});

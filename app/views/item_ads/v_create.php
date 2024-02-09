@@ -119,7 +119,8 @@
             
 
             <!-- negotiable -->
-            <div class="ad-form-input-title">Is the price negotiable? </div>
+            <!-- <div class="ad-form-input-title">Is the price negotiable? </div> -->
+            <div class="ad-form-input-title">Do you wish to accept offers? </div>
             <input type="radio" name="negotiable" id="yes" class="ad_negotiable" value="yes" <?php if ($data['negotiable'] === 'yes') { echo 'checked'; } ?>>
             <label for="yes">Yes</label>
             <input type="radio" name="negotiable" id="no" class="ad_negotiable" value="no" <?php if ($data['negotiable'] === 'no') { echo 'checked'; } ?>>

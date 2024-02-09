@@ -23,6 +23,7 @@
             $acceptedOffer = $this->offersModel->getAcceptedOfferByAd($id);
             $bidDetails = $this->auctionsModel->getBiddingDetailsByAd($id);
             $bids = $this->auctionsModel->getBidsByAd($id);
+            $numBids = count($bids);
             $seller = $this->usersModel->getUserDetails($ad->seller_id);
             $number = $seller->number;
 
@@ -37,6 +38,7 @@
                 'remaining_time' => $remainingTimeString ?? null,
                 'bid_details' => $bidDetails,
                 'bids' => $bids,
+                'bid_count' => $numBids,
                 'ad' => $ad,
                 'offers' => $offers,
                 'accepted_offer' => $acceptedOffer
