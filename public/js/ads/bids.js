@@ -23,11 +23,40 @@ if (placeBidButton) {
                 // let displayTime = relevantParts.slice(0, 2).join('');
                 let displayTime = data.remainingTime;
 
+                function updatePopupRemainingTime(){
+                    var parts = displayTime.trim().split(' ');
+
+                    // total seconds
+                    let totalSeconds = parseInt(parts[0], 10) * 86400 + parseInt(parts[1], 10) * 3600 + parseInt(parts[2], 10) * 60 + parseInt(parts[3], 10);
+
+                    totalSeconds--;
+                
+                    // new days, hours, minutes, and seconds
+                    days = Math.floor(totalSeconds / 86400);
+                    totalSeconds %= 86400;
+                    hours = Math.floor(totalSeconds / 3600);
+                    totalSeconds %= 3600;
+                    minutes = Math.floor(totalSeconds / 60);
+                    seconds = totalSeconds % 60;
+                
+                    // Update displayTime
+                    displayTime = `${days}d ${hours}h ${minutes}m ${seconds}s left`;
+                
+                    document.getElementById('displayTime').innerHTML = displayTime;
+                
+                    if (totalSeconds <= 0) {
+                        clearInterval(intervalId);
+                        document.getElementById('displayTime').innerHTML = "Auction Ended";
+                    }
+                }
+                
+                let intervalId = setInterval(updatePopupRemainingTime, 1000);
+
                 Swal.fire({  
                     title: 'Place your bid',
                     html: `
                         <p> Current Bid: Rs. ${currentHighestBid} </p>
-                        <p>${data.numBids} ${data.numBids === 1 ? 'bid' : 'bids'} · ${displayTime} left</p>
+                        <p>${data.numBids} ${data.numBids === 1 ? 'bid' : 'bids'} ·  <span id="displayTime"> ${displayTime} left</p>
                         <button onclick="confirmBid(${nextBid1})"> Bid Rs. ${nextBid1} </button> 
                         <button onclick="confirmBid(${nextBid2})"> Bid Rs. ${nextBid2} </button> 
                         <button onclick="confirmBid(${nextBid3})"> Bid Rs. ${nextBid3} </button>  
@@ -52,6 +81,7 @@ if (placeBidButton) {
                     if (result.isConfirmed) {
                         confirmBid(result.value);
                     }
+                    clearInterval(intervalId);
                 });
             },
             error: function(error) {
@@ -275,13 +305,13 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        console.log(initialTimeRemaining);
+        // console.log(initialTimeRemaining);
         if (remainingTime <= 0) {
             // Stop the countdown
             return;
         }
 
-        // Calculate days, hours, minutes, and seconds
+        //days, hours, minutes, and seconds
         var days = Math.floor(remainingTime / 86400);
         var hours = Math.floor((remainingTime % 86400) / 3600);
         var minutes = Math.floor((remainingTime % 3600) / 60);
@@ -291,7 +321,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // var formattedTime = ("0" + days).slice(-2) + "d " + ("0" + hours).slice(-2) + "h " + ("0" + minutes).slice(-2) + "m " + ("0" + seconds).slice(-2) + "s";
         var formattedTime = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
 
-        // Update the time remaining element
+        // Updating the time remaining element
         timeRemainingElement.textContent = formattedTime;
 
         // Decrement the remaining time
