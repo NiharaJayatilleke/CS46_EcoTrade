@@ -31,7 +31,8 @@
                 $duration = $bidDetails->auction_duration;
                 $remainingTimeString = $this->auctionsModel->calculateRemainingTime($startTime, $duration);
             }
-                
+            
+            
             $data = [
                 'number' => $number,
                 'remaining_time' => $remainingTimeString ?? null,
@@ -39,7 +40,8 @@
                 'bids' => $bids,
                 'ad' => $ad,
                 'offers' => $offers,
-                'accepted_offer' => $acceptedOffer
+                'accepted_offer' => $acceptedOffer,
+                'user_id' => $_SESSION['user_id']
             ];
 
             $this->view('item_ads/v_show', $data);
