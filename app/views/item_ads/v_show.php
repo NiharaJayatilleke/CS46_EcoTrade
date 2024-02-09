@@ -250,22 +250,9 @@
         .catch((error) => {console.error("An error occurred:", error);});
         
     }
-
-
-    
+  
 </script>
 
-
-<script>
-
-    
-
-    
-
-
-
-    
-</script>
 <?php require APPROOT.'/views/inc/components/footer.php'; ?>
 
 
