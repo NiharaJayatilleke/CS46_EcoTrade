@@ -51,15 +51,19 @@
             <!-- <input type="text" name="item_condition" id="item_condition" class="ad_item_condition" value="<?php echo $data['item_condition']; ?>"> -->
             <select name="item_condition" id="item_condition" class="ad_item_condition">
                 <option value="">Select the condition</option>
-                <option value="brand new">Brand New - Never Used</option>
-                <option value="like new">Like New - Barely Used</option>
-                <option value="very good">Very Good - Slightly Used with Minor Signs of Wear</option>
-                <option value="good">Good - Used with Some Signs of Wear</option>
-                <option value="fair">Fair - Used with Visible Signs of Wear</option>
-                <option value="poor">Poor - Heavily Used with Significant Wear or Damages</option>
+                <option value="Brand New">Brand New - Never Used</option>
+                <option value="Like New">Like New - Barely Used</option>
+                <option value="Very Good">Very Good - Slightly Used with Minor Signs of Wear</option>
+                <option value="Good">Good - Used with Some Signs of Wear</option>
+                <option value="Fair">Fair - Used with Visible Signs of Wear</option>
+                <option value="Poor">Poor - Heavily Used with Significant Wear or Damages</option>
             </select>
             <span class="ad-form-invalid"><?php echo $data['item_condition_err']; ?></span>
 
+            <!-- quantity -->
+            <div class="ad-form-input-title">Quantity</div>
+            <input type="number" name="item_quantity" id="item_quantity" class="ad_item_quantity" value="<?php echo $data['item_quantity']; ?>" >
+            <span class="ad-form-invalid"><?php echo $data['item_price_err']; ?></span>
 
             <div class="ad-form-input-title">Upload an Image</div>
             <!-- item images -->

@@ -27,15 +27,17 @@
             </div>
             <div class="sad-desMain">
                 <div class="sad-heading">
-                    <div class = "sad-price"><h1>Rs. <?php echo $data['ad']->item_price ?></h1></div>
+                    <div class = "sad-price"><h2>Rs. <?php echo $data['ad']->item_price ?></h2></div>
+                    <div class = "sad-details">
                     <?php if ($data['ad']->negotiable == "yes") : ?>
-                        <p>Negotiable</p>
+                        <p class = "sad-neg">Negotiable</p>
                     <?php else : ?>
-                        <p>Non-Negotiable</p>
+                        <p class = "sad-neg">Non-Negotiable</p>
                     <?php endif; ?>
                     <div class = "sad-condition">Condition: <?php echo $data['ad']->item_condition ?></div>
                     <p>Quantity: 1</p>
                     <br>
+                    </div>
                 </div>
 
                 <div class="sad-description">
@@ -111,6 +113,7 @@
             <?php endif; ?>
         </div>
 
+        <div class = "Offers-Bids">
         <!-- HTML for displaying the accepted offer price -->
         <?php if (isset($data['accepted_offer']->offer_status) == 'accepted') : ?>
             <br><div class="accepted-offer">
@@ -119,6 +122,7 @@
             </div><br>
         <?php endif; ?>
         
+        <!-- <div class = "Offers-Bids"> -->
         <!-- HTML for sellers to accept or reject offers -->
         <div class='offers-list'> 
         <!-- php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?> -->
@@ -146,16 +150,17 @@
         </div>
 
         <!-- HTML for displaying the bids -->
-        <?php if ($data['ad']->selling_format == 'auction') : ?>
-        <div class="bid-info"><br>
-            <h3>Bidding Overview</h3><br>
+        <?php if ($data['ad']->selling_format == 'auction' && $_SESSION['user_id'] == $data['ad']->seller_id) : ?>
+        <br>
+        <div class="offer-title"><h3>Bidding Overview</h3></div>
+        <div class="bid-info">
             <p>Time Remaining: <span id="timeRemaining"><?php echo $data['remaining_time'];?> </span></p>
             <div class="bid-stats">
                 <p>Number of Bids: <span id="numBids"><?php echo $data['bid_count'];?></span></p>
                 <!-- <p>Average Bid Value: Rs. <span id="avgBidValue">3500</span></p> -->
             </div>
             <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && $data['remaining_time'] == 'Auction Ended') : ?>
-                <button id="reopenBidding">Reopen Bidding</button>
+                <button id="reopenBidding">Reopen Bidding</button><br>
             <?php endif; ?>
         </div>
         <?php endif; ?>
@@ -164,7 +169,7 @@
         <div ul class="bid-list">
         <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && $data['ad']->selling_format == "auction") : ?>
         <?php if (count($data['bids']) > 0): ?>
-            <h3>Highest Bids</h3>
+            <div class="offer-title"><h3>Highest Bids</h3></div>
             <?php $count = 0;
             foreach ($data['bids'] as $bid) : 
                 if ($count == 3) break;
@@ -181,11 +186,15 @@
         </ul>
         <?php endif; ?>
         <?php endif; ?>
-        </div>   
+        </div> 
+        </div>  
     </div>
 </div>
+</div>
 
-<br><br>
+<!-- <br> -->
+<div class="sad-main-container2">
+<div class="sad-main-container3-left">
 <!-- Message Sellers (Q&A) -->
 <form method="post">
     <div class = "message-seller-container">
@@ -206,10 +215,16 @@
         <!-- Message Thread -->
         <div id = "results"></div>
 
-        </div>
-    </div>
-            
+    </div>  
+
 </form>
+</div>
+
+<div class="sad-main-container3-right">
+
+</div>
+</div>
+
 
 <!-- jQuery -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->

@@ -66,6 +66,7 @@
 .ad_item_category,
 .ad_item_desc,
 .ad_item_condition,
+.ad_item_quantity,
 .ad_item_images,
 .ad_item_price,
 .ad_item_location {
@@ -105,6 +106,7 @@
 .ad_item_category input:focus,
 .ad_item_desc input:focus,
 .ad_item_condition input:focus,
+.ad_item_quantity input:focus,
 .ad_item_images input:focus,
 .ad_item_price input:focus,
 .ad_item_location input:focus,
