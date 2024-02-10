@@ -64,30 +64,27 @@
 
 <script>
     let categoriesLink = document.getElementById("categories-link");
-    let arrow = categoriesLink.querySelector(".arrow");
+    let arrow = document.querySelector(".arrow");
     let sub_menu = document.querySelector(".sub-menu");
     let logoutLink = document.querySelector(".logout-link");
 
-    // categoriesLink.addEventListener("click", (e) => {
-    //     sub_menu.classList.toggle("active");
-    //     arrow.classList.toggle("rotate");
-    //     logoutLink.style.display = sub_menu.classList.contains("active") ? "none" : "block";
-    //     console.log("clicked");
-    // });
-    categoriesLink.addEventListener("mouseenter", () => {
-        sub_menu.classList.add("active");
-        arrow.classList.add("rotate");
-        logoutLink.style.display = "none";
-        console.log("mouseenter");
-    });
+    if (categoriesLink){
+        categoriesLink.addEventListener("mouseenter", () => {
+            sub_menu.classList.add("active");
+            arrow.classList.add("rotate");
+            logoutLink.style.display = "none";
+            console.log("mouseenter");
+        });
+        categoriesLink.addEventListener("mouseleave", () => {
+            sub_menu.classList.remove("active");
+            arrow.classList.remove("rotate");
+            logoutLink.style.display = "block";
+            console.log("mouseleave");
+        });
+    }
 
-    categoriesLink.addEventListener("mouseleave", () => {
-        sub_menu.classList.remove("active");
-        arrow.classList.remove("rotate");
-        logoutLink.style.display = "block";
-        console.log("mouseleave");
-    });
-
+    if (sub_menu){
+        
     sub_menu.addEventListener("mouseenter", () => {
         sub_menu.classList.add("active");
         arrow.classList.add("rotate");
@@ -98,7 +95,7 @@
         arrow.classList.remove("rotate");
         logoutLink.style.display = "block";
     });
-
+    }
     
 </script>
 

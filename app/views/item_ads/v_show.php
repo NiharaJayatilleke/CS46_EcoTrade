@@ -64,13 +64,11 @@
                     <i class="fas fa-flag"></i>
                     <p>Report This Ad</p>
                 </button>
-                <button class="sad-b1" id="saveAdBtn">
-                <a href="<?php echo URLROOT; ?>/Wishlist/addToWishlist/<?php echo $data['ad']->ad_id; ?>">
-                    <!-- <img src="<?php echo URLROOT; ?>/public/img/prodetails/save.png" alt="report"> -->
+                <button class="sad-b1" id="saveAdBtn" onclick=" addToWishList() " >
                     <i class="fas fa-heart" ></i>
-                </a>
                     <p>Save this Ad</p>
                 </button>
+                
             </div>
         
     </div>
@@ -218,6 +216,7 @@
         <div id = "results"></div>
 
     </div>  
+
 </form>
 </div>
 
@@ -249,35 +248,65 @@
 
 <!-- JS for other interactions -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>
-
 <script>
-    document.getElementById('saveAdBtn').addEventListener('click', function() {
-        // this.classList.toggle('clicked');
-        event.preventDefault(); // Prevent the default behavior of the anchor tag
-        var heartIcon = this.querySelector('i');
-        heartIcon.classList.toggle('clicked');
-        console.log('Heart icon clicked');
-
-        // Get the ad_id from the button's data attribute
-        var adId = <?php echo $data['ad']->ad_id; ?>;
-
-        // Send an AJAX request to the server
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '<?php echo URLROOT; ?>/Wishlist/addToWishlist/' + adId, true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // Handle the response from the server if needed
-                console.log(xhr.responseText);
+    const id = <?php echo $data['ad']->ad_id ?>;
+    const heartIcon = document.querySelector('#saveAdBtn i');
+    
+    // ------------------------------Fetch request to check if ad is in wishlist------------------------------
+    fetch("http://localhost/ecotrade/Wishlist/isInWishlist", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      credentials: "include",
+      body: 'ad_id='+id,
+    }).then(response => response.text())
+        .then(text => {
+            if (text == 1) {
+                heartIcon.classList.add('clicked');
+            } else {
+                heartIcon.classList.remove('clicked');
             }
-        };
-        xhr.send();
-
-        console.log('Heart icon clicked');
+        }
+    )
+    .catch((error) => {
+        console.error("An error occurred:", error);
     });
+
+
+    // ---------------------- Fetch request to add ad to wishlist ----------------------
+    function addToWishList() {
+        heartIcon.classList.toggle('clicked');
+
+
+        fetch("http://localhost/ecotrade/Wishlist/addToWishList", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        credentials: "include",
+        body: 'ad_id='+id,
+        }).then(response => response.text())
+        .then(text => {console.log(text);})
+        .catch((error) => {console.error("An error occurred:", error);});
+        
+    }
+
+
+    
 </script>
 
 
+<script>
+
+    
+
+    
+
+
+
+    
+</script>
 <?php require APPROOT.'/views/inc/components/footer.php'; ?>
 
 

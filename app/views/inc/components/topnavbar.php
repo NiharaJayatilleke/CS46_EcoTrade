@@ -53,17 +53,13 @@
       </div>
     <?php if (isset($_SESSION['user_id'])) : ?>
       <!-- <div class="item"><a href="<?php echo URLROOT ?>/Wishlist/index">Saved Ads</a></div> -->
+
       <div class="item">
       <a href="<?php echo URLROOT ?>/Wishlist/index"> 
-      
-       <img src="<?php echo URLROOT?>/public/img/index/wishlisticon.png" alt="wishlist" class="wishlistitem">
-       <a href="" class="circlewishlist">
-       <span class="wishlist-count"><?php echo 5; ?></span>
-       <!-- <span class="wishlist-count"><?php echo $numberOfFavoriteAds; ?></span> -->
-       </a>
-      </a>
-     </div>
-
+          <img src="<?php echo URLROOT?>/public/img/index/wishlisticon.png" alt="wishlist" class="wishlistitem">
+          <span class="wishlist-count" id="wishlist-count">0</span>
+        </a>
+      </div>
 
      <div class="item">
       <!-- Notifications -->
@@ -78,27 +74,26 @@
           </a>
           <div class="notif-dropdown-menu" >
               <!-- Fetch notifications from the database and display them here -->
+                <!-- <a href="#" class="notif-dropdown-item">
+                <?php echo $notification['message']; ?>
+                </a> -->
 
-                  <!-- <a href="#" class="notif-dropdown-item">
-                    <?php echo $notification['message']; ?>
-                  </a> -->
-
-                  <div class="notif-dropdown-item">
-                    <div class="message"><?php echo $notification['message']; ?></div>
-                    <a href="<?php echo URLROOT ?>/ItemAds/show/<?php echo $notification['ad_id']; ?>" class="view-ad-link" data-ad-id="<?php echo $notification['ad_id']; ?>">View Ad</a>
-                  </div>
-  
+                <div class="notif-dropdown-item">
+                  <div class="message"><?php echo $notification['message']; ?></div>
+                  <a href="<?php echo URLROOT ?>/ItemAds/show/<?php echo $notification['ad_id']; ?>" class="view-ad-link" data-ad-id="<?php echo $notification['ad_id']; ?>">View Ad</a>
+                </div>
           </div>
         </div>
       </div>
       </div>
 
       
-      <div class="item user-dropdown">
-        <div class="sidebr">
-          <div class="profile-image">
-          <a href="#" >
+      <div class="item user-dropdown" >
+        <div class="sidebr" >
+          <div class="profile-image" >
+          <a href="#" id="profile-image">
           <?php
+            // if the user has uploaded an image display it . other wise display the default image
             if (isset($data['user']) && !empty($data['user'])) {
                 echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['user'] . '" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
             } else {
@@ -122,6 +117,51 @@ function Myfunction(){
     sidebar.style.display="block"
   }
 }
+
+
+// Fetch wishlist count
+const wishlist_count=document.getElementById("wishlist-count");
+
+fetch("http://localhost/ecotrade/Wishlist/getWishlistCount", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        credentials: "include",
+        }).then(response => response.text())
+        .then(text => 
+          {
+          if (text==0){
+            wishlist_count.style.display="none";
+          }else{
+              wishlist_count.style.display="inline-block";
+              wishlist_count.innerHTML=text;
+            }
+          
+        })
+        .catch((error) => {console.error("An error occurred:", error);});
+
+
+// Fetch profile image
+function fetchProfileImage() {
+fetch("http://localhost/ecotrade/Users/profileimage", {
+          method: "GET",
+          credentials: "include"
+})
+.then((response) => response.text())
+.then(profileImage =>{
+    const profileImageElement = document.querySelector(".profile-image img");
+    if(profileImage){
+      profileImageElement.src = profileImage;
+    }
+})
+
+.catch((error) =>{
+  console.error("An error occurred:",error);
+});
+}
+fetchProfileImage();
+
 </script>
 
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/notifications.js"></script>
