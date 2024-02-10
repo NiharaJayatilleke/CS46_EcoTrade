@@ -57,12 +57,12 @@
                     <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
                     <!-- <i class="fas fa-ad"></i> Ad icon -->
                     <i class="fas fa-bullhorn"></i>
-                    <p>Promote This Ad</p>
+                    <p>Promote this Ad</p>
                 </button>
                 <button class="sad-b1">
                     <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/report.png" alt="report"> -->
                     <i class="fas fa-flag"></i>
-                    <p>Report This Ad</p>
+                    <p>Report this Ad</p>
                 </button>
                 <button class="sad-b1" id="saveAdBtn" onclick=" addToWishList() " >
                     <i class="fas fa-heart" ></i>
@@ -221,9 +221,11 @@
 </div>
 
 <div class="sad-main-container3-right">
+    <div class="sad-more-ads-title"><h2>Explore more ads</h2></div>
 
 </div>
 </div>
+
 
 
 <!-- jQuery -->

@@ -110,7 +110,7 @@
 .sad-heading {
     display: flex;
     flex-direction: column;
-    margin-left: 2%;
+    margin-left: 4%;
 }
 
 .sad-heading h2 {
@@ -211,14 +211,28 @@
     width: 98%;
     height: 40px;
     cursor: pointer;
-    border-bottom:1px solid #bdbdbd;
+    /* border-bottom:1px solid #bdbdbd; */
+    box-shadow: 0px 2px 4px rgba(126, 126, 126, 0.1); 
+    border:1px solid #9f9e9e;
+    border-radius: 5px;
+    margin-left: 2%;
     background-color: #e3e3e33f;
     padding: 1%;
+    transition: background-color 0.3s ease;
+}
+
+.sad-b1:hover {
+    background-color: #e0e0e0; 
+}
+
+.sad-b1:active {
+    background-color: #bdbdbd; 
 }
 
 .sad-b1 p {
-    width: 100%;
+    /* width: 100%; */
     margin-top: 2%;
+    margin-left: 5px;
     /* background-color: #F5F5F5; */
     font-size: 14px;
 }
@@ -230,11 +244,23 @@
 }
 
 .sad-b1 i {
-    margin-left: 5%;
+    margin-left: 15%;
+    font-size: 17px;
+    color: #595959;
+    margin-right: 5px;
+}
+
+.sad-b1:hover i {
+    color: #616161; /* Darker gray on hover */
+}
+
+.sad-b1:active i {
+    color: #424242; /* Even darker gray when clicked */
 }
 
 .sad-b1 i.clicked {
-   color: red; /* Change this to the desired color when clicked */
+    /* color: red; */
+    color: rgb(227, 83, 127); 
 }
 
 /* RIGHT CONTAINER */
@@ -403,10 +429,10 @@
 .sad-main-container3-right {
     flex: 1;
     /* margin-left: 67%;*/
-    margin-right: 11%; 
-    margin-left: 2%;
-    margin-top: 1%;
-    margin-bottom: 3%;
+    /* margin-right: 11%;  */
+    /* margin-left: 2%; */
+    /* margin-top: 1%; */
+    /* margin-bottom: 3%; */
     padding: 2%;
     background-color: #fff;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);

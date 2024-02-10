@@ -15,7 +15,7 @@
 
 .offer-details {
     border-bottom: 1px solid #e8e7e7; 
-    border-top: 1px solid #e8e7e7; */
+    border-top: 1px solid #e8e7e7; 
     background-color: #ffffffb6; 
     border-radius: 8px;
     margin-bottom: 10px;
@@ -174,7 +174,8 @@
 .bid-list-item {
     display: flex;
     align-items: center;
-    background-color: #4CAF50; /* Green */
+    /* background-color: #4CAF50;  */
+    background-color: #7fad7a;
     color: white;
     padding: 10px;
     padding-left: 4px;
@@ -184,19 +185,21 @@
 }
 
 .bid-list-item:nth-child(even) {
-    background-color: #8BC34A; 
+    /* background-color: #8BC34A;  */
+    background-color:  #86bb6b;
 }
 
 .bid-list-item .fas {
     margin-left: 5px;
-    margin-right: 5px;
+    margin-right: 8px;
     color: #0c370e;
     cursor: pointer;
 }
 
 .bid-list-item .fa-envelope:hover {
-    color: #9a9a9abf;
+    /* color: #9a9a9abf; */
     /* color: #000000; */
+    color: #dc3545;
     transition: 0.3s;
     transform: scale(1.2) rotate(8deg);
 }
