@@ -102,6 +102,7 @@ CREATE TABLE Messages(
     message_id INT AUTO_INCREMENT,
     ad_id INT,
     user_id INT,
+    user_type VARCHAR(255),
     content TEXT NOT NULL,
     msg_created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(message_id),
