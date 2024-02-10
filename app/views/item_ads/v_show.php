@@ -115,6 +115,7 @@
             <?php endif; ?>
         </div>
 
+        <div class = "Offers-Bids">
         <!-- HTML for displaying the accepted offer price -->
         <?php if (isset($data['accepted_offer']->offer_status) == 'accepted') : ?>
             <br><div class="accepted-offer">
@@ -123,7 +124,7 @@
             </div><br>
         <?php endif; ?>
         
-        <div class = "Offers-Bids">
+        <!-- <div class = "Offers-Bids"> -->
         <!-- HTML for sellers to accept or reject offers -->
         <div class='offers-list'> 
         <!-- php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?> -->
@@ -152,15 +153,16 @@
 
         <!-- HTML for displaying the bids -->
         <?php if ($data['ad']->selling_format == 'auction' && $_SESSION['user_id'] == $data['ad']->seller_id) : ?>
-        <div class="bid-info"><br><br>
+        <br>
         <div class="offer-title"><h3>Bidding Overview</h3></div>
+        <div class="bid-info">
             <p>Time Remaining: <span id="timeRemaining"><?php echo $data['remaining_time'];?> </span></p>
             <div class="bid-stats">
                 <p>Number of Bids: <span id="numBids"><?php echo $data['bid_count'];?></span></p>
                 <!-- <p>Average Bid Value: Rs. <span id="avgBidValue">3500</span></p> -->
             </div>
             <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && $data['remaining_time'] == 'Auction Ended') : ?>
-                <button id="reopenBidding">Reopen Bidding</button>
+                <button id="reopenBidding">Reopen Bidding</button><br>
             <?php endif; ?>
         </div>
         <?php endif; ?>

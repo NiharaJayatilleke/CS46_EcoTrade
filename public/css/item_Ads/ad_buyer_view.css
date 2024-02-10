@@ -144,19 +144,39 @@
     /* margin-left: 2%; */
 }
 
+/*
 .sad-description {
     padding-top: 2%;
     padding-bottom: 2%;
     /* margin-left: 2%; */
-    /* background-color: #F2F7FB; */
-    /* border: 1px solid #D4E7F3; */
+    /* background-color: #F2F7FB; 
+    /* border: 1px solid #D4E7F3; 
     background-color:  #eaf2ed5d;
-    /* border: 1px solid #433d3d2b; */
+    /* border: 1px solid #433d3d2b; 
 }
 
 .sad-desHead,
 .sad-desP {
     padding-left: 3%;
+}*/
+
+.sad-description {
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.sad-desHead h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.sad-desP {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
 }
 
 .sad-line {

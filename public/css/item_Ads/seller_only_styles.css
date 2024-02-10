@@ -1,6 +1,6 @@
 /* OFFERS */
 .Offers-Bids {
-    margin-top: -100px;
+    margin-top: -40px;
 }
 
 /* .offer-container {
@@ -14,11 +14,12 @@
 }
 
 .offer-details {
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #e8e7e7; 
+    border-top: 1px solid #e8e7e7; */
     background-color: #ffffffb6; 
     border-radius: 8px;
     margin-bottom: 10px;
-    padding-top: 5px;
+    /* padding-top: 5px; */
     padding-right: 2px;
     padding-left: 5px;
     width: 250px;
@@ -32,7 +33,7 @@
 .offer-message {
     font-weight: bold;
     font-size: 12px;
-    margin-bottom: 4px;
+    /* margin-bottom: 4px; */
     margin-top: 10px;
 }
 
@@ -40,7 +41,7 @@
     display: flex;
     gap: 1px;
     margin-left: 7px;
-    margin-bottom: 4px;
+    /* margin-bottom: 4px; */
 }
 
 .accept-offer, .reject-offer {
@@ -93,10 +94,11 @@
     margin-bottom: 10px;
 }
 */
-.bid-info {
+
+/* .bid-info {
     /* background-color: rgb(125, 183, 127);
     color: white; */
-    /* padding: 20px; */
+    /* padding: 20px; 
     border-radius: 5px;
     font-family: Arial, sans-serif;
 }
@@ -114,8 +116,55 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+} */
+
+/* Bidding Overview */
+.bid-info {
+    /* padding: 20px; */
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-left: 20px;
 }
 
+/* .offer-title h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+} */
+
+#timeRemaining, #numBids {
+    font-weight: bold;
+    color: #1a3b1b;
+}
+
+.bid-stats p {
+    margin: 10px 0;
+}
+
+#reopenBidding {
+    background-color: #969494;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+}
+
+#reopenBidding:hover {
+    background-color: #7a7a7a;
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+
+/* List of Bids */
 .bid-list {
     list-style-type: none;
     width: 100%;
@@ -135,7 +184,7 @@
 }
 
 .bid-list-item:nth-child(even) {
-    background-color: #8BC34A; /* Lighter green */
+    background-color: #8BC34A; 
 }
 
 .bid-list-item .fas {
@@ -146,9 +195,14 @@
 }
 
 .bid-list-item .fa-envelope:hover {
-    color: #007bff;
+    color: #9a9a9abf;
+    /* color: #000000; */
+    transition: 0.3s;
+    transform: scale(1.2) rotate(8deg);
 }
 
 .bid-list-item .fa-trash:hover {
     color: #dc3545;
+    transition: 0.3s;
+    transform: scale(1.2) rotate(8deg);
 }
