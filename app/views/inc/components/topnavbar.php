@@ -88,11 +88,12 @@
       </div>
 
       
-      <div class="item user-dropdown">
-        <div class="sidebr">
-          <div class="profile-image">
-          <a href="#" >
+      <div class="item user-dropdown" >
+        <div class="sidebr" >
+          <div class="profile-image" >
+          <a href="#" id="profile-image">
           <?php
+            // if the user has uploaded an image display it . other wise display the default image
             if (isset($data['user']) && !empty($data['user'])) {
                 echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['user'] . '" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
             } else {
@@ -139,6 +140,28 @@ fetch("http://localhost/ecotrade/Wishlist/getWishlistCount", {
           
         })
         .catch((error) => {console.error("An error occurred:", error);});
+
+
+// Fetch profile image
+function fetchProfileImage() {
+fetch("http://localhost/ecotrade/Users/profileimage", {
+          method: "GET",
+          credentials: "include"
+})
+.then((response) => response.text())
+.then(profileImage =>{
+    const profileImageElement = document.querySelector(".profile-image img");
+    if(profileImage){
+      profileImageElement.src = profileImage;
+    }
+})
+
+.catch((error) =>{
+  console.error("An error occurred:",error);
+});
+}
+fetchProfileImage();
+
 </script>
 
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/notifications.js"></script>

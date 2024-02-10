@@ -474,6 +474,17 @@
                     
         }
 
+        public function profileimage(){
+            if(isset($_SESSION['user_id'])) {
+                $user = $this->userModel->getUserProfileImage($_SESSION['user_id']);
+                $data = [
+                    'user' => $user,
+                ];
+                // Pass the data to the view
+                $this->view('inc/components/topnavbar', $data);
+            } 
+        }
+
         // // Reset password view page
         // public function reset_password(){
         //     $this->view('users/v_Reset_newpassword'); // Load the 'v_Reset_newpassword.php' view
