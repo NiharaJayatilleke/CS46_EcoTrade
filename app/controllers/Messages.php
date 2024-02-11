@@ -8,6 +8,7 @@
             $userId = $_SESSION['user_id'];
             $adId = $id;
             $message = $_POST['send-message'];
+            $userType = $_SESSION['user_type'];
 
             echo $userId; echo $adId; echo $message;
 
@@ -33,7 +34,7 @@
 
             // Render HTML using PHP
             foreach($messages as $message){
-                // $isSeller = $message->user_type == 'sec seller';
+                $isSeller = $message->user_type == 'sec_seller';
                 echo '<div class = "message-container">';
                 echo '<div class = "message-left">';
                 echo '<img id = "user_placeholder" src = "' . URLROOT . '/public/img/itemAds/man.jpg" alt="placeholder"></img>';
@@ -47,11 +48,11 @@
                 echo '<div class = "message-body">';
                 echo '<div class = "message-body-cont">' . $message->content . '</div>';
                 echo '</div>';
-                /*if (!$isSeller) { 
+                if (!$isSeller) { 
                     echo '<div class="message-reply">';
                     echo '<button onclick="replyToMessage(' . $message->id . ')">Reply</button>'; // Replace replyToMessage with your actual reply function
                     echo '</div>';
-                }*/
+                }
                 echo '</div>';
                 echo '</div>';
             }

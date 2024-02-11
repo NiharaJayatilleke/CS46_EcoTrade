@@ -59,7 +59,7 @@
                     <i class="fas fa-bullhorn"></i>
                     <p>Promote this Ad</p>
                 </button>
-                <button class="sad-b1">
+                <button class="sad-b1" onclick="reportAd()">
                     <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/report.png" alt="report"> -->
                     <i class="fas fa-flag"></i>
                     <p>Report this Ad</p>
@@ -250,6 +250,10 @@
 
 <!-- JS for other interactions -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>
+
+<!-- JS for Reporting Ads -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/report_ad.js"></script>
+
 <script>
     const id = <?php echo $data['ad']->ad_id ?>;
     const heartIcon = document.querySelector('#saveAdBtn i');

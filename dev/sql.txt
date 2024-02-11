@@ -9,7 +9,7 @@ CREATE TABLE General_User (
     email VARCHAR(255),
     number INT NOT NULL,
     password VARCHAR(255),
-    userType VARCHAR(255),
+    user_type VARCHAR(255),
     profile_image VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)

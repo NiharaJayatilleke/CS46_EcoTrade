@@ -263,6 +263,29 @@
     color: rgb(227, 83, 127); 
 }
 
+/* Report Ad Popup */
+.swal2-popup {
+    font-size: 14px; 
+    width: 600px; 
+}
+
+.swal2-radio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+}
+
+.swal2-popup .swal2-radio input[type="radio"] {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.swal2-popup .swal2-radio label {
+    display: inline-block;
+    font-size: 15px; 
+}
+
 /* RIGHT CONTAINER */
 .sad-right-container {
     width: 30%;

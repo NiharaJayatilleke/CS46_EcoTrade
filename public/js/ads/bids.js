@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             var startingBid = result.value;
                             var durationText = duration == 1 ? 'day' : 'days';
                             Swal.fire({
-                                title: 'All done!',
+                                title: 'Reopening Bidding!',
                                 html: `
                                     <pre><code>Duration: ${duration} ${durationText} \nStarting Bid: Rs. ${startingBid}</code></pre>
                                 `,
