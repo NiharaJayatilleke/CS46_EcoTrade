@@ -104,6 +104,7 @@ CREATE TABLE Messages(
     user_id INT,
     user_type VARCHAR(255),
     content TEXT NOT NULL,
+    reply TEXT,
     msg_created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(message_id),
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
