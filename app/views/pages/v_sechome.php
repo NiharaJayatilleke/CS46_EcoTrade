@@ -393,9 +393,8 @@
         }
       }
     </script>
-    </body>
-    </html>
-    
+
+    <?php require APPROOT.'/views/inc/components/footer.php'; ?>
 
 
 
