@@ -2,6 +2,7 @@
     class Messages extends Controller{
         public function __construct(){
             $this->messagesModel =$this->model('M_Messages');
+            $this->itemAdsModel = $this->model('M_Item_Ads');
         }
 
         public function message($id){
@@ -30,11 +31,13 @@
 
         public function showMessages($id){
             $messages = $this->messagesModel->getMessages($id);
+            $sellerId = $this->itemAdsModel->getSellerByAd($id);
             // return $messages;
 
             // Render HTML using PHP
             foreach($messages as $message){
-                $isSeller = $message->user_type == 'sec_seller';
+                $isSeller = $message->user_id == $sellerId->seller_id; //messages sent by the seller
+
                 echo '<div class = "message-container">';
                 echo '<div class = "message-left">';
                 echo '<img id = "user_placeholder" src = "' . URLROOT . '/public/img/itemAds/man.jpg" alt="placeholder"></img>';
@@ -48,9 +51,9 @@
                 echo '<div class = "message-body">';
                 echo '<div class = "message-body-cont">' . $message->content . '</div>';
                 echo '</div>';
-                if (!$isSeller) { 
+                if (!$isSeller &&  $_SESSION['user_id'] == $sellerId->seller_id) { 
                     echo '<div class="message-reply">';
-                    echo '<button onclick="replyToMessage(' . $message->id . ')">Reply</button>'; // Replace replyToMessage with your actual reply function
+                    echo '<button class="message-reply-btn" onclick="replyToMessage(' . $message->id . ')"><i class="fas fa-reply"></i>Reply</button>'; // Replace replyToMessage with the actual reply function
                     echo '</div>';
                 }
                 echo '</div>';
