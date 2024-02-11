@@ -1,7 +1,10 @@
 /*CSS Library*/
 
 /* INDEX */
-/* @import url('pages/index.css'); */
+@import url('pages/index.css');
+
+/* FOOTER */
+@import url('components/footer.css');
 
 /*COMPONENTS*/
 @import url('components/topnavbar_styles.css');
@@ -9,7 +12,6 @@
 @import url('components/buttons_styles.css');
 @import url('components/flash_message_styles.css');
 @import url('components/sidebar_styles.css');
-@import url('components/footer.css');
 @import url('components/notifications_styles.css');
 
 /*REGISTRATION*/
