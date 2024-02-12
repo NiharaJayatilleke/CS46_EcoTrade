@@ -59,7 +59,7 @@
                         <input type="password" name = "confirm_password" id="password" value="<?php echo $data['password']; ?>" required >
                         <label>Confirm Password</label>
                         <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span>
-                    </div>
+                    </div>  
 
                     <div class="terms-forgot">
                         <label for="agree"><input type="checkbox" name="agree" id="agree" value="yes"/> I agree to the

@@ -2,6 +2,7 @@
     class RecycleItemAds extends Controller{
         public function __construct(){
             $this->recycleItemAdsModel =$this->model('M_Recycle_Item_Ads');
+            $this->usersModel = $this->model('M_Users');
         }
 
         public function index() {
@@ -71,9 +72,20 @@
                     if($this->recycleItemAdsModel->re_create($data)){
                         // create a flash message
                         flash('post_msg', 'Your ad has been posted successfully!');
-                        redirect('RecycleItemAds/index');
+                        redirect('pages/home');
                     }else{
                         die('Something went wrong');
+                    }
+
+                    //SET USER TYPE
+                    $userId = $_SESSION['user_id'];
+                    $userType = $this->usersModel->getUserTypeById($userId);
+                    $userType = $userType->user_type;
+
+                    if ($userType == 'pSeller') {
+                        $this->usersModel->setUserTypeById($userId, 'seller');
+                    } else if ($userType != 'seller' && $userType != 'rSeller') {
+                        $this->usersModel->setUserTypeById($userId, 'rSeller');
                     }
                 }
                 else{

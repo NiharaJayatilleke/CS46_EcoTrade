@@ -9,7 +9,7 @@ CREATE TABLE General_User (
     email VARCHAR(255),
     number INT NOT NULL,
     password VARCHAR(255),
-    userType VARCHAR(255),
+    user_type VARCHAR(255),
     profile_image VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
@@ -104,6 +104,7 @@ CREATE TABLE Messages(
     user_id INT,
     user_type VARCHAR(255),
     content TEXT NOT NULL,
+    reply TEXT,
     msg_created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(message_id),
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,

@@ -28,5 +28,24 @@
             $this->db->bind(':ad_id', $ad_id);
             return $this->db->resultSet();
         }
+
+        public function getMessageById($messageId){
+            $this->db->query('SELECT * FROM Messages WHERE message_id = :id');
+            $this->db->bind(':id',$messageId);
+            $row = $this->db->single();
+            return $row;
+        }
+
+        public function updateMessageWithReply($messageId, $reply){
+            $this->db->query('UPDATE Messages SET reply = :reply WHERE message_id = :id');
+            $this->db->bind(':id',$messageId);
+            $this->db->bind(':reply',$reply);
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 ?>
