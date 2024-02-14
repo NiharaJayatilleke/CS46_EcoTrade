@@ -1,5 +1,6 @@
 
 <?php require APPROOT . '/views/inc/components/sidebar.php';?><div class="topnav">
+  
 
   <div class="items">
     <div class="item logo">
@@ -85,22 +86,18 @@
           </div>
         </div>
       </div>
-      </div>
-
-      
+      </div> 
       <div class="item user-dropdown" >
         <div class="sidebr" >
-          <div class="profile-image" >
-          <a href="#" id="profile-image">
+          <div class="profile-image" id="profile-image">
           <?php
             // if the user has uploaded an image display it . other wise display the default image
-            if (isset($data['user']) && !empty($data['user'])) {
-                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['user'] . '" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
+            if (isset($_SESSION['user_image']) && !empty($_SESSION['user_image'])) {
+                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $_SESSION['user_image'] . '" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
             } else {
                 echo '<img src="' . URLROOT . '/public/img/profile.png" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
             }
             ?>
-          </a>
         </div> 
         </div> 
       </div>  
@@ -140,27 +137,6 @@ fetch("http://localhost/ecotrade/Wishlist/getWishlistCount", {
           
         })
         .catch((error) => {console.error("An error occurred:", error);});
-
-
-// Fetch profile image
-function fetchProfileImage() {
-fetch("http://localhost/ecotrade/Users/profileimage", {
-          method: "GET",
-          credentials: "include"
-})
-.then((response) => response.text())
-.then(profileImage =>{
-    const profileImageElement = document.querySelector(".profile-image img");
-    if(profileImage){
-      profileImageElement.src = profileImage;
-    }
-})
-
-.catch((error) =>{
-  console.error("An error occurred:",error);
-});
-}
-fetchProfileImage();
 
 </script>
 

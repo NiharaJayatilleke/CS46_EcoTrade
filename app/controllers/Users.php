@@ -220,6 +220,7 @@
             $_SESSION['user_email']=$user->email;
             $_SESSION['user_name']=$user->username;
             $_SESSION['user_number'] = $user->number;
+            $_SESSION['user_image'] = $user->profile_image;
             redirect('Pages/index');
         }
 
@@ -474,16 +475,16 @@
                     
         }
 
-        public function profileimage(){
-            if(isset($_SESSION['user_id'])) {
-                $user = $this->userModel->getUserProfileImage($_SESSION['user_id']);
-                $data = [
-                    'user' => $user,
-                ];
-                // Pass the data to the view
-                $this->view('inc/components/topnavbar', $data);
-            } 
-        }
+        // public function profileimage(){
+        //     if(isset($_SESSION['user_id'])) {
+        //         $image = $this->userModel->getUserProfileImage($_SESSION['user_id']);
+        //         $data = [
+        //             'user' => $user,
+        //         ];
+        //         // Pass the data to the view
+        //         $this->view('inc/components/topnavbar', $data);        
+        //     } 
+        // }
 
         // // Reset password view page
         // public function reset_password(){

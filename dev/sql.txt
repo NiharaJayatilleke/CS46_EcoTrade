@@ -137,7 +137,6 @@ CREATE TABLE Wishlist(
 
 
 
-
 DROP TABLE IF EXISTS Notifications;
 
 CREATE TABLE Notifications(
