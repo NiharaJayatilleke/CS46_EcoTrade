@@ -6,12 +6,24 @@
             
             $this->adminModel = $this->model('M_Admin');
             $this->moderatorModel = $this->model('M_Moderators');
+            $this->userModel = $this->model('M_Users');
+            $this->itemAdsModel = $this->model('M_Item_Ads');
         }
         
         public function index(){
+            $ads = $this->itemAdsModel->getAds();
+            $numSecAds = count($ads);
             $moderators = $this->moderatorModel->getModerators();
+            $numModerators = count($moderators);
+            $users = $this->userModel->getUsers();
+            $numUsers = count($users);
 
-            $data = ['moderators' => $moderators];
+            $data = [
+                'sec_ad_count' => $numSecAds,
+                'moderators_count' => $numModerators,
+                'moderators' => $moderators,
+                'users_count' => $numUsers,
+            ];
 
             $this->view('admin/dashboard', $data);
         }

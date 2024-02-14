@@ -85,7 +85,7 @@
 
                     <div class="dashboard-card">
                         <div>
-                            <div class="dashboard-numbers">1504</div> 
+                            <div class="dashboard-numbers"><?php echo $data['users_count'] ?></div> 
                             <div class="dashboard-cardName">Users</div>
                         </div>
                         <div class="dashboard-iconBx">   
@@ -95,7 +95,7 @@
 
                     <div class="dashboard-card">
                         <div>
-                            <div class="dashboard-numbers">15</div> 
+                            <div class="dashboard-numbers"><?php echo $data['moderators_count'] ?></div> 
                             <div class="dashboard-cardName">Moderators</div>
                         </div>
                         <div class="dashboard-iconBx">  
@@ -104,8 +104,8 @@
                     </div>
                     <div class="dashboard-card">
                         <div>
-                            <div class="dashboard-numbers">2000</div> 
-                            <div class="dashboard-cardName">Ads</div>
+                            <div class="dashboard-numbers"><?php echo $data['sec_ad_count'] ?></div> 
+                            <div class="dashboard-cardName">Secondhand Item Ads</div>
                         </div>
                         <div class="dashboard-iconBx">  
                             <ion-icon name="book"></ion-icon>   
@@ -146,7 +146,7 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Moderators</h2>
-                            <a href="#" class="btn">View All</a>
+                            <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Register Moderator</a>
                         </div>
                         <table>
                             <thead>
