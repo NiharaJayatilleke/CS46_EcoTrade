@@ -18,6 +18,14 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(25px);
 }
+.deleteitemrow{
+    /* margin-bottom: 10px; */
+    cursor: pointer;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+    
+}
 
 .row {
     display: flex;
@@ -27,6 +35,8 @@
 .row.header {
     font-weight: bold;
     background-color: #f0f0f0;
+    display: flex;
+    border-bottom: 1px solid #ccc;
     
 }
 
