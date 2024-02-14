@@ -51,5 +51,6 @@
             $isInWishlist = $this->wishlistModel->isInWishlist($ad_id, $user_id);
             echo $isInWishlist;
         }
+        
     }
 ?>

@@ -5,6 +5,7 @@
 
         <div class="wishlist">
             <br><div class="wishlist-header">Wishlist</div><br>
+            <div class ="deleteitemrow">Delete All Items</div>
             <div class="wishlist-table">
                 <div class="row header">
                     <div class="column">PRODUCTS</div>
