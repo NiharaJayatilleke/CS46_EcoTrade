@@ -1,52 +1,101 @@
-.wishlist {
-    font-family: Arial, sans-serif;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.wishlist-header {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.wishlist-table {
+.wishlist_container {
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    border: 1px solid #ccc;
-    background-color: #ffffff05;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(25px);
+    align-items: center;
 }
-.deleteitemrow{
-    /* margin-bottom: 10px; */
+
+.wishlist {
+    width: 80%;
+    /* border: 1px solid; */
+    border-radius: 1rem;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 300ms ease;
+    border-spacing: 0;
+
+}
+
+.wishlist:hover {
+    box-shadow: none;
+}
+
+.wishlist tr {
+    transition: all 200ms ease;
     cursor: pointer;
-    margin-bottom: 20px;
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #ccc;
-    
 }
 
-.row {
-    display: flex;
-    border-bottom: 1px solid #ccc;
+.wishlist tr:not(:first-child):hover {
+    background: #dce1eb;
+    color: var(--color-light);
+    transform: scale(100%, 105%);
 }
 
-.row.header {
-    font-weight: bold;
-    background-color: #f0f0f0;
-    display: flex;
-    border-bottom: 1px solid #ccc;
-    
+.wishlist th {
+    background: #848bc82e;
+    border: none;
+    height: 4rem;
+    text-align: center;
 }
 
-.column {
-    padding: 10px;
-    flex: 1;
+.wishlist td {
+    height: 10rem;
+    text-align: center;
+
+    height: 2.8rem;
+    border-bottom: 1px solid #848bc82e;
+    color: var(--color-dark-variant);
+    font-weight: 550;
 }
 
-.column img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
+.wishlist:last-child tr:last-child td {
+    border: none;
+}
+
+.wishlist img {
+    width: 8rem;
+    margin: 0.5rem;
+}
+
+.capitalize {
+    text-transform: capitalize !important;
+}
+
+.wishlist button {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+
+    z-index: 5;
+}
+
+.wishlist button:hover,
+.wishlist button:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+}
+
+.wishlist button:active {
+    opacity: .5;
 }
