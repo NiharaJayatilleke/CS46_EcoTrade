@@ -35,8 +35,14 @@
             $row = $this->db->single();
             return $row->count;
         }
-        
 
+        public function getWishlistItems($userId) {
+            $this->db->query('SELECT ia.* FROM Item_Ads ia INNER JOIN Wishlist w ON ia.p_id = w.ad_id WHERE w.user_id = :user_id');
+            $this->db->bind(':user_id', $userId);
+            return $this->db->resultSet();
+        }
+
+        
         // public function getOffersByAd($id){
         //     $this->db->query('SELECT * FROM Offers WHERE ad_id = :ad_id ORDER BY offer_amount DESC');
         //     $this->db->bind(':ad_id',$id);

@@ -2,12 +2,15 @@
     class Wishlist extends Controller{
         public function __construct(){
             $this->wishlistModel =$this->model('M_Wishlist');
+            // $this->itemAdsModel = $this->model('ItemAds');
         }
 
         public function index(){
-            $data = [];
+            // $data = [];
+            $userId = $_SESSION['user_id'];
+            $wishlistItems = $this->wishlistModel->getWishlistItems($userId);
+            $data = ['wishlist' => $wishlistItems];
             $this->view('pages/v_wishlist',$data);
-
         }
 
         public function addToWishlist() {
@@ -51,6 +54,23 @@
             $isInWishlist = $this->wishlistModel->isInWishlist($ad_id, $user_id);
             echo $isInWishlist;
         }
-        
+
+        public function removeItem() {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                $adId = $_POST['ad_id'];
+                $data = [
+                'ad_id' => $adId,
+                'user_id' => $_SESSION['user_id'],
+                ];
+                // Call the model method to remove the item
+                if ($this->wishlistModel->removeItem($data)) {
+                    echo 1;
+                } else {
+                    echo 'Failed to remove item';
+                }
+            }
+        }
+
     }
 ?>
