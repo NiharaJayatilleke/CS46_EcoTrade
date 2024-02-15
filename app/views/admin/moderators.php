@@ -93,42 +93,34 @@
                         </div>
                     </div>
 
-                    <div class="dashboard-card">
-                        <div>
-                            <div class="dashboard-numbers"><?php echo $data['moderators_count'] ?></div> 
-                            <div class="dashboard-cardName">Moderators</div>
+                    <a href="<?php echo URLROOT ?>/Moderators/index" style="text-decoration: none; color: inherit;">
+                        <div class="dashboard-card" >
+                            <div>
+                                <div class="dashboard-numbers" ><?php echo $data['moderators_count'] ?></div> 
+                                <div class="dashboard-cardName">Moderators</div>
+                            </div>
+                            <div class="dashboard-iconBx">  
+                                <ion-icon name="people-circle-outline"></ion-icon>     
+                            </div>
                         </div>
-                        <div class="dashboard-iconBx">  
-                            <ion-icon name="people-circle-outline"></ion-icon>     
-                        </div>
-                    </div>
+                    </a>
                     <div class="dashboard-card">
                         <div>
                             <div class="dashboard-numbers"><?php echo $data['sec_ad_count'] ?></div> 
                             <div class="dashboard-cardName">Secondhand Item Ads</div>
                         </div>
                         <div class="dashboard-iconBx">  
-                            <ion-icon name="book"></ion-icon>   
+                            <ion-icon name="pricetags"></ion-icon>
                         </div>
                     </div>
-
-                    <!-- <div class="dashboard-card">
-                        <div>
-                            <div class="dashboard-numbers">2404</div> 
-                            <div class="dashboard-cardName">Daily Views</div>
-                        </div>
-                        <div class="dashboard-iconBx">   
-                            <ion-icon name="eye-outline"></ion-icon>     
-                        </div>
-                    </div> -->
 
                     <div class="dashboard-card">
                         <div>
                             <div class="dashboard-numbers">80</div> 
-                            <div class="dashboard-cardName">Comments</div>
+                            <div class="dashboard-cardName">Recycling Ads</div>
                         </div>
                         <div class="dashboard-iconBx"> 
-                            <ion-icon name="chatbubbles-outline"></ion-icon>     
+                            <ion-icon name="leaf"></ion-icon>   
                         </div>
                     </div>
                 </div>
@@ -146,7 +138,7 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Moderators</h2>
-                            <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Register Moderator</a>
+                            <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Add Moderator</a>
                         </div>
                         <table>
                             <thead>
