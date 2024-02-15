@@ -32,6 +32,7 @@
                         <!-- <span class="form-invalid"><?php echo $data['password_err']; ?></span> -->
                     </div>
 
+
                     <!-- <div class="remember-me">
                         <label>
                             <input type="checkbox" name="remember_me" id="remember_me" value="1" />

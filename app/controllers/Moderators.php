@@ -308,7 +308,7 @@
                 }
                 else{
                     //load view
-                    $this->view('moderators/v_edit', $data);
+                    $this->view('moderators/edit', $data);
                 }
             }
             else {
@@ -332,7 +332,7 @@
                 ];
 
                 //load view
-                $this->view('moderators/v_edit', $data);
+                $this->view('moderators/edit', $data);
             }
         }
 
