@@ -2,8 +2,6 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-
-
 //Require PHP Mailer
 require APPROOT.'/libraries/vendor/autoload.php';
 
@@ -64,10 +62,18 @@ class forgotPassword extends Controller{
 
         //Can Send Email Now
         $subject = "Reset your password";
-        $message = "<p>We recieved a password reset request.</p>";
-        $message .= "<p>Here is your password reset link: </p>";
-        $message .= "<a href='".$url."'>".$url."</a>";
-        $message .= "<script>window.open('$url', '_blank');</script>";  // open the link in a new tab
+        // $message = "<p>Dear $username,</p>";
+        $message = "<p>Dear customer,</p>";
+        $message .= "<p>We received a request to reset your password. If this was not you, please ignore this email.</p>";
+        $message .= "<p>To reset your password, click on the following link:</p>";
+        $message .= "<a href='".$url."'>Reset Password</a>";
+         // $message .= "<a href='".$url."'>".$url."</a>";
+        $message .= "<p>This link is valid for a limited time only. If you do not reset your password within this time frame, you may need to request another reset link.</p>";
+        // $message .= "<p>If you have any questions or concerns, please contact us at support@example.com.</p>";
+        $message .= "<p>Thank you,</p>";
+        $message .= "<p>Best Regards,<br>The EcoTrade Team</p>";
+        // $message .= "<script>window.open('$url', '_blank');</script>";  // open the link in a new tab
+
 
         $this->mail->setFrom('ecotrade46@gmail.com', $subject);
         $this->mail->isHTML(true);
