@@ -202,7 +202,7 @@
                     // var_dump($data);
                     //Add item ad to the database
                     $ad_id = $this->itemAdsModel->create($data);
-                    var_dump($data); var_dump($ad_id);
+                    // var_dump($data); var_dump($ad_id);
 
                     if($ad_id){
                         // create a flash message
@@ -220,6 +220,17 @@
                         }else{
                             die('Something went wrong when adding auction details');
                         }
+                    }
+
+                    //SET USER TYPE
+                    $userId = $_SESSION['user_id'];
+                    $userType = $this->usersModel->getUserTypeById($userId);
+                    $userType = $userType->user_type;
+
+                    if ($userType == 'rSeller') {
+                        $this->usersModel->setUserTypeById($userId, 'seller');
+                    } else if ($userType != 'seller' && $userType != 'pSeller') {
+                        $this->usersModel->setUserTypeById($userId, 'pSeller');
                     }
 
                 }

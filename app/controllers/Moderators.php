@@ -2,6 +2,8 @@
     class Moderators extends Controller{
         public function __construct(){
             $this->moderatorModel = $this->model('M_Moderators');
+            $this->itemAdsModel = $this->model('M_Item_Ads');
+            $this->userModel = $this->model('M_Users');
         }
 
         public function register(){
@@ -84,7 +86,7 @@
                     if($this->moderatorModel->register($data)){
                         // create a flash message
                         flash('reg_flash', 'You are successfully registered!');
-                        redirect('Moderators/login');
+                        redirect('moderators/index');
                     }
                     else{
                         die('Something went wrong');
@@ -306,7 +308,7 @@
                 }
                 else{
                     //load view
-                    $this->view('moderators/v_edit', $data);
+                    $this->view('moderators/edit', $data);
                 }
             }
             else {
@@ -330,7 +332,7 @@
                 ];
 
                 //load view
-                $this->view('moderators/v_edit', $data);
+                $this->view('moderators/edit', $data);
             }
         }
 
@@ -351,12 +353,24 @@
         //have to make this later -Inuka
         
         public function index(){
-            $data = [];
+            $ads = $this->itemAdsModel->getAds();
+            $numSecAds = count($ads);
+            $moderators = $this->moderatorModel->getModerators();
+            $numModerators = count($moderators);
+            $users = $this->userModel->getUsers();
+            $numUsers = count($users);
+
+            $data = [
+                'sec_ad_count' => $numSecAds,
+                'moderators_count' => $numModerators,
+                'moderators' => $moderators,
+                'users_count' => $numUsers,
+            ];
+            
             //load view
             $this->view('admin/moderators', $data);
 
         }
-
         
     }
 ?>

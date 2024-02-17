@@ -78,8 +78,8 @@ body{
 .dashboard-sidenav ul li a .side-icon {
     position: relative;
     display: block;
-    min-width: 60px;
-    height: 60px; 
+    min-width: 55px;
+    height: 55px; 
     line-height: 70px;
     text-align: center;
 }

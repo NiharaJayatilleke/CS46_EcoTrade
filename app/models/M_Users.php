@@ -8,12 +8,12 @@
         //Register the user
         public function register($data){
 
-            $this->db->query('INSERT INTO General_User(username,email,number,password,userType) VALUES(:username, :email, :number,  :password, :userType)');          
+            $this->db->query('INSERT INTO General_User(username,email,number,password,user_type) VALUES(:username, :email, :number,  :password, :user_type)');          
             $this->db->bind(':username',$data['username']);
             $this->db->bind(':email',$data['email']);
             $this->db->bind(':number',$data['number']);
             $this->db->bind(':password',$data['password']);
-            $this->db->bind(':userType', $data['user_type']);
+            $this->db->bind(':user_type', $data['user_type']);
 
             
             if($this->db->execute()){
@@ -81,12 +81,31 @@
         //get user details
 
         public function getUserDetails($user_id) {
-            $this->db->query('SELECT * FROM General_User WHERE id = :user_id');
+            $this->db->query('SELECT * FROM  WHERE id = :user_id');
             $this->db->bind(':user_id', $user_id);
             return $this->db->single();
         }
 
+        public function getUsers(){
+            $this->db->query('SELECT * FROM General_User');
 
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
+        public function getUserTypeById($userId) {
+            $this->db->query('SELECT user_type FROM General_User WHERE id = :id');
+            $this->db->bind(':id', $userId);
+            return $this->db->single();
+        }
+
+        public function setUserTypeById($userId, $userType) {
+            $this->db->query('UPDATE General_User SET user_type = :user_type WHERE id = :id');
+            $this->db->bind(':id', $userId);
+            $this->db->bind(':user_type', $userType);
+            return $this->db->single();
+        }
         
         // update username and contact number
         public function updateUserInfo($newUsername, $newContactNumber) {
@@ -135,7 +154,6 @@
             $row = $this->db->single();
         
             $hashed_password = $row->password;
-         
             return password_verify($old_password, $hashed_password);
         }
 
@@ -163,9 +181,7 @@
             } else {
                 return false;
             }
-        }
-        
-                
+        }     
     }
 
 ?>

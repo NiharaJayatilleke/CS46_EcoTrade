@@ -8,7 +8,7 @@
                 <img class ="img" src="<?php echo URLROOT; ?>/img/signup/ecotrade.png" >EcoTrade</h2>
 
             <div class = "text-welcome">
-            <h2> Welcome Moderators!<br>
+            <h2> Moderator Registration<br>
             </div>
 
         </div>

@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: right;
     width: 250px;
-    margin-top: 200px;
+    margin-top: 180px;
     /* margin-left: 30px; */
     /* margin-right: 115px; */
 }
@@ -19,7 +19,7 @@
 
 /* Bid Button */
 .bid {
-    background-color: #729e7d;
+    background-color: #89c498;
     border: #729e7d;
     border-radius: 50px;
     border-style: solid;
@@ -50,14 +50,33 @@
 }
 
 /* Accepted Offer */
+.accepted-offer{
+    /* margin-top: -200px; */
+    /* background-color: #4CAF50; */
+    margin-bottom: 20px;
+    border-color: #4CAF50;
+    border-radius: 20px;
+}
+
 .accepted-offer-message{
-    font-size: 20px !important;
+    /* font-size: 20px !important; */
     font-weight: bold;
+    font-size: 16px; 
+    color: #333; 
+    padding: 10px; 
+    background-color: #f8f8f8; 
+    border-radius: 5px; 
+    border: 1px solid #d3d6d3;
+    margin: 10px 0; 
+    text-align: center; 
 }
 
 #accepted-offer-price {
     font-size: 20px;
     font-weight: bold;
-    color: #4CAF50; /* red color */
-    /* border: 1px solid #000000; black border */
+    text-shadow: 1px 1px 1px #b8afaf;
+    /* color: crimson; */
+    padding: 5px;
+    color: #4CAF50; 
+    /* border: 1px solid #000000;  */
 }

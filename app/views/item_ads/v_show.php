@@ -27,15 +27,17 @@
             </div>
             <div class="sad-desMain">
                 <div class="sad-heading">
-                    <div class = "sad-price"><h1>Rs. <?php echo $data['ad']->item_price ?></h1></div>
+                    <div class = "sad-price"><h2>Rs. <?php echo $data['ad']->item_price ?></h2></div>
+                    <div class = "sad-details">
                     <?php if ($data['ad']->negotiable == "yes") : ?>
-                        <p>Negotiable</p>
+                        <p class = "sad-neg">Negotiable</p>
                     <?php else : ?>
-                        <p>Non-Negotiable</p>
+                        <p class = "sad-neg">Non-Negotiable</p>
                     <?php endif; ?>
                     <div class = "sad-condition">Condition: <?php echo $data['ad']->item_condition ?></div>
                     <p>Quantity: 1</p>
                     <br>
+                    </div>
                 </div>
 
                 <div class="sad-description">
@@ -55,12 +57,12 @@
                     <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
                     <!-- <i class="fas fa-ad"></i> Ad icon -->
                     <i class="fas fa-bullhorn"></i>
-                    <p>Promote This Ad</p>
+                    <p>Promote this Ad</p>
                 </button>
-                <button class="sad-b1">
+                <button class="sad-b1" onclick="reportAd()">
                     <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/report.png" alt="report"> -->
                     <i class="fas fa-flag"></i>
-                    <p>Report This Ad</p>
+                    <p>Report this Ad</p>
                 </button>
                 <button class="sad-b1" id="saveAdBtn" onclick=" addToWishList() " >
                     <i class="fas fa-heart" ></i>
@@ -111,6 +113,7 @@
             <?php endif; ?>
         </div>
 
+        <div class = "Offers-Bids">
         <!-- HTML for displaying the accepted offer price -->
         <?php if (isset($data['accepted_offer']->offer_status) == 'accepted') : ?>
             <br><div class="accepted-offer">
@@ -119,6 +122,7 @@
             </div><br>
         <?php endif; ?>
         
+        <!-- <div class = "Offers-Bids"> -->
         <!-- HTML for sellers to accept or reject offers -->
         <div class='offers-list'> 
         <!-- php if ($_SESSION['user_id'] == $data['ad']->seller_id && !empty($data['offers'])) : ?> -->
@@ -146,16 +150,17 @@
         </div>
 
         <!-- HTML for displaying the bids -->
-        <?php if ($data['ad']->selling_format == 'auction') : ?>
-        <div class="bid-info"><br>
-            <h3>Bidding Overview</h3><br>
+        <?php if ($data['ad']->selling_format == 'auction' && $_SESSION['user_id'] == $data['ad']->seller_id) : ?>
+        <br>
+        <div class="offer-title"><h3>Bidding Overview</h3></div>
+        <div class="bid-info">
             <p>Time Remaining: <span id="timeRemaining"><?php echo $data['remaining_time'];?> </span></p>
             <div class="bid-stats">
                 <p>Number of Bids: <span id="numBids"><?php echo $data['bid_count'];?></span></p>
                 <!-- <p>Average Bid Value: Rs. <span id="avgBidValue">3500</span></p> -->
             </div>
             <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && $data['remaining_time'] == 'Auction Ended') : ?>
-                <button id="reopenBidding">Reopen Bidding</button>
+                <button id="reopenBidding">Reopen Bidding</button><br>
             <?php endif; ?>
         </div>
         <?php endif; ?>
@@ -164,7 +169,7 @@
         <div ul class="bid-list">
         <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && $data['ad']->selling_format == "auction") : ?>
         <?php if (count($data['bids']) > 0): ?>
-            <h3>Highest Bids</h3>
+            <div class="offer-title"><h3>Highest Bids</h3></div>
             <?php $count = 0;
             foreach ($data['bids'] as $bid) : 
                 if ($count == 3) break;
@@ -181,11 +186,15 @@
         </ul>
         <?php endif; ?>
         <?php endif; ?>
-        </div>   
+        </div> 
+        </div>  
     </div>
 </div>
+</div>
 
-<br><br>
+<!-- <br> -->
+<div class="sad-main-container2">
+<div class="sad-main-container3-left">
 <!-- Message Sellers (Q&A) -->
 <form method="post">
     <div class = "message-seller-container">
@@ -206,10 +215,18 @@
         <!-- Message Thread -->
         <div id = "results"></div>
 
-        </div>
-    </div>
-            
+    </div>  
+
 </form>
+</div>
+
+<div class="sad-main-container3-right">
+    <div class="sad-more-ads-title"><h2>Explore more ads</h2></div>
+
+</div>
+</div>
+
+
 
 <!-- jQuery -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
@@ -224,6 +241,7 @@
 
 <!-- JS for messages -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/messages.js"></script>
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/message_load.js"></script>
 
 <!-- JS for Offers -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/offers.js"></script>
@@ -233,6 +251,10 @@
 
 <!-- JS for other interactions -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>
+
+<!-- JS for Reporting Ads -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/report_ad.js"></script>
+
 <script>
     const id = <?php echo $data['ad']->ad_id ?>;
     const heartIcon = document.querySelector('#saveAdBtn i');

@@ -1,6 +1,6 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
-
-<?php require APPROOT . '/views/inc/components/topnavbar.php'; ?>
+    <!-- Top NAVIGATION -->
+    <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/index.css">
 <!-- 
@@ -133,30 +133,9 @@
                 <video autoplay loop muted plays-inline class="back-video"> s
                     <source src = "../public/img/index/video.mp4" type="video/mp4">
             </video>
-            </div>
-
+            </div>         
         </div>
 </section>
 
 <!-- JS as a separate file -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/index.js"></script>
-
-
-<!-- <script>
-    let text = document.getElementById('text'); // Corrected the element ID
-    let leaf = document.getElementById('leaf');
-    let hill1 = document.getElementById('hill1');
-    let hill4 = document.getElementById('hill4');
-    let hill5 = document.getElementById('hill5');
-
-    window.addEventListener('scroll', () => {
-        let value = window.scrollY;
-
-        // Corrected the style property
-        leaf.style.top = value * 1.05 + 'px';
-        leaf.style.left = value * 1.05 + 'px';
-        hill5.style.left = value * 1.05 + 'px';
-        hill4.style.left = value * -1.05 + 'px';
-    });
-</script> -->
-
