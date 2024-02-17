@@ -44,12 +44,12 @@
                 $isSeller = $message->user_id == $sellerId->seller_id; //messages sent by the seller
 
                 // echo '<div class = "message-container" id="message-' . $message->message_id . '">';
-                echo '<div class = "message-container">';
+                echo '<div class = "message-container" id="message-container' . $message->message_id . '">';
                 echo '<div class = "message-left">';
                     if ($isSeller) {
-                        echo '<img id="user_placeholder" src="' . URLROOT . '/public/img/itemAds/seller.png" alt="Seller">';
+                        echo '<img id="user_placeholder" src="' . URLROOT . '/public/img/itemAds/seller.png" alt="Seller" style="height:30px" style="width:30px">';
                     } else {
-                        echo '<img id="user_placeholder" src="' . URLROOT . '/public/img/itemAds/man.jpg" alt="Not a seller">';
+                        echo '<img id="user_placeholder" src="' . URLROOT . '/public/img/itemAds/man.jpg" alt="Buyer">';
                     }                
                 echo '</div>';
 
@@ -62,6 +62,20 @@
                 
                 echo '<div class = "message-body">';
                 echo '<div class = "message-body-cont" >' . $message->content . '</div>';
+                //delete message
+                if ($message->user_id == $_SESSION['user_id']) {
+                    echo '<button class="msg-delete-button" data-message-id="' . $message->message_id . '"><i class="fa fa-trash"></i></button>';
+                }
+                
+                //reply button
+                if (!$isSeller &&  $_SESSION['user_id'] == $sellerId->seller_id && empty($message->reply)) { 
+                    echo '<div class="message-reply">';
+                    //echo '<button class="message-reply-btn"  data-message-id="' . $message->message_id . '" onclick="messageReply(' . $message->message_id . ')"><i class="fas fa-reply"></i>Reply</button>'; 
+                    echo '<button class="message-reply-btn"  data-message-id="' . $message->message_id . '" ><i class="fas fa-reply"></i>Reply</button>'; 
+                    echo '</div>';
+                }
+                echo '</div>'; //message-body
+
                 echo '<div class = "message-reply-form" id="message-' . $message->message_id . '"> </div>';
                 // echo '</div>';
 
@@ -69,18 +83,10 @@
                 if (!empty($message->reply)) {
                     echo '<div class = "message-reply-body">';
                     echo '<div class = "message-reply-body-cont">' . $message->reply . '</div>';
+                    echo '<button class="reply-delete-button"><i class="fa fa-trash"></i></button>';
                     echo '</div>';
                 }
-                echo '</div>';
 
-                //reply button
-                if (!$isSeller &&  $_SESSION['user_id'] == $sellerId->seller_id) { 
-                    echo '<div class="message-reply">';
-                    // echo '<div>' . $message->message_id . '</div>';
-                    //echo '<button class="message-reply-btn"  data-message-id="' . $message->message_id . '" onclick="messageReply(' . $message->message_id . ')"><i class="fas fa-reply"></i>Reply</button>'; 
-                    echo '<button class="message-reply-btn"  data-message-id="' . $message->message_id . '" ><i class="fas fa-reply"></i>Reply</button>'; 
-                    echo '</div>';
-                }
                 echo '</div>';
                 echo '</div>';
 
@@ -91,7 +97,7 @@
         function replyToMessage($messageId) {
             $message = $this->messagesModel->getMessageById($messageId);
 
-            if ($_SESSION['user_id'] == $message->seller_id) {
+            // if ($_SESSION['user_id'] == $message->seller_id) {
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
@@ -105,7 +111,7 @@
                         // Update the message with the reply
                         if ($this->messagesModel->updateMessageWithReply($messageId, $_POST['reply'])) {
                             // Redirect to the messages page
-                            header('Location: ' . URLROOT . '/messages');
+                            header('Location: ' . URLROOT . '/ItemAds/show/' . $message->ad_id);
                         } else {
                             die('Something went wrong');
                         }
@@ -118,9 +124,26 @@
                     ];
                     $this->view('messages/reply', $data);
                 }
+            // } else {
+                // die('Unauthorized');
+            // }
+        }
+
+        function deleteMessage($messageId) {
+            $message = $this->messagesModel->getMessageById($messageId);
+        
+            if ($_SESSION['user_id'] == $message->user_id) {
+                if ($this->messagesModel->deleteMessageById($messageId)) {
+                    echo json_encode(array('success' => true, 'message' => 'The message was deleted successfully.'));
+                } else {
+                    http_response_code(500); // Internal Server Error
+                    echo json_encode(array('success' => false, 'message' => 'Something went wrong.'));
+                }
             } else {
-                die('Unauthorized');
+                http_response_code(403); // Forbidden
+                echo json_encode(array('success' => false, 'message' => 'Unauthorized.'));
             }
+            exit();
         }
     }
 ?>

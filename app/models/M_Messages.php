@@ -47,5 +47,17 @@
                 return false;
             }
         }
+
+        public function deleteMessageById($messageId){
+            $this->db->query('DELETE FROM Messages WHERE message_id = :id');
+            $this->db->bind(':id',$messageId);
+            
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 ?>

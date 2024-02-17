@@ -72,6 +72,14 @@ $(document).ready(function () {
             $('.message-reply-btn').show();
         });
 
+        //delete message
+        $(".msg-delete-button").click(function(event) {
+            event.preventDefault();
+            var messageId = $(this).data('message-id');
+            deleteMessage(messageId);
+            // $(this).hide();
+        });
+
 });
 
     function messageReply(messageId) {
@@ -97,7 +105,7 @@ $(document).ready(function () {
     
         // Create a new form
         var form = document.createElement('form');
-        form.action = URLROOT + "/Messages/replyToMessage/"+ messageId; // Replace with the path to your endpoint
+        form.action = URLROOT + "/Messages/replyToMessage/"+ messageId; 
         form.method = 'POST';
         form.classList.add('reply-form');
         form.appendChild(input);
@@ -105,6 +113,43 @@ $(document).ready(function () {
         form.appendChild(close);
     
         // Append the form to the message
-        var message = document.getElementById('message-' + messageId); // Replace with the actual ID of your message element
+        var message = document.getElementById('message-' + messageId); 
         message.appendChild(form);
+    }
+
+    // Function to delete a message
+    function deleteMessage(messageId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(URLROOT + '/Messages/deleteMessage/' + messageId, {
+                    method: 'POST',
+                    body: JSON.stringify({ messageId: messageId }),
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        //remove the message from view
+                        var messageElement = document.getElementById('message-container' + messageId);
+                        if (messageElement) {
+                            messageElement.remove();
+                        }
+
+                        Swal.fire(
+                            'Deleted!',
+                            'Your message has been deleted.',
+                            'success'
+                        )
+                    }
+                });
+            }
+        })
     }
