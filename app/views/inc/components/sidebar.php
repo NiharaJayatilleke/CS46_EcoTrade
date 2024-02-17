@@ -2,12 +2,14 @@
 
 <div class="sidebar">
     <ul class="nav-links">
+     <!-- <a href="<?php echo URLROOT ?>/Users/profile"> -->
         <li>
             <a href="<?php echo URLROOT ?>/Users/profile">
                 <i class='bx bxs-user-circle'></i>
                 <span class="link_name">Profile</span>
             </a>
         </li>
+<!-- </a> -->
         <?php
     // Check if the current page is one of the specified pages
     $currentUri = $_SERVER['REQUEST_URI'];
@@ -147,3 +149,4 @@
         }
 
 </script>
+

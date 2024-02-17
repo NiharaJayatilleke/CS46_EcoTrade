@@ -1,5 +1,5 @@
 <footer class="footer">
-	<div class="container">
+	<div class="footer_container">
 		<div class="row">
 			<div class="footer-col">
 				<img class="img" src="<?php echo URLROOT; ?>/img/signup/ecotrade.png" >

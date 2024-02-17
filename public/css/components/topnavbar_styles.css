@@ -64,6 +64,7 @@
   height: 2.5rem;
   border: 2px solid white;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 

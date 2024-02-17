@@ -1,5 +1,6 @@
 
-.container {
+
+.footer_container {
     max-width: 1170px;
     margin: auto;
 }
@@ -11,6 +12,26 @@
 
 ul {
     list-style: none;
+}
+
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
 }
 
 .footer {

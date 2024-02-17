@@ -79,9 +79,8 @@
         // }
 
         //get user details
-
         public function getUserDetails($user_id) {
-            $this->db->query('SELECT * FROM  WHERE id = :user_id');
+            $this->db->query('SELECT * FROM General_User WHERE id = :user_id');
             $this->db->bind(':user_id', $user_id);
             return $this->db->single();
         }
