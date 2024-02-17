@@ -208,3 +208,36 @@
 .message-reply-btn i{
     margin-right: 5px;
 }
+
+.reply-form {
+    background-color: #f8f8f8;
+    padding: 1%; 
+    border: 1px solid #cfd5d8; 
+    font-size: 14px; 
+    color: #000000;
+    width: 100%; 
+    margin-top: 1%; 
+    margin-left: -10px;
+}
+
+.reply-input {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+.reply-submit-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+.reply-close-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+}

@@ -43,6 +43,7 @@
             foreach($messages as $message){
                 $isSeller = $message->user_id == $sellerId->seller_id; //messages sent by the seller
 
+                // echo '<div class = "message-container" id="message-' . $message->message_id . '">';
                 echo '<div class = "message-container">';
                 echo '<div class = "message-left">';
                     if ($isSeller) {
@@ -58,9 +59,11 @@
                 echo '<span class="message-separator"> · </span>';
                 echo '<div class = "message-created-at">' .convertTime($message->msg_created_at) . '</div>';
                 echo '</div>';
+                
                 echo '<div class = "message-body">';
-                echo '<div class = "message-body-cont">' . $message->content . '</div>';
-                echo '</div>';
+                echo '<div class = "message-body-cont" >' . $message->content . '</div>';
+                echo '<div class = "message-reply-form" id="message-' . $message->message_id . '"> </div>';
+                // echo '</div>';
 
                 //seller's reply
                 if (!empty($message->reply)) {
@@ -68,19 +71,21 @@
                     echo '<div class = "message-reply-body-cont">' . $message->reply . '</div>';
                     echo '</div>';
                 }
+                echo '</div>';
 
                 //reply button
                 if (!$isSeller &&  $_SESSION['user_id'] == $sellerId->seller_id) { 
                     echo '<div class="message-reply">';
-                    echo '<div>' . $message->message_id . '</div>';
-                    echo '<button class="message-reply-btn" onclick="messageReply(' . $message->message_id . ')"><i class="fas fa-reply"></i>Reply</button>'; 
+                    // echo '<div>' . $message->message_id . '</div>';
+                    //echo '<button class="message-reply-btn"  data-message-id="' . $message->message_id . '" onclick="messageReply(' . $message->message_id . ')"><i class="fas fa-reply"></i>Reply</button>'; 
+                    echo '<button class="message-reply-btn"  data-message-id="' . $message->message_id . '" ><i class="fas fa-reply"></i>Reply</button>'; 
                     echo '</div>';
                 }
                 echo '</div>';
                 echo '</div>';
 
-                echo '<script src="' . URLROOT . '/js/ads/messages.js"></script>';
             }
+            echo '<script src="' . URLROOT . '/js/ads/message_reply.js"></script>';
         }
 
         function replyToMessage($messageId) {

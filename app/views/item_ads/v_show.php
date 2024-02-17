@@ -240,7 +240,7 @@
 </script>
 
 <!-- JS for messages -->
-<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/messages.js"></script>
+<!-- <script type="text/JavaScript" src="<php echo URLROOT; ?>/js/ads/message_reply.js"></script> -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/message_load.js"></script>
 
 <!-- JS for Offers -->
