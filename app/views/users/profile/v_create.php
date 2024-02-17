@@ -99,8 +99,8 @@
                                     Back to Home
                                     </button>                      
                                 </div>
-                      </div>
-                    </div>
+                            </div>
+                        </div>
                     </div>
 
 
@@ -144,10 +144,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            <div style="margin-top: 30px;">
-                            <?php flash('update_password'); ?>
-                            
-                            </div>
+                                <div style="margin-top: 30px;">
+                                <?php flash('update_password'); ?>
+                                
+                                </div>
                             </div>
                             <div class="right-right">
                                 <div class="form-group">
@@ -278,9 +278,7 @@
                                         <?php endif; ?>
                              
                                     </div>
-                                    
-                                 
-                                </div>
+                                    </div>
                                 <button class="home-back" style=" margin-top:20px; margin-right: 0px;padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                                                 Back to Home
                                                 </button>
@@ -290,8 +288,8 @@
                             <!-- <button class="home-back" style=" margin-top:200px; margin-right: 100px; padding: 10px 50px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                         Back to Home
                         </button> -->
-                    </div>
-                    </div>
+                            </div>
+                        </div>
                     </div>
 
 
@@ -332,10 +330,9 @@
                             <button class="home-back" style=" margin-top:200px; margin-left: 300px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                         Back to Home
                         </button>
-                            
-                        </div>
-                    </div>
-                    </div>
+                            </div>
+                            </div>
+                       </div>
                     </div>
 
 
@@ -399,7 +396,8 @@
                             
                         </div>
                     </div>
-                    </div>
+                </div>
+            </div>
 
             </div>
         </div>

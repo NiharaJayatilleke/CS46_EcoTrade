@@ -18,6 +18,26 @@ ul {
     padding: 70px 0;
 }
 
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+}
+
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+}
+
 .footer-col {
     width: 25%;
     padding: 0 15px;
