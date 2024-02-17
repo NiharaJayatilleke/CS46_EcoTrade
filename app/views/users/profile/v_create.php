@@ -1,7 +1,7 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <body id="profile-body">
     <div class="hero2">
-    <div class="container">
+    <div class="profile_container">
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/profile_styles.css">
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
