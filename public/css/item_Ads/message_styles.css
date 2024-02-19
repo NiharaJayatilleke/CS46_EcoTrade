@@ -171,20 +171,25 @@
 }
 
 /* Delete Button */
-.msg-delete-button, .reply-delete-button{
+.msg-delete-button, .reply-delete-button, .msg-edit-button{
     background-color: transparent;
     border: none;
     cursor: pointer;
     margin-right: 2px;
 }
 
-.msg-delete-button .fa, .reply-delete-button .fa{
+.msg-delete-button .fa, .reply-delete-button .fa, .msg-edit-button .fas{
     color: #afaeae; 
     font-size: 13px; 
+    margin-left: 2px;
 }
 
 .msg-delete-button:hover, .reply-delete-button:hover{
     color: #ff0000;
+}
+
+.msg-edit-button:hover{
+    color: #525151;
 }
 
 /* DISPLAY REPLY */

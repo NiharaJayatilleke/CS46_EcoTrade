@@ -198,7 +198,7 @@
 
 .sad-bottom .sad-b1 p {
     padding-top: 5px;
-    margin-top: 5%;
+    /* margin-top: 5%; */
 }
 
 .sad-bottom .sad-b1 button {
@@ -231,7 +231,7 @@
 
 .sad-b1 p {
     /* width: 100%; */
-    margin-top: 2%;
+    /* margin-top: 2%; */
     margin-left: 5px;
     /* background-color: #F5F5F5; */
     font-size: 14px;

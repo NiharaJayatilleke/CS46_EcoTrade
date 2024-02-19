@@ -80,6 +80,14 @@ $(document).ready(function () {
             // $(this).hide();
         });
 
+        //delete reply
+        $(".reply-delete-button").click(function(event) {
+            event.preventDefault();
+            var messageId = $(this).data('message-id');
+            deleteReply(messageId);
+        });
+
+
 });
 
     function messageReply(messageId) {
@@ -117,7 +125,7 @@ $(document).ready(function () {
         message.appendChild(form);
     }
 
-    // Function to delete a message
+    // Function to delete a MESSAGE
     function deleteMessage(messageId) {
         Swal.fire({
             title: 'Are you sure?',
@@ -148,6 +156,62 @@ $(document).ready(function () {
                             'Your message has been deleted.',
                             'success'
                         )
+                    }
+                });
+            }
+        })
+    }
+
+    // Function to delete a REPLY
+    function deleteReply(messageId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(URLROOT + '/Messages/deleteReply/' + messageId, {
+                    method: 'POST',
+                    body: JSON.stringify({ messageId: messageId }),
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        //remove the reply from view
+
+                        console.log('#message-reply ' + messageId)
+
+                        var messageElement = document.getElementById('message-reply' + messageId);
+                        console.log(messageElement);
+                        if (messageElement) {
+                            messageElement.remove();
+                        }
+
+                        Swal.fire(
+                            'Deleted!',
+                            'Your message has been deleted.',
+                            'success'
+                        )
+
+                        // Make the reply button visible
+                        // $('#msg-reply-btn').show();
+
+                        var replyButton = document.getElementById('msg-reply' + messageId);
+                        console.log(replyButton);
+                        if (replyButton) {
+                            console.log('Reply button found');
+                            $(replyButton).show();
+                        }
+
+                        // deleteReplyFromDOM(messageId).then(() => {
+                        //     // After the reply is deleted, show the reply button
+                        //     $('#msg-reply-btn').show();
+                        // });
                     }
                 });
             }

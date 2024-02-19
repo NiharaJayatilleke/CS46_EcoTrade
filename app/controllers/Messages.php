@@ -61,17 +61,22 @@
                 echo '</div>';
                 
                 echo '<div class = "message-body">';
+                // echo $message->message_id;
                 echo '<div class = "message-body-cont" >' . $message->content . '</div>';
+
                 //delete message
+                echo '<div class = "message-edit-del-icons">';
                 if ($message->user_id == $_SESSION['user_id']) {
+                    // echo '<button class="msg-edit-button" data-message-id="' . $message->message_id . '"><i class="fas fa-edit"></i></button>';
                     echo '<button class="msg-delete-button" data-message-id="' . $message->message_id . '"><i class="fa fa-trash"></i></button>';
                 }
-                
+                echo '</div>';
+
                 //reply button
                 if (!$isSeller &&  $_SESSION['user_id'] == $sellerId->seller_id && empty($message->reply)) { 
                     echo '<div class="message-reply">';
                     //echo '<button class="message-reply-btn"  data-message-id="' . $message->message_id . '" onclick="messageReply(' . $message->message_id . ')"><i class="fas fa-reply"></i>Reply</button>'; 
-                    echo '<button class="message-reply-btn"  data-message-id="' . $message->message_id . '" ><i class="fas fa-reply"></i>Reply</button>'; 
+                    echo '<button class= "message-reply-btn" id="msg-reply' . $message->message_id . '"  data-message-id="' . $message->message_id . '"><i class="fas fa-reply"></i>Reply</button>'; 
                     echo '</div>';
                 }
                 echo '</div>'; //message-body
@@ -81,9 +86,10 @@
 
                 //seller's reply
                 if (!empty($message->reply)) {
-                    echo '<div class = "message-reply-body">';
+                    echo '<div class = "message-reply-body" id="message-reply' . $message->message_id . '">';
                     echo '<div class = "message-reply-body-cont">' . $message->reply . '</div>';
-                    echo '<button class="reply-delete-button"><i class="fa fa-trash"></i></button>';
+                    //delete reply
+                    echo '<button class="reply-delete-button" data-message-id="' . $message->message_id . '"><i class="fa fa-trash"></i></button>';
                     echo '</div>';
                 }
 
@@ -111,7 +117,8 @@
                         // Update the message with the reply
                         if ($this->messagesModel->updateMessageWithReply($messageId, $_POST['reply'])) {
                             // Redirect to the messages page
-                            header('Location: ' . URLROOT . '/ItemAds/show/' . $message->ad_id);
+                            // header('Location: ' . URLROOT . '/ItemAds/show/' . $message->ad_id);
+                            redirect('ItemAds/show/' . $message->ad_id);
                         } else {
                             die('Something went wrong');
                         }
@@ -122,7 +129,7 @@
                         'reply' => '',
                         'reply_err' => ''
                     ];
-                    $this->view('messages/reply', $data);
+                    $this->view('messages/reply', $data); // check this 
                 }
             // } else {
                 // die('Unauthorized');
@@ -143,6 +150,23 @@
                 http_response_code(403); // Forbidden
                 echo json_encode(array('success' => false, 'message' => 'Unauthorized.'));
             }
+            exit();
+        }
+
+        function deleteReply($messageId) {
+            $message = $this->messagesModel->getMessageById($messageId);
+        
+            // if ($_SESSION['user_id'] == $message->user_id) {
+                if ($this->messagesModel->deleteReplyById($messageId)) {
+                    echo json_encode(array('success' => true, 'message' => 'The message was deleted successfully.'));
+                } else {
+                    http_response_code(500); // Internal Server Error
+                    echo json_encode(array('success' => false, 'message' => 'Something went wrong.'));
+                }
+            // } else {
+            //     http_response_code(403); // Forbidden
+            //     echo json_encode(array('success' => false, 'message' => 'Unauthorized.'));
+            // }
             exit();
         }
     }
