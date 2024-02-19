@@ -100,6 +100,14 @@
             <script>console.log(document.querySelector('#show-number').dataset.number);</script>
             </div>
         </div>
+
+        <!-- Update Ad, Remove Ad -->
+        <?php if ($_SESSION['user_id'] == $data['ad']->seller_id) : ?>
+        <div class="sad-edit-delete">
+            <a href = "<?php echo URLROOT?>/ItemAds/edit/<?php echo $data['ad']->ad_id?>"><button class="sad-edit-btn" title="edit ad"><i class="fas fa-edit"></i><p>Update Ad</p></button></a>
+            <button onclick="confirmDelete('<?php echo URLROOT?>/ItemAds/delete/<?php echo $data['ad']->ad_id ?>')" class="sad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i><p>Remove Ad</p></button></a>
+        </div>
+        <?php endif; ?>
         
         <div class = "sad-btns">
             <!-- offer and bid icons are disabled for seller and only allowed if seller has chosen to -->
@@ -240,7 +248,7 @@
 </script>
 
 <!-- JS for messages -->
-<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/messages.js"></script>
+<!-- <script type="text/JavaScript" src="<php echo URLROOT; ?>/js/ads/message_reply.js"></script> -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/message_load.js"></script>
 
 <!-- JS for Offers -->
