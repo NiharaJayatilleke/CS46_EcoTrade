@@ -10,7 +10,7 @@
             </a>
         </li>
 <!-- </a> -->
-        <?php
+        <!-- <?php
     // Check if the current page is one of the specified pages
     $currentUri = $_SERVER['REQUEST_URI'];
     $showCategories = (strpos($currentUri, '/ItemAds/index') !== false) || (strpos($currentUri, '/Search/SearchAd') !== false);
@@ -18,14 +18,14 @@
     // Set the sidebar height based on the condition
     $sidebarHeight = $showCategories ? '180px' : '125px';   
     
-    ?>
+    ?> -->
 
-<style>
+<!-- <style>
     .sidebar {
         height: <?php echo $sidebarHeight; ?>;
     }
-</style>
-
+</style> -->
+<!-- 
 <?php
 
     if ($showCategories) {
@@ -53,7 +53,7 @@
         </li>
     <?php
     }
-    ?>
+    ?> -->
         <li class="logout-link">
             <a href="<?php echo URLROOT ?>/Users/logout">
                 <i class='bx bx-log-out'></i>
@@ -63,7 +63,7 @@
     </ul>
 </div>
 
-
+<!-- 
 <script>
     let categoriesLink = document.getElementById("categories-link");
     let arrow = document.querySelector(".arrow");
@@ -99,8 +99,8 @@
     });
     }
     
-</script>
-
+</script> -->
+<!-- 
 <script>
     var categoryList=['furnitureCheckbox', 'electronicsCheckbox', 'clothingCheckbox', 'booksCheckbox', 'kitchenwareCheckbox', 'homedecoCheckbox', 'sportsEquipmentCheckbox', 'appliancesCheckbox']
     var selectedCategory = [];
@@ -149,4 +149,4 @@
         }
 
 </script>
-
+ -->
