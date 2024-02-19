@@ -1,0 +1,54 @@
+.wrapper {
+    /* background: red; */
+}
+
+.wrapper .filter-sidebar {
+    /* background: green; */
+    width: 16rem;
+    height: 100vh;
+    top: 60px;
+    position: fixed;
+}
+
+.wrapper .container {
+    /* display: none; */
+    margin-left: 16rem;
+}
+
+.indicator {
+    /* background: red; */
+    /* position: relative; */
+    width: 100%;
+    height: 20rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.indicator li {
+    list-style: none;
+    width: 10rem;
+    padding: 0.5rem 0.5rem;
+    margin: 10px;
+    background: gray;
+
+    border-radius: 5px;
+}
+.indicator li input[type="checkbox"] {
+    /* display: none; */
+}
+
+.indicator li{
+    color: white;
+}
+
+.indicator li.active {
+    background: blue;
+}
+
+.indicator li.active a {
+    /* color: green; */
+    font-weight: bold;
+}
