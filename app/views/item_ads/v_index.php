@@ -3,7 +3,25 @@
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/filter_sidebar.css">    
 
+    <div class="wrapper" >
+        <div class="filter-sidebar">
+            <ul class="indicator">
+                <li><input type="checkbox" data-filter="furniture">Furniture</li>
+                <li><input type="checkbox" data-filter="electronics">Electronics</li>
+                <li><input type="checkbox" data-filter="clothing">Clothing</li>
+                <li><input type="checkbox" data-filter="books">Books</li>
+                <li><input type="checkbox" data-filter="kitchenware">Kitchenware</li>
+                <li><input type="checkbox" data-filter="home_deco">Home Deco</li>
+                <li><input type="checkbox" data-filter="sportsEquipment">Sports Equipment</li>
+                <li><input type="checkbox" data-filter="appliances">Appliances</li>
+
+            </ul>
+            <div class="filter-condition"></div>
+
+        </div>
+        <div class="container">
     <!-- <div class = "user-greeting">
         <p>Hi <b><?php echo $_SESSION['user_name']; ?></b>, Welcome to the Secondhand Marketplace!</p>
     </div>
@@ -20,12 +38,11 @@
     flash('post_msg');
     ?>
 
-
     <?php if (!empty($data['ads'])) : ?>
     <div class = "ads-container">
         <?php foreach($data['ads'] as $ad): ?>
             <a class = "ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
-                <div class = "ad-index-container <?php echo $ad->item_category ?>Checkbox">
+                <div class = "ad-index-container <?php echo $ad->item_category ?>">
 
                     <div class = "ad-header">
                         <div class = "ad-body-image">
@@ -65,6 +82,7 @@
             </a>
         <?php endforeach; ?>
     </div>
+    </div>
     
     <?php else : ?>
         <div style="font-size: 20px;margin: 30px 50px;">
@@ -72,22 +90,9 @@
         <p>Try checking your spelling or use more general terms</p>
         </div>
     <?php endif; ?>
-    
+    </div>
 
 <?php require APPROOT.'/views/inc/components/footer.php'; ?>
+<script src="<?php echo URLROOT; ?>/js/ads/filter_sidebar.js"></script>
 
 
-    <!-- <div class = "ad-index-container">
-        <div class = "ad-header">
-            <div class = "ad-header-title"><h2>Sofa<h2></div> 
-        </div>
-        <div class = "ad-body">
-            <div class = "ad-body-image">
-                <a href=""><img src="../public/img/ad_image.jpg" alt="sofa ad" width="400" height="300"></a>
-            </div>
-            <div class = "ad-body-desc">This sofa features plush cushioning and a timeless design that complements any interior decor. The durable upholstery has gracefully withstood the test of time, providing a comfortable and inviting seating area. With plenty of life left, this pre-owned sofa offers an affordable yet charming way to enhance the ambiance of your home. It's the perfect choice for those seeking both relaxation and a touch of elegance in their living room."</div>
-        </div>
-        <div class = "ad-footer">
-            <div class = "ad-price">Rs. 50,000</div>
-        </div>
-    </div> -->

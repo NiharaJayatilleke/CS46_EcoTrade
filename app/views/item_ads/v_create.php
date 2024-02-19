@@ -28,7 +28,7 @@
                 <option value="books">Books</option>
                 <option value="kitchenware">Kitchenware</option>
                 <option value="home_deco">Home Deco</option>
-                <option value="sports_equip">Sports Equipment</option>
+                <option value="sportsEquipment">Sports Equipment</option>
                 <option value="appliances">Appliances</option>
                 <option value="other">Other</option>
             </select>
