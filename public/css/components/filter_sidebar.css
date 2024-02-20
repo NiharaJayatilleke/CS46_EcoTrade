@@ -33,7 +33,7 @@
 .indicator li {
     list-style: none;
     width: 10rem;
-    padding: 0.5rem 0.5rem;
+    padding: 0.3rem 0.3rem;
     margin: 10px;
     /* background: gray; */
 
@@ -87,7 +87,18 @@
 
 .filter-condition select{
     width: 80%;
-    margin: 2rem auto;
+    margin: 1rem auto;
     padding: 0.5rem;
     border-radius: 5px;
+}
+
+.item_other_category{
+    width: 90%;
+    height: 30px;
+    border: 1px solid #ccc;
+    text-align: right;
+    /* color: #515151; */
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
 }

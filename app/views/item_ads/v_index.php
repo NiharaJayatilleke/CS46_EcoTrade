@@ -16,7 +16,10 @@
                 <li><input type="checkbox" data-filter="home_deco">Home Deco</li>
                 <li><input type="checkbox" data-filter="sportsEquipment">Sports Equipment</li>
                 <li><input type="checkbox" data-filter="appliances">Appliances</li>
-               
+                <li>
+                <label for="otherCategInput">Other Category:</label>
+                <input type="text" id="otherCategInput" name="otherCategoryInput" class="item_other_category">
+                </li>
             </ul>
             
             <div class="filter-price">
