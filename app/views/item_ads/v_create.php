@@ -8,8 +8,6 @@
         <center><h2>Let's start building your ad</h2></center>
         </div>
 
-        
-
         <form action="<?php echo URLROOT?>/ItemAds/itemAd" method="POST" enctype="multipart/form-data">
 
             <!-- item_name -->
