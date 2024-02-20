@@ -16,10 +16,28 @@
                 <li><input type="checkbox" data-filter="home_deco">Home Deco</li>
                 <li><input type="checkbox" data-filter="sportsEquipment">Sports Equipment</li>
                 <li><input type="checkbox" data-filter="appliances">Appliances</li>
-
+               
             </ul>
-            <div class="filter-condition"></div>
+            
+            <div class="filter-price">
+                <label for="min-price">Min Price</label>
+                <label for="max-price">Max Price</label>
+                <input type="text" id="minPrice">
+                <input type="text" id="maxPrice">
 
+            </div>
+            <div class="filter-condition">       
+                <select name="item_condition" id="item_condition">
+                    <option value="">Select the condition</option>
+                    <option value="Brand New">Brand New - Never Used</option>
+                    <option value="Like New">Like New - Barely Used</option>
+                    <option value="Very Good">Very Good - Slightly Used with Minor Signs of Wear</option>
+                    <option value="Good">Good - Used with Some Signs of Wear</option>
+                    <option value="Fair">Fair - Used with Visible Signs of Wear</option>
+                    <option value="Poor">Poor - Heavily Used with Significant Wear or Damages</option>
+                </select>
+            </div>
+            
         </div>
         <div class="container">
     <!-- <div class = "user-greeting">
@@ -42,7 +60,9 @@
     <div class = "ads-container">
         <?php foreach($data['ads'] as $ad): ?>
             <a class = "ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
-                <div class = "ad-index-container <?php echo $ad->item_category ?>">
+                <div class = "ad-index-container <?php echo $ad->item_category ?>"
+                data-price="<?php echo $ad->item_price ?>"
+                data-condition="<?php echo $ad->item_condition ?>">
 
                     <div class = "ad-header">
                         <div class = "ad-body-image">
@@ -81,6 +101,9 @@
                 </div>
             </a>
         <?php endforeach; ?>
+        <div id="noResults" style="display:none;">
+            <h1>No Results Found</h1>
+        </div>
     </div>
     </div>
     
@@ -94,5 +117,6 @@
 
 <?php require APPROOT.'/views/inc/components/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/ads/filter_sidebar.js"></script>
+
 
 
