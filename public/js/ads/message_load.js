@@ -18,6 +18,7 @@ $(document).ready(function () {
             })
 
             // Refresh the messages thread
+            setTimeout(function() {
             $.ajax({
                 url:URLROOT +"/Messages/showMessages/"+ CURRENT_AD,
                 dataType:"html",
@@ -26,6 +27,7 @@ $(document).ready(function () {
                     $("#results").html(results);
                 }
             })
+        }, 1000);
 
             $("#send-message").val("");
 

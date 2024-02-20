@@ -82,6 +82,10 @@
                 <div class="notif-dropdown-item">
                   <div class="message"><?php echo $notification['message']; ?></div>
                   <a href="<?php echo URLROOT ?>/ItemAds/show/<?php echo $notification['ad_id']; ?>" class="view-ad-link" data-ad-id="<?php echo $notification['ad_id']; ?>">View Ad</a>
+                  <!--"Mark as Read" icon -->
+                  <!-- <a href="<php echo URLROOT ?>/Notifications/markAsRead/<?php echo $notification['id']; ?>" class="mark-as-read" data-notification-id="<?php echo $notification['id']; ?>">
+                      <i class="fas fa-check"></i>
+                  </a> -->
                 </div>
           </div>
         </div>

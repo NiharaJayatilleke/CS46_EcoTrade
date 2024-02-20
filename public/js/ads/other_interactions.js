@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 document.querySelector('#show-number').addEventListener('click', function(e) {
     e.preventDefault();
     var phoneNumber = this.dataset.number;
-    console.log(phoneNumber);
+    // console.log(phoneNumber);
     Swal.fire({
         title: 'Seller\'s Phone Number',
         html: `<i class="fas fa-phone style="margin-right: 20px;"></i> ${phoneNumber}`,
