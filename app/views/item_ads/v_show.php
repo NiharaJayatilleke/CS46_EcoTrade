@@ -97,7 +97,7 @@
             <div class="sad-b3-p">
             <!-- <button id="show-number" class="number" data-number="php echo $data['ad']->number?>"> Click to show phone number</button> -->
             <button id="show-number" class="sad-number" data-number="<?php echo $data['number']?>"> Contact Seller</button>
-            <script>console.log(document.querySelector('#show-number').dataset.number);</script>
+            <!-- <script>console.log(document.querySelector('#show-number').dataset.number);</script> -->
             </div>
         </div>
 
