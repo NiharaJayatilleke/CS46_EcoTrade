@@ -98,5 +98,18 @@
             return $remainingTimeString;
         }
 
+        public function updateBiddingDetails($adId, $duration, $startingBid){
+            $this->db->query('UPDATE Bidding_Details SET auction_duration = :auction_duration, starting_bid = :starting_bid, starting_time = NOW() WHERE ad_id = :ad_id');         
+            $this->db->bind(':ad_id',$adId);         
+            $this->db->bind(':auction_duration',$duration);
+            $this->db->bind(':starting_bid',$startingBid);
+        
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 ?>

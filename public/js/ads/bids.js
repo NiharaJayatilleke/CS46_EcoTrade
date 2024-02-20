@@ -274,6 +274,41 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <pre><code>Duration: ${duration} ${durationText} \nStarting Bid: Rs. ${startingBid}</code></pre>
                                 `,
                                 confirmButtonText: 'Confirm!'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    fetch(URLROOT + "/Bids/reopenBidding/" + CURRENT_AD, {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                        },
+                                        body: JSON.stringify({
+                                            duration: duration,
+                                            startingBid: startingBid,
+                                        }),
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (data.status === 'success') {
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'Bidding reopened successfully',
+                                                showConfirmButton: false,
+                                                timer: 1500
+                                            }).then(() => {
+                                                location.reload();
+                                            });
+                                        } else {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'An error occurred',
+                                                text: data.message,
+                                            });
+                                        }
+                                    })
+                                    .catch((error) => {
+                                        console.error('Error:', error);
+                                    });
+                                }
                             })
                             // You can now use the duration and startingBid variables in your code
                             // For example, you might want to send them to your server using AJAX

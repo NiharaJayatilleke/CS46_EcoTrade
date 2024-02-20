@@ -192,12 +192,20 @@ $(document).ready(function () {
                             messageElement.remove();
                         }
 
-                        Swal.fire(
-                            'Deleted!',
-                            'Your message has been deleted.',
-                            'success'
-                        )
+                        // Swal.fire(
+                        //     'Deleted!',
+                        //     'Your message has been deleted.',
+                        //     'success'
+                        // )
 
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Your message has been deleted.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(() => {
+                            location.reload();
+                        });
                         // Make the reply button visible
                         // $('#msg-reply-btn').show();
 
@@ -208,10 +216,6 @@ $(document).ready(function () {
                             $(replyButton).show();
                         }
 
-                        // deleteReplyFromDOM(messageId).then(() => {
-                        //     // After the reply is deleted, show the reply button
-                        //     $('#msg-reply-btn').show();
-                        // });
                     }
                 });
             }

@@ -61,5 +61,26 @@
                 echo json_encode(['status' => 'error', 'message' => 'Method not allowed']);
             }
         }
+
+        public function reopenBidding($adId){
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $jsonString = file_get_contents('php://input');
+                $jsonObject = json_decode($jsonString);
+        
+                $duration = $jsonObject->duration;
+                $startingBid = $jsonObject->startingBid;
+
+                if ($this->auctionsModel->updateBiddingDetails($adId, $duration, $startingBid)) {
+                    http_response_code(200);
+                    echo json_encode(['status' => 'success']);
+                } else {
+                    http_response_code(500);
+                    echo json_encode(['status' => 'error']);
+                }
+            } else {
+                http_response_code(405);
+                echo json_encode(['status' => 'error', 'message' => 'Method not allowed']);
+            }
+        }
     }
 ?>
