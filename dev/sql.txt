@@ -77,6 +77,16 @@ CREATE TABLE Recycle_Item_Ads (
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
+CREATE TABLE Re_Centers (
+    rad_id INT AUTO_INCREMENT,
+    item_category VARCHAR(255),
+    item_desc TEXT,
+    item_location VARCHAR(255),
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(255),
+    PRIMARY KEY(rad_id),
+);
+
 CREATE VIEW v_ads AS
     SELECT
         Item_Ads.p_id as ad_id,

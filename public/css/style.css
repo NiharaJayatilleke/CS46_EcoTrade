@@ -47,6 +47,10 @@
 /*ADMIN DASHBOARD*/
 @import url('admin/dashboard.css'); 
 
+/* recycle centers */
+@import url('recenters/recenter_index.css'); 
+
+
 
 /* @import url('pages/admin/admin_dashboard_styles.css'); */
 @import url('pages/wishlist.css');
