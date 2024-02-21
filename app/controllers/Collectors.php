@@ -15,5 +15,10 @@
             $data = [];
             $this->view('users/collectors/about',$data);
         }
+
+        public function dashboard(){
+            $data = [];
+            $this->view('users/collectors/dashboard',$data);
+        }  
     }
 ?>
