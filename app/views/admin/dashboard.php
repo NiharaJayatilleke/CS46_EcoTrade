@@ -16,13 +16,13 @@
                     </a>
                 </li>
                 <li>
-                <a href="<?php echo URLROOT ?>/Admin/index">
+                    <a href="<?php echo URLROOT ?>/Admin/index">
                         <span class = "side-icon"><ion-icon name="grid-outline"></ion-icon></span>
                         <span class = "side-title">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                <a href="<?php echo URLROOT ?>/Moderators/index">
+                    <a href="<?php echo URLROOT ?>/Moderators/index">
                         <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class = "side-title">Moderators</span>
                     </a>
