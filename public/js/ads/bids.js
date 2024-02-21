@@ -161,8 +161,10 @@ function notifyBidder(username, itemName, bidderID) {
         confirmButtonText: 'Send'
     }).then((result) => {
         if (result.isConfirmed) {
+            var deadline = new Date(result.value.deadline);
+            var formattedDeadline = deadline.toLocaleString();
             // let message = `Dear ${username},\n\nCongratulations! You are the highest bidder for ${itemName}. Please confirm your intention to purchase the item by ${result.value.deadline}.`;
-            let message = `Congratulations! You are the highest bidder. Please confirm your intention to purchase the item by ${result.value.deadline}.`;
+            let message = `Congratulations ${username}! You are the highest bidder. Please confirm your intention to purchase the item by ${formattedDeadline }.`;
         $.ajax({
             url: URLROOT +"/Notifications/addNotification/"+ CURRENT_AD, 
             type: 'POST',
