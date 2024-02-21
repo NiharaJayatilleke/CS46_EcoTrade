@@ -221,6 +221,8 @@
             $_SESSION['user_name']=$user->username;
             $_SESSION['user_number'] = $user->number;
             $_SESSION['user_image'] = $user->profile_image;
+            $_SESSION['userType'] = $user->user_type;
+
             redirect('Pages/index');
         }
 

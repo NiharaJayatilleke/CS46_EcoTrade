@@ -29,7 +29,7 @@
                 <input type="text" id="maxPrice">
 
             </div>
-            <div class="filter-condition">       
+            <div class="filter-condition">     
                 <select name="item_condition" id="item_condition">
                     <option value="">Select the condition</option>
                     <option value="Brand New">Brand New - Never Used</option>
@@ -39,6 +39,14 @@
                     <option value="Fair">Fair - Used with Visible Signs of Wear</option>
                     <option value="Poor">Poor - Heavily Used with Significant Wear or Damages</option>
                 </select>
+                <ul class="indicator">
+                    <li><input type="checkbox" data-filter="furniture">Brand New</li>
+                    <li><input type="checkbox" data-filter="electronics">Like New</li>
+                    <li><input type="checkbox" data-filter="clothing">Very Good</li>
+                    <li><input type="checkbox" data-filter="books">Good</li>
+                    <li><input type="checkbox" data-filter="kitchenware">Fair</li>
+                    <li><input type="checkbox" data-filter="home_deco">Poor</li>
+                </ul>
             </div>
             
         </div>
