@@ -1,0 +1,53 @@
+.sad-buyer-messages {
+    margin-top: 30px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+}
+
+.sad-buyer-msgs-title h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+.sad-buyer-msg-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.sad-buyer-msg-content {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+.sad-buyer-msg-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.sad-buyer-confirm-purchase-btn button,
+.sad-buyer-reject-purchase-btn button {
+    padding: 8px 12px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.sad-buyer-confirm-purchase-btn button {
+    /* background-color: #4caf50; Green */
+    background-color: #69726a;
+}
+
+.sad-buyer-reject-purchase-btn button {
+    /* background-color: #f44336; Red */
+    background-color: #69726a;
+}
