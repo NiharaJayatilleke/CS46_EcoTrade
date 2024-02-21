@@ -1,8 +1,8 @@
 document.querySelector('.sad-buyer-reject-purchase-btn button').addEventListener('click', function() {
     Swal.fire({
         title: 'Are you sure?',
-        text: "Declining this purchase will lead to a penalty and you won't be able to bid for items for a certain period of time.",
-        icon: 'warning',
+        text: "Declining this purchase will result in a penalty, and access to certain features on our site will be limited",
+        icon: 'error',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -23,6 +23,24 @@ document.querySelector('.sad-buyer-reject-purchase-btn button').addEventListener
                     console.log('Purchase declined. Reason: ' + result.value);
                 }
             });
+        }
+    });
+});
+
+document.querySelector('.sad-buyer-confirm-purchase-btn button').addEventListener('click', function() {
+    Swal.fire({
+        title: 'Confirm Purchase',
+        text: "Please reach out to the seller to ensure a smooth continuation of the transaction process",
+        icon: 'success',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Okay'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Handle the confirm purchase logic here
+            console.log('Purchase confirmed');
+            
         }
     });
 });
