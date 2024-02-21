@@ -53,12 +53,14 @@
             <div class="sad-line"></div>
 
             <div class="sad-bottom">
-                <button class="sad-b1">
+            <a class="sad-b1" href="<?php echo URLROOT ?>/Addpayment/index">
+                <!-- <button class="sad-b1"> -->
                     <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
                     <!-- <i class="fas fa-ad"></i> Ad icon -->
                     <i class="fas fa-bullhorn"></i>
                     <p>Promote this Ad</p>
-                </button>
+                <!-- </button> -->
+            </a>
                 <button class="sad-b1" onclick="reportAd()">
                     <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/report.png" alt="report"> -->
                     <i class="fas fa-flag"></i>

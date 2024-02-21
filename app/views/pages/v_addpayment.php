@@ -237,7 +237,9 @@
         class="img-500"
       />
       </div>
-      <div class="divv-84">Continue</div>
+      <a href="<?php echo URLROOT ?>/PaymentPortal/index">
+        <div class="divv-84">Continue</div> 
+      </a>
     </div>
   </div>
   </div>
