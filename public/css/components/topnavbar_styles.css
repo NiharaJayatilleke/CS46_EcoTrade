@@ -3,8 +3,8 @@
   width: 100%;
   height: 60px;
   background: linear-gradient(90deg,  #197149,#0b3e27);
-  position: relative;
-  
+  position: sticky;
+  top:0;
   z-index: 9999; /* Set a high z-index value to bring the topnav bar in front of everything */
 }
 
