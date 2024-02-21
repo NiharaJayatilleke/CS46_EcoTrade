@@ -64,7 +64,7 @@ body, h1, h4, p {
 }
 
 /* Styling for the row and columns */
-.row {
+.rowprofile {
     display: flex;
     gap: 20px;
 }

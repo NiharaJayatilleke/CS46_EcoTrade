@@ -1,6 +1,6 @@
 <footer class="footer">
 	<div class="footer_container">
-		<div class="row">
+		<div class="rowfooter">
 			<div class="footer-col">
 				<img class="img" src="<?php echo URLROOT; ?>/img/signup/ecotrade.png" >
 				<h3>EcoTrade</h3>

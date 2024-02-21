@@ -4,7 +4,7 @@
     margin: auto;
 }
 
-.row {
+.rowfooter {
     display: flex;
     flex-wrap: wrap;
 }
@@ -19,7 +19,7 @@ ul {
 }
 
 
-.row {
+.rowfooter {
     display: flex;
     flex-wrap: wrap;
 }
