@@ -1,12 +1,18 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
     <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
-
-    <div class="ad-background">
-    <div class="ad-container">
-        <div class="ad-form-header">
+<div class="bgrc">
+<img
+                  loading="lazy"
+                  src="../public/img/recenters/laptop-1205256_1280.jpg"
+                  class="img-765"
+                />
+    <div class="ad-background1">
+    
+    <div class="ad-container1">
+        <div class="ad-form-header1">
         <!-- <center><h2>Fill up the form to post your ad</h2></center> -->
-        <center><h2>Let's start building your ad</h2></center>
+        <center><h2>Post Your Add Here</h2></center>
         </div>
 
         <form action="<?php echo URLROOT?>/Recenters/recenters" method="POST" enctype="multipart/form-data">
@@ -17,9 +23,9 @@
             <span class="form-invalid"><?php //echo $data['item_name_err']; ?></span> -->
 
             <!-- item_category -->
-            <div class="ad-form-input-title">Category</div>
+            <div class="ad-form-input-title1">Category</div>
             <!-- <label for="item_category">Item Category  </label> -->
-            <select name="item_category" id="item_category" class="ad_item_category">
+            <select name="item_category" id="item_category" class="ad_item_category1">
             <option value="">Select a category</option>
                 <option value="cardboard">Carboard</option>
                 <option value="paper">Paper</option>
@@ -43,7 +49,7 @@
             <span class="ad-form-invalid"><?php echo $data['item_category_err']; ?></span>
 
             <!-- item_description -->
-            <div class="ad-form-input-title">Description</div>
+            <div class="ad-form-input-title1">Description</div>
             <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="ad_item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?></textarea>
 
             <!-- <div class="ad-form-input-title">Upload an Image</div>
@@ -68,17 +74,18 @@
             <span class="form-invalid"><?php echo $data['item_price_err']; ?></span>  -->
 
             <!-- location -->
-            <div class="ad-form-input-title">Location</div>
-            <input type="text" name="item_location" id="item_location" class="ad_item_location" value="<?php echo $data['item_location']; ?>" >
+            <div class="ad-form-input-title1">Location</div>
+            <input type="text" name="item_location" id="item_location" class="ad_item_location1" value="<?php echo $data['item_location']; ?>" >
             <span class="ad-form-invalid"><?php echo $data['item_location_err']; ?></span>
 
-            <br>
-            <p>Upon examination of your recyclable items, our dedicated collector will determine a fair and suitable price, taking into consideration the condition and value of the products.</p>
+            <!-- <br>
+            <p>Upon examination of your recyclable items, our dedicated collector will determine a fair and suitable price, taking into consideration the condition and value of the products.</p> -->
 
             <!-- submit button -->
-            <input type="submit" value="Post Ad" class="ad-form-btn">
+            <input type="submit" value="Post Ad" class="ad-form-btn1">
             
         </form>
+    </div>
     </div>
     </div>
 
