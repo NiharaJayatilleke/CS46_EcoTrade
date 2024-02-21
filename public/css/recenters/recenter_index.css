@@ -1,97 +1,95 @@
-bg {
-    font-family: Arial, sans-serif;
+/* Add this CSS in your external style sheet or within a <style> tag in your HTML */
+.bgrc {
     margin: 0;
-    padding: 0;
+    font-family: 'Arial', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-   
- }
-
-#backgroundOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
+    overflow: hidden;
 }
-.img-380 {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.5; /* Adjust the opacity as needed */
-    filter: grayscale(50%); /* Optional: add grayscale effect */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Send the image to the back */
-  }
 
-  #recycleFormContainer {
+.img-765{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(3px); /* Adjust the blur amount */
+            opacity: 0.9; /* Adjust the opacity */
+}
+
+.ad-background1 {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
-    text-align: center;
   }
-
-#recycleForm {
-    background-color: #fff; /* White background */
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    width: 400px;
-    animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-#formTitle {
-    font-size: 24px;
+  
+  
+  .ad-form-header1 h2 {
     font-weight: bold;
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
+    font-size: 1.7em; /* Adjust the font size as needed */
+    color: #000000; /* Text color */
+    margin-top: 15px; /* Adjust spacing */
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 1.5px; /* Adjust letter spacing */
+    padding-bottom: 10px;
+  }
+  
+  .ad-form-input-title1 {
     font-weight: bold;
     font-size: 16px;
-}
-
-input, textarea {
+  }
+  
+  .ad_item_category1,
+  .ad_item_other_category,
+  .ad_item_desc,
+  .ad_item_location1 {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    margin-top: 10px;
     font-size: 14px;
-}
-
-button {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .ad-form-input-title1 {
+    font-weight: bold;
+    font-size: 1.3em; /* Adjust the font size as needed */
+    color: #39723e; /* Text color */
+    margin-top: 15px; /* Adjust spacing */
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 1px; /* Adjust letter spacing */
+  
+  }
+  .ad-form-btn1 {
     background-color: #4caf50;
-    color: #fff;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    color: white;
+    padding: 10px;
     font-size: 16px;
-}
-
-button:hover {
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .ad-form-btn1:hover {
     background-color: #45a049;
-}
-
-@keyframes popIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+  }
+  
+  .ad-form-invalid {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Add more styles as needed */
+  
