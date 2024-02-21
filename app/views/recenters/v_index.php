@@ -9,12 +9,12 @@
         <center><h2>Let's start building your ad</h2></center>
         </div>
 
-        <form action="<?php echo URLROOT?>/RecycleItemAds/recycleItemAd" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo URLROOT?>/Recenters/recenters" method="POST" enctype="multipart/form-data">
 
             <!-- item_name -->
-            <div class="ad-form-input-title">Item Name</div>
+            <!-- <div class="ad-form-input-title">Item Name</div>
             <input type="text" name="item_name" id="item_name" class="ad_item_name" value="<?php echo $data['item_name']; ?>">
-            <span class="form-invalid"><?php echo $data['item_name_err']; ?></span>
+            <span class="form-invalid"><?php //echo $data['item_name_err']; ?></span> -->
 
             <!-- item_category -->
             <div class="ad-form-input-title">Category</div>
@@ -46,9 +46,9 @@
             <div class="ad-form-input-title">Description</div>
             <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="ad_item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?></textarea>
 
-            <div class="ad-form-input-title">Upload an Image</div>
-            <!-- item images -->
-            <div class = "ad-form-drag-area" id="form-drag-area">
+            <!-- <div class="ad-form-input-title">Upload an Image</div>
+          item images -->
+            <!-- <div class = "ad-form-drag-area" id="form-drag-area">
                 <div class = "ad-icon">
                     <img id = "item_img_placeholder" src = "<?php echo URLROOT;?>/public/img/itemAds/placeholder.png" alt="placeholder" width = "40px" height = "40px"></img>
                 </div> 
@@ -60,7 +60,7 @@
                 <div class="ad-form-validation">
                     <span class="ad-form-invalid"><?php echo $data['item_images_err']; ?></span>
                 </div>
-            </div>
+            </div>  -->
 
             <!-- price -->
             <!-- <div class="form-input-title">Price</div> 
