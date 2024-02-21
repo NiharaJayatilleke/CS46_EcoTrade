@@ -1,4 +1,4 @@
-# Introduction
+# EcoTrade
 
 In the evolving landscape of modern consumerism, the need for a paradigm shift towards sustainable living has become more pressing than ever before. In response to this call for change, the concept of an online marketplace that seamlessly integrates secondhand buying and selling with a dedicated recycling system has emerged. This visionary platform, christened "EcoTrade," embodies the ideals of responsible consumption and environmental stewardship. As we delve into the complexities and aspirations of this project, we embark on a journey that envisions a future where commerce and conservation coalesce. Rooted in the principles of conscious consumption and ecological responsibility, "EcoTrade" pioneers an innovative model that seamlessly integrates secondhand trading and recycling systems, aiming to redefine commerce in the digital age. By fostering a culture of reuse and responsible resource management, "EcoTrade" aims to pave the way for a more environmentally conscious future in Sri Lanka.
 
