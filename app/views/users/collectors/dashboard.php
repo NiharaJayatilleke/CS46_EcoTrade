@@ -16,13 +16,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo URLROOT ?>/Admin/index">
+                <a href="<?php echo URLROOT ?>/Admin/index">
                         <span class = "side-icon"><ion-icon name="grid-outline"></ion-icon></span>
                         <span class = "side-title">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo URLROOT ?>/Moderators/index">
+                <a href="<?php echo URLROOT ?>/Moderators/index">
                         <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class = "side-title">Moderators</span>
                     </a>
@@ -54,6 +54,7 @@
             </ul>
         </div>
 
+      
     <!-- main -->
         <div class="dashboard-main">
             <div class="dashboard-topbar">
@@ -82,11 +83,10 @@
             </div>
                 <!-- cards -->
                 <div class="heading-dashboard">
-                    <h2>Moderators</h2>
+                    <h2>Collector Dashboard</h2>
                 </div>
-
+                
                 <div class="dashboard-cardBox">
-
                     <div class="dashboard-card">
                         <div>
                             <div class="dashboard-numbers"><?php echo $data['users_count'] ?></div> 
@@ -111,12 +111,13 @@
                     <div class="dashboard-card">
                         <div>
                             <div class="dashboard-numbers"><?php echo $data['sec_ad_count'] ?></div> 
-                            <div class="dashboard-cardName">Secondhand Item Ads</div>
+                            <div class="dashboard-cardName">Pre-owned Item Ads</div>
                         </div>
                         <div class="dashboard-iconBx">  
-                            <ion-icon name="pricetags"></ion-icon>
+                            <ion-icon name="pricetags"></ion-icon>  
                         </div>
                     </div>
+
 
                     <div class="dashboard-card">
                         <div>
@@ -129,53 +130,148 @@
                     </div>
                 </div>
 
-                <!-- <div class="graphBox">
+                <div class="graphBox">
                     <div class="box">
                         <canvas id="myChart"></canvas>
                     </div>
                     <div class="box">
                         <canvas id="ads"></canvas>
                     </div>
-                </div> -->
+                </div>
 
                 <div class="details">
                     <div class="recentOrders">
                         <div class="cardHeader">
-                            <h2>Moderators</h2>
-                            <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Add Moderator</a>
+                            <h2>Recent Orders</h2>
+                            <a href="#" class="btn">View All</a>
                         </div>
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Username</td>
-                                    <td>Email</td>
-                                    <td>Contact Number</td>
-                                    <td>Date Joined</td>
-                                    <td>Edit/Delete</td>
+                                    <td>Name</td>
+                                    <td>Price</td>
+                                    <td>Payment</td>
+                                    <td>Status</td>
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach($data['moderators'] as $moderator) : ?>
-							<tr>
-								<td><p><?php echo $moderator->username ?></p></td>
-								<td><?php echo $moderator->email ?></td>
-								<td><?php echo $moderator->number ?></td>
-								<td><?php echo $moderator->created_at ?></td>
-								<td>
-									<div class = "mod-control-btns">
-										<a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-										<a href = "<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button></a>
-									</div>
-								</td>
-							</tr>
-                            <?php endforeach; ?>
+                            <tr>
+                                <td>Refrigerator</td>
+                                <td>Rs. 1200</td>
+                                <td>Paid</td>
+                                <td><span class="status inprogress">Delivered</span></td>
+                            </tr>
+                            <tr>
+                                <td>Denim Shirts</td>
+                                <td>Rs. 110</td>
+                                <td>Due</td>
+                                <td><span class="status inprogress">In Progress</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Casual Shoes</td>
+                                <td>Rs. 575</td>
+                                <td>Paid</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Wall Fan</td>
+                                <td>Rs. 110</td>
+                                <td>Paid</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Jeans</td>
+                                <td>Rs. 1200</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+                            <tr>
+                                <td>Sweaters</td>
+                                <td>Rs. 700</td>
+                                <td>Due</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Skirts</td>
+                                <td>Rs. 600</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Formal Shoes</td>
+                                <td>Rs. 2000</td>
+                                <td>Due</td>
+                                <td><span class="status inprogress">In Progress</span></td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Sunglasses</td>
+                                <td>Rs. 800</td>
+                                <td>Due</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Hoodies</td>
+                                <td>Rs. 900</td>
+                                <td>Due</td>
+                                <td><span class="status inprogress">In Progress</span></td>
+                            </tr>
+
+
+                            <!-- <tr>
+                                <td>Adidas Shoes</td>
+                                <td>Rs. 1100</td>
+                                <td>Paid</td>
+                                <td><span class="status return">Return</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Wall Art</td>
+                                <td>Rs. 110</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Pending</span></td>
+                            </tr> -->
+
+                            <tr>
+                                <td>Denim Shirts</td>
+                                <td>Rs. 110</td>
+                                <td>Due</td>
+                                <td><span class="status inprogress">In Progress</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Checked Dresses</td>
+                                <td>Rs. 1500</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Sports Shoes</td>
+                                <td>Rs. 2500</td>
+                                <td>Due</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>T-shirts</td>
+                                <td>Rs. 300</td>
+                                <td>Due</td>
+                                <td><span class="status inprogress">In Progress</span></td>
+                            </tr>
+
                             </tbody>
                         </table>
                     </div>
                       <!-- New customers -->
                     <div class="recentCustomers">
                         <div class="cardHeader">
-                            <h2>Recent</h2>
+                            <h2>Recent Customers</h2>
                         </div>
                         <table>
                             <tr>

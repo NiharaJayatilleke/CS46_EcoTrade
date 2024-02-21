@@ -54,6 +54,7 @@
             </ul>
         </div>
 
+      
     <!-- main -->
         <div class="dashboard-main">
             <div class="dashboard-topbar">
@@ -81,8 +82,11 @@
                 </div>
             </div>
                 <!-- cards -->
+                <div class="heading-dashboard">
+                    <h2>Admin Dashboard</h2>
+                </div>
+                
                 <div class="dashboard-cardBox">
-
                     <div class="dashboard-card">
                         <div>
                             <div class="dashboard-numbers"><?php echo $data['users_count'] ?></div> 
