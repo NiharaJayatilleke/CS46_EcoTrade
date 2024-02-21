@@ -53,12 +53,14 @@
             <div class="sad-line"></div>
 
             <div class="sad-bottom">
-                <button class="sad-b1">
+            <a class="sad-b1" href="<?php echo URLROOT ?>/Addpayment/index">
+                <!-- <button class="sad-b1"> -->
                     <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
                     <!-- <i class="fas fa-ad"></i> Ad icon -->
                     <i class="fas fa-bullhorn"></i>
                     <p>Promote this Ad</p>
-                </button>
+                <!-- </button> -->
+            </a>
                 <button class="sad-b1" onclick="reportAd()">
                     <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/report.png" alt="report"> -->
                     <i class="fas fa-flag"></i>
@@ -195,7 +197,25 @@
         <?php endif; ?>
         <?php endif; ?>
         </div> 
-        </div>  
+        <!-- </div>  -->
+        
+        <?php if (!empty($data['buyer_notifications'])): ?>
+        <div class="sad-buyer-messages">
+            <div class="sad-buyer-msgs-title"><h2>Messages</h2></div>
+            <?php foreach ($data['buyer_notifications'] as $notification): ?>
+                <div class="sad-buyer-msg-container">
+                    <div class="sad-buyer-msg-content"><?php echo $notification->message; ?></div>
+                    <div class="sad-buyer-msg-buttons">
+                        <div class="sad-buyer-confirm-purchase-btn"><button type="button">Confirm Purchase</button></div>
+                        <div class="sad-buyer-reject-purchase-btn"> <button type="button">Decline Purchase</button></div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+
+        </div> <!-- seller's stuff -->
+
     </div>
 </div>
 </div>
@@ -250,6 +270,9 @@
 <!-- JS for messages -->
 <!-- <script type="text/JavaScript" src="<php echo URLROOT; ?>/js/ads/message_reply.js"></script> -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/message_load.js"></script>
+
+<!-- JS for buyer messages/notifications -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/buyer_notifs.js"></script>
 
 <!-- JS for Offers -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/offers.js"></script>

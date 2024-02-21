@@ -21,7 +21,8 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 50px;
     margin-left: 40px;
-    padding: 10px; 
+    /* padding: 10px;  */
+    padding: 1px;
     border-radius: 5px;
     text-align: center;
     transition: 300ms ease-in;
@@ -30,7 +31,7 @@
     background: rgba(255, 255, 255, 0.532);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transform: scale(1.01);
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .ad-header {
@@ -41,6 +42,7 @@
     font-weight: bold;
     color:#333;
     text-align: left;
+    margin-left: 5px;
 }
 
 .ad-created-at {
@@ -48,29 +50,38 @@
     font-size: 12px;
     padding: 4px 0px;
     text-align: left;
+    margin-left: 5px;
 }
 
 .ad-item-name {
+    margin-top: 6px;
     font-size: 18px;
     color:#333;
     text-align: left;
+    margin-left: 5px;
+    padding-bottom: 5px;
 }
 
 .ad-body-desc {
+    display: none;
     margin-bottom: 20px;
     color: #555;
     text-align: justify;
 }
 
 .ad-body-image img {
-    width: 98%;
-    height: auto;
+    /* width: 98%; */
+    width: 100%;
+    /* height: auto; */
     border: 1px solid #ccc;
+    height: 170px;
+    object-fit: cover;
 }
 
 .ad-footer {
-    display: flex;
-    justify-content: space-between;
+    display: none;
+    /* display: flex;
+    justify-content: space-between; */
     margin-top: 10px;
 }
 
@@ -79,6 +90,8 @@
     font-weight: bold;
     color: #333;
     text-align: left;
+    padding-bottom: 10px;
+    margin-left: 5px;
 }
 
 .post-control-btns {

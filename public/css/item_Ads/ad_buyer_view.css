@@ -205,6 +205,10 @@
     width: 50px;
 }
 
+.sad-bottom a {
+    text-decoration: none;
+}
+
 .sad-b1 {
     display: flex;
     align-items: center;

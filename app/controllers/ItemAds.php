@@ -5,6 +5,7 @@
             $this->offersModel =$this->model('M_Offers');
             $this->auctionsModel =$this->model('M_Bids');
             $this->usersModel =$this->model('M_Users');
+            $this->notificationsModel =$this->model('M_Notifications');
         }
 
         public function index() {
@@ -26,6 +27,7 @@
             $numBids = count($bids);
             $seller = $this->usersModel->getUserDetails($ad->seller_id);
             $number = $seller->number;
+            $buyerNotifications = $this->notificationsModel->getBuyerNotificationsByAd($_SESSION['user_id'], $id);
 
             if (isset($bidDetails->starting_time) && isset($bidDetails->auction_duration)) {
                 $startTime = new DateTime($bidDetails->starting_time);
@@ -43,6 +45,7 @@
                 'ad' => $ad,
                 'offers' => $offers,
                 'accepted_offer' => $acceptedOffer,
+                'buyer_notifications' => $buyerNotifications,
                 'user_id' => $_SESSION['user_id']
             ];
 

@@ -89,7 +89,9 @@
                     echo '<div class = "message-reply-body" id="message-reply' . $message->message_id . '">';
                     echo '<div class = "message-reply-body-cont">' . $message->reply . '</div>';
                     //delete reply
+                    if ($_SESSION['user_id'] == $sellerId->seller_id){
                     echo '<button class="reply-delete-button" data-message-id="' . $message->message_id . '"><i class="fa fa-trash"></i></button>';
+                    }
                     echo '</div>';
                 }
 
