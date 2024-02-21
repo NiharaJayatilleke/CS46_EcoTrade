@@ -31,7 +31,7 @@ $(document).ready(function() {
                     // notificationItem.find('.mark-as-read-' + notif_id).click(function(event) {
                     notificationItem.find('.mark-as-read').click(function(event) {
                         var notif_id = $(this).data('notification-id');
-                        
+
                         var notificationItem = $(this).closest('.notif-dropdown-item'); //closest notification item
                         notificationItem.addClass('mark-as-read-active'); 
 
@@ -115,5 +115,22 @@ $(document).ready(function() {
             caret.hide();
         }
     });
+
+    // Fetch notifications every 5 seconds
+    setInterval(function() {
+        $.ajax({
+            url: URLROOT + "/Notifications/showNotificationCount",
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                // Update the notification count
+                $('#notificationCount').text(data);
+            },
+            error: function() {
+                console.error('Error fetching notifications');
+            }
+        });
+    }, 100);
+    // }, 10000);
 
 });
