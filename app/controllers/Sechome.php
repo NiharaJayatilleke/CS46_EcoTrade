@@ -1,13 +1,18 @@
 <?php
     class Sechome extends Controller{
         public function __construct(){
-            $this->pagesModel =$this->model('M_Pages');
+            $this->itemAdsModel =$this->model('M_Item_Ads');
             // if(!isset($_SESSION['user_id'])){
             // }
         }
 
         public function index(){
-            $data = [];
+            $ads = $this->itemAdsModel->getAds();
+            
+            $data = [
+                'ads' => $ads,
+            ];
+
             $this->view('pages/v_sechome',$data);
 
         }

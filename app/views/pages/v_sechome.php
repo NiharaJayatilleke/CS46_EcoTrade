@@ -165,103 +165,14 @@
 
       <h2 class="title">Latest Products</h2>
       <div class="rowsechome">
-        <div class="col-4">
-          <img src="../public/img/sechome/images/product-7.jpg" alt="Tri-Color Socks" />
-          <h4>HRX 3pk Socks</h4>
-          <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-half-o"></i>
-            <i class="fa fa-star-o"></i>
-          </div>
-          <p>$15.00</p>
-        </div>
-        <div class="col-4">
-          <img src="../public/img/sechome/images/product-2.jpg" alt="Black Shoes" />
-          <h4>Black HRX Shoes</h4>
-          <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i>
-          </div>
-          <p>$197.00</p>
-        </div>
-        <div class="col-4">
-          <img src="../public/img/sechome/images/product-8.jpg" alt="Black Watch" />
-          <h4>Fossil Watch</h4>
-          <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-          <p>$145.00</p>
-        </div>
-        <div class="col-4">
-          <img src="../public/img/sechome/images/product-11.jpg" alt="Grey Shoes" />
-          <h4>Gray Shoes</h4>
-          <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-          <p>$245.00</p>
-        </div>
-        <div class="rowsechome">
+        <?php foreach($data['ads'] as $ad): ?>
           <div class="col-4">
-            <img src="../public/img/sechome/images/product-10.jpg" alt="Black and Red Shoes" />
-            <h4>Black Shoes</h4>
-            <div class="rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-half-o"></i>
-              <i class="fa fa-star-o"></i>
-            </div>
-            <p>$15.00</p>
+            <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Tri-Color Socks" />
+            <h4><?php echo $ad->item_name ?></h4>
+        
+            <p>Rs.<?php echo $ad->item_price ?></p>
           </div>
-          <div class="col-4">
-            <img src="../public/img/sechome/images/product-9.jpg" alt="Black Watch" />
-            <h4>Fossil Watch</h4>
-            <div class="rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-            </div>
-            <p>$197.00</p>
-          </div>
-          <div class="col-4">
-            <img src="../public/img/sechome/images/product-12.jpg" alt="Black Pants" />
-            <h4>Magic Pants</h4>
-            <div class="rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-            <p>$145.00</p>
-          </div>
-          <div class="col-4">
-            <img src="../public/img/sechome/images/product-4.jpg" alt="Blue Shirt" />
-            <h4>Shirty Shirt</h4>
-            <div class="rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-            <p>$245.00</p>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
