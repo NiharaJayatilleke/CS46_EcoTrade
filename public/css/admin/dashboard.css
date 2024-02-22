@@ -1,12 +1,5 @@
-:root{
-    --green: #197149;
-    --white: #fff;
-    --grey: #b2bec3;
-    --black1: #2d3436;
-    --black2: #636e72;
-}
 
-body{
+.dashboard-body{
     overflow-x:hidden;
 }
 
