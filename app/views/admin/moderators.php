@@ -1,5 +1,6 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
-   
+
+
     <div class="dashboard-container">
         <div class="dashboard-sidenav">
             <ul>

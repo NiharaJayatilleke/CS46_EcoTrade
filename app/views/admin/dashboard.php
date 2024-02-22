@@ -1,5 +1,5 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
-   
+
     <div class="dashboard-container">
         <div class="dashboard-sidenav">
             <ul>
@@ -318,13 +318,13 @@
                 </div>
         </div>
     </div>
-
-
-
-
-    <!-- Javascript for image upload -->
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
+        <!-- Javascript for image upload -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
+
+
+
+
 
 <?php require APPROOT.'/views/inc/footer.php'; ?>
 

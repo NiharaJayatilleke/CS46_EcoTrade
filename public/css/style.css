@@ -17,6 +17,9 @@
 /*REGISTRATION*/
 @import url('pages/signup.css');
 
+/* COLLECTOR REGISTRATION */
+@import url('collectors/register.css');
+
 /* LOGIN */
 @import url('pages/login.css');
 
@@ -87,4 +90,19 @@ body {
     /* background-color: #a6b69a; */
     /* background-color: #a6b69aba;  */
     color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root{
+    --green: #197149;
+    --white: #fff;
+    --grey: #b2bec3;
+    --black1: #2d3436;
+    --black2: #636e72;
 }

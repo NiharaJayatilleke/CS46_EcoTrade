@@ -64,78 +64,80 @@
 
 <!-- slider -->
 
-<section class="parallax">
+<div class="index-body">
+    <section class="parallax">
 
-    <img src="../public/img/index/hill1.png" id="hill1">
-    <img src="../public/img/index/hill2.png" id="hill2">
-    <img src="../public/img/index/hill3.png" id="hill3">
-    <img src="../public/img/index/hill4.png" id="hill4">
-    <img src="../public/img/index/hill5.png" id="hill5">
-    <h2 id="text">EcoTrade</h2>
-    <img src="../public/img/index/tree.png" id="tree">
-    <img src="../public/img/index/leaf.png" id="leaf">
-    <img class="hill4" src="../public/img/index/plant.png" id="plant">
+        <img src="../public/img/index/hill1.png" id="hill1">
+        <img src="../public/img/index/hill2.png" id="hill2">
+        <img src="../public/img/index/hill3.png" id="hill3">
+        <img src="../public/img/index/hill4.png" id="hill4">
+        <img src="../public/img/index/hill5.png" id="hill5">
+        <h2 id="text">EcoTrade</h2>
+        <img src="../public/img/index/tree.png" id="tree">
+        <img src="../public/img/index/leaf.png" id="leaf">
+        <img class="hill4" src="../public/img/index/plant.png" id="plant">
 
-</section>
-<div class="sec" id="sec">
-    <div class="cards">
-        <div class="container">
-            <div class="card">
-                <div class="imgBx">
-                    <img src="../public/img/index/3516854-removebg-preview.png">
-                </div>
-                <div class="contentBx">
-                    <h2>Secondhand <br>Market</h2>
-                    <div class="size">
-                        <h3>
-                            Discover budget-friendly, sustainable second-hand marketplace.</h3>
+    </section>
+    <div class="sec" id="sec">
+        <div class="cards">
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="../public/img/index/3516854-removebg-preview.png">
                     </div>
+                    <div class="contentBx">
+                        <h2>Secondhand <br>Market</h2>
+                        <div class="size">
+                            <h3>
+                                Discover budget-friendly, sustainable second-hand marketplace.</h3>
+                        </div>
 
-                    <a href="<?php echo URLROOT; ?>/Sechome/index">Explore Now</a>
+                        <a href="<?php echo URLROOT; ?>/Sechome/index">Explore Now</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container">
-            <div class="card">
-                <div class="imgBx">
-                    <img src="../public/img/index/4907875-removebg-preview.png">
-                </div>
-                <div class="contentBx">
-                    <h2>Recycle <br>Market</h2>
-                    <div class="size">
-                        <h3>
-                        Discover a wallet-friendly and eco-conscious recycling market.</h3>
+            <div class="container">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="../public/img/index/4907875-removebg-preview.png">
                     </div>
+                    <div class="contentBx">
+                        <h2>Recycle <br>Market</h2>
+                        <div class="size">
+                            <h3>
+                            Discover a wallet-friendly and eco-conscious recycling market.</h3>
+                        </div>
 
-                    <a href="<?php echo URLROOT; ?>/Recyclehome/index">Explore Now</a>
+                        <a href="<?php echo URLROOT; ?>/Recyclehome/index">Explore Now</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<section>
-        <div class="shadow"></div>
+    <section>
+            <div class="shadow"></div>
 
-                <div class="about-section">
-                    <img src="../public/img/index/about.jpg" alt="About Image" class="about-image">
-                    <div class="inner-container">
-                        <h1>About Us</h1>
-                        <p class="text">
-                        "Embark on a journey with EcoTrade, where our passion intertwines with purpose. We are not just a platform; we are a movement, a community committed to shaping a sustainable tomorrow. Imagine a world where every act of recycling contributes to a greener canvas. At EcoTrade, we bring together buyers and collectors in a symphony of eco-conscious commerce. Our mission is to redefine waste as a resource, bridging the gap between individuals and businesses striving for a more sustainable future. Join us, not just as participants, but as guardians of our planet, as we weave a tapestry of change—one recyclable at a time. Together, let's turn the page to a new chapter, where responsibility meets innovation, and every action echoes in the rhythm of a thriving ecosystem."
-                        </p>
+                    <div class="about-section">
+                        <img src="../public/img/index/about.jpg" alt="About Image" class="about-image">
+                        <div class="inner-container">
+                            <h1>About Us</h1>
+                            <p class="text">
+                            "Embark on a journey with EcoTrade, where our passion intertwines with purpose. We are not just a platform; we are a movement, a community committed to shaping a sustainable tomorrow. Imagine a world where every act of recycling contributes to a greener canvas. At EcoTrade, we bring together buyers and collectors in a symphony of eco-conscious commerce. Our mission is to redefine waste as a resource, bridging the gap between individuals and businesses striving for a more sustainable future. Join us, not just as participants, but as guardians of our planet, as we weave a tapestry of change—one recyclable at a time. Together, let's turn the page to a new chapter, where responsibility meets innovation, and every action echoes in the rhythm of a thriving ecosystem."
+                            </p>
+                        </div>
                     </div>
-                </div>
 
 
-            <div class="video">
-                <video autoplay loop muted plays-inline class="back-video"> s
-                    <source src = "../public/img/index/video.mp4" type="video/mp4">
-            </video>
-            </div>         
-        </div>
-</section>
+                <div class="video">
+                    <video autoplay loop muted plays-inline class="back-video"> s
+                        <source src = "../public/img/index/video.mp4" type="video/mp4">
+                </video>
+                </div>         
+            </div>
+    </section>
+</div>
 
 <!-- JS as a separate file -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/index.js"></script>
