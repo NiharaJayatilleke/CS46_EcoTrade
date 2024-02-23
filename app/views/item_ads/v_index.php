@@ -29,8 +29,8 @@
                 <input type="text" id="maxPrice">
 
             </div>
-            <div class="filter-condition">     
-                <select name="item_condition" id="item_condition">
+            <!-- <div class="filter-condition">      -->
+                <!-- <select name="item_condition" id="item_condition">
                     <option value="">Select the condition</option>
                     <option value="Brand New">Brand New - Never Used</option>
                     <option value="Like New">Like New - Barely Used</option>
@@ -38,16 +38,20 @@
                     <option value="Good">Good - Used with Some Signs of Wear</option>
                     <option value="Fair">Fair - Used with Visible Signs of Wear</option>
                     <option value="Poor">Poor - Heavily Used with Significant Wear or Damages</option>
-                </select>
+                </select> -->
+                <div class="condition">
                 <ul class="indicator">
-                    <li><input type="checkbox" data-filter="furniture">Brand New</li>
-                    <li><input type="checkbox" data-filter="electronics">Like New</li>
-                    <li><input type="checkbox" data-filter="clothing">Very Good</li>
-                    <li><input type="checkbox" data-filter="books">Good</li>
-                    <li><input type="checkbox" data-filter="kitchenware">Fair</li>
-                    <li><input type="checkbox" data-filter="home_deco">Poor</li>
+                   
+                    <li><input type="checkbox" data-filter="Brand New">Brand New</li>
+                    <li><input type="checkbox" data-filter="Like New">Like New</li>
+                    <li><input type="checkbox" data-filter="Very Good">Very Good</li>
+                    <li><input type="checkbox" data-filter="Good">Good</li>
+                    <li><input type="checkbox" data-filter="Fair">Fair</li>
+                    <li><input type="checkbox" data-filter="Poor">Poor</li>
+                  
                 </ul>
-            </div>
+                </div>
+            <!-- </div> -->
             
         </div>
         <div class="container">
@@ -74,7 +78,8 @@
                 <div class = "ad-index-container"
                 data-price="<?php echo $ad->item_price ?>"
                 data-condition="<?php echo $ad->item_condition ?>"
-                data-category="<?php echo $ad->item_category ?>">
+                data-category="<?php echo $ad->item_category ?>"
+                data-condition="<?php echo $ad->item_condition ?>">
 
                     <div class = "ad-header">
                         <div class = "ad-body-image">
