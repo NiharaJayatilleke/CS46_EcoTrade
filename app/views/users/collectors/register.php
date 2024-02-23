@@ -212,10 +212,10 @@
                     </div>
 
                     <div class="buttons">
-                        <button class="backBtn">
-                            <span class="btnText">Back</span>
+                        <div class="backBtn">
                             <i class="uil uil-navigator"></i>
-                        </button>
+                            <span class="btnText">Back</span>
+                        </div>
 
                         <button class="nextBtn">
                             <span class="btnText">Next</span>
