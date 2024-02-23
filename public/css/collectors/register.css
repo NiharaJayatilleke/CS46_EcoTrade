@@ -49,19 +49,19 @@
     transition: all 0.3s ease;
 }
 
-.collector-container form .form .second{
+.collector-container form .form.second{
     opacity: 0;
     pointer-events: none;
     transform: translateX(100%);
 }
 
-form.secActive .form .second{
+form.secActive .form.second{
     opacity: 1;
     pointer-events: auto;
     transform: translateX(0);
 }
 
-form.secActive .form .first{
+form.secActive .form.first{
     opacity: 0;
     pointer-events: none;
     transform: translateX(-100%);
