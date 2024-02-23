@@ -61,7 +61,7 @@
             <!-- quantity -->
             <div class="ad-form-input-title">Quantity</div>
             <input type="number" name="item_quantity" id="item_quantity" class="ad_item_quantity" value="<?php echo $data['item_quantity']; ?>" >
-            <span class="ad-form-invalid"><?php echo $data['item_price_err']; ?></span>
+            <span class="ad-form-invalid"><?php echo $data['item_quantity_err']; ?></span>
 
             <div class="ad-form-input-title">Upload an Image</div>
             <!-- item images -->
