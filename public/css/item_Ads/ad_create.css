@@ -168,6 +168,20 @@
     justify-content: center;
     transition: 300ms ease-in;
     margin-top: 30px;
+    display: none;
+}
+
+#item_img_placeholder1 {
+    width: 100%;
+    height: 50%;
+    /* color:#777; */
+    /* border: 2px dashed #ccc; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms ease-in;
+    margin-top: 30px;
     /* display: none; */
 }
 

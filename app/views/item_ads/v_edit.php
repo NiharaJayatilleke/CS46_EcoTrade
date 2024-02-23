@@ -63,10 +63,10 @@
                 <div class = "ad-icon">
                     <?php if($data['item_img_name'] != null): ?>
                         <!-- <php var_dump($data['item_img_name']); ?>  -->
-                        <img id = "item_img_placeholder" class = "item_img_placeholder" name = "item_images" src = "<?php echo URLROOT; ?>/img/items/<?php echo $data['item_img_name']; ?>" alt="Item Image" ></img>
+                        <img id = "item_img_placeholder1" class = "item_img_placeholder1" name = "item_images" src = "<?php echo URLROOT; ?>/img/items/<?php echo $data['item_img_name']; ?>" alt="Item Image" ></img>
                     <?php else: ?> 
                         <!-- <img id = "item_img_placeholder" src = "php echo URLROOT; ?>/img/items/placeholder.png" alt="placeholder" width = "40px" height = "40px"></img> -->
-                        <img id = "item_img_placeholder1" src = "" alt="placeholder"><i id = "item_img_placeholder_icon" class="fas fa-image fa-5x"></i>
+                        <img id = "item_img_placeholder2" src = "" alt="placeholder"><i id = "item_img_placeholder_icon" class="fas fa-image fa-5x"></i>
                     <?php endif; ?>
                 </div>
                 <div class="ad-form-drag-area-text">Drag and drop files here</div>
