@@ -24,5 +24,10 @@
             ];
             $this->view('v_about',$data);
         }
+
+        public function error(){
+            $data = [];
+            $this->view('pages/404',$data);
+        }
     }
 ?>
