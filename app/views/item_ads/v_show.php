@@ -199,9 +199,10 @@
         </div> 
         <!-- </div>  -->
         
-        <?php if (!empty($data['buyer_notifications'])): ?>
+        <!-- Buyer Notifications -->
+        <?php if (!empty($data['buyer_notifications']) && $_SESSION['user_id'] != $data['ad']->seller_id): ?>
         <div class="sad-buyer-messages">
-            <div class="sad-buyer-msgs-title"><h2>Messages</h2></div>
+            <div class="sad-buyer-msgs-title"><h2>Notifications</h2></div>
             <?php foreach ($data['buyer_notifications'] as $notification): ?>
                 <div class="sad-buyer-msg-container">
                     <div class="sad-buyer-msg-content"><?php echo $notification->message; ?></div>

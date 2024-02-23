@@ -41,5 +41,11 @@
             $this->notificationsModel->markAsSeen($notifId);
         }
 
+        public function showNotificationCount(){
+            $notifications = $this->notificationsModel->getNotificationsByUser($_SESSION['user_id']);
+            $count = count($notifications);
+            echo json_encode($count);
+        }
+
     }
 ?>

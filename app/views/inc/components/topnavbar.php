@@ -69,7 +69,7 @@
           <a href="#" class="dropdown-toggle">
               <i class="fas fa-bell"></i>
               <!-- <i class="fa-solid fa-circle" style="color: #ff0000"></i> -->
-              <!-- <span class="wishlist-count">15</span> -->
+              <span class="wishlist-count" id="notificationCount"></span>
               <!-- <span class="notification-count"><php echo $numberOfNotifications; ?></span> -->
               <span class="caret"></span>
           </a>

@@ -42,7 +42,7 @@
     font-weight: bold;
     color:#333;
     text-align: left;
-    margin-left: 5px;
+    margin-left: 8px;
 }
 
 .ad-created-at {
@@ -50,16 +50,16 @@
     font-size: 12px;
     padding: 4px 0px;
     text-align: left;
-    margin-left: 5px;
+    margin-left: 8px;
 }
 
 .ad-item-name {
     margin-top: 6px;
-    font-size: 18px;
+    font-size: 17px;
     color:#333;
     text-align: left;
-    margin-left: 5px;
-    padding-bottom: 5px;
+    margin-left: 8px;
+    padding-bottom: 8px;
 }
 
 .ad-body-desc {
@@ -91,7 +91,7 @@
     color: #333;
     text-align: left;
     padding-bottom: 10px;
-    margin-left: 5px;
+    margin-left: 8px;
 }
 
 .post-control-btns {
