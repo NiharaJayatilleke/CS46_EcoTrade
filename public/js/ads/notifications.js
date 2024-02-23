@@ -130,7 +130,7 @@ $(document).ready(function() {
                 console.error('Error fetching notifications');
             }
         });
-    }, 100);
+    }, 100000);
     // }, 10000);
 
 });
