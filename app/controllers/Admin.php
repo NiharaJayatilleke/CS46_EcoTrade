@@ -1,14 +1,17 @@
 <?php
     class Admin extends Controller{
         public function __construct(){
-            
             $this->adminModel = $this->model('M_Admin');
             $this->moderatorModel = $this->model('M_Moderators');
             $this->userModel = $this->model('M_Users');
-            $this->itemAdsModel = $this->model('M_Item_Ads');
+            $this->itemAdsModel = $this->model('M_Item_Ads');    
         }
         
         public function index(){
+            if(!isset($_SESSION['userType']) || $_SESSION['userType'] != 'admin'){
+                die("You are not authorized");
+            }
+
             $ads = $this->itemAdsModel->getAds();
             $numSecAds = count($ads);
             $moderators = $this->moderatorModel->getModerators();
@@ -32,6 +35,10 @@
         // }
 
         public function moderators(){
+            if(!isset($_SESSION['userType']) || $_SESSION['userType'] != 'admin'){
+                die("You are not authorized");
+            }
+
             $ads = $this->itemAdsModel->getAds();
             $numSecAds = count($ads);
             $moderators = $this->moderatorModel->getModerators();
@@ -125,7 +132,7 @@
             $_SESSION['user_id']=$user->id;
             $_SESSION['user_email']=$user->email;
             $_SESSION['user_name']=$user->username;
-
+            $_SESSION['userType'] = $user->user_type;
             redirect('Pages/index');
         }
 
