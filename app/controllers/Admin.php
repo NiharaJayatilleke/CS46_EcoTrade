@@ -31,6 +31,26 @@
         //     $this->view('admin/v_dashboard',$data);
         // }
 
+        public function moderators(){
+            $ads = $this->itemAdsModel->getAds();
+            $numSecAds = count($ads);
+            $moderators = $this->moderatorModel->getModerators();
+            $numModerators = count($moderators);
+            $users = $this->userModel->getUsers();
+            $numUsers = count($users);
+
+            $data = [
+                'sec_ad_count' => $numSecAds,
+                'moderators_count' => $numModerators,
+                'moderators' => $moderators,
+                'users_count' => $numUsers,
+            ];
+            
+            //load view
+            $this->view('admin/moderators', $data);
+
+        }
+
 
         public function login(){
             if($_SERVER['REQUEST_METHOD']=='POST'){
