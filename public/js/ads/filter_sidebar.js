@@ -16,8 +16,6 @@ function updateList() {
         return input.getAttribute('data-filter');
     }));
 
-    
-
     // Filter according to the selected attributes:
     if (selectedAttributes.size > 0) {
         results = results.filter(function(result) {
@@ -67,7 +65,18 @@ function updateList() {
             return selectedConditions.has(condition);
         });
     }
-
+    
+    // const selectedConditions = new Set(Array.from(document.querySelectorAll('.condition input[type="checkbox"]:checked'), function(input) {
+    //     return input.getAttribute('data-filter');
+    // }));
+    
+    // if (selectedConditions.size > 0) {
+    //     results = results.filter(function(result) {
+    //         let condition = result.getAttribute('data-condition');
+    //         return selectedConditions.has(condition);
+    //     });
+    // }
+    
 
     // Show those filtered results:
     results.forEach(function(result) {
@@ -91,7 +100,8 @@ document.querySelectorAll('.indicator input[type="checkbox"]').forEach(function(
     });
 });
 
-document.querySelectorAll('.condition.indicator input[type="checkbox"]').forEach(function(ele) {
+document.querySelectorAll('.condition .indicator input[type="checkbox"]').forEach(function(ele) {
+    console.log("condition");
     ele.addEventListener('click', function(event) {
         event.stopPropagation();
         updateList();

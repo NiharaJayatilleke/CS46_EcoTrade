@@ -7,6 +7,7 @@
 
     <div class="wrapper" >
         <div class="filter-sidebar">
+            <!-- <div class="selectheading">Categories</div> -->
             <ul class="indicator">
                 <li><input type="checkbox" data-filter="furniture">Furniture</li>
                 <li><input type="checkbox" data-filter="electronics">Electronics</li>
@@ -21,7 +22,7 @@
                 <input type="text" id="otherCategInput" name="otherCategoryInput" class="item_other_category">
                 </li>
             </ul>
-            
+            <!-- <div class="selectheading">Price</div> -->
             <div class="filter-price">
                 <label for="min-price">Min Price</label>
                 <label for="max-price">Max Price</label>
@@ -39,18 +40,19 @@
                     <option value="Fair">Fair - Used with Visible Signs of Wear</option>
                     <option value="Poor">Poor - Heavily Used with Significant Wear or Damages</option>
                 </select> -->
-                <div class="condition">
-                <ul class="indicator">
-                   
+            <!-- <div class="selectheading">Condition</div> -->
+            <!-- <div class="condition"> -->
+                <ul class="condition indicator ">
+                
                     <li><input type="checkbox" data-filter="Brand New">Brand New</li>
                     <li><input type="checkbox" data-filter="Like New">Like New</li>
                     <li><input type="checkbox" data-filter="Very Good">Very Good</li>
                     <li><input type="checkbox" data-filter="Good">Good</li>
                     <li><input type="checkbox" data-filter="Fair">Fair</li>
                     <li><input type="checkbox" data-filter="Poor">Poor</li>
-                  
+                
                 </ul>
-                </div>
+            <!-- </div> -->
             <!-- </div> -->
             
         </div>
