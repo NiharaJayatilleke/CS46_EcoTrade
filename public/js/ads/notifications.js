@@ -134,6 +134,6 @@ $(document).ready(function() {
 
     fetchNotifications();
 
-    setInterval(fetchNotifications, 5000);
+    setInterval(fetchNotifications, 10000);
 
 });
