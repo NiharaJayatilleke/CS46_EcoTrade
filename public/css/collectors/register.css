@@ -1,6 +1,6 @@
 
 .collector-body {
-    min-height: 95vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,12 +40,40 @@
     position: relative;
     margin-top: 16px;
     min-height: 490px;
-    /* background-color: #f2f2f2; */
+    overflow: hidden;
+}
+
+.collector-container form .form{
+    position: absolute;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.collector-container form .form .second{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+}
+
+form.secActive .form .second{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+form.secActive .form .first{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
 }
 
 .collector-container form .collector-details {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     /* padding: 10px; */
+}
+
+.collector-container form .collector-details .company{
+    /* margin-top: 10px; */
 }
 
 .collector-container form .collector-title {
@@ -88,18 +116,16 @@
     padding: 0 15px;
     height: 42px;
     margin: 8px 0;
-    /* resize: vertical; */
 }
 
-.collector-input-field input:focus,
-.collector-input-field input:valid {
+.collector-input-field input:focus {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
 }
 
-.collector-input-field select:focus,
-.collector-input-field select:valid {
+.collector-input-field select:focus{
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
 }
+
 
 /* .collector-input-field input[type="date"] {
     color: #707070;
@@ -111,4 +137,61 @@
 
 .required {
     color: red;
+}
+
+.collector-container form button, .backBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: #4070f4;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+.collector-container form button,
+.collector-container form .backBtn{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+form button:hover {
+    background-color: #2e5bff;
+}
+
+form button i,
+form .backBtn i{
+    margin: 0 6px;
+}
+
+form .backBtn i{
+    transform: rotate(180deg);
+}
+.example {
+    font-style: italic;
+    font-weight: lighter;
+}
+
+form button:hover {
+    background-color: #265df2;
+}
+
+form button i {
+    margin: 0 6px;
+}
+
+form .buttons {
+    display: flex;
+    align-items: center;
+}
+
+form .buttons button, .backBtn {
+    margin-right: 14px;
 }
