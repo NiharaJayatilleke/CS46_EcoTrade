@@ -87,7 +87,7 @@ form.secActive .form.first{
 
 .collector-container form .collector-fields {
     display: flex;
-    align-items: center;
+    align-items: center; 
     justify-content: space-between;
     flex-wrap: wrap;
 }
@@ -194,4 +194,22 @@ form .buttons {
 
 form .buttons button, .backBtn {
     margin-right: 14px;
+}
+
+@media (max-width: 750px) {
+    .collector-container form {
+        overflow-y: scroll;
+    }
+    .collector-container form::-webkit-scrollbar {
+        display: none;
+    }
+    form .collector-fields .collector-input-field {
+        width: calc(100% / 2 - 15px);
+    }
+}   
+
+@media (max-width: 550px) {
+    form .collector-fields .collector-input-field {
+        width: 100%;
+    }
 }
