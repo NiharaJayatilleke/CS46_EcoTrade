@@ -5,6 +5,8 @@
 
 .notif-wrapper {
     position: relative;
+    display: flex;
+    flex-direction: row;
 }
 
 .dropdown-toggle {
