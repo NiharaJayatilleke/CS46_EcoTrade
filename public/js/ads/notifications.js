@@ -117,7 +117,7 @@ $(document).ready(function() {
     });
 
     // Fetch notifications every 5 seconds
-    setInterval(function() {
+    function fetchNotifications() {
         $.ajax({
             url: URLROOT + "/Notifications/showNotificationCount",
             method: 'GET',
@@ -130,7 +130,10 @@ $(document).ready(function() {
                 console.error('Error fetching notifications');
             }
         });
-    }, 100000);
-    // }, 10000);
+    }
+
+    fetchNotifications();
+
+    setInterval(fetchNotifications, 10000);
 
 });
