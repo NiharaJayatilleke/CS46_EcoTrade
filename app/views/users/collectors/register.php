@@ -13,12 +13,12 @@
                     <div class="collector-fields">
                         <div class="collector-input-field">
                             <label>Full Name<span class="required">*</span></label>
-                            <input type="text" placeholder="Enter your full name" >
+                            <input type="text" placeholder="Enter your full name" required>
                         </div>
 
                         <div class="collector-input-field">
                             <label for="gender">Gender<span class="required">*</span></label>
-                            <select id="gender" name="gender" >
+                            <select id="gender" name="gender" required>
                                 <option value="">Select...</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -28,12 +28,12 @@
 
                         <div class="collector-input-field">
                             <label>Email<span class="required">*</span></label>
-                            <input type="text" placeholder="Enter your email" >
+                            <input type="text" placeholder="Enter your email" required>
                         </div>
 
                         <div class="collector-input-field">
                             <label>NIC/Passport No.<span class="required">*</span></label>
-                            <input type="text" placeholder="NIC/Passport No." >
+                            <input type="text" placeholder="NIC/Passport No." required>
                         </div>
 
                         <!-- <div class="collector-input-field">
@@ -43,12 +43,12 @@
 
                         <div class="collector-input-field">
                             <label>Driver's License Information <span class="required">*</span></label>
-                            <input type="text" placeholder="Enter Driver's License Information" >
+                            <input type="text" placeholder="Enter Driver's License Information" required>
                         </div>
 
                         <div class="collector-input-field">
                             <label>Address<span class="required">*</span></label>
-                            <input type="text" placeholder="Enter your home Address" >
+                            <input type="text" placeholder="Enter your home Address" required>
                         </div>
 
                         <!-- <div class="collector-input-field">
@@ -229,3 +229,4 @@
 </div>
 
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/collectors/register.js"></script>
+ 
