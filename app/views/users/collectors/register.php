@@ -13,7 +13,7 @@
                     <div class="collector-fields">
                         <div class="collector-input-field">
                             <label>Full Name<span class="required">*</span></label>
-                            <input type="text" placeholder="Enter your full name" required>
+                            <input type="text" placeholder="Enter your full name" >
                         </div>
 
                         <div class="collector-input-field">
@@ -28,12 +28,17 @@
 
                         <div class="collector-input-field">
                             <label>Email<span class="required">*</span></label>
-                            <input type="text" placeholder="Enter your email" required>
+                            <input type="text" placeholder="Enter your email" >
                         </div>
 
                         <div class="collector-input-field">
                             <label>NIC/Passport No.<span class="required">*</span></label>
-                            <input type="text" placeholder="NIC/Passport No." required>
+                            <input type="text" placeholder="NIC/Passport No." >
+                        </div>
+                        
+                        <div class="collector-input-field">
+                            <label>Address<span class="required">*</span></label>
+                            <input type="text" placeholder="Enter your Address" >
                         </div>
 
                         <!-- <div class="collector-input-field">
@@ -43,13 +48,9 @@
 
                         <div class="collector-input-field">
                             <label>Driver's License Information <span class="required">*</span></label>
-                            <input type="text" placeholder="Enter Driver's License Information" required>
+                            <input type="text" placeholder="Enter Driver's License Information" >
                         </div>
 
-                        <div class="collector-input-field">
-                            <label>Address<span class="required">*</span></label>
-                            <input type="text" placeholder="Enter your home Address" required>
-                        </div>
 
                         <!-- <div class="collector-input-field">
                             <label>Date of birth<span class="required">*</span></label>
@@ -163,53 +164,177 @@
                     </div>
                 </div>
 
-                <div class="collector-details company">
-                    <span class="collector-title">Company Details (Optional)</span>
+                <div class="collector-details location">
+                    <span class="collector-title">Select Collecting Locations</span>
                     
                     <div class="collector-fields">
+                        <!-- First field (required) -->
                         <div class="collector-input-field">
-                            <label>Company Name</label>
-                            <input type="text" placeholder="Enter your Company Name" >
-                        </div>
-
-                        <div class="collector-input-field">
-                            <label>Office Email</label>
-                            <input type="text" placeholder="Enter your Company Email" >
-                        </div>
-
-                        <div class="collector-input-field">
-                            <label>Address</label>
-                            <input type="text" placeholder="Enter Company Address" >
-                        </div>
-
-                        <div class="collector-input-field">
-                            <label>Telephone Number</label>
-                            <input type="number" placeholder="Enter Company telephone number" >
-                        </div>
-
-                        <div class="collector-input-field">
-                            <label for="gender">Type of the Company</label>
-                            <select name="company_type" id="company_type">
+                            <label>Select District 1<span class="required">*</span></label>
+                            <select name="district1" id="district1" class="district-select" required>
                                 <option value="">Select...</option>
-                                <option value="Sole Proprietorship">Sole Proprietorship</option>
-                                <option value="Partnership">Partnership</option>
-                                <option value="Limited Liability Company (LLC)">Limited Liability Company (LLC)</option>
-                                <option value="Corporation">Corporation</option>
-                                <option value="Nonprofit Organization">Nonprofit Organization</option>
-                                <option value="Social Enterprise">Social Enterprise</option>
-                                <option value="Government Agency">Government Agency</option>
-                                <option value="Community Organization">Community Organization</option>
-                                <option value="Recycling Center">Recycling Center</option>
-                                <option value="Waste Management Company">Waste Management Company</option>
-                                <option value="other">Other</option>
+                                <option value="Colombo">Colombo</option>
+                                <option value="Gampaha">Gampaha</option>
+                                <option value="Kalutara">Kalutara</option>
+                                <option value="Kandy">Kandy</option>
+                                <option value="Matale">Matale</option>
+                                <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                <option value="Galle">Galle</option>
+                                <option value="Matara">Matara</option>
+                                <option value="Hambantota">Hambantota</option>
+                                <option value="Jaffna">Jaffna</option>
+                                <option value="Kilinochchi">Kilinochchi</option>
+                                <option value="Mannar">Mannar</option>
+                                <option value="Vavuniya">Vavuniya</option>
+                                <option value="Mullaitivu">Mullaitivu</option>
+                                <option value="Batticaloa">Batticaloa</option>
+                                <option value="Ampara">Ampara</option>
+                                <option value="Trincomalee">Trincomalee</option>
+                                <option value="Kurunegala">Kurunegala</option>
+                                <option value="Puttalam">Puttalam</option>
+                                <option value="Anuradhapura">Anuradhapura</option>
+                                <option value="Polonnaruwa">Polonnaruwa</option>
+                                <option value="Badulla">Badulla</option>
+                                <option value="Monaragala">Monaragala</option>
+                                <option value="Ratnapura">Ratnapura</option>
+                                <option value="Kegalle">Kegalle</option>
                             </select>
                         </div>
 
+                        <!-- Second field (optional) -->
                         <div class="collector-input-field">
-                            <label>Registration Number</label>
-                            <input type="text" placeholder="Enter the company registration no." >
+                            <label>Select District 2</label>
+                            <select name="district2" id="district2" class="district-select">
+                                <option value="">Select...</option>
+                                <option value="Colombo">Colombo</option>
+                                <option value="Gampaha">Gampaha</option>
+                                <option value="Kalutara">Kalutara</option>
+                                <option value="Kandy">Kandy</option>
+                                <option value="Matale">Matale</option>
+                                <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                <option value="Galle">Galle</option>
+                                <option value="Matara">Matara</option>
+                                <option value="Hambantota">Hambantota</option>
+                                <option value="Jaffna">Jaffna</option>
+                                <option value="Kilinochchi">Kilinochchi</option>
+                                <option value="Mannar">Mannar</option>
+                                <option value="Vavuniya">Vavuniya</option>
+                                <option value="Mullaitivu">Mullaitivu</option>
+                                <option value="Batticaloa">Batticaloa</option>
+                                <option value="Ampara">Ampara</option>
+                                <option value="Trincomalee">Trincomalee</option>
+                                <option value="Kurunegala">Kurunegala</option>
+                                <option value="Puttalam">Puttalam</option>
+                                <option value="Anuradhapura">Anuradhapura</option>
+                                <option value="Polonnaruwa">Polonnaruwa</option>
+                                <option value="Badulla">Badulla</option>
+                                <option value="Monaragala">Monaragala</option>
+                                <option value="Ratnapura">Ratnapura</option>
+                                <option value="Kegalle">Kegalle</option>
+                            </select>
+                        </div>
+
+                        <!-- Third field (optional) -->
+                        <div class="collector-input-field">
+                            <label>Select District 3</label>
+                            <select name="district3" id="district3" class="district-select">
+                            <option value="">Select...</option>
+                                <option value="Colombo">Colombo</option>
+                                <option value="Gampaha">Gampaha</option>
+                                <option value="Kalutara">Kalutara</option>
+                                <option value="Kandy">Kandy</option>
+                                <option value="Matale">Matale</option>
+                                <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                <option value="Galle">Galle</option>
+                                <option value="Matara">Matara</option>
+                                <option value="Hambantota">Hambantota</option>
+                                <option value="Jaffna">Jaffna</option>
+                                <option value="Kilinochchi">Kilinochchi</option>
+                                <option value="Mannar">Mannar</option>
+                                <option value="Vavuniya">Vavuniya</option>
+                                <option value="Mullaitivu">Mullaitivu</option>
+                                <option value="Batticaloa">Batticaloa</option>
+                                <option value="Ampara">Ampara</option>
+                                <option value="Trincomalee">Trincomalee</option>
+                                <option value="Kurunegala">Kurunegala</option>
+                                <option value="Puttalam">Puttalam</option>
+                                <option value="Anuradhapura">Anuradhapura</option>
+                                <option value="Polonnaruwa">Polonnaruwa</option>
+                                <option value="Badulla">Badulla</option>
+                                <option value="Monaragala">Monaragala</option>
+                                <option value="Ratnapura">Ratnapura</option>
+                                <option value="Kegalle">Kegalle</option>
+                            </select>
+                        </div>
+
+                        <!-- Fourth field (optional) -->
+                        <div class="collector-input-field">
+                            <label>Select District 4</label>
+                            <select name="district4" id="district4" class="district-select">
+                            <option value="">Select...</option>
+                                <option value="Colombo">Colombo</option>
+                                <option value="Gampaha">Gampaha</option>
+                                <option value="Kalutara">Kalutara</option>
+                                <option value="Kandy">Kandy</option>
+                                <option value="Matale">Matale</option>
+                                <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                <option value="Galle">Galle</option>
+                                <option value="Matara">Matara</option>
+                                <option value="Hambantota">Hambantota</option>
+                                <option value="Jaffna">Jaffna</option>
+                                <option value="Kilinochchi">Kilinochchi</option>
+                                <option value="Mannar">Mannar</option>
+                                <option value="Vavuniya">Vavuniya</option>
+                                <option value="Mullaitivu">Mullaitivu</option>
+                                <option value="Batticaloa">Batticaloa</option>
+                                <option value="Ampara">Ampara</option>
+                                <option value="Trincomalee">Trincomalee</option>
+                                <option value="Kurunegala">Kurunegala</option>
+                                <option value="Puttalam">Puttalam</option>
+                                <option value="Anuradhapura">Anuradhapura</option>
+                                <option value="Polonnaruwa">Polonnaruwa</option>
+                                <option value="Badulla">Badulla</option>
+                                <option value="Monaragala">Monaragala</option>
+                                <option value="Ratnapura">Ratnapura</option>
+                                <option value="Kegalle">Kegalle</option>
+                            </select>
+                        </div>
+
+                        <!-- Fifth field (optional) -->
+                        <div class="collector-input-field">
+                            <label>Select District 5</label>
+                            <select name="district5" id="district5" class="district-select">
+                            <option value="">Select...</option>
+                                <option value="Colombo">Colombo</option>
+                                <option value="Gampaha">Gampaha</option>
+                                <option value="Kalutara">Kalutara</option>
+                                <option value="Kandy">Kandy</option>
+                                <option value="Matale">Matale</option>
+                                <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                <option value="Galle">Galle</option>
+                                <option value="Matara">Matara</option>
+                                <option value="Hambantota">Hambantota</option>
+                                <option value="Jaffna">Jaffna</option>
+                                <option value="Kilinochchi">Kilinochchi</option>
+                                <option value="Mannar">Mannar</option>
+                                <option value="Vavuniya">Vavuniya</option>
+                                <option value="Mullaitivu">Mullaitivu</option>
+                                <option value="Batticaloa">Batticaloa</option>
+                                <option value="Ampara">Ampara</option>
+                                <option value="Trincomalee">Trincomalee</option>
+                                <option value="Kurunegala">Kurunegala</option>
+                                <option value="Puttalam">Puttalam</option>
+                                <option value="Anuradhapura">Anuradhapura</option>
+                                <option value="Polonnaruwa">Polonnaruwa</option>
+                                <option value="Badulla">Badulla</option>
+                                <option value="Monaragala">Monaragala</option>
+                                <option value="Ratnapura">Ratnapura</option>
+                                <option value="Kegalle">Kegalle</option>
+                            </select>
                         </div>
                     </div>
+                </div>
+
 
                     <div class="buttons">
                         <div class="backBtn">

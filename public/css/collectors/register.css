@@ -46,6 +46,7 @@
 .collector-container form .form{
     position: absolute;
     background-color: #fff;
+    padding-left: 10px;
     transition: all 0.3s ease;
 }
 
@@ -77,10 +78,18 @@ form.secActive .form.first{
     color: #333;
 }
 
-.collector-container form .collector-fields {
+/* .collector-container form .collector-fields {
     display: flex;
     align-items: center; 
     justify-content: space-between;
+    flex-wrap: wrap;
+} */
+
+.collector-container form .collector-fields {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start;
+    gap: 15px; /* Adjust this value to your liking */
     flex-wrap: wrap;
 }
 
