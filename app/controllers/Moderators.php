@@ -351,8 +351,11 @@
         }
 
         public function index(){
-
-            $data = [];
+            $ads = $this->itemAdsModel->getAds();
+            
+            $data = [
+                'ads' => $ads,
+            ];
             $this->view('moderators/v_index', $data);
         }
         
