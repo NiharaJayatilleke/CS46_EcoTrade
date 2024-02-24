@@ -28,7 +28,7 @@
 
                         <div class="collector-input-field">
                             <label>Email<span class="required">*</span></label>
-                            <input type="text" placeholder="Enter your email" >
+                            <input type="text" placeholder="Enter your email" value = "<?php echo $data['user']->email?>"readonly >
                         </div>
 
                         <div class="collector-input-field">

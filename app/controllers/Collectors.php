@@ -8,7 +8,10 @@
         }
 
         public function temp_reg(){
-            $data = [];
+            $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+            $data = [
+                'user' => $user
+            ];
             $this->view('users/collectors/register',$data);
         }
 
