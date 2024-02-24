@@ -435,8 +435,12 @@
         }
 
         public function promote($adId){
-            $ad = $this->itemAdsModel->getAdById($id);
-            $data = [];
+            $ad = $this->itemAdsModel->getAdById($adId);
+            
+            $data = [
+                'ad' => $ad,
+            ];
+
             $this->view('item_ads/v_promote',$data);
         }
 

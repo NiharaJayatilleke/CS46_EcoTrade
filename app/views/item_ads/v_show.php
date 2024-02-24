@@ -1,6 +1,10 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <!-- Top NAVIGATION -->
-<?php require APPROOT . '/views/inc/components/topnavbar.php';?>
+<?php 
+if($_SESSION['user_type'] != 'moderator') {
+    require APPROOT . '/views/inc/components/topnavbar.php';
+}
+?>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/v_buyer_view.css">
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/seller_only_styles.css">
 

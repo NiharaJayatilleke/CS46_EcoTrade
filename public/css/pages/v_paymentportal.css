@@ -1,27 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap'); */
 
 .paymentpage{
-  font-family: 'Poppins', sans-serif;
-  margin:0; padding:0;
+  margin:0; 
   box-sizing: border-box;
-  outline: none; border:none;
+  outline: none; 
+  border:none;
   text-transform: capitalize;
   transition: all .2s linear;
   overflow: hidden;
- 
+  /* margin-top: 40px; */
 }
 
 .containerpaymentport {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding:25px;
-  min-height: 100vh;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  /* padding:25px; */
+  /* min-height: 95vh; */
   background: fixed;
   backdrop-filter: blur(10px);
-  
   overflow: hidden;
 }
+
+/* .containerpaymentport{
+  padding-top: 0;;
+} */
 
 .containerpaymentport  form{
   padding:20px;
@@ -83,16 +88,22 @@
   filter: drop-shadow(0 0 1px #000);
 }
 
-.containerpaymentport  form .submit-btn{
-  width: 100%;
+.containerpaymentport  form .payment-submit-btn{
+  width: 60%;
   padding:12px;
   font-size: 17px;
-  background: #27ae60;
+  background: var(--green);
   color:#fff;
   margin-top: 5px;
+  /* margin-left: 140px; */
+  display: block;
+  margin: 0 auto;
   cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  align-self: center;
 }
 
-.containerpaymentport  form .submit-btn:hover{
+.containerpaymentport  form .payment-submit-btn:hover{
   background: #2ecc71;
 }
