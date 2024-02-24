@@ -9,7 +9,14 @@
 
 .ag-page-404 {
     padding: 100px 0 0;
-    background: url('../../img/404/sprite-toaster.png') no-repeat 50% 100%;
+    background: url('../../img/404/sprite-toaster.png') no-repeat 50% 100%; 
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
 }
 
 .ag-canvas-404_img {
