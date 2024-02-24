@@ -337,10 +337,10 @@
 
 
                     <div class="buttons">
-                        <div class="backBtn">
+                        <button class="backBtn">
                             <i class="uil uil-navigator"></i>
                             <span class="btnText">Back</span>
-                        </div>
+                        </button>
 
                         <button class="submit">
                             <span class="submit">Submit</span>

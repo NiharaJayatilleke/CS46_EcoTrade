@@ -177,10 +177,6 @@ form.secActive .form.first{
     font-weight: 400;
 }
 
-form button:hover {
-    background: var(--green);
-}
-
 form button i,
 form .backBtn i{
     margin: 0 6px;
@@ -195,7 +191,8 @@ form .backBtn i{
 }
 
 form button:hover {
-    background: var(--green);
+    background: rgb(25, 167, 25); /* Change this to the specific light green color you want */
+    color: white; /* Change this to the color you want for the text on hover */
 }
 
 form button i {
@@ -210,6 +207,8 @@ form .buttons {
 form .buttons button, .backBtn {
     margin-right: 14px;
 }
+
+/* the responsive media query is not working */
 
 @media (max-width: 750px) {
     .collector-container form {
