@@ -58,7 +58,7 @@
 
 
                 <li>
-                    <a href="#" id="signout-tab" onclick="showContent('signout-content')">
+                    <a href="<?php echo URLROOT ?>/Moderators/login" id="signout-tab" onclick="showContent('signout-content')">
                         <span class = "side-icon"><ion-icon name="log-out-outline"></ion-icon></span> 
                         <span class = "side-title">Sign out</span>
                     </a>
@@ -165,10 +165,10 @@
                         </div>
                     </div>
 
-                    <div class="details">
+                    <div class="details" style=" display: block;">
                         <div class="recentOrders">
                             <div class="cardHeader">
-                                <h2>Recent Orders</h2>
+                                <h2>Recent Activities</h2>
                                 <a href="#" class="btn">View All</a>
                             </div>
                             <table>
@@ -295,100 +295,55 @@
                             </table>
                         </div>
                         <!-- New customers -->
-                        <div class="recentCustomers">
-                            <div class="cardHeader">
-                                <h2>Recent Customers</h2>
-                            </div>
-                            <table>
-                                <tr>
-                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
-                                    <td><h4>David<br><span>Western Province - Colombo</span></h4></td>
-                                </tr>
-                                <tr>
-                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></td>
-                                    <td><h4>John<br><span>Western Province - Colombo</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></td>
-                                    <td><h4>Emily<br><span>Central Province - Kandy</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></td>
-                                    <td><h4>Sara<br><span>Eastern Province - Trincomalee</span></h4></td>
-                                </tr>
-                                <tr>
-                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></td>
-                                    <td><h4>Michael<br><span>Northern Province - Jaffna</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></td>
-                                    <td><h4>Samantha<br><span>Southern Province - Galle</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></td>
-                                    <td><h4>Ravi<br><span>North Central Province - Anuradhapura</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></td>
-                                    <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
-                                </tr>
-                            </table>
-                        </div>
-
+                      
                     </div> 
             </div>
 
             <div id="platformusers-content" class="content-section">
-            <p>This is the content for the users tab.</p>
-            <div class="recentCustomers">
-                            <div class="cardHeader">
-                                <h2>Recent Customers</h2>
-                            </div>
-                            <table>
-                                <tr>
-                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
-                                    <td><h4>David<br><span>Western Province - Colombo</span></h4></td>
-                                </tr>
-                                <tr>
-                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></td>
-                                    <td><h4>John<br><span>Western Province - Colombo</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></td>
-                                    <td><h4>Emily<br><span>Central Province - Kandy</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></td>
-                                    <td><h4>Sara<br><span>Eastern Province - Trincomalee</span></h4></td>
-                                </tr>
-                                <tr>
-                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></td>
-                                    <td><h4>Michael<br><span>Northern Province - Jaffna</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></td>
-                                    <td><h4>Samantha<br><span>Southern Province - Galle</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></td>
-                                    <td><h4>Ravi<br><span>North Central Province - Anuradhapura</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></td>
-                                    <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
-                                </tr>
-                            </table>
+                    <div class="recentCustomers">
+                        <div class="cardHeader">
+                            <h2>Recent Customers</h2>
                         </div>
+                        <table>
+                            <tr>
+                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
+                                <td><h4>David<br><span>Western Province - Colombo</span></h4></td>
+                            </tr>
+                            <tr>
+                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></td>
+                                <td><h4>John<br><span>Western Province - Colombo</span></h4></td>
+                            </tr>
+
+                            <tr>
+                            <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></td>
+                                <td><h4>Emily<br><span>Central Province - Kandy</span></h4></td>
+                            </tr>
+
+                            <tr>
+                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></td>
+                                <td><h4>Sara<br><span>Eastern Province - Trincomalee</span></h4></td>
+                            </tr>
+                            <tr>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></td>
+                                <td><h4>Michael<br><span>Northern Province - Jaffna</span></h4></td>
+                            </tr>
+
+                            <tr>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></td>
+                                <td><h4>Samantha<br><span>Southern Province - Galle</span></h4></td>
+                            </tr>
+
+                            <tr>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></td>
+                                <td><h4>Ravi<br><span>North Central Province - Anuradhapura</span></h4></td>
+                            </tr>
+
+                            <tr>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></td>
+                                <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
+                            </tr>
+                        </table>
+                    </div>
 
             </div>
 
@@ -478,7 +433,7 @@
     <script>
     // Function to show/hide content sections based on the clicked tab
     function showContent(section) {
-        event.preventDefault();
+        // event.preventDefault();
         // Hide all content sections
         document.getElementById('dashboard-content').style.display = 'none';
         document.getElementById('platformusers-content').style.display = 'none';
