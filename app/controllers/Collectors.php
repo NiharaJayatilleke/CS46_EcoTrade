@@ -13,6 +13,7 @@
                 'user' => $user
             ];
             $this->view('users/collectors/register',$data);
+            
         }
 
         // public function register(){

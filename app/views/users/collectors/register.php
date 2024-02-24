@@ -13,9 +13,25 @@
                     <div class="collector-fields">
                         <div class="collector-input-field">
                             <label>Full Name<span class="required">*</span></label>
-                            <input type="text" placeholder="Enter your full name" >
+                            <input type="text" name = "username" id="username" placeholder="Enter your full name" value = "<?php echo $data['user']->username?>"readonly>
                         </div>
 
+                        
+                        <div class="collector-input-field">
+                            <label>Email<span class="required">*</span></label>
+                            <input type="text" name = "email" id="email" placeholder="Enter your email" value = "<?php echo $data['user']->email?>"readonly >
+                        </div>
+
+                        <div class="collector-input-field">
+                            <label>Mobile Number<span class="required">*</span></label>
+                            <input type="tel" name = "number" id="number" placeholder="Enter your mobile number" value = "<?php echo $data['user']->number?>"readonly >
+                        </div>
+                        
+                        <div class="collector-input-field">
+                            <label>NIC/Passport No.<span class="required">*</span></label>
+                            <input type="text" name = "nic" id="nic" placeholder="NIC/Passport No." >
+                        </div>
+                        
                         <div class="collector-input-field">
                             <label for="gender">Gender<span class="required">*</span></label>
                             <select id="gender" name="gender" required>
@@ -27,29 +43,15 @@
                         </div>
 
                         <div class="collector-input-field">
-                            <label>Email<span class="required">*</span></label>
-                            <input type="text" placeholder="Enter your email" value = "<?php echo $data['user']->email?>"readonly >
+                            <label>Address<span class="required">*</span></label>
+                            <input type="text" placeholder="Enter your Address" required>
                         </div>
 
-                        <div class="collector-input-field">
-                            <label>NIC/Passport No.<span class="required">*</span></label>
-                            <input type="text" placeholder="NIC/Passport No." >
-                        </div>
-                        
-                        <div class="collector-input-field">
-                            <label>Address<span class="required">*</span></label>
-                            <input type="text" placeholder="Enter your Address" >
-                        </div>
 
                         <!-- <div class="collector-input-field">
-                            <label>Mobile Number<span class="required">*</span></label>
-                            <input type="number" placeholder="Enter your mobile number" required>
-                        </div> -->
-
-                        <div class="collector-input-field">
                             <label>Driver's License Information <span class="required">*</span></label>
                             <input type="text" placeholder="Enter Driver's License Information" >
-                        </div>
+                        </div> -->
 
 
                         <!-- <div class="collector-input-field">
