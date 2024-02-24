@@ -15,6 +15,7 @@
                             }
                             ?>
                         </div>
+                  
                     </div>  
                     <form method="POST" action="<?php echo URLROOT; ?>/users/profile" enctype="multipart/form-data">               
                         <div class="media-body">
@@ -104,6 +105,7 @@
                             </div>
                         </div>
                     </div>
+         
 
 
                     <div id="change-password" class="col-md-9">
@@ -233,7 +235,6 @@
                             </div>                     
                         </div>
                     </div> -->
-
 
 
                 
@@ -399,6 +400,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
 
             </div>

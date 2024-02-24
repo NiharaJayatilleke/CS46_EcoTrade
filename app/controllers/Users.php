@@ -292,10 +292,15 @@
                     }
                 }
             }
+
+            // die($_SESSION['userType']);
+
             $user = $this->userModel->getUserDetails($_SESSION['user_id']);
             $data = [
                 'user' => $user
+                
             ];
+           
             // Load the profile view
             $this->view('users/profile/v_create', $data);
         }
