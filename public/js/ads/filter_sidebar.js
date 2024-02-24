@@ -55,7 +55,7 @@ function updateList() {
     //     }
     //     return true;
     // });
-    const selectedConditions = new Set(Array.from(document.querySelectorAll('.condition .indicator input[type="checkbox"]:checked'), function(input) {
+    const selectedConditions = new Set(Array.from(document.querySelectorAll('.condition.indicator input[type="checkbox"]:checked'), function(input) {
         return input.getAttribute('data-filter');
     }));
 
@@ -101,7 +101,7 @@ document.querySelectorAll('.indicator input[type="checkbox"]').forEach(function(
 });
 
 document.querySelectorAll('.condition .indicator input[type="checkbox"]').forEach(function(ele) {
-    console.log("condition");
+    // console.log("condition");
     ele.addEventListener('click', function(event) {
         event.stopPropagation();
         updateList();
