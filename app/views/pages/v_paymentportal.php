@@ -2,7 +2,7 @@
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_paymentportal.css">
-<body class="paymentpage">
+<div class="paymentpage">
 <div class="containerpaymentport">
 
     <form action="">
@@ -79,9 +79,9 @@
     
         </div>
 
-        <input type="submit" value="proceed to checkout" class="submit-btn">
+        <input type="submit" value="Proceed to Checkout" class="payment-submit-btn">
 
     </form>
 
 </div>    
-</body>
+<?php require APPROOT . '/views/inc/components/footer.php';?>
