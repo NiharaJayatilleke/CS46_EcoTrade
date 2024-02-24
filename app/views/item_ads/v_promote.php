@@ -9,7 +9,7 @@
         <div class="divv-2">
             <div class="divv-3">Make your ad stand out!</div>
             <div class="divv-4">
-                Get up to 10 times more responses by applying Ad Promotions.
+            Boost your response rate by up to 10 times with Ad Promotions.
             </div>
             <div class="divv-5">
                 <div class="divv-6">Select one or more options</div>
@@ -24,17 +24,33 @@
                     <div class="divv-23">
                         <div class="divv-24">
                             <div class="divv-25">
-                                <img loading="lazy" srcset="<?php echo URLROOT?>/public/img/payment/images/svg.png" class="img-5" />
+                                <img loading="lazy" srcset="<?php echo URLROOT?>/public/img/payment/images/svg.png" class="img-50" />
                                 <div class="divv-26">
                                     <div class="divv-27">Premier Visibility Package</div>
                                     <div class="divv-28">
                                     Give your ad the spotlight it deserves by featuring it at the top of our listings for one week or one month!
                                     </div>
+
+                                    <div class="options1">
+                                        <label>
+                                            <input type="radio" name="package1" value="week" checked>
+                                            One Week - Rs. 2000
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="package1" value="month">
+                                            One Month - Rs. 7500
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="package1" value="none">
+                                            None
+                                        </label>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="divv-29">
-                                <div class="divv-30">From Rs 1,100</div>
-                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1706ae8f17adcaf7f3403231ebb015c8462dfa93fb8f06f41d3f691158239c4b?" class="img-6" />
+                                <!-- <div class="divv-30">From Rs 1,100</div> -->
+                                <!-- <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1706ae8f17adcaf7f3403231ebb015c8462dfa93fb8f06f41d3f691158239c4b?" class="img-6" /> -->
                             </div>
                         </div> 
 
@@ -49,10 +65,25 @@
                         <div class="divv-48">
                             <div class="divv-49">
                             Make your ad stand out from the rest with our Highlight Markers, placing a bright marker on your ad for one week or one month!
+
+                            <div class="options2">
+                            <label>
+                                <input type="radio" name="package2" value="week">
+                                One Week - Rs. 1500
+                            </label>
+                            <label>
+                                <input type="radio" name="package2" value="month">
+                                One Month - Rs. 6000
+                            </label>
+                            <label>
+                                <input type="radio" name="package2" value="none">
+                                None
+                            </label>
+                        </div>
                             </div>
                             <div class="divv-50">
-                                <div class="divv-51">From Rs 700</div>
-                                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1706ae8f17adcaf7f3403231ebb015c8462dfa93fb8f06f41d3f691158239c4b?" class="img-11" />
+                                <!-- <div class="divv-51">From Rs 700</div> -->
+                                <!-- <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/1706ae8f17adcaf7f3403231ebb015c8462dfa93fb8f06f41d3f691158239c4b?" class="img-11" /> -->
                             </div>
                         </div>
                     </div>
