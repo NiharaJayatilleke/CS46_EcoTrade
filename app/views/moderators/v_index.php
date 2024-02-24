@@ -42,16 +42,16 @@
                 </li>
                 <li>
                     <a href="#" id="secondhand-tab" onclick="showContent('secondhand-content')">
-                        <span class = "side-icon"><ion-icon name="sync-outline"></ion-icon></span>
-                        <span class = "side-title">Secondhand Ads</span>
+                        <span class = "side-icon"><ion-icon name="pricetags"></ion-icon></span>
+                        <span class = "side-title">Preowned Ads</span>
                     </a>
-                </li>
+                </li>                               
 
                 <li>
                     <!-- <a href=""> -->
                     <a href="#" id="recycle-tab" onclick="showContent('recycle-content')">
                         <span class = "side-icon"><ion-icon name="leaf-outline"></ion-icon></span>
-                        <span class = "side-title">Recycle Ads</span>
+                        <span class = "side-title">Recycling Ads</span>
                     </a>
                 </li>
 
@@ -97,11 +97,299 @@
                 <!-- cards -->
           
             <div id="dashboard-content" class="content-section">
-            <p>This is the content for the dashboard tab.</p>  
+            <div class="heading-dashboard">
+                        <h2>Moderators Dashboard</h2>
+                    </div>
+                    
+                    <div class="dashboard-cardBox">
+                        <div class="dashboard-card">
+                            <div>
+                                <!-- <div class="dashboard-numbers"><?php echo $data['users_count'] ?></div>  -->
+                                <div class="dashboard-cardName">General Users</div>
+                            </div>
+                            <div class="dashboard-iconBx">   
+                                <ion-icon name="people-outline"></ion-icon>     
+                            </div>
+                        </div>
+
+                        <!-- <a href="<?php echo URLROOT ?>/Admin/moderators" style="text-decoration: none; color: inherit;"> -->
+                            <div class="dashboard-card" >
+                                <div>
+                                    <!-- <div class="dashboard-numbers" ><?php echo $data['moderators_count'] ?></div>  -->
+                                    <div class="dashboard-cardName">Collectors</div>
+                                </div>
+                                <div class="dashboard-iconBx">  
+                                    <ion-icon name="people-circle-outline"></ion-icon>     
+                                </div>
+                            </div>
+                        <!-- </a> -->
+
+                        <div class="dashboard-card" >
+                                <div>
+                                    <!-- <div class="dashboard-numbers" ><?php echo $data['moderators_count'] ?></div>  -->
+                                    <div class="dashboard-cardName">Recycle centers</div>
+                                </div>
+                                <div class="dashboard-iconBx">  
+                                <ion-icon name="business-outline"></ion-icon>
+                                </div>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <div>
+                                <!-- <div class="dashboard-numbers"><?php echo $data['sec_ad_count'] ?></div>  -->
+                                <div class="dashboard-cardName">Pre-owned Item Ads</div>
+                            </div>
+                            <div class="dashboard-iconBx">  
+                                <ion-icon name="pricetags"></ion-icon>  
+                            </div>
+                        </div>
+
+
+                        <div class="dashboard-card">
+                            <div>
+                                <div class="dashboard-numbers">80</div> 
+                                <div class="dashboard-cardName">Recycling Ads</div>
+                            </div>
+                            <div class="dashboard-iconBx"> 
+                                <ion-icon name="leaf"></ion-icon>   
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="graphBox">
+                        <div class="box">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                        <div class="box">
+                            <canvas id="ads"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="details">
+                        <div class="recentOrders">
+                            <div class="cardHeader">
+                                <h2>Recent Orders</h2>
+                                <a href="#" class="btn">View All</a>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Price</td>
+                                        <td>Payment</td>
+                                        <td>Status</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Refrigerator</td>
+                                    <td>Rs. 1200</td>
+                                    <td>Paid</td>
+                                    <td><span class="status inprogress">Delivered</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Denim Shirts</td>
+                                    <td>Rs. 110</td>
+                                    <td>Due</td>
+                                    <td><span class="status inprogress">In Progress</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Casual Shoes</td>
+                                    <td>Rs. 575</td>
+                                    <td>Paid</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Wall Fan</td>
+                                    <td>Rs. 110</td>
+                                    <td>Paid</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Jeans</td>
+                                    <td>Rs. 1200</td>
+                                    <td>Paid</td>
+                                    <td><span class="status delivered">Delivered</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Sweaters</td>
+                                    <td>Rs. 700</td>
+                                    <td>Due</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Skirts</td>
+                                    <td>Rs. 600</td>
+                                    <td>Paid</td>
+                                    <td><span class="status delivered">Delivered</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Formal Shoes</td>
+                                    <td>Rs. 2000</td>
+                                    <td>Due</td>
+                                    <td><span class="status inprogress">In Progress</span></td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Sunglasses</td>
+                                    <td>Rs. 800</td>
+                                    <td>Due</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Hoodies</td>
+                                    <td>Rs. 900</td>
+                                    <td>Due</td>
+                                    <td><span class="status inprogress">In Progress</span></td>
+                                </tr>
+
+
+                                <!-- <tr>
+                                    <td>Adidas Shoes</td>
+                                    <td>Rs. 1100</td>
+                                    <td>Paid</td>
+                                    <td><span class="status return">Return</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Wall Art</td>
+                                    <td>Rs. 110</td>
+                                    <td>Paid</td>
+                                    <td><span class="status delivered">Pending</span></td>
+                                </tr> -->
+
+                                <tr>
+                                    <td>Denim Shirts</td>
+                                    <td>Rs. 110</td>
+                                    <td>Due</td>
+                                    <td><span class="status inprogress">In Progress</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Checked Dresses</td>
+                                    <td>Rs. 1500</td>
+                                    <td>Paid</td>
+                                    <td><span class="status delivered">Delivered</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Sports Shoes</td>
+                                    <td>Rs. 2500</td>
+                                    <td>Due</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>T-shirts</td>
+                                    <td>Rs. 300</td>
+                                    <td>Due</td>
+                                    <td><span class="status inprogress">In Progress</span></td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- New customers -->
+                        <div class="recentCustomers">
+                            <div class="cardHeader">
+                                <h2>Recent Customers</h2>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
+                                    <td><h4>David<br><span>Western Province - Colombo</span></h4></td>
+                                </tr>
+                                <tr>
+                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></td>
+                                    <td><h4>John<br><span>Western Province - Colombo</span></h4></td>
+                                </tr>
+
+                                <tr>
+                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></td>
+                                    <td><h4>Emily<br><span>Central Province - Kandy</span></h4></td>
+                                </tr>
+
+                                <tr>
+                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></td>
+                                    <td><h4>Sara<br><span>Eastern Province - Trincomalee</span></h4></td>
+                                </tr>
+                                <tr>
+                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></td>
+                                    <td><h4>Michael<br><span>Northern Province - Jaffna</span></h4></td>
+                                </tr>
+
+                                <tr>
+                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></td>
+                                    <td><h4>Samantha<br><span>Southern Province - Galle</span></h4></td>
+                                </tr>
+
+                                <tr>
+                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></td>
+                                    <td><h4>Ravi<br><span>North Central Province - Anuradhapura</span></h4></td>
+                                </tr>
+
+                                <tr>
+                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></td>
+                                    <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div> 
             </div>
 
             <div id="platformusers-content" class="content-section">
             <p>This is the content for the users tab.</p>
+            <div class="recentCustomers">
+                            <div class="cardHeader">
+                                <h2>Recent Customers</h2>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
+                                    <td><h4>David<br><span>Western Province - Colombo</span></h4></td>
+                                </tr>
+                                <tr>
+                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></td>
+                                    <td><h4>John<br><span>Western Province - Colombo</span></h4></td>
+                                </tr>
+
+                                <tr>
+                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></td>
+                                    <td><h4>Emily<br><span>Central Province - Kandy</span></h4></td>
+                                </tr>
+
+                                <tr>
+                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></td>
+                                    <td><h4>Sara<br><span>Eastern Province - Trincomalee</span></h4></td>
+                                </tr>
+                                <tr>
+                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></td>
+                                    <td><h4>Michael<br><span>Northern Province - Jaffna</span></h4></td>
+                                </tr>
+
+                                <tr>
+                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></td>
+                                    <td><h4>Samantha<br><span>Southern Province - Galle</span></h4></td>
+                                </tr>
+
+                                <tr>
+                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></td>
+                                    <td><h4>Ravi<br><span>North Central Province - Anuradhapura</span></h4></td>
+                                </tr>
+
+                                <tr>
+                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></td>
+                                    <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
+                                </tr>
+                            </table>
+                        </div>
+
             </div>
 
             <div id="reported-ads-content" class="content-section">
@@ -111,6 +399,7 @@
 
             <div id="secondhand-content" class="content-section">
             <p>This is the content for the Secondhand tab.</p> 
+            
             </div>
 
             <div id="recycle-content" class="content-section">
