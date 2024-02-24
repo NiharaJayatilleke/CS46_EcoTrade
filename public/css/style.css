@@ -96,7 +96,7 @@ body {
 }
 
 * {
-    margin: 0;
+    margin: 0;  
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -108,5 +108,6 @@ body {
     --grey: #b2bec3;
     --black1: #2d3436;
     --black2: #636e72;
+    --lightgreen: #26b273;
 }
 
