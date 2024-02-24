@@ -56,7 +56,7 @@
             <!-- </div> -->
             
         </div>
-        <div class="container">
+        <div class="ad-right-container">
     <!-- <div class = "user-greeting">
         <p>Hi <b><?php echo $_SESSION['user_name']; ?></b>, Welcome to the Secondhand Marketplace!</p>
     </div>
@@ -97,6 +97,8 @@
                         <div class = "ad-item-name"><h3><?php echo $ad->item_name ?><h3></div>
                         <div class = "ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
                         <div class = "ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
+                        <h3><?php echo $ad->item_category ?><h3>
+                        <h3><?php echo $ad->item_condition ?><h3>
                     </div>
                     
                     <div class = "ad-body">

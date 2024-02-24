@@ -24,7 +24,7 @@
 
 .dashboard-sidenav ul{
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
     width: 100%;
     padding: 0;
@@ -534,3 +534,4 @@
     align-items: center;
     font-size: 20px; 
 }
+
