@@ -5,16 +5,16 @@
         public function __construct(){
             $this->db = new Database();
         }
-        //Register the user
+        //Register the collector
         public function register($data){
 
             $this->db->query('INSERT INTO Collectors(username,email,number,password,userType) VALUES(:username, :email, :number,  :password, :userType)');          
             $this->db->bind(':username',$data['username']);
             $this->db->bind(':email',$data['email']);
             $this->db->bind(':number',$data['number']);
+            
             $this->db->bind(':password',$data['password']);
-            $this->db->bind(':userType', $data['user_type']);
-
+            $this->db->bind(':userType', 'collector');
             
             if($this->db->execute()){
                 return true;
