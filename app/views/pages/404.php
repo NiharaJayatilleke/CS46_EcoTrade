@@ -14,10 +14,10 @@
         </div>
 
         <canvas id="canvas-404" class="ag-canvas-404"></canvas>
-        <img class="ag-canvas-404_img" src="https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/404-error-smoke-from-toaster/images/smoke.png">
+        <img class="ag-canvas-404_img" src= "../public/img/404/smoke.png">
     </div>
 </div>
-<!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/404.js"></script> -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/404.js"></script>
 
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

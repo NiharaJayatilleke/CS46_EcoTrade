@@ -10,8 +10,6 @@
 
 .dashboard-sidenav{
     position: fixed;
-    /* top: 0; 
-    bottom: 0;  */
     width: 180px;
     height: 100%;
     background-color: var(--green);
@@ -47,7 +45,6 @@
 
 .dashboard-sidenav ul li:nth-child(1){
     margin-bottom: 40px;
-    /* margin-left: -13.5px; */
     pointer-events: none;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 20px;
@@ -120,7 +117,6 @@
 
 .dashboard-main{
     position: absolute;
-    /* width: calc(100% - 300px); */
     width: calc(100% - 220px);
     left: 200px;
     min-height: 100vh;
@@ -135,7 +131,6 @@
 
 .dashboard-topbar{
     width: 100%;
-    /* height: 30px; */
     display: flex;
     justify-content: space-between;
     align-items: center; 
@@ -248,8 +243,6 @@
 .dashboard-cardBox .dashboard-card .dashboard-iconBx{
     font-size: 2.5em;
     color: var(--black2);
-    /* position: relative;
-    right: -20px; */
 }
 
 .dashboard-cardBox .dashboard-card:hover{
@@ -275,8 +268,6 @@
 .graphBox .box {
     position: relative;
     background: #fff;
-    /* padding: 20px; */
-    /* margin-right: 20px; */
     width: 100%;
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
     border-radius: 20px;
@@ -289,7 +280,6 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 30px;
-    /* margin-top: 10px; */
 }
 
 .details .recentOrders {
@@ -403,7 +393,6 @@
 .recentCustomers {
     position: relative;
     display: grid;
-    /* width: 100%; */
     min-height: 500px;
     padding: 20px;
     background: var(--white);
@@ -543,6 +532,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 20px; /* Increase the font size to 24 pixels */
+    font-size: 20px; 
 }
 

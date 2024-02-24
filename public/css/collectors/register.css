@@ -67,14 +67,6 @@ form.secActive .form.first{
     transform: translateX(-100%);
 }
 
-.collector-container form .collector-details {
-    /* margin-top: 30px; */
-    /* padding: 10px; */
-}
-
-.collector-container form .collector-details .company{
-    /* margin-top: 10px; */
-}
 
 .collector-container form .collector-title {
     font-size: 16px;
@@ -203,33 +195,15 @@ form .buttons button, .backBtn {
     .collector-container form::-webkit-scrollbar {
         display: none;
     }
+    form .collector-fields {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
     form .collector-fields .collector-input-field {
-        width: calc(100% / 2 - 15px);
+        width: calc(50% - 15px);
     }
 }   
-
-/* 
-@media (max-width: 750px) {
-    .collector-container form {
-        overflow-y: scroll;
-    }
-    .collector-container form::-webkit-scrollbar {
-        display: none;
-    }
-    form .collector-fields .collector-input-field {
-        width: calc(100% / 2 - 15px);
-    }
-    .collector-container form .form {
-        width: 100%;
-        transition: none; 
-    }
-    form.secActive .form.second,
-    form.secActive .form.first {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateX(0);
-    }
-} */
 
 @media (max-width: 550px) {
     form .collector-fields .collector-input-field {
