@@ -434,6 +434,12 @@
             }
         }
 
+        public function promote($adId){
+            $ad = $this->itemAdsModel->getAdById($id);
+            $data = [];
+            $this->view('item_ads/v_promote',$data);
+        }
+
         public function delete($adId){
             $ad = $this->itemAdsModel->getAdById($adId);
 

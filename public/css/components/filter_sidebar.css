@@ -17,10 +17,11 @@
     /* justify-content: center; */
 }
 
-/* .wrapper .container {
-    display: none;
-    margin-left: 16rem;
-} */
+.wrapper .ad-right-container {
+    /* display: none;
+    margin-left: 16rem; */
+    position: relative;
+}
 
 .indicator {
     margin-top: 1rem;

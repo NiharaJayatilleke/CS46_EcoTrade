@@ -19,7 +19,7 @@
     font-size: 14px;
 }
 
-.sad-edit-btn, .sad-delete-btn{
+.sad-edit-btn, .sad-delete-btn, .sad-promote-btn{
     display: flex;
     align-items: center;
     width: 96%;
@@ -35,7 +35,7 @@
     transition: background-color 0.3s ease;
 }
 
-.sad-edit-btn:hover, .sad-delete-btn:hover{
+.sad-edit-btn:hover, .sad-delete-btn:hover, .sad-promote-btn:hover{
     background-color: #e0e0e0; 
 }
 
