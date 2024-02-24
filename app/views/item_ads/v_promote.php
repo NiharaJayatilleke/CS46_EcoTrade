@@ -16,7 +16,7 @@
                 <div class="divv-7">(Optional).</div>
             </div>
             <div class="divv-8">
-                <img loading="lazy" src="../public/img/payment/images/new.png" class="img"/>
+                <img loading="lazy" src="<?php echo URLROOT?>/public/img/payment/images/new.png" class="img"/>
                 <div class="divv-9">Now you can schedule your Bump Up and Top Ad</div>
             </div>
             <div class="divv-300">
@@ -24,7 +24,7 @@
                     <div class="divv-23">
                         <div class="divv-24">
                             <div class="divv-25">
-                                <img loading="lazy" srcset="../public/img/payment/images/svg.png" class="img-5" />
+                                <img loading="lazy" srcset="<?php echo URLROOT?>/public/img/payment/images/svg.png" class="img-5" />
                                 <div class="divv-26">
                                     <div class="divv-27">Top Ad</div>
                                     <div class="divv-28">
@@ -40,7 +40,7 @@
                         <div class="divv-31"></div>
                         <div class="divv-44">
                             <div class="divv-45">
-                                <img loading="lazy" src="../public/img/payment/images/alert.png" class="img-10" />
+                                <img loading="lazy" src="<?php echo URLROOT?>/public/img/payment/images/alert.png" class="img-10" />
                                 URGENT
                             </div>
                             <div class="divv-47">Urgent</div>
@@ -57,7 +57,7 @@
                         <div class="divv-31"></div>
                         <div class="divv-44">
                             <div class="divv-45">
-                                <img loading="lazy" src="../public/img/payment/images/alert.png" class="img-10" />
+                                <img loading="lazy" src="<?php echo URLROOT?>/public/img/payment/images/alert.png" class="img-10" />
                                 URGENT
                             </div>
                             <div class="divv-47">Urgent</div>
@@ -73,13 +73,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
         </div>
     </div>
     <div class="divv-57"></div>
     <div class="divv-58">   
         <div class="divv-62">
-            <img loading="lazy" src="../public/img/payment/images/u-4.jpg" class="img-200" />
+            <img loading="lazy" src="<?php echo URLROOT?>/public/img/payment/images/u-4.jpg" class="img-200" />
             <div class="divv-63">
                 <div class="divv-64">Huawei Y7a (Used)</div>
                 <div class="divv-65">Colombo 3, Mobile Phones</div>
@@ -102,7 +102,7 @@
         </div>
         <div class="divv-78">
             <div class="divv-80">Pay online</div>
-            <img loading="lazy" src="../public/img/payment/images/Untitled design (1).png" class="img-400" />
+            <img loading="lazy" src="<?php echo URLROOT?>/public/img/payment/images/Untitled design (1).png" class="img-400" />
         </div>
         <a href="<?php echo URLROOT ?>/PaymentPortal/index">
             <div class="divv-84">Continue</div> 

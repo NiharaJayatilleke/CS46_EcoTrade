@@ -56,7 +56,7 @@
             <!-- </div> -->
             
         </div>
-        <div class="container">
+        <div class="ad-right-container">
     <!-- <div class = "user-greeting">
         <p>Hi <b><?php echo $_SESSION['user_name']; ?></b>, Welcome to the Secondhand Marketplace!</p>
     </div>

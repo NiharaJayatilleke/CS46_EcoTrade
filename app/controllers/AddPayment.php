@@ -1,4 +1,4 @@
-<?php
+<!-- <php
     class AddPayment extends Controller{
         public function __construct(){
             $this->pagesModel =$this->model('M_Pages');
@@ -10,4 +10,4 @@
 
         }
     }
-?>
+?> -->
