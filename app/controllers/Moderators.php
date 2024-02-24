@@ -349,8 +349,12 @@
             
             
         }
-        
-        
+
+        public function index(){
+
+            $data = [];
+            $this->view('moderators/v_index', $data);
+        }
         
     }
 ?>
