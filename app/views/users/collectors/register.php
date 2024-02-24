@@ -342,8 +342,8 @@
                             <span class="btnText">Back</span>
                         </div>
 
-                        <button class="nextBtn">
-                            <span class="btnText">Next</span>
+                        <button class="submit">
+                            <span class="submit">Submit</span>
                             <i class="uil uil-navigator"></i>
                         </button>
                     </div>
