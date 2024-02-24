@@ -9,7 +9,7 @@
 
 .ag-page-404 {
     padding: 100px 0 0;
-    background: url(https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/404-error-smoke-from-toaster/images/toaster-bg.png) no-repeat 50% 100%;
+    background: url('../../img/404/sprite-toaster.png') no-repeat 50% 100%;
 }
 
 .ag-canvas-404_img {
@@ -27,7 +27,7 @@
 .ag-toaster-wrap {
     display: table;
     margin: 0 auto;
-    padding: 200px 0 0;
+    /* padding: 200px 0 0; */
 
     position: relative;
 }
@@ -52,7 +52,7 @@
 .ag-toaster_shadow {
     width: 165px;
     height: 9px;
-    background: url(https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/404-error-smoke-from-toaster/images/sprite-toaster.png) -340px -195px no-repeat;
+    background: url('../../img/404/sprite-toaster.png') -340px -195px no-repeat;
 
     position: absolute;
     left: 0;
@@ -61,7 +61,7 @@
 .ag-toaster_toast {
     width: 159px;
     height: 171px;
-    background: url(https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/404-error-smoke-from-toaster/images/sprite-toaster.png) -340px 0 no-repeat;
+    background: url('../../img/404/sprite-toaster.png') -340px 0 no-repeat;
 
     z-index: -1;
     position: relative;
@@ -69,7 +69,7 @@
 .ag-toaster_front {
     width: 340px;
     height: 217px;
-    background: url(https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/404-error-smoke-from-toaster/images/sprite-toaster.png) 0 -18px no-repeat;
+    background: url('../../img/404/sprite-toaster.png') 0 -18px no-repeat;
 
     z-index: 2;
     position: relative;
@@ -77,7 +77,7 @@
 .ag-toaster_lever {
     width: 22px;
     height: 21px;
-    background: url(https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/404-error-smoke-from-toaster/images/sprite-toaster.png) -340px -171px no-repeat;
+    background: url('../../img/404/sprite-toaster.png') -340px -171px no-repeat;
 
     position: absolute;
     top: 75px;
@@ -86,7 +86,7 @@
 .ag-toaster_back {
     width: 340px;
     height: 18px;
-    background: url(https://raw.githubusercontent.com/SochavaAG/example-mycode/master/pens/404-error-smoke-from-toaster/images/sprite-toaster.png) no-repeat;
+    background: url('../../img/404/sprite-toaster.png') no-repeat;
 
     z-index: -3;
     position: relative;
