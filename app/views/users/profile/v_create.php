@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/profile_styles.css">
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
+                   
                     <div class="profile-image">
                         <div class="image-container">
                             <?php
@@ -16,6 +17,7 @@
                             ?>
                         </div>
                     </div>  
+                    <div class="prodp">
                     <form method="POST" action="<?php echo URLROOT; ?>/users/profile" enctype="multipart/form-data">               
                         <div class="media-body">
                             <div class="file-upload">
@@ -25,6 +27,7 @@
                             <button type="submit">Save</button> 
                         </div>
                     </form>
+                    </div>
                     <div class="list-group list-group-flush account-settings-links">
 
                         <div class="nav-elements">
