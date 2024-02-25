@@ -100,19 +100,19 @@
         <div class="rowsechome">
           <div class="col-3">
             <img
-              src="../public/img/sechome/images/category-1.jpg"
+              src="../public/img/sechome/images/black-friday-concept-with-smartphone-cart.jpg"
               alt="a man's legs with bright orange shoes"
             />
           </div>
           <div class="col-3">
             <img
-              src="../public/img/sechome/images/category-2.jpg"
+              src="../public/img/sechome/images/top-view-black-friday-composition-black-background-with-copy-space.jpg"
               alt="black and white addidas shoes"
             />
           </div>
           <div class="col-3">
             <img
-              src="../public/img/sechome/images/category-3.jpg"
+              src="../public/img/sechome/images/sale-products-with-discount.jpg"
               alt="a woman in an addidas hoodie and white watch"
             />
           </div>
@@ -192,14 +192,14 @@
     <div class="offer">
       <div class="small-container">
         <div class="rowsechome">
-          <div class="col-2">
+          <div class="col-6">
             <img
               src="../public/img/sechome/images/exclusive.png"
               class="offer-img"
               alt="orange watch"
             />
           </div>
-          <div class="col-2">
+          <div class="col-6">
             <p>Exclusively Available on RedStore</p>
             <h1>Smart Band 4</h1>
             <small
