@@ -25,7 +25,7 @@ prev.onclick = function(){
 // auto run slider
 let refreshInterval = setInterval(() => {
     next.click();
-}, 3000); // Set the interval to 3000 milliseconds (3 seconds)
+}, 10000); // Set the interval to 3000 milliseconds (3 seconds)
 
 function showSlider(){
     // remove item active old
@@ -42,7 +42,7 @@ function showSlider(){
     clearInterval(refreshInterval);
     refreshInterval = setInterval(() => {
         next.click();
-    }, 6000); // Reset the interval to 3000 milliseconds (3 seconds)
+    }, 10000); // Reset the interval to 3000 milliseconds (3 seconds)
 }
 
 // click thumbnail

@@ -9,22 +9,39 @@
         <div class="item active">
             <img src="../public/img/Recyclehome/image/3627611.png">
             <div class="content">
+                <div class="welcome">
                 <h2 id="content1">Welcome</h2>
+                </div>
+                    <!-- <div class = "user-greeting">
+        <p>Hi <b><?php echo $_SESSION['user_name']; ?></b>, Welcome to the Secondhand Marketplace!</p>
+    </div>
+    <?php flash('post_msg'); ?> -->
+
+    <?php
+    if (isset($_SESSION['user_name'])) {
+        ?>
+        <div class="user-greeting">
+            <p> <b><?php echo $_SESSION['user_name']; ?></b></p>
+        </div>
+        <?php
+    }
+    flash('post_msg');
+    ?>
             </div>
         </div>
         <div class="item">
             <img src="../public/img/Recyclehome/image/img1.jpg">
             <div class="content">
                 <p></p>
-                <h2>About Us</h2>
+                <h2></h2>
                 <p>
-                    Focus on managing waste efficiently and responsibly through recycling, reselling and reusing pre-owned household items.
+                    <!-- Focus on managing waste efficiently and responsibly through recycling, reselling and reusing pre-owned household items. -->
                 </p>
             </div>
         </div>
         <div class="item
         <div class="item">
-            <img src="../public/img/Recyclehome/image/6859471.jpg">
+            <img src="../public/img/Recyclehome/image/young-blonde-woman-posing-with-plastic-waste.jpg">
             <div class="content">
                 <p></p>
                 <h2>About Us</h2>
@@ -34,23 +51,21 @@
             </div>
         </div>
         <div class="item">
-            <img src="../public/img/Recyclehome/image/5361394.jpg">
+            <img src="../public/img/Recyclehome/image/plastic-colorful-bags-arranged-gray-background.jpg">
             <div class="content">
                 <p></p>
-                <h2>About Us</h2>
+                <h2>Trade Waste</h2>
                 <p>
-                    Our platform allows users to find new homes for their used goods, reducing waste, and promoting sustainable practices.
-                </p>
+                Join us in building a sustainable future by effortlessly selling your plastic polythene waste through our user-friendly platform                </p>
             </div>
         </div>
         <div class="item">
-            <img src="../public/img/Recyclehome/image/img5.jpg">
+            <img src="../public/img/Recyclehome/image/person-doing-selective-recycle-garbage.jpg">
             <div class="content">
-                <p>design</p>
-                <h2>About Us</h2>
+                <p></p>
+                <h2>Reclaim</h2>
                 <p>
-                    Our platform allows users to find new homes for their used goods, reducing waste, and promoting sustainable practices.
-                </p>
+                Explore a greener side of commerce as you sell plastic polythene waste conveniently on our platform, turning waste into valuable resources                </p>
             </div>
         </div>
     </div>
