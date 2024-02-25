@@ -65,23 +65,33 @@
         </div> -->
 
 
-
+<div class="bg1">
         <div class="rowsechome">
-          <div class="col-2">
-            <h1>The go-to for <br />secondhand essentials!</h1>
+        <div class="col-2">
+            <img src="../public/img/sechome/images/4021545.png" alt="Two men being active" />
+            <div class="butt12">
+            <a href="<?php echo URLROOT; ?>/ItemAds/index" class="btn">
+    <img src="../public/img/sechome/images/shopping-cart_3737372.png" alt="Explore Now">
+</a>
+</div>
+
+          </div>
+          <!-- <div class="col-2"> -->
+            <!-- <h1>The go-to for <br />secondhand essentials!</h1>
             <p>
               Success isn't always about greatness. It's about consistency.
               Consistent<br />
               hard work gains success. Greatness will come.
             </p>
-            <a href="<?php echo URLROOT; ?>/ItemAds/index" class="btn">Explore Now &#8594; </a>
+            <a href="<?php echo URLROOT; ?>/ItemAds/index" class="btn">Explore Now &#8594; </a> -->
+
           </div>
-          <div class="col-2">
-            <img src="../public/img/sechome/images/15-removebg-preview.png" alt="Two men being active" />
-          </div>
+          <!-- <div class="col-2">
+            <img src="../public/img/sechome/images/4021545.png" alt="Two men being active" />
+          </div> -->
         </div>
-      </div>
-    </div>
+      <!-- </div>
+    </div> -->
 
     <!-- Featured Categories -->
 
@@ -286,6 +296,7 @@
         </div>
       </div>
     </div>
+        </div>
 
     <!-- Footer -->
 

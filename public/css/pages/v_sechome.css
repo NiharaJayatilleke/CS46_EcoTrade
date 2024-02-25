@@ -224,37 +224,67 @@ body {
     justify-content: space-around;
     background-color: gainsboro;
   }
-  
+
   .col-2 {
-    flex-basis: 50%;
     min-width: 300px;
-    left: 102px;
+   
     position: relative;
+    overflow: hidden; /* Ensure the image doesn't overflow its container */
   }
   
   .col-2 img {
-    max-width: 100%;
-    padding: 50px 0;
-  }
+    width: 100%;
+    position:relative;
+    
+    object-fit:cover; /* Cover the entire container */
+} 
+  
+  /* Additional styles for other elements as needed */
+  
   
   .col-2 h1 {
     font-size: 50px;
     line-height: 60px;
     margin: 25px 0;
   }
+  .butt12{
+ 
   
+  }
   .btn {
     display: inline-block;
-    background: #117e3b;
+    background: #ffffff;
     color: #fff;
-    padding: 8px 30px;
-    margin: 30px 0;
-    border-radius: 30px;
+    padding: 13px 15px; /* Adjust padding for a smaller button */
+    margin: 10px 10px; /* Adjust margin accordingly */
+    width: 80px; /* Set a fixed width for a square button */
+    height: 80px; /* Set a fixed height for a square button */
+    border-radius: 8px; /* Adjust border-radius */
     transition: background 0.5s;
-  }
+    box-shadow: 0px 2px 4px rgba(228, 228, 228, 0.1); /* Adjust box-shadow for a subtle effect */
+    top: 69%; /* Center vertically */
+    /* Adjust the left position as needed */
+    transform: translateY(50%); /* Center vertically */
+    margin-left: 1100px;
+    transform: translateX(20%);
+    position: absolute;
+    
+
+}
+
+.btn:hover {
+    background: hsl(0, 0%, 0%); /* Darker color on hover for effect */
+}
+
+.btn img {
+  width: 100%; /* Make the image fill the square button */
+  height: 100%; /* Make the image fill the square button */
+  border-radius: 3px; /* Adjust border-radius for the image */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
   
   .btn:hover {
-    background: #563434;
+    background: #7a9d69;
   }
   
   .header {
