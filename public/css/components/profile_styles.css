@@ -1,375 +1,195 @@
+/* General Styling */
 
-body, h1, h4, p {
-    margin: 0;
-    padding: 0;
+#profile-body {
+    height: 100vh; /* Set the body height to full viewport height */
+    overflow: hidden; /* Hide overflow to prevent scrolling */
 }
-
-/* Basic styling for the body */
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2 !important;
-} */
-/* #profile-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2 !important;
-} */
-.hero{
-    height: 100vh;
-    width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('../../img/signup/banner.jpg');
-    background-position: center;
-    background-size: cover;
-    position: absolute;
-    filter: blur(2px);
-}
-
 
 .profile_container {
-    background-color: #fff ;
-    /* border: 1px solid #ffffff; */
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 20px;
-    padding: 20px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 100%; /* Set the container height to full viewport height */
+    overflow-y: auto; /* Enable vertical scrolling for the container if needed */
+}
+
+.hero2 {
+    background-color: #f5f5f5;
+}
+
+.profile_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Profile Image Styling */
+.image-container {
+    position: relative;
     overflow: hidden;
-    animation: fadeIn 1s ease-in-out;
-    transition: box-shadow 0.3s ease-in-out;
+    
 }
 
-/* Navigation elements styling */
-.list-group {
-    margin-top: 20px;
-    width:100%
-}
 
-.profile-Canclebt {
-    background-color: #ccc;
-    color: #333;
-}
-
-/* Back to home button */
-.home-back {
-    /* position: fixed;
-    bottom: 30px;
-    right: 30px; */
-    padding: 10px 30px;
-    background: linear-gradient(to right, #219657b5, #31b36eb4);
-    /* background-color: #7bd664; */
-    border: 1px solid #ffffff !important;
-    color: #ffffff;
-    /* border-radius: 5px; */
-    border-radius: 30px;
-    transition: .5s;
-    cursor: pointer;
-}
+#profile-pic {
+    width: 30%;
+    height: auto;
+   
 
 /* Styling for the row and columns */
 .rowprofile {
     display: flex;
     gap: 20px;
+
 }
 
-
-.as_name {
-    font-size: 28px;
-    /* margin-top:50px; */
+.file-upload {
+    margin-top: 10px;
 }
 
-
-.as_name h4 {
-    position: fixed;
-    top: 80px;
-  
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
 }
 
-.as_name hr {
-    /* top: 90px; */
-    margin-top:90px; 
-}
-
-.col-md-3 {
-    width: 20vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.d-block {
-    width: 20vw;
-}
-
-/* Additional Profile button styles */
-.profile-updatebt {
-    margin-right: 20px;
-    padding: 10px 30px;
-    background: linear-gradient(to right, #219657b5, #31b36eb4);
-    border-color: #7bd664;
-    border-radius: 30px;
-    transition: .5s;
-    cursor: pointer;
-}
-
-.profile-Canclebt {
-    padding: 10px 30px;
-    /* background-color: #7bd664; */
-    background: linear-gradient(to right, #219657b5, #31b36eb4);
-    border-color: #7bd664;
-    /* border-radius: 5px; */
-    border-radius: 30px;
-    transition: .5s;
-    cursor: pointer;
+.input-field-box {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .profile-buttons {
-    margin-top: 40px;
-  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
 }
 
+.profile-updatebt, .profile-deletebt {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 48%;
+}
+
+.profile-updatebt:hover, .profile-deletebt:hover {
+    background-color: #45a049;
+}
+
+/* Right Panel Styling */
 .right-below {
     display: flex;
-    gap: 30px;
 }
 
-/* Navigation elements styles */
-.nav-elements {
-    margin-top: 2px;
-    display: flex;
-    flex-direction: column;  
-    margin-bottom: 20px; 
-    cursor: pointer;
+.right-right {
+    margin-left: 20px;
+}
+
+/* Tab Navigation Styling */
+.list-group-flush {
+    width: 100%;
+}
+
+.account-settings-links {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.nav-elements a {
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .nav-elements a:hover {
-    background-color: #82eba9;
-   
-}
-
-.nav-elements a {
-    text-decoration: none;
-    color: black;
-    border: 1px solid rgb(44, 44, 44);
-    padding: 20px 5px;
-    /* background-color: #7bd664; */
-    background: linear-gradient(to right, #219657b5, #31b36eb4);
-    margin-left: 1%;
-    font-size: 15px;
-    /* border-radius: 5px; */
-}
-
-.form-label {
-    font-size: 16px;
-}
-
-.form-group {
-    width: 500px;
-    margin-top: 30px;
-    
-}
-
-.profile-image img {
-    border-radius: 50%;
-    width: 10vw;
-    /* margin-top: 10px; */
-    /* max-width: 100%; */
-    border: 2px solid #fff;
-}
-
-
-.profile-image {
-    text-align: center;
-}
-
-/* Container for the image to maintain its size */
-.image-container {
-    width: 160px; /* Set the desired width for the profile image */
-    height: 160px; /* Set the desired height for the profile image */
-    overflow: hidden;
-    border-radius: 50%; /* To make the image circular, you can adjust the border-radius as needed */
-    position: relative;
-}
-
-.image-container img {
-    width: 100%; /* Ensure the image takes the full width of its container */
-    height: 100%; /* Ensure the height takes the full height of its container */
-    object-fit: cover; /* Maintain the aspect ratio and center the image */
-    display: block;
-    margin: 0 auto;
-    border-radius: 50%; /* Make the image a perfect circle */
-    border: 2px solid #fff;
-}
-
-.media-body {
-    text-align: center;
-    margin-top: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border-radius: 50px; */
-}
-
-.media-body .file-upload {
-    position: relative;
-    width: 160px;
-    height: 50px;
-    overflow: hidden;
-}
-
-.media-body .file-upload label {
-    position: absolute;
-    cursor: pointer;
-    background-color: #949c96;
-    color: white;
-    width: 70%;
-    height: 75%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border-radius: 5px; */
-    border-radius: 30px;
-    transition: .5s;
-    margin-top: 7px;
-    margin-left: 30px;
-}
-/* .file-upload label:hover {
-    background-color: #0056b3; 
-} */
-
-
-.media-body .file-upload input{
-    display: none;
-}
-
-.file-upload{
-    border-radius: 10px;
-}
-.all-sections{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-/* form  button[type="submit"] {
-    background-color: #d12a2a; 
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    /* border-radius: 5px;  */
-    /* border-radius: 30px;
-    transition: .5s;
-    cursor: pointer;
-    transition: background-color 0.3s; 
-    justify-content: center;
-    
-    margin-right: 30px;
-} */ */
-
-form button[type="submit"]:hover {
-    background-color: #949c96; /* Change the hover background color as desired */
-}
-
-.form-invalid {
-    color: red;
-}
-
-.confirmpassword {
-    
-    margin-top: 122px;
-}
-
-
-.delete-container {
-    background-color: #570d0d;
-    /* border: 1px solid #ccc; */
-    /* border-radius: 5px; */
-    
-    border-radius: 30px;
-    transition: .5s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 20px auto;
-    padding: 20px 230px;
-    box-sizing: border-box;
-    
-}
-
-#account-deletion {
-    text-align: center;
-}
-
-.card-delete-body {
-    margin-top: 20px;
-}
-
-/* #Deleteaccount{
-    font-size: 20px ;
-    margin-bottom: 30px;
-    font-weight: bold;
-} */
-
-#deletesentence  {
-    font-size: 18px ;
-    margin-bottom: 10px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-/* ul li {
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #555;
-} */
-
-
-.deletelabel label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 8px;
-    
-}
-
-#password-delete {
-    text-align: center;
-}
-
-.profile-buttons {
-    margin-top: 20px;
-    
-}
-
-.profile-deletebt {
-    background-color: #d12a2a;
+    background-color: #45a049;
     color: #fff;
-    padding: 10px 20px;
-    border: none;
-    /* border-radius: 5px; */
-    border-radius: 30px;
-    transition: .5s;
+}
+
+.nav-elements a.active {
+    background-color: #333;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .right-below {
+        flex-direction: column;
+    }
+
+    .right-right {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+/* Delete Profile Styling */
+.delete-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+#deletesentence {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Back to Home Button Styling */
+.home-back {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background-color: #7bd664;
+    border: 1px solid #7bd664;
     cursor: pointer;
-    transition: background-color 0.3s;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
-.profile-deletebt:hover {
-    background-color: #949c96;
+.home-back:hover {
+    background-color: #5ca746;
+}
+.row-bordered {
+    padding-bottom: 110px; /* Adjust the value as needed */
 }
 
-/* Responsive design for delete profile*/
-@media only screen and (max-width: 600px) {
-    .container {
-        width: 90%;
-        margin: 10px;
-    }
-    #password {
-        width: calc(100% - 20px);
-    }
+.row-border-light {
+    padding-bottom: 10px; /* Adjust the value as needed */
 }
 
+.proimg{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+}
 
-
-
+.prodp{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+}
 
 
 
