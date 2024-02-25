@@ -132,7 +132,7 @@
 .slider .list .item .content h2{
     font-size: 100px;
     margin: 0;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 .slider .list .item.active{
     opacity: 1;
@@ -162,6 +162,7 @@
     filter: blur(20px);
     opacity: 0;
     animation: showContent .5s .7s ease-in-out 1 forwards;
+    color: #fff;
 }
 .slider .list .item.active h2{
     animation-delay: 1s;
@@ -400,7 +401,36 @@
     }
 }
 
+.user-greeting {
+  margin-top: -110px;
+  color: rgb(136, 245, 172); /* White text color */
+  padding: 10px; /* Padding around the greeting */
+
+}
+
+.user-greeting p {
+  margin: 0; /* Remove default margin for the paragraph */
+}
+
+.flash-message {
+  /* Style for the flash message (adjust as needed) */
+  background-color: #f2f2f2;
+  color: #ffffff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
 
 
 
-  
+
+#content1 {
+  font-size: 24px; /* Adjust the font size as needed */
+  color: #e8e7e7; /* Text color */
+  margin-bottom: 20px;
+  /* Add more styles as per your design requirements */
+}
+
+.welcome{
+  margin-top: 40px;
+}
