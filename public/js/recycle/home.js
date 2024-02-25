@@ -15,7 +15,7 @@ next.onclick = function(){
     showSlider();
 }
 //event prev click
-prev.onclick = function(){1
+prev.onclick = function(){
     itemActive = itemActive - 1;
     if(itemActive < 0){
         itemActive = countItem - 1;
@@ -25,7 +25,8 @@ prev.onclick = function(){1
 // auto run slider
 let refreshInterval = setInterval(() => {
     next.click();
-}, 29000)
+}, 3000); // Set the interval to 3000 milliseconds (3 seconds)
+
 function showSlider(){
     // remove item active old
     let itemActiveOld = document.querySelector('.slider .list .item.active');
@@ -41,7 +42,7 @@ function showSlider(){
     clearInterval(refreshInterval);
     refreshInterval = setInterval(() => {
         next.click();
-    }, 29000)
+    }, 6000); // Reset the interval to 3000 milliseconds (3 seconds)
 }
 
 // click thumbnail
@@ -50,4 +51,4 @@ thumbnails.forEach((thumbnail, index) => {
         itemActive = index;
         showSlider();
     })
-})
+});

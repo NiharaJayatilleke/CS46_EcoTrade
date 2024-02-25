@@ -7,19 +7,22 @@
     <!-- list Items -->
     <div class="list">
         <div class="item active">
-            <img src="../public/img/Recyclehome/image/img1.jpg">
+            <img src="../public/img/Recyclehome/image/3627611.png">
             <div class="content">
                 <h2 id="content1">Welcome</h2>
             </div>
         </div>
         <div class="item">
-            <video autoplay loop muted>
-                <source src="image/video.mov" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <img src="../public/img/Recyclehome/image/img1.jpg">
             <div class="content">
+                <p></p>
+                <h2>About Us</h2>
+                <p>
+                    Focus on managing waste efficiently and responsibly through recycling, reselling and reusing pre-owned household items.
+                </p>
             </div>
         </div>
+        <div class="item
         <div class="item">
             <img src="../public/img/Recyclehome/image/img3.jpg">
             <div class="content">
