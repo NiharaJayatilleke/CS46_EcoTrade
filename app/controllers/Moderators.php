@@ -350,26 +350,13 @@
             
         }
 
-        //have to make this later -Inuka
-        
         public function index(){
             $ads = $this->itemAdsModel->getAds();
-            $numSecAds = count($ads);
-            $moderators = $this->moderatorModel->getModerators();
-            $numModerators = count($moderators);
-            $users = $this->userModel->getUsers();
-            $numUsers = count($users);
-
-            $data = [
-                'sec_ad_count' => $numSecAds,
-                'moderators_count' => $numModerators,
-                'moderators' => $moderators,
-                'users_count' => $numUsers,
-            ];
             
-            //load view
-            $this->view('admin/moderators', $data);
-
+            $data = [
+                'ads' => $ads,
+            ];
+            $this->view('moderators/v_index', $data);
         }
         
     }

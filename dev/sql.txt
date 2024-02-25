@@ -21,11 +21,12 @@ CREATE TABLE Administrator (
     email VARCHAR(255),
     number INT,
     password VARCHAR(255),
+     user_type VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );
 
-INSERT INTO Administrator (username, email, number, password) VALUES ("Inuka", "inuka@gmail.com", "0776373532", "admin123");
+INSERT INTO Administrator (username, email, number, password, user_type) VALUES ("Inuka", "inuka@gmail.com", "0776373532", "admin123", "admin");
 
 CREATE TABLE Moderators (
     id INT AUTO_INCREMENT,
@@ -33,6 +34,17 @@ CREATE TABLE Moderators (
     email VARCHAR(255),
     number INT,
     password VARCHAR(255),
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE Collectors (
+    id INT AUTO_INCREMENT,
+    username VARCHAR(255),
+    email VARCHAR(255),
+    number INT,
+    password VARCHAR(255),
+    collection VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 );
@@ -52,6 +64,7 @@ CREATE TABLE Item_Ads (
     item_category VARCHAR(255),
     item_desc TEXT,
     item_condition VARCHAR(255),
+    item_quantity INT,
     item_image VARCHAR(255),
     item_price DOUBLE,
     item_location VARCHAR(255),
@@ -84,7 +97,7 @@ CREATE TABLE Re_Centers (
     item_location VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(255),
-    PRIMARY KEY(rad_id),
+    PRIMARY KEY(rad_id)
 );
 
 CREATE VIEW v_ads AS

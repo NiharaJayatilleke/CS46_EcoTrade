@@ -1,6 +1,10 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <!-- Top NAVIGATION -->
-<?php require APPROOT . '/views/inc/components/topnavbar.php';?>
+<?php 
+if($_SESSION['user_type'] != 'moderator') {
+    require APPROOT . '/views/inc/components/topnavbar.php';
+}
+?>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/v_buyer_view.css">
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/seller_only_styles.css">
 
@@ -53,12 +57,12 @@
             <div class="sad-line"></div>
 
             <div class="sad-bottom">
-            <a class="sad-b1" href="<?php echo URLROOT ?>/Addpayment/index">
+            <a class="sad-b1" href="#">
                 <!-- <button class="sad-b1"> -->
-                    <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
+                    <!-- <img src="<php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
                     <!-- <i class="fas fa-ad"></i> Ad icon -->
-                    <i class="fas fa-bullhorn"></i>
-                    <p>Promote this Ad</p>
+                    <i class="fas fa-star"></i>
+                    <p>Rate this Ad</p>
                 <!-- </button> -->
             </a>
                 <button class="sad-b1" onclick="reportAd()">
@@ -107,6 +111,7 @@
         <?php if ($_SESSION['user_id'] == $data['ad']->seller_id) : ?>
         <div class="sad-edit-delete">
             <a href = "<?php echo URLROOT?>/ItemAds/edit/<?php echo $data['ad']->ad_id?>"><button class="sad-edit-btn" title="edit ad"><i class="fas fa-edit"></i><p>Update Ad</p></button></a>
+            <a href = "<?php echo URLROOT?>/ItemAds/promote/<?php echo $data['ad']->ad_id?>"><button class="sad-promote-btn" title="promote ad"><i class="fas fa-bullhorn"></i></i><p>Promote Ad</p></button></a> 
             <button onclick="confirmDelete('<?php echo URLROOT?>/ItemAds/delete/<?php echo $data['ad']->ad_id ?>')" class="sad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i><p>Remove Ad</p></button></a>
         </div>
         <?php endif; ?>
@@ -199,9 +204,10 @@
         </div> 
         <!-- </div>  -->
         
-        <?php if (!empty($data['buyer_notifications'])): ?>
+        <!-- Buyer Notifications -->
+        <?php if (!empty($data['buyer_notifications']) && $_SESSION['user_id'] != $data['ad']->seller_id): ?>
         <div class="sad-buyer-messages">
-            <div class="sad-buyer-msgs-title"><h2>Messages</h2></div>
+            <div class="sad-buyer-msgs-title"><h2>Notifications</h2></div>
             <?php foreach ($data['buyer_notifications'] as $notification): ?>
                 <div class="sad-buyer-msg-container">
                     <div class="sad-buyer-msg-content"><?php echo $notification->message; ?></div>

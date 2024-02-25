@@ -32,10 +32,17 @@
     
 }
 
+
 #profile-pic {
     width: 30%;
     height: auto;
    
+
+/* Styling for the row and columns */
+.rowprofile {
+    display: flex;
+    gap: 20px;
+
 }
 
 .file-upload {

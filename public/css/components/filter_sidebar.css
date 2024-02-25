@@ -1,26 +1,30 @@
 .wrapper {
     min-height: calc(100vh - 60px);
+    display: flex;
+    /* flex-direction: row; */
 }
 
 .wrapper .filter-sidebar {
     /* background: lightgray; */
     width: 16rem;
     height: 100vh;
-    top: 60px;
-    position: fixed;
+    /* top: 60px */
+    top: 30px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     /* justify-content: center; */
 }
 
-.wrapper .container {
-    /* display: none; */
-    margin-left: 16rem;
+.wrapper .ad-right-container {
+    /* display: none;
+    margin-left: 16rem; */
+    position: relative;
 }
 
 .indicator {
-    margin-top: 2rem;
+    margin-top: 1rem;
     /* position: relative; */
     width: 100%;
 
@@ -28,21 +32,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    z-index: 1;
 }
 
 .indicator li {
     list-style: none;
     width: 10rem;
-    padding: 0.5rem 0.5rem;
+    padding: 0.3rem 0.3rem;
     margin: 10px;
     /* background: gray; */
-
+    /* z-index: -999; */
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid #ccc;
+    /* border: 1px solid black; */
 }
 
 .indicator li input[type="checkbox"] {
     margin: 0 0.5rem;
+    z-index: 10000!important;
 }
 
 .indicator li {
@@ -65,29 +72,49 @@
     grid-gap: 0.2rem;
     margin: 0 0.8rem;
 
-    > * {
+    >* {
         position: relative;
-        margin:0 auto;
+        margin: 0 auto;
     }
 }
 
 .filter-price input {
     width: 80%;
     border-radius: 5px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    border: 1px solid #ccc;
     text-align: right;
     padding: 0.5rem;
 }
 
-.filter-condition{
+.filter-condition {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.filter-condition select{
+.filter-condition select {
     width: 80%;
-    margin: 2rem auto;
+    margin: 1rem auto;
     padding: 0.5rem;
     border-radius: 5px;
+    border: 1px solid #ccc;
 }
+
+.item_other_category {
+    width: 90%;
+    height: 30px;
+    border: 1px solid #ccc;
+    text-align: right;
+    /* color: #515151; */
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    padding: 0.5rem;
+}
+/* .selectheading{
+    margin: 0.5rem;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: -60px;
+} */

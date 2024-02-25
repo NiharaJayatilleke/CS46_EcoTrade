@@ -31,6 +31,10 @@ $(document).ready(function() {
                     // notificationItem.find('.mark-as-read-' + notif_id).click(function(event) {
                     notificationItem.find('.mark-as-read').click(function(event) {
                         var notif_id = $(this).data('notification-id');
+
+                        var notificationItem = $(this).closest('.notif-dropdown-item'); //closest notification item
+                        notificationItem.addClass('mark-as-read-active'); 
+
                         event.preventDefault();
                         // event.stopPropagation(); // Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event
 
@@ -83,6 +87,8 @@ $(document).ready(function() {
                                     }
                                 });
                             }
+
+                            notificationItem.removeClass('mark-as-read-active'); 
                         });
 
                         event.stopPropagation();
@@ -109,5 +115,25 @@ $(document).ready(function() {
             caret.hide();
         }
     });
+
+    // Fetch notifications every 5 seconds
+    function fetchNotifications() {
+        $.ajax({
+            url: URLROOT + "/Notifications/showNotificationCount",
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                // Update the notification count
+                $('#notificationCount').text(data);
+            },
+            error: function() {
+                console.error('Error fetching notifications');
+            }
+        });
+    }
+
+    fetchNotifications();
+
+    setInterval(fetchNotifications, 10000);
 
 });

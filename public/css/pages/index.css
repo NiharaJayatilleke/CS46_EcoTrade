@@ -7,22 +7,20 @@
 
     @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
 
-    * {
+    /* * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        /* font-family: 'Poppins', sans-serif; */
-        /* 当用户手动导航或者 CSSOM scrolling API 触发滚动操作时 */
         scroll-behavior: smooth;
-    }
+    } */
 
-    body {
+    .index-body {
         min-height: 100vh;
         overflow-x: hidden;
         background: linear-gradient(#ffffff, #ffffff);
     }
 
-    header {
+    /* header {
         position: absolute;
         top: 0;
         left: 0;
@@ -32,15 +30,14 @@
         justify-content: space-between;
         align-items: center;
         z-index: 10000;
-    }
+    } */
 
-    header .logo {
+    /* header .logo {
         color: #359381;
         font-weight: 700;
         text-decoration: none;
         font-size: 2em;
         text-transform: uppercase;
-        /* 大写 */
         letter-spacing: 2px;
     }
 
@@ -69,7 +66,7 @@
     header ul li a.active {
         background: #359381;
         color: #fff;
-    }
+    } */
 
     /* section {
         position: relative;
@@ -81,6 +78,8 @@
         align-items: center;
         overflow: hidden;
     } */
+
+
     .parallax {
         position: relative;
 

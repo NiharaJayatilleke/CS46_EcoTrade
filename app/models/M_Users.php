@@ -163,6 +163,20 @@
             return $this->db->execute();
         }
 
+        public function checkUserExists($user_id) {
+            $this->db->query('SELECT id FROM General_User WHERE id = :user_id');
+            $this->db->bind(':user_id', $user_id);
+
+            $row = $this->db->single();
+
+            // If the query returns a row, that means a user with the given ID exists
+            if($row) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
 
         public function resetPassword($user_id, $newPassword) {
             // Build the query based on whether the new password is provided

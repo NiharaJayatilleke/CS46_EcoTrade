@@ -7,6 +7,7 @@
 
     <div class="wrapper" >
         <div class="filter-sidebar">
+            <!-- <div class="selectheading">Categories</div> -->
             <ul class="indicator">
                 <li><input type="checkbox" data-filter="furniture">Furniture</li>
                 <li><input type="checkbox" data-filter="electronics">Electronics</li>
@@ -16,9 +17,12 @@
                 <li><input type="checkbox" data-filter="home_deco">Home Deco</li>
                 <li><input type="checkbox" data-filter="sportsEquipment">Sports Equipment</li>
                 <li><input type="checkbox" data-filter="appliances">Appliances</li>
-               
+                <li>
+                <label for="otherCategInput">Other Category:</label>
+                <input type="text" id="otherCategInput" name="otherCategoryInput" class="item_other_category">
+                </li>
             </ul>
-            
+            <!-- <div class="selectheading">Price</div> -->
             <div class="filter-price">
                 <label for="min-price">Min Price</label>
                 <label for="max-price">Max Price</label>
@@ -26,8 +30,8 @@
                 <input type="text" id="maxPrice">
 
             </div>
-            <div class="filter-condition">       
-                <select name="item_condition" id="item_condition">
+            <!-- <div class="filter-condition">      -->
+                <!-- <select name="item_condition" id="item_condition">
                     <option value="">Select the condition</option>
                     <option value="Brand New">Brand New - Never Used</option>
                     <option value="Like New">Like New - Barely Used</option>
@@ -35,11 +39,24 @@
                     <option value="Good">Good - Used with Some Signs of Wear</option>
                     <option value="Fair">Fair - Used with Visible Signs of Wear</option>
                     <option value="Poor">Poor - Heavily Used with Significant Wear or Damages</option>
-                </select>
-            </div>
+                </select> -->
+            <!-- <div class="selectheading">Condition</div> -->
+            <!-- <div class="condition"> -->
+                <ul class="condition indicator ">
+                
+                    <li><input type="checkbox" data-filter="Brand New">Brand New</li>
+                    <li><input type="checkbox" data-filter="Like New">Like New</li>
+                    <li><input type="checkbox" data-filter="Very Good">Very Good</li>
+                    <li><input type="checkbox" data-filter="Good">Good</li>
+                    <li><input type="checkbox" data-filter="Fair">Fair</li>
+                    <li><input type="checkbox" data-filter="Poor">Poor</li>
+                
+                </ul>
+            <!-- </div> -->
+            <!-- </div> -->
             
         </div>
-        <div class="container">
+        <div class="ad-right-container">
     <!-- <div class = "user-greeting">
         <p>Hi <b><?php echo $_SESSION['user_name']; ?></b>, Welcome to the Secondhand Marketplace!</p>
     </div>
@@ -60,24 +77,28 @@
     <div class = "ads-container">
         <?php foreach($data['ads'] as $ad): ?>
             <a class = "ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
-                <div class = "ad-index-container <?php echo $ad->item_category ?>"
+                <div class = "ad-index-container"
                 data-price="<?php echo $ad->item_price ?>"
+                data-condition="<?php echo $ad->item_condition ?>"
+                data-category="<?php echo $ad->item_category ?>"
                 data-condition="<?php echo $ad->item_condition ?>">
 
                     <div class = "ad-header">
                         <div class = "ad-body-image">
                             <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
                         </div>
-                        <?php if($ad->seller_id == $_SESSION['user_id']): ?> 
+                        <!-- <php if($ad->seller_id == $_SESSION['user_id']): ?> 
                             <div class = "post-control-btns">
-                                <a href = "<?php echo URLROOT?>/ItemAds/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn" title="edit ad"><i class="fas fa-edit"></i></button></a>
-                                <a href = "<?php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
-                                <a href = "<?php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="ad-report-btn" title="report ad"><i class="fas fa-flag"></i></button></a>
+                                <a href = "<php echo URLROOT?>/ItemAds/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn" title="edit ad"><i class="fas fa-edit"></i></button></a>
+                                <a href = "<php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
+                                <a href = "<php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="ad-report-btn" title="report ad"><i class="fas fa-flag"></i></button></a> 
                             </div>
-                        <?php endif; ?>
+                        <php endif; ?> -->
                         <div class = "ad-item-name"><h3><?php echo $ad->item_name ?><h3></div>
                         <div class = "ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
                         <div class = "ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
+                        <h3><?php echo $ad->item_category ?><h3>
+                        <h3><?php echo $ad->item_condition ?><h3>
                     </div>
                     
                     <div class = "ad-body">

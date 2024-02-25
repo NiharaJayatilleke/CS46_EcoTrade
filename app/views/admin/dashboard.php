@@ -1,5 +1,5 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
-   
+
     <div class="dashboard-container">
         <div class="dashboard-sidenav">
             <ul>
@@ -16,13 +16,13 @@
                     </a>
                 </li>
                 <li>
-                <a href="<?php echo URLROOT ?>/Admin/index">
+                    <a href="<?php echo URLROOT ?>/Admin/index">
                         <span class = "side-icon"><ion-icon name="grid-outline"></ion-icon></span>
                         <span class = "side-title">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                <a href="<?php echo URLROOT ?>/Moderators/index">
+                    <a href="<?php echo URLROOT ?>/Admin/moderators">
                         <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class = "side-title">Moderators</span>
                     </a>
@@ -97,7 +97,7 @@
                         </div>
                     </div>
 
-                    <a href="<?php echo URLROOT ?>/Moderators/index" style="text-decoration: none; color: inherit;">
+                    <a href="<?php echo URLROOT ?>/Admin/moderators" style="text-decoration: none; color: inherit;">
                         <div class="dashboard-card" >
                             <div>
                                 <div class="dashboard-numbers" ><?php echo $data['moderators_count'] ?></div> 
@@ -318,13 +318,13 @@
                 </div>
         </div>
     </div>
-
-
-
-
-    <!-- Javascript for image upload -->
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
+        <!-- Javascript for image upload -->
+        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
 
-<?php require APPROOT.'/views/inc/footer.php'; ?>
+
+
+
+
+<!-- <?php require APPROOT.'/views/inc/components/footer.php'; ?> -->
 

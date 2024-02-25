@@ -3,7 +3,7 @@
     <div class="hero2">
     <div class="profile_container">
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/profile_styles.css">
-            <div class="row no-gutters row-bordered row-border-light">
+            <div class="rowprofile">
                 <div class="col-md-3 pt-0">
                    
                     <div class="profile-image">
@@ -16,6 +16,7 @@
                             }
                             ?>
                         </div>
+                  
                     </div>  
                     <div class="prodp">
                     <form method="POST" action="<?php echo URLROOT; ?>/users/profile" enctype="multipart/form-data">               
@@ -95,7 +96,9 @@
                             <div class="right-right">
                                 <div class="form-group">
                                     <label class="form-label">User-type</label>
-                                    <input type="text" class="form-control input-field-box " value="<?php echo $data['user']->userType; ?>"disabled>
+                                    <!-- <input type="text" class="form-control input-field-box " value="<?php echo $data['user']->userType; ?>"disabled> -->
+                                    <input type="text" class="form-control input-field-box " value="<?php echo $data['user']->user_type; ?>" disabled>
+
                                 </div>
                                 <div>
                                     <button class="home-back" style=" margin-top:200px; margin-left: 300px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
@@ -105,6 +108,7 @@
                             </div>
                         </div>
                     </div>
+         
 
 
                     <div id="change-password" class="col-md-9">
@@ -234,7 +238,6 @@
                             </div>                     
                         </div>
                     </div> -->
-
 
 
                 
@@ -400,6 +403,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
 
             </div>

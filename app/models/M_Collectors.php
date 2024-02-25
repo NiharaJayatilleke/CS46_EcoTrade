@@ -1,20 +1,20 @@
 <?PHP
-    class M_Users{
+    class M_Collectors{
         private $db;
 
         public function __construct(){
             $this->db = new Database();
         }
-        //Register the user
+        //Register the collector
         public function register($data){
 
-            $this->db->query('INSERT INTO General_User(username,email,number,password,userType) VALUES(:username, :email, :number,  :password, :userType)');          
+            $this->db->query('INSERT INTO Collectors(username,email,number,password,userType) VALUES(:username, :email, :number,  :password, :userType)');          
             $this->db->bind(':username',$data['username']);
             $this->db->bind(':email',$data['email']);
             $this->db->bind(':number',$data['number']);
+            
             $this->db->bind(':password',$data['password']);
-            $this->db->bind(':userType', $data['user_type']);
-
+            $this->db->bind(':userType', 'collector');
             
             if($this->db->execute()){
                 return true;
@@ -26,7 +26,7 @@
 
         // Find the user
         public function findUserByEmail($email){
-            $this->db->query('SELECT * FROM General_User WHERE email =:email');
+            $this->db->query('SELECT * FROM Collectors WHERE email =:email');
             $this->db->bind(':email',$email);
 
             $row = $this->db->single();
@@ -40,7 +40,7 @@
 
         // Login the user
         public function login($email,$password){
-            $this->db->query('SELECT * FROM General_User WHERE email =:email');
+            $this->db->query('SELECT * FROM Collectors WHERE email =:email');
             $this->db->bind(':email',$email);
 
             $row = $this->db->single();
@@ -55,7 +55,7 @@
         }
 
         public function updateProfileImage($user_id, $filename) {
-            $this->db->query('UPDATE General_User SET profile_image = :filename WHERE id = :user_id');
+            $this->db->query('UPDATE Collectors SET profile_image = :filename WHERE id = :user_id');
             $this->db->bind(':filename', $filename);
             $this->db->bind(':user_id', $user_id);
             
@@ -69,7 +69,7 @@
         //get user details
 
         public function getUserDetails($user_id) {
-            $this->db->query('SELECT * FROM General_User WHERE id = :user_id');
+            $this->db->query('SELECT * FROM Collectors WHERE id = :user_id');
             $this->db->bind(':user_id', $user_id);
             return $this->db->single();
         }
@@ -78,7 +78,7 @@
         
         // update username and contact number
         public function updateUserInfo($newUsername, $newContactNumber) {
-            $this->db->query('UPDATE General_User SET username = :newUsername, number = :newContactNumber WHERE id = :user_id');
+            $this->db->query('UPDATE Collectors SET username = :newUsername, number = :newContactNumber WHERE id = :user_id');
             $this->db->bind(':newUsername', $newUsername);
             $this->db->bind(':newContactNumber', $newContactNumber);
             $this->db->bind(':user_id', $_SESSION['user_id']); // You need to have the user's ID available
@@ -101,7 +101,7 @@
         
             // Build the query based on whether the new password is provided
             if (!empty($newPassword)) {
-                $this->db->query('UPDATE General_User SET password = :newPassword WHERE id = :user_id');
+                $this->db->query('UPDATE Collectors SET password = :newPassword WHERE id = :user_id');
                 $this->db->bind(':newPassword', password_hash($newPassword, PASSWORD_DEFAULT));
             }
         
@@ -117,18 +117,17 @@
         }
 
         public function verifyOldPassword($user_id, $old_password) {
-            $this->db->query('SELECT password FROM General_User WHERE id = :user_id');
+            $this->db->query('SELECT password FROM Collectors WHERE id = :user_id');
             $this->db->bind(':user_id', $user_id);
         
             $row = $this->db->single();
         
             $hashed_password = $row->password;
-         
             return password_verify($old_password, $hashed_password);
         }
 
         public function deleteUser($userId) {
-            $this->db->query('DELETE FROM General_User WHERE id = :user_id');
+            $this->db->query('DELETE FROM Collectors WHERE id = :user_id');
             $this->db->bind(':user_id', $userId);
     
             return $this->db->execute();
@@ -138,7 +137,7 @@
         public function resetPassword($user_id, $newPassword) {
             // Build the query based on whether the new password is provided
             if (!empty($newPassword)) {
-                $this->db->query('UPDATE General_User SET password = :newPassword WHERE id = :user_id');
+                $this->db->query('UPDATE Collectors SET password = :newPassword WHERE id = :user_id');
                 $this->db->bind(':newPassword', password_hash($newPassword, PASSWORD_DEFAULT));
             }
         

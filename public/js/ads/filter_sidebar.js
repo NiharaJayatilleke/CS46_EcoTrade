@@ -3,7 +3,8 @@ function updateList() {
     let results = Array.from(document.querySelectorAll('.ad-index-container'));
     let minPrice = document.getElementById('minPrice').value;
     let maxPrice = document.getElementById('maxPrice').value;
-    let itemCondition = document.getElementById('item_condition').value;
+    // let itemCondition = document.getElementById('item_condition').value;
+    const otherCategoryInput = document.getElementById('otherCategInput').value.trim().toLowerCase();
 
     // Hide all results
     results.forEach(function(result) {
@@ -16,18 +17,20 @@ function updateList() {
     }));
 
     // Filter according to the selected attributes:
-    results = results.filter(function(result) {
-        if (selectedAttributes.size === 0) {
-            return true;
-        }
-        for (const attrib of selectedAttributes) {
-            if (result.classList.contains(attrib)) {
-                return true;
-                }
-        }
-        return false;
-    
-    });
+    if (selectedAttributes.size > 0) {
+        results = results.filter(function(result) {
+            let itemCategory = result.getAttribute('data-category');
+            return selectedAttributes.has(itemCategory) ;
+        });
+    }
+
+    // Filter results based on the "Other Category" input
+    if (otherCategoryInput !== '') {
+        results = results.filter(function(result) {
+            let itemCategory = result.getAttribute('data-category').toLowerCase();
+            return itemCategory.includes(otherCategoryInput);
+        });
+    }
 
     // Filter according to the price:
     results = results.filter(function(result) {
@@ -45,13 +48,35 @@ function updateList() {
     });
 
     // Filter according to the item condition:
-    results = results.filter(function(result) {
-        let condition = result.getAttribute('data-condition');
-        if (itemCondition !== '' && itemCondition !== condition) {
-            return false;
-        }
-        return true;
-    });
+    // results = results.filter(function(result) {
+    //     let condition = result.getAttribute('data-condition');
+    //     if (itemCondition !== '' && itemCondition !== condition) {
+    //         return false;
+    //     }
+    //     return true;
+    // });
+    const selectedConditions = new Set(Array.from(document.querySelectorAll('.condition.indicator input[type="checkbox"]:checked'), function(input) {
+        return input.getAttribute('data-filter');
+    }));
+
+    if (selectedConditions.size > 0) {
+        results = results.filter(function(result) {
+            let condition = result.getAttribute('data-condition');
+            return selectedConditions.has(condition);
+        });
+    }
+    
+    // const selectedConditions = new Set(Array.from(document.querySelectorAll('.condition input[type="checkbox"]:checked'), function(input) {
+    //     return input.getAttribute('data-filter');
+    // }));
+    
+    // if (selectedConditions.size > 0) {
+    //     results = results.filter(function(result) {
+    //         let condition = result.getAttribute('data-condition');
+    //         return selectedConditions.has(condition);
+    //     });
+    // }
+    
 
     // Show those filtered results:
     results.forEach(function(result) {
@@ -67,19 +92,44 @@ function updateList() {
     
 }
   
-
-document.querySelectorAll('.indicator input[type="checkbox"]').forEach(function(input) {
-    input.addEventListener('change',function() {
+// stop propagation
+document.querySelectorAll('.indicator input[type="checkbox"]').forEach(function(ele) {
+    ele.addEventListener('click', function(event) {
+        event.stopPropagation();
         updateList();
     });
 });
+
+document.querySelectorAll('.condition .indicator input[type="checkbox"]').forEach(function(ele) {
+    // console.log("condition");
+    ele.addEventListener('click', function(event) {
+        event.stopPropagation();
+        updateList();
+    });
+});
+
 document.getElementById('minPrice').addEventListener('input',function() {
     updateList();
 });
 document.getElementById('maxPrice').addEventListener('input',function() {
     updateList();
 });
-document.getElementById('item_condition').addEventListener('change',function() {
+// document.getElementById('item_condition').addEventListener('change',function() {
+//     updateList();
+// });
+document.getElementById('otherCategInput').addEventListener('input', function() {
     updateList();
 });
 
+
+const checkboxContainers = document.querySelectorAll('.indicator li');
+console.log(checkboxContainers);
+checkboxContainers.forEach(function(container) {
+    let checkbox = container.querySelector('input[type="checkbox"]');
+    container.addEventListener('click', function(event) {
+        event.preventDefault();
+        checkbox.checked = !checkbox.checked;
+        updateList();
+
+    });
+});

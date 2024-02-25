@@ -20,4 +20,4 @@
             <button class="continue" type="submit"><i class="fas fa-arrow-right"></i></button>       
         </div>
 
-    <!-- <?php require APPROOT.'/views/inc/components/footer.php'; ?> -->
+<!-- <?php require APPROOT.'/views/inc/components/footer.php'; ?> -->

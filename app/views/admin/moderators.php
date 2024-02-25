@@ -1,5 +1,6 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
-   
+
+
     <div class="dashboard-container">
         <div class="dashboard-sidenav">
             <ul>
@@ -22,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo URLROOT ?>/Moderators/index">
+                    <a href="<?php echo URLROOT ?>/Admin/moderators">
                         <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class = "side-title">Moderators</span>
                     </a>
@@ -97,7 +98,7 @@
                         </div>
                     </div>
 
-                    <a href="<?php echo URLROOT ?>/Moderators/index" style="text-decoration: none; color: inherit;">
+                    <a href="<?php echo URLROOT ?>/Admin/moderators" style="text-decoration: none; color: inherit;">
                         <div class="dashboard-card" >
                             <div>
                                 <div class="dashboard-numbers" ><?php echo $data['moderators_count'] ?></div> 
