@@ -24,7 +24,7 @@
         </div>
         <div class="item
         <div class="item">
-            <img src="../public/img/Recyclehome/image/img3.jpg">
+            <img src="../public/img/Recyclehome/image/6859471.jpg">
             <div class="content">
                 <p></p>
                 <h2>About Us</h2>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="item">
-            <img src="../public/img/Recyclehome/image/img4.jpg">
+            <img src="../public/img/Recyclehome/image/5361394.jpg">
             <div class="content">
                 <p></p>
                 <h2>About Us</h2>
@@ -62,31 +62,31 @@
     <!-- thumbnail -->
     <div class="thumbnail">
         <div class="item active">
-            <img src="../public/img/Recyclehome/image/img1.jpg">
+            <img src="../public/img/Recyclehome/image/rm338-card-papercraft-instagram(2).jpg">
             <div class="content">
                 <!-- Name Slider -->
             </div>
         </div>
         <div class="item">
-            <img src="../public/img/Recyclehome/image/img2.jpg">
+            <img src="../public/img/Recyclehome/image/rm338-card-papercraft-instagram(1).jpg">
             <div class="content">
                 <!-- Name Slider -->
             </div>
         </div>
         <div class="item">
-            <img src="../public/img/Recyclehome/image/img3.jpg">
+            <img src="../public/img/Recyclehome/image/rm338-card-papercraft-instagram(3).jpg">
             <div class="content">
                 <!-- Name Slider -->
             </div>
         </div>
         <div class="item">
-            <img src="../public/img/Recyclehome/image/img4.jpg">
+            <img src="../public/img/Recyclehome/image/rm338-card-papercraft-instagram(5).jpg">
             <div class="content">
                 <!-- Name Slider -->
             </div>
         </div>
         <div class="item">
-            <img src="../public/img/Recyclehome/image/img5.jpg">
+            <img src="../public/img/Recyclehome/image/rm338-card-papercraft-instagram(4).jpg">
             <div class="content">
                 <!-- Name Slider -->
             </div>
