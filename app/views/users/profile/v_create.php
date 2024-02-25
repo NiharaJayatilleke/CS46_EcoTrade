@@ -2,7 +2,7 @@
 <body id="profile-body">
     <div class="hero2">
     <div class="profile_container">
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/profile_styles.css">
+    
             <div class="rowprofile">
                 <div class="col-md-3 pt-0">
                    

@@ -36,6 +36,7 @@
 #profile-pic {
     width: 30%;
     height: auto;
+}
    
 
 /* Styling for the row and columns */
@@ -190,7 +191,3 @@
     margin: 0 auto;
     display: block;
 }
-
-
-
-
