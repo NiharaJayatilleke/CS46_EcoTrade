@@ -26,7 +26,7 @@
                             <div class="divv-25">
                                 <img loading="lazy" srcset="<?php echo URLROOT?>/public/img/payment/images/svg.png" class="img-50" />
                                 <div class="divv-26">
-                                    <div class="divv-27">Premier Visibility Package</div>
+                                    <div class="divv-27">Premier Visibility Package (PV)</div>
                                     <div class="divv-28">
                                     Give your ad the spotlight it deserves by featuring it at the top of our listings for one week or one month!
                                     </div>
@@ -60,7 +60,7 @@
                                 <img loading="lazy" src="<?php echo URLROOT?>/public/img/payment/images/alert.png" class="img-10" />
                                 URGENT
                             </div>
-                            <div class="divv-47">Attention Grabber Package</div>
+                            <div class="divv-47">Attention Grabber Package (AG)</div>
                         </div>
                         <div class="divv-48">
                             <div class="divv-49">
@@ -104,15 +104,27 @@
         <div class="divv-67">
             <div class="divv-68">
                 <div class="divv-69">
+
                     <div class="divv-70">Payment summary</div>
-                    <div class="divv-71">Bump Up</div>
-                </div>
-                <div class="divv-72">Rs 2,000</div>
+</div>
+                    <div class="option-set">
+                        <div class = "opt-pack1">
+                                <div class="divv-71">PV - One Week</div>
+                            <!-- </div> -->
+                            <div class="divv-72">Rs. 2,000</div>
+                        </div>
+
+                        <div class = "opt-pack2">
+                            <div class="divv-071">AG - None</div>
+                            <div class="divv-072">Rs. 0</div>
+                        </div>
+                    </div>
+
             </div>
             <div class="divv-73"></div>
             <div class="divv-74">
                 <div class="divv-75">Total amount</div>
-                <div class="divv-76">Rs 2,000</div>
+                <div class="divv-76" id="totalPayment">Rs. 2,000</div>
             </div>
         </div>
         <div class="divv-78">
@@ -125,5 +137,8 @@
     </div>
 </div>
 </div>
+
+<!-- JS for getting payment summary of selected packages -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/promote.js"></script>
 
 <?php require APPROOT . '/views/inc/components/footer.php';?>

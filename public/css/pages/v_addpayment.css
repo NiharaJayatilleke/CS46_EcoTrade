@@ -16,7 +16,7 @@
   padding: 16px 24px; 
   margin: 0 auto; /* Add this line to center the div horizontally */
   /* height: 700px; */
-  max-width: 900px; 
+  max-width: 950px; 
 
   /* width: 100%; */
  
@@ -717,6 +717,8 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 171%;
+  /* padding-right: 20px; */
+  /* margin-right: 40px; */
 }
 .img-14 {
   aspect-ratio: 1;
@@ -816,15 +818,16 @@
 }
 .divv-68 {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
+  /* gap: 20px; */
 }
 .divv-69 {
   display: flex;
   flex-direction: column;
 }
 .divv-70 {
-  font-family: Open Sans, sans-serif;
+  /* font-family: Open Sans, sans-serif; */
   white-space: nowrap;
 }
 @media (max-width: 991px) {
@@ -833,13 +836,13 @@
   }
 }
 .divv-71 {
-  font-family: Open Sans, sans-serif;
+  /* font-family: Open Sans, sans-serif; */
   margin-top: 19px;
 }
 .divv-72 {
-  font-family: Open Sans, sans-serif;
+  /* font-family: Open Sans, sans-serif; */
   align-self: end;
-  margin-top: 32px;
+  /* margin-top: 32px; */
 }
 .divv-73 {
   background-color: #d4ded9;
@@ -852,12 +855,12 @@
   justify-content: space-between;
   gap: 20px;
 }
-.divv-75 {
+/* .divv-75 {
   font-family: Open Sans, sans-serif;
-}
-.divv-76 {
+} */
+/* .divv-76 {
   font-family: Open Sans, sans-serif;
-}
+} */
 .divv-77 {
   color: #2f3432;
   font-family: Open Sans, sans-serif;
@@ -886,7 +889,7 @@
   height: 14px;
 }
 .divv-80 {
-  font-family: Open Sans, sans-serif;
+  /* font-family: Open Sans, sans-serif; */
   flex-grow: 1;
 }
 @media (max-width: 991px) {
@@ -954,7 +957,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 0 20px;
+  /* padding: 0 20px; */
  margin-top: -61px;
 }
 
@@ -1000,4 +1003,17 @@ margin-left: -90px;
 
 .options1 input[type="radio"], .options2 input[type="radio"] {
     margin-right: 5px;
+}
+
+.option-set {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.opt-pack1, .opt-pack2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
