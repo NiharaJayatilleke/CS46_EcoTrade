@@ -21,7 +21,9 @@
     /* display: none;
     margin-left: 16rem; */
     position: relative;
+    width:100%;
 }
+
 
 .indicator {
     margin-top: 1rem;

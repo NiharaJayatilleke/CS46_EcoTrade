@@ -5,17 +5,17 @@ function updateList() {
     let maxPrice = document.getElementById('maxPrice').value;
     // let itemCondition = document.getElementById('item_condition').value;
     const otherCategoryInput = document.getElementById('otherCategInput').value.trim().toLowerCase();
-
+    
     // Hide all results
     results.forEach(function(result) {
-      result.style.display = 'none';
+        result.style.display = 'none';
     });
-
+    
     // Filter results to those that meet ANY requirements:
-    const selectedAttributes = new Set(Array.from(document.querySelectorAll('.indicator input[data-filter]:checked'), function(input) {
+    const selectedAttributes = new Set(Array.from(document.querySelectorAll('#category-filter input[data-filter]:checked'), function(input) {
         return input.getAttribute('data-filter');
     }));
-
+    
     // Filter according to the selected attributes:
     if (selectedAttributes.size > 0) {
         results = results.filter(function(result) {
@@ -23,7 +23,10 @@ function updateList() {
             return selectedAttributes.has(itemCategory) ;
         });
     }
-
+    
+    console.log('results');
+    console.log(selectedAttributes.size);
+    console.log(results);
     // Filter results based on the "Other Category" input
     if (otherCategoryInput !== '') {
         results = results.filter(function(result) {
@@ -31,12 +34,12 @@ function updateList() {
             return itemCategory.includes(otherCategoryInput);
         });
     }
-
+    
     // Filter according to the price:
     results = results.filter(function(result) {
-
+        
         let price = result.getAttribute('data-price');
-
+        
         price = parseFloat(price);
         if (minPrice !== '' && price < minPrice) {
             return false;
@@ -48,35 +51,20 @@ function updateList() {
     });
 
     // Filter according to the item condition:
-    // results = results.filter(function(result) {
-    //     let condition = result.getAttribute('data-condition');
-    //     if (itemCondition !== '' && itemCondition !== condition) {
-    //         return false;
-    //     }
-    //     return true;
-    // });
-    const selectedConditions = new Set(Array.from(document.querySelectorAll('.condition.indicator input[type="checkbox"]:checked'), function(input) {
+  
+    const selectedConditions = new Set(Array.from(document.querySelectorAll('#condition-filter input[type="checkbox"]:checked'), function(input) {
         return input.getAttribute('data-filter');
     }));
 
     if (selectedConditions.size > 0) {
         results = results.filter(function(result) {
             let condition = result.getAttribute('data-condition');
+            console.log(result);
             return selectedConditions.has(condition);
         });
+       
     }
-    
-    // const selectedConditions = new Set(Array.from(document.querySelectorAll('.condition input[type="checkbox"]:checked'), function(input) {
-    //     return input.getAttribute('data-filter');
-    // }));
-    
-    // if (selectedConditions.size > 0) {
-    //     results = results.filter(function(result) {
-    //         let condition = result.getAttribute('data-condition');
-    //         return selectedConditions.has(condition);
-    //     });
-    // }
-    
+
 
     // Show those filtered results:
     results.forEach(function(result) {
@@ -100,7 +88,7 @@ document.querySelectorAll('.indicator input[type="checkbox"]').forEach(function(
     });
 });
 
-document.querySelectorAll('.condition .indicator input[type="checkbox"]').forEach(function(ele) {
+document.querySelectorAll('.condition input[type="checkbox"]').forEach(function(ele) {
     // console.log("condition");
     ele.addEventListener('click', function(event) {
         event.stopPropagation();
@@ -114,9 +102,6 @@ document.getElementById('minPrice').addEventListener('input',function() {
 document.getElementById('maxPrice').addEventListener('input',function() {
     updateList();
 });
-// document.getElementById('item_condition').addEventListener('change',function() {
-//     updateList();
-// });
 document.getElementById('otherCategInput').addEventListener('input', function() {
     updateList();
 });
@@ -133,3 +118,4 @@ checkboxContainers.forEach(function(container) {
 
     });
 });
+

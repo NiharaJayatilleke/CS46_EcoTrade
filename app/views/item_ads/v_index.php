@@ -8,7 +8,7 @@
     <div class="wrapper" >
         <div class="filter-sidebar">
             <!-- <div class="selectheading">Categories</div> -->
-            <ul class="indicator">
+            <ul class="indicator" id='category-filter'>
                 <li><input type="checkbox" data-filter="furniture">Furniture</li>
                 <li><input type="checkbox" data-filter="electronics">Electronics</li>
                 <li><input type="checkbox" data-filter="clothing">Clothing</li>
@@ -30,28 +30,17 @@
                 <input type="text" id="maxPrice">
 
             </div>
-            <!-- <div class="filter-condition">      -->
-                <!-- <select name="item_condition" id="item_condition">
-                    <option value="">Select the condition</option>
-                    <option value="Brand New">Brand New - Never Used</option>
-                    <option value="Like New">Like New - Barely Used</option>
-                    <option value="Very Good">Very Good - Slightly Used with Minor Signs of Wear</option>
-                    <option value="Good">Good - Used with Some Signs of Wear</option>
-                    <option value="Fair">Fair - Used with Visible Signs of Wear</option>
-                    <option value="Poor">Poor - Heavily Used with Significant Wear or Damages</option>
-                </select> -->
-            <!-- <div class="selectheading">Condition</div> -->
-            <!-- <div class="condition"> -->
-                <ul class="condition indicator ">
-                
-                    <li><input type="checkbox" data-filter="Brand New">Brand New</li>
-                    <li><input type="checkbox" data-filter="Like New">Like New</li>
-                    <li><input type="checkbox" data-filter="Very Good">Very Good</li>
-                    <li><input type="checkbox" data-filter="Good">Good</li>
-                    <li><input type="checkbox" data-filter="Fair">Fair</li>
-                    <li><input type="checkbox" data-filter="Poor">Poor</li>
-                
-                </ul>
+           
+            <ul class="indicator" id='condition-filter'>
+            
+                <li><input type="checkbox" data-filter="Brand New">Brand New</li>
+                <li><input type="checkbox" data-filter="Like New">Like New</li>
+                <li><input type="checkbox" data-filter="Very Good">Very Good</li>
+                <li><input type="checkbox" data-filter="Good">Good</li>
+                <li><input type="checkbox" data-filter="Fair">Fair</li>
+                <li><input type="checkbox" data-filter="Poor">Poor</li>
+            
+            </ul>
             <!-- </div> -->
             <!-- </div> -->
             
@@ -138,6 +127,7 @@
 
 <?php require APPROOT.'/views/inc/components/footer.php'; ?>
 <script src="<?php echo URLROOT; ?>/js/ads/filter_sidebar.js"></script>
+
 
 
 

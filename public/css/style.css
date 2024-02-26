@@ -112,3 +112,6 @@ body {
     --lightgreen: #26b273;
 }
 
+.capitalize{
+    text-transform: capitalize;
+}
