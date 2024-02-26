@@ -4,6 +4,80 @@
             $this->userModel = $this->model('M_Users');
         }
 
+        public function login(){
+            if($_SERVER['REQUEST_METHOD']=='POST'){
+                //Form is submitting
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $data =[
+                    'email' =>trim($_POST['email']),
+                    'password'=>trim($_POST['password']),
+
+                    'email_err' =>'',
+                    'password_err'=>''
+                ];
+                //validate the email
+                if(empty($data['email'])){
+                    $data['email_err']='Please enter the email';
+                }
+                else{
+                    if($this->userModel->findUserByEmail($data['email'])){
+                        //User is found
+                    }
+                    else{
+                        //User is not found
+                        $data['email_err'] = 'User not found';
+                    }
+                }
+
+                //Validate the password
+                if(empty($data['password'])){
+                    $data['password_err']='Please enter the password';
+                }
+
+                //If no error found the login the user
+                if(empty($data['email_err'])&&empty($data['password_err'])){
+                    //log the user
+                    $loggedUser = $this->userModel->login($data['email'],$data['password']);
+
+                    if($loggedUser){
+                        //User the authenticated
+                        //create user sessions
+                        $this->createUserSession($loggedUser);
+
+                        // If "Remember Me" is checked, set a cookie
+                        if ($data['remember_me']) {
+                            $this->setRememberMeCookie($loggedUser->id);
+                        }
+                    }
+                    else{
+                        $data['password_err']='Password incorrect';
+
+                        //Load view with errors
+                        $this->view('users/login', $data);
+                    }
+                }
+                else{
+                    //Load view with errors
+                    $this->view('users/login', $data);
+                }
+
+            }
+            else{
+                //initial form
+                $data =[
+                    'email' =>'',
+                    'password'=>'',
+
+                    'email_err' =>'',
+                    'password_err'=>''
+                ];
+
+                //Load view
+                $this->view('users/login', $data);
+            }
+        }
+
         public function register(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 // form is submitting
@@ -36,6 +110,8 @@
                 //Validate email
                 if(empty($data['email'])){
                     $data['email_err'] = 'Please enter an email';
+                } else if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                    $data['email_err'] = 'Please enter a valid email address';
                 }
                 else{
                     //check email is already registered or not
@@ -120,78 +196,71 @@
             }
         }
 
-        public function login(){
-            if($_SERVER['REQUEST_METHOD']=='POST'){
-                //Form is submitting
+        public function collectorRegister(){
+            if($_SERVER['REQUEST_METHOD'] =='POST'){
+                // form is submitting
+                // Validate the data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-                $data =[
-                    'email' =>trim($_POST['email']),
-                    'password'=>trim($_POST['password']),
-
-                    'email_err' =>'',
-                    'password_err'=>''
+        
+                // Input data
+                $data = [
+                    'username' => trim($_POST['username']),
+                    'email' => trim($_POST['email']),
+                    'number' => trim($_POST['number']),
+                    'nic' => trim($_POST['nic']),
+                    'user_type' => 'collector', // Hardcoded as collector for collector registration
+                    'username_err' => '',
+                    'email_err' => '',
+                    'number_err' => '',
+                    'nic_err' => '',
+                    'agree_err' => ''
                 ];
-                //validate the email
-                if(empty($data['email'])){
-                    $data['email_err']='Please enter the email';
+        
+                // Check if the user has agreed to the terms
+                if (!isset($_POST['agree'])) {
+                    $data['agree_err'] = 'You must agree to the terms and conditions.';
                 }
-                else{
-                    if($this->userModel->findUserByEmail($data['email'])){
-                        //User is found
+        
+                // Validation is completed and no error then register the user
+                if(empty($data['username_err']) && empty($data['email_err']) && empty($data['number_err']) && empty($data['nic_err']) && empty($data['agree_err'])){
+    
+                    // Register collector
+                    if($this->collectorModel->register($data)){
+                        // Create a flash message
+                        flash('reg_flash', 'You are successfully registered as a collector!');
+                        redirect('Collectors/index');
                     }
                     else{
-                        //User is not found
-                        $data['email_err'] = 'User not found';
-                    }
-                }
-
-                //Validate the password
-                if(empty($data['password'])){
-                    $data['password_err']='Please enter the password';
-                }
-
-                //If no error found the login the user
-                if(empty($data['email_err'])&&empty($data['password_err'])){
-                    //log the user
-                    $loggedUser = $this->userModel->login($data['email'],$data['password']);
-
-                    if($loggedUser){
-                        //User the authenticated
-                        //create user sessions
-                        
-                        $this->createUserSession($loggedUser);
-
-                        // If "Remember Me" is checked, set a cookie
-                        if ($data['remember_me']) {
-                            $this->setRememberMeCookie($loggedUser->id);
-                        }
-                    }
-                    else{
-                        $data['password_err']='Password incorrect';
-
-                        //Load view with errors
-                        $this->view('users/login', $data);
+                        die('Something went wrong');
                     }
                 }
                 else{
-                    //Load view with errors
-                    $this->view('users/login', $data);
+                    // Load view
+                    $this->view('users/collectors/register', $data);
                 }
-
             }
-            else{
-                //initial form
-                $data =[
-                    'email' =>'',
-                    'password'=>'',
-
-                    'email_err' =>'',
-                    'password_err'=>''
-                ];
-
-                //Load view
-                $this->view('users/login', $data);
+            else {
+                if(isset($_SESSION['user_id']) && isset($_SESSION['userType']) && $_SESSION['userType'] == 'pBuyer') {
+                    $data = [
+                        'username' => '',
+                        'email' => '',
+                        'number' => '',
+                        'password' => '',
+                        'confirm_password' => '',
+                        'username_err' => '',
+                        'email_err' => '',
+                        'number_err' => '',
+                        'password_err' => '',
+                        'confirm_password_err' => '',
+                        'agree_err' => ''
+                    ];
+        
+                    // Load collector registration view
+                    $this->view('users/collectors/register', $data);
+                } else {
+                    // Guests or other user types should go to general user registration
+                    redirect('Users/register');
+                }
             }
         }
         
