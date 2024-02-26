@@ -468,10 +468,6 @@
     window.onload = handleInitialSection;
 
     // Function to redirect to the current active section
-
-
-    
-
     function redirectToCurrentSection() {
     // Get the current hash from the URL
     var hash = window.location.hash;
@@ -479,7 +475,6 @@
         // Redirect to the current active section
         var section = hash.substring(1);
         window.location.href = '<?php echo URLROOT; ?>/moderators/index' + hash;
-        // Load the content of the current section after redirection
         showContent(section);
     }
 }
@@ -489,7 +484,7 @@
     </script>
 
         <!-- Javascript for image upload -->
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
 
 

@@ -110,3 +110,6 @@ body {
     --black2: #636e72;
 }
 
+.capitalize{
+    text-transform: capitalize;
+}

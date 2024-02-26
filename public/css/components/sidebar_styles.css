@@ -14,7 +14,8 @@
     /*background:rgba(18, 37, 6, 0.418);*/
     background: linear-gradient(30deg , #175427, #30955a);
     color: #fff;
-    margin-top: 60px;
+    /* margin-top: 60px; */
+    margin-top: 54px;
     z-index: 1;
     border-bottom-left-radius: 20px;
     /* border-bottom-right-radius: 20px; */
