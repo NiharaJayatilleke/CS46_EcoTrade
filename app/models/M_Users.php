@@ -119,6 +119,18 @@
                 return false;
             }
         }
+
+        public function updateUserType($newUserType) {
+            $this->db->query('UPDATE General_User SET user_type = :newUserType WHERE id = :user_id');
+            $this->db->bind(':newUserType', $newUserType);
+            $this->db->bind(':user_id', $_SESSION['user_id']); // You need to have the user's ID available
+
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
         
        public function updatePassword($user_id, $oldPassword, $newPassword) {
             // If new password is provided, verify the old password first
