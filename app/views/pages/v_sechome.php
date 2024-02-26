@@ -188,8 +188,21 @@
     </div>
 
     <!--Offer -->
+    <!-- partial:index.partial.html -->
+    <div class="body-container">
+  <div class="center-item">
+    <div class="hero-card">
 
-    <div class="offer">
+      <img src="../public/img/sechome/images/sell_5404641.png" class="hero-image" style="width:100%">
+      <div class="card-content">
+        <h1 class="hero-title">NIKE AM90id</h1>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <!-- <div class="offer">
       <div class="small-container">
         <div class="rowsechome">
           <div class="col-6">
@@ -211,7 +224,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Testimonials -->
 
