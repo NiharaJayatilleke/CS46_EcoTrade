@@ -293,8 +293,14 @@
             $_SESSION['user_number'] = $user->number;
             $_SESSION['user_image'] = $user->profile_image;
             $_SESSION['userType'] = $user->user_type;
-
-            redirect('Pages/index');
+            // die($_SESSION['userType']);
+            if($_SESSION['userType']=='admin'){
+                redirect('admin/index');
+            }
+            else{
+                redirect('Pages/index');
+            }
+            
         }
 
         private function setRememberMeCookie($userId){
@@ -313,7 +319,7 @@
             unset($_SESSION['user_email']);
             unset($_SESSION['user_name']);
             unset($_SESSION['user_number']);
-
+            unset($_SESSION['userType']);
             session_destroy();
 
             redirect('Users/login');
@@ -410,6 +416,11 @@
                     if ($this->userModel->updateUserInfo($newUsername, $newContactNumber)) {
                         // User information updated successfully
                         flash('profile_edit', 'Your profile has been updated successfully');
+                        
+                        // update the session
+                        $_SESSION['user_name']=$newUsername;
+                        $_SESSION['user_number'] =$newContactNumber;
+
                         redirect('users/profile');
                     } else {
                         // Error occurred during update

@@ -54,7 +54,6 @@
 
         public function itemType(){
             $itemType = isset($_POST['item_type']) ? $_POST['item_type'] : '';
-
             $data = [
                 'item_name' => '',
                 'item_category' => '',
@@ -233,14 +232,17 @@
                     }
 
                     //SET USER TYPE
-                    $userId = $_SESSION['user_id'];
-                    $userType = $this->usersModel->getUserTypeById($userId);
-                    $userType = $userType->user_type;
-
+                    // $userId = $_SESSION['user_id'];
+                    // $userType = $this->usersModel->getUserTypeById($userId);
+                    // $userType = $userType->user_type;
+                    $userId = $_SESSION['userType'];
+                    
                     if ($userType == 'rSeller') {
                         $this->usersModel->setUserTypeById($userId, 'seller');
+                        $_SESSION['userType']='seller';
                     } else if ($userType != 'seller' && $userType != 'pSeller') {
                         $this->usersModel->setUserTypeById($userId, 'pSeller');
+                        $_SESSION['userType']='pSeller';
                     }
 
                 }
