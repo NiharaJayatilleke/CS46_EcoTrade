@@ -17,7 +17,7 @@
                 </li> -->
                 <li>
                     <!-- <a href="<?php echo URLROOT ?>/Admin/index"> -->
-                    <a href="#" id="dashboard-tab" onclick="showContent('dashboard-content')">
+                    <a href="#dashboard-content" id="dashboard-tab" onclick="showContent('dashboard-content')">
                         <span class = "side-icon"><ion-icon name="grid-outline"></ion-icon></span>
                         <span class = "side-title">Dashboard</span>
                     </a>
@@ -25,7 +25,7 @@
 
                 <li>
                     <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
-                    <a href="#" id="platformusers-tab" onclick="showContent('platformusers-content')">
+                    <a href="#platformusers-content" id="platformusers-tab" onclick="showContent('platformusers-content')">
 
                         <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class = "side-title">Users</span>
@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
-                    <a href="#" id="reported-ads-tab" onclick="showContent('reported-ads-content')">
+                    <a href="#reported-ads-content" id="reported-ads-tab" onclick="showContent('reported-ads-content')">
 
                         <span class = "side-icon"><ion-icon name="alert-circle-outline"></ion-icon></span>
                         
@@ -41,7 +41,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="secondhand-tab" onclick="showContent('secondhand-content')">
+                    <a href="#secondhand-content" id="secondhand-tab" onclick="showContent('secondhand-content')">
                         <span class = "side-icon"><ion-icon name="pricetags"></ion-icon></span>
                         <span class = "side-title">Preowned Ads</span>
                     </a>
@@ -49,7 +49,7 @@
 
                 <li>
                     <!-- <a href=""> -->
-                    <a href="#" id="recycle-tab" onclick="showContent('recycle-content')">
+                    <a href="#recycle-content" id="recycle-tab" onclick="showContent('recycle-content')">
                         <span class = "side-icon"><ion-icon name="leaf-outline"></ion-icon></span>
                         <span class = "side-title">Recycling Ads</span>
                     </a>

@@ -56,18 +56,18 @@
                                  
                                             <div class="form-group">
                                                 <label class="form-label">Username</label>
-                                                <input type="text" class="form-control input-field-box" name="newUsername" value="<?php echo $data['user']->username; ?>">
+                                                <input type="text" class="form-control input-field-box" name="newUsername" value="<?php echo $_SESSION['user_name']; ?>">
                                                 <?php if (!empty($data['errors']['newUsername'])) : ?>
                                                 <div class="form-invalid"><?php echo $data['errors']['newUsername']; ?></div>
                                             <?php endif; ?>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">E-mail</label>
-                                                <input type="text" class="form-control input-field-box" value="<?php echo $data['user']->email; ?>"disabled>
+                                                <input type="text" class="form-control input-field-box" value="<?php echo $_SESSION['user_email']; ?>"disabled>
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label">Contact number</label>
-                                                <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $data['user']->number; ?>">
+                                                <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
                                                     
                                                 <?php if (!empty($data['errors']['newContactNumber'])) : ?>
                                                     <div class="form-invalid"><?php echo $data['errors']['newContactNumber']; ?></div>
@@ -94,7 +94,7 @@
                                 <div class="form-group">
                                     <label class="form-label">User-type</label>
                                     <!-- <input type="text" class="form-control input-field-box " value="<?php echo $data['user']->userType; ?>"disabled> -->
-                                    <input type="text" class="form-control input-field-box " value="<?php echo $data['user']->user_type; ?>" disabled>
+                                    <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>" disabled>
 
                                 </div>
                                 <div>
@@ -477,4 +477,5 @@ inputFile.onchange = function(){
 <!-- <?php require APPROOT.'/views/inc/footer.php'; ?> -->
 </body>
 </html>
+
 

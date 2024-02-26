@@ -133,21 +133,23 @@
             $_SESSION['user_email']=$user->email;
             $_SESSION['user_name']=$user->username;
             $_SESSION['userType'] = $user->user_type;
-            redirect('Pages/index');
+            die($user->user_type);
+            redirect('admin/index');
         }
 
         public function logout(){
             unset($_SESSION['user_id']);
             unset($_SESSION['user_email']);
             unset($_SESSION['user_name']);
+            unset($_SESSION['userType']);
             session_destroy();
 
-            redirect('Pages/index');
-            // redirect('Users/login');
+            // redirect('Pages/index');
+            redirect('admin/login');
         }
         
         public function isLoggedIn(){
-            if(isset($_SESSION['user_id'])){
+            if(isset($_SESSION['user_email'])){
                 return true;
             }
             else{

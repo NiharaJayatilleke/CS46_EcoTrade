@@ -12,7 +12,6 @@
                 <h2> Welcome back to EcoTrade<br> <span> From waste to worth for a sustainable future!</span></h2><br>
             </div>
         </div>
-
         <div class="login-box"> 
             <div class="login-form-box"> 
                 <form class="input-group-login" action="<?php echo URLROOT; ?>/Users/login" method="POST">
@@ -45,10 +44,6 @@
                     <div class="login-already">
                         <p> Dont't have an account? <a href ="<?php echo URLROOT ?>/Users/register" > Sign Up </a> </p>
                     </div>
-
-                    
-
-                    
                 </form>
             </div>
         </div>
