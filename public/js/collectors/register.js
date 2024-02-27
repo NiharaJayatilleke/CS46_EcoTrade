@@ -9,7 +9,7 @@ nextBtn.addEventListener("click", (event) => {
     event.preventDefault();
     let allRequiredFieldsFilled = true;
     allInput.forEach(input => {
-        if (input.required && input.value === "") {
+        if (input.required && !input.readOnly && input.value === "") {
             allRequiredFieldsFilled = false;
         }
     });
