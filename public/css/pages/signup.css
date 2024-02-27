@@ -278,3 +278,8 @@ input:-webkit-autofill:active {
     animation: floatIn 1s ease-in-out;
 }
 
+
+.form-invalid{
+    color: rgb(192, 35, 35);
+    margin-bottom: 20px;
+} 

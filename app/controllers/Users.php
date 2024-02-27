@@ -214,6 +214,15 @@
             if($_SESSION['userType']=='admin'){
                 redirect('admin/index');
             }
+            else if($_SESSION['userType']=='collector'){
+                redirect('collectors/index');
+            }
+            else if($_SESSION['userType']=='recenter'){
+                redirect('recenter/index');
+            }
+            else if($_SESSION['userType']=='moderator'){
+                redirect('moderators/index');
+            }
             else{
                 redirect('Pages/index');
             }
