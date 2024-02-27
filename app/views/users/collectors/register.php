@@ -44,7 +44,7 @@
 
                         <div class="collector-input-field">
                             <label>Address<span class="required">*</span></label>
-                            <input type="text" placeholder="Enter your Address" required>
+                            <input type="text" id="address" name="address" placeholder="Enter your Address" required>
                         </div>
 
 
@@ -67,12 +67,12 @@
                     <div class="collector-fields">
                         <div class="collector-input-field">
                             <label>Company Name</label>
-                            <input type="text" placeholder="Enter your Company Name" >
+                            <input type="text" id="com_name" name="com_name" placeholder="Enter your Company Name" >
                         </div>
 
                         <div class="collector-input-field">
                             <label>Office Email</label>
-                            <input type="text" placeholder="Enter your Company Email" >
+                            <input type="text" id="com_email" name="com_email" placeholder="Enter your Company Email" >
                         </div>
 
                         <div class="collector-input-field">
@@ -82,7 +82,7 @@
 
                         <div class="collector-input-field">
                             <label>Telephone Number</label>
-                            <input type="number" placeholder="Enter Company telephone number" >
+                            <input type="number" id="telephone" name="telephone" placeholder="Enter Company telephone number" >
                         </div>
 
                         <div class="collector-input-field">
@@ -105,7 +105,7 @@
 
                         <div class="collector-input-field">
                             <label>Registration Number</label>
-                            <input type="text" placeholder="Enter the company registration no." >
+                            <input type="text" id="reg_number" name="reg_number" placeholder="Enter the company registration no." >
                         </div>
                     </div>
                     <button class="nextBtn">
@@ -141,27 +141,27 @@
 
                         <div class="collector-input-field">
                             <label>Vehicle Registration No. <span class="example">(e.g:- AAB 3456)</span> <span class="required">*</span></label>
-                            <input type="text" placeholder="Vehicle Registration No" >
+                            <input type="text" name="vehicle_reg" id="vehicle_reg" placeholder="Vehicle Registration No" >
                         </div>
 
                         <div class="collector-input-field">
                             <label>Vehicle Make</label>
-                            <input type="text" placeholder="Enter Vehicle Make" >
+                            <input type="text" name="make" id="make" placeholder="Enter Vehicle Make" >
                         </div>
 
                         <div class="collector-input-field">
                             <label>Vehicle Model</label>
-                            <input type="text" placeholder="Enter Vehicle Model" >
+                            <input type="text" name="model" id="model" placeholder="Enter Vehicle Model" >
                         </div>
 
                         <div class="collector-input-field">
                             <label>Vehicle Insurance Details <span class="required">*</span></label>
-                            <input type="text" placeholder="Enter Vehicle Insurance Details" >
+                            <input type="text" name="insurance" id="insurance" placeholder="Enter Vehicle Insurance Details" >
                         </div>
 
                         <div class="collector-input-field">
                             <label>Vehicle Color <span class="required">*</span></label>
-                            <input type="text" placeholder="Enter Vehicle Color" >
+                            <input type="text" name="color" id="color" placeholder="Enter Vehicle Color" >
                         </div>
                     </div>
                 </div>
