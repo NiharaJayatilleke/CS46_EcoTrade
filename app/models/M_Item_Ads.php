@@ -81,7 +81,7 @@
         }
 
         public function adFeature($data){
-            $this->db->query('INSERT INTO Promotions(p_id,package,duration) VALUES(:p_id, :package, :duration)');
+            $this->db->query('INSERT INTO Featured_Ads(p_id,package,duration) VALUES(:p_id, :package, :duration)');
             $this->db->bind(':p_id',$data['ad_id']);
             $this->db->bind(':package',$data['package']);
             $this->db->bind(':duration',$data['duration']);
