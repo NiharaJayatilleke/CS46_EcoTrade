@@ -16,7 +16,7 @@ window.onload = function() {
             updateOption2(this.value);
         });
     }
-}
+// }
 
 // Update the text in the divs based on the selected option in the first group
 function updateOption1(value) {
@@ -24,12 +24,15 @@ function updateOption1(value) {
     if (value === 'week') {
         text = 'PV - One Week';
         price = 'Rs. 2000';
+        timeInDays = 7;
     } else if (value === 'month') {
         text = 'PV - One Month';
         price = 'Rs. 7500';
+        timeInDays = 30;
     } else {
         text = 'PV - None';
         price = 'Rs. 0';
+        timeInDays = 0;
     }
     document.querySelector('.divv-71').innerText = text;
     document.querySelector('.divv-72').innerText = price;
@@ -42,12 +45,15 @@ function updateOption2(value) {
     if (value === 'week') {
         text = 'AG - One Week';
         price = 'Rs. 1500';
+        timeInDays = 7;
     } else if (value === 'month') {
         text = 'AG - One Month';
         price = 'Rs. 6000';
+        timeInDays = 30;
     } else {
         text = 'AG - None';
         price = 'Rs. 0';
+        timeInDays = 0;
     }
     document.querySelector('.divv-071').innerText = text;
     document.querySelector('.divv-072').innerText = price;
@@ -65,4 +71,50 @@ function updateTotal() {
         total += parseInt(price2);
     }
     document.getElementById('totalPayment').innerText = 'Rs. ' + total;
+}
+
+function submitPackage(packageType, timeInDays, adId) {
+    console.log('Submitting package');
+
+    var data = {
+        packageType: packageType,
+        timeInDays: timeInDays,
+        adId: adId
+    };
+
+    // The POST request
+    fetch(URLROOT +"/itemAds/promote/"+ CURRENT_AD, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
+var continueButton = document.getElementById('packageContinue');
+
+continueButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    console.log('Continue button clicked');
+
+    var packageType1 = document.querySelector('.divv-71').innerText.split(' - ')[0];
+    var timeInDays1 = document.querySelector('.divv-71').innerText.split(' - ')[1] === 'One Week' ? 7 : 30;
+
+    var packageType2 = document.querySelector('.divv-071').innerText.split(' - ')[0];
+    var timeInDays2 = document.querySelector('.divv-071').innerText.split(' - ')[1] === 'One Week' ? 7 : 30;
+    // var params = new URLSearchParams(window.location.search);
+    // var adId = params.get('adId');
+
+    submitPackage(packageType1, timeInDays1, CURRENT_AD);
+    submitPackage(packageType2, timeInDays2, CURRENT_AD);
+});
+
 }

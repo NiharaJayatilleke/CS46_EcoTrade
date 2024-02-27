@@ -33,7 +33,8 @@
 
                                     <div class="options1">
                                         <label>
-                                            <input type="radio" name="package1" value="week" checked>
+                                            <!-- <input type="radio" name="package1" value="week" checked> -->
+                                            <input type="radio" name="package1" value="week" >
                                             One Week - Rs. 2000
                                         </label>
                                         <label>
@@ -109,9 +110,9 @@
 </div>
                     <div class="option-set">
                         <div class = "opt-pack1">
-                                <div class="divv-71">PV - One Week</div>
+                                <div class="divv-71">PV - None</div>
                             <!-- </div> -->
-                            <div class="divv-72">Rs. 2,000</div>
+                            <div class="divv-72">Rs. 0</div>
                         </div>
 
                         <div class = "opt-pack2">
@@ -124,7 +125,7 @@
             <div class="divv-73"></div>
             <div class="divv-74">
                 <div class="divv-75">Total amount</div>
-                <div class="divv-76" id="totalPayment">Rs. 2,000</div>
+                <div class="divv-76" id="totalPayment">Rs. 0</div>
             </div>
         </div>
         <div class="divv-78">
@@ -132,7 +133,7 @@
             <img loading="lazy" src="<?php echo URLROOT?>/public/img/payment/images/Untitled design (1).png" class="img-400" />
         </div>
         <a class = "cont-link" href="<?php echo URLROOT ?>/PaymentPortal/index">
-            <div class="divv-84">Continue</div> 
+            <div class="divv-84" id = "packageContinue">Continue</div> 
         </a>
     </div>
 </div>
@@ -140,5 +141,10 @@
 
 <!-- JS for getting payment summary of selected packages -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/promote.js"></script>
+
+<script type ="text/JavaScript">
+    var URLROOT ="<?php echo URLROOT; ?>"
+    var CURRENT_AD = "<?php echo $data['ad']->ad_id ?>";
+</script>
 
 <?php require APPROOT . '/views/inc/components/footer.php';?>
