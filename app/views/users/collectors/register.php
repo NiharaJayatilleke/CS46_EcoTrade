@@ -5,7 +5,7 @@
     <div class="collector-container">
         <header>Collector Registration</header>
         
-        <form action="#">
+        <form action="<?php echo URLROOT; ?>/Collectors/register" method="POST">
             <div class="form first">
                 <div class="collector-details personal">
                     <span class="collector-title">Personal Details</span>
@@ -77,7 +77,7 @@
 
                         <div class="collector-input-field">
                             <label>Address</label>
-                            <input type="text" placeholder="Enter Company Address" >
+                            <input type="text" id="com_address" name="com_address" placeholder="Enter Company Address" >
                         </div>
 
                         <div class="collector-input-field">
@@ -344,7 +344,7 @@
                             <span class="btnText">Back</span>
                         </button>
 
-                        <button class="submit">
+                        <button type="submit" class="submit">
                             <span class="submit">Submit</span>
                             <i class="uil uil-navigator"></i>
                         </button>

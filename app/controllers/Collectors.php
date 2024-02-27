@@ -24,16 +24,32 @@
         
                 // Input data
                 $data = [
-                    'username' => trim($_POST['username']),
-                    'email' => trim($_POST['email']),
-                    'number' => trim($_POST['number']),
                     'nic' => trim($_POST['nic']),
-                    'user_type' => 'collector', // Hardcoded as collector for collector registration
+                    'gender' => trim($_POST['gender']),
+                    'address' => trim($_POST['address']),
+                    'com_name' => trim($_POST['com_name']),
+                    'com_email' => trim($_POST['com_email']),
+                    'com_address' => trim($_POST['com_address']),
+                    'telephone' => trim($_POST['telephone']),
+                    'company_type' => trim($_POST['company_type']),
+                    'reg_number' => trim($_POST['reg_number']),
+                    'vehicle_type' => trim($_POST['vehicle_type']),
+                    'vehicle_reg' => trim($_POST['vehicle_reg']),
+                    'make' => trim($_POST['make']),
+                    'model' => trim($_POST['model']),
+                    'insurance' => trim($_POST['insurance']),
+                    'color' => trim($_POST['color']),
+                    'district1' => trim($_POST['district1']),
+                    'district2' => trim($_POST['district2']),
+                    'district3' => trim($_POST['district3']),
+                    'district4' => trim($_POST['district4']),
+                    'district5' => trim($_POST['district5']),
+                    // 'agree' => trim($_POST['agree']),
                     'username_err' => '',
                     'email_err' => '',
                     'number_err' => '',
                     'nic_err' => '',
-                    'agree_err' => ''
+                    // 'agree_err' => ''
                 ];
         
                 // Check if the user has agreed to the terms
