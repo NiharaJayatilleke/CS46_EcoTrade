@@ -15,9 +15,6 @@ CREATE TABLE General_User (
     PRIMARY KEY(id)
 );
 
-
-INSERT INTO General_User (username, email, number, password, user_type) VALUES ("Inuka", "inuka@gmail.com", "0776373532", "admin123", "admin");
-
 CREATE TABLE Moderators (
     id INT AUTO_INCREMENT,
     username VARCHAR(255),

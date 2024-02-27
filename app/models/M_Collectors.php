@@ -31,6 +31,7 @@
             $this->db->bind(':district3', $data['district3']);
             $this->db->bind(':district4', $data['district4']);
             $this->db->bind(':district5', $data['district5']);
+            
                         
             if($this->db->execute()){
                 return true;

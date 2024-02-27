@@ -24,6 +24,7 @@
         
                 // Input data
                 $data = [
+                    'user' => $user,
                     'nic' => trim($_POST['nic']),
                     'gender' => trim($_POST['gender']),
                     'address' => trim($_POST['address']),
@@ -79,6 +80,7 @@
                 }
                 else{
                     // Load view
+                    die("aye awa neh");
                     $this->view('users/collectors/register', $data);
                 }
             }
