@@ -83,7 +83,6 @@
         public function register(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 // form is submitting
-                //Validate the data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
                 //input data
@@ -94,71 +93,61 @@
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
                     'user_type' => trim($_POST['user_type']),
-
-                    'username_err' => '',
-                    'email_err' => '',
-                    'number_err' => '',
-                    'password_err' => '',
-                    'confirm_password_err' => '',
-                    'agree_err' => ''
-
+                    'err' => '',
                 ];
 
                 //Validate username
                 if(empty($data['username'])){
-                    $data['username_err'] = 'Please enter a username';
+                    $data['err'] = 'Please enter a username';
                 }
 
                 //Validate email
                 if(empty($data['email'])){
-                    $data['email_err'] = 'Please enter an email';
+                    $data['err'] = 'Please enter an email';
                 } else if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-                    $data['email_err'] = 'Please enter a valid email address';
+                    $data['err'] = 'Please enter a valid email address';
                 }
                 else{
                     //check email is already registered or not
                     if($this->userModel->findUserByEmail($data['email'])){
-                        $data['email_err'] = 'This email is already registered';
+                        $data['err'] = 'This email is already registered';
                     }
                 }   
 
                 //Validate number
                 if(empty($data['number'])) {
-                    $data['number_err'] = 'Please enter a contact number';
+                    $data['err'] = 'Please enter a contact number';
                 }elseif (!ctype_digit($data['number']) || strlen($data['number']) < 9) {
-                    $data['number_err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
+                    $data['err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
                 }
 
                 //validate password
                 if(empty($data['password'])){
-                    $data['password_err'] = 'Please enter a password';
+                    $data['err'] = 'Please enter a password';
                 }
                 else if(strlen($data['password'])<6){
-                        $data['password_err']='Password must be at least 6 characters';
-                    }
+                        $data['err']='Password must be at least 6 characters';
+                }
                 else{
                     if(empty($data['confirm_password'])){
-                        $data['confirm_password_err']='Please confirm the password';
+                        $data['err']='Please confirm the password';
                     }
 
                     if($data['password']!=$data['confirm_password']){
-                            $data['confirm_password_err']='Passwords do not match';
-                        
-
+                            $data['err']='Passwords do not match';
                     }
                 }
 
                 // Check if the user has agreed to the terms
                 if (!isset($_POST['agree'])) {
-                    $data['agree_err'] = 'You must agree to the terms and conditions.';
-                  }
-
-                //Validation is completed and no error then Register the user
-                if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])&&empty($data['agree_err'])){
+                    $data['err'] = 'You must agree to the terms and conditions.';
+                }
 
 
-                    //Hash password
-                    $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
+                // Validation is completed and no error found
+                if (empty($data['err'])){
+                    // Hash password
+                    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
                     //Register user
                     if($this->userModel->register($data)){
@@ -183,14 +172,8 @@
                     'number' => '',
                     'password' => '',
                     'confirm_password' => '',
-
-                    'username_err' => '',
-                    'email_err' => '',
-                    'number_err' => '',
-                    'password_err' => '',
-                    'confirm_password_err' => '',
-                    'agree_err' => ''
-
+                    'user_type' => '',
+                    'err' => '',
                 ];
 
                 //load view

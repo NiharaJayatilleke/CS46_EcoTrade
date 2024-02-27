@@ -46,23 +46,19 @@
                     'district4' => trim($_POST['district4']),
                     'district5' => trim($_POST['district5']),
                     // 'agree' => trim($_POST['agree']),
-                    'username_err' => '',
-                    'email_err' => '',
-                    'number_err' => '',
-                    'nic_err' => '',
-                    // 'agree_err' => ''
+                    'err' => ''
                 ];
         
                 // Check if the user has agreed to the terms
-                if (!isset($_POST['agree'])) {
-                    $data['agree_err'] = 'You must agree to the terms and conditions.';
-                }
+                // if (!isset($_POST['agree'])) {
+                //     $data['err'] = 'You must agree to the terms and conditions.';
+                // }
         
                 // Validation is completed and no error then register the user
-                if(empty($data['username_err']) && empty($data['email_err']) && empty($data['number_err']) && empty($data['nic_err']) && empty($data['agree_err'])){
-    
+                if(empty($data['err'])){
                     // Register collector
                     if($this->collectorModel->register($data)){
+                        die('Form submitted');
                         // Create a flash message
                         flash('reg_flash', 'You are successfully registered as a collector!');
                         // Assuming $user is an instance of the class that contains the updateUserType method
@@ -80,7 +76,6 @@
                 }
                 else{
                     // Load view
-                    die("aye awa neh");
                     $this->view('users/collectors/register', $data);
                 }
             }
@@ -100,6 +95,31 @@
                     redirect('Users/login');
                 }
                 else {
+                    // Initial form data
+                    $data = [
+                    'nic' => '',
+                    'gender' => '',
+                    'address' => '',
+                    'com_name' => '',
+                    'com_email' => '',
+                    'com_address' => '',
+                    'telephone' => '',
+                    'company_type' => '',
+                    'reg_number' => '',
+                    'vehicle_type' => '',
+                    'vehicle_reg' => '',
+                    'make' => '',
+                    'model' => '',
+                    'insurance' => '',
+                    'color' => '',
+                    'district1' => '',
+                    'district2' => '',
+                    'district3' => '',
+                    'district4' => '',
+                    'district5' => '',
+                    // 'agree' => '',
+                    'err' => ''
+                    ];
                     // Guests or other user types should go to general user registration
                     redirect('Users/register');
                 }
