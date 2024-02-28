@@ -1,7 +1,15 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+
+//Require PHP Mailer
+require APPROOT.'/libraries/vendor/autoload.php';
+
     class Users extends Controller{
+        private $mail;
         public function __construct(){
             $this->userModel = $this->model('M_Users');
+            $this->mail = new PHPMailer(true);
         }
 
         public function login(){
@@ -21,10 +29,7 @@
                     $data['email_err']='Please enter the email';
                 }
                 else{
-                    if($this->userModel->findUserByEmail($data['email'])){
-                        //User is found
-                    }
-                    else{
+                    if(!$this->userModel->findUserByEmail($data['email'])){
                         //User is not found
                         $data['email_err'] = 'User not found';
                     }
@@ -153,22 +158,25 @@
 
                 //Validation is completed and no error then Register the user
                 if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])&&empty($data['agree_err'])){
-
-
+                     
                     //Hash password
                     $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
-
+                    $data['token']=bin2hex(random_bytes(32));
                     //Register user
                     if($this->userModel->register($data)){
                         // create a flash message
-                        flash('reg_flash', 'You are successfully registered!');
+                        flash('reg_flash', ' A verification email has been sent to your email address.Please check');
                         redirect('Users/login');
+                        
+                        // Send confirmation email to confirm
+                        $this->send_email_confirmation($data['token'],$data['email']);
                     }
                     else{
+                        // die('Something went wrong');
                         die('Something went wrong');
                     }
-                }
-                else{
+                } 
+                else {
                     //load view
                     $this->view('Users/signup', $data);
                 }
@@ -512,8 +520,63 @@
         //     $this->view('users/v_Reset_newpassword'); // Load the 'v_Reset_newpassword.php' view
         // }
 
+        public function send_email_confirmation($token, $usersEmail){
+            $url = "localhost/ecotrade/users/verify_email?token=$token";
+
+            $this->mail->isSMTP();
+            $this->mail->Host = 'smtp.gmail.com';
+            $this->mail->SMTPAuth = true;
+            $this->mail->SMTPSecure = 'tls';
+            $this->mail->Port = 587; // Use 587 for TLS, 465 for SSL
+            $this->mail->Username = 'ecotrade46@gmail.com';
+            $this->mail->Password = 'inua qsto hwfo seiy';
+
+            //Can Send Email Now
+            $subject = "Verify your email";
+            // $message = "<p>Dear $username,</p>";
+            $message = "<p>Dear user,</p>";
+            // $message = "Dear {$data['username']},\n\n";
+            $message .= "<p></p>";
+            $message .= "<p>To reset your password, click on the following link:</p>";
+            $message .= "<a href='".$url."'>Verify Email</a>";
+            // $message .= "<a href='".$url."'>".$url."</a>";
+            $message .= "<p>This link is valid for a limited time only. If you do not reset your password within this time frame, you may need to request another reset link.</p>";
+            // $message .= "<p>If you have any questions or concerns, please contact us at support@example.com.</p>";
+            $message .= "<p>Thank you,</p>";
+            $message .= "<p>Best Regards,<br>The EcoTrade Team</p>";
+            // $message .= "<script>window.open('$url', '_blank');</script>";  // open the link in a new tab
+
+
+            $this->mail->setFrom('ecotrade46@gmail.com', $subject);
+            $this->mail->isHTML(true);
+            $this->mail->Subject = $subject;
+            $this->mail->Body = $message;
+            $this->mail->addAddress($usersEmail);
+            $this->mail->send();
+        }
+
+        public function verify_email(){
+            $token = $_GET['token'];
+            
+            // get user from the temp_user_table
+            $temp_user=$this->userModel->get_user_by_token($token);
+            
+            $data['username']=$temp_user->username;
+            $data['email']=$temp_user->email;
+            $data['number']=$temp_user->number;
+            $data['password']=$temp_user->password;
+            $data['user_type']=$temp_user->user_type;
+
+            // insert user into the user table
+            $this->userModel->insert_user($data);
+            redirect('Users/login');
+
+        }
 
     }
+
+
+
 
 
         

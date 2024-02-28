@@ -8,16 +8,47 @@
         //Register the user
         public function register($data){
 
+            $this->db->query('INSERT INTO Non_Verified_Users(username,email,number,password,user_type,token) VALUES(:username, :email, :number,  :password, :user_type, :token)');          
+            $this->db->bind(':username',$data['username']);
+            $this->db->bind(':email',$data['email']);
+            $this->db->bind(':number',$data['number']);
+            $this->db->bind(':password',$data['password']);
+            $this->db->bind(':user_type', $data['user_type']);
+            $this->db->bind(':token',$data['token']);
+            
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        // insert user
+        public function insert_user($data){
+
             $this->db->query('INSERT INTO General_User(username,email,number,password,user_type) VALUES(:username, :email, :number,  :password, :user_type)');          
             $this->db->bind(':username',$data['username']);
             $this->db->bind(':email',$data['email']);
             $this->db->bind(':number',$data['number']);
             $this->db->bind(':password',$data['password']);
             $this->db->bind(':user_type', $data['user_type']);
-
             
             if($this->db->execute()){
                 return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function get_user_by_token($token){
+            $this->db->query('SELECT * FROM Non_Verified_Users WHERE token =:token');
+            $this->db->bind(':token',$token);
+
+            $row = $this->db->single();
+            if($this->db->rowCount() > 0){
+                return $this->db->single();
             }
             else{
                 return false;

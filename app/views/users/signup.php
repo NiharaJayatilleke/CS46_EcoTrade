@@ -20,6 +20,7 @@
         </div>
         <div class="reg-box"> 
             <div class="form-box"> 
+            
                 <form class="input-group" action="<?php echo URLROOT; ?>/Users/register" method="POST">
                     <h2>Register</h2>
                     
