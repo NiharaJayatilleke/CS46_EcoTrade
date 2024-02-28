@@ -7,15 +7,6 @@
 
         }
 
-        // public function temp_reg(){
-        //     $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-        //     $data = [
-        //         'user' => $user
-        //     ];
-        //     $this->view('users/collectors/register',$data);
-            
-        // }
-
         public function register(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 // form is submitting

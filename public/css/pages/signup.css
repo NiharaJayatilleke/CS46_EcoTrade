@@ -9,9 +9,9 @@ input:-webkit-autofill:active {
 
 .background {
     width: 100%; 
-    height:calc(100vh - 60px) ; 
+    height:calc(100vh - 50px) ; 
     /* margin: -10px;  */
-    background: url('../../img/signup/register2.jpg') no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), #00000033), url('../../img/login/login.jpg');
     background-position: center;
     background-size: cover;
     filter: blur(2px); 
@@ -60,7 +60,7 @@ input:-webkit-autofill:active {
     width: 87%;
     transform: translate(-50%, -50%);
     height: 75vh;
-    background: url('../../img/signup/register1.jpg') no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../../img/moderators/login.jpg') no-repeat;
     background-position: left center;
     background-size: cover;
     border-radius: 10px;
@@ -76,7 +76,7 @@ input:-webkit-autofill:active {
     height: 100%;
     background: transparent;
     padding: 100px;
-    color: #e4e4e4;
+    color: black;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -136,7 +136,7 @@ input:-webkit-autofill:active {
     backdrop-filter: blur(25px);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    color: #e4e4e4;
+    color: black;
     animation: floatIn 0.5s ease-in-out;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
     
@@ -152,7 +152,7 @@ input:-webkit-autofill:active {
     position: relative;
     width: 320px;
     height: 45px;
-    border-bottom: 2px solid #e4e4e4;
+    border-bottom: 2px solid black;
     margin: 22px 0;
 }
 
@@ -163,7 +163,7 @@ input:-webkit-autofill:active {
     border: none;
     outline: none;
     font-size: 12px;
-    color: #e4e4e4;
+    color: black;
     font-weight: 500;
 }
 
@@ -182,7 +182,7 @@ input:-webkit-autofill:active {
 .input-box input:valid ~ label,
 .input-box input.has-value ~ label {
     top: -5px;
-    color: #ddfadf;
+    color: rgb(58, 58, 58);
 }
 
 .input-box .icon{
@@ -205,7 +205,7 @@ input:-webkit-autofill:active {
     cursor:pointer;
 }
 .terms-forgot a{
-    color: #e4e4e4;
+    color: black;
     /* text-decoration: none; */
 }
 
@@ -244,13 +244,13 @@ input:-webkit-autofill:active {
 }
 
 .registred-already p{
-    color: #e4e4e4;
+    color: black;
     font-weight: 600;
     text-decoration: none;
     margin-top: -25px;
 }
 .registred-already a{
-    color: #e4e4e4;
+    color: black;
     font-weight: 600;
     text-decoration: none;
 }
@@ -276,6 +276,8 @@ input:-webkit-autofill:active {
 
 .reg-box .form-box {
     animation: floatIn 1s ease-in-out;
+    background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0.6));
+    backdrop-filter: blur(20px);
 }
 
 
