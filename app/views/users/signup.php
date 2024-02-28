@@ -20,7 +20,6 @@
         </div>
         <div class="reg-box"> 
             <div class="form-box"> 
-                
                 <form class="input-group" action="<?php echo URLROOT; ?>/Users/register" method="POST">
                     <h2>Register</h2>
                     
@@ -65,7 +64,9 @@
 
                     <div class="terms-forgot">
                         <label for="agree"><input type="checkbox" name="agree" id="agree" value="yes"/> I agree to the
-                        <a href="<?php echo URLROOT; ?>/Users/terms" title="term of services">terms & conditions</a><br>
+
+                        <a href="<?php echo URLROOT; ?>/Users/terms" title="term of services">terms & conditions</a>
+                          
                         <span class="form-invalid"><?php echo $data['agree_err']; ?></span>
                     </div>
             
@@ -86,4 +87,3 @@
 
 </body>
 </html>
-
