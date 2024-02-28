@@ -27,7 +27,7 @@
             <?php } ?>
                 <form class="input-group" action="<?php echo URLROOT; ?>/Users/register" method="POST">
                     <h2>Register</h2>
-                    
+                    <!-- <?php print_r($data);?> -->
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-contact' ></i></span>

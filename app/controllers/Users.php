@@ -93,59 +93,64 @@
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
                     'user_type' => trim($_POST['user_type']),
-                    'err' => '',
+                    'username_err' => '',
+                    'email_err' => '',
+                    'number_err' => '',
+                    'password_err' => '',
+                    'confirm_password_err' => '',
+                    'agree_err' => ''
                 ];
-
+                
                 //Validate username
                 if(empty($data['username'])){
-                    $data['err'] = 'Please enter a username';
+                    $data['username_err'] = 'Please enter a username';
                 }
 
                 //Validate email
                 if(empty($data['email'])){
-                    $data['err'] = 'Please enter an email';
+                    $data['email_err'] = 'Please enter an email';
                 } else if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-                    $data['err'] = 'Please enter a valid email address';
+                    $data['email_err'] = 'Please enter a valid email address';
                 }
                 else{
                     //check email is already registered or not
                     if($this->userModel->findUserByEmail($data['email'])){
-                        $data['err'] = 'This email is already registered';
+                        $data['email_err'] = 'This email is already registered';
                     }
                 }   
 
                 //Validate number
                 if(empty($data['number'])) {
-                    $data['err'] = 'Please enter a contact number';
+                    $data['number_err'] = 'Please enter a contact number';
                 }elseif (!ctype_digit($data['number']) || strlen($data['number']) < 9) {
-                    $data['err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
+                    $data['number_err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
                 }
 
                 //validate password
                 if(empty($data['password'])){
-                    $data['err'] = 'Please enter a password';
+                    $data['password_err'] = 'Please enter a password';
                 }
                 else if(strlen($data['password'])<6){
-                        $data['err']='Password must be at least 6 characters';
+                        $data['password_err']='Password must be at least 6 characters';
                 }
                 else{
                     if(empty($data['confirm_password'])){
-                        $data['err']='Please confirm the password';
+                        $data['confirm_password_err']='Please confirm the password';
                     }
 
                     if($data['password']!=$data['confirm_password']){
-                            $data['err']='Passwords do not match';
+                            $data['confirm_password_err']='Passwords do not match';
                     }
                 }
 
                 // Check if the user has agreed to the terms
                 if (!isset($_POST['agree'])) {
-                    $data['err'] = 'You must agree to the terms and conditions.';
+                    $data['agree_err'] = 'You must agree to the terms and conditions.';
                 }
 
 
                 // Validation is completed and no error found
-                if (empty($data['err'])){
+                if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])&&empty($data['agree_err'])){
                     // Hash password
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
@@ -173,7 +178,12 @@
                     'password' => '',
                     'confirm_password' => '',
                     'user_type' => '',
-                    'err' => '',
+                    'username_err' => '',
+                    'email_err' => '',
+                    'number_err' => '',
+                    'password_err' => '',
+                    'confirm_password_err' => '',
+                    'agree_err' => ''
                 ];
 
                 //load view
@@ -213,6 +223,15 @@
             // die($_SESSION['userType']);
             if($_SESSION['userType']=='admin'){
                 redirect('admin/index');
+            }
+            else if($_SESSION['userType']=='collector'){
+                redirect('collectors/index');
+            }
+            else if($_SESSION['userType']=='recenter'){
+                redirect('recenter/index');
+            }
+            else if($_SESSION['userType']=='moderator'){
+                redirect('moderators/index');
             }
             else{
                 redirect('Pages/index');
