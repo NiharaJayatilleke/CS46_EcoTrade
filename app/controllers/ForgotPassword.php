@@ -63,7 +63,8 @@ class forgotPassword extends Controller{
         //Can Send Email Now
         $subject = "Reset your password";
         // $message = "<p>Dear $username,</p>";
-        $message = "<p>Dear customer,</p>";
+        $message = "<p>Dear user,</p>";
+        // $message = "Dear {$data['username']},\n\n";
         $message .= "<p>We received a request to reset your password. If this was not you, please ignore this email.</p>";
         $message .= "<p>To reset your password, click on the following link:</p>";
         $message .= "<a href='".$url."'>Reset Password</a>";

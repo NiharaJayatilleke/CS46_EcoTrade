@@ -1,6 +1,6 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <body id="profile-body">
-    <div class="hero2">
+    <!-- <div class="hero2"> -->
     <div class="profile_container">
     
             <div class="rowprofile">

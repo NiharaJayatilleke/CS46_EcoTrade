@@ -26,7 +26,7 @@ CREATE TABLE Moderators (
 );
 
 CREATE TABLE Collectors (
-    id INT PRIMARY KEY,
+    id INT,
     nic VARCHAR(255),
     gender VARCHAR(50),
     address TEXT,
@@ -199,5 +199,4 @@ CREATE TABLE Bids(
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
     FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
-
 
