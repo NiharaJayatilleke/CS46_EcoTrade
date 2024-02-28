@@ -1,0 +1,22 @@
+
+.form-header {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.form-input-title {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.form-invalid {
+    display: inline-block;
+    color: rgb(192, 35, 35);
+    /* margin-bottom: 20px; */
+    /* border-radius: 5px; */
+    /* padding: 10px; */
+    display: inline-block;
+    transition: opacity 0.3s ease-in-out;
+  
+}
