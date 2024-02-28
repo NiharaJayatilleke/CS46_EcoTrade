@@ -213,8 +213,8 @@
             </radialGradient>
           </defs> -->
         </svg>
-        <p class="card-title">Zero-cost Possibilities</p>
-        <p class="card-description">Hubble lets users borrow USDH for a one-time 0.5% fee. No variable rates. No interest charged, ever.</p>
+        <p class="card-title">Buy</p>
+        <p class="card-description">Embark on a virtual journey to discover enticing treasures, available at your fingertips for a delightful doorstep delivery!</p>
       </div>
     </div>
 
@@ -243,8 +243,8 @@
             </radialGradient>
           </defs> -->
         </svg>
-        <p class="card-title">Multi-Asset Collateral</p>
-        <p class="card-description">Deposit a variety of assets on Hubble, raise your collateral ratio, and unlock the liquidity in your wallet.</p>
+        <p class="card-title">Sell</p>
+        <p class="card-description">Effortlessly transform your possessions into opportunities by listing them, providing a chance for newfound joy in the life of a prospective owner.</p>
       </div>
     </div>
 <!-- 
