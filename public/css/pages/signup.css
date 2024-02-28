@@ -60,7 +60,7 @@ input:-webkit-autofill:active {
     width: 87%;
     transform: translate(-50%, -50%);
     height: 75vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../../img/moderators/login.jpg') no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../../img/signup/register1.jpg') no-repeat;
     background-position: left center;
     background-size: cover;
     border-radius: 10px;
@@ -89,7 +89,7 @@ input:-webkit-autofill:active {
 
 
 .welcome-content .logo{
-    font-size: 25px;
+    font-size: 30px;
     
 }
 
@@ -276,7 +276,7 @@ input:-webkit-autofill:active {
 
 .reg-box .form-box {
     animation: floatIn 1s ease-in-out;
-    background: linear-gradient(to right, rgba(255,255,255,0.3), rgba(255,255,255,0.7));
+    background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0.6));
     backdrop-filter: blur(20px);
 }
 

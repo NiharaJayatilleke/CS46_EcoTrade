@@ -37,9 +37,22 @@
                     'district4' => trim($_POST['district4']),
                     'district5' => trim($_POST['district5']),
                     // 'agree' => trim($_POST['agree']),
-                    'err' => ''
+                    'company_type_err' => ''
                 ];
-        
+                
+                // Validate NIC
+                if (empty($data['NIC']) and $data['err'] == ''){
+                    $data['err'] = 'Please enter NIC';
+                }
+                else if (strlen($data['NIC']) == 10 and ($data['NIC'][9] == 'V' or $data['NIC'][9] == 'v')){
+                    $data['err'] = '';
+                }
+                else if (strlen($data['NIC']) == 12 and ctype_digit($data['NIC'])){
+                    $data['err'] = '';
+                }
+                else{
+                    $data['err'] = 'Invalid NIC';
+                }
                 // Check if the user has agreed to the terms
                 // if (!isset($_POST['agree'])) {
                 //     $data['err'] = 'You must agree to the terms and conditions.';
