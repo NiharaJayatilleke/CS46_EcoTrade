@@ -165,7 +165,7 @@ body, h1, h4, p {
     
 }
 
-.profile-image img {
+.profile_image img {
     border-radius: 50%;
     width: 10vw;
     /* margin-top: 10px; */
@@ -174,7 +174,7 @@ body, h1, h4, p {
 }
 
 
-.profile-image {
+.profile_image {
     text-align: center;
 }
 

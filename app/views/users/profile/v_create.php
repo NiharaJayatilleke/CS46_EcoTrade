@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/profile_styles.css">
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
-                    <div class="profile-image">
+                    <div class="profile_image">
                         <div class="image-container">
                             <?php
                             if (!empty($data['user']->profile_image)) {
