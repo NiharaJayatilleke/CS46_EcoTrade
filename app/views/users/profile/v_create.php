@@ -2,8 +2,18 @@
 <body id="profile-body">
     <!-- <div class="hero2"> -->
     <div class="profile_container">
-    
+    <div class="list-group list-group-flush account-settings-links">
+
+                <div class="nav-elements">
+                    <a class="list-group-item list-group-item-action active" onclick="loadContent('general')">General</a>
+                    <a class="list-group-item list-group-item-action" onclick="loadContent('change-password')">Change password</a>
+                    <a class="list-group-item list-group-item-action" onclick="loadContent('delete-profile')">Delete profile</a>
+                    <a class="list-group-item list-group-item-action" onclick="loadContent('security')">Security</a>
+                    <a class="list-group-item list-group-item-action" onclick="loadContent('notifications')">Notifications</a>
+                </div>
+            </div>
             <div class="rowprofile">
+            
                 <div class="col-md-3 pt-0">
                    
                     <div class="profile-image">
@@ -29,16 +39,7 @@
                         </div>
                     </form>
                     </div>
-                    <div class="list-group list-group-flush account-settings-links">
-
-                        <div class="nav-elements">
-                            <a class="list-group-item list-group-item-action active" onclick="loadContent('general')">General</a>
-                            <a class="list-group-item list-group-item-action" onclick="loadContent('change-password')">Change password</a>
-                            <a class="list-group-item list-group-item-action" onclick="loadContent('delete-profile')">Delete profile</a>
-                            <a class="list-group-item list-group-item-action" onclick="loadContent('security')">Security</a>
-                            <a class="list-group-item list-group-item-action" onclick="loadContent('notifications')">Notifications</a>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="all-sections">
                     <div id="general" class="col-md-9">
