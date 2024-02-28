@@ -60,7 +60,7 @@ input:-webkit-autofill:active {
     width: 87%;
     transform: translate(-50%, -50%);
     height: 75vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../../img/moderators/login.jpg') no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../../img/signup/register1.jpg') no-repeat;
     background-position: left center;
     background-size: cover;
     border-radius: 10px;
@@ -89,7 +89,7 @@ input:-webkit-autofill:active {
 
 
 .welcome-content .logo{
-    font-size: 25px;
+    font-size: 30px;
     
 }
 
@@ -179,9 +179,8 @@ input:-webkit-autofill:active {
 }
 
 .input-box input:focus ~ label,
-.input-box input:valid ~ label,
 .input-box input.has-value ~ label {
-    top: -5px;
+    top: -3px;
     color: rgb(58, 58, 58);
 }
 
@@ -203,6 +202,7 @@ input:-webkit-autofill:active {
 .terms-forgot label{
     z-index:5;
     cursor:pointer;
+    padding-top: 15px;
 }
 .terms-forgot a{
     color: black;
