@@ -179,10 +179,9 @@
 }
 
 .input-box-login input:focus ~ label,
-.input-box-login input:valid ~ label,
 .input-box-login input.has-value ~ label {
-    top: -5px;
-    color: #242424;
+    top: -3px;
+    color: rgb(58, 58, 58);
 }
 
 .input-box-login .icon {
@@ -195,7 +194,7 @@
 .login-form-box .remember-me {
     font-size: 12px;
     font-weight: 500;
-    margin: -15px 0 15px;
+    margin: 15px 0 15px;
     display: flex;
     justify-content: space-between;
 }

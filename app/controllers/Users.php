@@ -111,13 +111,12 @@
                     $data['email_err'] = 'Please enter an email';
                 } else if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
                     $data['email_err'] = 'Please enter a valid email address';
-                }
-                else{
+                } else {
                     //check email is already registered or not
                     if($this->userModel->findUserByEmail($data['email'])){
                         $data['email_err'] = 'This email is already registered';
                     }
-                }   
+                }  
 
                 //Validate number
                 if(empty($data['number'])) {

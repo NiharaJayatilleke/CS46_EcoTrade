@@ -20,51 +20,53 @@
         </div>
         <div class="reg-box"> 
             <div class="form-box"> 
-            <?php if (!empty($data['err'])) { ?>
-                <div class="error-msg">
-                    <span class="form-invalid"><?php echo $data["err"] ?></span>
-                </div>
-            <?php } ?>
+                
                 <form class="input-group" action="<?php echo URLROOT; ?>/Users/register" method="POST">
                     <h2>Register</h2>
-                    <!-- <?php print_r($data);?> -->
+                    
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-contact' ></i></span>
-                        <input type="name" name = "username" id="username" required value="<?php echo $data['username']; ?>">
+                        <input type="name" name = "username" id="username" value="<?php echo $data['username']; ?>">
                         <label>Name</label>
+                        <span class="form-invalid"><?php echo $data['username_err']; ?></span>
 
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-envelope'></i></span>
-                        <input type="email" name = "email" id="email" required value="<?php echo $data['email']; ?>" >
+                        <input type="email" name = "email" id="email" value="<?php echo $data['email']; ?>" >
                         <label>Email</label>
+                        <span class="form-invalid"><?php echo $data['email_err']; ?></span>
 
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-phone'></i></span>
-                        <input type="tel" name = "number" id="number" class="number" required value="<?php echo $data['number']; ?>" >
+                        <input type="tel" name = "number" id="number" class="number" value="<?php echo $data['number']; ?>" >
                         <label>Contact Number</label>
+                        <span class="form-invalid"><?php echo $data['number_err']; ?></span>
                     </div>
 
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
-                        <input type="password" name = "password" id="password" required>
+                        <input type="password" name = "password" id="password" >
                         <label>Password</label>
+                        <span class="form-invalid"><?php echo $data['password_err']; ?></span>
                     </div>
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
-                        <input type="password" name = "confirm_password" id="password" required >
+                        <input type="password" name = "confirm_password" id="password" >
                         <label>Confirm Password</label>
+                        <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span>
                     </div>  
 
                     <div class="terms-forgot">
                         <label for="agree"><input type="checkbox" name="agree" id="agree" value="yes"/> I agree to the
-                        <a href="<?php echo URLROOT; ?>/Users/terms" title="term of services">terms & conditions</a>
+                        <a href="<?php echo URLROOT; ?>/Users/terms" title="term of services">terms & conditions</a><br>
+                        <span class="form-invalid"><?php echo $data['agree_err']; ?></span>
                     </div>
             
                     <button type="submit" class = "register-btn">Register</button>
