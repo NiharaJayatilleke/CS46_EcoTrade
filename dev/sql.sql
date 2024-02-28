@@ -15,19 +15,6 @@ CREATE TABLE General_User (
     PRIMARY KEY(id)
 );
 
-CREATE TABLE Administrator (
-    id INT AUTO_INCREMENT,
-    username VARCHAR(255),
-    email VARCHAR(255),
-    number INT,
-    password VARCHAR(255),
-     user_type VARCHAR(255),
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(id)
-);
-
-INSERT INTO Administrator (username, email, number, password, user_type) VALUES ("Inuka", "inuka@gmail.com", "0776373532", "admin123", "admin");
-
 CREATE TABLE Moderators (
     id INT AUTO_INCREMENT,
     username VARCHAR(255),
@@ -39,14 +26,28 @@ CREATE TABLE Moderators (
 );
 
 CREATE TABLE Collectors (
-    id INT AUTO_INCREMENT,
-    username VARCHAR(255),
-    email VARCHAR(255),
-    number INT,
-    password VARCHAR(255),
-    collection VARCHAR(255),
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(id)
+    id INT,
+    nic VARCHAR(255),
+    gender VARCHAR(50),
+    address TEXT,
+    com_name VARCHAR(255),
+    com_email VARCHAR(255),
+    com_address TEXT,
+    telephone VARCHAR(255),
+    company_type VARCHAR(255),
+    reg_number VARCHAR(255),
+    vehicle_type VARCHAR(255),
+    vehicle_reg VARCHAR(255),
+    make VARCHAR(255),
+    model VARCHAR(255),
+    insurance VARCHAR(255),
+    color VARCHAR(255),
+    district1 VARCHAR(255),
+    district2 VARCHAR(255),
+    district3 VARCHAR(255),
+    district4 VARCHAR(255),
+    district5 VARCHAR(255),
+    FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
 CREATE TABLE forgot_password (
@@ -199,15 +200,3 @@ CREATE TABLE Bids(
     FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
-CREATE TABLE Non_Verified_Users(
-    id INT AUTO_INCREMENT,
-    username VARCHAR(255),
-    email VARCHAR(255),
-    number INT NOT NULL,
-    password VARCHAR(255),
-    user_type VARCHAR(255),
-    token VARCHAR (255),
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(id)
-
-);
