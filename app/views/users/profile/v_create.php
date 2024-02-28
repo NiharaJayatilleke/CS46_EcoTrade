@@ -1,22 +1,11 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <body id="profile-body">
-    <!-- <div class="hero2"> -->
+    <div class="hero2">
     <div class="profile_container">
-    <div class="list-group list-group-flush account-settings-links">
-
-                <div class="nav-elements">
-                    <a class="list-group-item list-group-item-action active" onclick="loadContent('general')">General</a>
-                    <a class="list-group-item list-group-item-action" onclick="loadContent('change-password')">Change password</a>
-                    <a class="list-group-item list-group-item-action" onclick="loadContent('delete-profile')">Delete profile</a>
-                    <a class="list-group-item list-group-item-action" onclick="loadContent('security')">Security</a>
-                    <a class="list-group-item list-group-item-action" onclick="loadContent('notifications')">Notifications</a>
-                </div>
-            </div>
-            <div class="rowprofile">
-            
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/profile_styles.css">
+            <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
-                   
-                    <div class="profile-image">
+                    <div class="profile_image">
                         <div class="image-container">
                             <?php
                             if (!empty($data['user']->profile_image)) {
@@ -26,9 +15,7 @@
                             }
                             ?>
                         </div>
-                  
                     </div>  
-                    <div class="prodp">
                     <form method="POST" action="<?php echo URLROOT; ?>/users/profile" enctype="multipart/form-data">               
                         <div class="media-body">
                             <div class="file-upload">
@@ -38,8 +25,16 @@
                             <button type="submit">Save</button> 
                         </div>
                     </form>
+                    <div class="list-group list-group-flush account-settings-links">
+
+                        <div class="nav-elements">
+                            <a class="list-group-item list-group-item-action active" onclick="loadContent('general')">General</a>
+                            <a class="list-group-item list-group-item-action" onclick="loadContent('change-password')">Change password</a>
+                            <a class="list-group-item list-group-item-action" onclick="loadContent('delete-profile')">Delete profile</a>
+                            <a class="list-group-item list-group-item-action" onclick="loadContent('security')">Security</a>
+                            <a class="list-group-item list-group-item-action" onclick="loadContent('notifications')">Notifications</a>
+                        </div>
                     </div>
-                    
                 </div>
                 <div class="all-sections">
                     <div id="general" class="col-md-9">
@@ -97,19 +92,16 @@
                             <div class="right-right">
                                 <div class="form-group">
                                     <label class="form-label">User-type</label>
-                                    <!-- <input type="text" class="form-control input-field-box " value="<?php echo $data['user']->userType; ?>"disabled> -->
-                                    <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>" disabled>
-
+                                    <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>"disabled>
                                 </div>
                                 <div>
                                     <button class="home-back" style=" margin-top:200px; margin-left: 300px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                                     Back to Home
                                     </button>                      
                                 </div>
-                            </div>
-                        </div>
+                      </div>
                     </div>
-         
+                    </div>
 
 
                     <div id="change-password" class="col-md-9">
@@ -152,10 +144,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div style="margin-top: 30px;">
-                                <?php flash('update_password'); ?>
-                                
-                                </div>
+                            <div style="margin-top: 30px;">
+                            <?php flash('update_password'); ?>
+                            
+                            </div>
                             </div>
                             <div class="right-right">
                                 <div class="form-group">
@@ -241,6 +233,7 @@
                     </div> -->
 
 
+
                 
                     <div id="delete-profile" class="col-md-9">
                         <div class="as_name">
@@ -285,7 +278,9 @@
                                         <?php endif; ?>
                              
                                     </div>
-                                    </div>
+                                    
+                                 
+                                </div>
                                 <button class="home-back" style=" margin-top:20px; margin-right: 0px;padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                                                 Back to Home
                                                 </button>
@@ -295,8 +290,8 @@
                             <!-- <button class="home-back" style=" margin-top:200px; margin-right: 100px; padding: 10px 50px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                         Back to Home
                         </button> -->
-                            </div>
-                        </div>
+                    </div>
+                    </div>
                     </div>
 
 
@@ -337,9 +332,10 @@
                             <button class="home-back" style=" margin-top:200px; margin-left: 300px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                         Back to Home
                         </button>
-                            </div>
-                            </div>
-                       </div>
+                            
+                        </div>
+                    </div>
+                    </div>
                     </div>
 
 
@@ -403,9 +399,7 @@
                             
                         </div>
                     </div>
-                </div>
-                
-            </div>
+                    </div>
 
             </div>
         </div>
@@ -481,5 +475,3 @@ inputFile.onchange = function(){
 <!-- <?php require APPROOT.'/views/inc/footer.php'; ?> -->
 </body>
 </html>
-
-
