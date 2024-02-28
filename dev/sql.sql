@@ -200,3 +200,15 @@ CREATE TABLE Bids(
     FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
+CREATE TABLE Non_Verified_Users(
+    id INT AUTO_INCREMENT,
+    username VARCHAR(255),
+    email VARCHAR(255),
+    number INT NOT NULL,
+    password VARCHAR(255),
+    user_type VARCHAR(255),
+    token VARCHAR (255),
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+
+);
