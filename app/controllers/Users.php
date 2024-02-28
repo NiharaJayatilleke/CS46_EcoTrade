@@ -1,26 +1,18 @@
 <?php
-
-use PHPMailer\PHPMailer\PHPMailer;
-
-//Require PHP Mailer
-require APPROOT.'/libraries/vendor/autoload.php';
-
     class Users extends Controller{
-        private $mail;
         public function __construct(){
             $this->userModel = $this->model('M_Users');
-            $this->mail = new PHPMailer(true);
         }
 
         public function login(){
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 //Form is submitting
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+                
                 $data =[
                     'email' =>trim($_POST['email']),
                     'password'=>trim($_POST['password']),
-
+                    
                     'email_err' =>'',
                     'password_err'=>''
                 ];
@@ -29,25 +21,30 @@ require APPROOT.'/libraries/vendor/autoload.php';
                     $data['email_err']='Please enter the email';
                 }
                 else{
-                    if(!$this->userModel->findUserByEmail($data['email'])){
+                    if($this->userModel->findUserByEmail($data['email'])){
+                        //User is found
+                    }
+                    else{
                         //User is not found
                         $data['email_err'] = 'User not found';
                     }
                 }
-
+                
                 //Validate the password
                 if(empty($data['password'])){
                     $data['password_err']='Please enter the password';
                 }
-
+                
                 //If no error found the login the user
                 if(empty($data['email_err'])&&empty($data['password_err'])){
                     //log the user
                     $loggedUser = $this->userModel->login($data['email'],$data['password']);
-
+                    // die($loggedUser);
+                    
+                    
                     if($loggedUser){
                         //User the authenticated
-                        //create user sessions
+                        //create user sessions;
                         $this->createUserSession($loggedUser);
 
                         // If "Remember Me" is checked, set a cookie
@@ -86,7 +83,6 @@ require APPROOT.'/libraries/vendor/autoload.php';
         public function register(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 // form is submitting
-                //Validate the data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
                 //input data
@@ -97,16 +93,14 @@ require APPROOT.'/libraries/vendor/autoload.php';
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
                     'user_type' => trim($_POST['user_type']),
-
                     'username_err' => '',
                     'email_err' => '',
                     'number_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => '',
                     'agree_err' => ''
-
                 ];
-
+                
                 //Validate username
                 if(empty($data['username'])){
                     $data['username_err'] = 'Please enter a username';
@@ -138,7 +132,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 }
                 else if(strlen($data['password'])<6){
                         $data['password_err']='Password must be at least 6 characters';
-                    }
+                }
                 else{
                     if(empty($data['confirm_password'])){
                         $data['confirm_password_err']='Please confirm the password';
@@ -146,37 +140,31 @@ require APPROOT.'/libraries/vendor/autoload.php';
 
                     if($data['password']!=$data['confirm_password']){
                             $data['confirm_password_err']='Passwords do not match';
-                        
-
                     }
                 }
 
                 // Check if the user has agreed to the terms
                 if (!isset($_POST['agree'])) {
                     $data['agree_err'] = 'You must agree to the terms and conditions.';
-                  }
+                }
 
-                //Validation is completed and no error then Register the user
+
+                // Validation is completed and no error found
                 if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])&&empty($data['agree_err'])){
-                     
-                    //Hash password
-                    $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
-                    $data['token']=bin2hex(random_bytes(32));
+                    // Hash password
+                    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
                     //Register user
                     if($this->userModel->register($data)){
                         // create a flash message
-                        flash('reg_flash', ' A verification email has been sent to your email address.Please check');
+                        flash('reg_flash', 'You are successfully registered!');
                         redirect('Users/login');
-                        
-                        // Send confirmation email to confirm
-                        $this->send_email_confirmation($data['token'],$data['email']);
                     }
                     else{
-                        // die('Something went wrong');
                         die('Something went wrong');
                     }
-                } 
-                else {
+                }
+                else{
                     //load view
                     $this->view('Users/signup', $data);
                 }
@@ -189,14 +177,13 @@ require APPROOT.'/libraries/vendor/autoload.php';
                     'number' => '',
                     'password' => '',
                     'confirm_password' => '',
-
+                    'user_type' => '',
                     'username_err' => '',
                     'email_err' => '',
                     'number_err' => '',
                     'password_err' => '',
                     'confirm_password_err' => '',
                     'agree_err' => ''
-
                 ];
 
                 //load view
@@ -236,6 +223,15 @@ require APPROOT.'/libraries/vendor/autoload.php';
             // die($_SESSION['userType']);
             if($_SESSION['userType']=='admin'){
                 redirect('admin/index');
+            }
+            else if($_SESSION['userType']=='collector'){
+                redirect('collectors/index');
+            }
+            else if($_SESSION['userType']=='recenter'){
+                redirect('recenter/index');
+            }
+            else if($_SESSION['userType']=='moderator'){
+                redirect('moderators/index');
             }
             else{
                 redirect('Pages/index');
@@ -520,63 +516,8 @@ require APPROOT.'/libraries/vendor/autoload.php';
         //     $this->view('users/v_Reset_newpassword'); // Load the 'v_Reset_newpassword.php' view
         // }
 
-        public function send_email_confirmation($token, $usersEmail){
-            $url = "localhost/ecotrade/users/verify_email?token=$token";
-
-            $this->mail->isSMTP();
-            $this->mail->Host = 'smtp.gmail.com';
-            $this->mail->SMTPAuth = true;
-            $this->mail->SMTPSecure = 'tls';
-            $this->mail->Port = 587; // Use 587 for TLS, 465 for SSL
-            $this->mail->Username = 'ecotrade46@gmail.com';
-            $this->mail->Password = 'inua qsto hwfo seiy';
-
-            //Can Send Email Now
-            $subject = "Verify your email";
-            // $message = "<p>Dear $username,</p>";
-            $message = "<p>Dear user,</p>";
-            // $message = "Dear {$data['username']},\n\n";
-            $message .= "<p></p>";
-            $message .= "<p>To reset your password, click on the following link:</p>";
-            $message .= "<a href='".$url."'>Verify Email</a>";
-            // $message .= "<a href='".$url."'>".$url."</a>";
-            $message .= "<p>This link is valid for a limited time only. If you do not reset your password within this time frame, you may need to request another reset link.</p>";
-            // $message .= "<p>If you have any questions or concerns, please contact us at support@example.com.</p>";
-            $message .= "<p>Thank you,</p>";
-            $message .= "<p>Best Regards,<br>The EcoTrade Team</p>";
-            // $message .= "<script>window.open('$url', '_blank');</script>";  // open the link in a new tab
-
-
-            $this->mail->setFrom('ecotrade46@gmail.com', $subject);
-            $this->mail->isHTML(true);
-            $this->mail->Subject = $subject;
-            $this->mail->Body = $message;
-            $this->mail->addAddress($usersEmail);
-            $this->mail->send();
-        }
-
-        public function verify_email(){
-            $token = $_GET['token'];
-            
-            // get user from the temp_user_table
-            $temp_user=$this->userModel->get_user_by_token($token);
-            
-            $data['username']=$temp_user->username;
-            $data['email']=$temp_user->email;
-            $data['number']=$temp_user->number;
-            $data['password']=$temp_user->password;
-            $data['user_type']=$temp_user->user_type;
-
-            // insert user into the user table
-            $this->userModel->insert_user($data);
-            redirect('Users/login');
-
-        }
 
     }
-
-
-
 
 
         
