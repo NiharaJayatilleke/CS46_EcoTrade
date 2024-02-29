@@ -109,7 +109,6 @@ CREATE VIEW v_ads AS
         Item_Ads.item_category as item_category,
         Item_Ads.item_desc as item_desc,
         Item_Ads.item_condition as item_condition,
-        Item_Ads.item_quantity as item_quantity,
         Item_Ads.item_image as item_image,
         Item_Ads.item_price as item_price,
         Item_Ads.item_location as item_location,
