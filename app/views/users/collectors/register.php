@@ -5,7 +5,7 @@
     <div class="collector-container">
         <header>Collector Registration</header>
         
-        <form action="<?php echo URLROOT; ?>/Collectors/register" method="POST">
+        <form action="<?php echo URLROOT; ?>/Collectors/register" method="POST" enctype="multipart/form-data">
             <div class="form first">
                 <div class="collector-details personal">
                     <span class="collector-title">Personal Details</span>

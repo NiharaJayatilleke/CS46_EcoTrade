@@ -12,10 +12,10 @@
                 // form is submitting
                 // Validate the data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        
+
+                $user = $this->userModel->getUserDetails($_SESSION['user_id']);
                 // Input data
                 $data = [
-                    'user' => $user,
                     'nic' => trim($_POST['nic']),
                     'gender' => trim($_POST['gender']),
                     'address' => trim($_POST['address']),
@@ -35,38 +35,39 @@
                     'district2' => trim($_POST['district2']),
                     'district3' => trim($_POST['district3']),
                     'district4' => trim($_POST['district4']),
-                    'district5' => trim($_POST['district5']),
+                    'district5' => trim($_POST['district5'])
                     // 'agree' => trim($_POST['agree']),
-                    'company_type_err' => ''
+                    // 'err' => ''
                 ];
                 
-                // Validate NIC
-                if (empty($data['NIC']) and $data['err'] == ''){
-                    $data['err'] = 'Please enter NIC';
-                }
-                else if (strlen($data['NIC']) == 10 and ($data['NIC'][9] == 'V' or $data['NIC'][9] == 'v')){
-                    $data['err'] = '';
-                }
-                else if (strlen($data['NIC']) == 12 and ctype_digit($data['NIC'])){
-                    $data['err'] = '';
-                }
-                else{
-                    $data['err'] = 'Invalid NIC';
-                }
+                
+                // // Validate NIC
+                // if (empty($data['NIC']) and $data['err'] == ''){
+                //     $data['err'] = 'Please enter NIC';
+                // }
+                // else if (strlen($data['NIC']) == 10 and ($data['NIC'][9] == 'V' or $data['NIC'][9] == 'v')){
+                //     $data['err'] = '';
+                // }
+                // else if (strlen($data['NIC']) == 12 and ctype_digit($data['NIC'])){
+                //     $data['err'] = '';
+                // }
+                // else{
+                //     $data['err'] = 'Invalid NIC';
+                // }
                 // Check if the user has agreed to the terms
                 // if (!isset($_POST['agree'])) {
                 //     $data['err'] = 'You must agree to the terms and conditions.';
                 // }
         
                 // Validation is completed and no error then register the user
-                if(empty($data['err'])){
+                if(true){
                     // Register collector
                     if($this->collectorModel->register($data)){
-                        die('Form submitted');
                         // Create a flash message
                         flash('reg_flash', 'You are successfully registered as a collector!');
                         // Assuming $user is an instance of the class that contains the updateUserType method
                         if ($user->updateUserType('collector')) {
+                            die(print_r($data));
                             echo 'User type updated successfully';
                         } else {
                             echo 'Failed to update user type';

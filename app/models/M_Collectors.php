@@ -8,7 +8,7 @@
         //Register the collector
         public function register($data){
 
-            $this->db->query('INSERT INTO Collectors(id, nic, gender, address, com_name, com_email, com_address, telephone, company_type, reg_number, vehicle_type, vehicle_reg, make, model, insurance, color, district1, district2, district3, district4, district5) VALUES(:nic, :gender, :address, :com_name, :com_email, :com_address, :telephone, :company_type, :reg_number, :vehicle_type, :vehicle_reg, :make, :model, :insurance, :color, :district1, :district2, :district3, :district4, :district5)');
+            $this->db->query('INSERT INTO Collectors(id, nic, gender, address, com_name, com_email, com_address, telephone, company_type, reg_number, vehicle_type, vehicle_reg, make, model, insurance, color, district1, district2, district3, district4, district5) VALUES(:id, :nic, :gender, :address, :com_name, :com_email, :com_address, :telephone, :company_type, :reg_number, :vehicle_type, :vehicle_reg, :make, :model, :insurance, :color, :district1, :district2, :district3, :district4, :district5)');
 
             $this->db->bind(':id', $_SESSION['user_id']);
             $this->db->bind(':nic', $data['nic']);
