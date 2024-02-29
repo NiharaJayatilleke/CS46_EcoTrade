@@ -111,7 +111,7 @@ CREATE TABLE Re_Centers (
     PRIMARY KEY(rad_id)
 );
 
-CREATE VIEW v_ads AS
+CREATE OR REPLACE VIEW v_ads AS
     SELECT
         Item_Ads.p_id as ad_id,
         General_User.id as seller_id, 
