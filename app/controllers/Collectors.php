@@ -35,32 +35,120 @@
                     'district2' => trim($_POST['district2']),
                     'district3' => trim($_POST['district3']),
                     'district4' => trim($_POST['district4']),
-                    'district5' => trim($_POST['district5'])
+                    'district5' => trim($_POST['district5']),
+
+                    'nic_err' => '',
+                    'gender_err' => '',
+                    'address_err' => '',
+                    'com_name_err' => '',
+                    'com_email_err' => '',
+                    'com_address_err' => '',
+                    'telephone_err' => '',
+                    'company_type_err' => '',
+                    'reg_number_err' => '',
+                    'vehicle_type_err' => '',
+                    'vehicle_reg_err' => '',
+                    'make_err' => '',
+                    'model_err' => '',
+                    'insurance_err' => '',
+                    'color_err' => '',
+                    'district1_err' => '',
+                    'district2_err' => '',
+                    'district3_err' => '',
+                    'district4_err' => '',
+                    'district5_err' => ''
                     // 'agree' => trim($_POST['agree']),
-                    // 'err' => ''
                 ];
                 
                 
-                // // Validate NIC
-                // if (empty($data['NIC']) and $data['err'] == ''){
-                //     $data['err'] = 'Please enter NIC';
-                // }
-                // else if (strlen($data['NIC']) == 10 and ($data['NIC'][9] == 'V' or $data['NIC'][9] == 'v')){
-                //     $data['err'] = '';
-                // }
-                // else if (strlen($data['NIC']) == 12 and ctype_digit($data['NIC'])){
-                //     $data['err'] = '';
-                // }
-                // else{
-                //     $data['err'] = 'Invalid NIC';
-                // }
-                // Check if the user has agreed to the terms
+                // Validate NIC
+                if (empty($data['nic'])){
+                    $data['nic_err'] = 'Please enter NIC';
+                }
+                else if (strlen($data['nic']) == 10 and ($data['nic'][9] == 'V' or $data['nic'][9] == 'v')){
+                    $data['nic_err'] = '';
+                }
+                else if (strlen($data['NIC']) == 12 and ctype_digit($data['NIC'])){
+                    $data['nic_err'] = '';
+                }
+                else{
+                    $data['nic_err'] = 'Invalid NIC';
+                }
+
+                // Validate gender
+                if (empty($data['gender'])){
+                    $data['gender_err'] = 'Please enter gender';
+                } else {
+                    $data['gender_err'] = '';
+                }
+
+                // Validate address
+                if (empty($data['address'])){
+                    $data['address_err'] = 'Please enter address';
+                } else {
+                    $data['address_err'] = '';
+                }
+
+                // Validate com_name
+                if (!empty($data['com_name'])){
+                    // If com_name is provided, validate com_email, com_address, telephone, company_type, reg_number
+                    if (empty($data['com_email'])){
+                        $data['com_email_err'] = 'Please enter company email';
+                    } else if (!filter_var($data['com_email'], FILTER_VALIDATE_EMAIL)) {
+                        $data['com_email_err'] = 'Invalid email format';
+                    } else {
+                        $data['com_email_err'] = '';
+                    }
+
+                    if (empty($data['com_address'])){
+                        $data['com_address_err'] = 'Please enter company address';
+                    } else {
+                        $data['com_address_err'] = '';
+                    }
+
+                    if (empty($data['telephone'])){
+                        $data['telephone_err'] = 'Please enter telephone';
+                    } else {
+                        $data['telephone_err'] = '';
+                    }
+
+                    if (empty($data['company_type'])){
+                        $data['company_type_err'] = 'Please enter company type';
+                    } else {
+                        $data['company_type_err'] = '';
+                    }
+
+                    if (empty($data['reg_number'])){
+                        $data['reg_number_err'] = 'Please enter registration number';
+                    } else {
+                        $data['reg_number_err'] = '';
+                    }
+                } else {
+                    // If com_name is not provided, clear com_email, com_address, telephone, company_type, reg_number errors
+                    $data['com_email_err'] = '';
+                    $data['com_address_err'] = '';
+                    $data['telephone_err'] = '';
+                    $data['company_type_err'] = '';
+                    $data['reg_number_err'] = '';
+                    $data['com_name_err'] = '';
+                }
+                
+
+                // Validate district5
+                if (empty($data['district1'])){
+                    $data['district1_err'] = 'Please enter the collection district';
+                } else {
+                    $data['district1_err'] = '';
+                }
+
+
+                //Check if the user has agreed to the terms
                 // if (!isset($_POST['agree'])) {
                 //     $data['err'] = 'You must agree to the terms and conditions.';
                 // }
         
                 // Validation is completed and no error then register the user
-                if(true){
+                if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['make_err']) && empty($data['model_err']) && empty($data['insurance_err']) && empty($data['color_err']) && empty($data['district1_err'])){
                     // Register collector
                     if($this->collectorModel->register($data)){
                         // Create a flash message
@@ -122,8 +210,27 @@
                     'district3' => '',
                     'district4' => '',
                     'district5' => '',
-                    // 'agree' => '',
-                    'err' => ''
+                    
+                    'nic_err' => '',
+                    'gender_err' => '',
+                    'address_err' => '',
+                    'com_name_err' => '',
+                    'com_email_err' => '',
+                    'com_address_err' => '',
+                    'telephone_err' => '',
+                    'company_type_err' => '',
+                    'reg_number_err' => '',
+                    'vehicle_type_err' => '',
+                    'vehicle_reg_err' => '',
+                    'make_err' => '',
+                    'model_err' => '',
+                    'insurance_err' => '',
+                    'color_err' => '',
+                    'district1_err' => '',
+                    'district2_err' => '',
+                    'district3_err' => '',
+                    'district4_err' => '',
+                    'district5_err' => ''
                     ];
                     // Guests or other user types should go to general user registration
                     redirect('Users/register');
