@@ -64,10 +64,10 @@
                     // Register collector
                     if($this->collectorModel->register($data)){
                         // Create a flash message
+                        
                         flash('reg_flash', 'You are successfully registered as a collector!');
                         // Assuming $user is an instance of the class that contains the updateUserType method
-                        if ($user->updateUserType('collector')) {
-                            die(print_r($data));
+                        if ($this->userModel->updateUserType('collector')) {
                             echo 'User type updated successfully';
                         } else {
                             echo 'Failed to update user type';
