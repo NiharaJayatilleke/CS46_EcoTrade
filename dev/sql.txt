@@ -76,16 +76,6 @@ CREATE TABLE Item_Ads (
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
-CREATE TABLE Featured_Ads (
-    f_id INT AUTO_INCREMENT,
-    p_id INT,
-    package VARCHAR(255),
-    duration VARCHAR(255),
-    PRIMARY KEY(f_id),
-    starting_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (p_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
-);
-
 CREATE TABLE Recycle_Item_Ads (
     r_id INT AUTO_INCREMENT,
     seller_id INT,
@@ -110,7 +100,7 @@ CREATE TABLE Re_Centers (
     PRIMARY KEY(rad_id)
 );
 
-CREATE OR REPLACE VIEW v_ads AS
+CREATE VIEW v_ads AS
     SELECT
         Item_Ads.p_id as ad_id,
         General_User.id as seller_id, 
@@ -125,16 +115,10 @@ CREATE OR REPLACE VIEW v_ads AS
         Item_Ads.item_location as item_location,
         Item_Ads.selling_format as selling_format,
         Item_Ads.negotiable as negotiable,
-        Item_Ads.created_at as item_created_at,
-        Featured_Ads.package as feature_package,
-        Featured_Ads.duration as feature_duration,
-        Featured_Ads.starting_time as feature_starting_time,
-        NOW() > DATE_ADD(Featured_Ads.starting_time, INTERVAL Featured_Ads.duration DAY) as is_package_over,
-        TIMESTAMPDIFF(SECOND, NOW(), DATE_ADD(Featured_Ads.starting_time, INTERVAL Featured_Ads.duration DAY)) as remaining_time
-    FROM Item_Ads 
-    RIGHT JOIN General_User ON Item_Ads.seller_id = General_User.id
-    LEFT JOIN Featured_Ads ON Item_Ads.p_id = Featured_Ads.p_id
-    ORDER BY Item_Ads.created_at DESC;
+        Item_Ads.created_at as item_created_at
+    FROM Item_Ads INNER JOIN General_User
+    ON Item_Ads.seller_id = General_User.id
+ORDER BY Item_Ads.created_at DESC;
 
 DROP TABLE IF EXISTS Messages;
 
