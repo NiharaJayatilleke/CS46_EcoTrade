@@ -64,7 +64,29 @@
 
     <?php if (!empty($data['ads'])) : ?>
     <div class = "ads-container">
-        <?php foreach($data['ads'] as $ad): ?>
+    <?php 
+        usort($data['ads'], function($a, $b) {
+            // $a_has_pv = isset($a->feature_package) && $a->feature_package == 'PV' && !$a->is_package_over;
+            // $b_has_pv = isset($b->feature_package) && $b->feature_package == 'PV' && !$b->is_package_over;
+            // return $b_has_pv - $a_has_pv;
+            $a_has_pv = isset($a->feature_package) && $a->feature_package == 'PV' && $a->remaining_time > 0;
+            $b_has_pv = isset($b->feature_package) && $b->feature_package == 'PV' && $b->remaining_time > 0;
+
+            // If both ads have a 'PV' feature that is not over, compare their remaining time
+            if ($a_has_pv && $b_has_pv) {
+                return $a->remaining_time <=> $b->remaining_time;
+            }
+
+            // If only one ad has a 'PV' feature that is not over, that ad should come first
+            if ($a_has_pv) return -1;
+            if ($b_has_pv) return 1;
+
+            // If neither ad has a 'PV' feature that is not over, their order doesn't matter
+            return 0;
+            
+        });
+
+        foreach($data['ads'] as $ad): ?>
             <a class = "ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
                 <div class = "ad-index-container"
                 data-price="<?php echo $ad->item_price ?>"

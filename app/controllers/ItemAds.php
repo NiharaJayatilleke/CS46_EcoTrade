@@ -14,6 +14,7 @@
             $data = [
                 'ads' => $ads,
             ];
+            // die(var_dump($data));
 
             $this->view('item_ads/v_index', $data);
         }
@@ -437,6 +438,30 @@
         }
 
         public function promote($adId){
+            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                $json = file_get_contents('php://input');
+        
+                $data = json_decode($json, true);
+
+                $packageType = $data['packageType'];
+                $timeInDays = $data['timeInDays'];
+                $adId = $data['adId'];
+
+                $packageData = [
+                    'package' => $packageType,
+                    'duration' => $timeInDays,
+                    'ad_id' => $adId
+                ];
+        
+                $this->itemAdsModel->adFeature($packageData);
+
+                header('Content-Type: application/json');
+                echo json_encode(['success' => true]);
+
+            } else {
+                    
             $ad = $this->itemAdsModel->getAdById($adId);
             
             $data = [
@@ -444,6 +469,8 @@
             ];
 
             $this->view('item_ads/v_promote',$data);
+
+            }
         }
 
         public function delete($adId){
