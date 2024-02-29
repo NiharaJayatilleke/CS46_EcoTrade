@@ -34,7 +34,7 @@
                         
                         <div class="collector-input-field">
                             <label for="gender">Gender<span class="required">*</span></label>
-                            <select id="gender" name="gender" required>
+                            <select id="gender" name="gender" >
                                 <option value="">Select...</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -44,7 +44,7 @@
 
                         <div class="collector-input-field">
                             <label>Address<span class="required">*</span></label>
-                            <input type="text" id="address" name="address" placeholder="Enter your Address" required>
+                            <input type="text" id="address" name="address" placeholder="Enter your Address" >
                         </div>
 
 
@@ -173,7 +173,7 @@
                         <!-- First field (required) -->
                         <div class="collector-input-field">
                             <label>Select District 1<span class="required">*</span></label>
-                            <select name="district1" id="district1" class="district-select" required>
+                            <select name="district1" id="district1" class="district-select" >
                                 <option value="">Select...</option>
                                 <option value="Colombo">Colombo</option>
                                 <option value="Gampaha">Gampaha</option>
