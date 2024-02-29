@@ -118,6 +118,7 @@ CREATE OR REPLACE VIEW v_ads AS
         General_User.username as seller_name,
         Item_Ads.item_name as item_name,
         Item_Ads.item_category as item_category,
+        Item_Ads.item_quantity as item_quantity,
         Item_Ads.item_desc as item_desc,
         Item_Ads.item_condition as item_condition,
         Item_Ads.item_image as item_image,
