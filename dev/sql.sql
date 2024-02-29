@@ -26,7 +26,7 @@ CREATE TABLE Moderators (
 );
 
 CREATE TABLE Collectors (
-    id INT,
+    id INT AUTO_INCREMENT,
     nic VARCHAR(255),
     gender VARCHAR(50),
     address TEXT,
