@@ -14,6 +14,7 @@
             $data = [
                 'ads' => $ads,
             ];
+            // die(var_dump($data));
 
             $this->view('item_ads/v_index', $data);
         }
