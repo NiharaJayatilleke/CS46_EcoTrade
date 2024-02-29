@@ -126,10 +126,16 @@ CREATE OR REPLACE VIEW v_ads AS
         Item_Ads.item_location as item_location,
         Item_Ads.selling_format as selling_format,
         Item_Ads.negotiable as negotiable,
-        Item_Ads.created_at as item_created_at
-    FROM Item_Ads INNER JOIN General_User
-    ON Item_Ads.seller_id = General_User.id
-ORDER BY Item_Ads.created_at DESC;
+        Item_Ads.created_at as item_created_at,
+        Featured_Ads.package as feature_package,
+        Featured_Ads.duration as feature_duration,
+        Featured_Ads.starting_time as feature_starting_time,
+        NOW() > DATE_ADD(Featured_Ads.starting_time, INTERVAL Featured_Ads.duration DAY) as is_package_over,
+        TIMESTAMPDIFF(SECOND, NOW(), DATE_ADD(Featured_Ads.starting_time, INTERVAL Featured_Ads.duration DAY)) as remaining_time
+    FROM Item_Ads 
+    RIGHT JOIN General_User ON Item_Ads.seller_id = General_User.id
+    LEFT JOIN Featured_Ads ON Item_Ads.p_id = Featured_Ads.p_id
+    ORDER BY Item_Ads.created_at DESC;
 
 DROP TABLE IF EXISTS Messages;
 
