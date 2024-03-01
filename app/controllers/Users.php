@@ -153,16 +153,15 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 // Check if the user has agreed to the terms
                 if (!isset($_POST['agree'])) {
                     $data['agree_err'] = 'You must agree to the terms and conditions.';
-                  }
+                }
 
                 //Validation is completed and no error then Register the user
                 if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])&&empty($data['agree_err'])){
-                     
                     //Hash password
                     $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
                     $data['token']=bin2hex(random_bytes(32));
                     //Register user
-                    if($this->userModel->register($data)){
+                    if($this->userModel->insert_user($data)){   
                         // create a flash message
                         flash('reg_flash', ' A verification email has been sent to your email address.Please check');
                         redirect('Users/login');
@@ -320,149 +319,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
             $this->view('users/profile/v_create', $data);
         }
 
-
-        public function edit_profile(){
-
-            if (!$this->isLoggedIn()) {
-                // Redirect the user to the login page if they are not logged in
-                redirect('Users/login');
-            }
-        
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                
-                // Form submission, update user info
-                $newUsername = trim($_POST['newUsername']);
-                $newContactNumber = trim($_POST['newContactNumber']);
-        
-                // Initialize an array to store validation errors
-                $errors = [];
-        
-                // Validate the new username
-                if (empty($newUsername)) {
-                    $errors['newUsername'] = 'username cannot be empty.';
-                }
-        
-                // Validate the new contact number
-                if (empty($newContactNumber)) {
-                    $errors['newContactNumber'] = 'contact number cannot be empty.';
-                } elseif (!ctype_digit($newContactNumber) || strlen($newContactNumber) < 9) {
-                    $errors['newContactNumber'] = 'Contact number must have at least 10 digits.';   
-                }
-        
-                // Check if there are any validation errors
-                if (empty($errors)) {
-                    // Call the updateUserInfo method in your model to update the user's information
-                    if ($this->userModel->updateUserInfo($newUsername, $newContactNumber)) {
-                        // User information updated successfully
-                        flash('profile_edit', 'Your profile has been updated successfully');
-                        
-                        // update the session
-                        $_SESSION['user_name']=$newUsername;
-                        $_SESSION['user_number'] =$newContactNumber;
-
-                        redirect('users/profile');
-                    } else {
-                        // Error occurred during update
-                        die('Something went wrong while updating the profile');
-                    }
-                } else {
-                    // There are validation errors, re-display the form with error messages
-                    $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-                    $data = [
-                        'user' => $user,
-                        'errors' => $errors
-                    ];
-                    $this->view('users/profile/v_create', $data);
-                }
-            } else {
-                // Display the update form
-                $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-                $data = [
-                    'user' => $user
-                ];
-                $this->view('users/profile/v_create', $data);
-            }
-        } 
-
-
-        public function update() {
-            if (!$this->isLoggedIn()) {
-                // Redirect the user to the login page if they are not logged in
-                redirect('Users/login');
-            }
-        
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                // Sanitize POST data
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        
-                // Form submission, update user password
-                $oldPassword = trim($_POST['oldPassword']);
-                $newPassword = trim($_POST['newPassword']);
-                // $confirmPassword = trim($_POST['confirmPassword']);
-                $confirmPassword = isset($_POST['confirmPassword']) ? trim($_POST['confirmPassword']) : '';
-        
-                // Initialize an array to store validation errors
-                $errors = [];
-        
-                // Validate the old password
-                if (empty($oldPassword)) {
-                    $errors['oldPassword'] = 'Please enter your old password.';
-                } elseif (!$this->userModel->verifyOldPassword($_SESSION['user_id'], $oldPassword)) {
-                    $errors['oldPassword'] = 'Incorrect old password.';
-                }
-        
-                // Validate the new password and confirm password
-                if (empty($newPassword)) {
-                    $errors['newPassword'] = 'New password cannot be empty.';
-                } elseif (strlen($newPassword) < 6) {
-                    $errors['newPassword'] = 'New password must be at least 6 characters.';
-                }
-                
-                if (empty($confirmPassword)) {
-                    $errors['confirmPassword'] = 'Please confirm your new password.';
-                } elseif ($newPassword !== $confirmPassword) {
-                    $errors['confirmPassword'] = 'New password and confirm password do not match.';
-                }
-
-
-                // error_log('Form submitted successfully');
-
-                // Check if there are any validation errors
-                if (empty($errors)) {
-                    // Call the updatePassword method in your model to update the user's password
-                    // echo 'Before if condition';
-                    if ($this->userModel->updatePassword($_SESSION['user_id'], $oldPassword, $newPassword)) {
-                        flash('update_password', 'New password updated successfully');
-                        //echo 'Reached here'; 
-                        // redirect('users/profile');
-                        redirect('users/profile');
-                        
-                    } else {
-                        // Error occurred during password update
-                        die('Something went wrong while updating the password');
-                        
-                    }
-                } else {
-                    // There are validation errors, re-display the form with error messages
-                    $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-                    $data = [
-                        'user' => $user,
-                        'errors' => $errors
-                    ];
-                    $this->view('users/profile/v_create', $data);
-                }
-            } else {
-                // Display the password update form
-                $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-                $data = [
-                    'user' => $user
-                ];
-                $this->view('users/profile/v_create', $data);
-            }
-        }    
-
-
-        public function delete() {
+        public function delete(){
             if (!$this->isLoggedIn()) {
                 // Redirect the user to the login page if they are not logged in
                 redirect('Users/login');
@@ -474,10 +331,9 @@ require APPROOT.'/libraries/vendor/autoload.php';
 
                 // Get the user details
                 $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-            
-                    // Verify the entered password
-                if ($this->userModel->verifyOldPassword($_SESSION['user_id'], $password)) {
 
+                // Verify the entered password
+                if ($this->userModel->verifyOldPassword($_SESSION['user_id'], $password)) {
                     // Password is correct, delete the user
                     if ($this->userModel->deleteUser($_SESSION['user_id'])) {
                         // Logout the user and redirect to the login page
@@ -500,6 +356,169 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 header('Location: ' . URLROOT . '/users/profile');
                 exit();
             }
+        }
+
+        public function send_email_confirmation($token, $usersEmail)
+        {
+            $url = "localhost/ecotrade/users/verify_email?token=$token";
+
+            $this->mail->isSMTP();
+            $this->mail->Host = 'smtp.gmail.com';
+            $this->mail->SMTPAuth = true;
+            $this->mail->SMTPSecure = 'tls';
+            $this->mail->Port = 587; // Use 587 for TLS, 465 for SSL
+            $this->mail->Username = 'ecotrade46@gmail.com';
+            $this->mail->Password = 'inua qsto hwfo seiy';
+
+            //Can Send Email Now
+            $subject = "Verify your email";
+            $message = "<p>Dear user,</p>";
+            $message .= "<p></p>";
+            $message .= "<p>To reset your password, click on the following link:</p>";
+            $message .= "<a href='" . $url . "'>Verify Email</a>";
+            $message .= "<p>This link is valid for a limited time only. If you do not reset your password within this time frame, you may need to request another reset link.</p>";
+            $message .= "<p>Thank you,</p>";
+            $message .= "<p>Best Regards,<br>The EcoTrade Team</p>";
+
+            $this->mail->setFrom('ecotrade46@gmail.com', $subject);
+            $this->mail->isHTML(true);
+            $this->mail->Subject = $subject;
+            $this->mail->Body = $message;
+            $this->mail->addAddress($usersEmail);
+            $this->mail->send();
+        }
+
+        public function verify_email(){
+            $token = $_GET['token'];
+
+            // get user from the temp_user_table
+            $temp_user = $this->userModel->get_user_by_token($token);
+
+            $data['username'] = $temp_user->username;
+            $data['email'] = $temp_user->email;
+            $data['number'] = $temp_user->number;
+            $data['password'] = $temp_user->password;
+            $data['user_type'] = $temp_user->user_type;
+
+            // insert user into the user table
+            $this->userModel->insert_user($data);
+            redirect('Users/login');
+        }
+
+        public function update(){
+            if (!$this->isLoggedIn()) {
+                // Redirect the user to the login page if they are not logged in
+                redirect('Users/login');
+            }
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                // Form submission, update user password
+                $oldPassword = trim($_POST['oldPassword']);
+                $newPassword = trim($_POST['newPassword']);
+                // $confirmPassword = trim($_POST['confirmPassword']);
+                $confirmPassword = isset($_POST['confirmPassword']) ? trim($_POST['confirmPassword']) : '';
+
+                // Initialize an array to store validation errors
+                $errors = [];
+
+                // Validate the old password
+                if (empty($oldPassword)) {
+                    $errors['oldPassword'] = 'Please enter your old password.';
+                } elseif (!$this->userModel->verifyOldPassword($_SESSION['user_id'], $oldPassword)) {
+                    $errors['oldPassword'] = 'Incorrect old password.';
+                }
+
+                // Validate the new password and confirm password
+                if (empty($newPassword)) {
+                    $errors['newPassword'] = 'New password cannot be empty.';
+                } elseif (strlen($newPassword) < 6) {
+                    $errors['newPassword'] = 'New password must be at least 6 characters.';
+                }
+
+                if (empty($confirmPassword)) {
+                    $errors['confirmPassword'] = 'Please confirm your new password.';
+                } elseif ($newPassword !== $confirmPassword) {
+                    $errors['confirmPassword'] = 'New password and confirm password do not match.';
+                }
+
+                // Check if there are any validation errors
+                if (empty($errors)) {
+                    // Call the updatePassword method in your model to update the user's password
+                    // echo 'Before if condition';
+                    if ($this->userModel->updatePassword($_SESSION['user_id'], $oldPassword, $newPassword)) {
+                        flash('update_password', 'New password updated successfully');
+                        //echo 'Reached here'; 
+                        // redirect('users/profile');
+                        redirect('users/profile');
+                    } else {
+                        // Error occurred during password update
+                        die('Something went wrong while updating the password');
+                    }
+                } else {
+                    // There are validation errors, re-display the form with error messages
+                    $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+                    $data = [
+                        'user' => $user,
+                        'errors' => $errors
+                    ];
+                    $this->view('users/profile/v_create', $data);
+                }
+            } else {
+                // Display the password update form
+                $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+                $data = [
+                    'user' => $user
+                ];
+                $this->view('users/profile/v_create', $data);
+            }
+        }
+
+
+        public function edit_profile(){
+
+            if (!$this->isLoggedIn()) {
+                // Redirect the user to the login page if they are not logged in
+                redirect('Users/login');
+            }
+        
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                
+                // Form submission, update user info
+                $newUsername = trim($_POST['newUsername']);
+                $newContactNumber = trim($_POST['newContactNumber']);
+        
+                // Initialize an array to store validation errors
+                $errors = [];
+        
+                // Validate the new username
+                if (empty($newUsername)) {
+                    $errors['newUsername'] = 'username cannot be empty.';
+                }
+        
+                
+                // Validate the new contact number
+                if (empty($newContactNumber)) {
+                    $errors['newContactNumber'] = 'contact number cannot be empty.';
+                } elseif (!ctype_digit($newContactNumber) || strlen($newContactNumber) < 9) {
+                    $errors['newContactNumber'] = 'Contact number must have at least 10 digits.';   
+                }
+        
+                // Check if there are any validation errors
+                if (empty($errors)) {
+                    // Call the updateUserInfo method in your model to update the user's information
+                    if ($this->userModel->updateUserInfo($newUsername, $newContactNumber)) {
+                        // User information updated successfully
+                        flash('profile_edit', 'Your profile has been updated successfully');
+                        
+                        // update the session
+                        $_SESSION['user_name']=$newUsername;
+                    }
+                }
+            }
+
                     
         }
 
@@ -571,5 +590,5 @@ require APPROOT.'/libraries/vendor/autoload.php';
             redirect('Users/login');
 
         }
-
     }
+                            

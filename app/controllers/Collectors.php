@@ -35,27 +35,27 @@
                     'district2' => trim($_POST['district2']),
                     'district3' => trim($_POST['district3']),
                     'district4' => trim($_POST['district4']),
-                    'district5' => trim($_POST['district5'])
+                    'district5' => trim($_POST['district5']),
 
-                    // 'nic_err' => '',
-                    // 'gender_err' => '',
-                    // 'address_err' => '',
-                    // 'com_name_err' => '',
-                    // 'com_email_err' => '',
-                    // 'com_address_err' => '',
-                    // 'telephone_err' => '',
-                    // 'company_type_err' => '',
-                    // 'reg_number_err' => '',
-                    // 'vehicle_type_err' => '',
-                    // 'vehicle_reg_err' => '',
-                    // 'make_err' => '',
-                    // 'model_err' => '',
-                    // 'insurance_err' => '',
-                    // 'color_err' => '',
-                    // 'district1_err' => '',
-                    // 'district2_err' => '',
-                    // 'district3_err' => '',
-                    // 'district4_err' => '',
+                    'nic_err' => '',
+                    'gender_err' => '',
+                    'address_err' => '',
+                    'com_name_err' => '',
+                    'com_email_err' => '',
+                    'com_address_err' => '',
+                    'telephone_err' => '',
+                    'company_type_err' => '',
+                    'reg_number_err' => '',
+                    'vehicle_type_err' => '',
+                    'vehicle_reg_err' => '',
+                    'make_err' => '',
+                    'model_err' => '',
+                    'insurance_err' => '',
+                    'color_err' => '',
+                    'district1_err' => '',
+                    'district2_err' => '',
+                    'district3_err' => '',
+                    'district4_err' => ''
                     // 'district5_err' => ''
                     // 'agree' => trim($_POST['agree']),
                 ];
@@ -148,8 +148,7 @@
                 // }
         
                 // Validation is completed and no error then register the user
-                // if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['make_err']) && empty($data['model_err']) && empty($data['insurance_err']) && empty($data['color_err']) && empty($data['district1_err'])){
-                   if(true){
+                if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['make_err']) && empty($data['model_err']) && empty($data['insurance_err']) && empty($data['color_err']) && empty($data['district1_err'])){
                     // Register collector
                     if($this->collectorModel->register($data)){
                         // Create a flash message
@@ -175,10 +174,13 @@
             }
             else {
                 $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-                // die('User ID: ' . $_SESSION['user_id'] . ', User Type: ' . $_SESSION['userType']);
-                if($_SESSION['userType'] == 'collector'){
-                    // Redirect to login page
+
+                if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == null) {
+                    // If user is not logged in, redirect to login page
                     redirect('Users/login');
+                } else if($_SESSION['userType'] == 'collector') {
+                    // If user is a collector, redirect to a different page (e.g., collector's dashboard)
+                    redirect('Collectors/dashboard');
                 }
                 else if(isset($_SESSION['user_id']) && isset($_SESSION['userType']) && ($_SESSION['userType'] != 'collector'|| $_SESSION['userType'] != 'recenter' || $_SESSION['userType'] != null)) {
                     $data = [
