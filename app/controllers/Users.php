@@ -536,7 +536,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
             $message = "<p>Dear user,</p>";
             // $message = "Dear {$data['username']},\n\n";
             $message .= "<p></p>";
-            $message .= "<p>To reset your password, click on the following link:</p>";
+            $message .= "<p>To verify your email, please click on the following link:</p>";
             $message .= "<a href='".$url."'>Verify Email</a>";
             // $message .= "<a href='".$url."'>".$url."</a>";
             $message .= "<p>This link is valid for a limited time only. If you do not reset your password within this time frame, you may need to request another reset link.</p>";

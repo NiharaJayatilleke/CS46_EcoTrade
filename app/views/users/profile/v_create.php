@@ -1,6 +1,8 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
+
+<?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 <body id="profile-body">
-    <div class="hero2">
+    <!-- <div class="hero2"> -->
     <div class="profile_container">
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/profile_styles.css">
             <div class="row no-gutters row-bordered row-border-light">

@@ -12,7 +12,7 @@ body, h1, h4, p {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2 !important;
 } */
-.hero{
+/* .hero{
     height: 100vh;
     width: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('../../img/signup/banner.jpg');
@@ -20,7 +20,7 @@ body, h1, h4, p {
     background-size: cover;
     position: absolute;
     filter: blur(2px);
-}
+} */
 
 
 .profile_container {
