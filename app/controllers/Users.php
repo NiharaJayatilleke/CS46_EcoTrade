@@ -358,53 +358,6 @@ require APPROOT.'/libraries/vendor/autoload.php';
             }
         }
 
-        public function send_email_confirmation($token, $usersEmail)
-        {
-            $url = "localhost/ecotrade/users/verify_email?token=$token";
-
-            $this->mail->isSMTP();
-            $this->mail->Host = 'smtp.gmail.com';
-            $this->mail->SMTPAuth = true;
-            $this->mail->SMTPSecure = 'tls';
-            $this->mail->Port = 587; // Use 587 for TLS, 465 for SSL
-            $this->mail->Username = 'ecotrade46@gmail.com';
-            $this->mail->Password = 'inua qsto hwfo seiy';
-
-            //Can Send Email Now
-            $subject = "Verify your email";
-            $message = "<p>Dear user,</p>";
-            $message .= "<p></p>";
-            $message .= "<p>To reset your password, click on the following link:</p>";
-            $message .= "<a href='" . $url . "'>Verify Email</a>";
-            $message .= "<p>This link is valid for a limited time only. If you do not reset your password within this time frame, you may need to request another reset link.</p>";
-            $message .= "<p>Thank you,</p>";
-            $message .= "<p>Best Regards,<br>The EcoTrade Team</p>";
-
-            $this->mail->setFrom('ecotrade46@gmail.com', $subject);
-            $this->mail->isHTML(true);
-            $this->mail->Subject = $subject;
-            $this->mail->Body = $message;
-            $this->mail->addAddress($usersEmail);
-            $this->mail->send();
-        }
-
-        public function verify_email(){
-            $token = $_GET['token'];
-
-            // get user from the temp_user_table
-            $temp_user = $this->userModel->get_user_by_token($token);
-
-            $data['username'] = $temp_user->username;
-            $data['email'] = $temp_user->email;
-            $data['number'] = $temp_user->number;
-            $data['password'] = $temp_user->password;
-            $data['user_type'] = $temp_user->user_type;
-
-            // insert user into the user table
-            $this->userModel->insert_user($data);
-            redirect('Users/login');
-        }
-
         public function update(){
             if (!$this->isLoggedIn()) {
                 // Redirect the user to the login page if they are not logged in
@@ -551,15 +504,12 @@ require APPROOT.'/libraries/vendor/autoload.php';
 
             //Can Send Email Now
             $subject = "Verify your email";
-            // $message = "<p>Dear $username,</p>";
             $message = "<p>Dear user,</p>";
             // $message = "Dear {$data['username']},\n\n";
             $message .= "<p></p>";
             $message .= "<p>To verify your email, please click on the following link:</p>";
             $message .= "<a href='".$url."'>Verify Email</a>";
-            // $message .= "<a href='".$url."'>".$url."</a>";
             $message .= "<p>This link is valid for a limited time only. If you do not reset your password within this time frame, you may need to request another reset link.</p>";
-            // $message .= "<p>If you have any questions or concerns, please contact us at support@example.com.</p>";
             $message .= "<p>Thank you,</p>";
             $message .= "<p>Best Regards,<br>The EcoTrade Team</p>";
             // $message .= "<script>window.open('$url', '_blank');</script>";  // open the link in a new tab
@@ -590,5 +540,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
             redirect('Users/login');
 
         }
+
+        
     }
                             
