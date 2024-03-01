@@ -145,12 +145,12 @@
                         </div>
 
                         <div class="collector-input-field">
-                            <label>Vehicle Make</label>
+                            <label>Vehicle Make<span class="required">*</span></label>
                             <input type="text" name="make" id="make" placeholder="Enter Vehicle Make" >
                         </div>
 
                         <div class="collector-input-field">
-                            <label>Vehicle Model</label>
+                            <label>Vehicle Model<span class="required">*</span></label>
                             <input type="text" name="model" id="model" placeholder="Enter Vehicle Model" >
                         </div>
 
