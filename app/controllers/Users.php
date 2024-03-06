@@ -29,10 +29,13 @@ require APPROOT.'/libraries/vendor/autoload.php';
                     $data['email_err']='Please enter the email';
                 }
                 else{
-                    if(!$this->userModel->findUserByEmail($data['email'])){
+                    if(!$this->userModel->findUserByEmail($data['email'])&&$this->userModel->findnonverifiedUserByEmail($data['email'])){
+                        $data['email_err'] = 'User not verified. Please check your email';}
+                    else{
                         //User is not found
                         $data['email_err'] = 'User not found';
                     }
+                
                 }
 
                 //Validate the password
@@ -161,7 +164,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                     $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
                     $data['token']=bin2hex(random_bytes(32));
                     //Register user
-                    if($this->userModel->insert_user($data)){   
+                    if($this->userModel->register($data)){   
                         // create a flash message
                         flash('reg_flash', ' A verification email has been sent to your email address.Please check');
                         redirect('Users/login');
@@ -537,6 +540,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
 
             // insert user into the user table
             $this->userModel->insert_user($data);
+            $this->userModel->deleteVerifiedUser($temp_user->email);
             redirect('Users/login');
 
         }
