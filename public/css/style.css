@@ -6,6 +6,10 @@
 /* FOOTER */
 @import url('components/footer.css');
 
+/* ERROR PAGES */
+@import url('pages/forbidden.css');
+@import url('pages/404.css');
+
 /*COMPONENTS*/
 @import url('components/topnavbar_styles.css');
 @import url('components/form_styles.css');

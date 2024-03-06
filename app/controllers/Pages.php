@@ -29,5 +29,10 @@
             $data = [];
             $this->view('pages/404',$data);
         }
+
+        public function forbidden(){
+            $data = [];
+            $this->view('pages/forbidden',$data);
+        }
     }
 ?>
