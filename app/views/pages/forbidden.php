@@ -1,19 +1,10 @@
 
 <?php require APPROOT.'/views/inc/header.php'; ?>
 
-<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Frijole|Josefin+Sans:300,400,400i,600,700|Viga" rel="stylesheet">
-
-
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 306.8 404.9" style="enable-background:new 0 0 306.8 404.9;" xml:space="preserve">
-
-
-
   <g>
     <g class="st6">
-
-
-
 
       <g>
         <!--  bottom teeth shadow I  -->
