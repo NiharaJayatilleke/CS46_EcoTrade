@@ -69,6 +69,20 @@
             }
         }
 
+           // Find the nonverifieduser
+           public function findnonverifiedUserByEmail($email){
+            $this->db->query('SELECT * FROM Non_Verified_Users WHERE email =:email');
+            $this->db->bind(':email',$email);
+
+            $row = $this->db->single();
+            if($this->db->rowCount() > 0){
+                return $row->id;
+            }
+            else{
+                return false;
+            }
+        }
+
         // Login the user
         public function login($email,$password){
             $this->db->query('SELECT * FROM General_User WHERE email =:email');
@@ -206,6 +220,13 @@
             return $this->db->execute();
         }
 
+        public function deleteVerifiedUser($useremail) {
+            $this->db->query('DELETE FROM Non_Verified_Users WHERE email = :email');
+            $this->db->bind(':email', $useremail);
+    
+            return $this->db->execute();
+        }
+        
         public function checkUserExists($user_id) {
             $this->db->query('SELECT id FROM General_User WHERE id = :user_id');
             $this->db->bind(':user_id', $user_id);
