@@ -8,7 +8,7 @@
 
 /* ERROR PAGES */
 @import url('pages/forbidden.css');
-@import url('pages/404.css');
+@import url('pages/error.css');
 
 /*COMPONENTS*/
 @import url('components/topnavbar_styles.css');

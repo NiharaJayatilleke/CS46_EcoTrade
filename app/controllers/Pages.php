@@ -27,7 +27,7 @@
 
         public function error(){
             $data = [];
-            $this->view('pages/404',$data);
+            $this->view('pages/error',$data);
         }
 
         public function forbidden(){
