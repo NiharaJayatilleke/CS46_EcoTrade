@@ -172,7 +172,7 @@
 }
 .arrows{
     position: absolute;
-
+    
     right: 50px;
     z-index: 100;
 }
@@ -201,7 +201,7 @@
     font-size: x-large;
     color: #eee;
     transition: .5s;
-    margin-top: 690px;
+    margin-top: 680px;
 }
 .arrows button:hover{
     background-color: #eee;
