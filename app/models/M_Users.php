@@ -57,12 +57,13 @@
 
         // Find the user
         public function findUserByEmail($email){
-            $this->db->query('SELECT * FROM General_User WHERE email =:email');
+            $this->db->query('SELECT * FROM general_User WHERE email =:email');
             $this->db->bind(':email',$email);
 
             $row = $this->db->single();
             if($this->db->rowCount() > 0){
                 return $row->id;
+                
             }
             else{
                 return false;
@@ -71,7 +72,7 @@
 
            // Find the nonverifieduser
            public function findNonVerifiedUserByEmail($email){
-            $this->db->query('SELECT * FROM Non_Verified_Users WHERE email =:email');
+            $this->db->query('SELECT * FROM Non_Verified_Users WHERE email =:email AND verified=0');
             $this->db->bind(':email',$email);
 
             $row = $this->db->single();

@@ -27,23 +27,21 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 //validate the email
                 if(empty($data['email'])){
                     $data['email_err']='Please enter the email';
-                }
-                else{
-                    if (!$this->userModel->findUserByEmail($data['email']) && $this->userModel->findnonverifiedUserByEmail($data['email'])) {
+
+                }else{
+                    if ($this->userModel->findnonverifiedUserByEmail($data['email'])) {
                         $data['email_err'] = 'User not verified. Please check your email';
-                    } else {
+                    } elseif(!$this->userModel->findUserByEmail($data['email'])) {
                         $data['email_err'] = 'User not found';
                     }
                 }
                 
-
                 //Validate the password
                 if(empty($data['password'])){
                     $data['password_err']='Please enter the password';
                 }
-
                 //If no error found the login the user
-                if(empty($data['email_err'])&&empty($data['password_err'])){
+                if(empty($data['email_err']) && empty($data['password_err'])){
                     //log the user
                     $loggedUser = $this->userModel->login($data['email'],$data['password']);
 
