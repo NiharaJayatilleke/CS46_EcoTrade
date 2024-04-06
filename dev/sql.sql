@@ -225,6 +225,7 @@ CREATE TABLE Non_Verified_Users(
     password VARCHAR(255),
     user_type VARCHAR(255),
     token VARCHAR (255),
+    verified BOOLEAN DEFAULT FALSE,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(id)
 

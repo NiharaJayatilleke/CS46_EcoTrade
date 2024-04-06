@@ -70,7 +70,7 @@
         }
 
            // Find the nonverifieduser
-           public function findnonverifiedUserByEmail($email){
+           public function findNonVerifiedUserByEmail($email){
             $this->db->query('SELECT * FROM Non_Verified_Users WHERE email =:email');
             $this->db->bind(':email',$email);
 
@@ -220,8 +220,15 @@
             return $this->db->execute();
         }
 
-        public function deleteVerifiedUser($useremail) {
-            $this->db->query('DELETE FROM Non_Verified_Users WHERE email = :email');
+        // public function deleteVerifiedUser($useremail) {
+        //     $this->db->query('DELETE FROM Non_Verified_Users WHERE email = :email');
+        //     $this->db->bind(':email', $useremail);
+    
+        //     return $this->db->execute();
+        // }
+        
+        public function verify_user($useremail) {
+            $this->db->query('UPDATE Non_Verified_Users SET verified=TRUE WHERE email = :email');
             $this->db->bind(':email', $useremail);
     
             return $this->db->execute();

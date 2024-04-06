@@ -29,14 +29,13 @@ require APPROOT.'/libraries/vendor/autoload.php';
                     $data['email_err']='Please enter the email';
                 }
                 else{
-                    if(!$this->userModel->findUserByEmail($data['email'])&&$this->userModel->findnonverifiedUserByEmail($data['email'])){
-                        $data['email_err'] = 'User not verified. Please check your email';}
-                    else{
-                        //User is not found
+                    if (!$this->userModel->findUserByEmail($data['email']) && $this->userModel->findnonverifiedUserByEmail($data['email'])) {
+                        $data['email_err'] = 'User not verified. Please check your email';
+                    } else {
                         $data['email_err'] = 'User not found';
                     }
-                
                 }
+                
 
                 //Validate the password
                 if(empty($data['password'])){
@@ -531,17 +530,31 @@ require APPROOT.'/libraries/vendor/autoload.php';
             
             // get user from the temp_user_table
             $temp_user=$this->userModel->get_user_by_token($token);
-            
-            $data['username']=$temp_user->username;
-            $data['email']=$temp_user->email;
-            $data['number']=$temp_user->number;
-            $data['password']=$temp_user->password;
-            $data['user_type']=$temp_user->user_type;
 
-            // insert user into the user table
-            $this->userModel->insert_user($data);
-            $this->userModel->deleteVerifiedUser($temp_user->email);
-            redirect('Users/login');
+            if($temp_user){
+                // if user is not verified make a new one
+                if(!$temp_user->verified){
+                    $data['username']=$temp_user->username;
+                    $data['email']=$temp_user->email;
+                    $data['number']=$temp_user->number;
+                    $data['password']=$temp_user->password;
+                    $data['user_type']=$temp_user->user_type;
+
+                    // insert user into the user table
+                    $this->userModel->insert_user($data);
+                    $this->userModel->verify_user($temp_user->email);
+                    
+                }
+
+                // after verifying user and already veerified user
+                redirect('Users/login');
+                
+            }else{
+                // user not found
+                $this->view('pages/verified');
+            }
+            
+
 
         }
 
