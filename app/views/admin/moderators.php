@@ -231,5 +231,5 @@
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
 
-<?php require APPROOT.'/views/inc/footer.php'; ?>
+    <?php require APPROOT.'/views/inc/components/footer.php'; ?> 
 

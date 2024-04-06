@@ -180,7 +180,7 @@
 <!-- JS for other interactions -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>
 
-<?php require APPROOT.'/views/inc/footer.php'; ?>
+<?php require APPROOT.'/views/inc/components/footer.php'; ?> 
 
 
     

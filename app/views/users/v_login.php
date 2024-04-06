@@ -37,7 +37,8 @@
         
     </div>
     </body>
-<!-- <?php require APPROOT.'/views/inc/footer.php'; ?> -->
+
+<!-- <?php require APPROOT.'/views/inc/components/footer.php'; ?>  -->
 
 </body>
 </html>

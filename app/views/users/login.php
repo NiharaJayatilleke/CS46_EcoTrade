@@ -52,4 +52,4 @@
     <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/login.js"></script>
 
-    <?php require APPROOT.'/views/inc/footer.php'; ?>
+    <?php require APPROOT.'/views/inc/components/footer.php'; ?> 

@@ -51,5 +51,5 @@
   <a href="<?php echo URLROOT ?>/Users/register" class="signup-button">Sign Up</a>
 </div>
 
-<!-- <?php require APPROOT . '/views/inc/footer.php'; ?> -->
+<!-- <?php require APPROOT.'/views/inc/components/footer.php'; ?>  -->
 
