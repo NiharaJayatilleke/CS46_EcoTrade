@@ -20,4 +20,4 @@
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/404.js"></script>
 
 
-<!-- <?php require APPROOT . '/views/inc/footer.php'; ?> -->
+<?php require APPROOT . '/views/inc/footer.php'; ?>
