@@ -86,11 +86,13 @@
             
         });
 
-        $uniqueIds = array_unique(array_column($data['ads'], 'p_id'));
+        // print_r($data['ads']);
+        $uniqueIds = array_unique(array_column($data['ads'], 'ad_id'));
+        // print_r($uniqueIds);
         $uniqueAds = array_intersect_key($data['ads'], $uniqueIds);
 
         foreach($uniqueAds as $ad): ?>
-        // foreach($data['ads'] as $ad): >
+        <!-- foreach($data['ads'] as $ad): > -->
             <a class = "ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
                 <div class = "ad-index-container"
                 data-price="<?php echo $ad->item_price ?>"

@@ -106,12 +106,32 @@ continueButton.addEventListener('click', function(event) {
     console.log('Continue button clicked');
 
     var packageType1 = document.querySelector('.divv-71').innerText.split(' - ')[0];
-    var timeInDays1 = document.querySelector('.divv-71').innerText.split(' - ')[1] === 'One Week' ? 7 : 30;
+    // var timeInDays1 = document.querySelector('.divv-71').innerText.split(' - ')[1] === 'One Week' ? 7 : 30;
+    var duration1 = document.querySelector('.divv-71').innerText.split(' - ')[1];
+    var timeInDays1;
+    if (duration1 === 'None') {
+        timeInDays1 = 0;
+    } else if (duration1 === 'One Week') {
+        timeInDays1 = 7;
+    } else {
+        timeInDays1 = 30;
+    }
 
     var packageType2 = document.querySelector('.divv-071').innerText.split(' - ')[0];
-    var timeInDays2 = document.querySelector('.divv-071').innerText.split(' - ')[1] === 'One Week' ? 7 : 30;
+    // var timeInDays2 = document.querySelector('.divv-071').innerText.split(' - ')[1] === 'One Week' ? 7 : 30;
+    var duration2 = document.querySelector('.divv-071').innerText.split(' - ')[1];
+    var timeInDays2;
+    if (duration2 === 'None') {
+        timeInDays2 = 0;
+    } else if (duration2 === 'One Week') {
+        timeInDays2 = 7;
+    } else {
+        timeInDays2 = 30;
+    }
     // var params = new URLSearchParams(window.location.search);
     // var adId = params.get('adId');
+
+    // console.log(timeInDays1);
 
     submitPackage(packageType1, timeInDays1, CURRENT_AD);
     submitPackage(packageType2, timeInDays2, CURRENT_AD);
