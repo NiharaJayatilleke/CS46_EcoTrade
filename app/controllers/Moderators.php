@@ -19,6 +19,7 @@
                     'number' => trim($_POST['number']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
+                    // 'user_type' => trim($_POST['user_type']),
 
                     'username_err' => '',
                     'email_err' => '',
@@ -86,7 +87,7 @@
                     if($this->moderatorModel->register($data)){
                         // create a flash message
                         flash('reg_flash', 'You are successfully registered!');
-                        redirect('moderators/index');
+                        redirect('moderators/index');//should redirect back to admin index
                     }
                     else{
                         die('Something went wrong');
@@ -193,7 +194,7 @@
             $_SESSION['moderator_email']=$user->email;
             $_SESSION['moderator_name']=$user->username;
 
-            redirect('Pages/index');
+            redirect('Moderators/index');
         }
 
         public function logout(){
@@ -346,18 +347,18 @@
                 else{
                     die('Something went wrong');
                 }
-            
-            
+                       
         }
 
         public function index(){
             $ads = $this->itemAdsModel->getAds();
-            
+            $userCounts = $this->moderatorModel->getUserCounts();
             $data = [
                 'ads' => $ads,
+                'userCounts' => $userCounts,
             ];
             $this->view('moderators/v_index', $data);
         }
-        
+
     }
 ?>
