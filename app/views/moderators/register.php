@@ -70,6 +70,7 @@
                     </div>
 
                     <!-- <input type="text" name="user_type" id="user_type" value="pBuyer" required="" hidden="" style="display: none;"> -->
+                    <!-- <input type="text" name="user_type" id="user_type" value="moderator" required="" hidden="" style="display: none;"> -->
                 </form>
             </div>
         </div>
@@ -79,5 +80,6 @@
             <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/signup.js"></script>
 
 <?php require APPROOT.'/views/inc/components/footer.php'; ?> 
+
 
 
