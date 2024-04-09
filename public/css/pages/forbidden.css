@@ -1,6 +1,7 @@
 svg{
-  transform: scale(0.3,0.3);
-  margin-top:-45%;
+  transform: scale(.3,.3);
+  margin-top:-35%;
+  height: auto;
 }
 .st0{display:none;}
 .st1{display:inline;fill:#E2E4FA;}

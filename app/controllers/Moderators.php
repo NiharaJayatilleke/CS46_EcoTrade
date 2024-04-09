@@ -351,13 +351,16 @@
         }
 
         public function index(){
-            $ads = $this->itemAdsModel->getAds();
-            
-            $data = [
-                'ads' => $ads,
-            ];
-            $this->view('moderators/v_index', $data);
+            if(!isset($_SESSION['userType']) || $_SESSION['userType'] != 'moderators' || $_SESSION['userType'] != 'admin'){
+                $this->view('pages/forbidden');
+            }
+            else{
+                $ads = $this->itemAdsModel->getAds();
+                $data = [
+                    'ads' => $ads,
+                ];
+                $this->view('moderators/v_index', $data);
+            }
         }
-        
     }
 ?>
