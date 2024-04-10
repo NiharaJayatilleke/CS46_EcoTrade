@@ -9,24 +9,25 @@
         
         public function index(){
             if(!isset($_SESSION['userType']) || $_SESSION['userType'] != 'admin'){
-                die("You are not authorized");
+                $this->view('pages/forbidden');
             }
+            else{
+                $ads = $this->itemAdsModel->getAds();
+                $numSecAds = count($ads);
+                $moderators = $this->moderatorModel->getModerators();
+                $numModerators = count($moderators);
+                $users = $this->userModel->getUsers();
+                $numUsers = count($users);
 
-            $ads = $this->itemAdsModel->getAds();
-            $numSecAds = count($ads);
-            $moderators = $this->moderatorModel->getModerators();
-            $numModerators = count($moderators);
-            $users = $this->userModel->getUsers();
-            $numUsers = count($users);
+                $data = [
+                    'sec_ad_count' => $numSecAds,
+                    'moderators_count' => $numModerators,
+                    'moderators' => $moderators,
+                    'users_count' => $numUsers,
+                ];
 
-            $data = [
-                'sec_ad_count' => $numSecAds,
-                'moderators_count' => $numModerators,
-                'moderators' => $moderators,
-                'users_count' => $numUsers,
-            ];
-
-            $this->view('admin/dashboard', $data);
+                $this->view('admin/dashboard', $data);
+            } 
         }
 
         // public function dashboard(){
@@ -36,26 +37,26 @@
 
         public function moderators(){
             if(!isset($_SESSION['userType']) || $_SESSION['userType'] != 'admin'){
-                die("You are not authorized");
+                $this->view('pages/forbidden');
             }
+            else{
+                $ads = $this->itemAdsModel->getAds();
+                $numSecAds = count($ads);
+                $moderators = $this->moderatorModel->getModerators();
+                $numModerators = count($moderators);
+                $users = $this->userModel->getUsers();
+                $numUsers = count($users);
 
-            $ads = $this->itemAdsModel->getAds();
-            $numSecAds = count($ads);
-            $moderators = $this->moderatorModel->getModerators();
-            $numModerators = count($moderators);
-            $users = $this->userModel->getUsers();
-            $numUsers = count($users);
-
-            $data = [
-                'sec_ad_count' => $numSecAds,
-                'moderators_count' => $numModerators,
-                'moderators' => $moderators,
-                'users_count' => $numUsers,
-            ];
+                $data = [
+                    'sec_ad_count' => $numSecAds,
+                    'moderators_count' => $numModerators,
+                    'moderators' => $moderators,
+                    'users_count' => $numUsers,
+                ];
             
-            //load view
-            $this->view('admin/moderators', $data);
-
+                //load view
+                $this->view('admin/moderators', $data);
+            }
         }
 
 
