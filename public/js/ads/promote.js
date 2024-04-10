@@ -3,18 +3,32 @@ window.onload = function() {
     var radios1 = document.getElementsByName('package1');
     var radios2 = document.getElementsByName('package2');
 
+    // Disable the radio buttons in the first group if a package is already selected
+    if (false/* condition to check if a package from the first group is already selected */) {
+        for (var i = 0; i < radios1.length; i++) {
+            radios1[i].disabled = true;
+        }
+    } else {
     // Add event listeners to the radio buttons in the first group
     for (var i = 0; i < radios1.length; i++) {
         radios1[i].addEventListener('change', function() {
             updateOption1(this.value);
         });
     }
+    }
 
+    // Disable the radio buttons in the second group if a package is already selected
+    if (true/* condition to check if a package from the second group is already selected */) {
+        for (var i = 0; i < radios2.length; i++) {
+            radios2[i].disabled = true;
+        }
+    } else {
     // Add event listeners to the radio buttons in the second group
     for (var i = 0; i < radios2.length; i++) {
         radios2[i].addEventListener('change', function() {
             updateOption2(this.value);
         });
+    }
     }
 // }
 
@@ -106,12 +120,32 @@ continueButton.addEventListener('click', function(event) {
     console.log('Continue button clicked');
 
     var packageType1 = document.querySelector('.divv-71').innerText.split(' - ')[0];
-    var timeInDays1 = document.querySelector('.divv-71').innerText.split(' - ')[1] === 'One Week' ? 7 : 30;
+    // var timeInDays1 = document.querySelector('.divv-71').innerText.split(' - ')[1] === 'One Week' ? 7 : 30;
+    var duration1 = document.querySelector('.divv-71').innerText.split(' - ')[1];
+    var timeInDays1;
+    if (duration1 === 'None') {
+        timeInDays1 = 0;
+    } else if (duration1 === 'One Week') {
+        timeInDays1 = 7;
+    } else {
+        timeInDays1 = 30;
+    }
 
     var packageType2 = document.querySelector('.divv-071').innerText.split(' - ')[0];
-    var timeInDays2 = document.querySelector('.divv-071').innerText.split(' - ')[1] === 'One Week' ? 7 : 30;
+    // var timeInDays2 = document.querySelector('.divv-071').innerText.split(' - ')[1] === 'One Week' ? 7 : 30;
+    var duration2 = document.querySelector('.divv-071').innerText.split(' - ')[1];
+    var timeInDays2;
+    if (duration2 === 'None') {
+        timeInDays2 = 0;
+    } else if (duration2 === 'One Week') {
+        timeInDays2 = 7;
+    } else {
+        timeInDays2 = 30;
+    }
     // var params = new URLSearchParams(window.location.search);
     // var adId = params.get('adId');
+
+    // console.log(timeInDays1);
 
     submitPackage(packageType1, timeInDays1, CURRENT_AD);
     submitPackage(packageType2, timeInDays2, CURRENT_AD);
