@@ -21,7 +21,7 @@
             $this->db->bind(':email',$data['email']);
             $this->db->bind(':number',$data['number']);
             $this->db->bind(':password',$data['password']);  
-            // $this->db->bind(':userType', $data['user_type']);
+            // $this->db->bind(':user_type', $data['user_type']);
             
             if($this->db->execute()){
                 return true;
@@ -98,6 +98,64 @@
             return false;
         }
     }
+
+    public function getUserCounts() {
+        $this->db->query("
+            SELECT
+                'Buyers' AS user_type,
+                COUNT(*) AS count
+            FROM
+                General_User
+            WHERE
+                user_type = 'pBuyer'
+            
+            UNION ALL
+    
+            SELECT
+                'Sellers' AS user_type,
+                COUNT(*) AS count
+            FROM
+                General_User
+            WHERE
+                user_type IN ('seller', 'pSeller', 'rSeller')
+            
+            UNION ALL
+    
+            SELECT
+                'Collectors' AS user_type,
+                COUNT(*) AS count
+            FROM
+                Collectors
+            
+            UNION ALL
+    
+            SELECT
+                'Recycle center' AS user_type,
+                COUNT(*) AS count
+            FROM
+                Re_Centers
+            
+            UNION ALL
+    
+            SELECT
+                'Moderators' AS user_type,
+                COUNT(*) AS count
+            FROM
+                Moderators
+        ");
+    
+        $userCounts = array();
+    
+        $results = $this->db->resultSet();
+        foreach ($results as $row) {
+            // Use object property syntax instead of array syntax
+            $userCounts[$row->user_type] = $row->count;
+        }
+    
+        return $userCounts;
+    }
+    
+    
 }
 
 ?>
