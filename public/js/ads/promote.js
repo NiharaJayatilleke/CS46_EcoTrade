@@ -3,18 +3,32 @@ window.onload = function() {
     var radios1 = document.getElementsByName('package1');
     var radios2 = document.getElementsByName('package2');
 
+    // Disable the radio buttons in the first group if a package is already selected
+    if (false/* condition to check if a package from the first group is already selected */) {
+        for (var i = 0; i < radios1.length; i++) {
+            radios1[i].disabled = true;
+        }
+    } else {
     // Add event listeners to the radio buttons in the first group
     for (var i = 0; i < radios1.length; i++) {
         radios1[i].addEventListener('change', function() {
             updateOption1(this.value);
         });
     }
+    }
 
+    // Disable the radio buttons in the second group if a package is already selected
+    if (true/* condition to check if a package from the second group is already selected */) {
+        for (var i = 0; i < radios2.length; i++) {
+            radios2[i].disabled = true;
+        }
+    } else {
     // Add event listeners to the radio buttons in the second group
     for (var i = 0; i < radios2.length; i++) {
         radios2[i].addEventListener('change', function() {
             updateOption2(this.value);
         });
+    }
     }
 // }
 
