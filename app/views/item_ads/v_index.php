@@ -94,7 +94,7 @@
         foreach($uniqueAds as $ad): ?>
         <!-- foreach($data['ads'] as $ad): > -->
             <a class = "ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
-                <div class = "ad-index-container"
+                <div class = "ad-index-container <?php echo (isset($ad->feature_package) && $ad->feature_package == 'PV' && $ad->remaining_time > 0) ? 'ad-pv-package' : '' ?>"
                 data-price="<?php echo $ad->item_price ?>"
                 data-condition="<?php echo $ad->item_condition ?>"
                 data-category="<?php echo $ad->item_category ?>"
@@ -111,11 +111,16 @@
                                 <a href = "<php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="ad-report-btn" title="report ad"><i class="fas fa-flag"></i></button></a> 
                             </div>
                         <php endif; ?> -->
-                        <div class = "ad-item-name"><h3><?php echo $ad->item_name ?><h3></div>
+                        <div class = "ad-item-name"><h3><?php echo $ad->item_name ?><h3>
+                        <?php if (isset($ad->feature_package) && $ad->feature_package == 'AG'): ?>
+                            <img src="<?php echo URLROOT?>/public/img/itemAds/hot.jpeg" alt="AG Marker" class="ad-ag-marker">
+                        <?php endif; ?>
+                        </div>
+
                         <div class = "ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
                         <div class = "ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
-                        <h3><?php echo $ad->item_category ?><h3>
-                        <h3><?php echo $ad->item_condition ?><h3>
+                        <!-- <h3><php echo $ad->item_category ?><h3>
+                        <h3><php echo $ad->item_condition ?><h3> -->
                     </div>
                     
                     <div class = "ad-body">

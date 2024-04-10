@@ -27,6 +27,11 @@
     text-align: center;
     transition: 300ms ease-in;
 }
+
+.ad-pv-package {
+    border: 2px solid red;
+}
+
 .ad-index-container:hover {
     background: rgba(255, 255, 255, 0.532);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -54,12 +59,20 @@
 }
 
 .ad-item-name {
+    display: flex;
+    align-items: center;
     margin-top: 6px;
     font-size: 17px;
     color:#333;
     text-align: left;
     margin-left: 8px;
     padding-bottom: 8px;
+}
+
+.ad-ag-marker {
+    height: 60px;
+    width: 60px;
+    margin-left: 130px;
 }
 
 .ad-body-desc {
