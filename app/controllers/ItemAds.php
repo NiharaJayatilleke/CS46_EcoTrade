@@ -480,9 +480,19 @@
                 $reason = $_POST['reason'];
                 $comments = $_POST['comments'];
                 $contact = $_POST['contact'];
+
+                $data = [
+                    'ad_id' => $adId,
+                    'reporter_id' => $_SESSION['user_id'],
+                    'reason' => $reason,
+                    'comments' => $comments,
+                    'contact' => $contact,
+                    'status' => 'Pending' // Assuming the initial status is 'Pending'
+                ];
         
                 //send to the database
-                die($reason.' '.$comments.' '.$contact);
+                //die($reason.' '.$comments.' '.$contact);
+                $this->itemAdsModel->reportAd($data);
 
                 echo 'Data received successfully.';
             } else {

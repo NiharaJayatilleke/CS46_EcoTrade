@@ -93,6 +93,23 @@
                 return false;
             }
         }
+
+        public function reportAd($data){
+            $this->db->query('INSERT INTO Reported_Ads(ad_id, reporter_id, report_reason, report_comments, report_contact, report_status) VALUES(:ad_id, :reporter_id, :reason, :comments, :contact, :status)');
+            $this->db->bind(':ad_id', $data['ad_id']);
+            $this->db->bind(':reporter_id', $data['reporter_id']);
+            $this->db->bind(':reason', $data['reason']);
+            $this->db->bind(':comments', $data['comments']);
+            $this->db->bind(':contact', $data['contact']);
+            $this->db->bind(':status', $data['status']);
+            
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 
 ?>
