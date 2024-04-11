@@ -477,14 +477,15 @@
         window.location.href = '<?php echo URLROOT; ?>/moderators/index' + hash;
         showContent(section);
     }
-}
+    }
     
     </script>
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
-    <script>var userCounts = <?php echo json_encode($data['userCounts']); ?>;
-
-</script> 
-        <!-- Javascript for image upload -->
+    <script>
+    var userCounts = <?php echo json_encode($data['userCounts']); ?>;
+    var adCountsByCategory = <?php echo json_encode($data['adCountsByCategory']); ?>;
+    </script> 
+    <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
    
