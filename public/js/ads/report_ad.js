@@ -44,7 +44,25 @@ function reportAd() {
         cancelButtonText: 'Cancel'
     }).then((result) => {
         if (result.isConfirmed) {
-         // You can access the form values with result.value.reason, result.value.comments, and result.value.contact
+            var reason = result.value.reason;
+            var comments = result.value.comments;
+            var contact = result.value.contact;
+        
+            $.ajax({
+                url:URLROOT +"/ItemAds/report/"+ CURRENT_AD,
+                method: "POST",
+                data: {
+                    reason: reason,
+                    comments: comments,
+                    contact: contact
+                },
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('An error occurred: ' + textStatus, errorThrown);
+                }
+            });
         }
     });
 }

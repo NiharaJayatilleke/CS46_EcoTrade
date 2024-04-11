@@ -473,6 +473,23 @@
             }
         }
 
+        public function report($adId){
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+                $reason = $_POST['reason'];
+                $comments = $_POST['comments'];
+                $contact = $_POST['contact'];
+        
+                //send to the database
+                die($reason.' '.$comments.' '.$contact);
+
+                echo 'Data received successfully.';
+            } else {
+                echo 'Invalid request method.';
+            }
+        }
+
         public function delete($adId){
             $ad = $this->itemAdsModel->getAdById($adId);
 
