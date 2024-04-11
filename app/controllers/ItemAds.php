@@ -473,6 +473,33 @@
             }
         }
 
+        public function report($adId){
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+                $reason = $_POST['reason'];
+                $comments = $_POST['comments'];
+                $contact = $_POST['contact'];
+
+                $data = [
+                    'ad_id' => $adId,
+                    'reporter_id' => $_SESSION['user_id'],
+                    'reason' => $reason,
+                    'comments' => $comments,
+                    'contact' => $contact,
+                    'status' => 'Pending' // Assuming the initial status is 'Pending'
+                ];
+        
+                //send to the database
+                //die($reason.' '.$comments.' '.$contact);
+                $this->itemAdsModel->reportAd($data);
+
+                echo 'Data received successfully.';
+            } else {
+                echo 'Invalid request method.';
+            }
+        }
+
         public function delete($adId){
             $ad = $this->itemAdsModel->getAdById($adId);
 

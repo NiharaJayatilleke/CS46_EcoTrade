@@ -22,6 +22,13 @@ window.onload = function() {
         for (var i = 0; i < radios2.length; i++) {
             radios2[i].disabled = true;
         }
+
+        var p = document.createElement('p');
+        p.textContent = 'You have already activated this package.';
+        p.className = 'activated-para';
+        var radioContainer = document.getElementById('radioContainer2');
+        radioContainer.insertBefore(p, radioContainer.firstChild);
+
     } else {
     // Add event listeners to the radio buttons in the second group
     for (var i = 0; i < radios2.length; i++) {
