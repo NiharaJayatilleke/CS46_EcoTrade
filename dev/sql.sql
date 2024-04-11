@@ -152,6 +152,17 @@ CREATE TABLE Messages(
     FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS Reported_Ads(
+    report_id INT AUTO_INCREMENT,
+    ad_id INT,
+    user_id INT,
+    report_reason TEXT,
+    report_status VARCHAR(255),
+    report_created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(report_id),
+    FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
+    FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
+);
 
 DROP TABLE IF EXISTS Offers;
 
