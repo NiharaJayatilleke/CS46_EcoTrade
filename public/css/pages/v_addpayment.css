@@ -1,3 +1,5 @@
+/* Package Selection Page Styles */
+
 .main {
   margin-top: 40px;
   display: flex;
@@ -21,6 +23,13 @@
   /* width: 100%; */
  
 }
+
+.activated-para{
+  color: #e43512;
+  margin-left: -20px;
+  margin-bottom: 15px;
+}
+
 @media (max-width: 991px) {
   .divv {
     flex-wrap: wrap;
