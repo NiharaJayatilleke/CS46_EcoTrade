@@ -348,9 +348,46 @@
             </div>
 
             <div id="reported-ads-content" class="content-section">
-            <p>This is the content for the reportedads tab.</p>
-            </div>
+                <div class="reported-ads-container">
 
+                    <h1>Reported Ads</h1>
+                    <table class="reported-ads-table">
+                        <tr>
+                            <th>Report ID</th>
+                            <th>Ad ID</th>
+                            <th>Reporter ID</th>
+                            <th>Report Reason</th>
+                            <th>Report Comments</th>
+                            <th>Report Contact</th>
+                            <th>Report Status</th>
+                            <th>Reported At</th>
+                            <th></th>
+                        </tr>
+                        <?php if (!empty($data['reportedAds'])): ?>
+                            <?php foreach ($data['reportedAds'] as $ad): ?>
+                                <tr onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';">
+                                <tr>
+                                    <td><?php echo $ad->report_id; ?></td>
+                                    <td><?php echo $ad->ad_id; ?></td>
+                                    <td><?php echo $ad->reporter_id; ?></td>
+                                    <td><?php echo $ad->report_reason; ?></td>
+                                    <td><?php echo $ad->report_comments; ?></td>
+                                    <td><?php echo $ad->report_contact; ?></td>
+                                    <td><?php echo $ad->report_status; ?></td>
+                                    <td><?php echo $ad->report_created_at; ?></td>
+                                    <td><button onclick="removeReportedAd(<?php echo $ad->ad_id; ?>);">Remove Ad</button></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="8">No reported ads found.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </table>
+                </div>
+
+
+            </div>
 
             <div id="secondhand-content" class="content-section">
                 <div class="ad-right-container">
