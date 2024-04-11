@@ -61,9 +61,6 @@
                 <div class="dashboard-toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-        <!-- <?php
-die($_SESSION['userType']);
-?> -->
                 <!-- search -->
                 <div class="dashboard-search">
                     <label>

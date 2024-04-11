@@ -345,7 +345,8 @@
   }
   .rec-card-hover__link svg {
     width: 18px;
-    margin-left: 4px;
+    margin-left: 2px;
+    margin-top: 3px;
     transition: transform 0.3s;
   }
   .rec-card-hover__extra {
