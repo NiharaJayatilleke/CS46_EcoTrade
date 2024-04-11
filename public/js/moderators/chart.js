@@ -1,5 +1,5 @@
 const ctx = document.getElementById('myChart');
-const earning = document.getElementById('ads');
+const ads = document.getElementById('ads');
 
 // Extract labels and counts from the userCounts object
 var labels = Object.keys(userCounts);
@@ -27,14 +27,19 @@ new Chart(ctx, {
     }
 });
   
+var labels = Object.keys(adCountsByCategory);
+var AdCounts = Object.values(adCountsByCategory);
+
+console.log('Labels:', labels);
+console.log('Counts:', AdCounts);
 
 new Chart(ads, {
   type: 'bar',
   data: {
-    labels: ['Furniture', 'Electronics', 'Clothing', 'Books', 'Kitchenware', 'Home Deco', 'Sports Equipment', 'Appliances', 'Other'],
+    labels: labels,
     datasets: [{
-      label: 'Number of Ads',
-      data: [12, 19, 3, 5, 2, 3, 4, 7, 10],
+      label: 'Number of Preowned ItemAds',
+      data: AdCounts,
       backgroundColor: [
           'rgba(255, 99, 132, 1)',
           'rgba(54, 162, 235, 1)',
@@ -54,5 +59,6 @@ new Chart(ads, {
       responsive: true,
     }
 });
+
 
 

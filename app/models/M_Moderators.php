@@ -154,6 +154,29 @@
     
         return $userCounts;
     }
+
+    public function getItemAdCountsByCategory() {
+        $this->db->query("
+            SELECT
+                item_category,
+                COUNT(*) AS count
+            FROM
+                Item_Ads
+            WHERE
+                status IS NULL
+            GROUP BY
+                item_category
+        ");
+    
+        $countsByCategory = array();
+    
+        $results = $this->db->resultSet();
+        foreach ($results as $row) {
+            $countsByCategory[$row->item_category] = $row->count;
+        }
+    
+        return $countsByCategory;
+    }
     
     
 }

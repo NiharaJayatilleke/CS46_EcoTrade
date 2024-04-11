@@ -356,10 +356,15 @@
             }
             else{
                 $ads = $this->itemAdsModel->getAds();
+                $userCounts = $this->moderatorModel->getUserCounts();
+                $adCountsByCategory = $this->moderatorModel->getItemAdCountsByCategory();
                 $data = [
                     'ads' => $ads,
+                    'userCounts' => $userCounts,
+                    'adCountsByCategory' => $adCountsByCategory,
                 ];
                 $this->view('moderators/v_index', $data);
+
             }
         }
 
