@@ -29,12 +29,12 @@
                         
                         <div class="collector-input-field">
                             <label>NIC/Passport No.<span class="required">*</span></label>
-                            <input type="text" name = "nic" id="nic" placeholder="NIC/Passport No." >
+                            <input type="text" name = "nic" id="nic" placeholder="NIC/Passport No." required >
                         </div>
                         
                         <div class="collector-input-field">
                             <label for="gender">Gender<span class="required">*</span></label>
-                            <select id="gender" name="gender" >
+                            <select id="gender" name="gender" required>
                                 <option value="">Select...</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -44,7 +44,7 @@
 
                         <div class="collector-input-field">
                             <label>Address<span class="required">*</span></label>
-                            <input type="text" id="address" name="address" placeholder="Enter your Address" >
+                            <input type="text" id="address" name="address" placeholder="Enter your Address" required>
                         </div>
 
 
@@ -173,7 +173,7 @@
                         <!-- First field (required) -->
                         <div class="collector-input-field">
                             <label>Select District 1<span class="required">*</span></label>
-                            <select name="district1" id="district1" class="district-select" >
+                            <select name="district1" id="district1" class="district-select" required>
                                 <option value="">Select...</option>
                                 <option value="Colombo">Colombo</option>
                                 <option value="Gampaha">Gampaha</option>

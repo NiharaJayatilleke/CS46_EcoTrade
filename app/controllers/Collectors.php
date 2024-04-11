@@ -180,7 +180,7 @@
                     redirect('Users/login');
                 } else if($_SESSION['userType'] == 'collector') {
                     // If user is a collector, redirect to a different page (e.g., collector's dashboard)
-                    redirect('Collectors/dashboard');
+                    redirect('Collectors/index');
                 }
                 else if(isset($_SESSION['user_id']) && isset($_SESSION['userType']) && ($_SESSION['userType'] != 'collector'|| $_SESSION['userType'] != 'recenter' || $_SESSION['userType'] != null)) {
                     $data = [

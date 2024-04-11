@@ -18,13 +18,19 @@ nextBtn.addEventListener("click", (event) => {
         form.classList.add('secActive');
     } else {
         form.classList.remove('secActive');
-        // alert("Please fill all the required fields");
+        alert("Please fill all the required fields");
     }
 });
 
-backBtn.addEventListener("click", () => form.classList.remove('secActive'));
+form.addEventListener("submit", (event) => {
+    if (!form.classList.contains('secActive')) {
+        event.preventDefault();
+    }
+});
 
-
+backBtn.addEventListener("click", (event) => {
+    form.classList.remove('secActive');
+});
 
 // Function to update options of subsequent select fields based on the selection made
 function updateOptions(selectedValues, selectFields, currentSelect) {

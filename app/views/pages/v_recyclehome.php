@@ -39,7 +39,6 @@
                 </p>
             </div>
         </div>
-        <div class="item
         <div class="item">
             <img src="../public/img/Recyclehome/image/young-blonde-woman-posing-with-plastic-waste.jpg">
             <div class="content">
