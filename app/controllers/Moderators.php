@@ -19,7 +19,7 @@
                     'number' => trim($_POST['number']),
                     'password' => trim($_POST['password']),
                     'confirm_password' => trim($_POST['confirm_password']),
-                    // 'user_type' => trim($_POST['user_type']),
+                    'user_type' => 'moderator',
 
                     'username_err' => '',
                     'email_err' => '',
@@ -42,7 +42,7 @@
                 }
                 else{
                     //check email is already registered or not
-                    if($this->moderatorModel->findModeratorByEmail($data['email'])){
+                    if($this->userModel->findUserByEmail($data['email'])){
                         $data['email_err'] = 'This email is already registered';
                     }
                 }   
@@ -84,10 +84,10 @@
                     $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
 
                     //Register user
-                    if($this->moderatorModel->register($data)){
+                    if($this->userModel->insert_user($data)){
                         // create a flash message
                         flash('reg_flash', 'You are successfully registered!');
-                        redirect('moderators/index');//should redirect back to admin index
+                        redirect('Admin/moderators');//should redirect back to admin index
                     }
                     else{
                         die('Something went wrong');
@@ -120,100 +120,101 @@
                 $this->view('moderators/register', $data);
             }
         }
-        public function login(){
-            if($_SERVER['REQUEST_METHOD']=='POST'){
-                //Form is submitting
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-                $data =[
-                    'email' =>trim($_POST['email']),
-                    'password'=>trim($_POST['password']),
+        // public function login(){
+        //     if($_SERVER['REQUEST_METHOD']=='POST'){
+        //         //Form is submitting
+        //         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-                    'email_err' =>'',
-                    'password_err'=>''
-                ];
-                //validate the email
-                if(empty($data['email'])){
-                    $data['email_err']='Please enter the email';
-                }
-                else{
-                    if($this->moderatorModel->findModeratorByEmail($data['email'])){
-                        //Moderator is found
-                    }
-                    else{
-                        //Moderator is not found
-                        $data['email_err'] = 'Moderator not found';
-                    }
-                }
+        //         $data =[
+        //             'email' =>trim($_POST['email']),
+        //             'password'=>trim($_POST['password']),
 
-                //Validate the password
-                if(empty($data['password'])){
-                    $data['password_err']='Please enter the password';
-                }
+        //             'email_err' =>'',
+        //             'password_err'=>''
+        //         ];
+        //         //validate the email
+        //         if(empty($data['email'])){
+        //             $data['email_err']='Please enter the email';
+        //         }
+        //         else{
+        //             if($this->moderatorModel->findUserByEmail($data['email'])){
+        //                 //Moderator is found
+        //             }
+        //             else{
+        //                 //Moderator is not found
+        //                 $data['email_err'] = 'Moderator not found';
+        //             }
+        //         }
 
-                //If no error found the login the Moderator
-                if(empty($data['email_err'])&&empty($data['password_err'])){
-                    //log the Moderator
-                    $loggedUser = $this->moderatorModel->login($data['email'],$data['password']);
+        //         //Validate the password
+        //         if(empty($data['password'])){
+        //             $data['password_err']='Please enter the password';
+        //         }
 
-                    if($loggedUser){
-                        //User the authenticated
-                        //create user sessions
-                        $this->createModeratorSession($loggedUser);
-                    }
-                    else{
-                        $data['password_err']='Password incorrect';
+        //         //If no error found the login the Moderator
+        //         if(empty($data['email_err'])&&empty($data['password_err'])){
+        //             //log the Moderator
+        //             $loggedUser = $this->userModel->login($data['email'],$data['password']);
 
-                        //Load view with errors
-                        $this->view('moderators/login', $data);
-                    }
-                }
-                else{
-                    //Load view with errors
-                    $this->view('moderators/login', $data);
-                }
+        //             if($loggedUser){
+        //                 //User the authenticated
+        //                 //create user sessions
+        //                 $this->createUserSession($loggedUser);
+        //             }
+        //             else{
+        //                 $data['password_err']='Password incorrect';
 
-            }
-            else{
-                //initial form
-                $data =[
-                    'email' =>'',
-                    'password'=>'',
+        //                 //Load view with errors
+        //                 $this->view('moderators/login', $data);
+        //             }
+        //         }
+        //         else{
+        //             //Load view with errors
+        //             $this->view('moderators/login', $data);
+        //         }
 
-                    'email_err' =>'',
-                    'password_err'=>''
-                ];
+        //     }
+        //     else{
+        //         //initial form
+        //         $data =[
+        //             'email' =>'',
+        //             'password'=>'',
 
-                //Load view
-                $this->view('moderators/login', $data);
-            }
-        }
+        //             'email_err' =>'',
+        //             'password_err'=>''
+        //         ];
 
-        public function createModeratorSession($user){
-            $_SESSION['moderator_id']=$user->id;
-            $_SESSION['moderator_email']=$user->email;
-            $_SESSION['moderator_name']=$user->username;
+        //         //Load view
+        //         $this->view('moderators/login', $data);
+        //     }
+        // }
 
-            redirect('Moderators/index');
-        }
+        // public function createModeratorSession($user){
+        //     $_SESSION['moderator_id']=$user->id;
+        //     $_SESSION['moderator_email']=$user->email;
+        //     $_SESSION['moderator_name']=$user->username;
 
-        public function logout(){
-            unset($_SESSION['moderator_id']);
-            unset($_SESSION['moderator_email']);
-            unset($_SESSION['moderator_name']);
-            session_destroy();
+        //     redirect('Moderators/index');
+        // }
 
-            redirect('Moderators/login');
-        }
+        // public function logout(){
+        //     unset($_SESSION['moderator_id']);
+        //     unset($_SESSION['moderator_email']);
+        //     unset($_SESSION['moderator_name']);
+        //     session_destroy();
+
+        //     redirect('Moderators/login');
+        // }
         
-        public function isLoggedIn(){
-            if(isset($_SESSION['moderator_id'])){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
+        // public function isLoggedIn(){
+        //     if(isset($_SESSION['moderator_id'])){
+        //         return true;
+        //     }
+        //     else{
+        //         return false;
+        //     }
+        // }
 
         public function terms(){
             $this->view('moderators/v_terms'); // Load the 'terms.php' view
@@ -342,7 +343,7 @@
 
                 if($this->moderatorModel->delete($modId)){
                     flash('post_msg', 'Your moderator has been deleted successfully!');
-                    redirect('Admin/index');
+                    redirect('Admin/moderators');
                 }
                 else{
                     die('Something went wrong');

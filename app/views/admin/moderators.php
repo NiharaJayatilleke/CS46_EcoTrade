@@ -165,7 +165,7 @@
 								<td>
 									<div class = "mod-control-btns">
 										<a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-										<a href = "<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button></a>
+                                        <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
 									</div>
 								</td>
 							</tr>
@@ -230,6 +230,8 @@
     <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
+    <!-- JS for alerts -->
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/alerts.js"></script>
 
     <?php require APPROOT.'/views/inc/components/footer.php'; ?> 
 
