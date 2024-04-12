@@ -394,8 +394,11 @@
 .recentCustomers {
     position: relative;
     display: grid;
-    min-height: 500px;
+    grid-auto-flow: row; /* This will make the grid items flow vertically */
+    align-items: start; /* This will align the items to the start of the grid area */
+    /* min-height: 500px; */
     padding: 20px;
+    margin-top: 20px;
     background: var(--white);
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
     border-radius: 20px;

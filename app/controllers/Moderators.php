@@ -87,7 +87,7 @@
                     if($this->userModel->insert_user($data)){
                         // create a flash message
                         flash('reg_flash', 'You are successfully registered!');
-                        redirect('Admin/moderators');//should redirect back to admin index
+                        redirect('Admin/moderators#moderators-content');//should redirect back to admin index
                     }
                     else{
                         die('Something went wrong');
@@ -302,7 +302,7 @@
                     if($this->moderatorModel->edit($data)){
                         // create a flash message
                         flash('reg_flash', 'You are successfully registered!');
-                        redirect('Admin/index');
+                        redirect('Admin/moderators#moderators-content');
                     }
                     else{
                         die('Something went wrong');
@@ -343,7 +343,7 @@
 
                 if($this->moderatorModel->delete($modId)){
                     flash('post_msg', 'Your moderator has been deleted successfully!');
-                    redirect('Admin/moderators');
+                    redirect('Admin/moderators#moderators-content');
                 }
                 else{
                     die('Something went wrong');
