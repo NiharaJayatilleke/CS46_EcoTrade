@@ -278,14 +278,15 @@
     width: 100%;
     padding: 20px;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    /* grid-template-columns: 5fr 1fr; */
     grid-gap: 30px;
 }
 
 .details .recentOrders {
     position: relative;
     display: grid;
-    min-height: 500px;
+    grid-auto-flow: row; /* This will make the grid items flow vertically */
+    align-items: start; /* This will align the items to the start of the grid area */
     background: var(--white);
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
@@ -342,17 +343,17 @@
     padding: 15px;
 }
 
-.details .recentOrders table tr td:last-child {
-    text-align: end;
+/* .details .recentOrders table tr td:last-child {
+    text-align: center;
 }
 
 .details .recentOrders table tr td:nth-child(2) {
-    text-align: end;
+    text-align: center;
 }
 
 .details .recentOrders table tr td:nth-child(3) {
     text-align: center;
-}
+} */
 
 .status.delivered {
     padding: 2px 4px;
@@ -390,11 +391,71 @@
     font-weight: 300;
 }
 
+
+.usertype.rSeller {
+    padding: 2px 4px;
+    background: #50ad25;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.usertype.pBuyer {
+    padding: 2px 4px;
+    background: #f9ca3f;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.usertype.pSeller {
+    padding: 2px 4px;
+    background: rgb(113, 65, 185);
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12x;
+    font-weight: 300;
+}
+
+.usertype.seller {
+    padding: 2px 4px;
+    background: #1795ce;;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.usertype.admin {
+    padding: 2px 4px;
+    background: #ce5a17;;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.usertype.moderator {
+    padding: 2px 4px;
+    background: #12929b;;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+
+
 .recentCustomers {
     position: relative;
     display: grid;
-    min-height: 500px;
+    grid-auto-flow: row; /* This will make the grid items flow vertically */
+    align-items: start; /* This will align the items to the start of the grid area */
+    /* min-height: 500px; */
     padding: 20px;
+    margin-top: 20px;
     background: var(--white);
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
     border-radius: 20px;

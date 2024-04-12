@@ -131,8 +131,9 @@
             return $this->db->single();
         }
 
+        //here we get the users except the admin
         public function getUsers(){
-            $this->db->query('SELECT * FROM General_User');
+            $this->db->query('SELECT * FROM General_User WHERE user_type != "admin"');
 
             $results = $this->db->resultSet();
 
