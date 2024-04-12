@@ -354,7 +354,7 @@
                     <table class="reported-ads-table">
                         <tr>
                             <th>Report ID</th>
-                            <th>Ad ID</th>
+                            <!-- <th>Ad ID</th> -->
                             <th>Reporter ID</th>
                             <th>Report Reason</th>
                             <th>Report Comments</th>
@@ -362,28 +362,29 @@
                             <th>Report Status</th>
                             <th>Reported At</th>
                             <th></th>
+                            <th></th>
                         </tr>
                         <?php if (!empty($data['reportedAds'])): ?>
                             <?php foreach ($data['reportedAds'] as $ad): ?>
-                                <tr onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';">
-                                
+
                                     <td><?php echo $ad->report_id; ?></td>
-                                    <td><?php echo $ad->ad_id; ?></td>
+                                    <!-- <td><?php echo $ad->ad_id; ?></td> -->
                                     <td><?php echo $ad->reporter_id; ?></td>
                                     <td><?php echo $ad->report_reason; ?></td>
                                     <td><?php echo $ad->report_comments; ?></td>
                                     <td><?php echo $ad->report_contact; ?></td>
                                     <td><?php echo $ad->report_status; ?></td>
                                     <td><?php echo $ad->report_created_at; ?></td>
-                                    <!-- <td><button onclick="removeReportedAd(<?php echo $ad->ad_id; ?>);" >Remove Ad</button></td> -->
-                                    <td><button onclick="confirmDelete(<?php echo $ad->ad_id; ?>);" class="btn btn-danger">Remove AD</button></td>
+                                    
+                                    <td><button onclick="confirmDelete(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
+                                    <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
                                     
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
                                 <td colspan="8">No reported ads found.</td>
-                            </tr>
+                            </tr>c
                         <?php endif; ?>
                     </table>
                 </div>
@@ -523,7 +524,7 @@
         function confirmDelete(adId) {
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
-                    confirmButton: 'btn btn-success',
+                    confirmButton: 'btn btn-success ',
                     cancelButton: 'btn btn-danger'
                 },
                 buttonsStyling: false
@@ -539,17 +540,17 @@
                 reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Handle deletion here, for example, using fetch or AJAX
+                    // Handle deletion using fetch 
                     fetch(`http://localhost/ecotrade/Moderators/deleteAd/${adId}`, {
                         method: 'DELETE'
                     }).then(response => {
                         if (response.ok) {
                             swalWithBootstrapButtons.fire(
                                 'Deleted!',
-                                'Your ad has been deleted.',
+                                'Ad has been deleted.',
                                 'success'
                             ).then(() => {
-                                // Optionally, you can reload the page or perform other actions after deletion
+                                // reload the page or perform other actions after deletion
                                 location.reload();
                             });
                         } else {
@@ -564,12 +565,11 @@
                         );
                     });
                 } else if (
-                    /* Read more about handling dismissals below */
                     result.dismiss === Swal.DismissReason.cancel
                 ) {
                     swalWithBootstrapButtons.fire(
                         'Cancelled',
-                        'Your ad is safe :)',
+                        'The Ad is safe :)',
                         'error'
                     );
                 }
