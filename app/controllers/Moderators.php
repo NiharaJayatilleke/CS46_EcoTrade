@@ -351,10 +351,10 @@
         }
 
         public function index(){
-            // if(!isset($_SESSION['userType']) || $_SESSION['userType'] != 'moderators' || $_SESSION['userType'] != 'admin'){
-            //     $this->view('pages/forbidden');
-            // }
-            // else{
+            if(!isset($_SESSION['userType']) || $_SESSION['userType'] != 'moderators' || $_SESSION['userType'] != 'admin'){
+                $this->view('pages/forbidden');
+            }
+            else{
                 $ads = $this->itemAdsModel->getAds();
                 $userCounts = $this->moderatorModel->getUserCounts();
                 $adCountsByCategory = $this->moderatorModel->getItemAdCountsByCategory();
@@ -367,7 +367,7 @@
                ];
                 $this->view('moderators/v_index', $data);
 
-            // }
+            }
         }
 
     }
