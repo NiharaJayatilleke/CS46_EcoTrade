@@ -366,7 +366,7 @@
                         <?php if (!empty($data['reportedAds'])): ?>
                             <?php foreach ($data['reportedAds'] as $ad): ?>
                                 <tr onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';">
-                                <tr>
+                                
                                     <td><?php echo $ad->report_id; ?></td>
                                     <td><?php echo $ad->ad_id; ?></td>
                                     <td><?php echo $ad->reporter_id; ?></td>
@@ -375,7 +375,9 @@
                                     <td><?php echo $ad->report_contact; ?></td>
                                     <td><?php echo $ad->report_status; ?></td>
                                     <td><?php echo $ad->report_created_at; ?></td>
-                                    <td><button onclick="removeReportedAd(<?php echo $ad->ad_id; ?>);">Remove Ad</button></td>
+                                    <!-- <td><button onclick="removeReportedAd(<?php echo $ad->ad_id; ?>);" >Remove Ad</button></td> -->
+                                    <td><button onclick="confirmDelete(<?php echo $ad->ad_id; ?>);" class="btn btn-danger">Remove AD</button></td>
+                                    
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>
@@ -385,8 +387,6 @@
                         <?php endif; ?>
                     </table>
                 </div>
-
-
             </div>
 
             <div id="secondhand-content" class="content-section">
@@ -517,6 +517,67 @@
     }
     
     </script>
+
+    <!-- sweetalert remove ad pop up message -->
+    <script>
+        function confirmDelete(adId) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            });
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Handle deletion here, for example, using fetch or AJAX
+                    fetch(`http://localhost/ecotrade/Moderators/deleteAd/${adId}`, {
+                        method: 'DELETE'
+                    }).then(response => {
+                        if (response.ok) {
+                            swalWithBootstrapButtons.fire(
+                                'Deleted!',
+                                'Your ad has been deleted.',
+                                'success'
+                            ).then(() => {
+                                // Optionally, you can reload the page or perform other actions after deletion
+                                location.reload();
+                            });
+                        } else {
+                            throw new Error('Failed to delete ad');
+                        }
+                    }).catch(error => {
+                        console.error('Error:', error);
+                        swalWithBootstrapButtons.fire(
+                            'Error',
+                            'Failed to delete ad.',
+                            'error'
+                        );
+                    });
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your ad is safe :)',
+                        'error'
+                    );
+                }
+            });
+        }
+    </script>
+
+
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
     <script>
     var userCounts = <?php echo json_encode($data['userCounts']); ?>;

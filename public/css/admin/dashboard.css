@@ -303,7 +303,7 @@
     color: var(--green);
 }
 
-.btn {
+.cardHeader .btn {
     position: relative;
     padding:  10px;
     top: 10px;
