@@ -545,7 +545,7 @@
 
 
 
-
+/* report ads css on moderator dashboard */
 
 .reported-ads-container {
     margin-top: 0rem;
@@ -591,6 +591,7 @@
     border-bottom: 1px solid #848bc82e;
     color: var(--color-dark-variant);
     font-weight: 550;
+    
 }
 
 .reported-ads-table:last-child tr:last-child td {
@@ -602,7 +603,7 @@
     margin: 0.5rem;
 }
 
-.reported-ads-table button {
+#removeadbtn ,.btn.btn-success{
     background: #FF4742;
     border: 1px solid #FF4742;
     border-radius: 6px;
@@ -625,7 +626,7 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
-    z-index: 5;
+    z-index: 5000;
 }
 
 .reported-ads-table button:hover,
@@ -638,3 +639,31 @@
 .reported-ads-table button:active {
     opacity: .5;
 }
+
+#viewadbtn ,.btn.btn-danger{
+    background: #28a745; 
+    border: 1px solid #28a745;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    z-index: 5000;
+    margin-right: 0.5rem;
+}
+
