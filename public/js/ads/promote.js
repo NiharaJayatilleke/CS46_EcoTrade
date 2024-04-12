@@ -1,4 +1,17 @@
 window.onload = function() {
+
+    $.ajax({
+        url: URLROOT + "/ItemAds/packageExists/" + CURRENT_AD,
+        method: "post",
+        data: $("form").serialize(),
+        dataType: "json",
+    
+        success: function(data) {
+            console.log('PV remaining:', data.PV);
+            console.log('AG remaining:', data.AG);
+        }
+    });
+    
     // Get all the radio buttons
     var radios1 = document.getElementsByName('package1');
     var radios2 = document.getElementsByName('package2');

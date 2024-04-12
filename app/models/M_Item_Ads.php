@@ -94,6 +94,13 @@
             }
         }
 
+        public function packageExists($adId){
+            $this->db->query('SELECT * FROM Featured_Ads WHERE p_id = :id');
+            $this->db->bind(':id',$adId);
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
         public function reportAd($data){
             $this->db->query('INSERT INTO Reported_Ads(ad_id, reporter_id, report_reason, report_comments, report_contact, report_status) VALUES(:ad_id, :reporter_id, :reason, :comments, :contact, :status)');
             $this->db->bind(':ad_id', $data['ad_id']);

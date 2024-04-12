@@ -42,7 +42,12 @@
 
             <!-- item_description -->
             <div class="ad-form-input-title">Description</div>
-            <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="ad_item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?></textarea>
+            <textarea name="item_desc" 
+                placeholder = "Eg: The coffee table, used for three years, showcases minor scratches but remains sturdy and fully functional, has a convenient lower shelf. Crafted from solid wood with regular cleaning, it's sold as is." 
+            id="item_desc" class="ad_item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?></textarea>
+            <!-- placeholder="Your item's story, your sale's success!  -->
+            <!-- "You can include details such as,&#13;&#10;&#13;&#10; Physical appearance: Scratches, dents, wear.&#13;&#10;&#13;&#10; Functionality: Fully operational or any issues.&#13;&#10;&#13;&#10; Features, measurements, material, age and packaging."  -->
+            <!-- "Eg: The coffee table, used for three years, showcases minor scratches but remains sturdy and fully functional, has a convenient lower shelf. Crafted from solid wood with regular cleaning, it's sold as is." -->
 
             <!-- item_condition -->
             <div class="ad-form-input-title">Condition</div>

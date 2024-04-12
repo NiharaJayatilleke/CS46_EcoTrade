@@ -82,6 +82,12 @@
     transition: border-color 0.3s;
     margin-bottom: 5px;
 }
+
+.ad_item_desc {
+    height: 100px;
+
+}
+
 .ad_item_other_label{
     font-size: 16px;
     font-weight: 400;

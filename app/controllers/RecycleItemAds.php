@@ -84,7 +84,7 @@
 
                     if ($userType == 'pSeller') {
                         $this->usersModel->setUserTypeById($userId, 'seller');
-                    } else if ($userType != 'seller' && $userType != 'rSeller') {
+                    } else if ($userType == 'pBuyer') {
                         $this->usersModel->setUserTypeById($userId, 'rSeller');
                     }
                 }

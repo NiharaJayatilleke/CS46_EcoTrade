@@ -241,7 +241,7 @@
                     if ($userType == 'rSeller') {
                         $this->usersModel->setUserTypeById($userId, 'seller');
                         $_SESSION['userType']='seller';
-                    } else if ($userType != 'seller' && $userType != 'pSeller') {
+                    } else if ($userType == 'pBuyer') {
                         $this->usersModel->setUserTypeById($userId, 'pSeller');
                         $_SESSION['userType']='pSeller';
                     }
@@ -470,6 +470,24 @@
 
             $this->view('item_ads/v_promote',$data);
 
+            }
+        }
+
+        public function packageExists($adId) {
+            $packageDetails = $this->itemAdsModel->packageExists($adId);
+
+            if ($packageDetails) {
+                $pvRemaining = $packageDetails['PV_duration'] - (time() - strtotime($packageDetails['PV']));
+                $agRemaining = $packageDetails['AG_duration'] - (time() - strtotime($packageDetails['AG']));
+
+                $data = array(
+                    'PV' => $pvRemaining,
+                    'AG' => $agRemaining
+                );
+
+                echo json_encode($data);
+            } else {
+                echo json_encode(array());
             }
         }
 
