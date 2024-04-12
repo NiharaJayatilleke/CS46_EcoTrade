@@ -16,37 +16,42 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo URLROOT ?>/Admin/index">
+                    <!-- <a href="<?php echo URLROOT ?>/Admin/index"> -->
+                    <a href="#dashboard-content" id="dashboard-tab" onclick="showContent('dashboard-content')">
                         <span class = "side-icon"><ion-icon name="grid-outline"></ion-icon></span>
                         <span class = "side-title">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo URLROOT ?>/Admin/moderators">
+                    <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
+                    <a href="#moderators-content" id="moderators-tab" onclick="showContent('moderators-content')">
                         <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class = "side-title">Moderators</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <span class = "side-icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
+                    <!-- <a href="#"> -->
+                    <a href="#messages-content" id="messages-tab" onclick="showContent('messages-content')">
+                        <span class = "side-icon"><ion-icon name="mail-open-outline"></ion-icon></span>
                         <span class = "side-title">Messages</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <span class = "side-icon"><ion-icon name="book-outline"></ion-icon></span>
+                    <!-- <a href="#"> -->
+                    <a href="#ad-report-content" id="ad-report-tab" onclick="showContent('ad-report-content')">
+                        <span class = "side-icon"><ion-icon name="remove-circle-outline"></ion-icon></span>
                         <span class = "side-title">Ad Report</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <!-- <a href="#"> -->
+                    <a href="#settings-content" id="settings-tab" onclick="showContent('settings-content')">
                         <span class = "side-icon"><ion-icon name="cog-outline"></ion-icon></span>
                         <span class = "side-title">Settings</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo URLROOT ?>/Users/logout">
+                <a href="<?php echo URLROOT ?>/Users/logout" id="signout-tab" onclick="showContent('signout-content')">
                         <span class = "side-icon"><ion-icon name="log-out-outline"></ion-icon></span> 
                         <span class = "side-title">Sign out</span>
                     </a>
@@ -80,7 +85,9 @@
                     ?> -->
                 </div>
             </div>
-                <!-- cards -->
+
+            <!-- dashboard admin -->
+            <div id="dashboard-content" class="content-section">
                 <div class="heading-dashboard">
                     <h2>Admin Dashboard</h2>
                 </div>
@@ -138,7 +145,7 @@
                     </div>
                 </div>
 
-                <div class="details">
+                <div class="details" style=" display: block;" >
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Recent Orders</h2>
@@ -267,7 +274,7 @@
                             </tbody>
                         </table>
                     </div>
-                      <!-- New customers -->
+                    <!-- New customers -->
                     <div class="recentCustomers">
                         <div class="cardHeader">
                             <h2>Recent Customers</h2>
@@ -278,36 +285,36 @@
                                 <td><h4>David<br><span>Western Province - Colombo</span></h4></td>
                             </tr>
                             <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></td>
+                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></div></td>
                                 <td><h4>John<br><span>Western Province - Colombo</span></h4></td>
                             </tr>
 
                             <tr>
-                            <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></td>
+                            <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></div></td>
                                 <td><h4>Emily<br><span>Central Province - Kandy</span></h4></td>
                             </tr>
 
                             <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></td>
+                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></div></td>
                                 <td><h4>Sara<br><span>Eastern Province - Trincomalee</span></h4></td>
                             </tr>
                             <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></td>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></div></td>
                                 <td><h4>Michael<br><span>Northern Province - Jaffna</span></h4></td>
                             </tr>
 
                             <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></td>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></div></td>
                                 <td><h4>Samantha<br><span>Southern Province - Galle</span></h4></td>
                             </tr>
 
                             <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></td>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></div></td>
                                 <td><h4>Ravi<br><span>North Central Province - Anuradhapura</span></h4></td>
                             </tr>
 
                             <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></td>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
                                 <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
                             </tr>
                         </table>
@@ -315,15 +322,132 @@
 
 
                 </div>
+            </div>
+        
+            <!-- Moderators crud-->
+            <div id="moderators-content" class="content-section">
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Moderators</h2>
+                            <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Add Moderator</a>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Username</td>
+                                    <td>Email</td>
+                                    <td>Contact Number</td>
+                                    <td>Date Joined</td>
+                                    <td>Edit/Delete</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($data['moderators'] as $moderator) : ?>
+                            <tr>
+                                <td><p><?php echo $moderator->username ?></p></td>
+                                <td><?php echo $moderator->email ?></td>
+                                <td><?php echo $moderator->number ?></td>
+                                <td><?php echo $moderator->created_at ?></td>
+                                <td>
+                                    <div class = "mod-control-btns">
+                                        <a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                        <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div id="messages-content" class="content-section">
+                <div>
+                    <!-- logic here for messages -->
+                </div>
+            </div>
+
+            <!-- Ad Report -->
+            <div id="ad-report-content" class="content-section">
+                <div>
+                    <!-- logic here for ad report -->
+                </div>
+            </div>
+
+            <!-- Settings -->
+            <div id="settings-content" class="content-section">
+                <div>
+                    <!-- logic here for settings -->
+                </div>
+            </div>
+                
         </div>
     </div>
+
+    <script>
+    // Function to show/hide content sections based on the clicked tab
+    function showContent(section) {
+        // event.preventDefault();
+        // Hide all content sections
+        document.getElementById('dashboard-content').style.display = 'none';
+        document.getElementById('moderators-content').style.display = 'none';
+        document.getElementById('messages-content').style.display = 'none';
+        document.getElementById('ad-report-content').style.display = 'none';
+        document.getElementById('settings-content').style.display = 'none';
+
+        // Show the selected content section
+        document.getElementById(section).style.display = 'block';
+
+         // Update the URL hash to store the current section
+        window.location.hash = '#' + section;
+    }
+
+    // Function to handle initial content section based on URL hash
+    function handleInitialSection() {
+        var hash = window.location.hash;
+        if (hash) {
+            // Extract the section name from the hash
+            var section = hash.substring(1); // Remove '#'
+            showContent(section);
+            currentSection = section;
+        } else {
+            // If no hash is present, default to the dashboard section
+            showContent('dashboard-content');
+            currentSection = 'dashboard-content';
+        }
+    }
+   handleInitialSection(); 
+    // Call the function when the page loads
+    window.onload = handleInitialSection;
+
+    // Function to redirect to the current active section
+    function redirectToCurrentSection() {
+    // Get the current hash from the URL
+    var hash = window.location.hash;
+    if (hash) {
+        // Redirect to the current active section
+        var section = hash.substring(1);
+        window.location.href = '<?php echo URLROOT; ?>/moderators/index' + hash;
+        showContent(section);
+    }
+}
+    
+    </script>
+    <!-- Get the user counts data from PHP and convert it to JavaScript object -->
+    <script>var userCounts = <?php echo json_encode($data['userCounts']); ?>;
+
+</script> 
         <!-- Javascript for image upload -->
-        <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/alerts.js"></script>
+    
+    
 
 
 
 
-
-<!-- <?php require APPROOT.'/views/inc/components/footer.php'; ?> -->
 

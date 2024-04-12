@@ -55,7 +55,7 @@
                 ];
             
                 //load view
-                $this->view('admin/moderators', $data);
+                $this->view('admin/dashboard', $data);
             }
         }
 

@@ -78,7 +78,7 @@
             
             <!-- cards -->
             <div id="dashboard-content" class="content-section">
-            <div class="heading-dashboard">
+                <div class="heading-dashboard">
                         <h2>Collector Dashboard</h2>
                     </div>
 
@@ -273,9 +273,6 @@
             </div>
 
         </div>
-
-
-
     </div>
 
     <script>
