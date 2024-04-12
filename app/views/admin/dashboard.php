@@ -29,6 +29,30 @@
                         <span class = "side-title">Moderators</span>
                     </a>
                 </li>
+
+                <li>
+                    <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
+                    <a href="#users-content" id="users-tab" onclick="showContent('users-content')">
+                        <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <span class = "side-title">Users</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#secondhand-content" id="secondhand-tab" onclick="showContent('secondhand-content')">
+                        <span class = "side-icon"><ion-icon name="pricetags"></ion-icon></span>
+                        <span class = "side-title">Preowned Ads</span>
+                    </a>
+                </li>                               
+
+                <li>
+                    <!-- <a href=""> -->
+                    <a href="#recycle-content" id="recycle-tab" onclick="showContent('recycle-content')">
+                        <span class = "side-icon"><ion-icon name="leaf-outline"></ion-icon></span>
+                        <span class = "side-title">Recycling Ads</span>
+                    </a>
+                </li>
+
                 <li>
                     <!-- <a href="#"> -->
                     <a href="#messages-content" id="messages-tab" onclick="showContent('messages-content')">
@@ -93,18 +117,20 @@
                 </div>
                 
                 <div class="dashboard-cardBox">
-                    <div class="dashboard-card">
-                        <div>
-                            <div class="dashboard-numbers"><?php echo $data['users_count'] ?></div> 
-                            <div class="dashboard-cardName">Users</div>
+                    <a href="<?php echo URLROOT ?>/Admin/users#users-content" style="text-decoration: none; color: inherit;">
+                        <div class="dashboard-card">
+                            <div>
+                                <div class="dashboard-numbers"><?php echo $data['users_count'] ?></div> 
+                                <div class="dashboard-cardName">Users</div>
+                            </div>
+                            <div class="dashboard-iconBx">   
+                                <ion-icon name="people-outline"></ion-icon>     
+                            </div>
                         </div>
-                        <div class="dashboard-iconBx">   
-                            <ion-icon name="people-outline"></ion-icon>     
-                        </div>
-                    </div>
+                    </a>
 
-                    <a href="<?php echo URLROOT ?>/Admin/moderators" style="text-decoration: none; color: inherit;">
-                        <div class="dashboard-card" >
+                    <a href="<?php echo URLROOT ?>/Admin/moderators#moderators-content" style="text-decoration: none; color: inherit;">
+                        <div class="dashboard-card">
                             <div>
                                 <div class="dashboard-numbers" ><?php echo $data['moderators_count'] ?></div> 
                                 <div class="dashboard-cardName">Moderators</div>
@@ -114,15 +140,19 @@
                             </div>
                         </div>
                     </a>
-                    <div class="dashboard-card">
-                        <div>
-                            <div class="dashboard-numbers"><?php echo $data['sec_ad_count'] ?></div> 
-                            <div class="dashboard-cardName">Pre-owned Item Ads</div>
+
+                    <a href="<?php echo URLROOT ?>/Admin/moderators#secondhand-content" style="text-decoration: none; color: inherit;">
+                        <div class="dashboard-card">
+                            <div>
+                                <div class="dashboard-numbers"><?php echo $data['sec_ad_count'] ?></div> 
+                                <div class="dashboard-cardName">Pre-owned Item Ads</div>
+                            </div>
+                            <div class="dashboard-iconBx">  
+                                <ion-icon name="pricetags"></ion-icon>  
+                            </div>
                         </div>
-                        <div class="dashboard-iconBx">  
-                            <ion-icon name="pricetags"></ion-icon>  
-                        </div>
-                    </div>
+                    </a>
+                    
 
 
                     <div class="dashboard-card">
@@ -363,6 +393,122 @@
                 </div>
             </div>
 
+            <!-- User crud-->
+            <div id="users-content" class="content-section">
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Users</h2>
+                            <a href="<?php echo URLROOT ?>/Users/register" class="btn">Add User</a>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Username</td>
+                                    <td>Email</td>
+                                    <td>Contact Number</td>
+                                    <td>User Type</td>
+                                    <td>Date Joined</td>
+                                    <!-- <td>Edit/Delete</td> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($data['users'] as $user) : ?>
+                            <tr>
+                                <td><p><?php echo $user->username ?></p></td>
+                                <td><?php echo $user->email ?></td>
+                                <td><?php echo $user->number ?></td>
+                                <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
+                                <td><?php echo $user->created_at ?></td>
+                                <td>
+                                    <!-- <div class = "mod-control-btns">
+                                        <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                        <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                    </div> -->
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second hand ads-->
+            <div id="secondhand-content" class="content-section">
+                <div class="heading-dashboard">
+                    <h2>Preowned Ads</h2>
+                </div>
+
+                <div class="ad-right-container">
+                    <?php if (!empty($data['ads'])) : ?>
+                    <div class="ads-container">
+                        <?php foreach($data['ads'] as $ad): ?>
+                        <a class="ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
+                            <div class="ad-index-container"
+                                data-price="<?php echo $ad->item_price ?>"
+                                data-condition="<?php echo $ad->item_condition ?>"
+                                data-category="<?php echo $ad->item_category ?>"
+                                data-condition="<?php echo $ad->item_condition ?>">
+
+                                <div class="ad-header">
+                                    <div class="ad-body-image">
+                                        <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
+                                    </div>
+                                    <!-- <php if($ad->seller_id == $_SESSION['user_id']): ?> 
+                                            <div class = "post-control-btns">
+                                                <a href = "<php echo URLROOT?>/ItemAds/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn" title="edit ad"><i class="fas fa-edit"></i></button></a>
+                                                <a href = "<php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
+                                                <a href = "<php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="ad-report-btn" title="report ad"><i class="fas fa-flag"></i></button></a> 
+                                            </div>
+                                        <php endif; ?> -->
+                                    <div class="ad-item-name"><h3><?php echo $ad->item_name ?></h3></div>
+                                    <div class="ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
+                                    <div class="ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
+                                </div>
+
+                                <div class="ad-body">
+                                    <div class="ad-body-desc"><?php echo $ad->item_desc ?></div>
+                                    <div class="ad-price">Rs. <?php echo $ad->item_price ?></div>
+                                </div>
+
+                                <div class="ad-footer">
+                                    <div>
+                                        <a href=""><button class="ad-contact-btn">Contact Seller</button></a>
+                                        <?php if($ad->negotiable == 'yes'): ?>
+                                        <a href=""><button class="ad-offer-btn">Make Offer</button></a>
+                                        <?php endif; ?>
+                                        <?php if($ad->selling_format == 'auction'): ?> 
+                                        <a href=""><button class="ad-bid-btn">Bid</button></a>
+                                        <?php endif; ?>
+                                        <!-- <a href = ""><button class="ad-wishlist-btn"><i class="fas fa-heart"></i></button></a> -->
+                                        <!-- <a href="#"><button class="ad-wishlist-btn"><img src="/img/icons/wishlist.png" alt="Wishlist Icon"></button></a> -->
+                                    </div>
+                                </div>  
+                            </div>
+                        </a>
+                        <?php endforeach; ?>
+                        <div id="noResults" style="display:none;">
+                            <h1>No Results Found</h1>
+                        </div>
+                    </div>
+                    <?php else : ?>
+                    <div style="font-size: 20px;margin: 30px 50px;">
+                        <p>No results found for <b>"<?php echo !empty($data['searchQuery']) ? htmlspecialchars($data['searchQuery']) : ''; ?>"</b>.</p>
+                        <p>Try checking your spelling or use more general terms</p>
+                    </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <!-- Recycle ads-->
+            <div id="recycle-content" class="content-section">
+                <div class="heading-dashboard">
+                    <h2>Recycle Ads</h2>
+                </div>
+                <p>This is the content for the Recycle tab.</p> 
+            </div>
+
             <!-- Messages -->
             <div id="messages-content" class="content-section">
                 <div>
@@ -394,6 +540,9 @@
         // Hide all content sections
         document.getElementById('dashboard-content').style.display = 'none';
         document.getElementById('moderators-content').style.display = 'none';
+        document.getElementById('users-content').style.display = 'none';
+        document.getElementById('secondhand-content').style.display = 'none';
+        document.getElementById('recycle-content').style.display = 'none';
         document.getElementById('messages-content').style.display = 'none';
         document.getElementById('ad-report-content').style.display = 'none';
         document.getElementById('settings-content').style.display = 'none';

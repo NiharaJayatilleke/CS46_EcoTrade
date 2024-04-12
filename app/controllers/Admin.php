@@ -20,9 +20,11 @@
                 $numUsers = count($users);
 
                 $data = [
+                    'ads' => $ads,
                     'sec_ad_count' => $numSecAds,
                     'moderators_count' => $numModerators,
                     'moderators' => $moderators,
+                    'users' => $users,
                     'users_count' => $numUsers,
                 ];
 
@@ -35,29 +37,30 @@
         //     $this->view('admin/v_dashboard',$data);
         // }
 
-        public function moderators(){
-            if(!isset($_SESSION['userType']) || $_SESSION['userType'] != 'admin'){
-                $this->view('pages/forbidden');
-            }
-            else{
-                $ads = $this->itemAdsModel->getAds();
-                $numSecAds = count($ads);
-                $moderators = $this->moderatorModel->getModerators();
-                $numModerators = count($moderators);
-                $users = $this->userModel->getUsers();
-                $numUsers = count($users);
+        // public function moderators(){
+        //     if(!isset($_SESSION['userType']) || $_SESSION['userType'] != 'admin'){
+        //         $this->view('pages/forbidden');
+        //     }
+        //     else{
+        //         $ads = $this->itemAdsModel->getAds();
+        //         $numSecAds = count($ads);
+        //         $moderators = $this->moderatorModel->getModerators();
+        //         $numModerators = count($moderators);
+        //         $users = $this->userModel->getUsers();
+        //         $numUsers = count($users);
 
-                $data = [
-                    'sec_ad_count' => $numSecAds,
-                    'moderators_count' => $numModerators,
-                    'moderators' => $moderators,
-                    'users_count' => $numUsers,
-                ];
+        //         $data = [
+        //             'sec_ad_count' => $numSecAds,
+        //             'moderators_count' => $numModerators,
+        //             'moderators' => $moderators,
+        //             'users' => $users,
+        //             'users_count' => $numUsers,
+        //         ];
             
-                //load view
-                $this->view('admin/dashboard', $data);
-            }
-        }
+        //         //load view
+        //         $this->view('admin/dashboard', $data);
+        //     }
+        // }
 
 
     //     public function login(){
