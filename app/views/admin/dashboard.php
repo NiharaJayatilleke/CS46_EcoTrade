@@ -29,13 +29,13 @@
                 </li>
                 <li>
                     <a href="#">
-                        <span class = "side-icon"><ion-icon name="mail-open-outline"></ion-icon></span>
+                        <span class = "side-icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
                         <span class = "side-title">Messages</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class = "side-icon"><ion-icon name="remove-circle-outline"></ion-icon></span>
+                        <span class = "side-icon"><ion-icon name="book-outline"></ion-icon></span>
                         <span class = "side-title">Ad Report</span>
                     </a>
                 </li>
@@ -325,4 +325,5 @@
 
 
 
+<!-- <?php require APPROOT.'/views/inc/components/footer.php'; ?> -->
 
