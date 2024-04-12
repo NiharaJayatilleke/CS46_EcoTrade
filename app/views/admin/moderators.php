@@ -233,5 +233,4 @@
     <!-- JS for alerts -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/alerts.js"></script>
 
-    <?php require APPROOT.'/views/inc/components/footer.php'; ?> 
 
