@@ -106,6 +106,42 @@
             return $userCounts;
         }
     
+    public function getItemAdCountsByCategory() {
+        $this->db->query("
+            SELECT
+                item_category,
+                COUNT(*) AS count
+            FROM
+                Item_Ads
+            WHERE
+                status IS NULL
+            GROUP BY
+                item_category
+        ");
+    
+        $countsByCategory = array();
+    
+        $results = $this->db->resultSet();
+        foreach ($results as $row) {
+            $countsByCategory[$row->item_category] = $row->count;
+        }
+    
+        return $countsByCategory;
+    }
+
+    public function getReportedAds() {
+        $this->db->query("
+            SELECT ra.report_id, ra.ad_id, ra.reporter_id, ra.report_reason, ra.report_comments,
+                   ra.report_contact, ra.report_status, ra.report_created_at,
+                   ia.item_name AS ad_title, ia.item_desc AS ad_description,
+                   gu.username AS reporter_username
+            FROM Reported_Ads ra
+            INNER JOIN Item_Ads ia ON ra.ad_id = ia.p_id
+            INNER JOIN General_User gu ON ra.reporter_id = gu.id
+        ");
+    
+        return $this->db->resultSet();
+    }
     
 }
 

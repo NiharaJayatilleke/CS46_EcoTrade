@@ -350,38 +350,64 @@
                     <p>This is the content for the reportedads tab.</p>
                 </div>
 
+            <div id="reported-ads-content" class="content-section">
+                <div class="reported-ads-container">
 
-                <div id="secondhand-content" class="content-section">
-                    <div class="ad-right-container">
-                        <?php if (!empty($data['ads'])) : ?>
-                        <div class="ads-container">
-                            <?php foreach($data['ads'] as $ad): ?>
-                            <a class="ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
-                                <div class="ad-index-container"
-                                    data-price="<?php echo $ad->item_price ?>"
-                                    data-condition="<?php echo $ad->item_condition ?>"
-                                    data-category="<?php echo $ad->item_category ?>"
-                                    data-condition="<?php echo $ad->item_condition ?>">
+                    <h1>Reported Ads</h1>
+                    <table class="reported-ads-table">
+                        <tr>
+                            <th>Report ID</th>
+                            <!-- <th>Ad ID</th> -->
+                            <th>Reporter ID</th>
+                            <th>Report Reason</th>
+                            <th>Report Comments</th>
+                            <th>Report Contact</th>
+                            <th>Report Status</th>
+                            <th>Reported At</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <?php if (!empty($data['reportedAds'])): ?>
+                            <?php foreach ($data['reportedAds'] as $ad): ?>
 
-                                    <div class="ad-header">
-                                        <div class="ad-body-image">
-                                            <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
-                                        </div>
-                                        <!-- <php if($ad->seller_id == $_SESSION['user_id']): ?> 
-                                                <div class = "post-control-btns">
-                                                    <a href = "<php echo URLROOT?>/ItemAds/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn" title="edit ad"><i class="fas fa-edit"></i></button></a>
-                                                    <a href = "<php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
-                                                    <a href = "<php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="ad-report-btn" title="report ad"><i class="fas fa-flag"></i></button></a> 
-                                                </div>
-                                            <php endif; ?> -->
-                                        <div class="ad-item-name"><h3><?php echo $ad->item_name ?></h3></div>
-                                        <div class="ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
-                                        <div class="ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
-                                    </div>
+                                    <td><?php echo $ad->report_id; ?></td>
+                                    <!-- <td><?php echo $ad->ad_id; ?></td> -->
+                                    <td><?php echo $ad->reporter_id; ?></td>
+                                    <td><?php echo $ad->report_reason; ?></td>
+                                    <td><?php echo $ad->report_comments; ?></td>
+                                    <td><?php echo $ad->report_contact; ?></td>
+                                    <td><?php echo $ad->report_status; ?></td>
+                                    <td><?php echo $ad->report_created_at; ?></td>
+                                    
+                                    <td><button onclick="confirmDelete(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
+                                    <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
+                                    
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="8">No reported ads found.</td>
+                            </tr>c
+                        <?php endif; ?>
+                    </table>
+                </div>
+            </div>
 
-                                    <div class="ad-body">
-                                        <div class="ad-body-desc"><?php echo $ad->item_desc ?></div>
-                                        <div class="ad-price">Rs. <?php echo $ad->item_price ?></div>
+            <div id="secondhand-content" class="content-section">
+                <div class="ad-right-container">
+                    <?php if (!empty($data['ads'])) : ?>
+                    <div class="ads-container">
+                        <?php foreach($data['ads'] as $ad): ?>
+                        <a class="ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
+                            <div class="ad-index-container"
+                                data-price="<?php echo $ad->item_price ?>"
+                                data-condition="<?php echo $ad->item_condition ?>"
+                                data-category="<?php echo $ad->item_category ?>"
+                                data-condition="<?php echo $ad->item_condition ?>">
+
+                                <div class="ad-header">
+                                    <div class="ad-body-image">
+                                        <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
                                     </div>
 
                                     <div class="ad-footer">
@@ -471,13 +497,76 @@
         window.location.href = '<?php echo URLROOT; ?>/moderators/index' + hash;
         showContent(section);
     }
-}
+    }
     
     </script>
+
+    <!-- sweetalert remove ad pop up message -->
+    <script>
+        function confirmDelete(adId) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success ',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            });
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Handle deletion using fetch 
+                    fetch(`http://localhost/ecotrade/Moderators/deleteAd/${adId}`, {
+                        method: 'DELETE'
+                    }).then(response => {
+                        if (response.ok) {
+                            swalWithBootstrapButtons.fire(
+                                'Deleted!',
+                                'Ad has been deleted.',
+                                'success'
+                            ).then(() => {
+                                // reload the page or perform other actions after deletion
+                                location.reload();
+                            });
+                        } else {
+                            throw new Error('Failed to delete ad');
+                        }
+                    }).catch(error => {
+                        console.error('Error:', error);
+                        swalWithBootstrapButtons.fire(
+                            'Error',
+                            'Failed to delete ad.',
+                            'error'
+                        );
+                    });
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'The Ad is safe :)',
+                        'error'
+                    );
+                }
+            });
+        }
+    </script>
+
+
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
-    <script>var userCounts = <?php echo json_encode($data['userCounts']); ?>;
+    <script>
+    var userCounts = <?php echo json_encode($data['userCounts']); ?>;
+    var adCountsByCategory = <?php echo json_encode($data['adCountsByCategory']); ?>;
     </script> 
-        <!-- Javascript for image upload -->
+    <!-- Javascript for image upload -->
+
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
    

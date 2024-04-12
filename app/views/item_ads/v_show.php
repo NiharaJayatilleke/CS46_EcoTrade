@@ -62,7 +62,7 @@ if($_SESSION['user_type'] != 'moderator') {
                     <!-- <img src="<php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
                     <!-- <i class="fas fa-ad"></i> Ad icon -->
                     <i class="fas fa-star"></i>
-                    <p>Rate this Ad</p>
+                    <p>Rate this Seller</p>
                 <!-- </button> -->
             </a>
                 <button class="sad-b1" onclick="reportAd()">

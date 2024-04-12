@@ -31,7 +31,7 @@
                                     Give your ad the spotlight it deserves by featuring it at the top of our listings for one week or one month!
                                     </div>
 
-                                    <div class="options1">
+                                    <div class="options1" id='radioContainer1'>
                                         <label>
                                             <!-- <input type="radio" name="package1" value="week" checked> -->
                                             <input type="radio" name="package1" value="week" >
@@ -67,7 +67,7 @@
                             <div class="divv-49">
                             Make your ad stand out from the rest with our Highlight Markers, placing a bright marker on your ad for one week or one month!
 
-                            <div class="options2">
+                            <div class="options2" id='radioContainer2'>
                             <label>
                                 <input type="radio" name="package2" value="week">
                                 One Week - Rs. 1500
