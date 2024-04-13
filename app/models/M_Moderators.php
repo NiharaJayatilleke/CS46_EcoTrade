@@ -192,6 +192,24 @@
         return $this->db->resultSet();
     }
     
+    public function hideAdById($adId) {
+        // Update the status of the ad to 'hidden'
+        $query = "UPDATE Item_Ads SET status = 'hidden' WHERE p_id = :ad_id";
+        $this->db->query($query);
+        $this->db->bind(':ad_id', $adId);
+    
+        if ($this->db->execute()) {
+            // Delete the reported ad related to this ad
+            $this->db->query("DELETE FROM Reported_Ads WHERE ad_id = :ad_id");
+            $this->db->bind(':ad_id', $adId);
+            $this->db->execute();
+    
+            return true;  
+        } else {
+            return false; 
+    }
+    
+}  
     
 }
 
