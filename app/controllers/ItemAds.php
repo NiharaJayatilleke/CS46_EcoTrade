@@ -483,25 +483,33 @@
         }
 
         public function packageExists($adId) {
+            error_log('packageExists function called with adId: ' . $adId);
+            // die('packageExists');
             $packageDetails = $this->itemAdsModel->packageExists($adId);
+
+            error_log(print_r($packageDetails, true));
 
             if ($packageDetails) {
                 $pvDuration = null;
                 $agDuration = null;
 
                 foreach ($packageDetails as $packageDetail) {
-                    if ($packageDetail['package'] === 'PV') {
-                        $pvDuration = $packageDetail['duration'];
-                        $pvStartTime = strtotime($packageDetail['starting_time']);
-                    } else if ($packageDetail['package'] === 'AG') {
-                        $agDuration = $packageDetail['duration'];
-                        $agStartTime = strtotime($packageDetail['starting_time']);
+                    if ($packageDetail->package === 'PV') {
+                        $pvDuration = $packageDetail->duration * 86400;
+                        $pvStartTime = strtotime($packageDetail->starting_time);
+                        error_log('PV start time: ' . $pvStartTime);
+                    } else if ($packageDetail->package === 'AG') {
+                        $agDuration = $packageDetail->duration * 86400;
+                        $agStartTime = strtotime($packageDetail->starting_time);
                     }
                 }
 
                 if ($pvDuration !== null) {
                     $pvElapsed = time() - $pvStartTime;
+                    error_log('Time: ' . time());
+                    error_log('PV elapsed: ' . $pvElapsed);
                     $pvRemaining = $pvDuration - $pvElapsed;
+                    error_log('PV remaining: ' . $pvRemaining);
 
                     if ($pvRemaining < 0) {
                         $pvRemaining = 0;

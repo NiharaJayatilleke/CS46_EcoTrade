@@ -7,49 +7,61 @@ window.onload = function() {
         dataType: "json",
     
         success: function(data) {
+            console.log('Success:', data);
             console.log('PV remaining:', data.PV);
             console.log('AG remaining:', data.AG);
+
+            // Get all the radio buttons
+            var radios1 = document.getElementsByName('package1');
+            var radios2 = document.getElementsByName('package2');
+
+            // Disable the radio buttons in the first group if a package is already selected
+            if (data.PV > 0) {
+                for (var i = 0; i < radios1.length; i++) {
+                    radios1[i].disabled = true;
+                }
+
+                var p = document.createElement('p');
+                p.textContent = 'You have already activated this package.';
+                p.className = 'activated-para';
+                var radioContainer = document.getElementById('radioContainer1');
+                radioContainer.insertBefore(p, radioContainer.firstChild);
+            } else {
+            // Add event listeners to the radio buttons in the first group
+            for (var i = 0; i < radios1.length; i++) {
+                radios1[i].addEventListener('change', function() {
+                    updateOption1(this.value);
+                });
+            }
+            }
+
+            // Disable the radio buttons in the second group if a package is already selected
+            if (data.AG > 0) {
+                for (var i = 0; i < radios2.length; i++) {
+                    radios2[i].disabled = true;
+                }
+
+                var p = document.createElement('p');
+                p.textContent = 'You have already activated this package.';
+                p.className = 'activated-para';
+                var radioContainer = document.getElementById('radioContainer2');
+                radioContainer.insertBefore(p, radioContainer.firstChild);
+
+            } else {
+            // Add event listeners to the radio buttons in the second group
+            for (var i = 0; i < radios2.length; i++) {
+                radios2[i].addEventListener('change', function() {
+                    updateOption2(this.value);
+                });
+            }
+            }
+        },
+
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('AJAX error:', textStatus, errorThrown);
         }
     });
     
-    // Get all the radio buttons
-    var radios1 = document.getElementsByName('package1');
-    var radios2 = document.getElementsByName('package2');
-
-    // Disable the radio buttons in the first group if a package is already selected
-    if (data.PV > 0) {
-        for (var i = 0; i < radios1.length; i++) {
-            radios1[i].disabled = true;
-        }
-    } else {
-    // Add event listeners to the radio buttons in the first group
-    for (var i = 0; i < radios1.length; i++) {
-        radios1[i].addEventListener('change', function() {
-            updateOption1(this.value);
-        });
-    }
-    }
-
-    // Disable the radio buttons in the second group if a package is already selected
-    if (true/* condition to check if a package from the second group is already selected */) {
-        for (var i = 0; i < radios2.length; i++) {
-            radios2[i].disabled = true;
-        }
-
-        var p = document.createElement('p');
-        p.textContent = 'You have already activated this package.';
-        p.className = 'activated-para';
-        var radioContainer = document.getElementById('radioContainer2');
-        radioContainer.insertBefore(p, radioContainer.firstChild);
-
-    } else {
-    // Add event listeners to the radio buttons in the second group
-    for (var i = 0; i < radios2.length; i++) {
-        radios2[i].addEventListener('change', function() {
-            updateOption2(this.value);
-        });
-    }
-    }
 // }
 
 // Update the text in the divs based on the selected option in the first group
