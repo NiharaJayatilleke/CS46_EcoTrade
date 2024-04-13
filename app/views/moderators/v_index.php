@@ -55,6 +55,13 @@
                     </a>
                 </li>
 
+                <li>
+                    <!-- <a href="#"> -->
+                    <a href="#settings-content" id="settings-tab" onclick="showContent('settings-content')">
+                        <span class = "side-icon"><ion-icon name="cog-outline"></ion-icon></span>
+                        <span class = "side-title">Settings</span>
+                    </a>
+                </li>
 
 
                 <li>
@@ -361,6 +368,10 @@
             <p>This is the content for the Recycle tab.</p> 
             </div>
 
+            <div id="settings-content" class="content-section">
+            <p>This is the content for the settings.</p> 
+            </div>
+
             <div id="signout-content" class="content-section">
             <p>This is the content for the signout tab.</p>
             </div>
@@ -381,6 +392,7 @@
         document.getElementById('reported-ads-content').style.display = 'none';
         document.getElementById('secondhand-content').style.display = 'none';
         document.getElementById('recycle-content').style.display = 'none';
+        document.getElementById('settings-content').style.display = 'none';
         document.getElementById('signout-content').style.display = 'none';
 
         // Show the selected content section
