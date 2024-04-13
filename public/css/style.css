@@ -25,6 +25,9 @@
 /* COLLECTOR REGISTRATION */
 @import url('collectors/register.css');
 
+/* RecycleCenters REGISTRATION */
+@import url('recenters/register.css');
+
 /* LOGIN */
 @import url('pages/login.css');
 
