@@ -78,7 +78,7 @@
                 <!-- search -->
                 <div class="dashboard-search">
                     <label>
-                        <input type="text" placeholder="Search here">
+                        <input id="searchInput" type="text" placeholder="Search here">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
@@ -353,11 +353,12 @@
             <div id="reported-ads-content" class="content-section">
                 <div class="reported-ads-container">
 
-                    <h1>Reported Ads</h1>
+                    <h1>Reported Ads</h1>                  
                     <table class="reported-ads-table">
                         <tr>
-                            <th>Report ID</th>
-                            <!-- <th>Ad ID</th> -->
+                            <!-- <th>Report ID</th> -->
+                            <th>Ad ID</th>
+                            <th>Item Name</th>
                             <th>Reporter ID</th>
                             <th>Report Reason</th>
                             <th>Report Comments</th>
@@ -370,8 +371,9 @@
                         <?php if (!empty($data['reportedAds'])): ?>
                             <?php foreach ($data['reportedAds'] as $ad): ?>
 
-                                    <td><?php echo $ad->report_id; ?></td>
-                                    <!-- <td><?php echo $ad->ad_id; ?></td> -->
+                                    <!-- <td><?php echo $ad->report_id; ?></td> -->
+                                    <td><?php echo $ad->ad_id; ?></td>
+                                    <td><?php echo $ad->ad_title; ?></td> 
                                     <td><?php echo $ad->reporter_id; ?></td>
                                     <td><?php echo $ad->report_reason; ?></td>
                                     <td><?php echo $ad->report_comments; ?></td>
@@ -387,7 +389,7 @@
                         <?php else: ?>
                             <tr>
                                 <td colspan="8">No reported ads found.</td>
-                            </tr>c
+                            </tr>
                         <?php endif; ?>
                     </table>
                 </div>
@@ -523,8 +525,9 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Handle deletion using fetch 
-                    fetch(`http://localhost/ecotrade/Moderators/deleteAd/${adId}`, {
-                        method: 'DELETE'
+                    fetch(`http://localhost/ecotrade/Moderators/hideAd/${adId}`, {
+                        // method: 'PUT'
+                        method: 'POST'
                     }).then(response => {
                         if (response.ok) {
                             swalWithBootstrapButtons.fire(
