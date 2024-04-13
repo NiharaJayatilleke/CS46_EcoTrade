@@ -92,7 +92,9 @@
                     'Moderators' AS user_type,
                     COUNT(*) AS count
                 FROM
-                    Moderators
+                    General_User
+                WHERE
+                    user_type = 'moderator'
             ");
         
             $userCounts = array();
