@@ -7,15 +7,36 @@ toggle.onclick = function(){
     main.classList.toggle('active');
 }
 
-let list = document. querySelectorAll('.dashboard-sidenav li');
-function activeLink(){
-    list. forEach((item) =>
-    item. classList.remove( 'hovered')); 
-    this.classList.add ('hovered');
-    }
+let list = document.querySelectorAll('.dashboard-sidenav li');
 
-    list. forEach((item) =>
-    item.addEventListener ('mouseover' ,activeLink))
+function activeLink() {
+    // Add the hovered class to the current item
+    this.classList.add('hovered');
+}
+
+function inactiveLink() {
+    // Only remove the hovered class if the item hasn't been clicked
+    if (!this.classList.contains('clicked')) {
+        this.classList.remove('hovered');
+    }
+}
+
+function clickedLink() {
+    list.forEach((item) => {
+        // Remove the clicked and hovered classes from other items
+        if (item !== this) {
+            item.classList.remove('clicked', 'hovered');
+        }
+    });
+    // Add the clicked class to the current item
+    this.classList.add('clicked');
+}
+
+list.forEach((item) => {
+    item.addEventListener('mouseover', activeLink);
+    item.addEventListener('mouseout', inactiveLink);
+    item.addEventListener('click', clickedLink);
+});
 
 
 //   const ctx = document.getElementById('myChart');

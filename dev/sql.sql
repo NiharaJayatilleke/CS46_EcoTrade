@@ -24,7 +24,7 @@ CREATE TABLE Moderators (
     number INT,
     password VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(id)
+    FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Collectors (
