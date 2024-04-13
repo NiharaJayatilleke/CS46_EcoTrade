@@ -17,7 +17,7 @@ window.onload = function() {
     var radios2 = document.getElementsByName('package2');
 
     // Disable the radio buttons in the first group if a package is already selected
-    if (false/* condition to check if a package from the first group is already selected */) {
+    if (data.PV > 0) {
         for (var i = 0; i < radios1.length; i++) {
             radios1[i].disabled = true;
         }

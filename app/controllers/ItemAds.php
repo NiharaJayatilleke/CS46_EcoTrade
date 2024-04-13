@@ -54,6 +54,11 @@
         }
 
         public function itemType(){
+            if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator')){      
+                $this->view('pages/forbidden');
+
+            }else if(isset($_SESSION['userType'])){    
+
             $itemType = isset($_POST['item_type']) ? $_POST['item_type'] : '';
             $data = [
                 'item_name' => '',
@@ -93,6 +98,9 @@
             }
 
             // $this->view('item_ads/v_itemtype', $data);
+            }else{
+                redirect('users/login');
+            }
         }
 
         public function itemAd(){
@@ -478,8 +486,36 @@
             $packageDetails = $this->itemAdsModel->packageExists($adId);
 
             if ($packageDetails) {
-                $pvRemaining = $packageDetails['PV_duration'] - (time() - strtotime($packageDetails['PV']));
-                $agRemaining = $packageDetails['AG_duration'] - (time() - strtotime($packageDetails['AG']));
+                $pvDuration = null;
+                $agDuration = null;
+
+                foreach ($packageDetails as $packageDetail) {
+                    if ($packageDetail['package'] === 'PV') {
+                        $pvDuration = $packageDetail['duration'];
+                        $pvStartTime = strtotime($packageDetail['starting_time']);
+                    } else if ($packageDetail['package'] === 'AG') {
+                        $agDuration = $packageDetail['duration'];
+                        $agStartTime = strtotime($packageDetail['starting_time']);
+                    }
+                }
+
+                if ($pvDuration !== null) {
+                    $pvElapsed = time() - $pvStartTime;
+                    $pvRemaining = $pvDuration - $pvElapsed;
+
+                    if ($pvRemaining < 0) {
+                        $pvRemaining = 0;
+                    }
+                }
+
+                if ($agDuration !== null) {
+                    $agElapsed = time() - $agStartTime;
+                    $agRemaining = $agDuration - $agElapsed;
+
+                    if ($agRemaining < 0) {
+                        $agRemaining = 0;
+                    }
+                }
 
                 $data = array(
                     'PV' => $pvRemaining,
