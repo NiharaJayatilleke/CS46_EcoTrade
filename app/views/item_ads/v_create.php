@@ -106,7 +106,7 @@
             </div>
 
             <!-- additional image 2 -->
-            <div class = "ad-form-drag-area" id="form-drag-area">
+            <div class = "ad-form-drag-area1" id="form-drag-area">
                 <div class = "ad-icon">
                     <img id = "item_img_placeholder" src = "" alt="placeholder"><i id = "item_img_placeholder_icon" class="fas fa-image fa-5x"></i></img>
                     <!-- <i id = "item_img_placeholder" class="fas fa-image fa-5x"></i> -->
@@ -122,7 +122,7 @@
             </div>
 
             <!-- additional image 3 -->
-            <div class = "ad-form-drag-area" id="form-drag-area">
+            <div class = "ad-form-drag-area1" id="form-drag-area">
                 <div class = "ad-icon">
                     <img id = "item_img_placeholder" src = "" alt="placeholder"><i id = "item_img_placeholder_icon" class="fas fa-image fa-5x"></i></img>
                     <!-- <i id = "item_img_placeholder" class="fas fa-image fa-5x"></i> -->
@@ -216,7 +216,7 @@
     });
 </script>
 
-<!--  <?php require APPROOT.'/views/inc/components/footer.php'; ?>  -->
+<!--  <php require APPROOT.'/views/inc/components/footer.php'; ?>  -->
 
 </body>
 </html>

@@ -89,9 +89,10 @@
                 $this->view('recycle_ads/v_re_create',$data);
             } else {
                 // Handle invalid item type
+                $this->view('item_ads/v_itemtype', $data);
             }
 
-            $this->view('item_ads/v_itemtype', $data);
+            // $this->view('item_ads/v_itemtype', $data);
         }
 
         public function itemAd(){
