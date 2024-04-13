@@ -6,6 +6,27 @@
     background: transparent; /* Change this line */
     position: relative;
 }
+.checkbox-options {
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+.checkbox-options input[type="checkbox"] {
+    display: inline-block;
+    /* margin-right: 10px; Adjust the spacing between checkboxes */
+}
+
+.checkbox-options label {
+    display: inline-block;
+    margin-right: 10px; /* Adjust the spacing between checkbox and label */
+    
+}
+.checkbox-options input[type="checkbox"],
+.checkbox-options label {
+    vertical-align: middle; /* Align checkboxes and labels vertically */
+    margin-right: 16px; /* Adjust the spacing between checkboxes and labels */
+    vertical-align: middle; /* Align checkboxes and labels vertically */
+    margin-right: 10px;
+}
 
 .rcollector-body::before {
     content: "";

@@ -8,43 +8,55 @@
         <form action="<?php echo URLROOT; ?>/RecycleCenters/register" method="POST" enctype="multipart/form-data">
             <div class="form first">
                 <div class="collector-details personal">
-                    <span class="collector-title">Personal Details</span>
+                    <span class="collector-title">Center Details</span>
                     
                     <div class="collector-fields">
                         <div class="collector-input-field">
-                            <label>Full Name<span class="required">*</span></label>
-                            <input type="text" name = "username" id="username" placeholder="Enter your full name" value = "<?php echo $data['user']->username?>"readonly>
+                            <label>Company Name<span class="required">*</span></label>
+                            <input type="text" name = "username" id="username" placeholder="Enter Company name">
                         </div>
 
                         
                         <div class="collector-input-field">
-                            <label>Email<span class="required">*</span></label>
-                            <input type="text" name = "email" id="email" placeholder="Enter your email" value = "<?php echo $data['user']->email?>"readonly >
+                            <label>Registration Number<span class="required">*</span></label>
+                            <input type="text" name = "email" id="email" placeholder="Enter Registraion Number"  >
                         </div>
 
                         <div class="collector-input-field">
                             <label>Mobile Number<span class="required">*</span></label>
-                            <input type="tel" name = "number" id="number" placeholder="Enter your mobile number" value = "<?php echo $data['user']->number?>"readonly >
+                            <input type="tel" name = "number" id="number" placeholder="Enter your mobile number">
                         </div>
                         
-                        <div class="collector-input-field">
-                            <label>NIC/Passport No.<span class="required">*</span></label>
-                            <input type="text" name = "nic" id="nic" placeholder="NIC/Passport No." required >
-                        </div>
-                        
-                        <div class="collector-input-field">
-                            <label for="gender">Gender<span class="required">*</span></label>
-                            <select id="gender" name="gender" required>
-                                <option value="">Select...</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
                         <div class="collector-input-field">
                             <label>Address<span class="required">*</span></label>
-                            <input type="text" id="address" name="address" placeholder="Enter your Address" required>
+                            <input type="text" name = "nic" id="nic" placeholder="Enter Address" required >
+                        </div>
+                        
+<!--           
+                        <div class="collector-input-field">
+                            <label>Fax (Optional)<span class="required"></span></label>
+                            <input type="text" id="address" name="address" placeholder="Enter Fax" required>
+                        </div> -->
+
+                        <div class="collector-input-field">
+                            <label>Categories<span class="required">*</span></label>
+                        <div class="checkbox-options">
+
+                            <input type="checkbox" id="plastic" name="categories[]" value="plastic">
+                            <label for="plastic">Plastic</label>
+                            
+                            <input type="checkbox" id="polythene" name="categories[]" value="polythene">
+                            <label for="polythene">Polythene</label>
+                            
+                            <input type="checkbox" id="paper_cardboard" name="categories[]" value="paper_cardboard">
+                            <label for="paper_cardboard">Paper/Cardboard</label>
+                            
+                            <input type="checkbox" id="glass" name="categories[]" value="glass">
+                            <label for="E-Waste">E-Waste</label>
+                            
+                            <input type="checkbox" id="e_waste" name="categories[]" value="e_waste">
+                            <label for="Other">Other</label>
+                        </div>
                         </div>
 
 
@@ -62,29 +74,29 @@
                 </div>
 
                 <div class="collector-details company">
-                    <span class="collector-title">Company Details (Optional)</span>
+                    <span class="collector-title">Owner Details (Optional)</span>
                     
                     <div class="collector-fields">
                         <div class="collector-input-field">
-                            <label>Company Name</label>
-                            <input type="text" id="com_name" name="com_name" placeholder="Enter your Company Name" >
+                            <label> Name</label>
+                            <input type="text" id="com_name" name="com_name" placeholder="Enter your Name" >
                         </div>
 
                         <div class="collector-input-field">
-                            <label>Office Email</label>
-                            <input type="text" id="com_email" name="com_email" placeholder="Enter your Company Email" >
+                            <label>Email</label>
+                            <input type="text" id="com_email" name="com_email" placeholder="Enter your Email" >
                         </div>
 
                         <div class="collector-input-field">
-                            <label>Address</label>
-                            <input type="text" id="com_address" name="com_address" placeholder="Enter Company Address" >
+                            <label>Personal Address</label>
+                            <input type="text" id="com_address" name="com_address" placeholder="Enter Personal Address" >
                         </div>
 
                         <div class="collector-input-field">
                             <label>Telephone Number</label>
-                            <input type="number" id="telephone" name="telephone" placeholder="Enter Company telephone number" >
+                            <input type="number" id="telephone" name="telephone" placeholder="Enter telephone number" >
                         </div>
-
+<!-- 
                         <div class="collector-input-field">
                             <label for="gender">Type of the Company</label>
                             <select name="company_type" id="company_type">
@@ -101,11 +113,11 @@
                                 <option value="Waste Management Company">Waste Management Company</option>
                                 <option value="other">Other</option>
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="collector-input-field">
-                            <label>Registration Number</label>
-                            <input type="text" id="reg_number" name="reg_number" placeholder="Enter the company registration no." >
+                            <label>NIC</label>
+                            <input type="text" id="reg_number" name="reg_number" placeholder="Enter NIC" >
                         </div>
                     </div>
                     <button class="nextBtn">
