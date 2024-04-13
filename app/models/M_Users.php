@@ -268,6 +268,15 @@
                 return false;
             }
         }  
+
+        public function logActivity($userId, $actionType, $actionDetails = '') {
+            $this->db->query('INSERT INTO Activity_Log (user_id, action_type, action_details) VALUES (:user_id, :action_type, :action_details)');
+            $this->db->bind(':user_id', $userId);
+            $this->db->bind(':action_type', $actionType);
+            $this->db->bind(':action_details', $actionDetails);
+    
+            return $this->db->execute();
+        }
         
         
     }

@@ -353,24 +353,26 @@
 
         public function index(){
 
-            if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator' && $_SESSION['userType'] != 'admin')){
+            // if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator' && $_SESSION['userType'] != 'admin')){
 
-                $this->view('pages/forbidden');
-            }
-            else{
+            //     $this->view('pages/forbidden');
+            // }
+            // else{
                 $ads = $this->itemAdsModel->getAds();
                 $userCounts = $this->moderatorModel->getUserCounts();
                 $adCountsByCategory = $this->moderatorModel->getItemAdCountsByCategory();
                 $reportedAds = $this->moderatorModel->getReportedAds();
+                $recentActivities = $this->moderatorModel->getRecentActivities();
                 $data = [
                     'ads' => $ads,
                     'userCounts' => $userCounts,
                     'adCountsByCategory' => $adCountsByCategory,
                     'reportedAds' => $reportedAds,
+                    'recentActivities' => $recentActivities,
                ];
                 $this->view('moderators/v_index', $data);
 
-            }
+            // }
         }
 
         public function hideAd($adId) {
@@ -380,8 +382,6 @@
                 http_response_code(500); // Send error response
             }
         }
-        
-        
 
     }
 ?>

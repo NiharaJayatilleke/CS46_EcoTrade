@@ -1,4 +1,3 @@
-
 <?php require APPROOT . '/views/inc/components/sidebar.php';?><div class="topnav">
   
 
