@@ -368,7 +368,7 @@
                ];
                 $this->view('moderators/v_index', $data);
 
-            // }
+            }
         }
 
     }

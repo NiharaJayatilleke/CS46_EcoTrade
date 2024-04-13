@@ -83,6 +83,17 @@ require APPROOT.'/libraries/vendor/autoload.php';
             }
         }
 
+        public function logout(){
+            unset($_SESSION['user_id']);
+            unset($_SESSION['user_email']);
+            unset($_SESSION['user_name']);
+            unset($_SESSION['user_number']);
+            unset($_SESSION['userType']);
+            session_destroy();
+
+            redirect('Users/login');
+        }
+
         public function register(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 // form is submitting
@@ -231,6 +242,9 @@ require APPROOT.'/libraries/vendor/autoload.php';
             $_SESSION['user_number'] = $user->number;
             $_SESSION['user_image'] = $user->profile_image;
             $_SESSION['userType'] = $user->user_type;
+            $_SESSION['LAST_ACTIVITY'] = time(); // Update last activity time stamp
+
+            
             // die($_SESSION['userType']);
             if($_SESSION['userType']=='admin'){
                 redirect('admin/index');
@@ -239,6 +253,23 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 redirect('Pages/index');
             }
             
+        }
+
+        public function isLoggedIn(){
+            $timeout = 60; // Set timeout period in seconds (e.g. 1800 seconds = 30 minutes)
+
+            if(isset($_SESSION['user_id'])){
+                if(isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $timeout){
+                    // Last request was more than $timeout seconds ago
+                    $this->logout(); // Destroy session and redirect to login
+                    return false;
+                } else {
+                    $_SESSION['LAST_ACTIVITY'] = time(); // Update last activity time stamp
+                    return true;
+                }
+            } else {
+                return false;
+            }
         }
 
         private function setRememberMeCookie($userId){
@@ -250,26 +281,6 @@ require APPROOT.'/libraries/vendor/autoload.php';
 
             // Set a cookie with the token (you may want to set an expiration time)
             setcookie('remember_me', $token, time() + 3600 * 24 * 30, '/');
-        }
-
-        public function logout(){
-            unset($_SESSION['user_id']);
-            unset($_SESSION['user_email']);
-            unset($_SESSION['user_name']);
-            unset($_SESSION['user_number']);
-            unset($_SESSION['userType']);
-            session_destroy();
-
-            redirect('Users/login');
-        }
-        
-        public function isLoggedIn(){
-            if(isset($_SESSION['user_id'])){
-                return true;
-            }
-            else{
-                return false;
-            }
         }
 
         public function profile(){
