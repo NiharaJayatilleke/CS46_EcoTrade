@@ -78,7 +78,7 @@
                 <!-- search -->
                 <div class="dashboard-search">
                     <label>
-                        <input id="searchInput" type="text" placeholder="Search here">
+                        <input id="searchInput" type="text" placeholder="Search here" oninput="handleSearch()">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
@@ -97,8 +97,8 @@
                 <!-- cards -->
           
             <div id="dashboard-content" class="content-section">
-                    <div class="heading-dashboard">
-                            <h2>Moderators Dashboard</h2>
+            <div class="heading-dashboard">
+                        <h2>Moderators Dashboard</h2>
                     </div>
                     
                     <div class="dashboard-cardBox">
@@ -174,181 +174,79 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <td>Name</td>
-                                        <td>Price</td>
-                                        <td>Payment</td>
-                                        <td>Status</td>
+                                        <th>User ID</th>
+                                        <th>Action Type</th>
+                                        <th>Action Details</th>
+                                        <th>Date Time</th>
+                                        <th>Item Ad</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Refrigerator</td>
-                                    <td>Rs. 1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status inprogress">Delivered</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Denim Shirts</td>
-                                    <td>Rs. 110</td>
-                                    <td>Due</td>
-                                    <td><span class="status inprogress">In Progress</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Casual Shoes</td>
-                                    <td>Rs. 575</td>
-                                    <td>Paid</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Wall Fan</td>
-                                    <td>Rs. 110</td>
-                                    <td>Paid</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Jeans</td>
-                                    <td>Rs. 1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status delivered">Delivered</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Sweaters</td>
-                                    <td>Rs. 700</td>
-                                    <td>Due</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Skirts</td>
-                                    <td>Rs. 600</td>
-                                    <td>Paid</td>
-                                    <td><span class="status delivered">Delivered</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Formal Shoes</td>
-                                    <td>Rs. 2000</td>
-                                    <td>Due</td>
-                                    <td><span class="status inprogress">In Progress</span></td>
-                                </tr>
-
-
-                                <tr>
-                                    <td>Sunglasses</td>
-                                    <td>Rs. 800</td>
-                                    <td>Due</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Hoodies</td>
-                                    <td>Rs. 900</td>
-                                    <td>Due</td>
-                                    <td><span class="status inprogress">In Progress</span></td>
-                                </tr>
-
-
-                                <!-- <tr>
-                                    <td>Adidas Shoes</td>
-                                    <td>Rs. 1100</td>
-                                    <td>Paid</td>
-                                    <td><span class="status return">Return</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Wall Art</td>
-                                    <td>Rs. 110</td>
-                                    <td>Paid</td>
-                                    <td><span class="status delivered">Pending</span></td>
-                                </tr> -->
-
-                                <tr>
-                                    <td>Denim Shirts</td>
-                                    <td>Rs. 110</td>
-                                    <td>Due</td>
-                                    <td><span class="status inprogress">In Progress</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Checked Dresses</td>
-                                    <td>Rs. 1500</td>
-                                    <td>Paid</td>
-                                    <td><span class="status delivered">Delivered</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Sports Shoes</td>
-                                    <td>Rs. 2500</td>
-                                    <td>Due</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>T-shirts</td>
-                                    <td>Rs. 300</td>
-                                    <td>Due</td>
-                                    <td><span class="status inprogress">In Progress</span></td>
-                                </tr>
+                                  
+                                    <?php foreach ($data['recentActivities'] as $activity) : ?>
+                                        <tr>
+                                            <td><?php echo $activity->user_id; ?></td>
+                                            <td><?php echo $activity->action_type; ?></td>
+                                            <td><?php echo $activity->action_details; ?></td>
+                                            <td><?php echo $activity->timestamp; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
 
                                 </tbody>
                             </table>
+
                         </div>
-                        <!-- New customers -->
                       
                     </div> 
-            
+            </div>
 
-                <div id="platformusers-content" class="content-section">
-                        <div class="recentCustomers">
-                            <div class="cardHeader">
-                                <h2>Recent Customers</h2>
-                            </div>
-                            <table>
-                                <tr>
-                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
-                                    <td><h4>David<br><span>Western Province - Colombo</span></h4></td>
-                                </tr>
-                                <tr>
-                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></td>
-                                    <td><h4>John<br><span>Western Province - Colombo</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></td>
-                                    <td><h4>Emily<br><span>Central Province - Kandy</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                    <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></td>
-                                    <td><h4>Sara<br><span>Eastern Province - Trincomalee</span></h4></td>
-                                </tr>
-                                <tr>
-                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></td>
-                                    <td><h4>Michael<br><span>Northern Province - Jaffna</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></td>
-                                    <td><h4>Samantha<br><span>Southern Province - Galle</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></td>
-                                    <td><h4>Ravi<br><span>North Central Province - Anuradhapura</span></h4></td>
-                                </tr>
-
-                                <tr>
-                                    <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></td>
-                                    <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
-                                </tr>
-                            </table>
+            <div id="platformusers-content" class="content-section">
+                    <div class="recentCustomers">
+                        <div class="cardHeader">
+                            <h2>Recent Customers</h2>
                         </div>
-                </div>
+                        <table>
+                            <tr>
+                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
+                                <td><h4>David<br><span>Western Province - Colombo</span></h4></td>
+                            </tr>
+                            <tr>
+                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></td>
+                                <td><h4>John<br><span>Western Province - Colombo</span></h4></td>
+                            </tr>
 
-                <div id="reported-ads-content" class="content-section">
-                    <p>This is the content for the reportedads tab.</p>
-                </div>
+                            <tr>
+                            <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></td>
+                                <td><h4>Emily<br><span>Central Province - Kandy</span></h4></td>
+                            </tr>
+
+                            <tr>
+                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></td>
+                                <td><h4>Sara<br><span>Eastern Province - Trincomalee</span></h4></td>
+                            </tr>
+                            <tr>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></td>
+                                <td><h4>Michael<br><span>Northern Province - Jaffna</span></h4></td>
+                            </tr>
+
+                            <tr>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></td>
+                                <td><h4>Samantha<br><span>Southern Province - Galle</span></h4></td>
+                            </tr>
+
+                            <tr>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></td>
+                                <td><h4>Ravi<br><span>North Central Province - Anuradhapura</span></h4></td>
+                            </tr>
+
+                            <tr>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></td>
+                                <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
+                            </tr>
+                        </table>
+                    </div>
+
+            </div>
 
             <div id="reported-ads-content" class="content-section">
                 <div class="reported-ads-container">
@@ -411,45 +309,66 @@
                                     <div class="ad-body-image">
                                         <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
                                     </div>
-
-                                    <div class="ad-footer">
-                                        <div>
-                                            <a href=""><button class="ad-contact-btn">Contact Seller</button></a>
-                                            <?php if($ad->negotiable == 'yes'): ?>
-                                            <a href=""><button class="ad-offer-btn">Make Offer</button></a>
-                                            <?php endif; ?>
-                                            <?php if($ad->selling_format == 'auction'): ?> 
-                                            <a href=""><button class="ad-bid-btn">Bid</button></a>
-                                            <?php endif; ?>
-                                            <!-- <a href = ""><button class="ad-wishlist-btn"><i class="fas fa-heart"></i></button></a> -->
-                                            <!-- <a href="#"><button class="ad-wishlist-btn"><img src="/img/icons/wishlist.png" alt="Wishlist Icon"></button></a> -->
-                                        </div>
-                                    </div>  
+                                    <!-- <php if($ad->seller_id == $_SESSION['user_id']): ?> 
+                                            <div class = "post-control-btns">
+                                                <a href = "<php echo URLROOT?>/ItemAds/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn" title="edit ad"><i class="fas fa-edit"></i></button></a>
+                                                <a href = "<php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
+                                                <a href = "<php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="ad-report-btn" title="report ad"><i class="fas fa-flag"></i></button></a> 
+                                            </div>
+                                        <php endif; ?> -->
+                                    <div class="ad-item-name"><h3><?php echo $ad->item_name ?></h3></div>
+                                    <div class="ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
+                                    <div class="ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
                                 </div>
-                            </a>
-                            <?php endforeach; ?>
-                            <div id="noResults" style="display:none;">
-                                <h1>No Results Found</h1>
+
+                                <div class="ad-body">
+                                    <div class="ad-body-desc"><?php echo $ad->item_desc ?></div>
+                                    <div class="ad-price">Rs. <?php echo $ad->item_price ?></div>
+                                </div>
+
+                                <div class="ad-footer">
+                                    <div>
+                                        <a href=""><button class="ad-contact-btn">Contact Seller</button></a>
+                                        <?php if($ad->negotiable == 'yes'): ?>
+                                        <a href=""><button class="ad-offer-btn">Make Offer</button></a>
+                                        <?php endif; ?>
+                                        <?php if($ad->selling_format == 'auction'): ?> 
+                                        <a href=""><button class="ad-bid-btn">Bid</button></a>
+                                        <?php endif; ?>
+                                        <!-- <a href = ""><button class="ad-wishlist-btn"><i class="fas fa-heart"></i></button></a> -->
+                                        <!-- <a href="#"><button class="ad-wishlist-btn"><img src="/img/icons/wishlist.png" alt="Wishlist Icon"></button></a> -->
+                                    </div>
+                                </div>  
                             </div>
+                        </a>
+                        <?php endforeach; ?>
+                        <div id="noResults" style="display:none;">
+                            <h1>No Results Found</h1>
                         </div>
-                        <?php else : ?>
-                        <div style="font-size: 20px;margin: 30px 50px;">
-                            <p>No results found for <b>"<?php echo !empty($data['searchQuery']) ? htmlspecialchars($data['searchQuery']) : ''; ?>"</b>.</p>
-                            <p>Try checking your spelling or use more general terms</p>
-                        </div>
-                        <?php endif; ?>
                     </div>
+                    <?php else : ?>
+                    <div style="font-size: 20px;margin: 30px 50px;">
+                        <p>No results found for <b>"<?php echo !empty($data['searchQuery']) ? htmlspecialchars($data['searchQuery']) : ''; ?>"</b>.</p>
+                        <p>Try checking your spelling or use more general terms</p>
+                    </div>
+                    <?php endif; ?>
                 </div>
 
-                <div id="recycle-content" class="content-section">
-                    <p>This is the content for the Recycle tab.</p> 
-                </div>
-
-                <div id="signout-content" class="content-section">
-                    <p>This is the content for the signout tab.</p>
-                </div>
-
+            
             </div>
+
+            <div id="recycle-content" class="content-section">
+            <p>This is the content for the Recycle tab.</p> 
+            </div>
+
+            <div id="signout-content" class="content-section">
+            <p>This is the content for the signout tab.</p>
+            </div>
+
+        </div>
+
+
+
     </div>
 
     <script>
@@ -562,6 +481,56 @@
         }
     </script>
 
+    <script>
+    // Function to handle search input
+    function handleSearch() {
+        var searchInput = document.getElementById('searchInput').value.toLowerCase();
+        var currentSection = getCurrentSection(); // You can define this function to get the current active section
+
+        // Check which section is currently active and update the content based on the search query
+        switch (currentSection) {
+            case 'dashboard-content':
+                filterDashboardContent(searchInput);
+                break;
+            case 'platformusers-content':
+                filterPlatformUsersContent(searchInput);
+                break;
+            case 'reported-ads-content':
+                filterReportedAdsContent(searchInput);
+                break;
+            case 'secondhand-content':
+                filterSecondHandContent(searchInput);
+                break;
+            case 'recycle-content':
+                filterRecycleContent(searchInput);
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Example filter functions for different sections
+    function filterDashboardContent(query) {
+        // Implement filtering logic for dashboard content
+    }
+
+    function filterPlatformUsersContent(query) {
+        // Implement filtering logic for platform users content
+    }
+
+    function filterReportedAdsContent(query) {
+        // Implement filtering logic for reported ads content
+    }
+
+    function filterSecondHandContent(query) {
+        // Implement filtering logic for second hand content
+    }
+
+    function filterRecycleContent(query) {
+        // Implement filtering logic for recycle content
+    }
+    </script>
+
 
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
     <script>
@@ -569,7 +538,6 @@
     var adCountsByCategory = <?php echo json_encode($data['adCountsByCategory']); ?>;
     </script> 
     <!-- Javascript for image upload -->
-
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
    

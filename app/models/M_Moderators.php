@@ -160,7 +160,20 @@
             return false; 
     }
     
-}  
+    }  
+    public function getRecentActivities() {
+        $this->db->query("
+            SELECT user_id, action_type, action_details, timestamp
+            FROM Activity_Log
+            ORDER BY timestamp DESC  -- Corrected the column name here
+            LIMIT 10
+        ");
+    
+        $activities = $this->db->resultSet();
+    
+        return $activities;
+    }
+    
 
 }
 

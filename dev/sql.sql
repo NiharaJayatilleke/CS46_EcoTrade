@@ -247,3 +247,11 @@ CREATE TABLE Non_Verified_Users(
     PRIMARY KEY(id)
 
 );
+
+CREATE TABLE Activity_Log (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    action_type VARCHAR(255),
+    action_details TEXT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
