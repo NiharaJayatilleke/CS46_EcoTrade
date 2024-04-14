@@ -8,6 +8,7 @@
         }
 
         public function register(){
+            // die('Collector registration');
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 // form is submitting
                 // Validate the data
@@ -27,9 +28,8 @@
                     'reg_number' => trim($_POST['reg_number']),
                     'vehicle_type' => trim($_POST['vehicle_type']),
                     'vehicle_reg' => trim($_POST['vehicle_reg']),
-                    'make' => trim($_POST['make']),
                     'model' => trim($_POST['model']),
-                    'insurance' => trim($_POST['insurance']),
+                    'other_vehicle' => trim($_POST['other_vehicle']),
                     'color' => trim($_POST['color']),
                     'districts' => isset($_POST['district']) ? array_map('trim', $_POST['district']) : [],
 
@@ -44,9 +44,8 @@
                     'reg_number_err' => '',
                     'vehicle_type_err' => '',
                     'vehicle_reg_err' => '',
-                    'make_err' => '',
                     'model_err' => '',
-                    'insurance_err' => '',
+                    'other_vehicle_err' => '',
                     'color_err' => '',
                     'districts_err' => ''
                     // 'agree' => trim($_POST['agree']),
@@ -133,6 +132,10 @@
                 //     $data['district1_err'] = '';
                 // }
 
+                // if(empty($data['other_vehicle'])){
+                //     $data['other_vehicle_err'] = 'Please enter your other vehicle';
+                // }
+
                 // Validate districts
                 if (empty($data['districts'])){
                     $data['districts_err'] = 'Please select at least one district.';
@@ -146,7 +149,7 @@
                 // }
         
                 // Validation is completed and no error then register the user
-                if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['make_err']) && empty($data['model_err']) && empty($data['insurance_err']) && empty($data['color_err']) && empty($data['districts_err'])){
+                if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['model_err']) && empty($data['other_vehicle_err']) &&  empty($data['color_err']) && empty($data['districts_err'])){
                     // Register collector
                     if($this->collectorModel->register($data)){
                         // Create a flash message
@@ -209,10 +212,8 @@
                         'reg_number' => '',
                         'vehicle_type' => '',
                         'vehicle_reg' => '',
-                        'make' => '',
                         'model' => '',
-                        'insurance' => '',
-                        'color' => '',
+                        'other_vehicle' => '',
                         'districts' => '',
                 
                         'nic_err' => '',
@@ -226,9 +227,8 @@
                         'reg_number_err' => '',
                         'vehicle_type_err' => '',
                         'vehicle_reg_err' => '',
-                        'make_err' => '',
                         'model_err' => '',
-                        'insurance_err' => '',
+                        'other_vehicle_err' => '',
                         'color_err' => '',
                         'districts_err' => ''
                     ];
