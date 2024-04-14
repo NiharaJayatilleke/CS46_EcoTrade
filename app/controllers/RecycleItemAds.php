@@ -117,7 +117,7 @@
         public function recycleShow($adId){
             $ad = $this->recycleItemAdsModel->getAdById($adId);
             // $seller = $this->recycleItemAdsModel->getSellerByAdId($adId);
-
+            
             $data = [
                 'ad' => $ad,
                 // 'seller' => $seller,
