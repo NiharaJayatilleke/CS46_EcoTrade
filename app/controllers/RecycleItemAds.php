@@ -131,7 +131,17 @@
         }
 
         public function delete(){
+            $ad = $this->RecycleItemAdsModel->getAdById($adId);
+            $oldImage = PUBROOT.'/img/items/'.$ad->item_image;
+            deleteImage($oldImage);
 
+            if($this->RecycleItemAdsModel->delete($adId)){
+                flash('post_msg', 'Your ad has been deleted successfully!');
+                redirect('ItemAds/index');
+            }
+            else{
+                die('Something went wrong');
+            }
         }
 
     }
