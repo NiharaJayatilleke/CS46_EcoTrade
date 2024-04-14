@@ -29,6 +29,13 @@
             return $results;
         }
 
+        public function getAdById($adId){
+            $this->db->query('SELECT * FROM Recycle_Item_Ads WHERE r_id = :id');
+            $this->db->bind(':id',$adId);
+            $row = $this->db->single();
+            return $row;
+        }
+
     }
 
 ?>

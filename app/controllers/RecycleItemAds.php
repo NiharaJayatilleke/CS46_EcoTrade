@@ -112,7 +112,27 @@
                 //load view
                 $this->view('recycle_ads/v_re_create', $data);
             }
-        }    
+        }   
+        
+        public function recycleShow($adId){
+            $ad = $this->recycleItemAdsModel->getAdById($adId);
+            // $seller = $this->recycleItemAdsModel->getSellerByAdId($adId);
+
+            $data = [
+                'ad' => $ad,
+                // 'seller' => $seller,
+            ];
+
+            $this->view('recycle_ads/v_re_show',$data);
+        }
+
+        public function edit(){
+
+        }
+
+        public function delete(){
+
+        }
 
     }
 ?>
