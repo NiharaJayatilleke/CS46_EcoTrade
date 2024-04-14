@@ -106,46 +106,46 @@ function showImage(imgPlaceholder,icon,file){
 
 // ADDITIONAL IMAGES 
 
-const dropArea1 = document.querySelector(".ad-form-drag-area1");
-let dropText1 = document.querySelector(".ad-form-drag-area-text1");
-const browseButton1 = document.querySelector(".ad-form-drag-area-btn1");
-let inputPath1 = document.querySelector("#item_images1");
-let file1;
+// const dropArea1 = document.querySelector(".ad-form-drag-area1");
+// let dropText1 = document.querySelector(".ad-form-drag-area-text1");
+// const browseButton1 = document.querySelector(".ad-form-drag-area-btn1");
+// let inputPath1 = document.querySelector("#item_images1");
+// let file1;
 
-var imgPlaceholder1 = document.querySelector("#item_img_placeholder1");
-var icon1 = document.querySelector("#item_img_placeholder_icon1");
+// var imgPlaceholder1 = document.querySelector("#item_img_placeholder1");
+// var icon1 = document.querySelector("#item_img_placeholder_icon1");
 
-  if(browseButton1 && inputPath1) {
-    browseButton1.onclick = () => {
-      inputPath1.click();
-    };
-  }
+//   if(browseButton1 && inputPath1) {
+//     browseButton1.onclick = () => {
+//       inputPath1.click();
+//     };
+//   }
   
-  inputPath1.addEventListener("change", function () {
-    file1 = this.files[0];
-    showImage(imgPlaceholder1,icon1,file1);
-  //   dropArea.classList.add("active");
-  });
+//   inputPath1.addEventListener("change", function () {
+//     file1 = this.files[0];
+//     showImage(imgPlaceholder1,icon1,file1);
+//   //   dropArea.classList.add("active");
+//   });
   
-  dropArea1.addEventListener("dragover", (event) => {
-    event.preventDefault();
-    dropArea1.classList.add("active");
-    dropText1.textContent = "Release to Upload File";
-  });
+//   dropArea1.addEventListener("dragover", (event) => {
+//     event.preventDefault();
+//     dropArea1.classList.add("active");
+//     dropText1.textContent = "Release to Upload File";
+//   });
   
-  dropArea1.addEventListener("dragleave", () => {
-    dropArea1.classList.remove("active");
-    dropText1.textContent = "Drag & Drop to Upload File";
-  });
+//   dropArea1.addEventListener("dragleave", () => {
+//     dropArea1.classList.remove("active");
+//     dropText1.textContent = "Drag & Drop to Upload File";
+//   });
   
-  dropArea1.addEventListener("drop", (event)=>{
-      event.preventDefault();
+//   dropArea1.addEventListener("drop", (event)=>{
+//       event.preventDefault();
   
-      file1 = event.dataTransfer.files[0];
-      let list1 = new DataTransfer();
-      list1.items.add(file);
-      inputPath1.files = list1.files;
+//       file1 = event.dataTransfer.files[0];
+//       let list1 = new DataTransfer();
+//       list1.items.add(file);
+//       inputPath1.files = list1.files;
   
-      showImage(imgPlaceholder1,icon1,file1);
-      dropArea1.classList.remove("active");
-  })
+//       showImage(imgPlaceholder1,icon1,file1);
+//       dropArea1.classList.remove("active");
+//   })

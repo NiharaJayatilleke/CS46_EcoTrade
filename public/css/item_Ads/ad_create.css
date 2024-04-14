@@ -192,6 +192,20 @@
     /* display: none; */
 }
 
+/* for item ad edit */
+#item_img_placeholder01,
+#item_img_placeholder02 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms ease-in;
+    margin-top: 30px;
+    /* display: none; */
+}
+
 .ad-icon .item_image_placeholder_icon {
     width: 30px;
     height: 30px;

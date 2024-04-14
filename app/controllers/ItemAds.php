@@ -445,9 +445,11 @@
 
                 //check for owner as a security measure to prevent editing through url
                 if($ad->seller_id != $_SESSION['user_id']){
-                    redirect('ItemAds/index');
+                    // redirect('ItemAds/index');
+                    $this->view('pages/forbidden');
                 }
 
+                // die(var_dump($ad));
 
                 // initial form
                 $data = [
