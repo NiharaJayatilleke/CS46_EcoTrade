@@ -11,7 +11,7 @@ if($_SESSION['user_type'] != 'moderator') {
 <div class="sad-main-container1">
     <div class="sad-main2"></div>
         <div class = "sad-item-name"><h1><?php echo $data['ad']->item_name ?><h1></div>
-        <div class = "sad-p1"><p>Posted on <?php echo $data['ad']->created_at ?></p></div>
+        <div class = "sad-p1"><p>Posted on <?php echo $data['ad']->item_created_at ?></p></div>
 
         <div class="sad-container2">
         <div class="sad-left-container">
@@ -105,8 +105,8 @@ if($_SESSION['user_type'] != 'moderator') {
         <!-- Update Ad, Remove Ad -->
         <?php if ($_SESSION['user_id'] == $data['ad']->seller_id) : ?>
         <div class="sad-edit-delete">
-            <a href = "<?php echo URLROOT?>/RecycleItemAds/edit/<?php echo $data['ad']->r_id?>"><button class="sad-edit-btn" title="edit ad"><i class="fas fa-edit"></i><p>Update Ad</p></button></a>
-            <button onclick="confirmDelete('<?php echo URLROOT?>/RecycleItemAds/delete/<?php echo $data['ad']->r_id ?>')" class="sad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i><p>Remove Ad</p></button></a>
+            <a href = "<?php echo URLROOT?>/RecycleItemAds/edit/<?php echo $data['ad']->ad_id?>"><button class="sad-edit-btn" title="edit ad"><i class="fas fa-edit"></i><p>Update Ad</p></button></a>
+            <button onclick="confirmDelete('<?php echo URLROOT?>/RecycleItemAds/delete/<?php echo $data['ad']->ad_id ?>')" class="sad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i><p>Remove Ad</p></button></a>
         </div>
         <?php endif; ?>
     </div>
