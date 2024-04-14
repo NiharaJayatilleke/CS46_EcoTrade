@@ -17,6 +17,14 @@
     </head>
     <body>
 
+    <?php
+    // Check for the message query parameter and show it if it exists
+    if (isset($_GET['message'])) {
+        $message = urldecode($_GET['message']);
+        echo "<script>alert('$message');</script>";
+    }
+    ?>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>   -->

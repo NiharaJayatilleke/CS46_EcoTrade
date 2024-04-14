@@ -155,7 +155,6 @@
                         // Create a flash message
                         flash('reg_flash', 'You are successfully registered as a collector!');
 
-
                         // Get the current user type
                         $userType = $_SESSION['userType'];
                         
@@ -167,9 +166,8 @@
                                 echo 'Failed to update user type';
                             }
                         }
-
                         session_destroy();
-                        redirect('Users/login');
+                        // redirect('Users/login');
                     }
                     else{
                         die('Something went wrong');
