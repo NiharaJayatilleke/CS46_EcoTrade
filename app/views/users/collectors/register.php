@@ -29,13 +29,12 @@
                         
                         <div class="collector-input-field">
                             <label>NIC/Passport No.<span class="required">*</span></label>
-                            <input type="text" name="nic" id="nic" placeholder="NIC/Passport No.">
-                            <!-- <span class="form-invalid"><?php echo $data['nic_err']; ?></span> -->
+                            <input type="text" name="nic" id="nic" placeholder="NIC/Passport No." required>
                         </div>
                         
                         <div class="collector-input-field">
                             <label for="gender">Gender<span class="required">*</span></label>
-                            <select id="gender" name="gender" >
+                            <select id="gender" name="gender" required>
                                 <option value="">Select...</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -45,7 +44,7 @@
 
                         <div class="collector-input-field">
                             <label>Address<span class="required">*</span></label>
-                            <input type="text" id="address" name="address" placeholder="Enter your Address" >
+                            <input type="text" id="address" name="address" placeholder="Enter your Address" required>
                         </div>
 
 
@@ -124,7 +123,7 @@
                     <div class="collector-fields">
                         <div class="collector-input-field">
                             <label for="Vehicle">Vehicle type<span class="required">*</span></label>
-                            <select name="vehicle_type" id="vehicle_type">
+                            <select name="vehicle_type" id="vehicle_type" required>
                                 <option value="">Select...</option>
                                 <option value="Cart">Cart</option>
                                 <option value="Tuk">Tuk</option>
@@ -144,17 +143,17 @@
                         </div> -->
 
                         <div class="collector-input-field">
-                            <label>Vehicle Registration No <span class="example">(e.g:KY 3456)</span> <span class="required">*</span></label>
+                            <label>Vehicle Registration No <span class="example">(e.g:KY 3456)</span></label>
                             <input type="text" name="vehicle_reg" id="vehicle_reg" placeholder="Vehicle Registration No" >
                         </div>
 
                         <div class="collector-input-field">
-                            <label>Vehicle Model<span class="required">*</span></label>
+                            <label>Vehicle Model</label>
                             <input type="text" name="model" id="model" placeholder="Enter Vehicle Model" >
                         </div>
 
                         <div class="collector-input-field">
-                            <label>Vehicle Color <span class="required">*</span></label>
+                            <label>Vehicle Color </label>
                             <input type="text" name="color" id="color" placeholder="Enter Vehicle Color" >
                         </div>
 
@@ -214,13 +213,13 @@
                 </div> -->
 
                 <div class="collector-details location">
-                    <span class="collector-title">Select Collecting Locations &emsp;<span class="form-invalid"><?php echo $data['districts_err']; ?></span></span>
+                    <span class="collector-title">Select Collecting Locations<span class="required">*</span></span>
                     <div class="collector-fields districts">
                         <!-- Checkbox fields -->
                         <div class="collector-input-field">
                             <?php foreach ($data['districts'] as $district): ?>
                                 <label>
-                                    <input type="checkbox" name="districts[]" value="<?= $district->id ?>">
+                                    <input type="checkbox" name="districts[]" value="<?= $district->id ?>" >
                                     <?= $district->name ?>
                                 </label>
                             <?php endforeach; ?>

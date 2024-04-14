@@ -129,12 +129,12 @@
                 //     $data['other_vehicle_err'] = 'Please enter your other vehicle';
                 // }
 
-                //Validate districts
-                if (empty($data['districts'])){
-                    $data['districts_err'] = 'Please select at least one district.';
-                } else {
-                    $data['districts_err'] = '';
-                }
+                // //Validate districts
+                // if (empty($data['districts'])){
+                //     $data['districts_err'] = 'Please select at least one district.';
+                // } else {
+                //     $data['districts_err'] = '';
+                // }
 
                 //Check if the user has agreed to the terms
                 // if (!isset($_POST['agree'])) {

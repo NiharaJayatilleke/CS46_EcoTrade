@@ -1,9 +1,7 @@
-
 const form = document.querySelector("form"),
         nextBtn = form.querySelector(".nextBtn"),
         backBtn = form.querySelector(".backBtn"),
         allInput = form.querySelectorAll(".first input");
-
 
 nextBtn.addEventListener("click", (event) => {
     event.preventDefault();
@@ -18,7 +16,11 @@ nextBtn.addEventListener("click", (event) => {
         form.classList.add('secActive');
     } else {
         form.classList.remove('secActive');
-        alert("Please fill all the required fields");
+        Swal.fire({
+            title: 'Error!',
+            text: 'Please fill all the required fields',
+            icon: 'error'
+        });
     }
 });
 
@@ -35,6 +37,39 @@ backBtn.addEventListener("click", (event) => {
 
 function confirmTerms(event) {
     event.preventDefault();
+
+    var form = event.target.form;
+
+    // Check if the form is valid
+    if (!form.checkValidity()) {
+        // Not all required fields are filled, show an error message
+        Swal.fire({
+            title: 'Error!',
+            text: 'There are some more fields to be filled. Please fill them and try again.',
+            icon: 'error'
+        });
+        return;
+    }
+
+    // Check if at least one checkbox is checked
+    var checkboxes = form['districts[]'];
+    var oneCheckboxChecked = Array.prototype.some.call(checkboxes, function(checkbox) {
+        return checkbox.checked;
+    });
+
+    if (!oneCheckboxChecked) {
+        // No checkbox is checked, show an error message
+        Swal.fire({
+            title: 'Error!',
+            text: 'Please select at least one collecting location.',
+            icon: 'error'
+        });
+        return;
+    }
+
+    // If the form is valid, show the confirmation dialog
+    var formData = new FormData(form);
+
     Swal.fire({
         title: 'Are you sure you want to register as a collector on Eco Trade?',
         text: "Once you submit your registration, your information will be processed, and you'll be on your way to contributing to a greener future. If you're ready to take this step, go ahead and hit submit!",
@@ -49,8 +84,6 @@ function confirmTerms(event) {
     }).then((result) => {
         if (result.isConfirmed) {
             // Submit the form using AJAX
-            var form = event.target.form;
-            var formData = new FormData(form);
             var xhr = new XMLHttpRequest();
             xhr.open(form.method, form.action);
             xhr.onreadystatechange = function () {
@@ -67,7 +100,6 @@ function confirmTerms(event) {
                 } else if (xhr.readyState === 4) {
                     // Handle the error
                     console.error('Form submission failed:', xhr.status, xhr.statusText);
-                    event.preventDefault(); // Prevent form from being submitted
                 }
             };
             xhr.send(formData);
