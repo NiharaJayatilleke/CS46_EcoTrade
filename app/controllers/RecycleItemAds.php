@@ -112,7 +112,37 @@
                 //load view
                 $this->view('recycle_ads/v_re_create', $data);
             }
-        }    
+        }   
+        
+        public function recycleShow($adId){
+            $ad = $this->recycleItemAdsModel->getAdById($adId);
+            // $seller = $this->recycleItemAdsModel->getSellerByAdId($adId);
+
+            $data = [
+                'ad' => $ad,
+                // 'seller' => $seller,
+            ];
+
+            $this->view('recycle_ads/v_re_show',$data);
+        }
+
+        public function edit(){
+
+        }
+
+        public function delete(){
+            $ad = $this->RecycleItemAdsModel->getAdById($adId);
+            $oldImage = PUBROOT.'/img/items/'.$ad->item_image;
+            deleteImage($oldImage);
+
+            if($this->RecycleItemAdsModel->delete($adId)){
+                flash('post_msg', 'Your ad has been deleted successfully!');
+                redirect('ItemAds/index');
+            }
+            else{
+                die('Something went wrong');
+            }
+        }
 
     }
 ?>

@@ -139,6 +139,7 @@ function submitPackage(packageType, timeInDays, adId) {
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
+        window.location.href = URLROOT + "/itemAds/payment";
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -179,8 +180,13 @@ continueButton.addEventListener('click', function(event) {
 
     // console.log(timeInDays1);
 
+    if (timeInDays1 !== 0) {
     submitPackage(packageType1, timeInDays1, CURRENT_AD);
+    }
+
+    if (timeInDays2 !== 0) {
     submitPackage(packageType2, timeInDays2, CURRENT_AD);
+    }
 });
 
 }

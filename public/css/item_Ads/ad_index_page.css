@@ -29,7 +29,8 @@
 }
 
 .ad-pv-package {
-    border: 2px solid red;
+    border: 2px solid rgb(236, 161, 161);
+    /* border: 2px solid rgb(34, 224, 40); */
 }
 
 .ad-index-container:hover {

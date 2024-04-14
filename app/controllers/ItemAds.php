@@ -9,6 +9,12 @@
         }
 
         public function index() {
+
+            if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'center' )){      
+                $this->view('pages/forbidden');
+
+            }else{
+
             $ads = $this->itemAdsModel->getAds();
             
             $data = [
@@ -17,9 +23,16 @@
             // die(var_dump($data));
 
             $this->view('item_ads/v_index', $data);
+            }
         }
 
         public function show($id) {
+
+            if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'center' )){      
+                $this->view('pages/forbidden');
+
+            }else if(isset($_SESSION['userType'])){    
+
             $ad = $this->itemAdsModel->getAdById($id);
             $offers = $this->offersModel->getOffersByAd($id);
             $acceptedOffer = $this->offersModel->getAcceptedOfferByAd($id);
@@ -51,10 +64,15 @@
             ];
 
             $this->view('item_ads/v_show', $data);
+
+            }else{
+                redirect('users/login');
+            }
         }
 
         public function itemType(){
-            if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator')){      
+            
+            if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator' || $_SESSION['userType'] == 'center' )){      
                 $this->view('pages/forbidden');
 
             }else if(isset($_SESSION['userType'])){    
@@ -104,6 +122,12 @@
         }
 
         public function itemAd(){
+
+            if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator' || $_SESSION['userType'] == 'center' )){      
+                $this->view('pages/forbidden');
+
+            }else if(isset($_SESSION['userType'])){    
+
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 //form is submitting
 
@@ -296,9 +320,21 @@
                 //load view
                 $this->view('item_ads/v_create', $data);
             }
+
+            }else{
+                redirect('users/login');
+            }
         }
 
         public function edit($adId){
+
+            $ad = $this->itemAdsModel->getAdById($adId);
+
+            if(!isset($_SESSION['userType'])){
+                redirect('users/login');
+            
+            }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
+        
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 //form is submitting
 
@@ -409,9 +445,11 @@
 
                 //check for owner as a security measure to prevent editing through url
                 if($ad->seller_id != $_SESSION['user_id']){
-                    redirect('ItemAds/index');
+                    // redirect('ItemAds/index');
+                    $this->view('pages/forbidden');
                 }
 
+                // die(var_dump($ad));
 
                 // initial form
                 $data = [
@@ -444,9 +482,19 @@
                 //load view
                 $this->view('item_ads/v_edit', $data);
             }
+            }else{
+                $this->view('pages/forbidden');
+            }
         }
 
         public function promote($adId){
+
+            $ad = $this->itemAdsModel->getAdById($adId);
+
+            if(!isset($_SESSION['userType'])){
+                redirect('users/login');
+            
+            }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
             
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -480,9 +528,20 @@
             $this->view('item_ads/v_promote',$data);
 
             }
+            }else{
+                $this->view('pages/forbidden');
+            }
         }
 
         public function packageExists($adId) {
+
+            $ad = $this->itemAdsModel->getAdById($adId);
+
+            if(!isset($_SESSION['userType'])){
+                redirect('users/login');
+            
+            }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
+
             error_log('packageExists function called with adId: ' . $adId);
             // die('packageExists');
             $packageDetails = $this->itemAdsModel->packageExists($adId);
@@ -534,9 +593,34 @@
             } else {
                 echo json_encode(array());
             }
+            }else{
+                $this->view('pages/forbidden');
+            }
+        }
+
+        public function payment(){
+
+            $ad = $this->itemAdsModel->getAdById($adId);
+
+            if(!isset($_SESSION['userType'])){
+                redirect('users/login');
+            
+            }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
+            
+            $this->view('item_ads/v_paymentportal');
+            
+            }else{
+                $this->view('pages/forbidden');
+            }
         }
 
         public function report($adId){
+
+            if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator' || $_SESSION['userType'] == 'center' )){      
+                $this->view('pages/forbidden');
+
+            }else if(isset($_SESSION['userType'])){    
+
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
@@ -561,15 +645,22 @@
             } else {
                 echo 'Invalid request method.';
             }
+            }else{
+                redirect('users/login');
+            }
         }
 
         public function delete($adId){
             $ad = $this->itemAdsModel->getAdById($adId);
 
-            //check for owner to prevent deleting through url
+            if(!isset($_SESSION['userType'])){
+                redirect('users/login');
+            
+            }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
+            /*check for owner to prevent deleting through url
             if($ad->seller_id != $_SESSION['user_id']){
                 redirect('ItemAds/index');
-            }else{
+            }else{*/
                 $ad = $this->itemAdsModel->getAdById($adId);
                 $oldImage = PUBROOT.'/img/items/'.$ad->item_image;
                 deleteImage($oldImage);
@@ -581,6 +672,8 @@
                 else{
                     die('Something went wrong');
                 }
+            }else{
+                $this->view('pages/forbidden');
             }
             
         }

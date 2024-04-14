@@ -4,6 +4,7 @@
             $this->userModel = $this->model('M_Users');
             $this->collectorModel =$this->model('M_Collectors');
             $this->pagesModel =$this->model('M_Pages');
+            $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads');  
 
         }
 
@@ -240,7 +241,10 @@
         
 
         public function index(){
-            $data = [];
+            $ads = $this->recycleItemAdsModel->getAds();
+            $data = [
+                'ads' => $ads,
+            ];
             $this->view('users/collectors/dashboard',$data);
         }
 

@@ -57,14 +57,14 @@ if($_SESSION['user_type'] != 'moderator') {
             <div class="sad-line"></div>
 
             <div class="sad-bottom">
-            <a class="sad-b1" href="#">
-                <!-- <button class="sad-b1"> -->
+            <!-- <a class="sad-b1" href="#"> -->
+                <button class="sad-b1" id = "rateBtn">
                     <!-- <img src="<php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
                     <!-- <i class="fas fa-ad"></i> Ad icon -->
                     <i class="fas fa-star"></i>
                     <p>Rate this Seller</p>
-                <!-- </button> -->
-            </a>
+                </button>
+            <!-- </a> -->
                 <button class="sad-b1" onclick="reportAd()">
                     <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/report.png" alt="report"> -->
                     <i class="fas fa-flag"></i>
@@ -291,6 +291,9 @@ if($_SESSION['user_type'] != 'moderator') {
 
 <!-- JS for Reporting Ads -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/report_ad.js"></script>
+
+<!-- JS for rating seller -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/rate_sellers.js"></script>
 
 <script>
     const id = <?php echo $data['ad']->ad_id ?>;
