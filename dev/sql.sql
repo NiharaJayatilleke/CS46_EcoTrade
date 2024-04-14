@@ -29,10 +29,10 @@ CREATE TABLE Collectors (
     company_type VARCHAR(255),
     vehicle_type VARCHAR(255),
     reg_number VARCHAR(255),
-    model VARCHAR(255),
-    other_vehicle VARCHAR(255),
     vehicle_reg VARCHAR(255),
+    model VARCHAR(255),
     color VARCHAR(255),
+    other_vehicle VARCHAR(255),
     FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE,
     PRIMARY KEY (id)
 );

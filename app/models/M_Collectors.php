@@ -8,7 +8,7 @@
         //Register the collector
         public function register($data){
             // Insert into Collectors table
-            $this->db->query('INSERT INTO Collectors(id, nic, gender, address, com_name, com_email, com_address, telephone, company_type, reg_number, vehicle_type, vehicle_reg, model, other_vehicle , color) VALUES(:id, :nic, :gender, :address, :com_name, :com_email, :com_address, :telephone, :company_type, :reg_number, :vehicle_type, :vehicle_reg, :model, :other_vehicle , :color)');
+            $this->db->query('INSERT INTO Collectors(id, nic, gender, address, com_name, com_email, com_address, telephone, company_type, reg_number, vehicle_type, vehicle_reg, model, color, other_vehicle) VALUES(:id, :nic, :gender, :address, :com_name, :com_email, :com_address, :telephone, :company_type, :reg_number, :vehicle_type, :vehicle_reg, :model, :color, :other_vehicle)');
 
             // Bind values
             $this->db->bind(':id', $_SESSION['user_id']);
@@ -24,8 +24,8 @@
             $this->db->bind(':vehicle_type', $data['vehicle_type']);
             $this->db->bind(':vehicle_reg', $data['vehicle_reg']);
             $this->db->bind(':model', $data['model']);
-            $this->db->bind(':other_vehicle', $data['other_vehicle']);
             $this->db->bind(':color', $data['color']);
+            $this->db->bind(':other_vehicle', $data['other_vehicle']);
 
             // Execute query
             if(!$this->db->execute()){

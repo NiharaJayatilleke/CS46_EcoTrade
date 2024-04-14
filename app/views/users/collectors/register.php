@@ -170,10 +170,9 @@
                     </div>
                 </div>
 
-                <div class="collector-details location">
+                <!-- <div class="collector-details location">
                     <span class="collector-title">Select Collecting Locations &emsp;<span class="form-invalid"><?php echo $data['districts_err']; ?></span></span>
                     <div class="collector-fields districts">
-                        <!-- Checkbox fields -->
                         <div class="collector-input-field">
                             <div class="districts-col">
                                 <label><input type="checkbox" name="district[]" value="Colombo"> Colombo</label>
@@ -210,6 +209,21 @@
                                 <label><input type="checkbox" name="district[]" value="Ratnapura"> Ratnapura</label>
                                 <label><input type="checkbox" name="district[]" value="Kegalle"> Kegalle</label>
                             </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="collector-details location">
+                    <span class="collector-title">Select Collecting Locations &emsp;<span class="form-invalid"><?php echo $data['districts_err']; ?></span></span>
+                    <div class="collector-fields districts">
+                        <!-- Checkbox fields -->
+                        <div class="collector-input-field">
+                            <?php foreach ($data['districts'] as $district): ?>
+                                <label>
+                                    <input type="checkbox" name="districts[]" value="<?= $district->id ?>">
+                                    <?= $district->name ?>
+                                </label>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>

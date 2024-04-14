@@ -179,37 +179,32 @@ form.secActive .form.first{
 }
 
 .collector-container form .collector-fields.districts .collector-input-field {
-    padding-top: 5px;
+    padding-top: 0;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 60px;
+    /* gap: .05px; */
     width: 100%;
 }
 
-.collector-input-field .districts-col {
-    display: flex;
-    flex-direction: column;
-}
-
-.collector-input-field .districts-col label {
+.collector-input-field label {
     display: flex;
     align-items: center;
-    /* margin-bottom: 3px; */
 }
 
-.collector-input-field .districts-col input[type="checkbox"] {
+.collector-input-field input[type="checkbox"] {
     outline: none;
-    font-size: 20px;
+    font-size: 40px;
     font-weight: 400;
     color: #333;
     border-radius: 10px;
     border: 1px solid #aaa;
     padding: 0 15px;
-    height: 15px;
-    margin: 10px 10px 10px 5px; /* top, right, bottom, left */
+    height: 25px;
+    margin: 5px 10px 5px 20px; /* top, right, bottom, left */
     width: auto;
 }
-.collector-input-field .districts-col input[type="checkbox"]:focus {
+
+.collector-input-field input[type="checkbox"]:focus {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
 }
 

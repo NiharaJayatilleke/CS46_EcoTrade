@@ -2,9 +2,9 @@
     class Collectors extends Controller{
         public function __construct(){
             $this->userModel = $this->model('M_Users');
-            $this->collectorModel =$this->model('M_Collectors');
-            $this->pagesModel =$this->model('M_Pages');
-
+            $this->collectorModel = $this->model('M_Collectors');
+            $this->pagesModel = $this->model('M_Pages');
+            $this->districtModel = $this->model('M_Districts'); // Add this line
         }
 
         public function register(){
@@ -29,9 +29,9 @@
                     'vehicle_type' => trim($_POST['vehicle_type']),
                     'vehicle_reg' => trim($_POST['vehicle_reg']),
                     'model' => trim($_POST['model']),
-                    'other_vehicle' => trim($_POST['other_vehicle']),
                     'color' => trim($_POST['color']),
-                    'districts' => isset($_POST['district']) ? array_map('trim', $_POST['district']) : [],
+                    'districts' => isset($_POST['districts']) ? array_map('trim', $_POST['districts']) : [],
+                    'other_vehicle' => trim($_POST['other_vehicle']),
 
                     'nic_err' => '',
                     'gender_err' => '',
@@ -45,9 +45,9 @@
                     'vehicle_type_err' => '',
                     'vehicle_reg_err' => '',
                     'model_err' => '',
-                    'other_vehicle_err' => '',
                     'color_err' => '',
-                    'districts_err' => ''
+                    'districts_err' => '',
+                    'other_vehicle_err' => ''
                     // 'agree' => trim($_POST['agree']),
                 ];
                 
@@ -191,8 +191,11 @@
                     redirect('Collectors/index');
                 }
                 else if(isset($_SESSION['user_id']) && isset($_SESSION['userType']) && ($_SESSION['userType'] != 'collector'|| $_SESSION['userType'] != 'recenter' || $_SESSION['userType'] != null)) {
+                    $districts = $this->districtModel->getDistricts();
+
                     $data = [
                         'user' => $user,
+                        'districts' => $districts
                     ];
         
                     // Load collector registration view
@@ -213,8 +216,9 @@
                         'vehicle_type' => '',
                         'vehicle_reg' => '',
                         'model' => '',
-                        'other_vehicle' => '',
                         'districts' => '',
+                        'color_err' => '',
+                        'other_vehicle' => '',
                 
                         'nic_err' => '',
                         'gender_err' => '',
@@ -228,9 +232,9 @@
                         'vehicle_type_err' => '',
                         'vehicle_reg_err' => '',
                         'model_err' => '',
-                        'other_vehicle_err' => '',
                         'color_err' => '',
-                        'districts_err' => ''
+                        'districts_err' => '',
+                        'other_vehicle_err' => ''
                     ];
                     // Guests or other user types should go to general user registration
                     redirect('Users/register');
