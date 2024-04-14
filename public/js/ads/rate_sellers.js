@@ -1,6 +1,6 @@
 document.querySelector('#rateBtn').addEventListener('click', function() {
     Swal.fire({
-        title: 'Rate this seller',
+        title: 'Rate this Seller',
         html: '<div id="rating">' +
                 '<span class="fa fa-star" data-rating="1"></span>' +
                 '<span class="fa fa-star" data-rating="2"></span>' +
@@ -15,11 +15,19 @@ document.querySelector('#rateBtn').addEventListener('click', function() {
             var stars = document.querySelectorAll('#rating .fa-star');
             for (var i = 0; i < stars.length; i++) {
                 stars[i].addEventListener('click', function() {
-                    var checkedStar = document.querySelector('#rating .fa-star.checked');
+                    /* var checkedStar = document.querySelector('#rating .fa-star.checked');
                     if (checkedStar) {
                         checkedStar.classList.remove('checked');
                     }
-                    this.classList.add('checked');
+                    this.classList.add('checked'); */
+                    var rating = this.getAttribute('data-rating');
+                    for (var j = 0; j < stars.length; j++) {
+                        if (stars[j].getAttribute('data-rating') <= rating) {
+                            stars[j].classList.add('checked');
+                        } else {
+                            stars[j].classList.remove('checked');
+                        }
+                    }
                 });
             }
         },
