@@ -32,45 +32,6 @@ backBtn.addEventListener("click", (event) => {
     form.classList.remove('secActive');
 });
 
-document.getElementById('vehicle_type').addEventListener('change', function() {
-    var otherField = document.getElementById('otherField');
-    var registrationField = document.getElementById('vehicle_reg').parentElement;
-    var modelField = document.getElementById('model').parentElement;
-    var colorField = document.getElementById('color').parentElement;
-
-    if (this.value === 'Other') {
-        otherField.style.display = 'block';
-        registrationField.style.display = 'none';
-        modelField.style.display = 'none';
-        colorField.style.display = 'none';
-    } else {
-        otherField.style.display = 'none';
-        registrationField.style.display = 'flex';
-        modelField.style.display = 'flex';
-        colorField.style.display = 'flex';
-    }
-});
-
-// function confirmTerms(event) {
-//     event.preventDefault();
-//     Swal.fire({
-//         title: 'Are you sure you want to register as a collector on Eco Trade?',
-//         text: "Once you submit your registration, your information will be processed, and you'll be on your way to contributing to a greener future. If you're ready to take this step, go ahead and hit submit!",
-//         icon: 'question',
-//         showCancelButton: true,
-//         confirmButtonColor: '#3085d6',
-//         cancelButtonColor: '#d33',
-//         confirmButtonText: 'Submit',
-//         didOpen: () => {
-//             document.querySelector('.swal2-content').style.fontSize = '0.9em'; // Adjust the font size to your liking
-//         }
-//     }).then((result) => {
-//         if (result.isConfirmed) {
-//             event.target.form.submit(); // Submit the form normally
-//         }
-//     })
-// }
-
 
 function confirmTerms(event) {
     event.preventDefault();
@@ -106,6 +67,7 @@ function confirmTerms(event) {
                 } else if (xhr.readyState === 4) {
                     // Handle the error
                     console.error('Form submission failed:', xhr.status, xhr.statusText);
+                    event.preventDefault(); // Prevent form from being submitted
                 }
             };
             xhr.send(formData);
@@ -121,4 +83,24 @@ function confirmTerms(event) {
 //         confirmButtonColor: '#3085d6',
 //         confirmButtonText: 'OK'
 //     });
+// }
+
+// function confirmTerms(event) {
+//     event.preventDefault();
+//     Swal.fire({
+//         title: 'Are you sure you want to register as a collector on Eco Trade?',
+//         text: "Once you submit your registration, your information will be processed, and you'll be on your way to contributing to a greener future. If you're ready to take this step, go ahead and hit submit!",
+//         icon: 'question',
+//         showCancelButton: true,
+//         confirmButtonColor: '#3085d6',
+//         cancelButtonColor: '#d33',
+//         confirmButtonText: 'Submit',
+//         didOpen: () => {
+//             document.querySelector('.swal2-content').style.fontSize = '0.9em'; // Adjust the font size to your liking
+//         }
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             event.target.form.submit(); // Submit the form normally
+//         }
+//     })
 // }

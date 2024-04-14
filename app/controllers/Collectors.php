@@ -66,9 +66,9 @@
                 //     $data['nic_err'] = 'Invalid NIC';
                 // }
 
-                // // Validate gender
+                // Validate gender
                 // if (empty($data['gender'])){
-                //     $data['gender_err'] = 'Please enter gender';
+                //     $data['gender_err'] = 'Please select a gender';
                 // } else {
                 //     $data['gender_err'] = '';
                 // }
@@ -125,18 +125,11 @@
                 // }
                 
 
-                // // Validate district5
-                // if (empty($data['district1'])){
-                //     $data['district1_err'] = 'Please enter the collection district';
-                // } else {
-                //     $data['district1_err'] = '';
-                // }
-
                 // if(empty($data['other_vehicle'])){
                 //     $data['other_vehicle_err'] = 'Please enter your other vehicle';
                 // }
 
-                // Validate districts
+                //Validate districts
                 if (empty($data['districts'])){
                     $data['districts_err'] = 'Please select at least one district.';
                 } else {

@@ -138,10 +138,10 @@
                                 <option value="Other">Other</option>
                             </select>
                         </div>
-                        <div class="collector-input-field" id="otherField" style="display: none;">
+                        <!-- <div class="collector-input-field" id="otherField" style="display: none;">
                             <label for="other_vehicle">Please specify<span class="required">*</span></label>
                             <input type="text" id="other_vehicle" name="other_vehicle">
-                        </div>
+                        </div> -->
 
                         <div class="collector-input-field">
                             <label>Vehicle Registration No <span class="example">(e.g:KY 3456)</span> <span class="required">*</span></label>
