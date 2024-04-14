@@ -42,7 +42,12 @@
 
             <!-- item_description -->
             <div class="ad-form-input-title">Description</div>
-            <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="ad_item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?></textarea>
+            <textarea name="item_desc" 
+                placeholder = "Eg: The coffee table, used for three years, showcases minor scratches but remains sturdy and fully functional, has a convenient lower shelf. Crafted from solid wood with regular cleaning, it's sold as is." 
+            id="item_desc" class="ad_item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?></textarea>
+            <!-- placeholder="Your item's story, your sale's success!  -->
+            <!-- "You can include details such as,&#13;&#10;&#13;&#10; Physical appearance: Scratches, dents, wear.&#13;&#10;&#13;&#10; Functionality: Fully operational or any issues.&#13;&#10;&#13;&#10; Features, measurements, material, age and packaging."  -->
+            <!-- "Eg: The coffee table, used for three years, showcases minor scratches but remains sturdy and fully functional, has a convenient lower shelf. Crafted from solid wood with regular cleaning, it's sold as is." -->
 
             <!-- item_condition -->
             <div class="ad-form-input-title">Condition</div>
@@ -63,7 +68,7 @@
             <input type="number" name="item_quantity" id="item_quantity" class="ad_item_quantity" value="<?php echo $data['item_quantity']; ?>" >
             <span class="ad-form-invalid"><?php echo $data['item_quantity_err']; ?></span>
 
-            <div class="ad-form-input-title">Upload an Image</div>
+            <div class="ad-form-input-title">Upload Main Image</div>
             <!-- item images -->
             <div class = "ad-form-drag-area" id="form-drag-area">
                 <div class = "ad-icon">
@@ -78,6 +83,59 @@
                 <div class="ad-form-validation">
                     <span class="ad-form-invalid"><?php echo $data['item_images_err']; ?></span>
                 </div>
+            </div>
+
+            <!-- ADDITIONAL IMAGES -->
+            <div class="ad-form-input-title">Upload Additional Images</div>
+
+            <div class = "ad-additional-images">
+            <!-- additional image 1 -->
+            <div class = "ad-form-drag-area1" id="form-drag-area1">
+                <div class = "ad-icon">
+                    <img id = "item_img_placeholder1" src = "" alt="placeholder"><i id = "item_img_placeholder_icon1" class="fas fa-image fa-5x"></i></img>
+                    <!-- <i id = "item_img_placeholder" class="fas fa-image fa-5x"></i> -->
+                </div> 
+                <div class="ad-form-drag-area-text1">Drag and drop</div>
+                <div class="ad-form-drag-area-or">or</div>
+                <div class="ad-form-drag-area-btn1">Browse</div>
+                    <input type="file" name="item_images" id="item_images1" class="ad_item_images" style ="display:none">
+                
+                <div class="ad-form-validation">
+                    <span class="ad-form-invalid"><?php echo $data['item_images_err']; ?></span>
+                </div>
+            </div>
+
+            <!-- additional image 2 -->
+            <div class = "ad-form-drag-area1" id="form-drag-area">
+                <div class = "ad-icon">
+                    <img id = "item_img_placeholder" src = "" alt="placeholder"><i id = "item_img_placeholder_icon" class="fas fa-image fa-5x"></i></img>
+                    <!-- <i id = "item_img_placeholder" class="fas fa-image fa-5x"></i> -->
+                </div> 
+                <div class="ad-form-drag-area-text">Drag and drop</div>
+                <div class="ad-form-drag-area-or">or</div>
+                <div class="ad-form-drag-area-btn">Browse</div>
+                    <input type="file" name="item_images" id="item_images" class="ad_item_images" style ="display:none">
+                
+                <div class="ad-form-validation">
+                    <span class="ad-form-invalid"><?php echo $data['item_images_err']; ?></span>
+                </div>
+            </div>
+
+            <!-- additional image 3 -->
+            <div class = "ad-form-drag-area1" id="form-drag-area">
+                <div class = "ad-icon">
+                    <img id = "item_img_placeholder" src = "" alt="placeholder"><i id = "item_img_placeholder_icon" class="fas fa-image fa-5x"></i></img>
+                    <!-- <i id = "item_img_placeholder" class="fas fa-image fa-5x"></i> -->
+                </div> 
+                <div class="ad-form-drag-area-text">Drag and drop</div>
+                <div class="ad-form-drag-area-or">or</div>
+                <div class="ad-form-drag-area-btn">Browse</div>
+                    <input type="file" name="item_images" id="item_images" class="ad_item_images" style ="display:none">
+                
+                <div class="ad-form-validation">
+                    <span class="ad-form-invalid"><?php echo $data['item_images_err']; ?></span>
+                </div>
+            </div>
             </div>
 
             <!-- price -->
@@ -137,7 +195,7 @@
     </div>
 
 <!-- Javascript for image upload -->
-<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/ads.js"></script>
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/image_upload.js"></script>
 
 <!-- Javascript for auction details -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/bidding_details.js"></script>
@@ -158,7 +216,7 @@
     });
 </script>
 
-<!--  <?php require APPROOT.'/views/inc/components/footer.php'; ?>  -->
+<!--  <php require APPROOT.'/views/inc/components/footer.php'; ?>  -->
 
 </body>
 </html>

@@ -54,6 +54,11 @@
         }
 
         public function itemType(){
+            if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator')){      
+                $this->view('pages/forbidden');
+
+            }else if(isset($_SESSION['userType'])){    
+
             $itemType = isset($_POST['item_type']) ? $_POST['item_type'] : '';
             $data = [
                 'item_name' => '',
@@ -89,9 +94,13 @@
                 $this->view('recycle_ads/v_re_create',$data);
             } else {
                 // Handle invalid item type
+                $this->view('item_ads/v_itemtype', $data);
             }
 
-            $this->view('item_ads/v_itemtype', $data);
+            // $this->view('item_ads/v_itemtype', $data);
+            }else{
+                redirect('users/login');
+            }
         }
 
         public function itemAd(){
@@ -241,7 +250,7 @@
                     if ($userType == 'rSeller') {
                         $this->usersModel->setUserTypeById($userId, 'seller');
                         $_SESSION['userType']='seller';
-                    } else if ($userType != 'seller' && $userType != 'pSeller') {
+                    } else if ($userType == 'pBuyer') {
                         $this->usersModel->setUserTypeById($userId, 'pSeller');
                         $_SESSION['userType']='pSeller';
                     }
@@ -470,6 +479,60 @@
 
             $this->view('item_ads/v_promote',$data);
 
+            }
+        }
+
+        public function packageExists($adId) {
+            error_log('packageExists function called with adId: ' . $adId);
+            // die('packageExists');
+            $packageDetails = $this->itemAdsModel->packageExists($adId);
+
+            error_log(print_r($packageDetails, true));
+
+            if ($packageDetails) {
+                $pvDuration = null;
+                $agDuration = null;
+
+                foreach ($packageDetails as $packageDetail) {
+                    if ($packageDetail->package === 'PV') {
+                        $pvDuration = $packageDetail->duration * 86400;
+                        $pvStartTime = strtotime($packageDetail->starting_time);
+                        error_log('PV start time: ' . $pvStartTime);
+                    } else if ($packageDetail->package === 'AG') {
+                        $agDuration = $packageDetail->duration * 86400;
+                        $agStartTime = strtotime($packageDetail->starting_time);
+                    }
+                }
+
+                if ($pvDuration !== null) {
+                    $pvElapsed = time() - $pvStartTime;
+                    error_log('Time: ' . time());
+                    error_log('PV elapsed: ' . $pvElapsed);
+                    $pvRemaining = $pvDuration - $pvElapsed;
+                    error_log('PV remaining: ' . $pvRemaining);
+
+                    if ($pvRemaining < 0) {
+                        $pvRemaining = 0;
+                    }
+                }
+
+                if ($agDuration !== null) {
+                    $agElapsed = time() - $agStartTime;
+                    $agRemaining = $agDuration - $agElapsed;
+
+                    if ($agRemaining < 0) {
+                        $agRemaining = 0;
+                    }
+                }
+
+                $data = array(
+                    'PV' => $pvRemaining,
+                    'AG' => $agRemaining
+                );
+
+                echo json_encode($data);
+            } else {
+                echo json_encode(array());
             }
         }
 

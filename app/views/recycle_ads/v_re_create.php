@@ -83,7 +83,7 @@
     </div>
 
 <!-- Javascript for image upload -->
-<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/ads.js"></script>
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/image_upload.js"></script>
 
 <script>
     // Get the category select and the 'Other' category input
