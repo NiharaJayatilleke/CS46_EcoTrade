@@ -17,15 +17,6 @@ CREATE TABLE General_User (
 
 INSERT INTO General_User(username, email, password, user_type) VALUES ('nethmi','nethmihao2001@gmail.com','$2y$10$gDYwkrW1fAPiDHXYFNs6nuNUg47bQfgAX0YxobUTq.2.uFSXnS/8i','pBuyer');
 
-CREATE TABLE Moderators (
-    id INT AUTO_INCREMENT,
-    username VARCHAR(255),
-    email VARCHAR(255),
-    number INT,
-    password VARCHAR(255),
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE
-);
 
 CREATE TABLE Collectors (
     id INT AUTO_INCREMENT,

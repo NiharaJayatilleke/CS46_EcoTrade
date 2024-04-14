@@ -89,6 +89,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
             unset($_SESSION['user_name']);
             unset($_SESSION['user_number']);
             unset($_SESSION['userType']);
+            
             session_destroy();
 
             redirect('Users/login');
@@ -256,18 +257,10 @@ require APPROOT.'/libraries/vendor/autoload.php';
         }
 
         public function isLoggedIn(){
-            $timeout = 60; // Set timeout period in seconds (e.g. 1800 seconds = 30 minutes)
-
             if(isset($_SESSION['user_id'])){
-                if(isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $timeout){
-                    // Last request was more than $timeout seconds ago
-                    $this->logout(); // Destroy session and redirect to login
-                    return false;
-                } else {
-                    $_SESSION['LAST_ACTIVITY'] = time(); // Update last activity time stamp
-                    return true;
-                }
-            } else {
+                return true;
+            }
+            else{
                 return false;
             }
         }

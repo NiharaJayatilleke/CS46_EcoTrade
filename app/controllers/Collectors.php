@@ -31,11 +31,7 @@
                     'model' => trim($_POST['model']),
                     'insurance' => trim($_POST['insurance']),
                     'color' => trim($_POST['color']),
-                    'district1' => trim($_POST['district1']),
-                    'district2' => trim($_POST['district2']),
-                    'district3' => trim($_POST['district3']),
-                    'district4' => trim($_POST['district4']),
-                    'district5' => trim($_POST['district5']),
+                    'districts' => isset($_POST['district']) ? array_map('trim', $_POST['district']) : [],
 
                     'nic_err' => '',
                     'gender_err' => '',
@@ -52,11 +48,7 @@
                     'model_err' => '',
                     'insurance_err' => '',
                     'color_err' => '',
-                    'district1_err' => '',
-                    'district2_err' => '',
-                    'district3_err' => '',
-                    'district4_err' => ''
-                    // 'district5_err' => ''
+                    'districts_err' => ''
                     // 'agree' => trim($_POST['agree']),
                 ];
                 
@@ -134,32 +126,38 @@
                 // }
                 
 
-                // // Validate district5
-                // if (empty($data['district1'])){
-                //     $data['district1_err'] = 'Please enter the collection district';
-                // } else {
-                //     $data['district1_err'] = '';
-                // }
-
+                // Validate districts
+                if (empty($data['districts'])){
+                    $data['districts_err'] = 'Please select at least one district.';
+                } else {
+                    $data['districts_err'] = '';
+                }
 
                 //Check if the user has agreed to the terms
                 // if (!isset($_POST['agree'])) {
                 //     $data['err'] = 'You must agree to the terms and conditions.';
                 // }
         
+
                 // Validation is completed and no error then register the user
-                if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['make_err']) && empty($data['model_err']) && empty($data['insurance_err']) && empty($data['color_err']) && empty($data['district1_err'])){
+                if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['make_err']) && empty($data['model_err']) && empty($data['insurance_err']) && empty($data['color_err']) && empty($data['districts_err'])){
                     // Register collector
                     if($this->collectorModel->register($data)){
                         // Create a flash message
-                        
                         flash('reg_flash', 'You are successfully registered as a collector!');
-                        // Assuming $user is an instance of the class that contains the updateUserType method
-                        if ($this->userModel->updateUserType('collector')) {
-                            echo 'User type updated successfully';
-                        } else {
-                            echo 'Failed to update user type';
+                        
+                        // Get the current user type
+                        $userType = $_SESSION['userType'];
+                        
+                        // Only update the user type if they are not a moderator or an admin
+                        if ($userType !== 'moderator' && $userType !== 'admin') {
+                            if ($this->userModel->updateUserType('collector')) {
+                                echo 'User type updated successfully';
+                            } else {
+                                echo 'Failed to update user type';
+                            }
                         }
+                        
                         session_destroy();
                         redirect('Users/login');
                     }
