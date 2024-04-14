@@ -221,7 +221,7 @@
                             <span class="btnText">Back</span>
                         </button>
 
-                        <button type="submit" class="submit">
+                        <button type="submit" class="submit" onclick="confirmTerms(event)">
                             <span class="submit">Submit</span>
                             <i class="uil uil-navigator"></i>
                         </button>

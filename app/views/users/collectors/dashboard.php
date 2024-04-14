@@ -36,10 +36,8 @@
                     </a>
                 </li>
 
-
-
                 <li>
-                    <a href="<?php echo URLROOT ?>/Moderators/login" id="signout-tab" onclick="showContent('signout-content')">
+                <a href="<?php echo URLROOT ?>/Users/logout" id="signout-tab" onclick="showContent('signout-content')">
                         <span class = "side-icon"><ion-icon name="log-out-outline"></ion-icon></span> 
                         <span class = "side-title">Sign out</span>
                     </a>

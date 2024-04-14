@@ -36,14 +36,17 @@
             // Get the last inserted id
             $collector_id = $this->db->lastInsertId();
 
-            // Insert selected districts into CollectorDistricts table
-            foreach($data['districts'] as $district_id) {
-                $this->db->query('INSERT INTO CollectorDistricts(collector_id, district_id) VALUES(:collector_id, :district_id)');
-                $this->db->bind(':collector_id', $collector_id);
-                $this->db->bind(':district_id', $district_id);
+            // Check if districts are set and is an array
+            if(isset($data['districts']) && is_array($data['districts'])) {
+                // Insert selected districts into CollectorDistricts table
+                foreach($data['districts'] as $district_id) {
+                    $this->db->query('INSERT INTO CollectorDistricts(collector_id, district_id) VALUES(:collector_id, :district_id)');
+                    $this->db->bind(':collector_id', $collector_id);
+                    $this->db->bind(':district_id', $district_id);
 
-                if(!$this->db->execute()){
-                    return false;
+                    if(!$this->db->execute()){
+                        return false;
+                    }
                 }
             }
 

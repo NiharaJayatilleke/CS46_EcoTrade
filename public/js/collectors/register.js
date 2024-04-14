@@ -50,3 +50,21 @@ document.getElementById('vehicle_type').addEventListener('change', function() {
         colorField.style.display = 'flex';
     }
 });
+
+
+function confirmTerms(event) {
+    event.preventDefault();
+    Swal.fire({
+        title: 'Do you agree to the terms?',
+        text: "You need to agree to the terms to continue!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, I agree!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            event.target.form.submit();
+        }
+    })
+}
