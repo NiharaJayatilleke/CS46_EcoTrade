@@ -148,24 +148,68 @@ form.secActive .form.first{
     margin: 8px 0;
 }
 
+.collector-input-field input,
 .collector-input-field select {
+    flex-shrink: 0; 
     outline: none;
     font-size: 14px;
     font-weight: 400;
     color: #333;
     border-radius: 10px;
     border: 1px solid #aaa;
-    padding: 0 25px 0 15px;
+    padding: 0 15px;
     height: 42px;
     margin: 8px 0;
+    width: 100%;
 }
-
 
 .collector-input-field input:focus {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
 }
 
 .collector-input-field select:focus{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+.collector-container form .collector-fields.districts {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.collector-container form .collector-fields.districts .collector-input-field {
+    padding-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 60px;
+    width: 100%;
+}
+
+.collector-input-field .districts-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.collector-input-field .districts-col label {
+    display: flex;
+    align-items: center;
+    /* margin-bottom: 3px; */
+}
+
+.collector-input-field .districts-col input[type="checkbox"] {
+    outline: none;
+    font-size: 20px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 15px;
+    margin: 10px 10px 10px 5px; /* top, right, bottom, left */
+    width: auto;
+}
+.collector-input-field .districts-col input[type="checkbox"]:focus {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
 }
 

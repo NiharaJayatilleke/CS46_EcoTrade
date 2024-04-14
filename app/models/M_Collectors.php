@@ -7,9 +7,10 @@
         }
         //Register the collector
         public function register($data){
+            // Insert into Collectors table
+            $this->db->query('INSERT INTO Collectors(id, nic, gender, address, com_name, com_email, com_address, telephone, company_type, reg_number, vehicle_type, vehicle_reg, make, model, insurance, color) VALUES(:id, :nic, :gender, :address, :com_name, :com_email, :com_address, :telephone, :company_type, :reg_number, :vehicle_type, :vehicle_reg, :make, :model, :insurance, :color)');
 
-            $this->db->query('INSERT INTO Collectors(id, nic, gender, address, com_name, com_email, com_address, telephone, company_type, reg_number, vehicle_type, vehicle_reg, make, model, insurance, color, district1, district2, district3, district4, district5) VALUES(:id, :nic, :gender, :address, :com_name, :com_email, :com_address, :telephone, :company_type, :reg_number, :vehicle_type, :vehicle_reg, :make, :model, :insurance, :color, :district1, :district2, :district3, :district4, :district5)');
-
+            // Bind values
             $this->db->bind(':id', $_SESSION['user_id']);
             $this->db->bind(':nic', $data['nic']);
             $this->db->bind(':gender', $data['gender']);
@@ -26,19 +27,30 @@
             $this->db->bind(':model', $data['model']);
             $this->db->bind(':insurance', $data['insurance']);
             $this->db->bind(':color', $data['color']);
-            $this->db->bind(':district1', $data['district1']);
-            $this->db->bind(':district2', $data['district2']);
-            $this->db->bind(':district3', $data['district3']);
-            $this->db->bind(':district4', $data['district4']);
-            $this->db->bind(':district5', $data['district5']);
-            
-                        
-            if($this->db->execute()){
-                return true;
-            }
-            else{
+
+            // Execute query
+            if(!$this->db->execute()){
                 return false;
             }
+
+            // Get the last inserted id
+            $collector_id = $this->db->lastInsertId();
+
+            // Check if districts are set and is an array
+            if(isset($data['districts']) && is_array($data['districts'])) {
+                // Insert selected districts into CollectorDistricts table
+                foreach($data['districts'] as $district_id) {
+                    $this->db->query('INSERT INTO CollectorDistricts(collector_id, district_id) VALUES(:collector_id, :district_id)');
+                    $this->db->bind(':collector_id', $collector_id);
+                    $this->db->bind(':district_id', $district_id);
+
+                    if(!$this->db->execute()){
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
 
         public function getUserDetails($user_id) {

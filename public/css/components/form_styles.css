@@ -1,7 +1,7 @@
-
 .form-invalid {
     color: rgb(255, 50, 50); /* Brighter red */
-    font-size: smaller;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Text shadow */
+    font-size: 12px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Text shadow */
     margin-bottom: 20px;
+    font-style: italic; /* Make the text italic */
 }
