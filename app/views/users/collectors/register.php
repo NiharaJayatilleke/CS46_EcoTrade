@@ -29,7 +29,8 @@
                         
                         <div class="collector-input-field">
                             <label>NIC/Passport No.<span class="required">*</span></label>
-                            <input type="text" name = "nic" id="nic" placeholder="NIC/Passport No."  >
+                            <input type="text" name="nic" id="nic" placeholder="NIC/Passport No.">
+                            <!-- <span class="form-invalid"><?php echo $data['nic_err']; ?></span> -->
                         </div>
                         
                         <div class="collector-input-field">
@@ -170,7 +171,7 @@
                 </div>
 
                 <div class="collector-details location">
-                    <span class="collector-title">Select Collecting Locations</span>
+                    <span class="collector-title">Select Collecting Locations &emsp;<span class="form-invalid"><?php echo $data['districts_err']; ?></span></span>
                     <div class="collector-fields districts">
                         <!-- Checkbox fields -->
                         <div class="collector-input-field">

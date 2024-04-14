@@ -35,12 +35,22 @@ CREATE TABLE Collectors (
     model VARCHAR(255),
     insurance VARCHAR(255),
     color VARCHAR(255),
-    district1 VARCHAR(255),
-    district2 VARCHAR(255),
-    district3 VARCHAR(255),
-    district4 VARCHAR(255),
-    district5 VARCHAR(255),
-    FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE
+    FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE Districts (
+    id INT AUTO_INCREMENT,
+    name VARCHAR(255),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE CollectorDistricts (
+    collector_id INT,
+    district_id INT,
+    FOREIGN KEY (collector_id) REFERENCES Collectors(id) ON DELETE CASCADE,
+    FOREIGN KEY (district_id) REFERENCES Districts(id) ON DELETE CASCADE,
+    PRIMARY KEY (collector_id, district_id)
 );
 
 CREATE TABLE forgot_password (

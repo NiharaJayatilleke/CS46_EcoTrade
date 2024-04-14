@@ -126,6 +126,13 @@
                 // }
                 
 
+                // // Validate district5
+                // if (empty($data['district1'])){
+                //     $data['district1_err'] = 'Please enter the collection district';
+                // } else {
+                //     $data['district1_err'] = '';
+                // }
+
                 // Validate districts
                 if (empty($data['districts'])){
                     $data['districts_err'] = 'Please select at least one district.';
@@ -138,26 +145,26 @@
                 //     $data['err'] = 'You must agree to the terms and conditions.';
                 // }
         
-
                 // Validation is completed and no error then register the user
-                if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['make_err']) && empty($data['model_err']) && empty($data['insurance_err']) && empty($data['color_err']) && empty($data['districts_err'])){
+                if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['make_err']) && empty($data['model_err']) && empty($data['insurance_err']) && empty($data['color_err']) && empty($data['district1_err'])){
                     // Register collector
                     if($this->collectorModel->register($data)){
                         // Create a flash message
                         flash('reg_flash', 'You are successfully registered as a collector!');
-                        
+
+
                         // Get the current user type
                         $userType = $_SESSION['userType'];
                         
                         // Only update the user type if they are not a moderator or an admin
-                        if ($userType !== 'moderator' && $userType !== 'admin') {
+                        if ($userType != 'moderator' && $userType != 'admin') {
                             if ($this->userModel->updateUserType('collector')) {
                                 echo 'User type updated successfully';
                             } else {
                                 echo 'Failed to update user type';
                             }
                         }
-                        
+
                         session_destroy();
                         redirect('Users/login');
                     }
@@ -191,47 +198,39 @@
                 else {
                     // Initial form data
                     $data = [
-                    'nic' => '',
-                    'gender' => '',
-                    'address' => '',
-                    'com_name' => '',
-                    'com_email' => '',
-                    'com_address' => '',
-                    'telephone' => '',
-                    'company_type' => '',
-                    'reg_number' => '',
-                    'vehicle_type' => '',
-                    'vehicle_reg' => '',
-                    'make' => '',
-                    'model' => '',
-                    'insurance' => '',
-                    'color' => '',
-                    'district1' => '',
-                    'district2' => '',
-                    'district3' => '',
-                    'district4' => '',
-                    'district5' => '',
-                    
-                    'nic_err' => '',
-                    'gender_err' => '',
-                    'address_err' => '',
-                    'com_name_err' => '',
-                    'com_email_err' => '',
-                    'com_address_err' => '',
-                    'telephone_err' => '',
-                    'company_type_err' => '',
-                    'reg_number_err' => '',
-                    'vehicle_type_err' => '',
-                    'vehicle_reg_err' => '',
-                    'make_err' => '',
-                    'model_err' => '',
-                    'insurance_err' => '',
-                    'color_err' => '',
-                    'district1_err' => '',
-                    'district2_err' => '',
-                    'district3_err' => '',
-                    'district4_err' => '',
-                    'district5_err' => ''
+                        'nic' => '',
+                        'gender' => '',
+                        'address' => '',
+                        'com_name' => '',
+                        'com_email' => '',
+                        'com_address' => '',
+                        'telephone' => '',
+                        'company_type' => '',
+                        'reg_number' => '',
+                        'vehicle_type' => '',
+                        'vehicle_reg' => '',
+                        'make' => '',
+                        'model' => '',
+                        'insurance' => '',
+                        'color' => '',
+                        'districts' => '',
+                
+                        'nic_err' => '',
+                        'gender_err' => '',
+                        'address_err' => '',
+                        'com_name_err' => '',
+                        'com_email_err' => '',
+                        'com_address_err' => '',
+                        'telephone_err' => '',
+                        'company_type_err' => '',
+                        'reg_number_err' => '',
+                        'vehicle_type_err' => '',
+                        'vehicle_reg_err' => '',
+                        'make_err' => '',
+                        'model_err' => '',
+                        'insurance_err' => '',
+                        'color_err' => '',
+                        'districts_err' => ''
                     ];
                     // Guests or other user types should go to general user registration
                     redirect('Users/register');
