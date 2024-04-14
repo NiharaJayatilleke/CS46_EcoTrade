@@ -536,6 +536,10 @@
             }
         }
 
+        public function payment(){
+            $this->view('item_ads/v_paymentportal');
+        }
+
         public function report($adId){
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
