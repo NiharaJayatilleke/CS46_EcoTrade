@@ -761,8 +761,6 @@
 }
 
 .profile_image {
-    width: 150px;
-    height: 150px;
     overflow: hidden;
     border-radius: 50%;
     margin-top: 20px;
@@ -777,7 +775,6 @@
 
 .image-container img {
     width: 100%;
-    height: auto;
     border-radius: 50%;
     border: 3px solid #fff; /* White border around the image */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
