@@ -353,26 +353,30 @@
 
         public function index(){
 
-            if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator' && $_SESSION['userType'] != 'admin')){
+            // if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator' && $_SESSION['userType'] != 'admin')){
 
-                $this->view('pages/forbidden');
-            }
-            else{
+            //     $this->view('pages/forbidden');
+            // }
+            // else{
+
                 $ads = $this->itemAdsModel->getAds();
                 $userCounts = $this->moderatorModel->getUserCounts();
                 $adCountsByCategory = $this->moderatorModel->getItemAdCountsByCategory();
                 $reportedAds = $this->moderatorModel->getReportedAds();
                 $recentActivities = $this->moderatorModel->getRecentActivities();
+                $useremail = $_SESSION['user_email'];
+                // $userdetails = $this->moderatorModel->getuserdetails($useremail);
                 $data = [
                     'ads' => $ads,
                     'userCounts' => $userCounts,
                     'adCountsByCategory' => $adCountsByCategory,
                     'reportedAds' => $reportedAds,
                     'recentActivities' => $recentActivities,
+                    // 'userdetails'=> $userdetails,
                ];
                 $this->view('moderators/v_index', $data);
 
-            }
+            // }
         }
 
         public function hideAd($adId) {
@@ -381,6 +385,51 @@
             } else {
                 http_response_code(500); // Send error response
             }
+        }
+
+        public function edit_profile(){
+
+            if (!isset($_SESSION['user_id'])) {
+                // Redirect the user to the login page if they are not logged in
+                redirect('Users/login');
+            }
+        
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                
+                // Form submission, update user info
+                $newUsername = trim($_POST['newUsername']);
+                $newContactNumber = trim($_POST['newContactNumber']);
+        
+                // Initialize an array to store validation errors
+                $errors = [];
+        
+                // Validate the new username
+                if (empty($newUsername)) {
+                    $errors['newUsername'] = 'username cannot be empty.';
+                }
+        
+                
+                // Validate the new contact number
+                if (empty($newContactNumber)) {
+                    $errors['newContactNumber'] = 'contact number cannot be empty.';
+                } elseif (!ctype_digit($newContactNumber) || strlen($newContactNumber) < 9) {
+                    $errors['newContactNumber'] = 'Contact number must have at least 10 digits.';   
+                }
+        
+                // Check if there are any validation errors
+                if (empty($errors)) {
+                    // Call the updateUserInfo method in your model to update the user's information
+                    if ($this->moderatorModel->updateUserInfo($newUsername, $newContactNumber)) {
+                        // User information updated successfully
+                        flash('profile_edit', 'Your profile has been updated successfully');
+                        
+                        // update the session
+                        $_SESSION['user_name']=$newUsername;
+                    }
+                }
+            }
+
+                    
         }
 
     }
