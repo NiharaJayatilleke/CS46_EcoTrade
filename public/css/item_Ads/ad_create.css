@@ -82,6 +82,12 @@
     transition: border-color 0.3s;
     margin-bottom: 5px;
 }
+
+.ad_item_desc {
+    height: 100px;
+
+}
+
 .ad_item_other_label{
     font-size: 16px;
     font-weight: 400;
@@ -141,13 +147,13 @@
     background-color: antiquewhite;
 }
 
-.ad-form-drag-area .ad-icon  {
+.ad-icon  {
     margin-bottom: 0px;
     font-size: 7px;
     color: #c4c4c4;
 }
 
-.ad-form-drag-area .ad-icon img{
+.ad-icon img{
     /* width: 50px;
     height: 50px; */
     margin: 0 auto;
@@ -157,7 +163,8 @@
     transition: 300ms ease-in;
 }  
 
-#item_img_placeholder {
+#item_img_placeholder,
+#item_img_placeholder1 {
     width: 100%;
     height: 50%;
     /* color:#777; */
@@ -171,7 +178,7 @@
     display: none;
 }
 
-#item_img_placeholder1 {
+#item_img_placeholderx {
     width: 100%;
     height: 50%;
     /* color:#777; */
@@ -185,7 +192,21 @@
     /* display: none; */
 }
 
-.ad-form-drag-area .ad-icon .item_image_placeholder_icon {
+/* for item ad edit */
+#item_img_placeholder01,
+#item_img_placeholder02 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms ease-in;
+    margin-top: 30px;
+    /* display: none; */
+}
+
+.ad-icon .item_image_placeholder_icon {
     width: 30px;
     height: 30px;
     display: flex;
@@ -196,7 +217,8 @@
     margin-top: 20px;
 }
 
-.ad-form-drag-area-text {
+.ad-form-drag-area-text,
+.ad-form-drag-area-text1 {
     font-size: 14px;
     color:#515151;
     margin: 2px 0;
@@ -211,7 +233,8 @@
     margin: 5px 0;
 }
 
-.ad-form-drag-area-btn {
+.ad-form-drag-area-btn, 
+.ad-form-drag-area-btn1{
     color: #515151;
     padding: 7px 2px;
     width: 28%;
@@ -225,11 +248,43 @@
     margin-bottom: 10px;
 }
 
-.ad-form-drag-area-btn:hover {
+.ad-form-drag-area-btn:hover,
+.ad-form-drag-area-btn1:hover {
     background-color: rgb(165, 165, 165);
     /* background-color: #17751f; */
     color: #fffefe;
 }  
+
+.ad-additional-images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* gap: 10px; */
+    /* margin-left: 15px;
+    margin-right: 15px; */
+    margin-top: 5px;
+}
+
+.ad-additional-images .ad-form-drag-area1 {
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    transition: 300ms ease-in;
+    border: 2px dashed #ccc;
+    width:170px;
+} 
+
+.ad-additional-images .ad-form-drag-area-btn{
+    width: 40%;
+}
 
 .ad_selling_format + label, .ad_negotiable + label {
     display: inline-block;

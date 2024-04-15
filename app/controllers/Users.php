@@ -50,6 +50,10 @@ require APPROOT.'/libraries/vendor/autoload.php';
                         //create user sessions
                         $this->createUserSession($loggedUser);
 
+                        // Log user login activity
+                        $this->userModel->logActivity($_SESSION['user_id'], 'User Login', 'User logged in');
+
+
                         // If "Remember Me" is checked, set a cookie
                         if ($data['remember_me']) {
                             $this->setRememberMeCookie($loggedUser->id);
@@ -176,6 +180,10 @@ require APPROOT.'/libraries/vendor/autoload.php';
                     if($this->userModel->register($data)){   
                         // create a flash message
                         flash('reg_flash', ' A verification email has been sent to your email address.Please check');
+
+                        // Log user registration activity
+                        $this->userModel->logActivity($_SESSION['user_id'], 'User Registration', 'New user signed up');
+
                         redirect('Users/login');
                         
                         // Send confirmation email to confirm

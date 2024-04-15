@@ -269,6 +269,16 @@
     color: rgb(227, 83, 127); 
 }
 
+/* Rate seller popup */
+#rating .fa-star {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#rating .fa-star.checked {
+    color: gold;
+}
+
 /* Report Ad Popup */
 .swal2-popup {
     font-size: 14px; 

@@ -222,6 +222,16 @@ CREATE TABLE Wishlist(
 );
 
 
+CREATE TABLE Seller_Rating(
+    rating_id INT AUTO_INCREMENT,
+    ad_id INT,
+    user_id INT,
+    rating INT,
+    rating_created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(rating_id),
+    FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
+    FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
+);
 
 DROP TABLE IF EXISTS Notifications;
 
@@ -273,3 +283,28 @@ CREATE TABLE Non_Verified_Users(
     PRIMARY KEY(id)
 
 );
+
+CREATE TABLE Activity_Log (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    action_type VARCHAR(255),
+    action_details TEXT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE OR REPLACE VIEW v_re_ads AS
+    SELECT
+        Recycle_Item_Ads.r_id as ad_id,
+        General_User.id as seller_id, 
+        General_User.username as seller_name,
+        Recycle_Item_Ads.item_name as item_name,
+        Recycle_Item_Ads.item_category as item_category,
+        -- Recycle_Item_Ads.item_quantity as item_quantity,
+        Recycle_Item_Ads.item_desc as item_desc,
+        -- Recycle_Item_Ads.item_condition as item_condition,
+        Recycle_Item_Ads.item_image as item_image,
+        Recycle_Item_Ads.item_location as item_location,
+        Recycle_Item_Ads.created_at as item_created_at
+    FROM Recycle_Item_Ads 
+    JOIN General_User ON Recycle_Item_Ads.seller_id = General_User.id
+    ORDER BY Recycle_Item_Ads.created_at DESC;

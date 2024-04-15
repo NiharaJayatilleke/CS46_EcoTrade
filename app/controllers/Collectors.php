@@ -5,6 +5,7 @@
             $this->collectorModel = $this->model('M_Collectors');
             $this->pagesModel = $this->model('M_Pages');
             $this->districtModel = $this->model('M_Districts'); // Add this line
+          $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads');  
         }
 
         public function register(){
@@ -235,7 +236,10 @@
         
 
         public function index(){
-            $data = [];
+            $ads = $this->recycleItemAdsModel->getAds();
+            $data = [
+                'ads' => $ads,
+            ];
             $this->view('users/collectors/dashboard',$data);
         }
 

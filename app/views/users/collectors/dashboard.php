@@ -203,7 +203,7 @@
                     <?php if (!empty($data['ads'])) : ?>
                     <div class="ads-container">
                         <?php foreach($data['ads'] as $ad): ?>
-                        <a class="ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
+                        <a class="ad-show-link" href="<?php echo URLROOT;?>/RecycleItemAds/recycleShow/<?php echo $ad->r_id?>">
                             <div class="ad-index-container"
                                 data-price="<?php echo $ad->item_price ?>"
                                 data-condition="<?php echo $ad->item_condition ?>"
@@ -228,7 +228,7 @@
 
                                 <div class="ad-body">
                                     <div class="ad-body-desc"><?php echo $ad->item_desc ?></div>
-                                    <div class="ad-price">Rs. <?php echo $ad->item_price ?></div>
+                                    <div class="ad-price"> <?php echo $ad->item_price ?></div>
                                 </div>
 
                                 <div class="ad-footer">
