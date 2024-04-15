@@ -198,6 +198,18 @@
         return $row;
     }
 
+    public function updateProfileImage($user_id, $filename) {
+        $this->db->query('UPDATE General_User SET profile_image = :filename WHERE id = :user_id');
+        $this->db->bind(':filename', $filename);
+        $this->db->bind(':user_id', $user_id);
+        
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 
 ?>

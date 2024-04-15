@@ -381,7 +381,7 @@
                                     <div class="profile_image">
                                         <div class="image-container">
                                             <?php
-                                            if (!empty($data['user']->profile_image)) {
+                                            if (!empty($data['userdetails']->profile_image)) {
                                                 echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['userdetails']->profile_image . '" alt="Profile Image" class="d-block ui-w-80" id="profile-pic">';
                                             } else {
                                                 echo '<img src="' . URLROOT . '/public/img/profile.png" alt="Default Profile Image" class="d-block ui-w-80" id="profile-pic">';
@@ -389,7 +389,7 @@
                                             ?>
                                         </div>
                                     </div>  
-                                    <form method="POST" action="<?php echo URLROOT; ?>/moderators/profile" enctype="multipart/form-data">               
+                                    <form method="POST" action="<?php echo URLROOT; ?>/moderators/index" enctype="multipart/form-data">               
                                         <div class="media-body">
                                             <div class="file-upload">
                                                 <label for="upload-photo">Browse Photo</label>
@@ -398,9 +398,9 @@
                                             <button class="savebutton" type="submit">Save</button> 
                                         </div>
                                     </form>
-                                <?php if (!empty($data['user']->profile_image)) : ?>
+                                <?php if (!empty($data['userdetails']->profile_image)) : ?>
                                     <form method="POST" action="<?php echo URLROOT; ?>/users/remove_photo">
-                                        <input type="hidden" name="photo_id" value="<?php echo $data['user']->id; ?>">
+                                        <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
                                         <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')">Delete Photo</button>
                                     </form>
                                 <?php endif; ?>
@@ -679,6 +679,12 @@
             });
         });
 
+        let profilePic = document.getElementById("profile-pic");
+        let inputFile = document.getElementById("upload-photo");
+
+        inputFile.onchange = function(){
+            profilePic.src = URL.createObjectURL(inputFile.files[0])
+}
 
     </script>
 
