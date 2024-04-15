@@ -184,7 +184,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                         // Log user registration activity
                         $this->userModel->logActivity($_SESSION['user_id'], 'User Registration', 'New user signed up');
 
-                        redirect('Users/login');
+                        redirect('Users/login?message=' . urlencode('Please check your mail and verify.'));
                         
                         // Send confirmation email to confirm
                         $this->send_email_confirmation($data['token'],$data['email']);

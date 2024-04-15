@@ -16,3 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+window.onload = function() {
+    if (window.location.href.endsWith('/ecotrade/Users/login')) {
+        // Redirect to the same page with a message
+        var message = encodeURIComponent('Please check your mail and verify.');
+        window.location.href = '/ecotrade/Users/login?message=' + message;
+    }
+};
