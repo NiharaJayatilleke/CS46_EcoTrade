@@ -353,11 +353,11 @@
 
         public function index(){
 
-            if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator' && $_SESSION['userType'] != 'admin')){
+            // if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator' && $_SESSION['userType'] != 'admin')){
 
-                $this->view('pages/forbidden');
-            }
-            else{
+            //     $this->view('pages/forbidden');
+            // }
+            // else{
 
                 $ads = $this->itemAdsModel->getAds();
                 $userCounts = $this->moderatorModel->getUserCounts();
@@ -376,7 +376,7 @@
                ];
                 $this->view('moderators/v_index', $data);
 
-            }
+            // }
         }
 
         public function hideAd($adId) {
@@ -424,6 +424,53 @@
                 }
             }
                     
+        }
+
+        public function profile(){
+            // Check if the user is logged in
+            if (!$this->isLoggedIn()) {
+                // Redirect the user to the login page if they are not logged in
+                redirect('Users/login');
+            }
+            
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Handle the image upload
+                if (isset($_FILES['photo'])) {
+                    $image = $_FILES['photo'];
+            
+                    // Check if there was no file error
+                    if ($image['error'] === UPLOAD_ERR_OK) {
+                        // Define the directory to store the images
+                        $uploadDir = '../public/img/profilepic/';    
+                        // Generate a unique filename
+                        $user_id = $_SESSION['user_id'];
+                        $filename = $user_id . '' . time() . '' . $image['name'];
+            
+                        // Move the uploaded image to the upload directory
+                        if (move_uploaded_file($image['tmp_name'], $uploadDir . $filename)) {
+                            // Update the user's profile image path in the database
+                            if ($this->userModel->updateProfileImage($_SESSION['user_id'], $filename)) {
+                                // The image has been saved, and the user's profile has been updated
+                            } else {
+                                // Handle an error updating the database
+                            }
+                        } else {
+                            // Handle an error moving the uploaded file
+                        }
+                    }
+                }
+            }
+
+            // die($_SESSION['userType']);
+
+            $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+            $data = [
+                'user' => $user
+                
+            ];
+           
+            // Load the profile view
+            $this->view('users/profile/v_create', $data);
         }
 
     }

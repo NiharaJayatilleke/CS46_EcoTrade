@@ -682,6 +682,40 @@
 
     </script>
 
+     <!-- this checks whether the user is logged in -->
+    <script>
+    // Function to handle initial content section based on URL hash
+    function handleInitialSection() {
+        var hash = window.location.hash;
+        if (!isLoggedIn()) {
+            redirectToLogin(); 
+            return; 
+        }
+
+        if (hash) {
+            // Extract the section name from the hash
+            var section = hash.substring(1); // Remove '#'
+            showContent(section);
+            currentSection = section;
+        } else {
+            // If no hash is present, default to the dashboard section
+            showContent('dashboard-content');
+            currentSection = 'dashboard-content';
+        }
+    }
+
+    // Function to check if the user is logged in
+    function isLoggedIn() {
+        return <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
+    }
+
+    function redirectToLogin() {
+        window.location.href = '<?php echo URLROOT; ?>/Users/login';
+    }
+    // Call the function when the page loads
+    window.onload = handleInitialSection;
+    </script>
+
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
     <script>
     var userCounts = <?php echo json_encode($data['userCounts']); ?>;
