@@ -2,13 +2,14 @@
     class Collectors extends Controller{
         public function __construct(){
             $this->userModel = $this->model('M_Users');
-            $this->collectorModel =$this->model('M_Collectors');
-            $this->pagesModel =$this->model('M_Pages');
-            $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads');  
-
+            $this->collectorModel = $this->model('M_Collectors');
+            $this->pagesModel = $this->model('M_Pages');
+            $this->districtModel = $this->model('M_Districts'); // Add this line
+          $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads');  
         }
 
         public function register(){
+            // die('Collector registration');
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 // form is submitting
                 // Validate the data
@@ -28,11 +29,10 @@
                     'reg_number' => trim($_POST['reg_number']),
                     'vehicle_type' => trim($_POST['vehicle_type']),
                     'vehicle_reg' => trim($_POST['vehicle_reg']),
-                    'make' => trim($_POST['make']),
                     'model' => trim($_POST['model']),
-                    'insurance' => trim($_POST['insurance']),
                     'color' => trim($_POST['color']),
-                    'districts' => isset($_POST['district']) ? array_map('trim', $_POST['district']) : [],
+                    'districts' => isset($_POST['districts']) ? array_map('trim', $_POST['districts']) : [],
+                    'other_vehicle' => trim($_POST['other_vehicle']),
 
                     'nic_err' => '',
                     'gender_err' => '',
@@ -45,11 +45,10 @@
                     'reg_number_err' => '',
                     'vehicle_type_err' => '',
                     'vehicle_reg_err' => '',
-                    'make_err' => '',
                     'model_err' => '',
-                    'insurance_err' => '',
                     'color_err' => '',
-                    'districts_err' => ''
+                    'districts_err' => '',
+                    'other_vehicle_err' => ''
                     // 'agree' => trim($_POST['agree']),
                 ];
                 
@@ -68,9 +67,9 @@
                 //     $data['nic_err'] = 'Invalid NIC';
                 // }
 
-                // // Validate gender
+                // Validate gender
                 // if (empty($data['gender'])){
-                //     $data['gender_err'] = 'Please enter gender';
+                //     $data['gender_err'] = 'Please select a gender';
                 // } else {
                 //     $data['gender_err'] = '';
                 // }
@@ -127,19 +126,16 @@
                 // }
                 
 
-                // // Validate district5
-                // if (empty($data['district1'])){
-                //     $data['district1_err'] = 'Please enter the collection district';
-                // } else {
-                //     $data['district1_err'] = '';
+                // if(empty($data['other_vehicle'])){
+                //     $data['other_vehicle_err'] = 'Please enter your other vehicle';
                 // }
 
-                // Validate districts
-                if (empty($data['districts'])){
-                    $data['districts_err'] = 'Please select at least one district.';
-                } else {
-                    $data['districts_err'] = '';
-                }
+                // //Validate districts
+                // if (empty($data['districts'])){
+                //     $data['districts_err'] = 'Please select at least one district.';
+                // } else {
+                //     $data['districts_err'] = '';
+                // }
 
                 //Check if the user has agreed to the terms
                 // if (!isset($_POST['agree'])) {
@@ -147,12 +143,11 @@
                 // }
         
                 // Validation is completed and no error then register the user
-                if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['make_err']) && empty($data['model_err']) && empty($data['insurance_err']) && empty($data['color_err']) && empty($data['districts_err'])){
+                if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['model_err']) && empty($data['other_vehicle_err']) &&  empty($data['color_err']) && empty($data['districts_err'])){
                     // Register collector
                     if($this->collectorModel->register($data)){
                         // Create a flash message
                         flash('reg_flash', 'You are successfully registered as a collector!');
-
 
                         // Get the current user type
                         $userType = $_SESSION['userType'];
@@ -165,9 +160,8 @@
                                 echo 'Failed to update user type';
                             }
                         }
-
                         session_destroy();
-                        redirect('Users/login');
+                        // redirect('Users/login');
                     }
                     else{
                         die('Something went wrong');
@@ -189,8 +183,11 @@
                     redirect('Collectors/index');
                 }
                 else if(isset($_SESSION['user_id']) && isset($_SESSION['userType']) && ($_SESSION['userType'] != 'collector'|| $_SESSION['userType'] != 'recenter' || $_SESSION['userType'] != null)) {
+                    $districts = $this->districtModel->getDistricts();
+
                     $data = [
                         'user' => $user,
+                        'districts' => $districts
                     ];
         
                     // Load collector registration view
@@ -210,11 +207,10 @@
                         'reg_number' => '',
                         'vehicle_type' => '',
                         'vehicle_reg' => '',
-                        'make' => '',
                         'model' => '',
-                        'insurance' => '',
-                        'color' => '',
                         'districts' => '',
+                        'color_err' => '',
+                        'other_vehicle' => '',
                 
                         'nic_err' => '',
                         'gender_err' => '',
@@ -227,11 +223,10 @@
                         'reg_number_err' => '',
                         'vehicle_type_err' => '',
                         'vehicle_reg_err' => '',
-                        'make_err' => '',
                         'model_err' => '',
-                        'insurance_err' => '',
                         'color_err' => '',
-                        'districts_err' => ''
+                        'districts_err' => '',
+                        'other_vehicle_err' => ''
                     ];
                     // Guests or other user types should go to general user registration
                     redirect('Users/register');

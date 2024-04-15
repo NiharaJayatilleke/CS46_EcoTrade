@@ -1,9 +1,7 @@
-
 const form = document.querySelector("form"),
         nextBtn = form.querySelector(".nextBtn"),
         backBtn = form.querySelector(".backBtn"),
         allInput = form.querySelectorAll(".first input");
-
 
 nextBtn.addEventListener("click", (event) => {
     event.preventDefault();
@@ -18,7 +16,11 @@ nextBtn.addEventListener("click", (event) => {
         form.classList.add('secActive');
     } else {
         form.classList.remove('secActive');
-        alert("Please fill all the required fields");
+        Swal.fire({
+            title: 'Error!',
+            text: 'Please fill all the required fields',
+            icon: 'error'
+        });
     }
 });
 
@@ -32,39 +34,105 @@ backBtn.addEventListener("click", (event) => {
     form.classList.remove('secActive');
 });
 
-document.getElementById('vehicle_type').addEventListener('change', function() {
-    var otherField = document.getElementById('otherField');
-    var registrationField = document.getElementById('vehicle_reg').parentElement;
-    var modelField = document.getElementById('model').parentElement;
-    var colorField = document.getElementById('color').parentElement;
-
-    if (this.value === 'Other') {
-        otherField.style.display = 'block';
-        registrationField.style.display = 'none';
-        modelField.style.display = 'none';
-        colorField.style.display = 'none';
-    } else {
-        otherField.style.display = 'none';
-        registrationField.style.display = 'flex';
-        modelField.style.display = 'flex';
-        colorField.style.display = 'flex';
-    }
-});
-
 
 function confirmTerms(event) {
     event.preventDefault();
+
+    var form = event.target.form;
+
+    // Check if the form is valid
+    if (!form.checkValidity()) {
+        // Not all required fields are filled, show an error message
+        Swal.fire({
+            title: 'Error!',
+            text: 'There are some more fields to be filled. Please fill them and try again.',
+            icon: 'error'
+        });
+        return;
+    }
+
+    // Check if at least one checkbox is checked
+    var checkboxes = form['districts[]'];
+    var oneCheckboxChecked = Array.prototype.some.call(checkboxes, function(checkbox) {
+        return checkbox.checked;
+    });
+
+    if (!oneCheckboxChecked) {
+        // No checkbox is checked, show an error message
+        Swal.fire({
+            title: 'Error!',
+            text: 'Please select at least one collecting location.',
+            icon: 'error'
+        });
+        return;
+    }
+
+    // If the form is valid, show the confirmation dialog
+    var formData = new FormData(form);
+
     Swal.fire({
-        title: 'Do you agree to the terms?',
-        text: "You need to agree to the terms to continue!",
-        icon: 'warning',
+        title: 'Are you sure you want to register as a collector on Eco Trade?',
+        text: "Once you submit your registration, your information will be processed, and you'll be on your way to contributing to a greener future. If you're ready to take this step, go ahead and hit submit!",
+        icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, I agree!'
+        confirmButtonText: 'Submit',
+        didOpen: () => {
+            document.querySelector('.swal2-content').style.fontSize = '0.9em'; // Adjust the font size to your liking
+        }
     }).then((result) => {
         if (result.isConfirmed) {
-            event.target.form.submit();
+            // Submit the form using AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open(form.method, form.action);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'You are successfully registered as a collector in Eco Trade.',
+                        icon: 'success'
+                    }).then(() => {
+                        // Redirect to the login page with a message
+                        var message = encodeURIComponent('Please login again to continue as a collector');
+                        window.location.href = '/ecotrade/Users/login?message=' + message;
+                    });
+                } else if (xhr.readyState === 4) {
+                    // Handle the error
+                    console.error('Form submission failed:', xhr.status, xhr.statusText);
+                }
+            };
+            xhr.send(formData);
         }
     })
 }
+
+// function showSuccessMessage() {
+//     Swal.fire({
+//         title: 'Success',
+//         text: 'You are successfully registered as a collector!',
+//         icon: 'success',
+//         confirmButtonColor: '#3085d6',
+//         confirmButtonText: 'OK'
+//     });
+// }
+
+// function confirmTerms(event) {
+//     event.preventDefault();
+//     Swal.fire({
+//         title: 'Are you sure you want to register as a collector on Eco Trade?',
+//         text: "Once you submit your registration, your information will be processed, and you'll be on your way to contributing to a greener future. If you're ready to take this step, go ahead and hit submit!",
+//         icon: 'question',
+//         showCancelButton: true,
+//         confirmButtonColor: '#3085d6',
+//         cancelButtonColor: '#d33',
+//         confirmButtonText: 'Submit',
+//         didOpen: () => {
+//             document.querySelector('.swal2-content').style.fontSize = '0.9em'; // Adjust the font size to your liking
+//         }
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             event.target.form.submit(); // Submit the form normally
+//         }
+//     })
+// }

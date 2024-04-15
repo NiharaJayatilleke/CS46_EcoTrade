@@ -15,8 +15,7 @@ CREATE TABLE General_User (
     PRIMARY KEY(id)
 );
 
-INSERT INTO General_User(username, email, password, user_type) VALUES ('nethmi','nethmihao2001@gmail.com','$2y$10$gDYwkrW1fAPiDHXYFNs6nuNUg47bQfgAX0YxobUTq.2.uFSXnS/8i','pBuyer');
-
+INSERT INTO General_User(username, email,number, password, user_type) VALUES ('admin','admin@gmail.com','090192','$2y$10$46HNERR3yFUe.fLbfRjSBeCGqlpJS7h5krkDUbJjjXmV0M.Y/XZ6u','admin');
 
 CREATE TABLE Collectors (
     id INT AUTO_INCREMENT,
@@ -28,13 +27,12 @@ CREATE TABLE Collectors (
     com_address TEXT,
     telephone VARCHAR(255),
     company_type VARCHAR(255),
-    reg_number VARCHAR(255),
     vehicle_type VARCHAR(255),
+    reg_number VARCHAR(255),
     vehicle_reg VARCHAR(255),
-    make VARCHAR(255),
     model VARCHAR(255),
-    insurance VARCHAR(255),
     color VARCHAR(255),
+    other_vehicle VARCHAR(255),
     FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE,
     PRIMARY KEY (id)
 );
@@ -44,6 +42,33 @@ CREATE TABLE Districts (
     name VARCHAR(255),
     PRIMARY KEY (id)
 );
+
+INSERT INTO Districts (name) VALUES 
+('Colombo'),
+('Gampaha'),
+('Kalutara'),
+('Kandy'),
+('Matale'),
+('Nuwara Eliya'),
+('Galle'),
+('Matara'),
+('Hambantota'),
+('Jaffna'),
+('Kilinochchi'),
+('Mannar'),
+('Vavuniya'),
+('Mullaitivu'),
+('Batticaloa'),
+('Ampara'),
+('Trincomalee'),
+('Kurunegala'),
+('Puttalam'),
+('Anuradhapura'),
+('Polonnaruwa'),
+('Badulla'),
+('Monaragala'),
+('Ratnapura'),
+('Kegalle');
 
 CREATE TABLE CollectorDistricts (
     collector_id INT,
