@@ -679,21 +679,22 @@
         }
 
         public function addSellerRating($adId){
+            error_log('addSellerRating function called with adId: ' . $adId);
 
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-                $data = json_decode(file_get_contents("php://input"), true);
+                $jsonData = json_decode(file_get_contents("php://input"), true);
 
                 $sellerId = $this->itemAdsModel->getSellerByAd($adId);
 
                 $data = [
                     'ad_id' => $adId,
-                    'seller_id' => $sellerId,
-                    'rated_by_id' => $data['rated_by_id'],
-                    'rating' => $data['rating']
+                    'seller_id' => $sellerId->seller_id,
+                    'rated_by_id' => $_SESSION['user_id'],
+                    'rating' => $jsonData['rating']
                 ];
         
-                if($this->addSellerRating($data)){
+                if($this->itemAdsModel->addSellerRating($data)){
                     echo json_encode(
                         array('message' => 'Rating Added')
                     );

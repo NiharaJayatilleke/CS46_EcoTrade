@@ -45,13 +45,16 @@ document.querySelector('#rateBtn').addEventListener('click', function() {
             };
 
             // Send AJAX request to the server
-            fetch(URLROOT +"/itemAds/addSellerRating/"+ CURRENT_AD, {
+            fetch(URLROOT +"/ItemAds/addSellerRating/"+ CURRENT_AD, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
             }).then(function(response) {
+                if (!response.ok) {
+                    throw new Error("HTTP error " + response.status);
+                }
                 return response.json();
             }).then(function(data) {
                 console.log(data);
