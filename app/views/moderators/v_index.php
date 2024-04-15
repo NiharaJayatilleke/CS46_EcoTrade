@@ -382,14 +382,14 @@
                                         <div class="image-container">
                                             <?php
                                             if (!empty($data['user']->profile_image)) {
-                                                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['user']->profile_image . '" alt="Profile Image" class="d-block ui-w-80" id="profile-pic">';
+                                                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['userdetails']->profile_image . '" alt="Profile Image" class="d-block ui-w-80" id="profile-pic">';
                                             } else {
                                                 echo '<img src="' . URLROOT . '/public/img/profile.png" alt="Default Profile Image" class="d-block ui-w-80" id="profile-pic">';
                                             }
                                             ?>
                                         </div>
                                     </div>  
-                                    <form method="POST" action="<?php echo URLROOT; ?>/users/profile" enctype="multipart/form-data">               
+                                    <form method="POST" action="<?php echo URLROOT; ?>/moderators/profile" enctype="multipart/form-data">               
                                         <div class="media-body">
                                             <div class="file-upload">
                                                 <label for="upload-photo">Browse Photo</label>
@@ -680,6 +680,40 @@
         });
 
 
+    </script>
+
+     <!-- this checks whether the user is logged in -->
+    <script>
+    // Function to handle initial content section based on URL hash
+    function handleInitialSection() {
+        var hash = window.location.hash;
+        if (!isLoggedIn()) {
+            redirectToLogin(); 
+            return; 
+        }
+
+        if (hash) {
+            // Extract the section name from the hash
+            var section = hash.substring(1); // Remove '#'
+            showContent(section);
+            currentSection = section;
+        } else {
+            // If no hash is present, default to the dashboard section
+            showContent('dashboard-content');
+            currentSection = 'dashboard-content';
+        }
+    }
+
+    // Function to check if the user is logged in
+    function isLoggedIn() {
+        return <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
+    }
+
+    function redirectToLogin() {
+        window.location.href = '<?php echo URLROOT; ?>/Users/login';
+    }
+    // Call the function when the page loads
+    window.onload = handleInitialSection;
     </script>
 
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
