@@ -53,8 +53,8 @@
                                     <div class="card-body media align-items-center"> </div>
                                     <!-- <hr class="border-light m-0"> -->
                                     <div class="card-body">
+                                        <!-- <form method="POST" action="<?php echo URLROOT; ?>/users/edit_profile"> -->
                                         <form method="POST" action="<?php echo URLROOT; ?>/users/edit_profile">
-                                 
                                             <div class="form-group">
                                                 <label class="form-label">Username</label>
                                                 <input type="text" class="form-control input-field-box" name="newUsername" value="<?php echo $_SESSION['user_name']; ?>">

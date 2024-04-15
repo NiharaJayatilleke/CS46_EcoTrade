@@ -364,7 +364,7 @@
                 $adCountsByCategory = $this->moderatorModel->getItemAdCountsByCategory();
                 $reportedAds = $this->moderatorModel->getReportedAds();
                 $recentActivities = $this->moderatorModel->getRecentActivities();
-                $useremail = $_SESSION['user_email'];
+                // $useremail = $_SESSION['user_email'];
                 // $userdetails = $this->moderatorModel->getuserdetails($useremail);
                 $data = [
                     'ads' => $ads,
@@ -428,7 +428,6 @@
                     }
                 }
             }
-
                     
         }
 
