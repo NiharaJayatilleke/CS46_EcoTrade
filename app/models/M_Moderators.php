@@ -178,7 +178,6 @@
 
        // update username and contact number
        public function updateUserInfo($newUsername, $newContactNumber) {
-        
         $this->db->query('UPDATE General_User SET username = :newUsername, number = :newContactNumber WHERE id = :user_id');
         $this->db->bind(':newUsername', $newUsername);
         $this->db->bind(':newContactNumber', $newContactNumber);
@@ -189,6 +188,14 @@
         } else {
             return false;
         }
+    }
+
+    
+    public function getuserdetails($useremail) {
+        $this->db->query('SELECT * FROM General_User WHERE email = :email');
+        $this->db->bind(':email', $useremail);
+        $row = $this->db->single();
+        return $row;
     }
 
 }

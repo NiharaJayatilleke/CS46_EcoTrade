@@ -364,15 +364,15 @@
                 $adCountsByCategory = $this->moderatorModel->getItemAdCountsByCategory();
                 $reportedAds = $this->moderatorModel->getReportedAds();
                 $recentActivities = $this->moderatorModel->getRecentActivities();
-                // $useremail = $_SESSION['user_email'];
-                // $userdetails = $this->moderatorModel->getuserdetails($useremail);
+                $useremail = $_SESSION['user_email'];
+                $userdetails = $this->moderatorModel->getuserdetails($useremail);
                 $data = [
                     'ads' => $ads,
                     'userCounts' => $userCounts,
                     'adCountsByCategory' => $adCountsByCategory,
                     'reportedAds' => $reportedAds,
                     'recentActivities' => $recentActivities,
-                    // 'userdetails'=> $userdetails,
+                    'userdetails'=> $userdetails,
                ];
                 $this->view('moderators/v_index', $data);
 
@@ -388,11 +388,6 @@
         }
 
         public function edit_profile(){
-
-            if (!isset($_SESSION['user_id'])) {
-                // Redirect the user to the login page if they are not logged in
-                redirect('Users/login');
-            }
         
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 

@@ -382,14 +382,14 @@
                                         <div class="image-container">
                                             <?php
                                             if (!empty($data['user']->profile_image)) {
-                                                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['user']->profile_image . '" alt="Profile Image" class="d-block ui-w-80" id="profile-pic">';
+                                                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['userdetails']->profile_image . '" alt="Profile Image" class="d-block ui-w-80" id="profile-pic">';
                                             } else {
                                                 echo '<img src="' . URLROOT . '/public/img/profile.png" alt="Default Profile Image" class="d-block ui-w-80" id="profile-pic">';
                                             }
                                             ?>
                                         </div>
                                     </div>  
-                                    <form method="POST" action="<?php echo URLROOT; ?>/users/profile" enctype="multipart/form-data">               
+                                    <form method="POST" action="<?php echo URLROOT; ?>/moderators/profile" enctype="multipart/form-data">               
                                         <div class="media-body">
                                             <div class="file-upload">
                                                 <label for="upload-photo">Browse Photo</label>
