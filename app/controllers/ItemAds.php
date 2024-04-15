@@ -677,6 +677,35 @@
             }
             
         }
+
+        public function addSellerRating($adId){
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+                $data = json_decode(file_get_contents("php://input"), true);
+
+                $sellerId = $this->itemAdsModel->getSellerByAd($adId);
+
+                $data = [
+                    'ad_id' => $adId,
+                    'seller_id' => $sellerId,
+                    'rated_by_id' => $data['rated_by_id'],
+                    'rating' => $data['rating']
+                ];
         
+                if($this->addSellerRating($data)){
+                    echo json_encode(
+                        array('message' => 'Rating Added')
+                    );
+                } else {
+                    echo json_encode(
+                        array('message' => 'Rating Not Added')
+                    );
+                }
+            }
+
+            $ad = $this->itemAdsModel->addSellerRating($data);
+        }
+    
     }
 ?>

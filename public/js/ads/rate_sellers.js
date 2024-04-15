@@ -39,6 +39,25 @@ document.querySelector('#rateBtn').addEventListener('click', function() {
         if (result.value) {
             // Handle the result value (the selected rating)
             console.log('User selected ' + result.value + ' stars');
+
+            var data = {
+                rating: result.value
+            };
+
+            // Send AJAX request to the server
+            fetch(URLROOT +"/itemAds/addSellerRating/"+ CURRENT_AD, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(function(response) {
+                return response.json();
+            }).then(function(data) {
+                console.log(data);
+            }).catch(function(error) {
+                console.error('Error:', error);
+            });
         }
     });
 });
