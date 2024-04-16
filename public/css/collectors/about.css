@@ -555,6 +555,7 @@
   
   .main-banner {
     position: relative;
+    margin-bottom: 200px;
   }
   
   #bg-video {
@@ -632,6 +633,7 @@
   .feature-item .left-icon img {
     float: left;
     margin-right: 30px;
+    height: 100px;
   }
   
   .feature-item .right-content {
@@ -665,7 +667,7 @@
   
   #call-to-action {
     padding: 120px 0px;
-    background-image: url(../images/cta-bg.jpg);
+    /* background-image: url(../public/img/collectors/images/cta-bg.jpg); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -678,6 +680,7 @@
     font-weight: 800;
     color: #fff;
     letter-spacing: 1px;
+    text-align: center;
   }
   
   .cta-content h2 em {
@@ -1202,3 +1205,6 @@
       margin-left: 130px;
     }
   }
+
+
+  
