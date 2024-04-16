@@ -523,10 +523,98 @@
                 </div>
             </div>
 
-            <!-- Settings -->
             <div id="settings-content" class="content-section">
-                <div>
-                    <!-- logic here for settings -->
+                <div class="profile-settings-container">
+                    <div class="tabs-container">
+                        <button class="tab-link active" onclick="openTab(event, 'general')">General</button>
+                        <button class="tab-link" onclick="openTab(event, 'change-password')">Change Password</button>
+                        <button class="tab-link" onclick="openTab(event, 'notification')">Notification</button>
+                    </div>
+
+                    <div id="general" class="tab-content active">
+                                <div class="col-md-3 pt-0">
+                                    <div class="profile_image">
+                                        <div class="image-container">
+                                            <?php
+                                            if (!empty($data['userdetails']->profile_image)) {
+                                                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['userdetails']->profile_image . '" alt="Profile Image" class="d-block ui-w-80" id="profile-pic">';
+                                            } else {
+                                                echo '<img src="' . URLROOT . '/public/img/profile.png" alt="Default Profile Image" class="d-block ui-w-80" id="profile-pic">';
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>  
+                                    <form method="POST" action="<?php echo URLROOT; ?>/moderators/index" enctype="multipart/form-data">               
+                                        <div class="media-body">
+                                            <div class="file-upload">
+                                                <label for="upload-photo">Browse Photo</label>
+                                                <input type="file" id="upload-photo" name="photo" accept="image/*">
+                                            </div>
+                                            <button class="savebutton" type="submit">Save</button> 
+                                        </div>
+                                    </form>
+                                <?php if (!empty($data['userdetails']->profile_image)) : ?>
+                                    <form method="POST" action="<?php echo URLROOT; ?>/users/remove_photo">
+                                        <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
+                                        <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')">Delete Photo</button>
+                                    </form>
+                                <?php endif; ?>
+                                </div>
+                                <form id="editProfileForm">
+                                <div class="right-below">
+                                    <div class="right-left">
+                                        <div class="tab-pane fade active show" id="account-general">
+                                            <div class="card-body media align-items-center"></div>
+                                            <div class="card-body">
+                                                <!-- <form method="POST" action="<?php echo URLROOT; ?>/moderators/edit_profile"> -->
+                                                    <div class="form-group">
+                                                        <label class="form-label">Username</label>
+                                                        <input type="text" class="form-control input-field-box" name="newUsername" value="<?php echo $_SESSION['user_name']; ?>">
+                                                        <?php if (!empty($data['errors']['newUsername'])) : ?>
+                                                            <div class="form-invalid"><?php echo $data['errors']['newUsername']; ?></div>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-label">E-mail</label>
+                                                        <input type="text" class="form-control input-field-box" value="<?php echo $_SESSION['user_email']; ?>" disabled>
+                                                    </div>
+                                                  
+                                                    <div class="profile-buttons">
+                                                        <button class="profile-updatebt">Edit profile</button>
+                                                    </div>
+                                                <!-- </form> -->
+                                                <div style="margin-top: 20px;">
+                                                    <?php flash('profile_edit'); ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right-right">
+                                    <div class="form-group">
+                                                        <label class="form-label">Contact number</label>
+                                                        <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
+                                                        <?php if (!empty($data['errors']['newContactNumber'])) : ?>
+                                                            <div class="form-invalid"><?php echo $data['errors']['newContactNumber']; ?></div>
+                                                        <?php endif; ?>
+                                                    </div>
+                                        <div class="form-group">
+                                            <label class="form-label">User-type</label>
+                                            <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                </form>
+
+                    </div>
+
+                    <div id="change-password" class="tab-content">
+                        <h3>Change Password</h3>
+                        <p>Change your password here.</p>
+                    </div>
+                    <div id="notification" class="tab-content">
+                        <h3>Notification Settings</h3>
+                        <p>Customize your notification preferences here.</p>
+                    </div>
                 </div>
             </div>
                 
