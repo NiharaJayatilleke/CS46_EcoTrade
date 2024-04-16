@@ -32,8 +32,8 @@ document.querySelector('#rateBtn').addEventListener('click', function() {
             }
         },
         preConfirm: function() {
-            var checkedStar = document.querySelector('#rating .fa-star.checked');
-            return checkedStar ? checkedStar.getAttribute('data-rating') : null;
+            var checkedStars = document.querySelectorAll('#rating .fa-star.checked');
+            return checkedStars.length ? checkedStars[checkedStars.length - 1].getAttribute('data-rating') : null;
         }
     }).then(function(result) {
         if (result.value) {

@@ -704,8 +704,7 @@
                     );
                 }
             }
-
-            $ad = $this->itemAdsModel->addSellerRating($data);
+            
         }
     
     }
