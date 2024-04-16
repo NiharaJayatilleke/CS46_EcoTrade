@@ -70,6 +70,37 @@
             }
         }
 
+        public function getAdContent($id){
+            $ad = $this->itemAdsModel->getAdById($id);
+            $offers = $this->offersModel->getOffersByAd($id);
+            $acceptedOffer = $this->offersModel->getAcceptedOfferByAd($id);
+            $bidDetails = $this->auctionsModel->getBiddingDetailsByAd($id);
+            $bids = $this->auctionsModel->getBidsByAd($id);
+            $numBids = count($bids);
+            $seller = $this->usersModel->getUserDetails($ad->seller_id);
+            $number = $seller->number;
+
+            if (isset($bidDetails->starting_time) && isset($bidDetails->auction_duration)) {
+                $startTime = new DateTime($bidDetails->starting_time);
+                $duration = $bidDetails->auction_duration;
+                $remainingTimeString = $this->auctionsModel->calculateRemainingTime($startTime, $duration);
+            }
+
+            $data = [
+                'number' => $number,
+                'remaining_time' => $remainingTimeString ?? null,
+                'bid_details' => $bidDetails,
+                'bids' => $bids,
+                'bid_count' => $numBids,
+                'ad' => $ad,
+                'offers' => $offers,
+                'accepted_offer' => $acceptedOffer,
+                'user_id' => $_SESSION['user_id']
+            ];
+
+            echo json_encode($data);
+        }
+
         public function itemType(){
             
             if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator' || $_SESSION['userType'] == 'center' )){      
@@ -704,7 +735,7 @@
                     );
                 }
             }
-            
+
         }
     
     }
