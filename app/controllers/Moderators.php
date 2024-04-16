@@ -353,11 +353,11 @@
 
         public function index(){
 
-            // if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator' && $_SESSION['userType'] != 'admin')){
+            if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator' && $_SESSION['userType'] != 'admin')){
 
-            //     $this->view('pages/forbidden');
-            // }
-            // else{
+                $this->view('pages/forbidden');
+            }
+            else{
 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     // Handle the image upload
@@ -404,7 +404,7 @@
                ];
                 $this->view('moderators/v_index', $data);
 
-            // }
+            }
         }
 
         public function hideAd($adId) {

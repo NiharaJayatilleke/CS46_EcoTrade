@@ -181,13 +181,13 @@ require APPROOT.'/libraries/vendor/autoload.php';
                         // create a flash message
                         flash('reg_flash', ' A verification email has been sent to your email address.Please check');
 
-                        // Log user registration activity
-                        $this->userModel->logActivity($_SESSION['user_id'], 'User Registration', 'New user signed up');
-
                         redirect('Users/login?message=' . urlencode('Please check your mail and verify.'));
                         
                         // Send confirmation email to confirm
                         $this->send_email_confirmation($data['token'],$data['email']);
+
+                        // Log user registration activity
+                        $this->userModel->logActivity($_SESSION['user_id'], 'User Registration', 'New user signed up');
                     }
                     else{
                         // die('Something went wrong');
