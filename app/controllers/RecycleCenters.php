@@ -2,7 +2,7 @@
     class RecycleCenters extends Controller{
         public function __construct(){
             $this->userModel = $this->model('M_Users');
-            $this->collectorModel =$this->model('M_RecycleCenters');
+            $this->recyclecenterModel =$this->model('M_RecycleCenters');
             // $this->pagesModel =$this->model('M_Pages');
 
         }
@@ -149,13 +149,13 @@
         
                 // Validation is completed and no error then register the user
                 if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['make_err']) && empty($data['model_err']) && empty($data['insurance_err']) && empty($data['color_err']) && empty($data['district1_err'])){
-                    // Register collector
-                    if($this->collectorModel->register($data)){
+                    // Register recyclecenter
+                    if($this->recyclecenterModel->register($data)){
                         // Create a flash message
                         
-                        flash('reg_flash', 'You are successfully registered as a collector!');
+                        flash('reg_flash', 'You are successfully registered as a recyclecenter!');
                         // Assuming $user is an instance of the class that contains the updateUserType method
-                        if ($this->userModel->updateUserType('collector')) {
+                        if ($this->userModel->updateUserType('recyclecenter')) {
                             echo 'User type updated successfully';
                         } else {
                             echo 'Failed to update user type';
@@ -169,7 +169,7 @@
                 }
                 else{
                     // Load view
-                    $this->view('users/recyclecenters/register', $data);
+                    $this->view('users/rec/register', $data);
                 }
             }
             else {
@@ -178,16 +178,16 @@
                 if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == null) {
                     // If user is not logged in, redirect to login page
                     redirect('Users/login');
-                } else if($_SESSION['userType'] == 'collector') {
-                    // If user is a collector, redirect to a different page (e.g., collector's dashboard)
-                    redirect('Collectors/index');
+                } else if($_SESSION['userType'] == 'recyclecenter') {
+                    // If user is a recyclecenter, redirect to a different page (e.g., recyclecenter's dashboard)
+                    redirect('recyclecenters/index');
                 }
-                else if(isset($_SESSION['user_id']) && isset($_SESSION['userType']) && ($_SESSION['userType'] != 'collector'|| $_SESSION['userType'] != 'recenter' || $_SESSION['userType'] != null)) {
+                else if(isset($_SESSION['user_id']) && isset($_SESSION['userType']) && ($_SESSION['userType'] != 'recyclecenter'|| $_SESSION['userType'] != 'recenter' || $_SESSION['userType'] != null)) {
                     $data = [
                         'user' => $user,
                     ];
         
-                    // Load collector registration view
+                    // Load recyclecenter registration view
                     $this->view('users/recyclecenters/register', $data);
                 }
                 else {
@@ -254,7 +254,7 @@
 
         // public function dashboard(){
         //     $data = [];
-        //     $this->view('users/collectors/dashboard',$data);
+        //     $this->view('users/recyclecenters/dashboard',$data);
         // }  
     }
 ?>
