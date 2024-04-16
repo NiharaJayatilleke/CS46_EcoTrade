@@ -296,6 +296,11 @@ if($_SESSION['user_type'] != 'moderator') {
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/rate_sellers.js"></script>
 
 <script>
+    var currentUserId = <?php echo json_encode($_SESSION['user_id']); ?>;
+    var sellerId = <?php echo json_encode($data['ad']->seller_id); ?>;
+</script>
+
+<script>
     const id = <?php echo $data['ad']->ad_id ?>;
     const heartIcon = document.querySelector('#saveAdBtn i');
     

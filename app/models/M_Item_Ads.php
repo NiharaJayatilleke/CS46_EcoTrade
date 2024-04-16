@@ -102,6 +102,7 @@
         }
 
         public function reportAd($data){
+            
             $this->db->query('INSERT INTO Reported_Ads(ad_id, reporter_id, report_reason, report_comments, report_contact, report_status) VALUES(:ad_id, :reporter_id, :reason, :comments, :contact, :status)');
             $this->db->bind(':ad_id', $data['ad_id']);
             $this->db->bind(':reporter_id', $data['reporter_id']);
@@ -114,6 +115,22 @@
                 return true;
             }
             else{
+                return false;
+            }
+        }
+
+        public function addSellerRating($data){
+
+            $this->db->query('INSERT INTO Seller_Rating (ad_id, seller_id, rated_by_id, rating) VALUES (:ad_id, :seller_id, :rated_by_id, :rating)');
+
+            $this->db->bind(':ad_id', $data['ad_id']);
+            $this->db->bind(':seller_id', $data['seller_id']);
+            $this->db->bind(':rated_by_id', $data['rated_by_id']);
+            $this->db->bind(':rating', $data['rating']);
+
+            if($this->db->execute()){
+                return true;
+            } else {
                 return false;
             }
         }
