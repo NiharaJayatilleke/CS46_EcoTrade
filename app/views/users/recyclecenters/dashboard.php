@@ -24,7 +24,7 @@
                 <li>
                     <a href="#recycle-content" id="recycle-tab" onclick="showContent('recycle-content')">
                         <span class = "side-icon"><ion-icon name="pricetags"></ion-icon></span>
-                        <span class = "side-title">Recycle Ads</span>
+                        <span class = "side-title">Your ads</span>
                     </a>
                 </li>                               
 
@@ -32,7 +32,7 @@
                     <!-- <a href=""> -->
                     <a href="#center-content" id="center-tab" onclick="showContent('center-content')">
                         <span class = "side-icon"><ion-icon name="leaf-outline"></ion-icon></span>
-                        <span class = "side-title">Recycle Center</span>
+                        <span class = "side-title">Your account</span>
                     </a>
                 </li>
 
@@ -79,7 +79,7 @@
             <!-- cards -->
             <div id="dashboard-content" class="content-section">
                 <div class="heading-dashboard">
-                        <h2>Collector Dashboard</h2>
+                        <h2>Recycle Centers Dashboard</h2>
                     </div>
 
                     <div class="details" style=" display: block;">

@@ -78,6 +78,19 @@ CREATE TABLE CollectorDistricts (
     PRIMARY KEY (collector_id, district_id)
 );
 
+CREATE TABLE RecycleCenters (
+    id INT AUTO_INCREMENT,
+    nic VARCHAR(255),
+    address TEXT,
+    com_name VARCHAR(255),
+    com_email VARCHAR(255),
+    com_address TEXT,
+    telephone VARCHAR(255),
+    company_type VARCHAR(255),
+    reg_number VARCHAR(255),
+    FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE
+);
+
 CREATE TABLE forgot_password (
     pwdResetid INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     pwdResetemail TEXT NOT NULL,

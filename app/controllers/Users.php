@@ -181,6 +181,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                         // create a flash message
                         flash('reg_flash', ' A verification email has been sent to your email address.Please check');
 
+
                         redirect('Users/login?message=' . urlencode('Please check your mail and verify.'));
                         
                         // Send confirmation email to confirm
@@ -188,6 +189,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
 
                         // Log user registration activity
                         $this->userModel->logActivity($_SESSION['user_id'], 'User Registration', 'New user signed up');
+
                     }
                     else{
                         // die('Something went wrong');
@@ -257,6 +259,15 @@ require APPROOT.'/libraries/vendor/autoload.php';
             // die($_SESSION['userType']);
             if($_SESSION['userType']=='admin'){
                 redirect('admin/index');
+            }
+            elseif($_SESSION['userType']=='moderator'){
+                redirect('moderators/index');
+            }
+            elseif($_SESSION['userType']=='center'){
+                redirect('RecycleCenters/index');
+            }
+            elseif($_SESSION['userType']=='collector'){
+                redirect('collectors/index');
             }
             else{
                 redirect('Pages/index');
