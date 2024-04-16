@@ -14,6 +14,7 @@ $(document).ready(function() {
                 // Clear the old notifications
                 $('.notif-dropdown-menu').empty();
 
+                if (data.length > 0) {
                 // Add the new notifications
                 $.each(data, function(i, notification) {
                     // console.log(notification);
@@ -99,6 +100,16 @@ $(document).ready(function() {
 
                 dropdownMenu.show();
                 caret.show();
+                
+                } else {
+                    var notificationItem = $('<div class="notif-dropdown-item"></div>');
+                    notificationItem.append('<div class="notif-empty-message"><div class="notif-empty-message0">No notifications yet!</div><div class="notif-empty-message1">When you get notifications,they\'ll show up here.</div></div>');
+                    // notificationItem.append('<div class="notif-empty-message1">When you get notifications,they\'ll show up here.</div>');
+                    $('.notif-dropdown-menu').append(notificationItem);
+                }
+
+                dropdownMenu.show();
+                caret.show();
             },
             error: function() {
                 console.error('Error fetching notifications');
@@ -122,10 +133,19 @@ $(document).ready(function() {
             url: URLROOT + "/Notifications/showNotificationCount",
             method: 'GET',
             dataType: 'json',
+
             success: function(data) {
                 // Update the notification count
-                $('#notificationCount').text(data);
+                var notificationCount = $('#notificationCount');
+                if (data > 0) {
+                    notificationCount.text(data);
+                    notificationCount.removeClass('hidden');
+                } else {
+                    notificationCount.text('');
+                    notificationCount.addClass('hidden');
+                }
             },
+
             error: function() {
                 console.error('Error fetching notifications');
             }
