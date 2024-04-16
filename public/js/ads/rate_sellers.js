@@ -1,4 +1,13 @@
 document.querySelector('#rateBtn').addEventListener('click', function() {
+
+    if (currentUserId === sellerId) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'You cannot rate yourself!',
+        });
+    } else {
+
     Swal.fire({
         title: 'Rate this Seller',
         html: '<div id="rating">' +
@@ -63,4 +72,5 @@ document.querySelector('#rateBtn').addEventListener('click', function() {
             });
         }
     });
+    }
 });
