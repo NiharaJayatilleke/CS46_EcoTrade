@@ -9,6 +9,7 @@
         
         public function index(){
             if(!isset($_SESSION['userType']) || $_SESSION['userType'] != 'admin'){
+                die('admin index, user type: ' . $user_type);
                 $this->view('pages/forbidden');
             }
             else{

@@ -126,3 +126,67 @@ document.addEventListener('DOMContentLoaded', (event) => {
 //       }
 //     }
 //   });
+
+//search in users
+// The Fuse.js options
+var options = {
+    includeScore: true,
+    threshold: 0.3,
+    location: 0,
+    distance: 100,
+    maxPatternLength: 32,
+    minCharLength: 1,
+    keys: [
+        "username",
+        "email",
+        "number",
+        "user_type",
+        "created_at"
+    ]
+};
+
+// Create the Fuse.js instance
+var fuse = new Fuse(users, options);
+
+// Function to perform search
+function performSearch() {
+    // Get the search query
+    var query = document.getElementById('dashboard-search').querySelector('input').value;
+
+    // Perform the search
+    var results = fuse.search(query);
+
+    // Clear the table
+    var table = document.getElementById('users-table');
+    table.innerHTML = '';
+
+    // Add the results to the table
+    results.forEach(function(result) {
+        var row = document.createElement('tr');
+
+        var usernameCell = document.createElement('td');
+        usernameCell.textContent = result.item.username;
+        row.appendChild(usernameCell);
+
+        var emailCell = document.createElement('td');
+        emailCell.textContent = result.item.email;
+        row.appendChild(emailCell);
+
+        var numberCell = document.createElement('td');
+        numberCell.textContent = result.item.number;
+        row.appendChild(numberCell);
+
+        var userTypeCell = document.createElement('td');
+        userTypeCell.textContent = result.item.user_type;
+        row.appendChild(userTypeCell);
+
+        var createdAtCell = document.createElement('td');
+        createdAtCell.textContent = result.item.created_at;
+        row.appendChild(createdAtCell);
+
+        table.appendChild(row);
+    });
+}
+
+// Attach the function to the oninput event of the search bar
+document.getElementById('dashboard-search').querySelector('input').addEventListener('input', performSearch);
