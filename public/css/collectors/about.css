@@ -697,7 +697,12 @@
     margin: 15px 0px 25px 0px;
   }
   
-  
+  .row {
+    display: flex;
+    gap: px;
+    width: 90%;
+    margin: 0 auto;
+  }
   
   /*
   --------------------------------------------
@@ -1377,9 +1382,6 @@ header::after {
     margin: 1rem auto;
 }
 
-.overlay43 {
-
-}
 
 .num-container {
     width: 70%;
