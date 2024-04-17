@@ -444,6 +444,24 @@
     border-radius: 4px;
     font-size: 12px;
     font-weight: 300;
+
+}
+.usertype.center {
+    padding: 2px 4px;
+    background: #6b8e14;;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.usertype.collector {
+    padding: 2px 4px;
+    background: #8740c1;;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 300;
 }
 
 

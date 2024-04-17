@@ -99,8 +99,7 @@
                 </div>
 
                 <!-- tabs -->
-                <a href="#settings-content" id="settings-tab" onclick="showContent('settings-content'); hideSearchBar();"></a>
-                <!-- Add more tabs as needed -->
+                <a href="#settings-content" id="settings-tab"></a>
                 <!-- userImg -->
                 <div class="dashboard-user">
                     <img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg">

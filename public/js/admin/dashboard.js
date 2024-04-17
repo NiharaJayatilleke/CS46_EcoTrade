@@ -89,7 +89,7 @@ document.getElementById('messages-tab').onclick = function() {
 
 document.getElementById('ad-report-tab').onclick = function() {
     showContent('ad-report-content');
-    showSearchBar();
+    hideSearchBar();
 };
 
 document.getElementById('settings-tab').onclick = function() {
