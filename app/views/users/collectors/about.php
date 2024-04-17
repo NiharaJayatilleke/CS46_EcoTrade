@@ -14,7 +14,7 @@
                 <h6>Recycle, Earn</h6>
                 <h2>become <em>collector</em></h2>
                 <div class="main-button scroll-to-section">
-                    <a href="#features">register now</a>
+                    <a href="<?php echo URLROOT ?>/Collectors/register">register now</a>
                 </div>
             </div>
         </div>
