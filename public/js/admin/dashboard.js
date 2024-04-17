@@ -182,7 +182,11 @@ function performSearch() {
         row.appendChild(numberCell);
 
         var userTypeCell = document.createElement('td');
-        userTypeCell.textContent = result.item.user_type;
+        var userTypeSpan = document.createElement('span');
+        userTypeSpan.classList.add('usertype'); // Add the 'usertype' class
+        userTypeSpan.classList.add(result.item.user_type); // Add the user type as a class
+        userTypeSpan.textContent = result.item.user_type;
+        userTypeCell.appendChild(userTypeSpan);
         row.appendChild(userTypeCell);
 
         var createdAtCell = document.createElement('td');
