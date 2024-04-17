@@ -23,19 +23,23 @@ document.querySelector('.sad-buyer-reject-purchase-btn button').addEventListener
                     console.log('Purchase declined. Reason: ' + result.value);
 
                     /* this method won't work cuz theres no sep table to store the notif and the confirm or delete reponse
-                    so add this to a table and then mark with the users response 
-                    $.ajax({
-                        url: URLROOT + '/Notifications/markAsSeen/' + notif_id,
-                        method: 'POST',
-                        success: function() {
+                    so add this to a table and then mark with the users response */
+                    let response = 'declined';
+                    let reason = result.value;
 
-                            document.getElementById('buyer-notif').style.display = 'none';                 
+                    $.ajax({
+                        url: URLROOT + '/Notifications/addBuyerNotifResponse/',
+                        method: 'POST',
+                        data: JSON.stringify({ response: response, reason: reason }),
+                        contentType: 'application/json',
+                        success: function() {
+                            console.log('Notification response sent');
+                            document.getElementById('buyer-notif').style.display = 'none';
                         },
                         error: function() {
-                            console.error('Error marking notification as viewed');
+                            console.error('Error sending notification response');
                         }
                     });
-                    */
                                         
                 }
             });
@@ -56,8 +60,6 @@ document.querySelector('.sad-buyer-confirm-purchase-btn button').addEventListene
         if (result.isConfirmed) {
             // Handle the confirm purchase logic here
             console.log('Purchase confirmed');
-            document.getElementById('buyer-notif').style.display = 'none';
-  
         }
     });
 });
