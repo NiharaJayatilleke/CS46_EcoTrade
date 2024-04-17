@@ -91,12 +91,16 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
                 <!-- search -->
-                <div class="dashboard-search">
+                <div id="dashboard-search" class="dashboard-search">
                     <label>
                         <input type="text" placeholder="Search here">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
+
+                <!-- tabs -->
+                <a href="#settings-content" id="settings-tab" onclick="showContent('settings-content'); hideSearchBar();">...</a>
+                <!-- Add more tabs as needed -->
                 <!-- userImg -->
                 <div class="dashboard-user">
                     <img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg">
