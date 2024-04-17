@@ -91,12 +91,15 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
                 <!-- search -->
-                <div class="dashboard-search">
+                <div id="dashboard-search" class="dashboard-search">
                     <label>
                         <input type="text" placeholder="Search here">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
+
+                <!-- tabs -->
+                <a href="#settings-content" id="settings-tab"></a>
                 <!-- userImg -->
                 <div class="dashboard-user">
                     <img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg">
@@ -401,7 +404,7 @@
                             <h2>Users</h2>
                             <a href="<?php echo URLROOT ?>/Users/register" class="btn">Add User</a>
                         </div>
-                        <table>
+                        <table id="users-table">
                             <thead>
                                 <tr>
                                     <td>Username</td>
@@ -832,9 +835,10 @@
     </script>
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
     <script>var userCounts = <?php echo json_encode($data['userCounts']); ?>;
+    var users = <?php echo json_encode($data['users']); ?>;
+    </script> 
 
-</script> 
-        <!-- Javascript for image upload -->
+    <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/alerts.js"></script>
@@ -844,6 +848,7 @@
         var URLROOT ="<?php echo URLROOT; ?>"
         var CURRENT_AD = "<?php echo $data['ad']->ad_id ?>";
     </script>
+
 
     <!-- JS for messages -->
     <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/message_load.js"></script> -->
