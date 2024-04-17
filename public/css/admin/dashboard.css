@@ -832,7 +832,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    display
+    /* display */
 }
 
 .form-control.input-field-box {

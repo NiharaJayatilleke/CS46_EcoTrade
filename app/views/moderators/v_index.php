@@ -553,11 +553,12 @@
                                                 <div class="file-upload">
                                                     <input type="file" id="upload-photo" name="photo" accept="image/*">
                                                 </div>
-                                                <button class="savebutton " type="submit"><i class="fas fa-bookmark"></i></button> 
+                                                <button class="savebutton " type="submit" title="Save Photo"><i class="fas fa-bookmark"></i></button> 
                                             </div>
                                         </form>
                                         <?php if (!empty($data['userdetails']->profile_image)) : ?>
-                                            <form method="POST" action="<?php echo URLROOT; ?>/moderators/edit_profile">
+                                            <form method="POST" action="<?php echo URLROOT; ?>/users/profile">
+                                                <input type="hidden" name="delete_photo" value="1">
                                                 <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
                                                 <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')" class="" title="delete photo"><i class="fas fa-trash-alt"></i></button>
                                             </form>
