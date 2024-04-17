@@ -377,6 +377,13 @@
     font-size: 14px;
 }
 
+.sad-b3-p1, .sad-b3-p2, .sad-b3-p3 {
+    margin-right: 0%;
+    margin-top: 2px;
+    color: #313131;
+    font-size: 14px;
+}
+
 /*
 .sad-b1 h4 {
     margin-bottom: 0;

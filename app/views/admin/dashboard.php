@@ -560,21 +560,21 @@
                     <div class="sad-right-container">
                         <div class="sad-b3">
                             <i class="fas fa-store fa-lg"></i>
-                            <div class="sad-b3-p">
+                            <div class="sad-b3-p1">
                             <p>Sold by <?php echo $data['ad']->seller_name?></p>
                             </div>
                         </div>
 
                         <div class="sad-b3">
                             <i class="fas fa-map-marker-alt fa-lg"></i>
-                            <div class="sad-b3-p">
+                            <div class="sad-b3-p2">
                             <p><?php echo $data['ad']->item_location?></p>
                             </div>
                         </div>
 
                         <div class="sad-b3">
                             <i class="fas fa-phone fa-lg"></i>
-                            <div class="sad-b3-p">
+                            <div class="sad-b3-p3">
                             <button id="show-number" class="sad-number" data-number="<?php echo $data['number']?>"> Contact Seller</button>
                             </div>
                         </div>
