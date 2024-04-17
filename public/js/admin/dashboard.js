@@ -145,7 +145,7 @@ var options = {
     ]
 };
 
-// Create the Fuse.js instance
+// Assuming 'users' is your data array
 var fuse = new Fuse(users, options);
 
 // Function to perform search
@@ -153,14 +153,19 @@ function performSearch() {
     // Get the search query
     var query = document.getElementById('dashboard-search').querySelector('input').value;
 
+    // If the search query is empty, return early
+    if (!query) {
+        return;
+    }
+
     // Perform the search
     var results = fuse.search(query);
 
-    // Clear the table
-    var table = document.getElementById('users-table');
-    table.innerHTML = '';
+    // Clear the table body
+    var tableBody = document.querySelector('#users-table tbody');
+    tableBody.innerHTML = '';
 
-    // Add the results to the table
+    // Add the results to the table body
     results.forEach(function(result) {
         var row = document.createElement('tr');
 
@@ -184,7 +189,7 @@ function performSearch() {
         createdAtCell.textContent = result.item.created_at;
         row.appendChild(createdAtCell);
 
-        table.appendChild(row);
+        tableBody.appendChild(row);
     });
 }
 
