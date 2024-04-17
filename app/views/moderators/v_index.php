@@ -378,7 +378,7 @@
 
                     <div id="general" class="tab-content active">
                                 <div class="col-md-3 pt-0">
-                                    <div class="profile_image">
+                                    <div class="main-profile-img">
                                         <div class="image-container">
                                             <?php
                                             if (!empty($data['userdetails']->profile_image)) {
@@ -388,22 +388,24 @@
                                             }
                                             ?>
                                         </div>
-                                    </div>  
-                                    <form method="POST" action="<?php echo URLROOT; ?>/moderators/index" enctype="multipart/form-data">               
-                                        <div class="media-body">
-                                            <div class="file-upload">
-                                                <label for="upload-photo">Browse Photo</label>
-                                                <input type="file" id="upload-photo" name="photo" accept="image/*">
+                                    </div> 
+                                    <div class="dashboard-icons-container"> 
+                                        <form method="POST" action="<?php echo URLROOT; ?>/moderators/index" enctype="multipart/form-data">               
+                                            <div class="">
+                                                <button type="button"><label for="upload-photo" title="Browse Photo"><i class="fas fa-edit"></i></label></botton>
+                                                <div class="file-upload">
+                                                    <input type="file" id="upload-photo" name="photo" accept="image/*">
+                                                </div>
+                                                <button class="savebutton " type="submit"><i class="fas fa-bookmark"></i></button> 
                                             </div>
-                                            <button class="savebutton" type="submit">Save</button> 
-                                        </div>
-                                    </form>
-                                <?php if (!empty($data['userdetails']->profile_image)) : ?>
-                                    <form method="POST" action="<?php echo URLROOT; ?>/users/remove_photo">
-                                        <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
-                                        <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')">Delete Photo</button>
-                                    </form>
-                                <?php endif; ?>
+                                        </form>
+                                        <?php if (!empty($data['userdetails']->profile_image)) : ?>
+                                            <form method="POST" action="<?php echo URLROOT; ?>/moderators/edit_profile">
+                                                <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
+                                                <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')" class="" title="delete photo"><i class="fas fa-trash-alt"></i></button>
+                                            </form>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
                                 <form id="editProfileForm">
                                 <div class="right-below">
