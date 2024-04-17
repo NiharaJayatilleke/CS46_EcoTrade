@@ -99,7 +99,7 @@
                 </div>
 
                 <!-- tabs -->
-                <a href="#settings-content" id="settings-tab" onclick="showContent('settings-content'); hideSearchBar();">...</a>
+                <a href="#settings-content" id="settings-tab" onclick="showContent('settings-content'); hideSearchBar();"></a>
                 <!-- Add more tabs as needed -->
                 <!-- userImg -->
                 <div class="dashboard-user">
