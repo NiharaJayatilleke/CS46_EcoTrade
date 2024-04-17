@@ -21,6 +21,22 @@ document.querySelector('.sad-buyer-reject-purchase-btn button').addEventListener
                 if (result.isConfirmed) {
                     // Handle the decline purchase logic here
                     console.log('Purchase declined. Reason: ' + result.value);
+
+                    /* this method won't work cuz theres no sep table to store the notif and the confirm or delete reponse
+                    so add this to a table and then mark with the users response 
+                    $.ajax({
+                        url: URLROOT + '/Notifications/markAsSeen/' + notif_id,
+                        method: 'POST',
+                        success: function() {
+
+                            document.getElementById('buyer-notif').style.display = 'none';                 
+                        },
+                        error: function() {
+                            console.error('Error marking notification as viewed');
+                        }
+                    });
+                    */
+                                        
                 }
             });
         }
@@ -40,7 +56,8 @@ document.querySelector('.sad-buyer-confirm-purchase-btn button').addEventListene
         if (result.isConfirmed) {
             // Handle the confirm purchase logic here
             console.log('Purchase confirmed');
-            
+            document.getElementById('buyer-notif').style.display = 'none';
+  
         }
     });
 });
