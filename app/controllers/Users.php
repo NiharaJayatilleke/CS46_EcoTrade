@@ -303,28 +303,31 @@ require APPROOT.'/libraries/vendor/autoload.php';
             }
             
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // Handle the image upload
-                if (isset($_FILES['photo'])) {
-                    $image = $_FILES['photo'];
-            
-                    // Check if there was no file error
-                    if ($image['error'] === UPLOAD_ERR_OK) {
-                        // Define the directory to store the images
-                        $uploadDir = '../public/img/profilepic/';    
-                        // Generate a unique filename
-                        $user_id = $_SESSION['user_id'];
-                        $filename = $user_id . '' . time() . '' . $image['name'];
-            
-                        // Move the uploaded image to the upload directory
-                        if (move_uploaded_file($image['tmp_name'], $uploadDir . $filename)) {
-                            // Update the user's profile image path in the database
-                            if ($this->userModel->updateProfileImage($_SESSION['user_id'], $filename)) {
-                                // The image has been saved, and the user's profile has been updated
-                            } else {
-                                // Handle an error updating the database
-                            }
-                        } else {
-                            // Handle an error moving the uploaded file
+
+                if (isset($_POST['delete_photo']) && $_POST['delete_photo'] == 1) {
+                    $userId = $_SESSION['user_id'];
+                    $this->userModel->deleteProfileImage($userId);
+                }
+                else{
+                    // Handle the image upload
+                    if (isset($_FILES['photo'])) {
+                        $image = $_FILES['photo'];
+                
+                        // Check if there was no file error
+                        if ($image['error'] === UPLOAD_ERR_OK) {
+                            // Define the directory to store the images
+                            $uploadDir = '../public/img/profilepic/';    
+                            // Generate a unique filename
+                            $user_id = $_SESSION['user_id'];
+                            $filename = $user_id . '' . time() . '' . $image['name'];
+                
+                            // Move the uploaded image to the upload directory
+                            if (move_uploaded_file($image['tmp_name'], $uploadDir . $filename)) {
+                                // Update the user's profile image path in the database
+                               $this->userModel->updateProfileImage($_SESSION['user_id'], $filename);
+                                    // The image has been saved, and the user's profile has been updated
+                               
+                            } 
                         }
                     }
                 }
