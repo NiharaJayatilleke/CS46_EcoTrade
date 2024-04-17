@@ -47,5 +47,9 @@
             echo json_encode($count);
         }
 
+        public function addBuyerNotifResponse(){
+            
+        }
+
     }
 ?>
