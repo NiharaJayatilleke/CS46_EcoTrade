@@ -38,6 +38,26 @@ list.forEach((item) => {
     item.addEventListener('click', clickedLink);
 });
 
+// Function to hide the search bar
+function hideSearchBar() {
+    document.getElementById('dashboard-search').style.display = 'none';
+}
+
+// Function to show the search bar
+function showSearchBar() {
+    document.getElementById('dashboard-search').style.display = 'block';
+}
+
+// Attach the function to the onclick event of the tabs
+document.getElementById('dashboard-tab').onclick = function() {
+    showContent('dashboard-content');
+    showSearchBar();
+};
+document.getElementById('settings-tab').onclick = function() {
+    showContent('settings-content');
+    hideSearchBar();
+};
+// Add more tabs as needed
 
 //   const ctx = document.getElementById('myChart');
 
