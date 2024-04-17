@@ -508,7 +508,7 @@
                 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/v_buyer_view.css">
                 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/seller_only_styles.css">
 
-                <div class="sad-main-container1">
+                <div class="sad-main-container1-in-dashboards">
                     <div class="sad-main2"></div>
                         <div class = "sad-item-name"><h1><?php echo $data['ad']->item_name ?><h1></div>
                         <div class = "sad-p1"><p>Posted on <?php echo $data['ad']->item_created_at ?></p></div>
@@ -631,7 +631,7 @@
 
                 <!-- <br> -->
                 <div class="sad-main-container2">
-                <div class="sad-main-container3-left">
+                <div class="sad-main-container3-left-in-dashboards">
                 <!-- Message Sellers (Q&A) -->
                 <form method="post">
                     <div class = "message-seller-container">
