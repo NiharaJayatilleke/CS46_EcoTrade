@@ -45,3 +45,4 @@ function showAdContent(adId) {
         console.error('Error:', error);
     });
 }
+

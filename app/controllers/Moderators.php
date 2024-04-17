@@ -394,6 +394,7 @@
                 $recentActivities = $this->moderatorModel->getRecentActivities();
                 $useremail = $_SESSION['user_email'];
                 $userdetails = $this->moderatorModel->getuserdetails($useremail);
+
                 $data = [
                     'ads' => $ads,
                     'userCounts' => $userCounts,
@@ -402,6 +403,7 @@
                     'recentActivities' => $recentActivities,
                     'userdetails'=> $userdetails,
                ];
+
                 $this->view('moderators/v_index', $data);
 
             }
