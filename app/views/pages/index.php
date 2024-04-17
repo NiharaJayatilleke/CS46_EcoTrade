@@ -109,7 +109,7 @@
                             Discover a wallet-friendly and eco-conscious recycling market.</h3>
                         </div>
 
-                        <a href="<?php echo URLROOT; ?>/Recyclehome/index">Explore Now</a>
+                        <a href="<?php echo URLROOT; ?>/Pages/recyclehome">Explore Now</a>
                     </div>
                 </div>
             </div>

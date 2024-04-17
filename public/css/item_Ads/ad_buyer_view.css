@@ -12,6 +12,18 @@
     border-radius: 4px;
 }
 
+.sad-main-container1-in-dashboards{
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 3%;
+    padding: 2%;
+    /* border: 1px solid #D4E7F3; */
+    /* border: 1px solid #d4f3d7; */
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
 .sad-main2 {
     margin-top: 0;
 }
@@ -359,6 +371,13 @@
 }
 
 .sad-b3-p {
+    margin-right: 0%;
+    margin-top: 2px;
+    color: #313131;
+    font-size: 14px;
+}
+
+.sad-b3-p1, .sad-b3-p2, .sad-b3-p3 {
     margin-right: 0%;
     margin-top: 2px;
     color: #313131;

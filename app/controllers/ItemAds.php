@@ -70,6 +70,37 @@
             }
         }
 
+        public function getAdContent($id){
+            $ad = $this->itemAdsModel->getAdById($id);
+            $offers = $this->offersModel->getOffersByAd($id);
+            $acceptedOffer = $this->offersModel->getAcceptedOfferByAd($id);
+            $bidDetails = $this->auctionsModel->getBiddingDetailsByAd($id);
+            $bids = $this->auctionsModel->getBidsByAd($id);
+            $numBids = count($bids);
+            $seller = $this->usersModel->getUserDetails($ad->seller_id);
+            $number = $seller->number;
+
+            if (isset($bidDetails->starting_time) && isset($bidDetails->auction_duration)) {
+                $startTime = new DateTime($bidDetails->starting_time);
+                $duration = $bidDetails->auction_duration;
+                $remainingTimeString = $this->auctionsModel->calculateRemainingTime($startTime, $duration);
+            }
+
+            $data = [
+                'number' => $number,
+                'remaining_time' => $remainingTimeString ?? null,
+                'bid_details' => $bidDetails,
+                'bids' => $bids,
+                'bid_count' => $numBids,
+                'ad' => $ad,
+                'offers' => $offers,
+                'accepted_offer' => $acceptedOffer,
+                'user_id' => $_SESSION['user_id']
+            ];
+
+            echo json_encode($data);
+        }
+
         public function itemType(){
             
             if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator' || $_SESSION['userType'] == 'center' )){      
@@ -677,6 +708,35 @@
             }
             
         }
+
+        public function addSellerRating($adId){
+            error_log('addSellerRating function called with adId: ' . $adId);
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+                $jsonData = json_decode(file_get_contents("php://input"), true);
+
+                $sellerId = $this->itemAdsModel->getSellerByAd($adId);
+
+                $data = [
+                    'ad_id' => $adId,
+                    'seller_id' => $sellerId->seller_id,
+                    'rated_by_id' => $_SESSION['user_id'],
+                    'rating' => $jsonData['rating']
+                ];
         
+                if($this->itemAdsModel->addSellerRating($data)){
+                    echo json_encode(
+                        array('message' => 'Rating Added')
+                    );
+                } else {
+                    echo json_encode(
+                        array('message' => 'Rating Not Added')
+                    );
+                }
+            }
+
+        }
+    
     }
 ?>

@@ -207,6 +207,7 @@
                     </div> 
             </div>
 
+
             <div id="platformusers-content" class="content-section">
                     <div class="recentCustomers">
                         <div class="cardHeader">
@@ -305,7 +306,7 @@
                     <?php if (!empty($data['ads'])) : ?>
                     <div class="ads-container">
                         <?php foreach($data['ads'] as $ad): ?>
-                        <a class="ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
+                            <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id; ?>')">
                             <div class="ad-index-container"
                                 data-price="<?php echo $ad->item_price ?>"
                                 data-condition="<?php echo $ad->item_condition ?>"
@@ -363,6 +364,162 @@
 
             
             </div>
+
+            <!-- Secondhand Ad View -->
+            <div id="secondhand-ad-view-content" class="content-section">
+
+                <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/v_buyer_view.css">
+                <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/seller_only_styles.css">
+
+                <div class="sad-main-container1-in-dashboards">
+                    <div class="sad-main2"></div>
+                        <div class = "sad-item-name"><h1><?php echo $data['ad']->item_name ?><h1></div>
+                        <div class = "sad-p1"><p>Posted on <?php echo $data['ad']->item_created_at ?></p></div>
+
+                        <div class="sad-container2">
+                        <div class="sad-left-container">
+                        
+                            <div class="sad-big-photo">
+                                <a href="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" data-lightbox="sad-ad-img">
+                                    <img class="sad-ad-img" src="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" alt="Ad Image">
+                                </a>
+                            </div>
+                            <div class="sad-small-images">
+                                <!-- <img id="s1" src="productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')"> -->
+                                <!-- <img id="s1" src="<?php echo URLROOT?>/public/img/prodetails/productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')">
+
+                                <img id="s2" src="<?php echo URLROOT?>/public/img/prodetails/productDetails2.jpeg" alt="Small Image 2" onclick="displayBigImage('/pics/productDetails2.jpeg')"> -->
+                                <!-- Add more small images as needed -->
+                            </div>
+                            <div class="sad-desMain">
+                                <div class="sad-heading">
+                                    <div class = "sad-price"><h2>Rs. <?php echo $data['ad']->item_price ?></h2></div>
+                                    <div class = "sad-details">
+                                    <?php if ($data['ad']->negotiable == "yes") : ?>
+                                        <p class = "sad-neg">Negotiable</p>
+                                    <?php else : ?>
+                                        <p class = "sad-neg">Non-Negotiable</p>
+                                    <?php endif; ?>
+                                    <div class = "sad-condition">Condition: <?php echo $data['ad']->item_condition ?></div>
+                                    <p>Quantity: 1</p>
+                                    <br>
+                                    </div>
+                                </div>
+
+                                <div class="sad-description">
+                                    <div class="sad-desHead">
+                                        <h3> Product Description</h1>
+                                    </div>
+                                    <div class="sad-desP">
+                                        <?php echo $data['ad']->item_desc ?>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sad-line"></div>
+
+                    </div>
+
+                    <div class="sad-right-container">
+                        <div class="sad-b3">
+                            <i class="fas fa-store fa-lg"></i>
+                            <div class="sad-b3-p1">
+                            <p>Sold by <?php echo $data['ad']->seller_name?></p>
+                            </div>
+                        </div>
+
+                        <div class="sad-b3">
+                            <i class="fas fa-map-marker-alt fa-lg"></i>
+                            <div class="sad-b3-p2">
+                            <p><?php echo $data['ad']->item_location?></p>
+                            </div>
+                        </div>
+
+                        <div class="sad-b3">
+                            <i class="fas fa-phone fa-lg"></i>
+                            <div class="sad-b3-p3">
+                            <button id="show-number" class="sad-number" data-number="<?php echo $data['number']?>"> Contact Seller</button>
+                            </div>
+                        </div>
+
+                        <div class = "Offers-Bids">
+                        <!-- HTML for displaying the accepted offer price -->
+                        <?php if (isset($data['accepted_offer']->offer_status) == 'accepted') : ?>
+                            <br><div class="accepted-offer">
+                                <p class="accepted-offer-message">The seller is willing to accept an offer of Rs.<span id="accepted-offer-price"><?php echo $data['accepted_offer']->offer_amount; ?></span></p>
+                                <!-- <p class="accepted-offer-message">The seller is willing to accept an offer of Rs.<span id="accepted-offer-price"></span></p> -->
+                            </div><br>
+                        <?php endif; ?>
+
+                        <!-- HTML for displaying offers-->
+                        <div class='offers-list'> 
+                        <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && empty($data['accepted_offer']) && $data['ad']->negotiable == "yes") : ?>
+                        <?php if (!empty($data['offers'])) : ?>
+                            <div class="offer-title"><h3>Highest Offers</h3></div>
+                            <?php 
+                            $count = 0;
+                            foreach ($data['offers'] as $offer) : 
+                                if ($count == 3) break;
+                            ?>
+                                <div class="offer-details" data-offer-id="<?php echo $offer->offer_id; ?>">
+                                    <p class="offer-message">New Offer: Rs.<?php echo $offer->offer_amount; ?></p>
+                                </div>
+                            <?php 
+                                $count++;
+                            endforeach; ?>
+                        <?php endif; ?>
+                        <?php endif; ?>
+                        </div>
+
+                        <!-- HTML for displaying the bids -->
+                        <?php if ($data['ad']->selling_format == 'auction' && $_SESSION['user_id'] == $data['ad']->seller_id) : ?>
+                        <br>
+                        <div class="offer-title"><h3>Bidding Overview</h3></div>
+                        <div class="bid-info">
+                            <p>Time Remaining: <span id="timeRemaining"><?php echo $data['remaining_time'];?> </span></p>
+                            <div class="bid-stats">
+                                <p>Number of Bids: <span id="numBids"><?php echo $data['bid_count'];?></span></p>
+                            </div>
+                            <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && $data['remaining_time'] == 'Auction Ended') : ?>
+                                <button id="reopenBidding">Reopen Bidding</button><br>
+                            <?php endif; ?>
+                        </div>
+                        <?php endif; ?>
+                        
+                        </div> <!-- seller's stuff -->
+
+                    </div>
+                </div>
+                </div>
+
+                <!-- <br> -->
+                <div class="sad-main-container2">
+                <div class="sad-main-container3-left-in-dashboards">
+                <!-- Message Sellers (Q&A) -->
+                <form method="post">
+                    <div class = "message-seller-container">
+                        <div class = "message-header">
+                            <h3>Message Seller</h3>
+                        </div>
+
+                        <!-- Message Input -->
+                        <div class = "message-input">
+                            <input type = "text" class = "message-input-field" name = "send-message" id = "send-message" placeholder = "Type your message here...">
+                            <!-- <button class = "message-btn" id = "message-btn" type = "submit">Send</button> -->
+                            <input type="submit" value="Send" class = "message-btn" id = "message-btn"> 
+                        </div>
+
+                        <!-- Message Thread -->
+                        <div id = "results"></div>
+
+                    </div>  
+
+                </form>
+                </div>
+                </div>
+
+            </div>
+
 
             <div id="recycle-content" class="content-section">
             <p>This is the content for the Recycle tab.</p> 
@@ -476,6 +633,8 @@
 
     </div>
 
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/ad_view.js"></script>
+   
     <script>
     // Function to show/hide content sections based on the clicked tab
     function showContent(section) {
@@ -485,6 +644,7 @@
         document.getElementById('platformusers-content').style.display = 'none';
         document.getElementById('reported-ads-content').style.display = 'none';
         document.getElementById('secondhand-content').style.display = 'none';
+        document.getElementById('secondhand-ad-view-content').style.display = 'none';
         document.getElementById('recycle-content').style.display = 'none';
         document.getElementById('settings-content').style.display = 'none';
         document.getElementById('signout-content').style.display = 'none';
@@ -732,7 +892,7 @@
     <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
-   
+    
     
 
 

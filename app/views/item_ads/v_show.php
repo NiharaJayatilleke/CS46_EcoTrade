@@ -132,7 +132,8 @@ if($_SESSION['user_type'] != 'moderator') {
         <!-- HTML for displaying the accepted offer price -->
         <?php if (isset($data['accepted_offer']->offer_status) == 'accepted') : ?>
             <br><div class="accepted-offer">
-                <p class="accepted-offer-message">The seller is willing to accept an offer of Rs.<span id="accepted-offer-price"><?php echo $data['accepted_offer']->offer_amount; ?></span></p>
+                <!-- IMPORTANT 
+                <p class="accepted-offer-message">The seller is willing to accept an offer of Rs.<span id="accepted-offer-price"><?php echo $data['accepted_offer']->offer_amount; ?></span></p> -->
                 <!-- <p class="accepted-offer-message">The seller is willing to accept an offer of Rs.<span id="accepted-offer-price"></span></p> -->
             </div><br>
         <?php endif; ?>
@@ -167,7 +168,7 @@ if($_SESSION['user_type'] != 'moderator') {
         <!-- HTML for displaying the bids -->
         <?php if ($data['ad']->selling_format == 'auction' && $_SESSION['user_id'] == $data['ad']->seller_id) : ?>
         <br>
-        <div class="offer-title"><h3>Bidding Overview</h3></div>
+        <div class="offer-title"><h3>Bidding Overview</h3></div><br>
         <div class="bid-info">
             <p>Time Remaining: <span id="timeRemaining"><?php echo $data['remaining_time'];?> </span></p>
             <div class="bid-stats">
@@ -209,7 +210,7 @@ if($_SESSION['user_type'] != 'moderator') {
         <div class="sad-buyer-messages">
             <div class="sad-buyer-msgs-title"><h2>Notifications</h2></div>
             <?php foreach ($data['buyer_notifications'] as $notification): ?>
-                <div class="sad-buyer-msg-container">
+                <div class="sad-buyer-msg-container" id = "buyer-notif">
                     <div class="sad-buyer-msg-content"><?php echo $notification->message; ?></div>
                     <div class="sad-buyer-msg-buttons">
                         <div class="sad-buyer-confirm-purchase-btn"><button type="button">Confirm Purchase</button></div>
@@ -294,6 +295,11 @@ if($_SESSION['user_type'] != 'moderator') {
 
 <!-- JS for rating seller -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/rate_sellers.js"></script>
+
+<script>
+    var currentUserId = <?php echo json_encode($_SESSION['user_id']); ?>;
+    var sellerId = <?php echo json_encode($data['ad']->seller_id); ?>;
+</script>
 
 <script>
     const id = <?php echo $data['ad']->ad_id ?>;

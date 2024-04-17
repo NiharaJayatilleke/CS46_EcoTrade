@@ -14,7 +14,7 @@
                 <h6>Recycle, Earn</h6>
                 <h2>become <em>collector</em></h2>
                 <div class="main-button scroll-to-section">
-                    <a href="#features">register now</a>
+                    <a href="<?php echo URLROOT ?>/Collectors/register">register now</a>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
     <!-- ***** Features Item Start ***** -->
     <section class="section" id="features">
         <div class="container">
-            <div class="row">
+            <div class="row1">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2>Beneficts of being a <em>Collector</em></h2>
@@ -32,6 +32,7 @@
                         <p>Join us in collecting recyclable items and earn extra income while making a positive impact on the environment! </p>
                     </div>
                 </div>
+                <div class="row">
                 <div class="col-lg-6">
                     <ul class="features-items">
                         <li class="feature-item">
@@ -100,14 +101,15 @@
                         </li>
                     </ul>
                 </div>
+                </div>
             </div>
         </div>
     </section>
     <!-- ***** Features Item End ***** -->
 
     <!-- ***** Call to Action Start ***** -->
-    <section class="section" id="call-to-action" style="background-image: url('../public/img/collectors/images/cta-bg.jpg');">
-    <div class="overlay23"></div>
+    <!-- <section class="section" id="call-to-action" style="background-image: url('../public/img/collectors/images/cta-bg.jpg');">
+    <div class="overlay23">
         <div class="container455">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -120,6 +122,20 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section> -->
+
+
+        <section id="workFlow">
+        <div class="overlay43">
+        <h2 class="heading"> Grow Up Your Workflow Speed. </h2>
+        <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, commodi sint. <br>Ipsam molestias
+            nemovel laboriosam consequatur, perferendis<br> minima soluta? Natus necessitatibus autem suscipit!</p>
+        <div class="num-container">
+            <div class="num-item1"><span>27,882 <br>Customers</span></div>
+            <div class="num-item1"><span>90% <br>Action Plans</span></div>
+            <div class="num-item1"><span>70,592 <br>Downloads</span></div>
+        </div>
         </div>
     </section>
     <!-- ***** Call to Action End ***** -->

@@ -34,5 +34,11 @@
             $data = [];
             $this->view('pages/forbidden',$data);
         }
+
+        public function recyclehome(){
+            $data = [];
+            $this->view('pages/v_recyclehome',$data);
+
+        }
     }
 ?>

@@ -66,11 +66,12 @@
       <div class="notif-dropdown">
         <div class="notif-wrapper">
           <a href="#" class="dropdown-toggle">
-              <i class="fas fa-bell"></i>
+              <i class="fas fa-bell">
               <!-- <i class="fa-solid fa-circle" style="color: #ff0000"></i> -->
-              <span class="wishlist-count" id="notificationCount"></span>
+              <span class="notif-count" id="notificationCount"></span>
               <!-- <span class="notification-count"><php echo $numberOfNotifications; ?></span> -->
               <span class="caret"></span>
+              </i>
           </a>
           <div class="notif-dropdown-menu" >
               <!-- Fetch notifications from the database and display them here -->

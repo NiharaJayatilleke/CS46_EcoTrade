@@ -234,16 +234,18 @@ CREATE TABLE Wishlist(
     UNIQUE KEY unique_wishlist (user_id, ad_id)
 );
 
+DROP TABLE IF EXISTS Seller_Rating;
 
 CREATE TABLE Seller_Rating(
     rating_id INT AUTO_INCREMENT,
     ad_id INT,
-    user_id INT,
+    seller_id INT,
+    rated_by_id INT,
     rating INT,
     rating_created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(rating_id),
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE,
-    FOREIGN KEY(user_id) REFERENCES General_User(id) ON DELETE CASCADE
+    FOREIGN KEY(rated_by_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS Notifications;

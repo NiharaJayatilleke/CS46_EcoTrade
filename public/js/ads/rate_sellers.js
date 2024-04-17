@@ -1,4 +1,13 @@
 document.querySelector('#rateBtn').addEventListener('click', function() {
+
+    if (currentUserId === sellerId) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'You cannot rate yourself!',
+        });
+    } else {
+
     Swal.fire({
         title: 'Rate this Seller',
         html: '<div id="rating">' +
@@ -32,13 +41,36 @@ document.querySelector('#rateBtn').addEventListener('click', function() {
             }
         },
         preConfirm: function() {
-            var checkedStar = document.querySelector('#rating .fa-star.checked');
-            return checkedStar ? checkedStar.getAttribute('data-rating') : null;
+            var checkedStars = document.querySelectorAll('#rating .fa-star.checked');
+            return checkedStars.length ? checkedStars[checkedStars.length - 1].getAttribute('data-rating') : null;
         }
     }).then(function(result) {
         if (result.value) {
             // Handle the result value (the selected rating)
             console.log('User selected ' + result.value + ' stars');
+
+            var data = {
+                rating: result.value
+            };
+
+            // Send AJAX request to the server
+            fetch(URLROOT +"/ItemAds/addSellerRating/"+ CURRENT_AD, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(function(response) {
+                if (!response.ok) {
+                    throw new Error("HTTP error " + response.status);
+                }
+                return response.json();
+            }).then(function(data) {
+                console.log(data);
+            }).catch(function(error) {
+                console.error('Error:', error);
+            });
         }
     });
+    }
 });
