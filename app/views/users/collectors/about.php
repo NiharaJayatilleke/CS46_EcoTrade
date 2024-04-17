@@ -24,7 +24,7 @@
     <!-- ***** Features Item Start ***** -->
     <section class="section" id="features">
         <div class="container">
-            <div class="row">
+            <div class="row1">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2>Beneficts of being a <em>Collector</em></h2>
@@ -32,6 +32,7 @@
                         <p>Join us in collecting recyclable items and earn extra income while making a positive impact on the environment! </p>
                     </div>
                 </div>
+                <div class="row">
                 <div class="col-lg-6">
                     <ul class="features-items">
                         <li class="feature-item">
@@ -99,6 +100,7 @@
                             </div>
                         </li>
                     </ul>
+                </div>
                 </div>
             </div>
         </div>
