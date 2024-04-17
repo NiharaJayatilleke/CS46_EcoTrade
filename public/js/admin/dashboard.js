@@ -38,26 +38,73 @@ list.forEach((item) => {
     item.addEventListener('click', clickedLink);
 });
 
+
+
 // Function to hide the search bar
 function hideSearchBar() {
     document.getElementById('dashboard-search').style.display = 'none';
+    localStorage.setItem('searchBarVisible', 'false');
 }
 
 // Function to show the search bar
 function showSearchBar() {
     document.getElementById('dashboard-search').style.display = 'block';
+    localStorage.setItem('searchBarVisible', 'true');
 }
 
 // Attach the function to the onclick event of the tabs
 document.getElementById('dashboard-tab').onclick = function() {
     showContent('dashboard-content');
+    hideSearchBar();
+};
+document.getElementById('moderators-tab').onclick = function() {
+    showContent('moderators-content');
     showSearchBar();
 };
+
+document.getElementById('users-tab').onclick = function() {
+    showContent('users-content');
+    showSearchBar();
+};
+
+document.getElementById('secondhand-tab').onclick = function() {
+    showContent('secondhand-content');
+    showSearchBar();
+};
+
+document.getElementById('recycle-tab').onclick = function() {
+    showContent('recycle-content');
+    showSearchBar();
+};
+
+document.getElementById('recycle-tab').onclick = function() {
+    showContent('recycle-content');
+    showSearchBar();
+};
+
+document.getElementById('messages-tab').onclick = function() {
+    showContent('messages-content');
+    showSearchBar();
+};
+
+document.getElementById('ad-report-tab').onclick = function() {
+    showContent('ad-report-content');
+    showSearchBar();
+};
+
 document.getElementById('settings-tab').onclick = function() {
     showContent('settings-content');
     hideSearchBar();
 };
-// Add more tabs as needed
+
+// Check the state of the search bar when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', (event) => {
+    if (localStorage.getItem('searchBarVisible') === 'false') {
+        hideSearchBar();
+    } else {
+        showSearchBar();
+    }
+});
 
 //   const ctx = document.getElementById('myChart');
 
