@@ -365,7 +365,7 @@
                             <h2>Moderators</h2>
                             <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Add Moderator</a>
                         </div>
-                        <table>
+                        <table id="moderators-table">
                             <thead>
                                 <tr>
                                     <td>Username</td>
@@ -834,8 +834,10 @@
     
     </script>
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
-    <script>var userCounts = <?php echo json_encode($data['userCounts']); ?>;
-    var users = <?php echo json_encode($data['users']); ?>;
+    <script>
+        var users = <?php echo json_encode($data['users']); ?>;
+        var moderators = <?php echo json_encode($data['moderators']); ?>;
+        var userCounts = <?php echo json_encode($data['userCounts']); ?>;
     </script> 
 
     <!-- Javascript for image upload -->

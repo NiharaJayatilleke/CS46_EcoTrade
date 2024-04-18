@@ -106,27 +106,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 });
 
-//   const ctx = document.getElementById('myChart');
-
-//   new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//       datasets: [{
-//         label: '# of Votes',
-//         data: [12, 19, 3, 5, 2, 3],
-//         borderWidth: 1
-//       }]
-//     },
-//     options: {
-//       scales: {
-//         y: {
-//           beginAtZero: true
-//         }
-//       }
-//     }
-//   });
-
 //search in users
 // The Fuse.js options
 var options = {
@@ -197,5 +176,99 @@ function performSearch() {
     });
 }
 
+
+
 // Attach the function to the oninput event of the search bar
-document.getElementById('dashboard-search').querySelector('input').addEventListener('input', performSearch);
+document.getElementById('dashboard-search').querySelector('input').addEventListener('input', performSearch); 
+
+
+
+
+//moderator search
+// The Fuse.js options
+var mod_options = {
+    includeScore: true,
+    threshold: 0.3,
+    location: 0,
+    distance: 100,
+    maxPatternLength: 32,
+    minCharLength: 1,
+    keys: [
+        "username",
+        "email",
+        "number",
+        "created_at"
+    ]
+};
+
+// Assuming 'users' is your data array
+var mod_fuse = new Fuse(moderators, mod_options);
+
+// Function to perform search
+function performModSearch() {
+    // Get the search query
+    var query = document.getElementById('dashboard-search').querySelector('input').value;
+
+    // If the search query is empty, return early
+    if (!query) {
+        return;
+    }
+
+    // Perform the search
+    var results = mod_fuse.search(query);
+
+    // Clear the table body
+    var tableBody = document.querySelector('#moderators-table tbody');
+    tableBody.innerHTML = '';
+
+    // Add the results to the table body
+    results.forEach(function(result) {
+        var row = document.createElement('tr');
+
+        var usernameCell = document.createElement('td');
+        usernameCell.textContent = result.item.username;
+        row.appendChild(usernameCell);
+
+        var emailCell = document.createElement('td');
+        emailCell.textContent = result.item.email;
+        row.appendChild(emailCell);
+
+        var numberCell = document.createElement('td');
+        numberCell.textContent = result.item.number;
+        row.appendChild(numberCell);
+
+        var createdAtCell = document.createElement('td');
+        createdAtCell.textContent = result.item.created_at;
+        row.appendChild(createdAtCell);
+
+        tableBody.appendChild(row);
+    });
+}
+
+
+
+// Attach the function to the oninput event of the search bar
+document.getElementById('dashboard-search').querySelector('input').addEventListener('input', performModSearch); 
+
+//   const ctx = document.getElementById('myChart');
+
+//   new Chart(ctx, {
+//     type: 'bar',
+//     data: {
+//       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+//       datasets: [{
+//         label: '# of Votes',
+//         data: [12, 19, 3, 5, 2, 3],
+//         borderWidth: 1
+//       }]
+//     },
+//     options: {
+//       scales: {
+//         y: {
+//           beginAtZero: true
+//         }
+//       }
+//     }
+//   });
+
+
