@@ -307,8 +307,45 @@
                             </tbody>
                         </table>
                     </div>
+
                     <!-- New customers -->
-                    <div class="recentCustomers">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Users</h2>
+                            <a href="<?php echo URLROOT ?>/Admin/moderators#users-content" class="btn">View more</a>
+                        </div>
+                        <table id="users-table">
+                            <thead>
+                                <tr>
+                                    <td>Username</td>
+                                    <td>Email</td>
+                                    <td>Contact Number</td>
+                                    <td>User Type</td>
+                                    <td>Date Joined</td>
+                                    <!-- <td>Edit/Delete</td> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php 
+                            $count = 0;
+                            foreach($data['users'] as $user) : 
+                                if($count >= 5) break;
+                            ?>
+                            <tr>
+                                <td><p><?php echo $user->username ?></p></td>
+                                <td><?php echo $user->email ?></td>
+                                <td><?php echo $user->number ?></td>
+                                <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
+                                <td><?php echo $user->created_at ?></td>
+                            </tr>
+                            <?php 
+                                $count++;
+                            endforeach; 
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- <div class="recentCustomers">
                         <div class="cardHeader">
                             <h2>Recent Customers</h2>
                         </div>
@@ -351,7 +388,7 @@
                                 <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
                             </tr>
                         </table>
-                    </div>
+                    </div> -->
 
 
                 </div>
