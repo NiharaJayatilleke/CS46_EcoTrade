@@ -137,6 +137,10 @@
     padding: 10px;
 }
 
+.dashboard-topbar .dashboard-search {
+    margin: auto;
+}
+
 .dashboard-toggle{
     position: relative;
     top:11px;

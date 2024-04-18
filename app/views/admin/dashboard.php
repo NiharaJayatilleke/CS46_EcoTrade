@@ -402,7 +402,7 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Users</h2>
-                            <a href="<?php echo URLROOT ?>/Users/register" class="btn">Add User</a>
+                            <!-- <a href="<?php echo URLROOT ?>/Users/register" class="btn">Add User</a> -->
                         </div>
                         <table id="users-table">
                             <thead>
@@ -423,12 +423,12 @@
                                 <td><?php echo $user->number ?></td>
                                 <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
                                 <td><?php echo $user->created_at ?></td>
-                                <td>
-                                    <!-- <div class = "mod-control-btns">
+                                <!-- <td>
+                                    <div class = "mod-control-btns">
                                         <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
                                         <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
-                                    </div> -->
-                                </td>
+                                    </div>
+                                </td> -->
                             </tr>
                             <?php endforeach; ?>
                             </tbody>
