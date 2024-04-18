@@ -311,7 +311,8 @@
                     <!-- New customers -->
                     <div class="recentOrders">
                         <div class="cardHeader">
-                            <h2>Recent Customers</h2>
+                            <h2>Users</h2>
+                            <a href="#users-content" class="btn" id="users-tab"onclick="showContent('users-content')">View All</a>
                         </div>
                         <table>
                             <thead>

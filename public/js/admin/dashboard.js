@@ -37,76 +37,57 @@ list.forEach((item) => {
     item.addEventListener('mouseout', inactiveLink);
     item.addEventListener('click', clickedLink);
 });
-
-
+// Function to show the search bar
+function showSearchBar() {
+    var searchBar = document.getElementById('dashboard-search');
+    if (searchBar) {
+        searchBar.style.display = 'block'; // Change this to match your actual CSS
+    }
+}
 
 // Function to hide the search bar
 function hideSearchBar() {
-    document.getElementById('dashboard-search').style.display = 'none';
-    localStorage.setItem('searchBarVisible', 'false');
+    var searchBar = document.getElementById('dashboard-search');
+    if (searchBar) {
+        searchBar.style.display = 'none'; // Change this to match your actual CSS
+    }
 }
 
-// Function to show the search bar
-function showSearchBar() {
-    document.getElementById('dashboard-search').style.display = 'block';
-    localStorage.setItem('searchBarVisible', 'true');
+// Function to check the URL fragment and show or hide the search bar accordingly
+function checkFragment() {
+    // Get the URL fragment
+    var fragment = window.location.hash;
+
+    // Show or hide the search bar based on the URL fragment
+    switch (fragment) {
+        case '#users-content':
+        case '#moderators-content':
+        case '#secondhand-content':
+        case '#recycle-content':
+        case '#messages-content':
+            showSearchBar();
+            break;
+        case '#dashboard-content':
+        case '#ad-report-content':
+        case '#settings-content':
+            hideSearchBar();
+            break;
+        default:
+            // If there's no fragment or it doesn't match any of the cases, use the value from localStorage
+            if (localStorage.getItem('searchBarVisible') === 'false') {
+                hideSearchBar();
+            } else {
+                showSearchBar();
+            }
+            break;
+    }
 }
-
-
-
-// Attach the function to the onclick event of the tabs
-document.getElementById('dashboard-tab').onclick = function() {
-    showContent('dashboard-content');
-    hideSearchBar();
-};
-document.getElementById('moderators-tab').onclick = function() {
-    showContent('moderators-content');
-    showSearchBar();
-};
-
-document.getElementById('users-tab').onclick = function() {
-    showContent('users-content');
-    showSearchBar();
-};
-
-document.getElementById('secondhand-tab').onclick = function() {
-    showContent('secondhand-content');
-    showSearchBar();
-};
-
-document.getElementById('recycle-tab').onclick = function() {
-    showContent('recycle-content');
-    showSearchBar();
-};
-
-document.getElementById('recycle-tab').onclick = function() {
-    showContent('recycle-content');
-    showSearchBar();
-};
-
-document.getElementById('messages-tab').onclick = function() {
-    showContent('messages-content');
-    showSearchBar();
-};
-
-document.getElementById('ad-report-tab').onclick = function() {
-    showContent('ad-report-content');
-    hideSearchBar();
-};
-
-document.getElementById('settings-tab').onclick = function() {
-    showContent('settings-content');
-    hideSearchBar();
-};
 
 // Check the state of the search bar when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', (event) => {
-    if (localStorage.getItem('searchBarVisible') === 'false') {
-        hideSearchBar();
-    } else {
-        showSearchBar();
-    }
-});
+document.addEventListener('DOMContentLoaded', checkFragment);
+
+// Also check the state of the search bar when the hash changes
+window.addEventListener('hashchange', checkFragment);
 
 //search in users
 // The Fuse.js options
@@ -181,32 +162,32 @@ var mod_options = {
 // var mod_fuse = new Fuse(moderators, mod_options);
 
 // // Function to perform search
-// function performModSearch() {
-//     // Get the search query
-//     var query = document.getElementById('dashboard-search').querySelector('input').value;
+function performModSearch() {
+    // Get the search query
+    var query = document.getElementById('dashboard-search').querySelector('input').value;
 
-//     // Clear the table body
-//     var tableBody = document.querySelector('#moderators-table tbody');
-//     tableBody.innerHTML = '';
+    // Clear the table body
+    var tableBody = document.querySelector('#moderators-table tbody');
+    tableBody.innerHTML = '';
 
-//     // If the search query is empty, repopulate the table with all moderators
-//     if (!query) {
-//         moderators.forEach(function(moderator) {
-//             var row = createRow(moderator); // Assuming createRow is a function that creates a row for a moderator
-//             tableBody.appendChild(row);
-//         });
-//         return;
-//     }
+    // If the search query is empty, repopulate the table with all moderators
+    if (!query) {
+        moderators.forEach(function(moderator) {
+            var row = createRow(moderator); // Assuming createRow is a function that creates a row for a moderator
+            tableBody.appendChild(row);
+        });
+        return;
+    }
 
-//     // Perform the search
-//     var results = mod_fuse.search(query);
+    // Perform the search
+    var results = mod_fuse.search(query);
 
-//     // Add the results to the table body
-//     results.forEach(function(result) {
-//         var row = createRow(result.item);
-//         tableBody.appendChild(row);
-//     });
-// }
+    // Add the results to the table body
+    results.forEach(function(result) {
+        var row = createRow(result.item);
+        tableBody.appendChild(row);
+    });
+}
 
 // Attach the function to the oninput event of the search bar
 document.getElementById('dashboard-search').querySelector('input').addEventListener('input', performModSearch); 
