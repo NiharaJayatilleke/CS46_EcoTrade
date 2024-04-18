@@ -52,6 +52,8 @@ function showSearchBar() {
     localStorage.setItem('searchBarVisible', 'true');
 }
 
+
+
 // Attach the function to the onclick event of the tabs
 document.getElementById('dashboard-tab').onclick = function() {
     showContent('dashboard-content');
@@ -132,57 +134,31 @@ function performSearch() {
     // Get the search query
     var query = document.getElementById('dashboard-search').querySelector('input').value;
 
-    // If the search query is empty, return early
+    // Clear the table body
+    var tableBody = document.querySelector('#users-table tbody');
+    tableBody.innerHTML = '';
+
+    // If the search query is empty, repopulate the table with all users
     if (!query) {
+        users.forEach(function(user) {
+            var row = createRow(user); // Assuming createRow is a function that creates a row for a user
+            tableBody.appendChild(row);
+        });
         return;
     }
 
     // Perform the search
     var results = fuse.search(query);
 
-    // Clear the table body
-    var tableBody = document.querySelector('#users-table tbody');
-    tableBody.innerHTML = '';
-
     // Add the results to the table body
     results.forEach(function(result) {
-        var row = document.createElement('tr');
-
-        var usernameCell = document.createElement('td');
-        usernameCell.textContent = result.item.username;
-        row.appendChild(usernameCell);
-
-        var emailCell = document.createElement('td');
-        emailCell.textContent = result.item.email;
-        row.appendChild(emailCell);
-
-        var numberCell = document.createElement('td');
-        numberCell.textContent = result.item.number;
-        row.appendChild(numberCell);
-
-        var userTypeCell = document.createElement('td');
-        var userTypeSpan = document.createElement('span');
-        userTypeSpan.classList.add('usertype'); // Add the 'usertype' class
-        userTypeSpan.classList.add(result.item.user_type); // Add the user type as a class
-        userTypeSpan.textContent = result.item.user_type;
-        userTypeCell.appendChild(userTypeSpan);
-        row.appendChild(userTypeCell);
-
-        var createdAtCell = document.createElement('td');
-        createdAtCell.textContent = result.item.created_at;
-        row.appendChild(createdAtCell);
-
+        var row = createRow(result.item);
         tableBody.appendChild(row);
     });
 }
 
-
-
 // Attach the function to the oninput event of the search bar
 document.getElementById('dashboard-search').querySelector('input').addEventListener('input', performSearch); 
-
-
-
 
 //moderator search
 // The Fuse.js options
@@ -201,7 +177,7 @@ var mod_options = {
     ]
 };
 
-// Assuming 'users' is your data array
+// Assuming 'moderators' is your data array
 var mod_fuse = new Fuse(moderators, mod_options);
 
 // Function to perform search
@@ -209,46 +185,62 @@ function performModSearch() {
     // Get the search query
     var query = document.getElementById('dashboard-search').querySelector('input').value;
 
-    // If the search query is empty, return early
+    // Clear the table body
+    var tableBody = document.querySelector('#moderators-table tbody');
+    tableBody.innerHTML = '';
+
+    // If the search query is empty, repopulate the table with all moderators
     if (!query) {
+        moderators.forEach(function(moderator) {
+            var row = createRow(moderator); // Assuming createRow is a function that creates a row for a moderator
+            tableBody.appendChild(row);
+        });
         return;
     }
 
     // Perform the search
     var results = mod_fuse.search(query);
 
-    // Clear the table body
-    var tableBody = document.querySelector('#moderators-table tbody');
-    tableBody.innerHTML = '';
-
     // Add the results to the table body
     results.forEach(function(result) {
-        var row = document.createElement('tr');
-
-        var usernameCell = document.createElement('td');
-        usernameCell.textContent = result.item.username;
-        row.appendChild(usernameCell);
-
-        var emailCell = document.createElement('td');
-        emailCell.textContent = result.item.email;
-        row.appendChild(emailCell);
-
-        var numberCell = document.createElement('td');
-        numberCell.textContent = result.item.number;
-        row.appendChild(numberCell);
-
-        var createdAtCell = document.createElement('td');
-        createdAtCell.textContent = result.item.created_at;
-        row.appendChild(createdAtCell);
-
+        var row = createRow(result.item);
         tableBody.appendChild(row);
     });
 }
 
-
-
 // Attach the function to the oninput event of the search bar
 document.getElementById('dashboard-search').querySelector('input').addEventListener('input', performModSearch); 
+
+// Function to create a row for a user or moderator
+function createRow(item) {
+    var row = document.createElement('tr');
+
+    var usernameCell = document.createElement('td');
+    usernameCell.textContent = item.username;
+    row.appendChild(usernameCell);
+
+    var emailCell = document.createElement('td');
+    emailCell.textContent = item.email;
+    row.appendChild(emailCell);
+
+    var numberCell = document.createElement('td');
+    numberCell.textContent = item.number;
+    row.appendChild(numberCell);
+
+    var userTypeCell = document.createElement('td');
+    var userTypeSpan = document.createElement('span');
+    userTypeSpan.classList.add('usertype'); // Add the 'usertype' class
+    userTypeSpan.classList.add(item.user_type); // Add the user type as a class
+    userTypeSpan.textContent = item.user_type;
+    userTypeCell.appendChild(userTypeSpan);
+    row.appendChild(userTypeCell);
+
+    var createdAtCell = document.createElement('td');
+    createdAtCell.textContent = item.created_at;
+    row.appendChild(createdAtCell);
+
+    return row;
+}
 
 //   const ctx = document.getElementById('myChart');
 
