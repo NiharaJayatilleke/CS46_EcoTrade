@@ -134,6 +134,20 @@
                 return false;
             }
         }
+
+        public function getUserRating($adId, $userId){
+            $this->db->query('SELECT rating FROM Seller_Rating WHERE ad_id = :ad_id AND rated_by_id = :rated_by_id');
+            $this->db->bind(':ad_id', $adId);
+            $this->db->bind(':rated_by_id', $userId);
+        
+            $row = $this->db->single();
+        
+            if($this->db->rowCount() > 0){
+                return $row->rating;
+            } else {
+                return null;
+            }
+        }
     }
 
 ?>

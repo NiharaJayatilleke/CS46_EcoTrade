@@ -737,6 +737,23 @@
             }
 
         }
-    
+
+        public function checkUserRating($adId){
+            error_log('checkUserRating function called with adId: ' . $adId);
+
+            $userId = $_SESSION['user_id'];
+
+            $rating = $this->itemAdsModel->getUserRating($adId, $userId);
+
+            if($rating){
+                echo json_encode(
+                    array('hasRated' => true, 'rating' => $rating)
+                );
+            } else {
+                echo json_encode(
+                    array('hasRated' => false)
+                );
+            }
+        }
     }
 ?>

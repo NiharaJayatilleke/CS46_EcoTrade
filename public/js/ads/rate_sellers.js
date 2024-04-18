@@ -8,6 +8,31 @@ document.querySelector('#rateBtn').addEventListener('click', function() {
         });
     } else {
 
+        fetch(URLROOT + "/ItemAds/checkUserRating/" + CURRENT_AD)
+        .then(response => response.json())
+        .then(data => {
+            if (data.hasRated) {
+                // User has already rated, allow them to edit their rating
+                let starsHtml = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= data.rating) {
+                        starsHtml += '<span class="fa fa-star checked" data-rating="' + i + '"></span>';
+                    } else {
+                        starsHtml += '<span class="fa fa-star" data-rating="' + i + '"></span>';
+                    }
+                }
+
+                Swal.fire({
+                    title: 'Update your rating',
+                    html: '<div id="rating">' + starsHtml + '</div>',
+                    showCancelButton: true,
+                    confirmButtonText: 'Submit',
+                    // ... existing code ...
+                });
+
+            } else {
+                // User has not rated, allow them to add a new rating
+
     Swal.fire({
         title: 'Rate this Seller',
         html: '<div id="rating">' +
@@ -72,5 +97,8 @@ document.querySelector('#rateBtn').addEventListener('click', function() {
             });
         }
     });
+
+            }
+        });
     }
 });
