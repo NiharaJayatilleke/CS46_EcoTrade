@@ -178,35 +178,35 @@ var mod_options = {
 };
 
 // Assuming 'moderators' is your data array
-var mod_fuse = new Fuse(moderators, mod_options);
+// var mod_fuse = new Fuse(moderators, mod_options);
 
-// Function to perform search
-function performModSearch() {
-    // Get the search query
-    var query = document.getElementById('dashboard-search').querySelector('input').value;
+// // Function to perform search
+// function performModSearch() {
+//     // Get the search query
+//     var query = document.getElementById('dashboard-search').querySelector('input').value;
 
-    // Clear the table body
-    var tableBody = document.querySelector('#moderators-table tbody');
-    tableBody.innerHTML = '';
+//     // Clear the table body
+//     var tableBody = document.querySelector('#moderators-table tbody');
+//     tableBody.innerHTML = '';
 
-    // If the search query is empty, repopulate the table with all moderators
-    if (!query) {
-        moderators.forEach(function(moderator) {
-            var row = createRow(moderator); // Assuming createRow is a function that creates a row for a moderator
-            tableBody.appendChild(row);
-        });
-        return;
-    }
+//     // If the search query is empty, repopulate the table with all moderators
+//     if (!query) {
+//         moderators.forEach(function(moderator) {
+//             var row = createRow(moderator); // Assuming createRow is a function that creates a row for a moderator
+//             tableBody.appendChild(row);
+//         });
+//         return;
+//     }
 
-    // Perform the search
-    var results = mod_fuse.search(query);
+//     // Perform the search
+//     var results = mod_fuse.search(query);
 
-    // Add the results to the table body
-    results.forEach(function(result) {
-        var row = createRow(result.item);
-        tableBody.appendChild(row);
-    });
-}
+//     // Add the results to the table body
+//     results.forEach(function(result) {
+//         var row = createRow(result.item);
+//         tableBody.appendChild(row);
+//     });
+// }
 
 // Attach the function to the oninput event of the search bar
 document.getElementById('dashboard-search').querySelector('input').addEventListener('input', performModSearch); 
