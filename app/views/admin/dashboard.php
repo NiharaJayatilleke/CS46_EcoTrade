@@ -307,8 +307,45 @@
                             </tbody>
                         </table>
                     </div>
+
                     <!-- New customers -->
-                    <div class="recentCustomers">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Users</h2>
+                            <a href="<?php echo URLROOT ?>/Admin/moderators#users-content" class="btn">View more</a>
+                        </div>
+                        <table id="users-table">
+                            <thead>
+                                <tr>
+                                    <td>Username</td>
+                                    <td>Email</td>
+                                    <td>Contact Number</td>
+                                    <td>User Type</td>
+                                    <td>Date Joined</td>
+                                    <!-- <td>Edit/Delete</td> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php 
+                            $count = 0;
+                            foreach($data['users'] as $user) : 
+                                if($count >= 5) break;
+                            ?>
+                            <tr>
+                                <td><p><?php echo $user->username ?></p></td>
+                                <td><?php echo $user->email ?></td>
+                                <td><?php echo $user->number ?></td>
+                                <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
+                                <td><?php echo $user->created_at ?></td>
+                            </tr>
+                            <?php 
+                                $count++;
+                            endforeach; 
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- <div class="recentCustomers">
                         <div class="cardHeader">
                             <h2>Recent Customers</h2>
                         </div>
@@ -351,7 +388,7 @@
                                 <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
                             </tr>
                         </table>
-                    </div>
+                    </div> -->
 
 
                 </div>
@@ -365,7 +402,7 @@
                             <h2>Moderators</h2>
                             <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Add Moderator</a>
                         </div>
-                        <table>
+                        <table id="moderators-table">
                             <thead>
                                 <tr>
                                     <td>Username</td>
@@ -402,7 +439,7 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Users</h2>
-                            <a href="<?php echo URLROOT ?>/Users/register" class="btn">Add User</a>
+                            <!-- <a href="<?php echo URLROOT ?>/Users/register" class="btn">Add User</a> -->
                         </div>
                         <table id="users-table">
                             <thead>
@@ -423,12 +460,12 @@
                                 <td><?php echo $user->number ?></td>
                                 <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
                                 <td><?php echo $user->created_at ?></td>
-                                <td>
-                                    <!-- <div class = "mod-control-btns">
+                                <!-- <td>
+                                    <div class = "mod-control-btns">
                                         <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
                                         <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
-                                    </div> -->
-                                </td>
+                                    </div>
+                                </td> -->
                             </tr>
                             <?php endforeach; ?>
                             </tbody>
@@ -834,8 +871,10 @@
     
     </script>
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
-    <script>var userCounts = <?php echo json_encode($data['userCounts']); ?>;
-    var users = <?php echo json_encode($data['users']); ?>;
+    <script>
+        var users = <?php echo json_encode($data['users']); ?>;
+        var moderators = <?php echo json_encode($data['moderators']); ?>;
+        var userCounts = <?php echo json_encode($data['userCounts']); ?>;
     </script> 
 
     <!-- Javascript for image upload -->

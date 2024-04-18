@@ -5,7 +5,7 @@
             $this->collectorModel = $this->model('M_Collectors');
             $this->pagesModel = $this->model('M_Pages');
             $this->districtModel = $this->model('M_Districts'); // Add this line
-          $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads');  
+            $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads');  
         }
 
         public function register(){
@@ -155,16 +155,17 @@
                         // Only update the user type if they are not a moderator or an admin
                         if ($userType != 'moderator' && $userType != 'admin') {
                             if ($this->userModel->updateUserType('collector')) {
-                                echo 'User type updated successfully';
+                                echo json_encode(['status' => 'success', 'message' => 'User type updated successfully']);
                             } else {
-                                echo 'Failed to update user type';
+                                echo json_encode(['status' => 'error', 'message' => 'Failed to update user type']);
                             }
                         }
                         session_destroy();
                         // redirect('Users/login');
                     }
                     else{
-                        die('Something went wrong');
+                        // die('Something went wrong');
+                        echo json_encode(['status' => 'error', 'message' => 'Something went wrong']);
                     }
                 }
                 else{
