@@ -82,14 +82,16 @@ dropArea.addEventListener("drop", (event)=>{
     if (event.dataTransfer.files.length + totalFiles > 6) {
       alert('You can only upload a maximum of 6 files');
     } else {
-      files = event.dataTransfer.files;
-      totalFiles += event.dataTransfer.files.length;
       let list = new DataTransfer();
-      Array.from(files).forEach(file => {
+      Array.from(inputPath.files).forEach(file => {
+        list.items.add(file);
+      });
+      Array.from(event.dataTransfer.files).forEach(file => {
         list.items.add(file);
         showImage(imageContainer,icon,file);
       });
       inputPath.files = list.files;
+      totalFiles += event.dataTransfer.files.length;
       dropArea.classList.remove("active");
     }
 })

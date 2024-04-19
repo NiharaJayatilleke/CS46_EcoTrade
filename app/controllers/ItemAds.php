@@ -173,7 +173,12 @@
                     'item_condition' => trim($_POST['item_condition']),
                     'item_quantity' => trim($_POST['item_quantity']),
                     'item_img' => $_FILES['item_images'],
-                    'item_img_name' => time().'_'.$_FILES['item_images']['name'],
+
+                    // 'item_img_name' => time().'_'.$_FILES['item_images']['name'],
+                    'item_img_name' => array_map(function($filename) {
+                        return time().'_'.$filename;
+                    }, $_FILES['item_images']['name']),
+                    
                     'item_price' => trim($_POST['item_price']),
                     'item_location' => trim($_POST['item_location']),
                     'selling_format' => trim($_POST['selling_format']),
@@ -193,6 +198,8 @@
                     'starting_bid_err' => '',
                     'negotiable_err' => '',
                 ];
+
+                // die(print_r($data['item_img_name']));
 
                 //Validate each inputs
                 //Validate item_name
@@ -222,17 +229,22 @@
 
                 //Validate item_quantity
                 if(empty($data['item_quantity'])){
-                    $data['item_quantity_err'] = 'Please the quantity';
+                    $data['item_quantity_err'] = 'Please enter the quantity';
                 }
 
                 //item image
                 // if(empty($data['item_image']['size'] > 0)){
-                if(isset($_FILES['item_images']) && $_FILES['item_images']['size'] > 0){
-                    if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
+                // if(isset($_FILES['item_images']) && $_FILES['item_images']['size'] > 0){
+                //     if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
+                if(isset($_FILES['item_images']) && count($_FILES['item_images']['size']) > 0){
+                for($i = 0; $i < count($_FILES['item_images']['name']); $i++) {
+                    $new_name = time() . '_' . $_FILES['item_images']['name'][$i];
+                    if(uploadImage($_FILES['item_images']['tmp_name'][$i], $new_name, '/img/items/')){
                         //echo 'Image uploaded';
                     }else {
                         $data['item_images_err'] = 'Image upload unsuccessful';
                     }
+                }
                 }else{
                     $data['item_image'] = null;
                 }
