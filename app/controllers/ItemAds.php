@@ -101,19 +101,21 @@
             echo json_encode($data);
         }
 
-        public function itemType(){
+        public function itemType($itemType = ''){
             
             if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator' || $_SESSION['userType'] == 'center' )){      
                 $this->view('pages/forbidden');
 
             }else if(isset($_SESSION['userType'])){    
 
-            $itemType = isset($_POST['item_type']) ? $_POST['item_type'] : '';
+            // $itemType = isset($_POST['item_type']) ? $_POST['item_type'] : '';
+            
             $data = [
                 'item_name' => '',
                 'item_category' => '',
                 'item_desc' => '',
                 'item_condition' => '',
+                'item_quantity' => '',
                 'item_img' => '',
                 'item_img_name' => '',
                 'item_price' => '',
@@ -127,6 +129,7 @@
                 'item_name_err' => '',
                 'item_category_err' => '',
                 'item_condition_err' => '',
+                'item_quantity_err' => '',
                 'item_images_err' => '',
                 'item_price_err' => '',
                 'item_location_err' => '',
