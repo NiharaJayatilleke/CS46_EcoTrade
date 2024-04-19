@@ -566,8 +566,7 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                                <form method="POST" action="<?php echo URLROOT; ?>/moderators/index#settings-content">
-                                <!-- <form id="editProfileForm"> -->
+                                <form id="editProfileForm">
                                 <div class="right-below">
                                     <div class="right-left">
                                         <div class="tab-pane fade active show" id="account-general">
