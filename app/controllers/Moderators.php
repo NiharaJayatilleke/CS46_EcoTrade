@@ -220,7 +220,7 @@
             $this->view('moderators/v_terms'); // Load the 'terms.php' view
         }
 
-        public function edit($modId){
+       public function edit($modId){
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // form is submitting
                 //Validate the data
@@ -336,7 +336,7 @@
                 //load view
                 $this->view('moderators/edit', $data);
             }
-        }
+        } 
 
         public function delete($modId){
             $moderator = $this->moderatorModel->getModeratorById($modId);
