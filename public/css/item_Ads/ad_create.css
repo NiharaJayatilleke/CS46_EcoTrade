@@ -143,8 +143,8 @@
 } 
 
 .ad-form-drag-area.active{ /* CHECK */
-    border: 2px dashed #7bd664;
-    background-color: antiquewhite;
+    border: 2px dashed #a2a1a1;
+    background-color: rgb(239, 239, 239);
 }
 
 .ad-icon  {

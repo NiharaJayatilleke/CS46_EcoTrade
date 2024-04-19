@@ -5,9 +5,12 @@ const browseButton = document.querySelector(".ad-form-drag-area-btn");
 let inputPath = document.querySelector("#item_images");
 // let file;
 let files = [];
+let totalFiles = 0; 
 
 var imgPlaceholder = document.querySelector("#item_img_placeholder");
 var icon = document.querySelector("#item_img_placeholder_icon");
+let imageContainer = document.querySelector("#image_container");
+
 // let dropAreas = document.querySelectorAll(".ad-form-drag-area");
 // let dropTexts = document.querySelectorAll(".ad-form-drag-area-text");
 // let browseButtons = document.querySelectorAll(".ad-form-drag-area-btn");
@@ -42,13 +45,14 @@ inputPath.addEventListener("change", function () {
   // file = this.files[0];
   // showImage(imgPlaceholder,icon,file);
 //   dropArea.classList.add("active");
-  if (this.files.length > 6) {
+  if (this.files.length + totalFiles > 6) {
     alert('You can only upload a maximum of 6 files');
     this.value = '';
   } else {
     files = this.files;
+    totalFiles += this.files.length;
     Array.from(files).forEach(file => {
-      showImage(imgPlaceholder,icon,file);
+      showImage(imageContainer,icon,file);
     });
   }
 });
@@ -75,23 +79,22 @@ dropArea.addEventListener("drop", (event)=>{
     // showImage(imgPlaceholder,icon,file);
     // dropArea.classList.remove("active");
 
-    if (event.dataTransfer.files.length > 6) {
+    if (event.dataTransfer.files.length + totalFiles > 6) {
       alert('You can only upload a maximum of 6 files');
     } else {
       files = event.dataTransfer.files;
+      totalFiles += event.dataTransfer.files.length;
       let list = new DataTransfer();
       Array.from(files).forEach(file => {
         list.items.add(file);
-        showImage(imgPlaceholder,icon,file);
+        showImage(imageContainer,icon,file);
       });
       inputPath.files = list.files;
       dropArea.classList.remove("active");
     }
 })
 
-let imageContainer = document.querySelector("#image_container");
-
-function showImage(imgPlaceholder,icon,file){
+function showImage(imageContainer,icon,file){
     let fileType = file.type;
 
     let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
@@ -116,8 +119,38 @@ function showImage(imgPlaceholder,icon,file){
             img.setAttribute("src", fileURL);
             img.style.display = "block";
 
+            // Create a new div to hold the image and the remove button
+            let imgWrapper = document.createElement('div');
+            imgWrapper.style.position = "relative";
+
+            // Create the remove button
+            let removeBtn = document.createElement('button');
+            removeBtn.textContent = 'X';
+            removeBtn.style.position = "absolute";
+            removeBtn.style.top = "0";
+            removeBtn.style.right = "0";
+
+            // removeBtn.style.background = "#ff0000"; // Red background
+            removeBtn.style.background = "#b8b8b8";
+            removeBtn.style.color = "#ffffff"; // White text
+            removeBtn.style.borderRadius = "50%"; // Round button
+            removeBtn.style.border = "none"; // No border
+            removeBtn.style.width = "19px"; // Width
+            removeBtn.style.height = "19px"; // Height
+            removeBtn.style.cursor = "pointer"; // Pointer cursor on hover
+
+            removeBtn.addEventListener('click', () => {
+                // Remove the image and decrease the totalFiles count
+                imageContainer.removeChild(imgWrapper);
+                totalFiles--;
+            });
+
+            // Append the image and the remove button to the wrapper
+            imgWrapper.appendChild(img);
+            imgWrapper.appendChild(removeBtn);
+
              // Append the new image element to the placeholder
-            imageContainer.appendChild(img);
+            imageContainer.appendChild(imgWrapper);
 
             console.log('Image appended to container');
 
