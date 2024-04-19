@@ -527,12 +527,11 @@
 
             <div id="settings-content" class="content-section">
                 <div class="profile-settings-container">
-                    <div class="tabs-container">
-                        <button class="tab-link active" onclick="openTab(event, 'general')" data-section="general">General</button>
-                        <button class="tab-link" onclick="openTab(event, 'change-password')" data-section="change-password">Change Password</button>
-                        <button class="tab-link" onclick="openTab(event, 'notification')" data-section="notification">Notification</button>
-
-                    </div>
+                <div class="tabs-container">
+                <button class="tab-link active" onclick="openTab(event, 'general')" data-section="general">General</button>
+                <button class="tab-link" onclick="openTab(event, 'change-password')" data-section="change-password">Change Password</button>
+                <button class="tab-link" onclick="openTab(event, 'notification')" data-section="notification">Notification</button>
+            </div>
 
                     <div id="general" class="tab-content active" data-section="general">
                                 <div class="col-md-3 pt-0">
@@ -584,15 +583,11 @@
                                                         <label class="form-label">E-mail</label>
                                                         <input type="text" class="form-control input-field-box" value="<?php echo $_SESSION['user_email']; ?>" disabled>
                                                     </div>
-                                                  
-                                                    <div class="profile-buttons">
-                                                        <button class="profile-updatebt">Edit profile</button>
-                                                    </div>
-                                                <!-- </form> -->
                                                 <div style="margin-top: 20px;">
                                                     <?php flash('profile_edit'); ?>
                                                 </div>
                                             </div>
+                                          
                                         </div>
                                     </div>
                                     <div class="right-right">
@@ -608,6 +603,9 @@
                                         <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>" disabled>
                                     </div>
                                     </div>
+                                </div>
+                                <div class="profile-buttons">
+                                    <button class="profile-updatebt">Edit profile</button>
                                 </div>
                                 </form>
 
@@ -625,7 +623,7 @@
             </div>
 
 
-            <div id="signout-content" class="content-section" data-section="notification">
+            <div id="signout-content" class="content-section" >
             <p>This is the content for the signout tab.</p>
             </div>
 
