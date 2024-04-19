@@ -755,5 +755,33 @@
                 );
             }
         }
+
+        public function updateSellerRating($adId){
+            error_log('updateSellerRating function called with adId: ' . $adId);
+        
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        
+                $jsonData = json_decode(file_get_contents("php://input"), true);
+        
+                $sellerId = $this->itemAdsModel->getSellerByAd($adId);
+        
+                $data = [
+                    'ad_id' => $adId,
+                    'seller_id' => $sellerId->seller_id,
+                    'rated_by_id' => $_SESSION['user_id'],
+                    'rating' => $jsonData['rating']
+                ];
+        
+                if($this->itemAdsModel->updateSellerRating($data)){
+                    echo json_encode(
+                        array('message' => 'Rating Updated')
+                    );
+                } else {
+                    echo json_encode(
+                        array('message' => 'Rating Not Updated')
+                    );
+                }
+            }
+        }
     }
 ?>

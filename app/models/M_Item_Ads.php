@@ -148,6 +148,21 @@
                 return null;
             }
         }
+
+        public function updateSellerRating($data){
+            $this->db->query('UPDATE Seller_Rating SET rating = :rating WHERE ad_id = :ad_id AND seller_id = :seller_id AND rated_by_id = :rated_by_id');
+        
+            $this->db->bind(':ad_id', $data['ad_id']);
+            $this->db->bind(':seller_id', $data['seller_id']);
+            $this->db->bind(':rated_by_id', $data['rated_by_id']);
+            $this->db->bind(':rating', $data['rating']);
+        
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 
 ?>

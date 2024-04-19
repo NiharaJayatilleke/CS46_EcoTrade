@@ -27,7 +27,58 @@ document.querySelector('#rateBtn').addEventListener('click', function() {
                     html: '<div id="rating">' + starsHtml + '</div>',
                     showCancelButton: true,
                     confirmButtonText: 'Submit',
-                    // ... existing code ...
+
+                    didOpen: function() {
+                        // Add click event listener to stars
+                        var stars = document.querySelectorAll('#rating .fa-star');
+                        for (var i = 0; i < stars.length; i++) {
+                            stars[i].addEventListener('click', function() {
+                                /* var checkedStar = document.querySelector('#rating .fa-star.checked');
+                                if (checkedStar) {
+                                    checkedStar.classList.remove('checked');
+                                }
+                                this.classList.add('checked'); */
+                                var rating = this.getAttribute('data-rating');
+                                for (var j = 0; j < stars.length; j++) {
+                                    if (stars[j].getAttribute('data-rating') <= rating) {
+                                        stars[j].classList.add('checked');
+                                    } else {
+                                        stars[j].classList.remove('checked');
+                                    }
+                                }
+                            });
+                        }
+                    },
+
+                    preConfirm: function() {
+                        var checkedStars = document.querySelectorAll('#rating .fa-star.checked');
+                        return checkedStars.length ? checkedStars[checkedStars.length - 1].getAttribute('data-rating') : null;
+                    }
+                    
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // User clicked "Submit", update the rating
+                        // let newRating = document.querySelector('#rating .checked').dataset.rating;
+                
+                        fetch(URLROOT + "/ItemAds/updateSellerRating/" + CURRENT_AD, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ rating: result.value })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.message === 'Rating Updated') {
+                                Swal.fire('Success', 'Your rating has been updated.', 'success');
+                            } else {
+                                Swal.fire('Error', 'There was a problem updating your rating.', 'error');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with the fetch operation:', error);
+                        });
+                    }
                 });
 
             } else {
