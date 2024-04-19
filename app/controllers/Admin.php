@@ -15,18 +15,23 @@
             else{
                 $ads = $this->itemAdsModel->getAds();
                 $numSecAds = count($ads);
+                $adCountsByCategory = $this->moderatorModel->getItemAdCountsByCategory();
                 $moderators = $this->moderatorModel->getModerators();
                 $numModerators = count($moderators);
                 $users = $this->userModel->getUsers();
                 $numUsers = count($users);
+                // $reportedAds = $this->moderatorModel->getReportedAds();
 
                 $data = [
                     'ads' => $ads,
                     'sec_ad_count' => $numSecAds,
                     'moderators_count' => $numModerators,
+                    'adCountsByCategory' => $adCountsByCategory,
                     'moderators' => $moderators,
                     'users' => $users,
                     'users_count' => $numUsers,
+                    // 'reportedAds' => $reportedAds,
+                    
                 ];
 
                 $this->view('admin/dashboard', $data);

@@ -26,21 +26,21 @@
 
                      <div class="input-box-login">
                         <span class="icon"><i class='bx bxs-phone'></i></span>
-                        <input type="tel" name = "number" id="number" class="number" required>
+                        <input type="tel" name = "number" id="number" class="number" >
                         <label>Contact Number</label>
                         <!-- <span class="form-invalid"><?php echo $data['number_err']; ?></span> -->
                     </div>
 
                     <div class="input-box-login">
                         <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
-                        <input type="password" name="password" id="password" required >
+                        <input type="password" name="password" id="password"  >
                         <label>Password</label>
-                        <!-- <span class="form-invalid"><?php echo $data['password_err']; ?></span> -->
+                        <span class="form-invalid"><?php echo $data['password_err']; ?></span>
                     </div>
 
                     <div class="input-box-login">
                         <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
-                        <input type="password" name = "confirm_password" id="password" value="<?php echo $data['password']; ?>" required >
+                        <input type="password" name = "confirm_password" id="password" value="<?php echo $data['password']; ?>"  >
                         <label>Confirm Password</label>
                         <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span>
                     </div>

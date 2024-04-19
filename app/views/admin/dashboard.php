@@ -830,6 +830,7 @@
         var users = <?php echo json_encode($data['users']); ?>;
         var moderators = <?php echo json_encode($data['moderators']); ?>;
         var userCounts = <?php echo json_encode($data['userCounts']); ?>;
+        var adCountsByCategory = <?php echo json_encode($data['adCountsByCategory']); ?>;
     </script> 
 
     <!-- Javascript for image upload -->
