@@ -360,6 +360,17 @@
             else{
 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                        if (isset($_POST['delete_photo']) && $_POST['delete_photo'] == 1) {
+                            $userId = $_SESSION['user_id'];
+                            $this->moderatorModel->deleteProfileImage($userId);
+            
+                            // Redirect to the current page after deleting the image
+                            header('Location: ' . $_SERVER['HTTP_REFERER']);
+                            exit;
+                        }
+                    else{
+                    
                     // Handle the image upload
                     if (isset($_FILES['photo'])) {
                         $image = $_FILES['photo'];
@@ -385,6 +396,7 @@
                             }
                         }
                     }
+                }
                 }
 
                 $ads = $this->itemAdsModel->getAds();
@@ -455,6 +467,7 @@
             }
                     
         }
+     
 
     }
 ?>

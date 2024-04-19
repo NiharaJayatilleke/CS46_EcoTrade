@@ -867,13 +867,17 @@
 
 
 .col-md-3 {
-    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-
+.right-right {
+    width: 100%;
+}
+.right-left{
+    width: 100%;
+}
 
 .dashboard-icons-container{
     display: flex;
@@ -909,3 +913,5 @@
 .dashboard-icons-container label {
     cursor: pointer;
 }
+
+

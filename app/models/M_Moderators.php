@@ -209,6 +209,13 @@
             return false;
         }
     }
+          
+    public function deleteProfileImage($userId) {
+        $this->db->query('UPDATE General_User SET profile_image = NULL WHERE id = :user_id');
+        $this->db->bind(':user_id', $userId);
+
+        return $this->db->execute();
+    }
 
 }
 
