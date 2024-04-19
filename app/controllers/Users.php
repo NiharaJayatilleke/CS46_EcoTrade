@@ -304,11 +304,6 @@ require APPROOT.'/libraries/vendor/autoload.php';
             
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-                if (isset($_POST['delete_photo']) && $_POST['delete_photo'] == 1) {
-                    $userId = $_SESSION['user_id'];
-                    $this->userModel->deleteProfileImage($userId);
-                }
-                else{
                     // Handle the image upload
                     if (isset($_FILES['photo'])) {
                         $image = $_FILES['photo'];
@@ -327,10 +322,9 @@ require APPROOT.'/libraries/vendor/autoload.php';
                                $this->userModel->updateProfileImage($_SESSION['user_id'], $filename);
                                     // The image has been saved, and the user's profile has been updated
                                
-                            } 
+                            }
                         }
                     }
-                }
             }
 
             // die($_SESSION['userType']);

@@ -528,12 +528,13 @@
             <div id="settings-content" class="content-section">
                 <div class="profile-settings-container">
                     <div class="tabs-container">
-                        <button class="tab-link active" onclick="openTab(event, 'general')">General</button>
-                        <button class="tab-link" onclick="openTab(event, 'change-password')">Change Password</button>
-                        <button class="tab-link" onclick="openTab(event, 'notification')">Notification</button>
+                        <button class="tab-link active" onclick="openTab(event, 'general')" data-section="general">General</button>
+                        <button class="tab-link" onclick="openTab(event, 'change-password')" data-section="change-password">Change Password</button>
+                        <button class="tab-link" onclick="openTab(event, 'notification')" data-section="notification">Notification</button>
+
                     </div>
 
-                    <div id="general" class="tab-content active">
+                    <div id="general" class="tab-content active" data-section="general">
                                 <div class="col-md-3 pt-0">
                                     <div class="main-profile-img">
                                         <div class="image-container">
@@ -547,17 +548,17 @@
                                         </div>
                                     </div> 
                                     <div class="dashboard-icons-container"> 
-                                        <form method="POST" action="<?php echo URLROOT; ?>/moderators/index" enctype="multipart/form-data">               
+                                        <form method="POST" action="<?php echo URLROOT; ?>/moderators/index#settings-content" enctype="multipart/form-data">               
                                             <div class="">
                                                 <button type="button"><label for="upload-photo" title="Browse Photo"><i class="fas fa-edit"></i></label></botton>
                                                 <div class="file-upload">
                                                     <input type="file" id="upload-photo" name="photo" accept="image/*">
                                                 </div>
-                                                <button class="savebutton " type="submit" title="Save Photo"><i class="fas fa-bookmark"></i></button> 
+                                                <button class="savebutton"  type="submit" title="Save Photo"><i class="fas fa-bookmark"></i></button> 
                                             </div>
                                         </form>
                                         <?php if (!empty($data['userdetails']->profile_image)) : ?>
-                                            <form method="POST" action="<?php echo URLROOT; ?>/users/profile">
+                                            <form method="POST" action="<?php echo URLROOT; ?>/moderators/index#settings-content">
                                                 <input type="hidden" name="delete_photo" value="1">
                                                 <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
                                                 <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')" class="" title="delete photo"><i class="fas fa-trash-alt"></i></button>
@@ -596,27 +597,27 @@
                                     </div>
                                     <div class="right-right">
                                     <div class="form-group">
-                                                        <label class="form-label">Contact number</label>
-                                                        <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
-                                                        <?php if (!empty($data['errors']['newContactNumber'])) : ?>
-                                                            <div class="form-invalid"><?php echo $data['errors']['newContactNumber']; ?></div>
-                                                        <?php endif; ?>
-                                                    </div>
-                                        <div class="form-group">
-                                            <label class="form-label">User-type</label>
-                                            <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>" disabled>
-                                        </div>
+                                        <label class="form-label">Contact number</label>
+                                        <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
+                                        <?php if (!empty($data['errors']['newContactNumber'])) : ?>
+                                            <div class="form-invalid"><?php echo $data['errors']['newContactNumber']; ?></div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">User-type</label>
+                                        <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>" disabled>
+                                    </div>
                                     </div>
                                 </div>
                                 </form>
 
                     </div>
 
-                    <div id="change-password" class="tab-content">
+                    <div id="change-password" class="tab-content" data-section="change-password">
                         <h3>Change Password</h3>
                         <p>Change your password here.</p>
                     </div>
-                    <div id="notification" class="tab-content">
+                    <div id="notification" class="tab-content" data-section="notification">
                         <h3>Notification Settings</h3>
                         <p>Customize your notification preferences here.</p>
                     </div>
@@ -624,7 +625,7 @@
             </div>
 
 
-            <div id="signout-content" class="content-section">
+            <div id="signout-content" class="content-section" data-section="notification">
             <p>This is the content for the signout tab.</p>
             </div>
 
@@ -639,7 +640,6 @@
     <script>
     // Function to show/hide content sections based on the clicked tab
     function showContent(section) {
-        // event.preventDefault();
         // Hide all content sections
         document.getElementById('dashboard-content').style.display = 'none';
         document.getElementById('platformusers-content').style.display = 'none';
@@ -800,28 +800,57 @@
 
     <!-- JS FOR settings content -->
     <script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
 
-        // Get all elements with class="tabcontent" and hide them
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
+        // Function to show a specific section based on the hash in the URL
+        function showSection(sectionName) {
+            var tabContent = document.getElementById(sectionName);
+            if (tabContent) {
+                // Hide all tab contents
+                var allTabs = document.querySelectorAll('.tab-content');
+                allTabs.forEach(tab => tab.style.display = 'none');
+
+                // Show the selected tab content
+                tabContent.style.display = 'block';
+
+                // Update tab styles if needed
+                var tabLinks = document.querySelectorAll('.tab-link');
+                tabLinks.forEach(link => link.classList.remove('active'));
+                var activeLink = document.querySelector('button[data-section="' + sectionName + '"]');
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
         }
 
-        // Get all elements with class="tab-link" and remove the class "active"
-        tablinks = document.getElementsByClassName("tab-link");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].classList.remove("active");
+        // Function to handle initial section based on URL hash
+        function handleInitialSection() {
+            var hash = window.location.hash;
+            if (hash) {
+                var sectionName = hash.substring(1); // Remove the '#'
+                showSection(sectionName);
+                currentSection = sectionName;
+            }
         }
 
-        // Show the current tab, and add an "active" class to the button that opened the tab
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.classList.add("active");
-    }
+        // Call the function when the page loads
+        window.onload = handleInitialSection; 
+
+        // Function to handle opening horizontal tabs and updating URL hash
+        function openTab(evt, tabName) {
+            var sectionName = document.getElementById(tabName).getAttribute('data-section');
+            console.log('Active section:', sectionName);
+
+            // Update the URL hash
+            window.location.hash = '#' + sectionName;
+
+            // Show the section
+            showSection(sectionName);
+        }
+
+
+
         // handle edit profile button
         document.querySelector('.profile-updatebt').addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default form submission
 
             // Get form data
             const form = document.getElementById('editProfileForm');
@@ -836,18 +865,21 @@
             .then(data => {
                 // Handle the response data as needed
                 console.log(data);
+
+                window.location.reload();
             })
+            
             .catch(error => {
                 console.error('Error:', error);
             });
         });
-
+        
         let profilePic = document.getElementById("profile-pic");
         let inputFile = document.getElementById("upload-photo");
 
         inputFile.onchange = function(){
-            profilePic.src = URL.createObjectURL(inputFile.files[0])
-}
+        profilePic.src = URL.createObjectURL(inputFile.files[0])
+    }
 
     </script>
 
