@@ -255,6 +255,19 @@
     color: #fffefe;
 }  
 
+#image_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+#image_container img {
+    max-width: 150px;
+    max-height: 150px;
+    margin: 10px;
+}
+
 .ad-additional-images {
     display: flex;
     flex-direction: row;
