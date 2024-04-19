@@ -3,7 +3,8 @@ const dropArea = document.querySelector(".ad-form-drag-area");
 let dropText = document.querySelector(".ad-form-drag-area-text");
 const browseButton = document.querySelector(".ad-form-drag-area-btn");
 let inputPath = document.querySelector("#item_images");
-let file;
+// let file;
+let files = [];
 
 var imgPlaceholder = document.querySelector("#item_img_placeholder");
 var icon = document.querySelector("#item_img_placeholder_icon");
@@ -38,9 +39,18 @@ browseButton.onclick = () => {
 }
 
 inputPath.addEventListener("change", function () {
-  file = this.files[0];
-  showImage(imgPlaceholder,icon,file);
+  // file = this.files[0];
+  // showImage(imgPlaceholder,icon,file);
 //   dropArea.classList.add("active");
+  if (this.files.length > 6) {
+    alert('You can only upload a maximum of 6 files');
+    this.value = '';
+  } else {
+    files = this.files;
+    Array.from(files).forEach(file => {
+      showImage(imgPlaceholder,icon,file);
+    });
+  }
 });
 
 dropArea.addEventListener("dragover", (event) => {
@@ -57,14 +67,29 @@ dropArea.addEventListener("dragleave", () => {
 dropArea.addEventListener("drop", (event)=>{
     event.preventDefault();
 
-    file = event.dataTransfer.files[0];
-    let list = new DataTransfer();
-    list.items.add(file);
-    inputPath.files = list.files;
+    // file = event.dataTransfer.files[0];
+    // let list = new DataTransfer();
+    // list.items.add(file);
+    // inputPath.files = list.files;
 
-    showImage(imgPlaceholder,icon,file);
-    dropArea.classList.remove("active");
+    // showImage(imgPlaceholder,icon,file);
+    // dropArea.classList.remove("active");
+
+    if (event.dataTransfer.files.length > 6) {
+      alert('You can only upload a maximum of 6 files');
+    } else {
+      files = event.dataTransfer.files;
+      let list = new DataTransfer();
+      Array.from(files).forEach(file => {
+        list.items.add(file);
+        showImage(imgPlaceholder,icon,file);
+      });
+      inputPath.files = list.files;
+      dropArea.classList.remove("active");
+    }
 })
+
+let imageContainer = document.querySelector("#image_container");
 
 function showImage(imgPlaceholder,icon,file){
     let fileType = file.type;
@@ -77,8 +102,8 @@ function showImage(imgPlaceholder,icon,file){
 
             // var imgPlaceholder = document.querySelector("#item_img_placeholder");
             // var imgPlaceholder = placeholders[i];
-            imgPlaceholder.setAttribute("src", fileURL);
-            imgPlaceholder.style.display = "block";            
+            // imgPlaceholder.setAttribute("src", fileURL); //i
+            // imgPlaceholder.style.display = "block";     //i       
             // document.querySelector("#item_img_placeholder").style.backgroundImage = 'url(' + fileURL + ')';
 
             // var icon = document.querySelector("#item_img_placeholder_icon");
@@ -86,11 +111,24 @@ function showImage(imgPlaceholder,icon,file){
             // var or = document.querySelector(".ad-form-drag-area-or");
             // var button = document.querySelector(".ad-form-drag-area-btn");
 
+             // Create a new image element
+            let img = document.createElement('img');
+            img.setAttribute("src", fileURL);
+            img.style.display = "block";
+
+             // Append the new image element to the placeholder
+            imageContainer.appendChild(img);
+
+            console.log('Image appended to container');
+
             icon.style.display = "none";
             // text.style.display = "none";
             // or.style.display = "none";
             // button.style.display = "none";
-        }
+        };
+        fileReader.onerror = () => {
+          console.error('Error reading file:', fileReader.error); // Debugging line
+        };
         fileReader.readAsDataURL(file);
 
         //let validate = document.querySelector(".form-drag-area-validate");
