@@ -147,6 +147,7 @@ CREATE TABLE Re_Centers (
     item_category VARCHAR(255),
     item_desc TEXT,
     item_location VARCHAR(255),
+    item_quantity INT,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(255),
     PRIMARY KEY(rad_id)
