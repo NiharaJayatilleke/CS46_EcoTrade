@@ -711,7 +711,7 @@
                                     </form>
                                 <?php endif; ?>
                                 </div>
-                                <form id="editProfileForm">
+                                <form id="editProfileForm" action="<?php echo URLROOT; ?>/moderators/edit_profile" method="POST" >
                                 <div class="right-below">
                                     <div class="right-left">
                                         <div class="tab-pane fade active show" id="account-general">
@@ -721,46 +721,65 @@
                                                     <div class="form-group">
                                                         <label class="form-label">Username</label>
                                                         <input type="text" class="form-control input-field-box" name="newUsername" value="<?php echo $_SESSION['user_name']; ?>">
-                                                        <?php if (!empty($data['errors']['newUsername'])) : ?>
-                                                            <div class="form-invalid"><?php echo $data['errors']['newUsername']; ?></div>
-                                                        <?php endif; ?>
+                                                        <div class="form-invalid"><?php error('newUsername'); ?></div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="form-label">E-mail</label>
                                                         <input type="text" class="form-control input-field-box" value="<?php echo $_SESSION['user_email']; ?>" disabled>
                                                     </div>
-                                                  
-                                                    <div class="profile-buttons">
-                                                        <button class="profile-updatebt">Edit profile</button>
-                                                    </div>
-                                                <!-- </form> -->
-                                                <div style="margin-top: 20px;">
-                                                    <?php flash('profile_edit'); ?>
-                                                </div>
+                                              
                                             </div>
+                                          
                                         </div>
                                     </div>
                                     <div class="right-right">
                                     <div class="form-group">
-                                                        <label class="form-label">Contact number</label>
-                                                        <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
-                                                        <?php if (!empty($data['errors']['newContactNumber'])) : ?>
-                                                            <div class="form-invalid"><?php echo $data['errors']['newContactNumber']; ?></div>
-                                                        <?php endif; ?>
-                                                    </div>
-                                        <div class="form-group">
-                                            <label class="form-label">User-type</label>
-                                            <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>" disabled>
-                                        </div>
+                                        <label class="form-label">Contact number</label>
+                                        <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
+                                        <div class="form-invalid abs-error"><?php error('newContactNumber'); ?></div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="form-label">User-Type</label>
+                                        <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>" disabled>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 20px; ">
+                                    <?php flash('profile_edit'); ?>
+                                </div>
+                                <div class="profile-buttons">
+                                    <button class="profile-updatebt">Edit profile</button>
                                 </div>
                                 </form>
 
                     </div>
 
                     <div id="change-password" class="tab-content">
-                        <h3>Change Password</h3>
-                        <p>Change your password here.</p>
+                        <form id="changePasswordForm" action="<?php echo URLROOT; ?>/users/update" method="POST" >
+                            <div class="cp-container">
+                                <div class="form-cp"> 
+                                    <label class="form-label" for="oldPassword">Old Password</label>
+                                    <input type="password" id="oldPassword" name="oldPassword" class="form-control input-field-box" required> 
+                                        <div class="form-invalid"><?php error('oldPassword'); ?></div> 
+                                </div>
+                                <div class="form-cp">
+                                    <label class="form-label" for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword"   name="newPassword" class="form-control input-field-box" required>     
+                                        <div class="form-invalid"><?php error('newPassword'); ?></div>
+                                </div>
+                                <div class="form-cp">
+                                    <label class="form-label" for="confirmPassword">Confirm New Password</label>
+                                    <input type="password" id="confirmPassword"  name="confirmPassword" class="form-control input-field-box" required> 
+                                </div>
+                                <div class="profile-buttons"> 
+                                    <button class="profile-updatebt">Change Password</button> 
+                                </div>
+                                <div id="changePasswordMessage" class="form-invalid"></div> 
+                            </div>
+                            <div style="margin-top: 30px;">
+                            <?php flash('update_password'); ?>
+                            </div>
+                        </form>
                     </div>
                     <div id="notification" class="tab-content">
                         <h3>Notification Settings</h3>

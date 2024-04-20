@@ -611,7 +611,7 @@
                     
 
                     <div id="change-password" class="tab-content" data-section="change-password">
-                    <form id="changePasswordForm" action="<?php echo URLROOT; ?>/users/update" method="POST" >
+                        <form id="changePasswordForm" action="<?php echo URLROOT; ?>/users/update" method="POST" >
                             <div class="cp-container">
                                 <div class="form-cp"> 
                                     <label class="form-label" for="oldPassword">Old Password</label>
