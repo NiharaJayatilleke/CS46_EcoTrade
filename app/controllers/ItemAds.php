@@ -397,6 +397,7 @@
                     'item_category' => trim($_POST['item_category']),
                     'item_desc' => trim($_POST['item_desc']),
                     'item_condition' => trim($_POST['item_condition']),
+                    'item_quantity' => trim($_POST['item_quantity']),
                     'item_img' => $_FILES['item_images'],
                     'item_img_name' => time().'_'.$_FILES['item_images']['name'], /**/ 
                     'item_price' => trim($_POST['item_price']),
@@ -409,6 +410,7 @@
                     'item_name_err' => '',
                     'item_category_err' => '',
                     'item_condition_err' => '',
+                    'item_quantity_err' => '',  
                     'item_images_err' => '',
                     'item_price_err' => '',
                     'item_location_err' => '',
@@ -428,6 +430,16 @@
                 if(empty($data['item_category'])){
                     $data['item_category_err'] = 'Please select a category for your item';
                 } 
+
+                 //Validate item_condition
+                if(empty($data['item_condition'])){
+                    $data['item_condition_err'] = 'Please select the condition of your item';
+                }
+
+                //Validate item_quantity
+                if(empty($data['item_quantity'])){
+                    $data['item_quantity_err'] = 'Please enter the quantity';
+                }
 
                 //Validate item_image
                 // if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
@@ -473,7 +485,7 @@
                 }
 
                 //Validation is completed and no error then add item ad to the database
-                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])&&empty($data['item_images_err'])){
+                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_condition_err'])&&empty($data['item_quantity_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])&&empty($data['item_images_err'])){
 
                     //Add item ad to the database
                     if($this->itemAdsModel->edit($data)){
@@ -507,6 +519,7 @@
                     'item_category' => $ad->item_category,
                     'item_desc' => $ad->item_desc,
                     'item_condition' => $ad->item_condition,
+                    'item_quantity' => $ad->item_quantity,
                     'item_img' => '',
                     'item_img_name' => $ad->item_image,
                     'item_price' => $ad->item_price,
@@ -519,6 +532,7 @@
                     'item_name_err' => '',
                     'item_category_err' => '',
                     'item_condition_err' => '',
+                    'item_quantity_err' => '',
                     'item_images_err' => '',
                     'item_price_err' => '',
                     'item_location_err' => '',

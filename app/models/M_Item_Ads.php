@@ -63,11 +63,13 @@
         }
 
         public function edit($data) {        
-            $this->db->query('UPDATE Item_Ads SET item_name = :item_name, item_category = :item_category, item_desc = :item_desc, item_image = :item_image, item_price = :item_price, item_location = :item_location, selling_format = :selling_format, negotiable = :negotiable WHERE p_id = :p_id');
+            $this->db->query('UPDATE Item_Ads SET item_name = :item_name, item_category = :item_category, item_desc = :item_desc, item_condition = :item_condition, item_quantity = :item_quantity, item_image = :item_image, item_price = :item_price, item_location = :item_location, selling_format = :selling_format, negotiable = :negotiable WHERE p_id = :p_id');
             $this->db->bind(':p_id',$data['p_id']);   
             $this->db->bind(':item_name',$data['item_name']);
             $this->db->bind(':item_category',$data['item_category']);
             $this->db->bind(':item_desc',$data['item_desc']);  
+            $this->db->bind(':item_condition',$data['item_condition']);
+            $this->db->bind(':item_quantity',$data['item_quantity']);
             $this->db->bind(':item_image',$data['item_img_name']); 
             $this->db->bind(':item_price',$data['item_price']);
             $this->db->bind(':item_location',$data['item_location']);
