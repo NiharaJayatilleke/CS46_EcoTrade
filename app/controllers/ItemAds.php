@@ -239,6 +239,9 @@
                 // if(empty($data['item_image']['size'] > 0)){
                 // if(isset($_FILES['item_images']) && $_FILES['item_images']['size'] > 0){
                 //     if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
+            if (empty($_FILES['item_images']['name'][0])) {
+                $data['item_images_err'] = 'Please upload at least one image.';
+            } else {
                 if(isset($_FILES['item_images']) && count($_FILES['item_images']['size']) > 0){
                 for($i = 0; $i < count($_FILES['item_images']['name']); $i++) {
                     $new_name = time() . '_' . $_FILES['item_images']['name'][$i];
@@ -251,7 +254,7 @@
                 }else{
                     $data['item_image'] = null;
                 }
-                
+            }
 
                 //Validate item_price
                 if(empty($data['item_price'])) {

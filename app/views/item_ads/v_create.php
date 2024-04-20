@@ -19,16 +19,16 @@
             <div class="ad-form-input-title">Category</div>
             <!-- <label for="item_category">Item Category  </label> -->
             <select name="item_category" id="item_category" class="ad_item_category">
-                <option value="" selected>Select a category</option>
-                <option value="furniture">Furniture</option>
-                <option value="electronics">Electronics</option>
-                <option value="clothing">Clothing</option>
-                <option value="books">Books</option>
-                <option value="kitchenware">Kitchenware</option>
-                <option value="home_deco">Home Deco</option>
-                <option value="sportsEquipment">Sports Equipment</option>
-                <option value="appliances">Appliances</option>
-                <option value="other">Other</option>
+            <option value="" <?php echo $data['item_category'] == '' ? 'selected' : ''; ?>>Select a category</option>
+            <option value="furniture" <?php echo $data['item_category'] == 'furniture' ? 'selected' : ''; ?>>Furniture</option>
+            <option value="electronics" <?php echo $data['item_category'] == 'electronics' ? 'selected' : ''; ?>>Electronics</option>
+            <option value="clothing" <?php echo $data['item_category'] == 'clothing' ? 'selected' : ''; ?>>Clothing</option>
+            <option value="books" <?php echo $data['item_category'] == 'books' ? 'selected' : ''; ?>>Books</option>
+            <option value="kitchenware" <?php echo $data['item_category'] == 'kitchenware' ? 'selected' : ''; ?>>Kitchenware</option>
+            <option value="home_deco" <?php echo $data['item_category'] == 'home_deco' ? 'selected' : ''; ?>>Home Deco</option>
+            <option value="sportsEquipment" <?php echo $data['item_category'] == 'sportsEquipment' ? 'selected' : ''; ?>>Sports Equipment</option>
+            <option value="appliances" <?php echo $data['item_category'] == 'appliances' ? 'selected' : ''; ?>>Appliances</option>
+            <option value="other" <?php echo $data['item_category'] == 'other' ? 'selected' : ''; ?>>Other</option>
             </select>
 
             <!-- Additional input for 'Other' category -->
@@ -53,13 +53,13 @@
             <div class="ad-form-input-title">Condition</div>
             <!-- <input type="text" name="item_condition" id="item_condition" class="ad_item_condition" value="<?php echo $data['item_condition']; ?>"> -->
             <select name="item_condition" id="item_condition" class="ad_item_condition">
-                <option value="">Select the condition</option>
-                <option value="Brand New">Brand New - Never Used</option>
-                <option value="Like New">Like New - Barely Used</option>
-                <option value="Very Good">Very Good - Slightly Used with Minor Signs of Wear</option>
-                <option value="Good">Good - Used with Some Signs of Wear</option>
-                <option value="Fair">Fair - Used with Visible Signs of Wear</option>
-                <option value="Poor">Poor - Heavily Used with Significant Wear or Damages</option>
+            <option value="" <?php echo $data['item_condition'] == '' ? 'selected' : ''; ?>>Select the condition</option>
+                <option value="Brand New" <?php echo $data['item_condition'] == 'Brand New' ? 'selected' : ''; ?>>Brand New - Never Used</option>
+                <option value="Like New" <?php echo $data['item_condition'] == 'Like New' ? 'selected' : ''; ?>>Like New - Barely Used</option>
+                <option value="Very Good" <?php echo $data['item_condition'] == 'Very Good' ? 'selected' : ''; ?>>Very Good - Slightly Used with Minor Signs of Wear</option>
+                <option value="Good" <?php echo $data['item_condition'] == 'Good' ? 'selected' : ''; ?>>Good - Used with Some Signs of Wear</option>
+                <option value="Fair" <?php echo $data['item_condition'] == 'Fair' ? 'selected' : ''; ?>>Fair - Used with Visible Signs of Wear</option>
+                <option value="Poor" <?php echo $data['item_condition'] == 'Poor' ? 'selected' : ''; ?>>Poor - Heavily Used with Significant Wear or Damages</option>
             </select>
             <span class="ad-form-invalid"><?php echo $data['item_condition_err']; ?></span>
 
@@ -80,7 +80,7 @@
                 <div class="ad-form-drag-area-or">or</div>
                 <div class="ad-form-drag-area-btn">Browse Files</div>
                     <!-- <input type="file" name="item_images" id="item_images" class="ad_item_images" style ="display:none"> -->
-                    <input type="file" name="item_images[]" id="item_images" class="ad_item_images" style ="display:none" multiple required>
+                    <input type="file" name="item_images[]" id="item_images" class="ad_item_images" style ="display:none" multiple>
                 
                 <div class="ad-form-validation">
                     <span class="ad-form-invalid"><?php echo $data['item_images_err']; ?></span>
