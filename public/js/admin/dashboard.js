@@ -37,74 +37,57 @@ list.forEach((item) => {
     item.addEventListener('mouseout', inactiveLink);
     item.addEventListener('click', clickedLink);
 });
-
-
+// Function to show the search bar
+function showSearchBar() {
+    var searchBar = document.getElementById('dashboard-search');
+    if (searchBar) {
+        searchBar.style.display = 'block'; 
+    }
+}
 
 // Function to hide the search bar
 function hideSearchBar() {
-    document.getElementById('dashboard-search').style.display = 'none';
-    localStorage.setItem('searchBarVisible', 'false');
+    var searchBar = document.getElementById('dashboard-search');
+    if (searchBar) {
+        searchBar.style.display = 'none'; 
+    }
 }
 
-// Function to show the search bar
-function showSearchBar() {
-    document.getElementById('dashboard-search').style.display = 'block';
-    localStorage.setItem('searchBarVisible', 'true');
+// Function to check the URL fragment and show or hide the search bar accordingly
+function checkFragment() {
+    // Get the URL fragment
+    var fragment = window.location.hash;
+
+    // Show or hide the search bar based on the URL fragment
+    switch (fragment) {
+        case '#users-content':
+        case '#moderators-content':
+        case '#secondhand-content':
+        case '#recycle-content':
+        case '#messages-content':
+            showSearchBar();
+            break;
+        case '#dashboard-content':
+        case '#ad-report-content':
+        case '#settings-content':
+            hideSearchBar();
+            break;
+        default:
+            // If there's no fragment or it doesn't match any of the cases, use the value from localStorage
+            if (localStorage.getItem('searchBarVisible') === 'false') {
+                hideSearchBar();
+            } else {
+                showSearchBar();
+            }
+            break;
+    }
 }
-
-// Attach the function to the onclick event of the tabs
-document.getElementById('dashboard-tab').onclick = function() {
-    showContent('dashboard-content');
-    hideSearchBar();
-};
-document.getElementById('moderators-tab').onclick = function() {
-    showContent('moderators-content');
-    showSearchBar();
-};
-
-document.getElementById('users-tab').onclick = function() {
-    showContent('users-content');
-    showSearchBar();
-};
-
-document.getElementById('secondhand-tab').onclick = function() {
-    showContent('secondhand-content');
-    showSearchBar();
-};
-
-document.getElementById('recycle-tab').onclick = function() {
-    showContent('recycle-content');
-    showSearchBar();
-};
-
-document.getElementById('recycle-tab').onclick = function() {
-    showContent('recycle-content');
-    showSearchBar();
-};
-
-document.getElementById('messages-tab').onclick = function() {
-    showContent('messages-content');
-    showSearchBar();
-};
-
-document.getElementById('ad-report-tab').onclick = function() {
-    showContent('ad-report-content');
-    hideSearchBar();
-};
-
-document.getElementById('settings-tab').onclick = function() {
-    showContent('settings-content');
-    hideSearchBar();
-};
 
 // Check the state of the search bar when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', (event) => {
-    if (localStorage.getItem('searchBarVisible') === 'false') {
-        hideSearchBar();
-    } else {
-        showSearchBar();
-    }
-});
+document.addEventListener('DOMContentLoaded', checkFragment);
+
+// Also check the state of the search bar when the hash changes
+window.addEventListener('hashchange', checkFragment);
 
 //search in users
 // The Fuse.js options
@@ -132,57 +115,31 @@ function performSearch() {
     // Get the search query
     var query = document.getElementById('dashboard-search').querySelector('input').value;
 
-    // If the search query is empty, return early
+    // Clear the table body
+    var tableBody = document.querySelector('#users-table tbody');
+    tableBody.innerHTML = '';
+
+    // If the search query is empty, repopulate the table with all users
     if (!query) {
+        users.forEach(function(user) {
+            var row = createRowUser(user); // Assuming createRowUser is a function that creates a row for a user
+            tableBody.appendChild(row);
+        });
         return;
     }
 
     // Perform the search
     var results = fuse.search(query);
 
-    // Clear the table body
-    var tableBody = document.querySelector('#users-table tbody');
-    tableBody.innerHTML = '';
-
     // Add the results to the table body
     results.forEach(function(result) {
-        var row = document.createElement('tr');
-
-        var usernameCell = document.createElement('td');
-        usernameCell.textContent = result.item.username;
-        row.appendChild(usernameCell);
-
-        var emailCell = document.createElement('td');
-        emailCell.textContent = result.item.email;
-        row.appendChild(emailCell);
-
-        var numberCell = document.createElement('td');
-        numberCell.textContent = result.item.number;
-        row.appendChild(numberCell);
-
-        var userTypeCell = document.createElement('td');
-        var userTypeSpan = document.createElement('span');
-        userTypeSpan.classList.add('usertype'); // Add the 'usertype' class
-        userTypeSpan.classList.add(result.item.user_type); // Add the user type as a class
-        userTypeSpan.textContent = result.item.user_type;
-        userTypeCell.appendChild(userTypeSpan);
-        row.appendChild(userTypeCell);
-
-        var createdAtCell = document.createElement('td');
-        createdAtCell.textContent = result.item.created_at;
-        row.appendChild(createdAtCell);
-
+        var row = createRowUser(result.item);
         tableBody.appendChild(row);
     });
 }
 
-
-
 // Attach the function to the oninput event of the search bar
 document.getElementById('dashboard-search').querySelector('input').addEventListener('input', performSearch); 
-
-
-
 
 //moderator search
 // The Fuse.js options
@@ -201,54 +158,121 @@ var mod_options = {
     ]
 };
 
-// Assuming 'users' is your data array
+// Assuming 'moderators' is your data array
 var mod_fuse = new Fuse(moderators, mod_options);
 
-// Function to perform search
+// // Function to perform search
 function performModSearch() {
     // Get the search query
     var query = document.getElementById('dashboard-search').querySelector('input').value;
 
-    // If the search query is empty, return early
+    // Clear the table body
+    var tableBody = document.querySelector('#moderators-table tbody');
+    tableBody.innerHTML = '';
+
+    // If the search query is empty, repopulate the table with all moderators
     if (!query) {
+        moderators.forEach(function(moderator) {
+            var row = createRowMod(moderator); // Assuming createRowMod is a function that creates a row for a moderator
+            tableBody.appendChild(row);
+        });
         return;
     }
 
     // Perform the search
     var results = mod_fuse.search(query);
 
-    // Clear the table body
-    var tableBody = document.querySelector('#moderators-table tbody');
-    tableBody.innerHTML = '';
-
     // Add the results to the table body
     results.forEach(function(result) {
-        var row = document.createElement('tr');
-
-        var usernameCell = document.createElement('td');
-        usernameCell.textContent = result.item.username;
-        row.appendChild(usernameCell);
-
-        var emailCell = document.createElement('td');
-        emailCell.textContent = result.item.email;
-        row.appendChild(emailCell);
-
-        var numberCell = document.createElement('td');
-        numberCell.textContent = result.item.number;
-        row.appendChild(numberCell);
-
-        var createdAtCell = document.createElement('td');
-        createdAtCell.textContent = result.item.created_at;
-        row.appendChild(createdAtCell);
-
+        var row = createRowMod(result.item);
         tableBody.appendChild(row);
     });
 }
 
-
-
 // Attach the function to the oninput event of the search bar
 document.getElementById('dashboard-search').querySelector('input').addEventListener('input', performModSearch); 
+
+// Function to create a row for a user or moderator
+function createRowUser(item) {
+    var row = document.createElement('tr');
+
+    var usernameCell = document.createElement('td');
+    usernameCell.textContent = item.username;
+    row.appendChild(usernameCell);
+
+    var emailCell = document.createElement('td');
+    emailCell.textContent = item.email;
+    row.appendChild(emailCell);
+
+    var numberCell = document.createElement('td');
+    numberCell.textContent = item.number;
+    row.appendChild(numberCell);
+
+    var userTypeCell = document.createElement('td');
+    var userTypeSpan = document.createElement('span');
+    userTypeSpan.classList.add('usertype'); // Add the 'usertype' class
+    userTypeSpan.classList.add(item.user_type); // Add the user type as a class
+    userTypeSpan.textContent = item.user_type;
+    userTypeCell.appendChild(userTypeSpan);
+    row.appendChild(userTypeCell);
+
+    var createdAtCell = document.createElement('td');
+    createdAtCell.textContent = item.created_at;
+    row.appendChild(createdAtCell);
+
+    return row;
+}
+
+// Function to create a row for a user or moderator
+function createRowMod(item) {
+    var row = document.createElement('tr');
+
+    var usernameCell = document.createElement('td');
+    usernameCell.textContent = item.username;
+    row.appendChild(usernameCell);
+
+    var emailCell = document.createElement('td');
+    emailCell.textContent = item.email;
+    row.appendChild(emailCell);
+
+    var numberCell = document.createElement('td');
+    numberCell.textContent = item.number;
+    row.appendChild(numberCell);
+
+    var createdAtCell = document.createElement('td');
+    createdAtCell.textContent = item.created_at;
+    row.appendChild(createdAtCell);
+
+    // Create the control buttons cell
+    var controlButtonsCell = document.createElement('td');
+    var controlButtonsDiv = document.createElement('div');
+    controlButtonsDiv.className = 'mod-control-btns';
+
+    // Create the edit button
+    var editButton = document.createElement('button');
+    editButton.className = 'ad-edit-btn';
+    editButton.innerHTML = '<i class="fas fa-edit"></i>';
+    editButton.onclick = function() {
+        window.location.href = '/ecotrade/Moderators/edit/' + item.id; // Update this URL to match your application's URL structure
+    };
+    controlButtonsDiv.appendChild(editButton);
+
+    // Create the delete button
+    var deleteButton = document.createElement('button');
+    deleteButton.className = 'ad-edit-btn';
+    deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
+    deleteButton.onclick = function() {
+        if (confirm("Are you sure you want to delete this item?")) {
+            window.location.href = '/ecotrade/Moderators/delete/' + item.id; // Update this URL to match your application's URL structure
+        }
+    };
+    controlButtonsDiv.appendChild(deleteButton);
+
+    controlButtonsCell.appendChild(controlButtonsDiv);
+    row.appendChild(controlButtonsCell);
+
+    return row;
+}
 
 //   const ctx = document.getElementById('myChart');
 

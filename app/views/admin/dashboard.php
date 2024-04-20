@@ -171,7 +171,7 @@
 
                 <div class="graphBox">
                     <div class="box">
-                        <canvas id="myChart"></canvas>
+                        <canvas id="adminChart"></canvas>
                     </div>
                     <div class="box">
                         <canvas id="ads"></canvas>
@@ -312,9 +312,9 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Users</h2>
-                            <a href="<?php echo URLROOT ?>/Admin/moderators#users-content" class="btn">View more</a>
+                            <a href="#users-content" class="btn" id="users-tab"onclick="showContent('users-content')">View All</a>
                         </div>
-                        <table id="users-table">
+                        <table>
                             <thead>
                                 <tr>
                                     <td>Username</td>
@@ -326,69 +326,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php 
-                            $count = 0;
-                            foreach($data['users'] as $user) : 
-                                if($count >= 5) break;
-                            ?>
+                            <?php foreach($data['users'] as $user) : ?>
                             <tr>
                                 <td><p><?php echo $user->username ?></p></td>
                                 <td><?php echo $user->email ?></td>
                                 <td><?php echo $user->number ?></td>
                                 <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
                                 <td><?php echo $user->created_at ?></td>
+                                <!-- <td>
+                                    <div class = "mod-control-btns">
+                                        <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                        <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                    </div>
+                                </td> -->
                             </tr>
-                            <?php 
-                                $count++;
-                            endforeach; 
-                            ?>
+                            <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
-                    <!-- <div class="recentCustomers">
-                        <div class="cardHeader">
-                            <h2>Recent Customers</h2>
-                        </div>
-                        <table>
-                            <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
-                                <td><h4>David<br><span>Western Province - Colombo</span></h4></td>
-                            </tr>
-                            <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></div></td>
-                                <td><h4>John<br><span>Western Province - Colombo</span></h4></td>
-                            </tr>
-
-                            <tr>
-                            <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></div></td>
-                                <td><h4>Emily<br><span>Central Province - Kandy</span></h4></td>
-                            </tr>
-
-                            <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></div></td>
-                                <td><h4>Sara<br><span>Eastern Province - Trincomalee</span></h4></td>
-                            </tr>
-                            <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></div></td>
-                                <td><h4>Michael<br><span>Northern Province - Jaffna</span></h4></td>
-                            </tr>
-
-                            <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></div></td>
-                                <td><h4>Samantha<br><span>Southern Province - Galle</span></h4></td>
-                            </tr>
-
-                            <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></div></td>
-                                <td><h4>Ravi<br><span>North Central Province - Anuradhapura</span></h4></td>
-                            </tr>
-
-                            <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
-                                <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
-                            </tr>
-                        </table>
-                    </div> -->
 
 
                 </div>
@@ -875,10 +830,11 @@
         var users = <?php echo json_encode($data['users']); ?>;
         var moderators = <?php echo json_encode($data['moderators']); ?>;
         var userCounts = <?php echo json_encode($data['userCounts']); ?>;
+        var adCountsByCategory = <?php echo json_encode($data['adCountsByCategory']); ?>;
     </script> 
 
     <!-- Javascript for image upload -->
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/alerts.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/ad_view.js"></script>
