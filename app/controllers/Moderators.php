@@ -386,14 +386,8 @@
                             // Move the uploaded image to the upload directory
                             if (move_uploaded_file($image['tmp_name'], $uploadDir . $filename)) {
                                 // Update the user's profile image path in the database
-                                if ($this->moderatorModel->updateProfileImage($_SESSION['user_id'], $filename)) {
-                                    // The image has been saved, and the user's profile has been updated
-                                } else {
-                                    // Handle an error updating the database
-                                }
-                            } else {
-                                // Handle an error moving the uploaded file
-                            }
+                                $this->moderatorModel->updateProfileImage($_SESSION['user_id'], $filename);  
+                            } 
                         }
                     }
                 }
@@ -422,11 +416,7 @@
         }
 
         public function hideAd($adId) {
-            if ($this->moderatorModel->hideAdById($adId)) {
-                http_response_code(200); // Send success response
-            } else {
-                http_response_code(500); // Send error response
-            }
+         $this->moderatorModel->hideAdById($adId);
         }
 
         public function edit_profile(){
@@ -436,25 +426,29 @@
                 // Form submission, update user info
                 $newUsername = trim($_POST['newUsername']);
                 $newContactNumber = trim($_POST['newContactNumber']);
-        
-                // Initialize an array to store validation errors
-                $errors = [];
-        
+
+                $flag=false; //assigning a flag to identify the errors
                 // Validate the new username
                 if (empty($newUsername)) {
-                    $errors['newUsername'] = 'username cannot be empty.';
+                    $flag=true;
+                    error('newUsername','username cannot be empty.');
                 }
-        
+                
                 
                 // Validate the new contact number
                 if (empty($newContactNumber)) {
-                    $errors['newContactNumber'] = 'contact number cannot be empty.';
-                } elseif (!ctype_digit($newContactNumber) || strlen($newContactNumber) < 9) {
-                    $errors['newContactNumber'] = 'Contact number must have at least 10 digits.';   
+                    $flag=true;
+                    error('newContactNumber','contact number cannot be empty.');
+                } elseif (!ctype_digit($newContactNumber)) {
+                    $flag=true;
+                    error('newContactNumber','Contact number should only contains digits.');  
+                } elseif (strlen($newContactNumber) != 10) {
+                    $flag=true;
+                    error('newContactNumber','Contact number must have 10 digits.');   
                 }
         
                 // Check if there are any validation errors
-                if (empty($errors)) {
+                if (!($flag)) {
                     // Call the updateUserInfo method in your model to update the user's information
                     if ($this->moderatorModel->updateUserInfo($newUsername, $newContactNumber)) {
                         // User information updated successfully
@@ -462,6 +456,7 @@
                         
                         // update the session
                         $_SESSION['user_name']=$newUsername;
+                        $_SESSION['user_number']=$newContactNumber;
                     }
                 }
             }

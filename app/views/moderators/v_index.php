@@ -120,15 +120,15 @@
                         </div>
 
                         <!-- <a href="<?php echo URLROOT ?>/Admin/moderators" style="text-decoration: none; color: inherit;"> -->
-                            <div class="dashboard-card" >
-                                <div>
-                                    <!-- <div class="dashboard-numbers" ><?php echo $data['moderators_count'] ?></div>  -->
-                                    <div class="dashboard-cardName">Collectors</div>
-                                </div>
-                                <div class="dashboard-iconBx">  
-                                    <ion-icon name="people-circle-outline"></ion-icon>     
-                                </div>
+                        <div class="dashboard-card" >
+                            <div>
+                                <!-- <div class="dashboard-numbers" ><?php echo $data['moderators_count'] ?></div>  -->
+                                <div class="dashboard-cardName">Collectors</div>
                             </div>
+                            <div class="dashboard-iconBx">  
+                                <ion-icon name="people-circle-outline"></ion-icon>     
+                            </div>
+                        </div>
                         <!-- </a> -->
 
                         <div class="dashboard-card" >
@@ -219,36 +219,36 @@
                                 <td><h4>David<br><span>Western Province - Colombo</span></h4></td>
                             </tr>
                             <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></td>
+                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></div></td>
                                 <td><h4>John<br><span>Western Province - Colombo</span></h4></td>
                             </tr>
 
                             <tr>
-                            <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></td>
+                            <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></div></td>
                                 <td><h4>Emily<br><span>Central Province - Kandy</span></h4></td>
                             </tr>
 
                             <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></td>
+                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></div></td>
                                 <td><h4>Sara<br><span>Eastern Province - Trincomalee</span></h4></td>
                             </tr>
                             <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></td>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></div></td>
                                 <td><h4>Michael<br><span>Northern Province - Jaffna</span></h4></td>
                             </tr>
 
                             <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></td>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></div></td>
                                 <td><h4>Samantha<br><span>Southern Province - Galle</span></h4></td>
                             </tr>
 
                             <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></td>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></div></td>
                                 <td><h4>Ravi<br><span>North Central Province - Anuradhapura</span></h4></td>
                             </tr>
 
                             <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></td>
+                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
                                 <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
                             </tr>
                         </table>
@@ -527,12 +527,11 @@
 
             <div id="settings-content" class="content-section">
                 <div class="profile-settings-container">
-                    <div class="tabs-container">
-                        <button class="tab-link active" onclick="openTab(event, 'general')" data-section="general">General</button>
-                        <button class="tab-link" onclick="openTab(event, 'change-password')" data-section="change-password">Change Password</button>
-                        <button class="tab-link" onclick="openTab(event, 'notification')" data-section="notification">Notification</button>
-
-                    </div>
+                <div class="tabs-container">
+                <button class="tab-link active" onclick="openTab('general')" data-section="general">General</button>
+                <button class="tab-link" onclick="openTab('change-password')" data-section="change-password">Change Password</button>
+                <!-- <button class="tab-link" onclick="openTab(event, 'notification')" data-section="notification">Notification</button> -->
+            </div>
 
                     <div id="general" class="tab-content active" data-section="general">
                                 <div class="col-md-3 pt-0">
@@ -566,7 +565,7 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                                <form id="editProfileForm">
+                                <form id="editProfileForm" action="<?php echo URLROOT; ?>/moderators/edit_profile" method="POST" >
                                 <div class="right-below">
                                     <div class="right-left">
                                         <div class="tab-pane fade active show" id="account-general">
@@ -576,56 +575,79 @@
                                                     <div class="form-group">
                                                         <label class="form-label">Username</label>
                                                         <input type="text" class="form-control input-field-box" name="newUsername" value="<?php echo $_SESSION['user_name']; ?>">
-                                                        <?php if (!empty($data['errors']['newUsername'])) : ?>
-                                                            <div class="form-invalid"><?php echo $data['errors']['newUsername']; ?></div>
-                                                        <?php endif; ?>
+                                                        <div class="form-invalid"><?php error('newUsername'); ?></div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="form-label">E-mail</label>
                                                         <input type="text" class="form-control input-field-box" value="<?php echo $_SESSION['user_email']; ?>" disabled>
                                                     </div>
-                                                  
-                                                    <div class="profile-buttons">
-                                                        <button class="profile-updatebt">Edit profile</button>
-                                                    </div>
-                                                <!-- </form> -->
-                                                <div style="margin-top: 20px;">
-                                                    <?php flash('profile_edit'); ?>
-                                                </div>
+                                              
                                             </div>
+                                          
                                         </div>
                                     </div>
                                     <div class="right-right">
                                     <div class="form-group">
                                         <label class="form-label">Contact number</label>
                                         <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
-                                        <?php if (!empty($data['errors']['newContactNumber'])) : ?>
-                                            <div class="form-invalid"><?php echo $data['errors']['newContactNumber']; ?></div>
-                                        <?php endif; ?>
+                                        <div class="form-invalid abs-error"><?php error('newContactNumber'); ?></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label">User-type</label>
+                                        <label class="form-label">User-Type</label>
                                         <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>" disabled>
                                     </div>
                                     </div>
                                 </div>
+                                <div style="margin-top: 20px; ">
+                                    <?php flash('profile_edit'); ?>
+                                </div>
+                                <div class="profile-buttons">
+                                    <button class="profile-updatebt">Edit profile</button>
+                                </div>
                                 </form>
 
                     </div>
+                    
+                    
 
                     <div id="change-password" class="tab-content" data-section="change-password">
-                        <h3>Change Password</h3>
-                        <p>Change your password here.</p>
+                    <form id="changePasswordForm" action="<?php echo URLROOT; ?>/users/update" method="POST" >
+                            <div class="cp-container">
+                                <div class="form-cp"> 
+                                    <label class="form-label" for="oldPassword">Old Password</label>
+                                    <input type="password" id="oldPassword" name="oldPassword" class="form-control input-field-box" required> 
+                                        <div class="form-invalid"><?php error('oldPassword'); ?></div> 
+                                </div>
+                                <div class="form-cp">
+                                    <label class="form-label" for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword"   name="newPassword" class="form-control input-field-box" required>     
+                                        <div class="form-invalid"><?php error('newPassword'); ?></div>
+                                </div>
+                                <div class="form-cp">
+                                    <label class="form-label" for="confirmPassword">Confirm New Password</label>
+                                    <input type="password" id="confirmPassword"  name="confirmPassword" class="form-control input-field-box" required> 
+                                </div>
+                                <div class="profile-buttons"> 
+                                    <button class="profile-updatebt">Change Password</button> 
+                                </div>
+                                <div id="changePasswordMessage" class="form-invalid"></div> 
+                            </div>
+                            <div style="margin-top: 30px;">
+                            <?php flash('update_password'); ?>
+                            </div>
+                        </form>
                     </div>
-                    <div id="notification" class="tab-content" data-section="notification">
+
+
+                    <!-- <div id="notification" class="tab-content" data-section="notification">
                         <h3>Notification Settings</h3>
                         <p>Customize your notification preferences here.</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
 
-            <div id="signout-content" class="content-section" data-section="notification">
+            <div id="signout-content" class="content-section" >
             <p>This is the content for the signout tab.</p>
             </div>
 
@@ -652,6 +674,10 @@
 
         // Show the selected content section
         document.getElementById(section).style.display = 'block';
+ 
+        // Select the sidebar element
+        a_name=section.split("-content")[0]+'-tab';
+        document.getElementById(a_name).parentElement.classList.add('hovered');
 
          // Update the URL hash to store the current section
         window.location.hash = '#' + section;
@@ -660,94 +686,35 @@
     // Function to handle initial content section based on URL hash
     function handleInitialSection() {
         var hash = window.location.hash;
+        // console.log("hash" + hash);
         if (hash) {
             // Extract the section name from the hash
             var section = hash.substring(1); // Remove '#'
-            showContent(section);
-            currentSection = section;
+
+            // handle the settings hash
+            if (['general', 'change-password'].includes(section)) {
+                console.log(section);
+                showContent('settings-content');
+                openTab(section)
+            }else{
+                showContent(section);
+                currentSection = section;
+            }
+            
         } else {
             // If no hash is present, default to the dashboard section
             showContent('dashboard-content');
             currentSection = 'dashboard-content';
         }
     }
-   handleInitialSection(); 
     // Call the function when the page loads
     window.onload = handleInitialSection;
-
-    // Function to redirect to the current active section
-    function redirectToCurrentSection() {
-    // Get the current hash from the URL
-    var hash = window.location.hash;
-    if (hash) {
-        // Redirect to the current active section
-        var section = hash.substring(1);
-        window.location.href = '<?php echo URLROOT; ?>/moderators/index' + hash;
-        showContent(section);
-    }
-    }
     
     </script>
 
     <!-- sweetalert remove ad pop up message -->
-    <script>
-        function confirmDelete(adId) {
-            const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                    confirmButton: 'btn btn-success ',
-                    cancelButton: 'btn btn-danger'
-                },
-                buttonsStyling: false
-            });
-
-            swalWithBootstrapButtons.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: 'No, cancel!',
-                reverseButtons: true
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Handle deletion using fetch 
-                    fetch(`http://localhost/ecotrade/Moderators/hideAd/${adId}`, {
-                        // method: 'PUT'
-                        method: 'POST'
-                    }).then(response => {
-                        if (response.ok) {
-                            swalWithBootstrapButtons.fire(
-                                'Deleted!',
-                                'Ad has been deleted.',
-                                'success'
-                            ).then(() => {
-                                // reload the page or perform other actions after deletion
-                                location.reload();
-                            });
-                        } else {
-                            throw new Error('Failed to delete ad');
-                        }
-                    }).catch(error => {
-                        console.error('Error:', error);
-                        swalWithBootstrapButtons.fire(
-                            'Error',
-                            'Failed to delete ad.',
-                            'error'
-                        );
-                    });
-                } else if (
-                    result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    swalWithBootstrapButtons.fire(
-                        'Cancelled',
-                        'The Ad is safe :)',
-                        'error'
-                    );
-                }
-            });
-        }
-    </script>
-
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/reportads.js"></script>
+  
     <script>
     // Function to handle search input
     function handleSearch() {
@@ -822,21 +789,8 @@
             }
         }
 
-        // Function to handle initial section based on URL hash
-        function handleInitialSection() {
-            var hash = window.location.hash;
-            if (hash) {
-                var sectionName = hash.substring(1); // Remove the '#'
-                showSection(sectionName);
-                currentSection = sectionName;
-            }
-        }
-
-        // Call the function when the page loads
-        window.onload = handleInitialSection; 
-
         // Function to handle opening horizontal tabs and updating URL hash
-        function openTab(evt, tabName) {
+        function openTab(tabName) {
             var sectionName = document.getElementById(tabName).getAttribute('data-section');
             console.log('Active section:', sectionName);
 
@@ -846,75 +800,61 @@
             // Show the section
             showSection(sectionName);
         }
-
-
-
-        // handle edit profile button
-        document.querySelector('.profile-updatebt').addEventListener('click', function(event) {
-
-            // Get form data
-            const form = document.getElementById('editProfileForm');
-            const formData = new FormData(form);
-
-            // Send form data asynchronously
-            fetch('<?php echo URLROOT; ?>/moderators/edit_profile', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Handle the response data as needed
-                console.log(data);
-
-                window.location.reload();
-            })
-            
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
         
+            const changepwd = document.getElementById('changePasswordForm');
+        
+            changepwd.onsubmit = function(event){
+                event.preventDefault();
+
+                fetch('<?php echo URLROOT; ?>/users/update',{
+                    method: 'POST',
+                    body: new FormData(changepwd)
+                })
+                .then(data =>{
+
+                })
+                .then(data => {
+                    // Handle the response data as needed
+                    //console.log(data);
+
+                    window.location.reload();
+                })
+                
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+
+            // Get Edit Form
+            const editForm = document.getElementById('editProfileForm');
+    
+            editForm.onsubmit = function(event){
+                event.preventDefault();
+            
+                fetch('<?php echo URLROOT; ?>/moderators/edit_profile', {
+                    method: 'POST',
+                    body: new FormData(editForm)
+                })
+                .then(data => {
+                    // Handle the response data as needed
+                    //console.log(data);
+
+                    window.location.reload();
+                })
+                
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        
+
         let profilePic = document.getElementById("profile-pic");
         let inputFile = document.getElementById("upload-photo");
 
         inputFile.onchange = function(){
         profilePic.src = URL.createObjectURL(inputFile.files[0])
-    }
-
-    </script>
-
-     <!-- this checks whether the user is logged in -->
-    <script>
-    // Function to handle initial content section based on URL hash
-    function handleInitialSection() {
-        var hash = window.location.hash;
-        if (!isLoggedIn()) {
-            redirectToLogin(); 
-            return; 
         }
 
-        if (hash) {
-            // Extract the section name from the hash
-            var section = hash.substring(1); // Remove '#'
-            showContent(section);
-            currentSection = section;
-        } else {
-            // If no hash is present, default to the dashboard section
-            showContent('dashboard-content');
-            currentSection = 'dashboard-content';
-        }
-    }
-
-    // Function to check if the user is logged in
-    function isLoggedIn() {
-        return <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
-    }
-
-    function redirectToLogin() {
-        window.location.href = '<?php echo URLROOT; ?>/Users/login';
-    }
-    // Call the function when the page loads
-    window.onload = handleInitialSection;
     </script>
 
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->

@@ -143,8 +143,8 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 //Validate number
                 if(empty($data['number'])) {
                     $data['number_err'] = 'Please enter a contact number';
-                }elseif (!ctype_digit($data['number']) || strlen($data['number']) < 9) {
-                    $data['number_err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
+                }elseif (!ctype_digit($data['number']) || strlen($data['number'])!=10) {
+                    $data['number_err'] = 'Contact number requires  10 digits and must consist only of digits.';
                 }
 
                 //validate password
@@ -394,38 +394,39 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 // $confirmPassword = trim($_POST['confirmPassword']);
                 $confirmPassword = isset($_POST['confirmPassword']) ? trim($_POST['confirmPassword']) : '';
 
-                // Initialize an array to store validation errors
-                $errors = [];
+                $flag=false;
 
                 // Validate the old password
                 if (empty($oldPassword)) {
-                    $errors['oldPassword'] = 'Please enter your old password.';
+                    $flag=true;
+                    error('oldPassword','Please enter your old password.');
                 } elseif (!$this->userModel->verifyOldPassword($_SESSION['user_id'], $oldPassword)) {
-                    $errors['oldPassword'] = 'Incorrect old password.';
+                    $flag=true;
+                    error('oldPassword','Incorrect old password.');
                 }
 
                 // Validate the new password and confirm password
                 if (empty($newPassword)) {
-                    $errors['newPassword'] = 'New password cannot be empty.';
+                    $flag=true;
+                    error('newPassword','New password cannot be empty.');
                 } elseif (strlen($newPassword) < 6) {
-                    $errors['newPassword'] = 'New password must be at least 6 characters.';
+                    $flag=true;
+                    error('newPassword','New password must be at least 6 characters.');
                 }
 
                 if (empty($confirmPassword)) {
-                    $errors['confirmPassword'] = 'Please confirm your new password.';
+                    $flag=true;
+                    error('confirmPassword','Please confirm your new password.');
                 } elseif ($newPassword !== $confirmPassword) {
-                    $errors['confirmPassword'] = 'New password and confirm password do not match.';
+                    $flag=true;
+                    error('confirmPassword','New password and confirm password do not match.');
                 }
 
                 // Check if there are any validation errors
                 if (empty($errors)) {
-                    // Call the updatePassword method in your model to update the user's password
-                    // echo 'Before if condition';
                     if ($this->userModel->updatePassword($_SESSION['user_id'], $oldPassword, $newPassword)) {
                         flash('update_password', 'New password updated successfully');
-                        //echo 'Reached here'; 
-                        // redirect('users/profile');
-                        redirect('users/profile');
+                  
                     } else {
                         // Error occurred during password update
                         die('Something went wrong while updating the password');
@@ -437,7 +438,8 @@ require APPROOT.'/libraries/vendor/autoload.php';
                         'user' => $user,
                         'errors' => $errors
                     ];
-                    $this->view('users/profile/v_create', $data);
+                    $this->view('admin/dashboard', $data);
+                    $this->view('moderators/v_index', $data);
                 }
             } else {
                 // Display the password update form
@@ -445,7 +447,8 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 $data = [
                     'user' => $user
                 ];
-                $this->view('users/profile/v_create', $data);
+                $this->view('admin/dashboard', $data);
+                $this->view('moderators/v_index', $data);
             }
         }
 
