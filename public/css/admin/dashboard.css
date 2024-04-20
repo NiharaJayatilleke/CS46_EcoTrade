@@ -836,12 +836,13 @@
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 5vh;
     transition: background-color 0.3s ease;
     /* display */
 }
 
 .form-control.input-field-box {
-    width: 70%;
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -928,7 +929,28 @@
     flex-direction: column;
     align-items: center;
 }
-.form-label{
-    
+.form-label{    
     display: block;
+}
+
+.form-cp {
+    width: 500px;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    gap: 1vh;
+
+}
+.cp-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-section{
+    display: none;
+}
+
+.abs-error{
+    margin-top: auto;
 }
