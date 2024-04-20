@@ -39,7 +39,7 @@ if($_SESSION['user_type'] != 'moderator') {
                         <p class = "sad-neg">Non-Negotiable</p>
                     <?php endif; ?>
                     <div class = "sad-condition">Condition: <?php echo $data['ad']->item_condition ?></div>
-                    <p>Quantity: 1</p>
+                    <p>Quantity: <?php echo $data['ad']->item_quantity ?></p>
                     <br>
                     </div>
                 </div>

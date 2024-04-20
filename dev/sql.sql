@@ -118,6 +118,13 @@ CREATE TABLE Item_Ads (
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
+CREATE TABLE Secondhand_Ad_Images (
+    image_id INT AUTO_INCREMENT PRIMARY KEY,
+    item_id INT,
+    image_name VARCHAR(255),
+    FOREIGN KEY (item_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
+);
+
 CREATE TABLE Featured_Ads (
     f_id INT AUTO_INCREMENT,
     p_id INT,
@@ -164,6 +171,7 @@ CREATE OR REPLACE VIEW v_ads AS
         Item_Ads.item_desc as item_desc,
         Item_Ads.item_condition as item_condition,
         Item_Ads.item_image as item_image,
+        (SELECT GROUP_CONCAT(Secondhand_Ad_Images.image_name) FROM Secondhand_Ad_Images WHERE Secondhand_Ad_Images.item_id = Item_Ads.p_id) as item_images,
         Item_Ads.item_price as item_price,
         Item_Ads.item_location as item_location,
         Item_Ads.selling_format as selling_format,

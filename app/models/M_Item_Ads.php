@@ -27,21 +27,35 @@
         }
 
         public function create($data) {
+            
             $this->db->query('INSERT INTO Item_Ads(seller_id,item_name,item_category,item_desc,item_condition,item_quantity,item_image,item_price,item_location,selling_format,negotiable) VALUES(:seller_id, :item_name, :item_category, :item_desc, :item_condition, :item_quantity, :item_image, :item_price, :item_location, :selling_format, :negotiable)'); 
+            // $this->db->query('INSERT INTO Item_Ads(seller_id,item_name,item_category,item_desc,item_condition,item_quantity,item_price,item_location,selling_format,negotiable) VALUES(:seller_id, :item_name, :item_category, :item_desc, :item_condition, :item_quantity, :item_price, :item_location, :selling_format, :negotiable)'); 
             $this->db->bind(':seller_id',$_SESSION['user_id']);         
             $this->db->bind(':item_name',$data['item_name']);
             $this->db->bind(':item_category',$data['item_category']);
             $this->db->bind(':item_desc',$data['item_desc']);  
             $this->db->bind(':item_condition',$data['item_condition']);
             $this->db->bind(':item_quantity',$data['item_quantity']);
-            $this->db->bind(':item_image',$data['item_img_name']);
+            $this->db->bind(':item_image',$data['item_img_name'][0]);
             $this->db->bind(':item_price',$data['item_price']);
             $this->db->bind(':item_location',$data['item_location']);
             $this->db->bind(':selling_format',$data['selling_format']);
             $this->db->bind(':negotiable',$data['negotiable']);
             
             if($this->db->execute()){
-                return $this->db->lastInsertId();
+                $item_id = $this->db->lastInsertId();
+
+                for($i = 1; $i < count($data['item_img_name']); $i++) {
+                    $this->db->query('INSERT INTO Secondhand_Ad_Images(item_id, image_name) VALUES(:item_id, :image_name)');
+                    $this->db->bind(':item_id', $item_id);
+                    $this->db->bind(':image_name', $data['item_img_name'][$i]);
+                    // $this->db->execute();
+                    if(!$this->db->execute()){
+                        print_r($this->db->errorInfo());
+                    }
+                }
+        
+                return $item_id;
             }
             else{
                 return false;
@@ -128,6 +142,35 @@
             $this->db->bind(':rated_by_id', $data['rated_by_id']);
             $this->db->bind(':rating', $data['rating']);
 
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public function getUserRating($adId, $userId){
+            $this->db->query('SELECT rating FROM Seller_Rating WHERE ad_id = :ad_id AND rated_by_id = :rated_by_id');
+            $this->db->bind(':ad_id', $adId);
+            $this->db->bind(':rated_by_id', $userId);
+        
+            $row = $this->db->single();
+        
+            if($this->db->rowCount() > 0){
+                return $row->rating;
+            } else {
+                return null;
+            }
+        }
+
+        public function updateSellerRating($data){
+            $this->db->query('UPDATE Seller_Rating SET rating = :rating WHERE ad_id = :ad_id AND seller_id = :seller_id AND rated_by_id = :rated_by_id');
+        
+            $this->db->bind(':ad_id', $data['ad_id']);
+            $this->db->bind(':seller_id', $data['seller_id']);
+            $this->db->bind(':rated_by_id', $data['rated_by_id']);
+            $this->db->bind(':rating', $data['rating']);
+        
             if($this->db->execute()){
                 return true;
             } else {

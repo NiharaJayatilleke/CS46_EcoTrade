@@ -101,19 +101,21 @@
             echo json_encode($data);
         }
 
-        public function itemType(){
+        public function itemType($itemType = ''){
             
             if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator' || $_SESSION['userType'] == 'center' )){      
                 $this->view('pages/forbidden');
 
             }else if(isset($_SESSION['userType'])){    
 
-            $itemType = isset($_POST['item_type']) ? $_POST['item_type'] : '';
+            // $itemType = isset($_POST['item_type']) ? $_POST['item_type'] : '';
+            
             $data = [
                 'item_name' => '',
                 'item_category' => '',
                 'item_desc' => '',
                 'item_condition' => '',
+                'item_quantity' => '',
                 'item_img' => '',
                 'item_img_name' => '',
                 'item_price' => '',
@@ -127,6 +129,7 @@
                 'item_name_err' => '',
                 'item_category_err' => '',
                 'item_condition_err' => '',
+                'item_quantity_err' => '',
                 'item_images_err' => '',
                 'item_price_err' => '',
                 'item_location_err' => '',
@@ -173,7 +176,12 @@
                     'item_condition' => trim($_POST['item_condition']),
                     'item_quantity' => trim($_POST['item_quantity']),
                     'item_img' => $_FILES['item_images'],
-                    'item_img_name' => time().'_'.$_FILES['item_images']['name'],
+
+                    // 'item_img_name' => time().'_'.$_FILES['item_images']['name'],
+                    'item_img_name' => array_map(function($filename) {
+                        return time().'_'.$filename;
+                    }, $_FILES['item_images']['name']),
+                    
                     'item_price' => trim($_POST['item_price']),
                     'item_location' => trim($_POST['item_location']),
                     'selling_format' => trim($_POST['selling_format']),
@@ -193,6 +201,8 @@
                     'starting_bid_err' => '',
                     'negotiable_err' => '',
                 ];
+
+                // die(print_r($data['item_img_name']));
 
                 //Validate each inputs
                 //Validate item_name
@@ -222,21 +232,29 @@
 
                 //Validate item_quantity
                 if(empty($data['item_quantity'])){
-                    $data['item_quantity_err'] = 'Please the quantity';
+                    $data['item_quantity_err'] = 'Please enter the quantity';
                 }
 
                 //item image
                 // if(empty($data['item_image']['size'] > 0)){
-                if(isset($_FILES['item_images']) && $_FILES['item_images']['size'] > 0){
-                    if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
+                // if(isset($_FILES['item_images']) && $_FILES['item_images']['size'] > 0){
+                //     if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
+            if (empty($_FILES['item_images']['name'][0])) {
+                $data['item_images_err'] = 'Please upload at least one image.';
+            } else {
+                if(isset($_FILES['item_images']) && count($_FILES['item_images']['size']) > 0){
+                for($i = 0; $i < count($_FILES['item_images']['name']); $i++) {
+                    $new_name = time() . '_' . $_FILES['item_images']['name'][$i];
+                    if(uploadImage($_FILES['item_images']['tmp_name'][$i], $new_name, '/img/items/')){
                         //echo 'Image uploaded';
                     }else {
                         $data['item_images_err'] = 'Image upload unsuccessful';
                     }
+                }
                 }else{
                     $data['item_image'] = null;
                 }
-                
+            }
 
                 //Validate item_price
                 if(empty($data['item_price'])) {
@@ -737,6 +755,51 @@
             }
 
         }
-    
+
+        public function checkUserRating($adId){
+            error_log('checkUserRating function called with adId: ' . $adId);
+
+            $userId = $_SESSION['user_id'];
+
+            $rating = $this->itemAdsModel->getUserRating($adId, $userId);
+
+            if($rating){
+                echo json_encode(
+                    array('hasRated' => true, 'rating' => $rating)
+                );
+            } else {
+                echo json_encode(
+                    array('hasRated' => false)
+                );
+            }
+        }
+
+        public function updateSellerRating($adId){
+            error_log('updateSellerRating function called with adId: ' . $adId);
+        
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        
+                $jsonData = json_decode(file_get_contents("php://input"), true);
+        
+                $sellerId = $this->itemAdsModel->getSellerByAd($adId);
+        
+                $data = [
+                    'ad_id' => $adId,
+                    'seller_id' => $sellerId->seller_id,
+                    'rated_by_id' => $_SESSION['user_id'],
+                    'rating' => $jsonData['rating']
+                ];
+        
+                if($this->itemAdsModel->updateSellerRating($data)){
+                    echo json_encode(
+                        array('message' => 'Rating Updated')
+                    );
+                } else {
+                    echo json_encode(
+                        array('message' => 'Rating Not Updated')
+                    );
+                }
+            }
+        }
     }
 ?>

@@ -3,10 +3,14 @@ const dropArea = document.querySelector(".ad-form-drag-area");
 let dropText = document.querySelector(".ad-form-drag-area-text");
 const browseButton = document.querySelector(".ad-form-drag-area-btn");
 let inputPath = document.querySelector("#item_images");
-let file;
+// let file;
+let files = [];
+let totalFiles = 0; 
 
 var imgPlaceholder = document.querySelector("#item_img_placeholder");
 var icon = document.querySelector("#item_img_placeholder_icon");
+let imageContainer = document.querySelector("#image_container");
+
 // let dropAreas = document.querySelectorAll(".ad-form-drag-area");
 // let dropTexts = document.querySelectorAll(".ad-form-drag-area-text");
 // let browseButtons = document.querySelectorAll(".ad-form-drag-area-btn");
@@ -38,9 +42,19 @@ browseButton.onclick = () => {
 }
 
 inputPath.addEventListener("change", function () {
-  file = this.files[0];
-  showImage(imgPlaceholder,icon,file);
+  // file = this.files[0];
+  // showImage(imgPlaceholder,icon,file);
 //   dropArea.classList.add("active");
+  if (this.files.length + totalFiles > 6) {
+    alert('You can only upload a maximum of 6 files');
+    this.value = '';
+  } else {
+    files = this.files;
+    totalFiles += this.files.length;
+    Array.from(files).forEach(file => {
+      showImage(imageContainer,icon,file);
+    });
+  }
 });
 
 dropArea.addEventListener("dragover", (event) => {
@@ -57,16 +71,32 @@ dropArea.addEventListener("dragleave", () => {
 dropArea.addEventListener("drop", (event)=>{
     event.preventDefault();
 
-    file = event.dataTransfer.files[0];
-    let list = new DataTransfer();
-    list.items.add(file);
-    inputPath.files = list.files;
+    // file = event.dataTransfer.files[0];
+    // let list = new DataTransfer();
+    // list.items.add(file);
+    // inputPath.files = list.files;
 
-    showImage(imgPlaceholder,icon,file);
-    dropArea.classList.remove("active");
+    // showImage(imgPlaceholder,icon,file);
+    // dropArea.classList.remove("active");
+
+    if (event.dataTransfer.files.length + totalFiles > 6) {
+      alert('You can only upload a maximum of 6 files');
+    } else {
+      let list = new DataTransfer();
+      Array.from(inputPath.files).forEach(file => {
+        list.items.add(file);
+      });
+      Array.from(event.dataTransfer.files).forEach(file => {
+        list.items.add(file);
+        showImage(imageContainer,icon,file);
+      });
+      inputPath.files = list.files;
+      totalFiles += event.dataTransfer.files.length;
+      dropArea.classList.remove("active");
+    }
 })
 
-function showImage(imgPlaceholder,icon,file){
+function showImage(imageContainer,icon,file){
     let fileType = file.type;
 
     let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
@@ -77,8 +107,8 @@ function showImage(imgPlaceholder,icon,file){
 
             // var imgPlaceholder = document.querySelector("#item_img_placeholder");
             // var imgPlaceholder = placeholders[i];
-            imgPlaceholder.setAttribute("src", fileURL);
-            imgPlaceholder.style.display = "block";            
+            // imgPlaceholder.setAttribute("src", fileURL); //i
+            // imgPlaceholder.style.display = "block";     //i       
             // document.querySelector("#item_img_placeholder").style.backgroundImage = 'url(' + fileURL + ')';
 
             // var icon = document.querySelector("#item_img_placeholder_icon");
@@ -86,11 +116,54 @@ function showImage(imgPlaceholder,icon,file){
             // var or = document.querySelector(".ad-form-drag-area-or");
             // var button = document.querySelector(".ad-form-drag-area-btn");
 
+             // Create a new image element
+            let img = document.createElement('img');
+            img.setAttribute("src", fileURL);
+            img.style.display = "block";
+
+            // Create a new div to hold the image and the remove button
+            let imgWrapper = document.createElement('div');
+            imgWrapper.style.position = "relative";
+
+            // Create the remove button
+            let removeBtn = document.createElement('button');
+            removeBtn.textContent = 'X';
+            removeBtn.style.position = "absolute";
+            removeBtn.style.top = "0";
+            removeBtn.style.right = "0";
+
+            // removeBtn.style.background = "#ff0000"; // Red background
+            removeBtn.style.background = "#b8b8b8";
+            removeBtn.style.color = "#ffffff"; // White text
+            removeBtn.style.borderRadius = "50%"; // Round button
+            removeBtn.style.border = "none"; // No border
+            removeBtn.style.width = "19px"; // Width
+            removeBtn.style.height = "19px"; // Height
+            removeBtn.style.cursor = "pointer"; // Pointer cursor on hover
+
+            removeBtn.addEventListener('click', () => {
+                // Remove the image and decrease the totalFiles count
+                imageContainer.removeChild(imgWrapper);
+                totalFiles--;
+            });
+
+            // Append the image and the remove button to the wrapper
+            imgWrapper.appendChild(img);
+            imgWrapper.appendChild(removeBtn);
+
+             // Append the new image element to the placeholder
+            imageContainer.appendChild(imgWrapper);
+
+            console.log('Image appended to container');
+
             icon.style.display = "none";
             // text.style.display = "none";
             // or.style.display = "none";
             // button.style.display = "none";
-        }
+        };
+        fileReader.onerror = () => {
+          console.error('Error reading file:', fileReader.error); // Debugging line
+        };
         fileReader.readAsDataURL(file);
 
         //let validate = document.querySelector(".form-drag-area-validate");

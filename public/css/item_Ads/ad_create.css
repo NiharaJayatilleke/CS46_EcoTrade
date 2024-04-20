@@ -10,9 +10,10 @@
 } */
 
 .ad-background {
+    margin-top: -12px;
     position: relative; /*makes it long but removing this gives top margin error*/ 
     /* padding-top: 20px; */
-    padding-bottom: 50px;
+    padding-bottom:50px;
 }
 
 .ad-background::before {
@@ -23,10 +24,10 @@
     filter: blur(3px);
     position: absolute;
     background-position: center top;
-    top: 0;
+    top: -2%;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 102%;
     z-index: -1;
 }
 
@@ -40,6 +41,7 @@
     box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
     width: 680px;
     border: 1px solid #d3d3d3;
+    /* margin-bottom: 20px; */
 }
 
 .ad-form-header {
@@ -58,7 +60,8 @@
     font-size: 16px;
     font-weight: 500;
     margin-top: 15px;
-    color:  rgb(83, 127, 56);
+    /* color:  rgb(83, 127, 56); */
+    color: #4e4e4e;
     font: bold;
 }
 
@@ -143,8 +146,8 @@
 } 
 
 .ad-form-drag-area.active{ /* CHECK */
-    border: 2px dashed #7bd664;
-    background-color: antiquewhite;
+    border: 2px dashed #a2a1a1;
+    background-color: rgb(239, 239, 239);
 }
 
 .ad-icon  {
@@ -254,6 +257,19 @@
     /* background-color: #17751f; */
     color: #fffefe;
 }  
+
+#image_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+#image_container img {
+    max-width: 150px;
+    max-height: 150px;
+    margin: 10px;
+}
 
 .ad-additional-images {
     display: flex;
