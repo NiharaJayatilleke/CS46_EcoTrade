@@ -7,10 +7,11 @@
         }
 
         public function re_create1($data) {
-            $this->db->query('INSERT INTO Re_Centers(item_category,item_desc,item_location) VALUES(:item_category, :item_desc,:item_location)'); 
+            $this->db->query('INSERT INTO Re_Centers(item_category,item_desc,item_location,item_quantity) VALUES(:item_category, :item_desc,:item_location,:item_quantity)'); 
             $this->db->bind(':item_category',$data['item_category']);
             $this->db->bind(':item_desc',$data['item_desc']);  
             $this->db->bind(':item_location',$data['item_location']);
+            $this->db->bind(':item_quantity',$data['item_quantity']);
             
             if($this->db->execute()){
                 return true;

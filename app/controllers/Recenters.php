@@ -36,11 +36,13 @@
                 // 'item_img' => $_FILES['item_images'],
                 // 'item_img_name' => time().'_'.$_FILES['item_images']['name'],
                 'item_location' => trim($_POST['item_location']),
+                'item_quantity' => trim($_POST['item_quantity']),
 
                 // 'item_name_err' => '',
                 'item_category_err' => '',
                 // 'item_images_err' => '',
                 'item_location_err' => '',
+                'item_quantity_err' => '',
 
             ];
 
@@ -108,11 +110,13 @@
                 // 'item_img' => '',
                 // 'item_img_name' => '',
                 'item_location' => '',
+                
 
                 // 'item_name_err' => '',
                 'item_category_err' => '',
                 // 'item_images_err' => '',
                 'item_location_err' => '',
+                'item_quantity_err' => '',
             ];
 
             //load view
