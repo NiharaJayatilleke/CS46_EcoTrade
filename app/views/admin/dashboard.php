@@ -171,7 +171,7 @@
 
                 <div class="graphBox">
                     <div class="box">
-                        <canvas id="myChart"></canvas>
+                        <canvas id="adminChart"></canvas>
                     </div>
                     <div class="box">
                         <canvas id="ads"></canvas>
@@ -834,7 +834,7 @@
     </script> 
 
     <!-- Javascript for image upload -->
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/chart.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/alerts.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/ad_view.js"></script>

@@ -1,4 +1,4 @@
-const ctx = document.getElementById('myChart');
+const ctx = document.getElementById('adminChart');
 const ads = document.getElementById('ads');
 
 // Extract labels and counts from the userCounts object
