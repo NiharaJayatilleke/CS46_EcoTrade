@@ -54,8 +54,8 @@
                             <input type="checkbox" id="glass" name="categories[]" value="glass">
                             <label for="E-Waste">E-Waste</label>
                             
-                            <input type="checkbox" id="e_waste" name="categories[]" value="e_waste">
-                            <label for="Other">Other</label>
+                            <!-- <input type="checkbox" id="e_waste" name="categories[]" value="e_waste">
+                            <label for="Other">Other</label> -->
                         </div>
                         </div>
 
