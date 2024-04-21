@@ -677,12 +677,14 @@
             <div id="settings-content" class="content-section">
                 <div class="profile-settings-container">
                     <div class="tabs-container">
-                        <button class="tab-link active" onclick="openTab(event, 'general')">General</button>
+                        <!-- <button class="tab-link active" onclick="openTab(event, 'general')">General</button>
                         <button class="tab-link" onclick="openTab(event, 'change-password')">Change Password</button>
-                        <button class="tab-link" onclick="openTab(event, 'notification')">Notification</button>
+                        <button class="tab-link" onclick="openTab(event, 'notification')">Notification</button> -->
+                        <button class="tab-link active" onclick="openTab('general')" data-section="general">General</button>
+                         <button class="tab-link" onclick="openTab('change-password')" data-section="change-password">Change Password</button>
                     </div>
 
-                    <div id="general" class="tab-content active">
+                    <div id="general" class="tab-content active"  data-section="general">
                                 <div class="col-md-3 pt-0">
                                     <div class="profile_image">
                                         <div class="image-container">
@@ -695,15 +697,15 @@
                                             ?>
                                         </div>
                                     </div>  
-                                    <form method="POST" action="<?php echo URLROOT; ?>/moderators/index" enctype="multipart/form-data">               
-                                        <div class="media-body">
-                                            <div class="file-upload">
-                                                <label for="upload-photo">Browse Photo</label>
-                                                <input type="file" id="upload-photo" name="photo" accept="image/*">
+                                    <form method="POST" action="<?php echo URLROOT; ?>/moderators/index#settings-content" enctype="multipart/form-data">               
+                                            <div class="">
+                                                <button type="button"><label for="upload-photo" title="Browse Photo"><i class="fas fa-edit"></i></label></botton>
+                                                <div class="file-upload">
+                                                    <input type="file" id="upload-photo" name="photo" accept="image/*">
+                                                </div>
+                                                <button class="savebutton"  type="submit" title="Save Photo"><i class="fas fa-bookmark"></i></button> 
                                             </div>
-                                            <button class="savebutton" type="submit">Save</button> 
-                                        </div>
-                                    </form>
+                                        </form>
                                 <?php if (!empty($data['userdetails']->profile_image)) : ?>
                                     <form method="POST" action="<?php echo URLROOT; ?>/users/remove_photo">
                                         <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
@@ -754,7 +756,7 @@
 
                     </div>
 
-                    <div id="change-password" class="tab-content">
+                    <div id="change-password" class="tab-content" data-section="change-password">
                         <form id="changePasswordForm" action="<?php echo URLROOT; ?>/users/update" method="POST" >
                             <div class="cp-container">
                                 <div class="form-cp"> 
@@ -781,7 +783,7 @@
                             </div>
                         </form>
                     </div>
-                    <div id="notification" class="tab-content">
+                    <div id="notification" class="tab-content" data-section="notification">
                         <h3>Notification Settings</h3>
                         <p>Customize your notification preferences here.</p>
                     </div>
@@ -809,39 +811,98 @@
         // Show the selected content section
         document.getElementById(section).style.display = 'block';
 
+         // Select the sidebar element
+         a_name=section.split("-content")[0]+'-tab';
+        document.getElementById(a_name).parentElement.classList.add('hovered');
+
          // Update the URL hash to store the current section
         window.location.hash = '#' + section;
     }
 
     // Function to handle initial content section based on URL hash
+    // function handleInitialSection() {
+    //     var hash = window.location.hash;
+    //     if (hash) {
+    //         // Extract the section name from the hash
+    //         var section = hash.substring(1); // Remove '#'
+    //         showContent(section);
+    //         currentSection = section;
+    //     } else {
+    //         // If no hash is present, default to the dashboard section
+    //         showContent('dashboard-content');
+    //         currentSection = 'dashboard-content';
+    //     }
+    // }
+//    handleInitialSection(); 
+    // Call the function when the page loads
+    // window.onload = handleInitialSection;
+
+    // Function to redirect to the current active section
     function handleInitialSection() {
         var hash = window.location.hash;
+        // console.log("hash" + hash);
         if (hash) {
             // Extract the section name from the hash
             var section = hash.substring(1); // Remove '#'
-            showContent(section);
-            currentSection = section;
+
+            // handle the settings hash
+            if (['general', 'change-password'].includes(section)) {
+                console.log(section);
+                showContent('settings-content');
+                openTab(section)
+            }else{
+                showContent(section);
+                currentSection = section;
+            }
+            
         } else {
             // If no hash is present, default to the dashboard section
             showContent('dashboard-content');
             currentSection = 'dashboard-content';
         }
     }
-   handleInitialSection(); 
     // Call the function when the page loads
     window.onload = handleInitialSection;
 
-    // Function to redirect to the current active section
-    function redirectToCurrentSection() {
-    // Get the current hash from the URL
-    var hash = window.location.hash;
-    if (hash) {
-        // Redirect to the current active section
-        var section = hash.substring(1);
-        window.location.href = '<?php echo URLROOT; ?>/moderators/index' + hash;
-        showContent(section);
-    }
-}
+    
+        // Function to show a specific section based on the hash in the URL
+        function showSection(sectionName) {
+            var tabContent = document.getElementById(sectionName);
+            if (tabContent) {
+                // Hide all tab contents
+                var allTabs = document.querySelectorAll('.tab-content');
+                allTabs.forEach(tab => tab.style.display = 'none');
+
+                // Show the selected tab content
+                tabContent.style.display = 'block';
+
+                // Update tab styles if needed
+                var tabLinks = document.querySelectorAll('.tab-link');
+                tabLinks.forEach(link => link.classList.remove('active'));
+                var activeLink = document.querySelector('button[data-section="' + sectionName + '"]');
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        }
+
+        // Function to handle opening horizontal tabs and updating URL hash
+        function openTab(tabName) {
+            var sectionName = document.getElementById(tabName).getAttribute('data-section');
+            console.log('Active section:', sectionName);
+
+            // Update the URL hash
+            window.location.hash = '#' + sectionName;
+
+            // Show the section
+            showSection(sectionName);
+        }
+        
+        let profilePic = document.getElementById("profile-pic");
+        let inputFile = document.getElementById("upload-photo");
+
+        inputFile.onchange = function(){
+        profilePic.src = URL.createObjectURL(inputFile.files[0])}
     
     </script>
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
@@ -878,7 +939,7 @@
 
     <!-- JS for other interactions -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>
-    
+  
 
 
 
