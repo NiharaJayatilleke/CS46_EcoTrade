@@ -1,99 +1,105 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
-<!-- <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_help.css"> -->
 
-  <div class="div-2">
-    <img
-      loading="lazy"
-      src="../public/img/help/Rectangle16.png"
-      class="img-2"
-    />
-    <div class="div-3">HELP CENTER</div>
-    <div class="div-4">How we can help you!</div>
-    <div class="div-5">
-      <div class="div-6">
-        <img
-          loading="lazy"
-          src="../public/img/help/MagnifyingGlass.png"
-          class="img-3"
-        />
-        <div class="div-7">Enter your question or keyword</div>
-      </div>
-      <div class="div-8">Search</div>
-    </div>
-  </div>
-  <div class="div-9">
-    <div class="div-10">
-      <div class="div-11">CONTACT US</div>
-      <div class="div-12">
-        Don’t find your answer.
-        <br />
-        Contact with us
-      </div>
-      <div class="div-13">
-        <div class="div-14">
-          <div class="column">
-            <div class="div-15">
-              <div class="div-16">
-                <div class="column-2">
-                  <div class="div-17">
-                    <img
-                      loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/20089443-36cc-4811-a599-10acf7b65d54?"
-                      class="img-4"
-                    />
-                  </div>
-                </div>
-                <div class="column-3">
-                  <div class="div-18">
-                    <div class="div-19">Call us now</div>
-                    <div class="div-20">
-                      we are available online from 9:00 AM to 5:00 PM (GMT95:45)
-                      Talk with use now
-                    </div>
-                    <div class="div-21">+1-202-555-0126</div>
-                    <div class="div-22">
-                      <div class="div-23">Call now</div>
-                   
-                    </div>
-                  </div>
-                </div>
-              </div>
+<body class="b110">
+
+       
+ 
+    <section class="hero gridSection">
+        <div class="sectionDesc">
+            <h1 class="headline">
+                Recycle, Earn <span class="cryptoText">ECOTRADE</span>.
+            </h1>
+            <p class="sub-headline">
+                
+"EcoTrade is more than a platform; it's a movement. We unite buyers and collectors to transform waste into valuable resources. By connecting people with a shared vision of sustainability, we redefine recycling and contribute to a greener world. Join us in shaping a future where every eco-conscious action makes a difference. Together, let's create a sustainable tomorrow."
+            </p>
+            <div class="btnContainer">
+                <button class="btn btn110">Explore More</button>
+                
             </div>
-          </div>
-          <div class="column-4">
-            <div class="div-24">
-              <div class="div-25">
-                <div class="column-5">
-                  <div class="div-26">
-                    <img
-                      loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/0df5cbe5-399d-4707-9d6f-b62317f0db0f?"
-                      class="img-6"
-                    />
-                  </div>
-                </div>
-                <div class="column-6">
-                  <div class="div-27">
-                    <div class="div-28">Chat with us</div>
-                    <div class="div-29">
-                      we are available online from 9:00 AM to 5:00 PM (GMT95:45)
-                      Talk with use now
-                    </div>
-                    <div class="div-30">Support@clicon.com</div>
-                    <div class="div-31">
-                      <div class="div-32">Contact Us</div>
-                     
-                     
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="sectionPic bouncepic" id="sectionPic">
+            <img src="./public/img/about/wepik-export-20240421085733kCr4.png" alt="">
+        </div>
+    </section>
+
+    <!-- Carousel -->
+    <section>
+        <div class="carouselContainer">
+            <div class="eachCarousel eachCarouselBorder">
+                <img src="./public/img/about/recycling.png" alt="">
+                <article class="carouselDesc">
+                    <h1 class="carouselTitle">Recycle Selling</h1>
+                    <p class="carouselPara">
+                        Recycle selling on EcoTrade links recyclers with buyers, including recycling centers and collectors, fostering sustainability and waste reduction.</p>
+              
+                    <button class="btn carouselBtn">Explore </button>
+                </article>
+            </div>
+    
+            <div class="eachCarousel">
+                <img src="./public/img/about/paper-bag.png" alt="">
+                <article class="carouselDesc">
+                    <h1 class="carouselTitle">Recycle Buying</h1>
+                    <p class="carouselPara">
+                        Recycle buying on EcoTrade connects buyers with recyclers, including recycling centers and collectors, promoting sustainability and reducing waste.</p>
+                  
+                    <button class="btn carouselBtn">Explore </button>
+                </article>
+            </div>
+    
+            <div class="eachCarousel">
+                <img src="./public/img/about/grocery-store.png" alt="">
+                <article class="carouselDesc">
+                    <h1 class="carouselTitle">Eco Market</h1>
+                    <p class="carouselPara">
+                        Eco market on EcoTrade facilitates the buying and selling of secondhand items, fostering sustainability and reducing waste through a shared e-commerce platform.</p>
+                    <button class="btn carouselBtn1">Explore </button>
+                </article>
+            </div>
+    
+        <div class="carouselIndicator">
+            <div class="indicator activeIndicator" onclick="slideCarousel(0)"></div>
+            <div class="indicator" onclick="slideCarousel(1)"></div>
+            <div class="indicator" onclick="slideCarousel(2)"></div>
+            <div class="indicator" onclick="slideCarousel(3)"></div>
+            <div class="indicator" onclick="slideCarousel(4)"></div>
+            <div class="indicator" onclick="slideCarousel(5)"></div>
+        </div>
+    </section>
+
+    <!-- Processes -->
+    <section class="gridSection">
+        <div class="sectionDesc processessDesc">
+            <h1 class="sectionHeader">Main Goal</h1>
+            <p class="sectionPara">We do not charge any fees and we do not require 
+              any registration. You keep your privacy and your 
+              coins.
+            </p>
+            <div class="eachProcesses">
+                <img src="./public/img/about/handshake-icon-white-line.svg" alt="handshake">
+                <div class="eachprocessesPara">
+                    <h1 class="processTitle">Recycle</h1>
+                    <p>
+                        Turn waste into valuable resources. Make recycling part of your everyday routine to help the planet.                    </p>
+                </div>
+            </div>
+            <div class="eachProcesses">
+                <img src="./public/img/about/cart-icon-white-line.svg" alt="handshake">
+                <div class="eachprocessesPara">
+                    <h1 class="processTitle">Earn</h1>
+                    <p>
+                        Turn recycling into an opportunity to earn. Collect, recycle, and get rewarded for your eco-friendly contributions.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="sectionPic bouncepic processesPic" id="sectionPic">
+            <img src="./public/img/about/wepik-export-20240421093650W1dh.png" alt="">
+        </div>
+    </section>
+    <script src="./script.js"></script>
+
+</body>
