@@ -171,7 +171,7 @@
 
                 <div class="graphBox">
                     <div class="box">
-                        <canvas id="adminChart"></canvas>
+                        <canvas id="myChart"></canvas>
                     </div>
                     <div class="box">
                         <canvas id="ads"></canvas>
@@ -671,6 +671,26 @@
             <div id="ad-report-content" class="content-section">
                 <div>
                     <!-- logic here for ad report -->
+                    <div class="reported-ads-container">
+
+                    <h1>Reported Ads</h1>                  
+                    <table class="reported-ads-table">
+                        <thead>
+                        <tr>
+                            <!-- <th>Report ID</th> -->
+                            <th>Ad ID</th>
+                            <th>Item Name</th>
+                            <th>Reporter ID</th>
+                            <th>Report Reason</th>
+                            <th>Report Comments</th>
+                            <th>Report Contact</th>
+                            <th>Report Status</th>
+                            <th>Reported At</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <thead>
+
                 </div>
             </div>
 
