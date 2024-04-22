@@ -47,5 +47,19 @@
                 return false;
             }
         }
+
+        public function addBuyerResponse($data){
+            $this->db->query('INSERT INTO Buyer_Responses (notif_id, response, rejection_reason) VALUES(:notif_id, :response, :rejection_reason)'); 
+            $this->db->bind(':notif_id',$data['notif_id']);     
+            $this->db->bind(':response',$data['response']);    
+            $this->db->bind(':rejection_reason',$data['rejection_reason']);
+        
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 ?>

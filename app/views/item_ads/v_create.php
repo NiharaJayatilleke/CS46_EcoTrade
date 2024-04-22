@@ -68,7 +68,7 @@
             <input type="number" name="item_quantity" id="item_quantity" class="ad_item_quantity" value="<?php echo $data['item_quantity']; ?>" >
             <span class="ad-form-invalid"><?php echo $data['item_quantity_err']; ?></span>
 
-            <div class="ad-form-input-title">Upload Main Image</div>
+            <div class="ad-form-input-title">Upload Images (min:1, max:6)</div>
             <!-- item images -->
             <div class = "ad-form-drag-area" id="form-drag-area">
                 <div class = "ad-icon">
@@ -97,7 +97,7 @@
             </script>
 
             <!-- ADDITIONAL IMAGES -->
-            <div class="ad-form-input-title">Upload Additional Images</div>
+            <!-- <div class="ad-form-input-title">Upload Additional Images</div> -->
 
             <div class = "ad-additional-images">
             <!-- additional image 1 
