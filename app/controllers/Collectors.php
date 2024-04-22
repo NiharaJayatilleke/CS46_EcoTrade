@@ -5,7 +5,8 @@
             $this->collectorModel = $this->model('M_Collectors');
             $this->pagesModel = $this->model('M_Pages');
             $this->districtModel = $this->model('M_Districts'); // Add this line
-            $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads');  
+            $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads'); 
+            $this->recentersModel = $this->model('M_Recenters'); 
         }
 
         public function register(){
@@ -238,8 +239,10 @@
 
         public function index(){
             $ads = $this->recycleItemAdsModel->getAds();
+            $ads2= $this->recentersModel->getAds();
             $data = [
                 'ads' => $ads,
+                'ads2' => $ads2,
             ];
             $this->view('users/collectors/dashboard',$data);
         }
