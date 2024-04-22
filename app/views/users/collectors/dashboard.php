@@ -271,36 +271,44 @@
                                           
                                 // print_r($data);
 ?>
+
+<div class="ads-table-container">
+    <table class="ads-table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Quantity</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (!empty($data['ads2'])): ?>
+                <?php foreach ($data['ads2'] as $ad): ?>
+                    <a class="ad-show-link" href="<?php echo URLROOT;?>/Recenters/recenteradShow/<?php echo $ad->r_id?>">
+
+                <tr>
+                    <td><?php echo htmlspecialchars($ad->item_category, ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td><?php echo htmlspecialchars($ad->item_desc, ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td><?php echo htmlspecialchars($ad->item_location, ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td><?php echo htmlspecialchars($ad->item_quantity, ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td><?php echo htmlspecialchars(convertTime($ad->created_at), ENT_QUOTES, 'UTF-8'); ?></td>
+                </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="5">No ads found</td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</div>
+
                     <div class="ads-container">
                         <?php foreach($data['ads2'] as $ad): ?>
                         <a class="ad-show-link" href="<?php echo URLROOT;?>/Recenters/recenteradShow/<?php echo $ad->r_id?>">
-                            <div class="ad-index-container"
-                                data-desc="<?php echo $ad->item_desc ?>"
-                                data-condition="<?php echo $ad->item_condition ?>"
-                                data-category="<?php echo $ad->item_category ?>"
-                                data-condition="<?php echo $ad->item_condition ?>">
-
-                                <div class="ad-header">
-                                    <!-- <div class="ad-body-image">
-                                        <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
-                                    </div> -->
-                                    <!-- <php if($ad->seller_id == $_SESSION['user_id']): ?> 
-                                            <div class = "post-control-btns">
-                                                <a href = "<php echo URLROOT?>/ItemAds/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn" title="edit ad"><i class="fas fa-edit"></i></button></a>
-                                                <a href = "<php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
-                                                <a href = "<php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="ad-report-btn" title="report ad"><i class="fas fa-flag"></i></button></a> 
-                                            </div>
-                                        <php endif; ?> -->
-                                    <div class="ad-item-desc"><h3><?php echo $ad->item_desc ?></h3></div>
-                                    <div class="ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
-                                    <div class="ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
-                                </div>
-
-                                <div class="ad-body">
-                                    <div class="ad-body-desc"><?php echo $ad->item_desc ?></div>
-                                    <div class="ad-price"> <?php echo $ad->item_price ?></div>
-                                </div>
-                                </div>
+                        </div>
                         </a>
                         <?php endforeach; ?>
                         <div id="noResults" style="display:none;">
