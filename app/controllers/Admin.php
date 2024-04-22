@@ -18,6 +18,7 @@
                 $adCountsByCategory = $this->moderatorModel->getItemAdCountsByCategory();
                 $moderators = $this->moderatorModel->getModerators();
                 $numModerators = count($moderators);
+                $userCounts = $this->moderatorModel->getUserCounts();
                 $users = $this->userModel->getUsers();
                 $numUsers = count($users);
                 // $reportedAds = $this->moderatorModel->getReportedAds();
@@ -28,6 +29,7 @@
                     'moderators_count' => $numModerators,
                     'adCountsByCategory' => $adCountsByCategory,
                     'moderators' => $moderators,
+                    'userCounts' => $userCounts,
                     'users' => $users,
                     'users_count' => $numUsers,
                     // 'reportedAds' => $reportedAds,
@@ -168,3 +170,4 @@
     //     }
     }
 ?>
+
