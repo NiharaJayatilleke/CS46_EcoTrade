@@ -178,3 +178,50 @@
     }
 } 
 
+/* Container styling for the table */
+.ads-table-container {
+    width: 100%; /* Ensures the table spans the full width of the parent container */
+    margin: 20px auto; /* Centers the container with some spacing */
+    padding: 10px; /* Adds padding inside the container */
+    background-color: #f9f9f9; /* Light background for the container */
+    border: 1px solid #ddd; /* Thin border to visually separate the container */
+    border-radius: 5px; /* Rounded corners for the container */
+}
+
+/* Table styling */
+.ads-table {
+    width: 100%; /* Makes sure the table spans the full width of the container */
+    border-collapse: collapse; /* Removes space between table cells */
+}
+
+/* Styling for table headers */
+.ads-table thead {
+    background-color: #f1f1f1; /* Light background color for table headers */
+}
+
+.ads-table th {
+    padding: 10px; /* Adds padding to the headers */
+    text-align: left; /* Aligns text to the left */
+    border-bottom: 2px solid #ddd; /* Thicker border at the bottom of headers */
+}
+
+/* Styling for table rows and cells */
+.ads-table td {
+    padding: 10px; /* Adds padding to the cells */
+    border-bottom: 1px solid #ddd; /* Adds a thin border between rows */
+}
+
+/* Alternating row colors for better readability */
+.ads-table tr:nth-child(odd) {
+    background-color: #ffffff; /* Lighter background color for odd rows */
+}
+
+.ads-table tr:nth-child(even) {
+    background-color: #ffffff; /* White background for even rows */
+}
+
+/* Hover effect for rows */
+.ads-table tr:hover {
+    background-color: #e0e0e0; /* Gray background on hover */
+    cursor: pointer; /* Changes cursor to a pointer on hover */
+}
