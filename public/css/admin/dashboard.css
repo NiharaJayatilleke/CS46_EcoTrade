@@ -647,7 +647,7 @@
 .reported-ads-table th,
 .reported-ads-table td {
     padding: 10px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -660,6 +660,7 @@
     background: var(--green); /* Adjust color for hover effect */
     color: var(--white); /* Adjust text color for hover effect */
 }
+
 
 #removeadbtn ,.btn.btn-success{
     background: #FF4742;
