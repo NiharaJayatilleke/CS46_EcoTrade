@@ -985,7 +985,7 @@
 
     <!-- JS for other interactions -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>
-  
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/reportads.js"></script>
 
 
 
