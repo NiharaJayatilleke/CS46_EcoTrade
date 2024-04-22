@@ -630,61 +630,35 @@
 
 
 /* report ads css on moderator dashboard */
-
 .reported-ads-container {
-    margin-top: 0rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+    background: #fff;
+    margin-bottom: 30px;
 }
 
 .reported-ads-table {
-    width: 90%;
-    border-radius: 1rem;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* transition: all 300ms ease; */
-    border-spacing: 0;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.reported-ads-table:hover {
-    box-shadow: none;
-}
-
-.reported-ads-table tr {
-    transition: all 200ms ease;
-    cursor: pointer;
-}
-
-.reported-ads-table tr:not(:first-child):hover {
-    background: #dce1eb;
-    color: var(--color-light);
-    transform: scale(100%, 105%);
+.reported-ads-table th,
+.reported-ads-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .reported-ads-table th {
-    background: #848bc82e;
-    border: none;
-    height: 4rem;
-    text-align: center;
+    font-weight: 600;
+    color: var(--green);
 }
 
-.reported-ads-table td {
-    height: 4.0rem;
-    border-bottom: 1px solid #848bc82e;
-    color: var(--color-dark-variant);
-    font-weight: 550;
-    
-}
-
-.reported-ads-table:last-child tr:last-child td {
-    border: none;
-}
-
-.reported-ads-table img {
-    width: 8rem;
-    margin: 0.5rem;
+.reported-ads-table tbody tr:hover {
+    background: var(--green); /* Adjust color for hover effect */
+    color: var(--white); /* Adjust text color for hover effect */
 }
 
 #removeadbtn ,.btn.btn-success{
@@ -720,9 +694,6 @@
     color: #FF4742;
 }
 
-.reported-ads-table button:active {
-    opacity: .5;
-}
 
 #viewadbtn ,.btn.btn-danger{
     background: #28a745; 
