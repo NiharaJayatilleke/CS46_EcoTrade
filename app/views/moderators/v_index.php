@@ -708,6 +708,7 @@
         }
     }
     // Call the function when the page loads
+    handleInitialSection(); 
     window.onload = handleInitialSection;
     
     </script>
