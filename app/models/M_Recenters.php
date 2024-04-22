@@ -22,11 +22,31 @@
         }
 
      
-       // public function getAds(){
-        //     $this->db->query('SELECT * FROM Re_Centers');
-        //     $results = $this->db->resultSet();
-        //     return $results;
-        // }
+       public function getAds(){
+            $this->db->query('SELECT * FROM Re_Centers');
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
+
+        public function getAdById($adId){
+            $this->db->query('SELECT * FROM v_recenter_ads WHERE ad_id = :id');
+            $this->db->bind(':id',$adId);
+            $row = $this->db->single();
+            return $row;
+        }
+
+        public function delete($adId){
+            $this->db->query('DELETE FROM Re_Centers WHERE rad_id = :id');
+            $this->db->bind(':id',$adId);
+
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
 
     }
     
