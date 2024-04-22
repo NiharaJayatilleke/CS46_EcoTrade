@@ -45,9 +45,23 @@
 
 .dashboard-sidenav ul li:nth-child(1){
     margin-bottom: 40px;
-    pointer-events: none;
+    /* pointer-events: none; */
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 20px;
+}
+
+.dashboard-sidenav ul li:nth-child(1) a {
+    color: var(--white); /* Replace with the color you want */
+}
+
+.dashboard-sidenav ul li:nth-child(1):hover,
+.dashboard-sidenav ul li:nth-child(1).hovered {
+    background: inherit; /* Keep the original background color */
+}
+
+.dashboard-sidenav ul li:nth-child(1):hover a,
+.dashboard-sidenav ul li:nth-child(1).hovered a {
+    color: var(--white); /* Keep the original color */
 }
 
 .dashboard-sidenav ul li a{
@@ -87,8 +101,9 @@
     white-space: nowrap;
 }
 
-.dashboard-sidenav ul li:hover a::before,
-.dashboard-sidenav ul li.hovered a::before{
+/* after the first child is removed */
+.dashboard-sidenav ul li:not(:first-child):hover a::before,
+.dashboard-sidenav ul li:not(:first-child).hovered a::before{
     content: '';
     position: absolute;
     right: 0;
@@ -101,8 +116,8 @@
     pointer-events: none;
 }
 
-.dashboard-sidenav ul li:hover a::after,
-.dashboard-sidenav ul li.hovered a::after{
+.dashboard-sidenav ul li:not(:first-child):hover a::after,
+.dashboard-sidenav ul li:not(:first-child).hovered a::after{
     content: '';
     position: absolute;
     right: 0;
@@ -114,6 +129,8 @@
     box-shadow: 35px -35px 0 10px var(--white);
     pointer-events: none;
 }
+
+
 
 .dashboard-main{
     position: absolute;
@@ -312,7 +329,7 @@
 .cardHeader .btn {
     position: relative;
     padding:  10px;
-    top: 10px;
+    /* top: 10px; */
     background: var(--green);
     text-decoration: none;
     color: var(--white);

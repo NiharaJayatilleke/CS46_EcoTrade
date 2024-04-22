@@ -21,7 +21,8 @@
                 $userCounts = $this->moderatorModel->getUserCounts();
                 $users = $this->userModel->getUsers();
                 $numUsers = count($users);
-                // $reportedAds = $this->moderatorModel->getReportedAds();
+                $reportedAds = $this->moderatorModel->getReportedAds();
+                $recentActivities = $this->moderatorModel->getRecentActivities();
 
                 $data = [
                     'ads' => $ads,
@@ -32,7 +33,8 @@
                     'userCounts' => $userCounts,
                     'users' => $users,
                     'users_count' => $numUsers,
-                    // 'reportedAds' => $reportedAds,
+                    'reportedAds' => $reportedAds,
+                    'recentActivities' => $recentActivities,
                     
                 ];
 

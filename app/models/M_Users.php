@@ -140,6 +140,15 @@
             return $results;
         }
 
+        public function getUsersByType($type){
+            $this->db->query('SELECT * FROM General_User WHERE user_type = :type');
+            $this->db->bind(':type', $type);
+
+            $results = $this->db->resultSet();
+
+            return $results;
+        }
+
         public function getUserTypeById($userId) {
             $this->db->query('SELECT user_type FROM General_User WHERE id = :id');
             $this->db->bind(':id', $userId);
