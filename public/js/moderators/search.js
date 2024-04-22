@@ -21,7 +21,7 @@ function checkSearch() {
 
     // Show or hide the search bar based on the URL fragment
     switch (fragment) {
-        case '#platformusers-content':
+        case '#users-content':
         case '#secondhand-content':
         case '#activity-content':
         case '#secondhand-content':

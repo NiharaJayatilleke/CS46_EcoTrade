@@ -55,16 +55,16 @@
 
                 <li>
                     <!-- <a href="#"> -->
-                    <a href="#messages-content" id="messages-tab" onclick="showContent('messages-content')">
-                        <span class = "side-icon"><ion-icon name="mail-open-outline"></ion-icon></span>
-                        <span class = "side-title">Messages</span>
+                    <a href="#activity-content" id="activity-tab" onclick="showContent('activity-content')">
+                        <span class = "side-icon"><ion-icon name="globe-outline"></ion-icon></span>
+                        <span class = "side-title">Activity Log</span>
                     </a>
                 </li>
                 <li>
                     <!-- <a href="#"> -->
-                    <a href="#ad-report-content" id="ad-report-tab" onclick="showContent('ad-report-content')">
+                    <a href="#reported-ads-content" id="reported-ads-tab" onclick="showContent('reported-ads-content')">
                         <span class = "side-icon"><ion-icon name="remove-circle-outline"></ion-icon></span>
-                        <span class = "side-title">Ad Report</span>
+                        <span class = "side-title">Reported ads</span>
                     </a>
                 </li>
                 <li>
@@ -181,129 +181,35 @@
                 <div class="details" style=" display: block;" >
                     <div class="recentOrders">
                         <div class="cardHeader">
-                            <h2>Recent Orders</h2>
-                            <a href="#" class="btn">View All</a>
+                            <h2>Recent Activities</h2>
+                            <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a>
                         </div>
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Name</td>
-                                    <td>Price</td>
-                                    <td>Payment</td>
-                                    <td>Status</td>
+                                    <td>User ID</td>
+                                    <td>Action Type</td>
+                                    <td>Action Details</td>
+                                    <td>Date Time</td>
+                                    <!-- <td>Item Ad</td> -->
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Refrigerator</td>
-                                <td>Rs. 1200</td>
-                                <td>Paid</td>
-                                <td><span class="status inprogress">Delivered</span></td>
-                            </tr>
-                            <tr>
-                                <td>Denim Shirts</td>
-                                <td>Rs. 110</td>
-                                <td>Due</td>
-                                <td><span class="status inprogress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Casual Shoes</td>
-                                <td>Rs. 575</td>
-                                <td>Paid</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-                            <tr>
-                                <td>Wall Fan</td>
-                                <td>Rs. 110</td>
-                                <td>Paid</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-                            <tr>
-                                <td>Jeans</td>
-                                <td>Rs. 1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-                            <tr>
-                                <td>Sweaters</td>
-                                <td>Rs. 700</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Skirts</td>
-                                <td>Rs. 600</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Formal Shoes</td>
-                                <td>Rs. 2000</td>
-                                <td>Due</td>
-                                <td><span class="status inprogress">In Progress</span></td>
-                            </tr>
-
-
-                            <tr>
-                                <td>Sunglasses</td>
-                                <td>Rs. 800</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Hoodies</td>
-                                <td>Rs. 900</td>
-                                <td>Due</td>
-                                <td><span class="status inprogress">In Progress</span></td>
-                            </tr>
-
-
-                            <!-- <tr>
-                                <td>Adidas Shoes</td>
-                                <td>Rs. 1100</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Wall Art</td>
-                                <td>Rs. 110</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Pending</span></td>
-                            </tr> -->
-
-                            <tr>
-                                <td>Denim Shirts</td>
-                                <td>Rs. 110</td>
-                                <td>Due</td>
-                                <td><span class="status inprogress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Checked Dresses</td>
-                                <td>Rs. 1500</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Sports Shoes</td>
-                                <td>Rs. 2500</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>T-shirts</td>
-                                <td>Rs. 300</td>
-                                <td>Due</td>
-                                <td><span class="status inprogress">In Progress</span></td>
-                            </tr>
-
+                            <?php 
+                            $counter = 0;
+                            foreach($data['recentActivities'] as $activity) : 
+                                if($counter == 5) break;
+                            ?>
+                                <tr>
+                                    <td><?php echo $activity->user_id; ?></td>
+                                    <td><?php echo $activity->action_type; ?></td>
+                                    <td><?php echo $activity->action_details; ?></td>
+                                    <td><?php echo $activity->timestamp; ?></td>
+                                </tr>
+                            <?php 
+                            $counter++;
+                            endforeach; 
+                            ?>
                             </tbody>
                         </table>
                     </div>
@@ -312,7 +218,7 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Users</h2>
-                            <a href="#users-content" class="btn" id="users-tab"onclick="showContent('users-content')">View All</a>
+                            <a href="#users-content" class="btn" id="users-tab" onclick="showContent('users-content')">View All</a>
                         </div>
                         <table>
                             <thead>
@@ -326,7 +232,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach($data['users'] as $user) : ?>
+                            <?php 
+                            $counter = 0;
+                            foreach($data['users'] as $user) : 
+                                if($counter == 5) break;
+                            ?>
                             <tr>
                                 <td><p><?php echo $user->username ?></p></td>
                                 <td><?php echo $user->email ?></td>
@@ -340,11 +250,13 @@
                                     </div>
                                 </td> -->
                             </tr>
-                            <?php endforeach; ?>
+                            <?php 
+                            $counter++;
+                            endforeach; 
+                            ?>
                             </tbody>
                         </table>
                     </div>
-
 
                 </div>
             </div>
@@ -368,20 +280,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach($data['moderators'] as $moderator) : ?>
-                            <tr>
-                                <td><p><?php echo $moderator->username ?></p></td>
-                                <td><?php echo $moderator->email ?></td>
-                                <td><?php echo $moderator->number ?></td>
-                                <td><?php echo $moderator->created_at ?></td>
-                                <td>
-                                    <div class = "mod-control-btns">
-                                        <a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                        <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
+                                <?php if(empty($data['moderators'])): ?>
+                                    <tr>
+                                        <td colspan="5">No moderators found</td>
+                                    </tr>
+                                <?php else: ?>
+                                    <?php foreach($data['moderators'] as $moderator) : ?>
+                                    <tr>
+                                        <td><p><?php echo $moderator->username ?></p></td>
+                                        <td><?php echo $moderator->email ?></td>
+                                        <td><?php echo $moderator->number ?></td>
+                                        <td><?php echo $moderator->created_at ?></td>
+                                        <td>
+                                            <div class = "mod-control-btns">
+                                                <a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
@@ -408,21 +326,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach($data['users'] as $user) : ?>
-                            <tr>
-                                <td><p><?php echo $user->username ?></p></td>
-                                <td><?php echo $user->email ?></td>
-                                <td><?php echo $user->number ?></td>
-                                <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
-                                <td><?php echo $user->created_at ?></td>
-                                <!-- <td>
-                                    <div class = "mod-control-btns">
-                                        <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                        <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
-                                    </div>
-                                </td> -->
-                            </tr>
-                            <?php endforeach; ?>
+                                <?php if(empty($data['users'])): ?>
+                                    <tr>
+                                        <td colspan="5">No users found</td>
+                                    </tr>
+                                <?php else: ?>
+                                    <?php foreach($data['users'] as $user) : ?>
+                                    <tr>
+                                        <td><p><?php echo $user->username ?></p></td>
+                                        <td><?php echo $user->email ?></td>
+                                        <td><?php echo $user->number ?></td>
+                                        <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
+                                        <td><?php echo $user->created_at ?></td>
+                                        <!-- <td>
+                                            <div class = "mod-control-btns">
+                                                <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                        </td> -->
+                                    </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
@@ -455,7 +379,7 @@
                                             <div class = "post-control-btns">
                                                 <a href = "<php echo URLROOT?>/ItemAds/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn" title="edit ad"><i class="fas fa-edit"></i></button></a>
                                                 <a href = "<php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
-                                                <a href = "<php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="ad-report-btn" title="report ad"><i class="fas fa-flag"></i></button></a> 
+                                                <a href = "<php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="reported-ads-btn" title="report ad"><i class="fas fa-flag"></i></button></a> 
                                             </div>
                                         <php endif; ?> -->
                                     <div class="ad-item-name"><h3><?php echo $ad->item_name ?></h3></div>
@@ -661,16 +585,83 @@
             </div>
 
             <!-- Messages -->
-            <div id="messages-content" class="content-section">
-                <div>
-                    <!-- logic here for messages -->
+            <div id="activity-content" class="content-section">
+                <div class="details">
+                    <div class="recentOrders">
+                            <div class="cardHeader">
+                                <h2>Recent Activities</h2>
+                                <!-- <a href="#" class="btn">View All</a> -->
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>User ID</td>
+                                        <td>Action Type</td>
+                                        <td>Action Details</td>
+                                        <td>Date Time</td>
+                                        <!-- <td>Item Ad</td> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($data['recentActivities'] as $activity) : ?>
+                                        <tr>
+                                            <td><?php echo $activity->user_id; ?></td>
+                                            <td><?php echo $activity->action_type; ?></td>
+                                            <td><?php echo $activity->action_details; ?></td>
+                                            <td><?php echo $activity->timestamp; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Ad Report -->
-            <div id="ad-report-content" class="content-section">
-                <div>
-                    <!-- logic here for ad report -->
+            <div id="reported-ads-content" class="content-section">
+                <div class="reported-ads-container">
+
+                    <h1>Reported Ads</h1>                  
+                    <table class="reported-ads-table">
+                        <tr>
+                            <!-- <th>Report ID</th> -->
+                            <th>Ad ID</th>
+                            <th>Item Name</th>
+                            <th>Reporter ID</th>
+                            <th>Report Reason</th>
+                            <th>Report Comments</th>
+                            <th>Report Contact</th>
+                            <th>Report Status</th>
+                            <th>Reported At</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <?php if (!empty($data['reportedAds'])): ?>
+                            <?php foreach ($data['reportedAds'] as $ad): ?>
+
+                                    <!-- <td><?php echo $ad->report_id; ?></td> -->
+                                    <td><?php echo $ad->ad_id; ?></td>
+                                    <td><?php echo $ad->ad_title; ?></td> 
+                                    <td><?php echo $ad->reporter_id; ?></td>
+                                    <td><?php echo $ad->report_reason; ?></td>
+                                    <td><?php echo $ad->report_comments; ?></td>
+                                    <td><?php echo $ad->report_contact; ?></td>
+                                    <td><?php echo $ad->report_status; ?></td>
+                                    <td><?php echo $ad->report_created_at; ?></td>
+                                    
+                                    <td><button onclick="confirmDelete(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
+                                    <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
+                                    
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="8">No reported ads found.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </table>
                 </div>
             </div>
 
@@ -804,8 +795,8 @@
         document.getElementById('secondhand-content').style.display = 'none';
         document.getElementById('secondhand-ad-view-content').style.display = 'none';
         document.getElementById('recycle-content').style.display = 'none';
-        document.getElementById('messages-content').style.display = 'none';
-        document.getElementById('ad-report-content').style.display = 'none';
+        document.getElementById('activity-content').style.display = 'none';
+        document.getElementById('reported-ads-content').style.display = 'none';
         document.getElementById('settings-content').style.display = 'none';
 
         // Show the selected content section

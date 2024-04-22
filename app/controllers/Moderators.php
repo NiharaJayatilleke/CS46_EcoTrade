@@ -220,7 +220,7 @@
             $this->view('moderators/v_terms'); // Load the 'terms.php' view
         }
 
-       public function edit($modId){
+        public function edit($modId){
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // form is submitting
                 //Validate the data
@@ -420,7 +420,7 @@
                     'users' => $users,
                     'collectors_count' => $numCollectors,
                     'centers_count' => $numCenters,
-               ];
+                ];
 
                 $this->view('moderators/v_index', $data);
 
@@ -428,7 +428,7 @@
         }
 
         public function hideAd($adId) {
-         $this->moderatorModel->hideAdById($adId);
+        $this->moderatorModel->hideAdById($adId);
         }
 
         public function edit_profile(){
