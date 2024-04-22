@@ -171,7 +171,7 @@
 
                 <div class="graphBox">
                     <div class="box">
-                        <canvas id="adminChart"></canvas>
+                        <canvas id="myChart"></canvas>
                     </div>
                     <div class="box">
                         <canvas id="ads"></canvas>

@@ -6,6 +6,7 @@
             $this->db = new Database();
         }
 
+        
         // Login the user
         // public function login($email,$password){
         //     $this->db->query('SELECT * FROM Administrator WHERE email =:email');
