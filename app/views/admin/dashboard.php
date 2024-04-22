@@ -690,7 +690,33 @@
                             <th></th>
                         </tr>
                         <thead>
-
+                        <?php if (!empty($data['reportedAds'])): ?>
+                            <?php foreach ($data['reportedAds'] as $ad): ?>
+                            <tbody>
+                                <tr>
+                                    <!-- <td><?php echo $ad->report_id; ?></td> -->
+                                    <td><?php echo $ad->ad_id; ?></td>
+                                    <td><?php echo $ad->ad_title; ?></td> 
+                                    <td><?php echo $ad->reporter_id; ?></td>
+                                    <td><?php echo $ad->report_reason; ?></td>
+                                    <td><?php echo $ad->report_comments; ?></td>
+                                    <td><?php echo $ad->report_contact; ?></td>
+                                    <td><?php echo $ad->report_status; ?></td>
+                                    <td><?php echo $ad->report_created_at; ?></td>
+                                    
+                                    <td><button onclick="confirmDelete(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
+                                    <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
+                                    
+                                </tr>
+                            </tbody>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="8">No reported ads found.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </table>
+                </div>
                 </div>
             </div>
 
