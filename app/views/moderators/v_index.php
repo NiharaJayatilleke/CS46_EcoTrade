@@ -354,6 +354,7 @@
 
                     <h1>Reported Ads</h1>                  
                     <table class="reported-ads-table">
+                        <thead>
                         <tr>
                             <!-- <th>Report ID</th> -->
                             <th>Ad ID</th>
@@ -367,9 +368,11 @@
                             <th></th>
                             <th></th>
                         </tr>
+                        <thead>
                         <?php if (!empty($data['reportedAds'])): ?>
                             <?php foreach ($data['reportedAds'] as $ad): ?>
-
+                            <tbody>
+                                <tr>
                                     <!-- <td><?php echo $ad->report_id; ?></td> -->
                                     <td><?php echo $ad->ad_id; ?></td>
                                     <td><?php echo $ad->ad_title; ?></td> 
@@ -384,6 +387,7 @@
                                     <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
                                     
                                 </tr>
+                            </tbody>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
