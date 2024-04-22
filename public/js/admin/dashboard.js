@@ -39,7 +39,7 @@ list.forEach((item) => {
 });
 // Function to show the search bar
 function showSearchBar() {
-    var searchBar = document.getElementById('dashboard-search');
+    var searchBar = document.getElementById('admin-dashboard-search');
     if (searchBar) {
         searchBar.style.display = 'block'; 
     }
@@ -47,7 +47,7 @@ function showSearchBar() {
 
 // Function to hide the search bar
 function hideSearchBar() {
-    var searchBar = document.getElementById('dashboard-search');
+    var searchBar = document.getElementById('admin-dashboard-search');
     if (searchBar) {
         searchBar.style.display = 'none'; 
     }
@@ -113,7 +113,7 @@ var fuse = new Fuse(users, options);
 // Function to perform search
 function performSearch() {
     // Get the search query
-    var query = document.getElementById('dashboard-search').querySelector('input').value;
+    var query = document.getElementById('admin-dashboard-search').querySelector('input').value;
 
     // Clear the table body
     var tableBody = document.querySelector('#users-table tbody');
@@ -139,7 +139,7 @@ function performSearch() {
 }
 
 // Attach the function to the oninput event of the search bar
-document.getElementById('dashboard-search').querySelector('input').addEventListener('input', performSearch); 
+document.getElementById('admin-dashboard-search').querySelector('input').addEventListener('input', performSearch); 
 
 //moderator search
 // The Fuse.js options
@@ -164,7 +164,7 @@ var mod_fuse = new Fuse(moderators, mod_options);
 // // Function to perform search
 function performModSearch() {
     // Get the search query
-    var query = document.getElementById('dashboard-search').querySelector('input').value;
+    var query = document.getElementById('admin-dashboard-search').querySelector('input').value;
 
     // Clear the table body
     var tableBody = document.querySelector('#moderators-table tbody');
@@ -190,7 +190,7 @@ function performModSearch() {
 }
 
 // Attach the function to the oninput event of the search bar
-document.getElementById('dashboard-search').querySelector('input').addEventListener('input', performModSearch); 
+document.getElementById('admin-dashboard-search').querySelector('input').addEventListener('input', performModSearch); 
 
 // Function to create a row for a user or moderator
 function createRowUser(item) {

@@ -83,7 +83,7 @@
             </ul>
         </div>
 
-      
+
     <!-- main -->
         <div class="dashboard-main">
             <div class="dashboard-topbar">
@@ -91,7 +91,7 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
                 <!-- search -->
-                <div id="dashboard-search" class="dashboard-search">
+                <div id="admin-dashboard-search" class="dashboard-search">
                     <label>
                         <input type="text" placeholder="Search here">
                         <ion-icon name="search-outline"></ion-icon>
@@ -812,30 +812,12 @@
         document.getElementById(section).style.display = 'block';
 
          // Select the sidebar element
-         a_name=section.split("-content")[0]+'-tab';
+        a_name=section.split("-content")[0]+'-tab';
         document.getElementById(a_name).parentElement.classList.add('hovered');
 
          // Update the URL hash to store the current section
         window.location.hash = '#' + section;
     }
-
-    // Function to handle initial content section based on URL hash
-    // function handleInitialSection() {
-    //     var hash = window.location.hash;
-    //     if (hash) {
-    //         // Extract the section name from the hash
-    //         var section = hash.substring(1); // Remove '#'
-    //         showContent(section);
-    //         currentSection = section;
-    //     } else {
-    //         // If no hash is present, default to the dashboard section
-    //         showContent('dashboard-content');
-    //         currentSection = 'dashboard-content';
-    //     }
-    // }
-//    handleInitialSection(); 
-    // Call the function when the page loads
-    // window.onload = handleInitialSection;
 
     // Function to redirect to the current active section
     function handleInitialSection() {

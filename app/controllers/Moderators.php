@@ -394,20 +394,32 @@
                 }
 
                 $ads = $this->itemAdsModel->getAds();
+                $numSecAds = count($ads);
                 $userCounts = $this->moderatorModel->getUserCounts();
                 $adCountsByCategory = $this->moderatorModel->getItemAdCountsByCategory();
                 $reportedAds = $this->moderatorModel->getReportedAds();
                 $recentActivities = $this->moderatorModel->getRecentActivities();
                 $useremail = $_SESSION['user_email'];
                 $userdetails = $this->moderatorModel->getuserdetails($useremail);
+                $users = $this->userModel->getUsers();
+                $numUsers = count($users);
+                $collectors = $this->userModel->getUsersByType('collector');
+                $numCollectors = count($collectors);
+                $centers = $this->userModel->getUsersByType('center');
+                $numCenters = count($centers);
 
                 $data = [
                     'ads' => $ads,
+                    'sec_ad_count' => $numSecAds,
                     'userCounts' => $userCounts,
                     'adCountsByCategory' => $adCountsByCategory,
                     'reportedAds' => $reportedAds,
                     'recentActivities' => $recentActivities,
                     'userdetails'=> $userdetails,
+                    'users_count' => $numUsers,
+                    'users' => $users,
+                    'collectors_count' => $numCollectors,
+                    'centers_count' => $numCenters,
                ];
 
                 $this->view('moderators/v_index', $data);
