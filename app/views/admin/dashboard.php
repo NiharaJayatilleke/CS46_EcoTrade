@@ -584,7 +584,7 @@
                 <p>This is the content for the Recycle tab.</p> 
             </div>
 
-            <!-- Messages -->
+            <!-- activity -->
             <div id="activity-content" class="content-section">
                 <div class="details">
                     <div class="recentOrders">
