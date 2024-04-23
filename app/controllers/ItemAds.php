@@ -49,6 +49,10 @@
                 $remainingTimeString = $this->auctionsModel->calculateRemainingTime($startTime, $duration);
             }
             
+            $ads = $this->itemAdsModel->getAds();
+            $otherAds = array_filter($ads, function($ad) use ($id) {
+                return $ad->id != $id;
+            });
             
             $data = [
                 'number' => $number,
@@ -57,6 +61,7 @@
                 'bids' => $bids,
                 'bid_count' => $numBids,
                 'ad' => $ad,
+                'other_ads' => $otherAds,
                 'offers' => $offers,
                 'accepted_offer' => $acceptedOffer,
                 'buyer_notifications' => $buyerNotifications,

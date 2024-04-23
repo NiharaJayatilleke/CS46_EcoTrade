@@ -7,6 +7,9 @@ if($_SESSION['user_type'] != 'moderator') {
 ?>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/v_buyer_view.css">
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/seller_only_styles.css">
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/ad_index_page.css">
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/message_styles.css">
+
 
 <div class="sad-main-container1">
     <div class="sad-main2"></div>
@@ -258,6 +261,20 @@ if($_SESSION['user_type'] != 'moderator') {
 <div class="sad-main-container3-right">
     <div class="sad-more-ads-title"><h2>Explore more ads</h2></div>
 
+    <?php foreach($data['other_ads'] as $ad): ?>
+        <div class="ad-show-index-container">
+        <div class = "ad-header">
+            <div class = "ad-body-image">
+                <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
+            </div>
+            <div class = "ad-item-name"><h3><?php echo $ad->item_name ?><h3>
+        </div>
+        <div class = "ad-body">
+            <div class = "ad-price">Rs. <?php echo $ad->item_price ?></div>
+        </div>
+    <?php endforeach; ?>
+    <!-- <h3>hi</h3> -->
+
 </div>
 </div>
 
@@ -360,7 +377,7 @@ if($_SESSION['user_type'] != 'moderator') {
 
     
 </script>
-<?php require APPROOT.'/views/inc/components/footer.php'; ?>
+<!-- <?php require APPROOT.'/views/inc/components/footer.php'; ?> -->
 
 
     
