@@ -4,6 +4,7 @@
             $this->userModel = $this->model('M_Users');
             $this->pagesModel =$this->model('M_Pages');
             $this->recentersModel = $this->model('M_Recenters'); 
+            $this->categoryModel = $this->model('M_Categories'); 
             
         }
         
@@ -183,8 +184,11 @@
                     redirect('recyclecenters/index');
                 }
                 else if(isset($_SESSION['user_id']) && isset($_SESSION['userType']) && ($_SESSION['userType'] != 'center'|| $_SESSION['userType'] != null)) {
+                    $recycle_categories = $this->categoryModel->getCategories();
+
                     $data = [
                         'user' => $user,
+                        'categories' => $recycle_categories
                     ];
         
                     // Load recyclecenter registration view
