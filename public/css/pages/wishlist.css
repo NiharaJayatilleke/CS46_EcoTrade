@@ -33,8 +33,6 @@
 }
 
 .wishlist th {
-    background: #848bc82e;
-    /* background: #f8f8f8; */
     border: none;
     height: 4rem;
     text-align: center;
@@ -50,6 +48,15 @@
     font-weight: 550;
 }
 
+.wishlist_container h1 {
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--green); 
+}
+.wishlist tbody tr:hover {
+    background: var(--green); 
+    color: var(--white); 
+}
 .wishlist:last-child tr:last-child td {
     border: none;
 }
