@@ -349,23 +349,25 @@
             </div>
 
             <div id="reported-ads-content" class="content-section">
-                <div class="reported-ads-container">
-
-                    <h1>Reported Ads</h1>                  
-                    <table class="reported-ads-table">
+                <div class="details">
+                    <div class="recentOrders">
+                            <div class="cardHeader">
+                                <h2>Reported Ads</h2>
+                            </div>
+                    <table >
                         <thead>
                         <tr>
                             <!-- <th>Report ID</th> -->
-                            <th>Ad ID</th>
-                            <th>Item Name</th>
-                            <th>Reporter ID</th>
-                            <th>Report Reason</th>
-                            <th>Report Comments</th>
-                            <th>Report Contact</th>
-                            <th>Report Status</th>
-                            <th>Reported At</th>
-                            <th></th>
-                            <th></th>
+                            <td>Ad ID</td>
+                            <td>Item Name</td>
+                            <td>Reporter ID</td>
+                            <td>Report Reason</td>
+                            <td>Report Comments</td>
+                            <td>Report Contact</td>
+                            <td>Report Status</td>
+                            <td>Reported At</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <thead>
                         <?php if (!empty($data['reportedAds'])): ?>
