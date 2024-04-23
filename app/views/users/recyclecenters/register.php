@@ -13,23 +13,23 @@
                     <div class="collector-fields">
                         <div class="collector-input-field">
                             <label>Company Name<span class="required">*</span></label>
-                            <input type="text" name = "username" id="username" placeholder="Enter Company name">
+                            <input type="text" name = "com_name" id="com_name" placeholder="Enter Company name">
                         </div>
 
                         
                         <div class="collector-input-field">
                             <label>Registration Number<span class="required">*</span></label>
-                            <input type="text" name = "email" id="email" placeholder="Enter Registraion Number"  >
+                            <input type="text" name = "reg_number" id="reg_number" placeholder="Enter Company Registration Number"  >
                         </div>
 
                         <div class="collector-input-field">
-                            <label>Mobile Number<span class="required">*</span></label>
-                            <input type="tel" name = "number" id="number" placeholder="Enter your mobile number">
+                            <label>Telephone Number<span class="required">*</span></label>
+                            <input type="tel" name = "com_address" id="com_address" placeholder="Enter company telephone number">
                         </div>
                         
                         <div class="collector-input-field">
                             <label>Address<span class="required">*</span></label>
-                            <input type="text" name = "nic" id="nic" placeholder="Enter Address" required >
+                            <input type="text" name = "address" id="nic" placeholder="Enter Company Address"  >
                         </div>
                         
 <!--           
@@ -144,5 +144,5 @@
     </div>
 </div>
 
-<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/collectors/register.js"></script>
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/center/register.js"></script>
  
