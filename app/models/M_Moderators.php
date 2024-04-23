@@ -76,7 +76,9 @@
                     'Collectors' AS user_type,
                     COUNT(*) AS count
                 FROM
-                    Collectors
+                    General_User
+                WHERE
+                    user_type = 'collector'
                 
                 UNION ALL
         
@@ -84,7 +86,9 @@
                     'Recycle center' AS user_type,
                     COUNT(*) AS count
                 FROM
-                    Re_Centers
+                    General_User
+                WHERE
+                    user_type = 'center'
                 
                 UNION ALL
         
@@ -220,3 +224,4 @@
 }
 
 ?>
+

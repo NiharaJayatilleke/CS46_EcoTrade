@@ -3,53 +3,9 @@
         public function __construct() {
             $this->recentersModel = $this->model('M_Recenters');
 
-            // $this->recycleItemAdsModel =$this->model('M_Recycle_Item_Ads');
-            // $this->usersModel = $this->model('M_Users');
+            $this->recycleItemAdsModel =$this->model('M_Recycle_Item_Ads');
+            $this->usersModel = $this->model('M_Users');
         }
-    public function index() {
-        // $ads = $this->recentersModel->getAds();
-        
-        // $data = [
-        //     'ads' => $ads,
-        // ];
-        // show("Recenters");
-        $this->view('recenters/v_index');
-        // $this->view('pages/v_collectorhome');
-
-    }
-
-     
-    // public function recenteradShow($adId){
-    //     $ad = $this->recentersModel->getAdById($adId);
-    //     // $seller = $this->recycleItemAdsModel->getSellerByAdId($adId);
-        
-    //     $data = [
-    //         'ad' => $ad,
-    //         // 'seller' => $seller,
-    //     ];
-
-    //     $this->view('recenters/v_show',$data);
-    // }
-
-    // public function edit(){
-
-    // }
-
-    // public function delete(){
-        // $ad = $this->RecycleItemAdsModel->getAdById($adId);
-        // $oldImage = PUBROOT.'/img/items/'.$ad->item_image;
-        // deleteImage($oldImage);
-
-//         if($this->RecycleItemAdsModel->delete($adId)){
-//             flash('post_msg', 'Your ad has been deleted successfully!');
-//             redirect('ItemAds/index');
-//         }
-//         else{
-//             die('Something went wrong');
-//         }
-//     }
-
-// }
 
 
     public function recenters(){

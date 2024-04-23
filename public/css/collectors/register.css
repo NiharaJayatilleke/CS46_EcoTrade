@@ -186,6 +186,14 @@ form.secActive .form.first{
     width: 100%;
 }
 
+.collector-container form .collector-fields.categories .collector-input-field {
+    padding-top: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* gap: .05px; */
+    width: 100%;
+}
+
 .collector-input-field label {
     display: flex;
     align-items: center;

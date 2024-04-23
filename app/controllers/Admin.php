@@ -5,6 +5,7 @@
             $this->moderatorModel = $this->model('M_Moderators');
             $this->userModel = $this->model('M_Users');
             $this->itemAdsModel = $this->model('M_Item_Ads');    
+            $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads');
         }
         
         public function index(){
@@ -13,27 +14,41 @@
                 $this->view('pages/forbidden');
             }
             else{
+                
                 $ads = $this->itemAdsModel->getAds();
                 $numSecAds = count($ads);
+                $rec_ads = $this->recycleItemAdsModel->getAds();
+                $numRecAds = count($rec_ads);
                 $adCountsByCategory = $this->moderatorModel->getItemAdCountsByCategory();
                 $moderators = $this->moderatorModel->getModerators();
                 $numModerators = count($moderators);
+                $userCounts = $this->moderatorModel->getUserCounts();
                 $users = $this->userModel->getUsers();
                 $numUsers = count($users);
-                // $reportedAds = $this->moderatorModel->getReportedAds();
-
+                $collectors = $this->userModel->getUsersByType('collector');
+                $numCollectors = count($collectors);
+                $centers = $this->userModel->getUsersByType('center');
+                $numCenters = count($centers);
+                $reportedAds = $this->moderatorModel->getReportedAds();
+                $recentActivities = $this->moderatorModel->getRecentActivities();
+                
                 $data = [
                     'ads' => $ads,
                     'sec_ad_count' => $numSecAds,
+                    'rec_ads' => $rec_ads,
+                    'rec_ad_count' => $numRecAds,
                     'moderators_count' => $numModerators,
                     'adCountsByCategory' => $adCountsByCategory,
                     'moderators' => $moderators,
+                    'userCounts' => $userCounts,
                     'users' => $users,
                     'users_count' => $numUsers,
-                    // 'reportedAds' => $reportedAds,
-                    
+                    'collectors_count' => $numCollectors,
+                    'centers_count' => $numCenters,
+                    'reportedAds' => $reportedAds,
+                    'recentActivities' => $recentActivities
                 ];
-
+                
                 $this->view('admin/dashboard', $data);
             } 
         }
@@ -168,3 +183,4 @@
     //     }
     }
 ?>
+

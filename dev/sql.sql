@@ -78,6 +78,8 @@ CREATE TABLE CollectorDistricts (
     PRIMARY KEY (collector_id, district_id)
 );
 
+DROP TABLE IF EXISTS RecycleCenters;
+
 CREATE TABLE RecycleCenters (
     id INT AUTO_INCREMENT,
     nic VARCHAR(255),
@@ -90,6 +92,31 @@ CREATE TABLE RecycleCenters (
     reg_number VARCHAR(255),
     FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE
 );
+
+CREATE TABLE Categories(
+    id INT AUTO_INCREMENT,
+    name VARCHAR(255),
+    PRIMARY KEY (id)
+);
+
+INSERT INTO Categories (name) VALUES 
+('Paper'),
+('Cardboard'),
+('Plastic'),
+('Glass'),
+('Metal'),
+('Electronics (e-waste)'),
+('Batteries');
+
+CREATE TABLE RecycleCentersCategories (
+    center_id INT,
+    category_id INT,
+    FOREIGN KEY (center_id) REFERENCES RecycleCenters(id) ON DELETE CASCADE,
+    FOREIGN KEY (category_id) REFERENCES Categories(id) ON DELETE CASCADE,
+    PRIMARY KEY (center_id, category_id)
+);
+
+
 
 CREATE TABLE forgot_password (
     pwdResetid INT PRIMARY KEY AUTO_INCREMENT NOT NULL,

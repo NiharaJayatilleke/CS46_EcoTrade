@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="sectionPic bouncepic" id="sectionPic">
-            <img src="./public/img/about/wepik-export-20240421085733kCr4.png" alt="">
+            <img src="../public/img/about/wepik-export-20240421085733kCr4.png" alt="">
         </div>
     </section>
 
@@ -32,7 +32,7 @@
     <section>
         <div class="carouselContainer">
             <div class="eachCarousel eachCarouselBorder">
-                <img src="./public/img/about/recycling.png" alt="">
+                <img src="../public/img/about/recycling.png" alt="">
                 <article class="carouselDesc">
                     <h1 class="carouselTitle">Recycle Selling</h1>
                     <p class="carouselPara">
@@ -43,7 +43,7 @@
             </div>
     
             <div class="eachCarousel">
-                <img src="./public/img/about/paper-bag.png" alt="">
+                <img src="../public/img/about/paper-bag.png" alt="">
                 <article class="carouselDesc">
                     <h1 class="carouselTitle">Recycle Buying</h1>
                     <p class="carouselPara">
@@ -54,7 +54,7 @@
             </div>
     
             <div class="eachCarousel">
-                <img src="./public/img/about/grocery-store.png" alt="">
+                <img src="../public/img/about/grocery-store.png" alt="">
                 <article class="carouselDesc">
                     <h1 class="carouselTitle">Eco Market</h1>
                     <p class="carouselPara">
@@ -82,7 +82,7 @@
               coins.
             </p>
             <div class="eachProcesses">
-                <img src="./public/img/about/handshake-icon-white-line.svg" alt="handshake">
+                <img src="../public/img/about/handshake-icon-white-line.svg" alt="handshake">
                 <div class="eachprocessesPara">
                     <h1 class="processTitle">Recycle</h1>
                     <p>
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="eachProcesses">
-                <img src="./public/img/about/cart-icon-white-line.svg" alt="handshake">
+                <img src="../public/img/about/cart-icon-white-line.svg" alt="handshake">
                 <div class="eachprocessesPara">
                     <h1 class="processTitle">Earn</h1>
                     <p>
@@ -100,9 +100,9 @@
             </div>
         </div>
         <div class="sectionPic bouncepic processesPic" id="sectionPic">
-            <img src="./public/img/about/wepik-export-20240421093650W1dh.png" alt="">
+            <img src="/public/img/about/wepik-export-20240421093650W1dh.png" alt="">
         </div>
     </section>
-  
+
 
 </body>

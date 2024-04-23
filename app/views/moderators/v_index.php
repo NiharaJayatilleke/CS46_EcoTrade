@@ -25,12 +25,22 @@
 
                 <li>
                     <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
-                    <a href="#platformusers-content" id="platformusers-tab" onclick="showContent('platformusers-content')">
+                    <a href="#users-content" id="users-tab" onclick="showContent('users-content')">
 
                         <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class = "side-title">Users</span>
                     </a>
                 </li>
+
+                <li>
+                    <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
+                    <a href="#activity-content" id="activity-tab" onclick="showContent('activity-content')">
+
+                        <span class = "side-icon"><ion-icon name="globe-outline"></ion-icon></span>
+                        <span class = "side-title">Activity Log</span>
+                    </a>
+                </li>
+
                 <li>
                     <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
                     <a href="#reported-ads-content" id="reported-ads-tab" onclick="showContent('reported-ads-content')">
@@ -83,7 +93,7 @@
                 </div>
 
                 <!-- search -->
-                <div class="dashboard-search">
+                <div id="mod-dashboard-search" class="dashboard-search">
                     <label>
                         <input id="searchInput" type="text" placeholder="Search here" oninput="handleSearch()">
                         <ion-icon name="search-outline"></ion-icon>
@@ -109,20 +119,22 @@
                     </div>
                     
                     <div class="dashboard-cardBox">
-                        <div class="dashboard-card">
-                            <div>
-                                <!-- <div class="dashboard-numbers"><?php echo $data['users_count'] ?></div>  -->
-                                <div class="dashboard-cardName">General Users</div>
+                        <a href="<?php echo URLROOT ?>/Moderators/users#users-content" style="text-decoration: none; color: inherit;">
+                            <div class="dashboard-card">
+                                <div>
+                                    <div class="dashboard-numbers"><?php echo $data['users_count'] ?></div> 
+                                    <div class="dashboard-cardName">Users</div>
+                                </div>
+                                <div class="dashboard-iconBx">   
+                                    <ion-icon name="people-outline"></ion-icon>     
+                                </div>
                             </div>
-                            <div class="dashboard-iconBx">   
-                                <ion-icon name="people-outline"></ion-icon>     
-                            </div>
-                        </div>
+                        </a>
 
                         <!-- <a href="<?php echo URLROOT ?>/Admin/moderators" style="text-decoration: none; color: inherit;"> -->
                         <div class="dashboard-card" >
                             <div>
-                                <!-- <div class="dashboard-numbers" ><?php echo $data['moderators_count'] ?></div>  -->
+                                <div class="dashboard-numbers" ><?php echo $data['collectors_count'] ?></div> 
                                 <div class="dashboard-cardName">Collectors</div>
                             </div>
                             <div class="dashboard-iconBx">  
@@ -133,7 +145,7 @@
 
                         <div class="dashboard-card" >
                                 <div>
-                                    <!-- <div class="dashboard-numbers" ><?php echo $data['moderators_count'] ?></div>  -->
+                                    <div class="dashboard-numbers" ><?php echo $data['centers_count'] ?></div> 
                                     <div class="dashboard-cardName">Recycle centers</div>
                                 </div>
                                 <div class="dashboard-iconBx">  
@@ -143,7 +155,7 @@
 
                         <div class="dashboard-card">
                             <div>
-                                <!-- <div class="dashboard-numbers"><?php echo $data['sec_ad_count'] ?></div>  -->
+                                <div class="dashboard-numbers"><?php echo $data['sec_ad_count'] ?></div> 
                                 <div class="dashboard-cardName">Pre-owned Item Ads</div>
                             </div>
                             <div class="dashboard-iconBx">  
@@ -176,16 +188,147 @@
                         <div class="recentOrders">
                             <div class="cardHeader">
                                 <h2>Recent Activities</h2>
-                                <a href="#" class="btn">View All</a>
+                                <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a>
                             </div>
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>User ID</th>
-                                        <th>Action Type</th>
-                                        <th>Action Details</th>
-                                        <th>Date Time</th>
-                                        <th>Item Ad</th>
+                                        <td>User ID</td>
+                                        <td>Action Type</td>
+                                        <td>Action Details</td>
+                                        <td>Date Time</td>
+                                        <!-- <td>Item Ad</td> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php 
+                                $counter = 0;
+                                foreach($data['recentActivities'] as $activity) : 
+                                    if($counter == 5) break;
+                                ?>
+                                    <tr>
+                                        <td><?php echo $activity->user_id; ?></td>
+                                        <td><?php echo $activity->action_type; ?></td>
+                                        <td><?php echo $activity->action_details; ?></td>
+                                        <td><?php echo $activity->timestamp; ?></td>
+                                    </tr>
+                                <?php 
+                                $counter++;
+                                endforeach; 
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- New customers -->
+                        <div class="recentOrders">
+                            <div class="cardHeader">
+                                <h2>Users</h2>
+                                <a href="#users-content" class="btn" id="users-tab" onclick="showContent('users-content')">View All</a>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td>Email</td>
+                                        <td>Contact Number</td>
+                                        <td>User Type</td>
+                                        <td>Date Joined</td>
+                                        <!-- <td>Edit/Delete</td> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php 
+                                $counter = 0;
+                                foreach($data['users'] as $user) : 
+                                    if($counter == 5) break;
+                                ?>
+                                <tr>
+                                    <td><p><?php echo $user->username ?></p></td>
+                                    <td><?php echo $user->email ?></td>
+                                    <td><?php echo $user->number ?></td>
+                                    <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
+                                    <td><?php echo $user->created_at ?></td>
+                                    <!-- <td>
+                                        <div class = "mod-control-btns">
+                                            <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                            <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                        </div>
+                                    </td> -->
+                                </tr>
+                                <?php 
+                                $counter++;
+                                endforeach; 
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> 
+            </div>
+
+
+            <div id="users-content" class="content-section">
+                    <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Users</h2>
+                            <!-- <a href="<?php echo URLROOT ?>/Users/register" class="btn">Add User</a> -->
+                        </div>
+                        <table id="users-table">
+                            <thead>
+                                <tr>
+                                    <td>Username</td>
+                                    <td>Email</td>
+                                    <td>Contact Number</td>
+                                    <td>User Type</td>
+                                    <td>Date Joined</td>
+                                    <!-- <td>Edit/Delete</td> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if(empty($data['users'])): ?>
+                                    <tr>
+                                        <td colspan="5">No users found</td>
+                                    </tr>
+                                <?php else: ?>
+                                    <?php foreach($data['users'] as $user) : ?>
+                                    <tr>
+                                        <td><p><?php echo $user->username ?></p></td>
+                                        <td><?php echo $user->email ?></td>
+                                        <td><?php echo $user->number ?></td>
+                                        <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
+                                        <td><?php echo $user->created_at ?></td>
+                                        <!-- <td>
+                                            <div class = "mod-control-btns">
+                                                <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                        </td> -->
+                                    </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="activity-content" class="content-section">
+                <div class="details">
+                    <div class="recentOrders">
+                            <div class="cardHeader">
+                                <h2>Recent Activities</h2>
+                                <!-- <a href="#" class="btn">View All</a> -->
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>User ID</td>
+                                        <td>Action Type</td>
+                                        <td>Action Details</td>
+                                        <td>Date Time</td>
+                                        <!-- <td>Item Ad</td> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -201,59 +344,8 @@
 
                                 </tbody>
                             </table>
-
-                        </div>
-                      
-                    </div> 
-            </div>
-
-
-            <div id="platformusers-content" class="content-section">
-                    <div class="recentCustomers">
-                        <div class="cardHeader">
-                            <h2>Recent Customers</h2>
-                        </div>
-                        <table>
-                            <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
-                                <td><h4>David<br><span>Western Province - Colombo</span></h4></td>
-                            </tr>
-                            <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/2.jpeg"></div></td>
-                                <td><h4>John<br><span>Western Province - Colombo</span></h4></td>
-                            </tr>
-
-                            <tr>
-                            <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg"></div></td>
-                                <td><h4>Emily<br><span>Central Province - Kandy</span></h4></td>
-                            </tr>
-
-                            <tr>
-                                <td> <div class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/4.jpeg"></div></td>
-                                <td><h4>Sara<br><span>Eastern Province - Trincomalee</span></h4></td>
-                            </tr>
-                            <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/5.jpeg"></div></td>
-                                <td><h4>Michael<br><span>Northern Province - Jaffna</span></h4></td>
-                            </tr>
-
-                            <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/6.jpeg"></div></td>
-                                <td><h4>Samantha<br><span>Southern Province - Galle</span></h4></td>
-                            </tr>
-
-                            <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/7.jpeg"></div></td>
-                                <td><h4>Ravi<br><span>North Central Province - Anuradhapura</span></h4></td>
-                            </tr>
-
-                            <tr>
-                                <td> <div  class="imgBx"><img src="<?php echo URLROOT; ?>/img/admin/dashboard/1.jpeg"></div></td>
-                                <td><h4>Ravindra<br><span>Central Province - Kandy</span></h4></td>
-                            </tr>
-                        </table>
                     </div>
-
+                </div>
             </div>
 
             <div id="reported-ads-content" class="content-section">
@@ -261,6 +353,7 @@
 
                     <h1>Reported Ads</h1>                  
                     <table class="reported-ads-table">
+                        <thead>
                         <tr>
                             <!-- <th>Report ID</th> -->
                             <th>Ad ID</th>
@@ -274,9 +367,11 @@
                             <th></th>
                             <th></th>
                         </tr>
+                        <thead>
                         <?php if (!empty($data['reportedAds'])): ?>
                             <?php foreach ($data['reportedAds'] as $ad): ?>
-
+                            <tbody>
+                                <tr>
                                     <!-- <td><?php echo $ad->report_id; ?></td> -->
                                     <td><?php echo $ad->ad_id; ?></td>
                                     <td><?php echo $ad->ad_title; ?></td> 
@@ -291,6 +386,7 @@
                                     <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
                                     
                                 </tr>
+                            </tbody>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
@@ -664,7 +760,8 @@
     function showContent(section) {
         // Hide all content sections
         document.getElementById('dashboard-content').style.display = 'none';
-        document.getElementById('platformusers-content').style.display = 'none';
+        document.getElementById('users-content').style.display = 'none';
+        document.getElementById('activity-content').style.display = 'none';
         document.getElementById('reported-ads-content').style.display = 'none';
         document.getElementById('secondhand-content').style.display = 'none';
         document.getElementById('secondhand-ad-view-content').style.display = 'none';
@@ -708,13 +805,13 @@
         }
     }
     // Call the function when the page loads
+    handleInitialSection(); 
     window.onload = handleInitialSection;
     
     </script>
 
     <!-- sweetalert remove ad pop up message -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/reportads.js"></script>
-  
     <script>
     // Function to handle search input
     function handleSearch() {
@@ -726,7 +823,7 @@
             case 'dashboard-content':
                 filterDashboardContent(searchInput);
                 break;
-            case 'platformusers-content':
+            case 'users-content':
                 filterPlatformUsersContent(searchInput);
                 break;
             case 'reported-ads-content':
@@ -865,6 +962,7 @@
     <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/search.js"></script>
     
     
 
