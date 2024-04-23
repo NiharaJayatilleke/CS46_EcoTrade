@@ -37,7 +37,7 @@ backBtn.addEventListener("click", (event) => {
 window.addEventListener('DOMContentLoaded', (event) => {
     //other to specify
     document.getElementById('company_type').addEventListener('change', function() {
-        var otherInputCompanyType = document.getElementById('other_company_type');
+        var otherInputCompanyType = document.getElementById('other-input');
         if (this.value === 'other') {
             otherInputCompanyType.style.display = 'block';
         } else {
@@ -55,15 +55,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 
     //other in categories
-    document.getElementById('other-checkbox').addEventListener('change', function() {
-        var otherInput = document.getElementById('other-input');
-        if (this.checked) {
-            otherInput.style.visibility = 'visible';
-        } else {
-            otherInput.style.visibility = 'hidden';
-            document.getElementById('other-category').value = ''; // clear the input field when "Other" is unchecked
-        }
-    });
+    // document.getElementById('other-checkbox').addEventListener('change', function() {
+    //     var otherInput = document.getElementById('other-input');
+    //     if (this.checked) {
+    //         otherInput.style.visibility = 'visible';
+    //     } else {
+    //         otherInput.style.visibility = 'hidden';
+    //         document.getElementById('other-category').value = ''; // clear the input field when "Other" is unchecked
+    //     }
+    // });
 });
 
 
