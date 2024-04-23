@@ -325,6 +325,7 @@
                                 <thead>
                                     <tr>
                                         <td>User ID</td>
+                                        <td>User Type</td>
                                         <td>Action Type</td>
                                         <td>Action Details</td>
                                         <td>Date Time</td>
@@ -336,6 +337,7 @@
                                     <?php foreach ($data['recentActivities'] as $activity) : ?>
                                         <tr>
                                             <td><?php echo $activity->user_id; ?></td>
+                                            <td><?php echo $activity->user_type; ?></td>
                                             <td><?php echo $activity->action_type; ?></td>
                                             <td><?php echo $activity->action_details; ?></td>
                                             <td><?php echo $activity->timestamp; ?></td>

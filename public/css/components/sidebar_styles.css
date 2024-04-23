@@ -24,7 +24,7 @@
 
 .sidebar .nav-links li{
     list-style:none;
-    position:fixed;
+    position:relative;
     font-size: 14px;
     margin-top: 0px;
     padding: 15px; 
@@ -59,15 +59,15 @@
 .sidebar .nav-links li a .link_name{
     color:#fff;
 }
-.sidebar .nav-links li a .link_name{
+/* .sidebar .nav-links li a .link_name{
     color: #fff;
-}
-.sidebar .nav-links li .sub-menu{
+} */
+/* .sidebar .nav-links li .sub-menu{
     padding:1px 2px 4px 0px ;   
     margin-top: -1px;
     text-align: center;
     z-index: 2;
-}
+} */
 
 /* .sidebar .nav-links li .sub-menu a{
     color: #fff;
