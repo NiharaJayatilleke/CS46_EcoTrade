@@ -53,10 +53,26 @@ window.addEventListener('DOMContentLoaded', (event) => {
             companyTypeSelect.disabled = false;
         }
     });
+
+    //other in categories
+    // document.getElementById('other-checkbox').addEventListener('change', function() {
+    //     var otherInput = document.getElementById('other-input');
+    //     if (this.checked) {
+    //         otherInput.style.visibility = 'visible';
+    //     } else {
+    //         otherInput.style.visibility = 'hidden';
+    //         document.getElementById('other-category').value = ''; // clear the input field when "Other" is unchecked
+    //     }
+    // });
 });
 
-form.addEventListener("submit", function(event) {
+
+
+//error handelling
+function confirmTerms(event) {
     event.preventDefault();
+
+    var form = event.target.form;
 
     // Check if the form is valid
     if (!form.checkValidity()) {
@@ -70,8 +86,10 @@ form.addEventListener("submit", function(event) {
     }
 
     // Check if at least one checkbox is checked
-    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    let oneCheckboxChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+    var checkboxes = form['categories[]'];
+    var oneCheckboxChecked = Array.prototype.some.call(checkboxes, function(checkbox) {
+        return checkbox.checked;
+    });
 
     if (!oneCheckboxChecked) {
         // No checkbox is checked, show an error message
@@ -144,4 +162,4 @@ form.addEventListener("submit", function(event) {
             xhr.send(formData);
         }
     })
-});
+}

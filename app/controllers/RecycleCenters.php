@@ -48,14 +48,6 @@
                     'categories_err' => '',
                     'other-input_err' => ''
                 ];
-
-                if (in_array('other', $data['categories'])) {
-                    $index = array_search('other', $data['categories']);
-                    unset($data['categories'][$index]); // remove 'other' from the categories array
-
-                    $data['other_category'] = $data['other-input']; // add the other category to the data array
-                    unset($data['other-input']); // remove 'other-input' from the data array
-                }
                 
                 
                 // // Validate NIC
