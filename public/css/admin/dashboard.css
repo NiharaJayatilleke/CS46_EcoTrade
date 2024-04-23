@@ -640,37 +640,6 @@
 
 
 /* report ads css on moderator dashboard */
-.reported-ads-container {
-    padding: 20px;
-    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
-    border-radius: 20px;
-    background: #fff;
-    margin-bottom: 30px;
-}
-
-.reported-ads-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.reported-ads-table th,
-.reported-ads-table td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.reported-ads-container h1 {
-    font-weight: 600;
-    font-size: 20px;
-    color: var(--green);
-}
-
-.reported-ads-table tbody tr:hover {
-    background: var(--green); /* Adjust color for hover effect */
-    color: var(--white); /* Adjust text color for hover effect */
-}
 
 
 #removeadbtn ,.btn.btn-success{
