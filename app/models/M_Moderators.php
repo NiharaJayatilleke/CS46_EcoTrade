@@ -169,9 +169,10 @@
     }  
     public function getRecentActivities() {
         $this->db->query("
-            SELECT user_id, action_type, action_details, timestamp
-            FROM Activity_Log
-            ORDER BY timestamp DESC  -- Corrected the column name here
+            SELECT al.user_id, gu.user_type, al.action_type, al.action_details, al.timestamp
+            FROM Activity_Log al
+            JOIN General_User gu ON al.user_id = gu.id
+            ORDER BY al.timestamp DESC  -- Corrected the column name here
             LIMIT 10
         ");
     
