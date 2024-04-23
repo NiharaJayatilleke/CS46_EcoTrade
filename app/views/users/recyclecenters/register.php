@@ -29,13 +29,13 @@
                         </div>
 
                         <div class="collector-input-field">
-                            <label>Telephone Number<span class="required">*</span></label>
-                            <input type="tel" name = "com_address" id="com_address" placeholder="Enter company telephone number">
+                            <label>Company Telephone Number<span class="required">*</span></label>
+                            <input type="tel" name = "com_tel" id="com_tel" placeholder="Enter company telephone number" required>
                         </div>
                         
                         <div class="collector-input-field">
-                            <label>Address<span class="required">*</span></label>
-                            <input type="text" name = "address" id="nic" placeholder="Enter Company Address"  >
+                            <label>Company Address<span class="required">*</span></label>
+                            <input type="text" name = "com_address" id="com_address" placeholder="Enter Company Address" required >
                         </div>
                         
                     </div>    
@@ -47,29 +47,29 @@
                         
                     <div class="collector-input-field">
                             <label>Company Email<span class="required">*</span></label>
-                            <input type="text" name = "com_email" id="com_name" placeholder="Enter Company email">
+                            <input type="text" name = "com_email" id="com_name" placeholder="Enter Company email" required>
                         </div>
 
                         <div class="collector-input-field">
                             <label>Company Name<span class="required">*</span></label>
-                            <input type="text" name = "com_name" id="com_name" placeholder="Enter Company name">
+                            <input type="text" name = "com_name" id="com_name" placeholder="Enter Company name" required>
                         </div>
 
                         
                         <div class="collector-input-field">
-                            <label>Registration Number<span class="required">*</span></label>
+                            <label>Registration Number</label>
                             <input type="text" name = "reg_number" id="reg_number" placeholder="Enter Company Registration Number"  >
                         </div>
                         
                         <div class="collector-input-field">
                             <label>Company Website : <span class="example"> - URL </span></label>
-                            <input type="text" name="vehicle_reg" id="vehicle_reg" placeholder="Vehicle Registration No" >
+                            <input type="text" name="website" id="website" placeholder="Vehicle Registration No" >
                         </div>
                         
 
                         <div class="collector-input-field">
                             <label for="company_type">Type of the Company<span class="required">*</span></label>
-                            <select name="company_type" id="company_type">
+                            <select name="company_type" id="company_type" required>
                                 <option value="">Select...</option>
                                 <option value="Sole Proprietorship">Sole Proprietorship</option>
                                 <option value="Partnership">Partnership</option>
@@ -117,10 +117,10 @@
                             <input type="text" id="owner_address" name="owner_address" placeholder="Enter Personal Address" >
                         </div>
                         
-                        <div class="collector-input-field">
+                        <!-- <div class="collector-input-field">
                             <label>Telephone Number</label>
                             <input type="number" id="telephone" name="telephone" placeholder="Enter telephone number" >
-                        </div>
+                        </div> -->
                         
 
                         <div class="collector-input-field">
@@ -146,14 +146,6 @@
                                     <?= $categories->name ?>
                                 </label>
                             <?php endforeach; ?>
-                            <label>
-                                <input type="checkbox" id="other-checkbox" name="categories[]" value="other">
-                                Other
-                            </label>
-                            <div id="other-input" style="display: none;">
-                                <label for="other-category">Please specify:</label>
-                                <input type="text" id="other-category" name="other_category">
-                            </div>
                         </div>
                     </div>
                 </div>

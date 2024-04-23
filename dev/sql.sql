@@ -15,7 +15,7 @@ CREATE TABLE General_User (
     PRIMARY KEY(id)
 );
 
-INSERT INTO General_User(username, email,number, password, user_type) VALUES ('admin','admin@gmail.com','090192','$2y$10$46HNERR3yFUe.fLbfRjSBeCGqlpJS7h5krkDUbJjjXmV0M.Y/XZ6u','moderator');
+INSERT INTO General_User(username, email,number, password, user_type) VALUES ('admin','admin@gmail.com','090192','$2y$10$46HNERR3yFUe.fLbfRjSBeCGqlpJS7h5krkDUbJjjXmV0M.Y/XZ6u','admin');
 
 CREATE TABLE Collectors (
     id INT AUTO_INCREMENT,
@@ -32,7 +32,6 @@ CREATE TABLE Collectors (
     vehicle_reg VARCHAR(255),
     model VARCHAR(255),
     color VARCHAR(255),
-    other_vehicle VARCHAR(255),
     FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE,
     PRIMARY KEY (id)
 );
@@ -83,13 +82,16 @@ DROP TABLE IF EXISTS RecycleCenters;
 CREATE TABLE RecycleCenters (
     id INT AUTO_INCREMENT,
     nic VARCHAR(255),
-    address TEXT,
+    owner_name VARCHAR(255),
+    owner_address TEXT,
     com_name VARCHAR(255),
     com_email VARCHAR(255),
-    com_address TEXT,
-    telephone VARCHAR(255),
+    com_address VARCHAR(255),
+    com_tel VARCHAR(255),
     company_type VARCHAR(255),
     reg_number VARCHAR(255),
+    website VARCHAR(255),
+    operation_days VARCHAR(255),
     FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
@@ -110,7 +112,8 @@ INSERT INTO Categories (name) VALUES
 ('Glass'),
 ('Metal'),
 ('Electronics (e-waste)'),
-('Batteries');
+('Batteries'),
+('Other');
 
 CREATE TABLE RecycleCentersCategories (
     center_id INT,

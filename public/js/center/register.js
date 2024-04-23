@@ -53,26 +53,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
             companyTypeSelect.disabled = false;
         }
     });
-
-    //other in categories
-    // document.getElementById('other-checkbox').addEventListener('change', function() {
-    //     var otherInput = document.getElementById('other-input');
-    //     if (this.checked) {
-    //         otherInput.style.visibility = 'visible';
-    //     } else {
-    //         otherInput.style.visibility = 'hidden';
-    //         document.getElementById('other-category').value = ''; // clear the input field when "Other" is unchecked
-    //     }
-    // });
 });
 
-
-
-//error handelling
-function confirmTerms(event) {
+form.addEventListener("submit", function(event) {
     event.preventDefault();
-
-    var form = event.target.form;
 
     // Check if the form is valid
     if (!form.checkValidity()) {
@@ -86,10 +70,8 @@ function confirmTerms(event) {
     }
 
     // Check if at least one checkbox is checked
-    var checkboxes = form['categories[]'];
-    var oneCheckboxChecked = Array.prototype.some.call(checkboxes, function(checkbox) {
-        return checkbox.checked;
-    });
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    let oneCheckboxChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
 
     if (!oneCheckboxChecked) {
         // No checkbox is checked, show an error message
@@ -119,12 +101,22 @@ function confirmTerms(event) {
 
     Swal.fire({
         title: 'Are you sure you want to register as a Recycle Center on Eco Trade?',
-        text: "Once you submit your registration, your information will be processed, and you'll be on your way to contributing to a greener future. If you're ready to take this step, go ahead and hit submit!",
+        html: `
+            <p>Once you submit your registration, your information will be processed, and you'll be on your way to contributing to a greener future. If you're ready to take this step, go ahead and hit submit!</p>
+            <input type="checkbox" id="terms" name="terms">
+            <label for="terms">I agree to the Terms and Conditions</label>
+        `,
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Submit',
+        preConfirm: () => {
+            const terms = Swal.getPopup().querySelector('#terms').checked
+            if (!terms) {
+                Swal.showValidationMessage(`Please agree to the Terms and Conditions`)
+            }
+        },
         didOpen: () => {
             document.querySelector('.swal2-content').style.fontSize = '0.9em'; // Adjust the font size to your liking
         }
@@ -152,4 +144,4 @@ function confirmTerms(event) {
             xhr.send(formData);
         }
     })
-}
+});

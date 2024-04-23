@@ -33,7 +33,7 @@
                     'model' => trim($_POST['model']),
                     'color' => trim($_POST['color']),
                     'districts' => isset($_POST['districts']) ? array_map('trim', $_POST['districts']) : [],
-                    'other_vehicle' => trim($_POST['other_vehicle']),
+
 
                     'nic_err' => '',
                     'gender_err' => '',
@@ -48,8 +48,7 @@
                     'vehicle_reg_err' => '',
                     'model_err' => '',
                     'color_err' => '',
-                    'districts_err' => '',
-                    'other_vehicle_err' => ''
+                    'districts_err' => ''
                     // 'agree' => trim($_POST['agree']),
                 ];
                 
@@ -210,9 +209,8 @@
                         'vehicle_type' => '',
                         'vehicle_reg' => '',
                         'model' => '',
-                        'districts' => '',
+                        'districts' => [],
                         'color_err' => '',
-                        'other_vehicle' => '',
                 
                         'nic_err' => '',
                         'gender_err' => '',
@@ -227,8 +225,7 @@
                         'vehicle_reg_err' => '',
                         'model_err' => '',
                         'color_err' => '',
-                        'districts_err' => '',
-                        'other_vehicle_err' => ''
+                        'districts_err' => ''
                     ];
                     // Guests or other user types should go to general user registration
                     redirect('Users/register');
