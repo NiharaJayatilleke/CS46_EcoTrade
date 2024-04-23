@@ -64,12 +64,12 @@
             </div>
     
         <div class="carouselIndicator">
-            <div class="indicator activeIndicator" onclick="slideCarousel(0)"></div>
-            <div class="indicator" onclick="slideCarousel(1)"></div>
-            <div class="indicator" onclick="slideCarousel(2)"></div>
-            <div class="indicator" onclick="slideCarousel(3)"></div>
-            <div class="indicator" onclick="slideCarousel(4)"></div>
-            <div class="indicator" onclick="slideCarousel(5)"></div>
+            <div class="b12indicator activeIndicator" onclick="slideCarousel(0)"></div>
+            <div class="b12indicator" onclick="slideCarousel(1)"></div>
+            <div class="b12indicator" onclick="slideCarousel(2)"></div>
+            <div class="b12indicator" onclick="slideCarousel(3)"></div>
+            <div class="b12indicator" onclick="slideCarousel(4)"></div>
+            <div class="b12indicator" onclick="slideCarousel(5)"></div>
         </div>
     </section>
 
@@ -103,6 +103,6 @@
             <img src="./public/img/about/wepik-export-20240421093650W1dh.png" alt="">
         </div>
     </section>
-    <script src="./script.js"></script>
+  
 
 </body>
