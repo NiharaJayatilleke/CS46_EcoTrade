@@ -49,6 +49,26 @@
 
         public function addBuyerNotifResponse(){
             
+            $data = file_get_contents("php://input");
+
+            // Decode the data from JSON into an associative array
+            $jdata = json_decode($data, true);
+        
+            // Extract the notif_id, response, and rejection_reason from the data
+            $data = [
+                'notif_id' => $jdata['notif_id'],
+                'response' => $jdata['response'],
+                'rejection_reason' => $jdata['rejection_reason']
+            ];
+        
+            // Call the addBuyerResponse method of the model class, passing the data as an argument
+            if ($this->notificationsModel->addBuyerResponse($data)) {
+                // The response was added successfully
+                http_response_code(200); // OK
+            } else {
+                // The response was not added
+                http_response_code(500); // Internal Server Error
+            }
         }
 
     }

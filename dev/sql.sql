@@ -271,10 +271,12 @@ CREATE TABLE Notifications(
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS Buyer_Responses;
+
 CREATE TABLE Buyer_Responses (
     response_id INT AUTO_INCREMENT,
     notif_id INT,
-    response ENUM('Accepted', 'Rejected'),
+    response ENUM('Confirmed', 'Declined'),
     rejection_reason TEXT,
     PRIMARY KEY(response_id),
     FOREIGN KEY(notif_id) REFERENCES Notifications(notif_id)

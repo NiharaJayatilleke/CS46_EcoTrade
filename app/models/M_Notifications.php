@@ -29,7 +29,7 @@
         }
 
         public function getBuyerNotificationsByAd($userId, $adId){
-            $this->db->query('SELECT * FROM Notifications WHERE user_id = :user_id AND ad_id = :ad_id ORDER BY notif_id DESC');
+            $this->db->query('SELECT * FROM Notifications WHERE user_id = :user_id AND ad_id = :ad_id AND seen = 0 ORDER BY notif_id DESC');
             $this->db->bind(':user_id', $userId);
             $this->db->bind(':ad_id', $adId);
             $results = $this->db->resultSet();
@@ -55,7 +55,14 @@
             $this->db->bind(':rejection_reason',$data['rejection_reason']);
         
             if($this->db->execute()){
-                return true;
+                $this->db->query('UPDATE Notifications SET seen = 1 WHERE notif_id = :notif_id');
+                $this->db->bind(':notif_id', $data['notif_id']);
+            
+                if($this->db->execute()){
+                    return true;
+                } else {
+                    return false;
+                }
             }
             else{
                 return false;

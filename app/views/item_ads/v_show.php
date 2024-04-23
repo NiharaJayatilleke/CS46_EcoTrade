@@ -210,7 +210,7 @@ if($_SESSION['user_type'] != 'moderator') {
         <div class="sad-buyer-messages">
             <div class="sad-buyer-msgs-title"><h2>Notifications</h2></div>
             <?php foreach ($data['buyer_notifications'] as $notification): ?>
-                <div class="sad-buyer-msg-container" id = "buyer-notif">
+                <div class="sad-buyer-msg-container" id = "buyer-notif"  data-notif-id="<?php echo $notification->notif_id; ?>">
                     <div class="sad-buyer-msg-content"><?php echo $notification->message; ?></div>
                     <div class="sad-buyer-msg-buttons">
                         <div class="sad-buyer-confirm-purchase-btn"><button type="button">Confirm Purchase</button></div>
