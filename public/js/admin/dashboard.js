@@ -70,6 +70,7 @@ function checkFragment() {
     switch (fragment) {
         case '#users-content':
         case '#moderators-content':
+        case '#centers-content':
         case '#secondhand-content':
         case '#recycle-content':
         case '#activity-content':

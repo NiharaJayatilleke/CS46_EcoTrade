@@ -9,21 +9,29 @@
                         <span class = "side-title">EcoTrade</span>
                     </a>
                 </li>
+
                 <!-- <li>
                     <a href="<?php echo URLROOT ?>/Pages/index">
                         <span class = "side-icon"><ion-icon name="home-outline"></ion-icon></span>
                         <span class = "side-title">Home</span>
                     </a>
                 </li> -->
+
                 <li>
-                    <!-- <a href="<?php echo URLROOT ?>/Admin/index"> -->
                     <a href="#dashboard-content" id="dashboard-tab" onclick="showContent('dashboard-content')">
                         <span class = "side-icon"><ion-icon name="grid-outline"></ion-icon></span>
                         <span class = "side-title">Dashboard</span>
                     </a>
                 </li>
+
                 <li>
-                    <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
+                    <a href="#users-content" id="users-tab" onclick="showContent('users-content')">
+                        <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <span class = "side-title">Users</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="#moderators-content" id="moderators-tab" onclick="showContent('moderators-content')">
                         <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class = "side-title">Moderators</span>
@@ -31,12 +39,12 @@
                 </li>
 
                 <li>
-                    <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
-                    <a href="#users-content" id="users-tab" onclick="showContent('users-content')">
-                        <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
-                        <span class = "side-title">Users</span>
+                    <a href="#centers-content" id="centers-tab" onclick="showContent('centers-content')">
+                        <span class = "side-icon"><ion-icon name="business-outline"></ion-icon></span>
+                        <span class = "side-title">Recycle Centers</span>
                     </a>
                 </li>
+
 
                 <li>
                     <a href="#secondhand-content" id="secondhand-tab" onclick="showContent('secondhand-content')">
@@ -46,7 +54,6 @@
                 </li>                               
 
                 <li>
-                    <!-- <a href=""> -->
                     <a href="#recycle-content" id="recycle-tab" onclick="showContent('recycle-content')">
                         <span class = "side-icon"><ion-icon name="leaf-outline"></ion-icon></span>
                         <span class = "side-title">Recycling Ads</span>
@@ -54,21 +61,18 @@
                 </li>
 
                 <li>
-                    <!-- <a href="#"> -->
                     <a href="#activity-content" id="activity-tab" onclick="showContent('activity-content')">
                         <span class = "side-icon"><ion-icon name="globe-outline"></ion-icon></span>
                         <span class = "side-title">Activity Log</span>
                     </a>
                 </li>
                 <li>
-                    <!-- <a href="#"> -->
                     <a href="#reported-ads-content" id="reported-ads-tab" onclick="showContent('reported-ads-content')">
                         <span class = "side-icon"><ion-icon name="remove-circle-outline"></ion-icon></span>
                         <span class = "side-title">Reported ads</span>
                     </a>
                 </li>
                 <li>
-                    <!-- <a href="#"> -->
                     <a href="#settings-content" id="settings-tab" onclick="showContent('settings-content')">
                         <span class = "side-icon"><ion-icon name="cog-outline"></ion-icon></span>
                         <span class = "side-title">Settings</span>
@@ -120,7 +124,7 @@
                 </div>
                 
                 <div class="dashboard-cardBox">
-                    <a href="<?php echo URLROOT ?>/Admin/users#users-content" style="text-decoration: none; color: inherit;">
+                    <a href="<?php echo URLROOT ?>/Admin/index#users-content" style="text-decoration: none; color: inherit;">
                         <div class="dashboard-card">
                             <div>
                                 <div class="dashboard-numbers"><?php echo $data['users_count'] ?></div> 
@@ -132,7 +136,7 @@
                         </div>
                     </a>
 
-                    <a href="<?php echo URLROOT ?>/Admin/moderators#moderators-content" style="text-decoration: none; color: inherit;">
+                    <a href="<?php echo URLROOT ?>/Admin/index#moderators-content" style="text-decoration: none; color: inherit;">
                         <div class="dashboard-card">
                             <div>
                                 <div class="dashboard-numbers" ><?php echo $data['moderators_count'] ?></div> 
@@ -144,7 +148,27 @@
                         </div>
                     </a>
 
-                    <a href="<?php echo URLROOT ?>/Admin/moderators#secondhand-content" style="text-decoration: none; color: inherit;">
+                    <div class="dashboard-card" >
+                            <div>
+                                <div class="dashboard-numbers" ><?php echo $data['collectors_count'] ?></div> 
+                                <div class="dashboard-cardName">Collectors</div>
+                            </div>
+                            <div class="dashboard-iconBx">  
+                                <ion-icon name="people-circle-outline"></ion-icon>     
+                            </div>
+                    </div>
+
+                    <div class="dashboard-card" >
+                                <div>
+                                    <div class="dashboard-numbers" ><?php echo $data['centers_count'] ?></div> 
+                                    <div class="dashboard-cardName">Recycle centers</div>
+                                </div>
+                                <div class="dashboard-iconBx">  
+                                <ion-icon name="business-outline"></ion-icon>
+                                </div>
+                    </div>
+
+                    <a href="<?php echo URLROOT ?>/Admin/index#secondhand-content" style="text-decoration: none; color: inherit;">
                         <div class="dashboard-card">
                             <div>
                                 <div class="dashboard-numbers"><?php echo $data['sec_ad_count'] ?></div> 
@@ -155,18 +179,19 @@
                             </div>
                         </div>
                     </a>
+
+                    <a href="<?php echo URLROOT ?>/Admin/index#recycle-content" style="text-decoration: none; color: inherit;">
+                        <div class="dashboard-card">
+                            <div>
+                                <div class="dashboard-numbers"><?php echo $data['rec_ad_count'] ?></div> 
+                                <div class="dashboard-cardName">Recycling Item Ads</div>
+                            </div>
+                            <div class="dashboard-iconBx">  
+                                <ion-icon name="leaf"></ion-icon>  
+                            </div>
+                        </div>
+                    </a>
                     
-
-
-                    <div class="dashboard-card">
-                        <div>
-                            <div class="dashboard-numbers">80</div> 
-                            <div class="dashboard-cardName">Recycling Ads</div>
-                        </div>
-                        <div class="dashboard-iconBx"> 
-                            <ion-icon name="leaf"></ion-icon>   
-                        </div>
-                    </div>
                 </div>
 
                 <div class="graphBox">
@@ -260,51 +285,6 @@
 
                 </div>
             </div>
-        
-            <!-- Moderators crud-->
-            <div id="moderators-content" class="content-section">
-                <div class="details">
-                    <div class="recentOrders">
-                        <div class="cardHeader">
-                            <h2>Moderators</h2>
-                            <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Add Moderator</a>
-                        </div>
-                        <table id="moderators-table">
-                            <thead>
-                                <tr>
-                                    <td>Username</td>
-                                    <td>Email</td>
-                                    <td>Contact Number</td>
-                                    <td>Date Joined</td>
-                                    <td>Edit/Delete</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if(empty($data['moderators'])): ?>
-                                    <tr>
-                                        <td colspan="5">No moderators found</td>
-                                    </tr>
-                                <?php else: ?>
-                                    <?php foreach($data['moderators'] as $moderator) : ?>
-                                    <tr>
-                                        <td><p><?php echo $moderator->username ?></p></td>
-                                        <td><?php echo $moderator->email ?></td>
-                                        <td><?php echo $moderator->number ?></td>
-                                        <td><?php echo $moderator->created_at ?></td>
-                                        <td>
-                                            <div class = "mod-control-btns">
-                                                <a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
 
             <!-- User crud-->
             <div id="users-content" class="content-section">
@@ -352,7 +332,97 @@
                     </div>
                 </div>
             </div>
-            
+        
+            <!-- Moderators crud-->
+            <div id="moderators-content" class="content-section">
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Moderators</h2>
+                            <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Add Moderator</a>
+                        </div>
+                        <table id="moderators-table">
+                            <thead>
+                                <tr>
+                                    <td>Username</td>
+                                    <td>Email</td>
+                                    <td>Contact Number</td>
+                                    <td>Date Joined</td>
+                                    <td>Edit/Delete</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if(empty($data['moderators'])): ?>
+                                    <tr>
+                                        <td colspan="5">No moderators found</td>
+                                    </tr>
+                                <?php else: ?>
+                                    <?php foreach($data['moderators'] as $moderator) : ?>
+                                    <tr>
+                                        <td><p><?php echo $moderator->username ?></p></td>
+                                        <td><?php echo $moderator->email ?></td>
+                                        <td><?php echo $moderator->number ?></td>
+                                        <td><?php echo $moderator->created_at ?></td>
+                                        <td>
+                                            <div class = "mod-control-btns">
+                                                <a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recycle Centers crud-->
+            <div id="centers-content" class="content-section">
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Moderators</h2>
+                            <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Add Moderator</a>
+                        </div>
+                        <table id="moderators-table">
+                            <thead>
+                                <tr>
+                                    <td>Username</td>
+                                    <td>Email</td>
+                                    <td>Contact Number</td>
+                                    <td>Date Joined</td>
+                                    <td>Edit/Delete</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if(empty($data['moderators'])): ?>
+                                    <tr>
+                                        <td colspan="5">No moderators found</td>
+                                    </tr>
+                                <?php else: ?>
+                                    <?php foreach($data['moderators'] as $moderator) : ?>
+                                    <tr>
+                                        <td><p><?php echo $moderator->username ?></p></td>
+                                        <td><?php echo $moderator->email ?></td>
+                                        <td><?php echo $moderator->number ?></td>
+                                        <td><?php echo $moderator->created_at ?></td>
+                                        <td>
+                                            <div class = "mod-control-btns">
+                                                <a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
             <!-- Second hand ads-->
             <div id="secondhand-content" class="content-section">
                 <div class="heading-dashboard">
@@ -578,13 +648,10 @@
 
             <!-- Recycle ads-->
             <div id="recycle-content" class="content-section">
-                <div class="heading-dashboard">
-                    <h2>Recycle Ads</h2>
-                </div>
-                <p>This is the content for the Recycle tab.</p> 
+                <!-- centers should be fetched here -->
             </div>
 
-            <!-- Messages -->
+            <!-- activity -->
             <div id="activity-content" class="content-section">
                 <div class="details">
                     <div class="recentOrders">
@@ -680,7 +747,7 @@
                         <button class="tab-link" onclick="openTab(event, 'change-password')">Change Password</button>
                         <button class="tab-link" onclick="openTab(event, 'notification')">Notification</button> -->
                         <button class="tab-link active" onclick="openTab('general')" data-section="general">General</button>
-                         <button class="tab-link" onclick="openTab('change-password')" data-section="change-password">Change Password</button>
+                        <button class="tab-link" onclick="openTab('change-password')" data-section="change-password">Change Password</button>
                     </div>
 
                     <div id="general" class="tab-content active"  data-section="general">
@@ -798,8 +865,9 @@
         // event.preventDefault();
         // Hide all content sections
         document.getElementById('dashboard-content').style.display = 'none';
-        document.getElementById('moderators-content').style.display = 'none';
         document.getElementById('users-content').style.display = 'none';
+        document.getElementById('moderators-content').style.display = 'none';
+        document.getElementById('centers-content').style.display = 'none';
         document.getElementById('secondhand-content').style.display = 'none';
         document.getElementById('secondhand-ad-view-content').style.display = 'none';
         document.getElementById('recycle-content').style.display = 'none';

@@ -17,18 +17,23 @@
         // }
         
         }
+
         public function about(){
-            $users = $this->pagesModel->getUsers();
-            $data = [
-                'users' => $users
-            ];
-            $this->view('v_about',$data);
+            $data = [];
+            $this->view('pages/v_aboutus',$data);
+
         }
 
         public function error(){
             $data = [];
             $this->view('pages/error',$data);
         }
+
+        // public function error(){
+        //     $data = [];
+        //     $this->view('pages/v_errorpage',$data);
+
+        // }
 
         public function forbidden(){
             $data = [];
@@ -40,5 +45,19 @@
             $this->view('pages/v_recyclehome',$data);
 
         }
+
+        //Rusiru made the sechome view
+
+        public function sechome(){
+            $ads = $this->itemAdsModel->getAds();
+            
+            $data = [
+                'ads' => $ads,
+            ];
+
+            $this->view('pages/v_sechome',$data);
+
+        }
+
     }
 ?>
