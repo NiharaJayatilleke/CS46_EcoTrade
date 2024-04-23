@@ -12,5 +12,12 @@
 
             $this->view('users/seller/dashboard',$data);
         }
+
+        //rusiru's view added to controller by nihara
+        public function sellerprofile(){
+            $data = [];
+            $this->view('pages/v_sellerpro',$data);
+
+        }
     }
 ?>
