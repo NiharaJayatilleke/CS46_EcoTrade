@@ -6,12 +6,15 @@
 <div class="wishlist_container">
     <h1>My Wishlist</h1>
         <table class="wishlist">
+            <thead>
             <tr>
                 <th>Product</th>
                 <th>Price</th>
                 <th>Item Category</th>
                 <th></th>
             </tr>
+        </thead>
+            <tbody>
             <?php foreach ($data['wishlist'] as $item): ?>
                 <tr onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $item->p_id;?>';">
                 
@@ -21,6 +24,7 @@
                     <td><button onclick="removeFromWishlist(<?php echo $item->p_id;?>);">Remove AD</button></td>
             </tr>
             <?php endforeach; ?>
+            </tbody>
         </table>
 </div>
     </body>
