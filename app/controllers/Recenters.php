@@ -3,8 +3,8 @@
         public function __construct() {
             $this->recentersModel = $this->model('M_Recenters');
 
-            // $this->recycleItemAdsModel =$this->model('M_Recycle_Item_Ads');
-            // $this->usersModel = $this->model('M_Users');
+            $this->recycleItemAdsModel =$this->model('M_Recycle_Item_Ads');
+            $this->usersModel = $this->model('M_Users');
         }
 
 
