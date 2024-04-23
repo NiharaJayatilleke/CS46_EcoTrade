@@ -112,7 +112,7 @@ CREATE TABLE Item_Ads (
     item_location VARCHAR(255),
     selling_format VARCHAR(255),
     negotiable VARCHAR(255),
-    item_expiry VARCHAR(255),
+    item_expiry INT,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(255),
     PRIMARY KEY(p_id),

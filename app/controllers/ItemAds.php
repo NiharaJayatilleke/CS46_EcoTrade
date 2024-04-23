@@ -162,8 +162,6 @@
 
         public function itemAd(){
 
-            die(print_r($_POST));
-
             if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator' || $_SESSION['userType'] == 'center' )){      
                 $this->view('pages/forbidden');
 

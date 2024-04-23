@@ -202,9 +202,9 @@
             <div class="ad-form-input-title">For how long do you wish to keep this ad?</div>
             <select name="item_expiry" id="item_expiry" class="ad_item_expiry">
             <option value="" <?php echo $data['item_expiry'] == '' ? 'selected' : ''; ?>>Select the duration</option>
-            <option value="1 month" <?php echo $data['item_expiry'] == '1 month' ? 'selected' : ''; ?>>1 month</option>
-            <option value="2 months" <?php echo $data['item_expiry'] == '2 months' ? 'selected' : ''; ?>>2 months</option>
-            <option value="3 months" <?php echo $data['item_expiry'] == '3 months' ? 'selected' : ''; ?>>3 months</option>
+            <option value="1" <?php echo $data['item_expiry'] == '1 month' ? 'selected' : ''; ?>>1 month</option>
+            <option value="2" <?php echo $data['item_expiry'] == '2 months' ? 'selected' : ''; ?>>2 months</option>
+            <option value="3" <?php echo $data['item_expiry'] == '3 months' ? 'selected' : ''; ?>>3 months</option>
             </select>
             <span class="ad-form-invalid"><?php echo $data['item_expiry_err']; ?></span>
 
