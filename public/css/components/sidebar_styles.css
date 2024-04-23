@@ -5,7 +5,7 @@
 } */
 
 .sidebar{
-    position:absolute;
+    position:fixed;
     display: none;
     top:0;
     right:0;
@@ -16,7 +16,7 @@
     color: #fff;
     /* margin-top: 60px; */
     margin-top: 54px;
-    z-index: 1;
+    z-index: 999;
     border-bottom-left-radius: 20px;
     /* border-bottom-right-radius: 20px; */
    
@@ -24,7 +24,7 @@
 
 .sidebar .nav-links li{
     list-style:none;
-    position:relative;
+    position:fixed;
     font-size: 14px;
     margin-top: 0px;
     padding: 15px; 
