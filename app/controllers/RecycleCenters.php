@@ -2,11 +2,11 @@
     class RecycleCenters extends Controller{
         public function __construct(){
             $this->userModel = $this->model('M_Users');
-            $this->recyclecenterModel =$this->model('M_RecycleCenters');
-            // $this->pagesModel =$this->model('M_Pages');
-
+            $this->pagesModel =$this->model('M_Pages');
+            $this->recentersModel = $this->model('M_Recenters'); 
+            
         }
-
+        
         public function register(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
                 // form is submitting
@@ -155,7 +155,7 @@
                         
                         flash('reg_flash', 'You are successfully registered as a recyclecenter!');
                         // Assuming $user is an instance of the class that contains the updateUserType method
-                        if ($this->userModel->updateUserType('recyclecenter')) {
+                        if ($this->userModel->updateUserType('center')) {
                             echo 'User type updated successfully';
                         } else {
                             echo 'Failed to update user type';
@@ -169,7 +169,7 @@
                 }
                 else{
                     // Load view
-                    $this->view('users/rec/register', $data);
+                    $this->view('users/recyclecenters/register', $data);
                 }
             }
             else {
@@ -178,11 +178,11 @@
                 if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == null) {
                     // If user is not logged in, redirect to login page
                     redirect('Users/login');
-                } else if($_SESSION['userType'] == 'recyclecenter') {
+                } else if($_SESSION['userType'] == 'center') {
                     // If user is a recyclecenter, redirect to a different page (e.g., recyclecenter's dashboard)
                     redirect('recyclecenters/index');
                 }
-                else if(isset($_SESSION['user_id']) && isset($_SESSION['userType']) && ($_SESSION['userType'] != 'recyclecenter'|| $_SESSION['userType'] != 'recenter' || $_SESSION['userType'] != null)) {
+                else if(isset($_SESSION['user_id']) && isset($_SESSION['userType']) && ($_SESSION['userType'] != 'center'|| $_SESSION['userType'] != null)) {
                     $data = [
                         'user' => $user,
                     ];
@@ -241,7 +241,6 @@
             }
         }
         
-
         public function index(){
             $data = [];
             $this->view('users/recyclecenters/dashboard',$data);

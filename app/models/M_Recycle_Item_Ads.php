@@ -6,7 +6,7 @@
             $this->db = new Database();
         }
 
-        public function re_create($data) {
+        public function register($data) {
             $this->db->query('INSERT INTO Recycle_Item_Ads(seller_id,item_name,item_category,item_desc,item_image,item_location) VALUES(:seller_id, :item_name, :item_category, :item_desc, :item_image, :item_location)'); 
             $this->db->bind(':seller_id',$_SESSION['user_id']);         
             $this->db->bind(':item_name',$data['item_name']);
