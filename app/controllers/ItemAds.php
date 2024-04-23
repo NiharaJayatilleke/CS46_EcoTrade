@@ -162,6 +162,8 @@
 
         public function itemAd(){
 
+            die(print_r($_POST));
+
             if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator' || $_SESSION['userType'] == 'center' )){      
                 $this->view('pages/forbidden');
 
@@ -193,6 +195,7 @@
                     'duration' => trim($_POST['duration']),
                     'starting_bid' => trim($_POST['starting_bid']),
                     'negotiable' => trim($_POST['negotiable']),
+                    'item_expiry' => trim($_POST['item_expiry']),
 
                     'item_name_err' => '',
                     'item_category_err' => '',
@@ -205,6 +208,7 @@
                     'duration_err' => '',
                     'starting_bid_err' => '',
                     'negotiable_err' => '',
+                    'item_expiry_err' => '',
                 ];
 
                 // die(print_r($data['item_img_name']));
@@ -294,8 +298,13 @@
                     $data['negotiable_err'] = 'Please select an option';
                 }
 
+                //validate expiry
+                if(empty($data['item_expiry'])){
+                    $data['item_expiry_err'] = 'Please select the duration';
+                }
+
                 //Validation is completed and no error then add item ad to the database
-                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_condition_err'])&&empty($data['item_quantity_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])&&empty($data['item_images_err'])){
+                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_condition_err'])&&empty($data['item_quantity_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])&&empty($data['item_images_err'])&&empty($data['item_expiry_err'])){
                     // var_dump($data);
                     //Add item ad to the database
                     $ad_id = $this->itemAdsModel->create($data);
@@ -355,6 +364,7 @@
                     'duration' => '',
                     'starting_bid' => '',
                     'negotiable' => '',
+                    'item_expiry' => '',
 
                     'item_name_err' => '',
                     'item_category_err' => '',
@@ -367,6 +377,7 @@
                     'duration_err' => '',
                     'starting_bid_err' => '',
                     'negotiable_err' => '',
+                    'item_expiry_err' => '',
 
                     // 'show_auction_fields' => true
                 ];

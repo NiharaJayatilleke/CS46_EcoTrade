@@ -28,7 +28,7 @@
 
         public function create($data) {
             
-            $this->db->query('INSERT INTO Item_Ads(seller_id,item_name,item_category,item_desc,item_condition,item_quantity,item_image,item_price,item_location,selling_format,negotiable, status) VALUES(:seller_id, :item_name, :item_category, :item_desc, :item_condition, :item_quantity, :item_image, :item_price, :item_location, :selling_format, :negotiable, :status)'); 
+            $this->db->query('INSERT INTO Item_Ads(seller_id,item_name,item_category,item_desc,item_condition,item_quantity,item_image,item_price,item_location,selling_format,negotiable, item_expiry, status) VALUES(:seller_id, :item_name, :item_category, :item_desc, :item_condition, :item_quantity, :item_image, :item_price, :item_location, :selling_format, :negotiable, :item_expiry, :status)'); 
             // $this->db->query('INSERT INTO Item_Ads(seller_id,item_name,item_category,item_desc,item_condition,item_quantity,item_price,item_location,selling_format,negotiable) VALUES(:seller_id, :item_name, :item_category, :item_desc, :item_condition, :item_quantity, :item_price, :item_location, :selling_format, :negotiable)'); 
             $this->db->bind(':seller_id',$_SESSION['user_id']);         
             $this->db->bind(':item_name',$data['item_name']);
@@ -41,6 +41,7 @@
             $this->db->bind(':item_location',$data['item_location']);
             $this->db->bind(':selling_format',$data['selling_format']);
             $this->db->bind(':negotiable',$data['negotiable']);
+            $this->db->bind(':item_expiry',$data['item_expiry']);
             $this->db->bind(':status',"active");
             
             if($this->db->execute()){
