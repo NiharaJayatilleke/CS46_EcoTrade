@@ -177,6 +177,7 @@ CREATE OR REPLACE VIEW v_ads AS
         Item_Ads.selling_format as selling_format,
         Item_Ads.negotiable as negotiable,
         Item_Ads.created_at as item_created_at,
+        Item_Ads.status as status,
         Featured_Ads.package as feature_package,
         Featured_Ads.duration as feature_duration,
         Featured_Ads.starting_time as feature_starting_time,
