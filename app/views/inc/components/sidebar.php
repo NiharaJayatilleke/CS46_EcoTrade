@@ -3,9 +3,17 @@
 <div class="sidebar">
     <ul class="nav-links"> 
         <li>
-            <a href="<?php echo URLROOT ?>/Users/profile">
+        <?php if (($_SESSION['userType'])=='admin') : ?>
+            <a href="<?php echo URLROOT ?>/admin/index">
+        <?php elseif (($_SESSION['userType'])=='moderator') : ?>
+            <a href="<?php echo URLROOT ?>/moderators/index">
+        <?php elseif (($_SESSION['userType'])=='collector') : ?>
+        <a href="<?php echo URLROOT ?>/collectors/index">
+        <?php elseif (($_SESSION['userType'])=='seller') : ?>
+        <a href="<?php echo URLROOT ?>/seller/index">
+        <?php endif; ?>
                 <i class='bx bxs-user-circle'></i>
-                <span class="link_name">Profile</span>
+                <span class="link_name">Dashboard</span>
             </a>
         </li>
         <li class="logout-link">
