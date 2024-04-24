@@ -388,6 +388,7 @@
                                 // Update the user's profile image path in the database
                                 $this->moderatorModel->updateProfileImage($_SESSION['user_id'], $filename);  
                                 $_SESSION['user_image']=$filename;
+                                
                             } 
                         }
                     }

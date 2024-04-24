@@ -717,6 +717,7 @@
 
                 if($this->itemAdsModel->delete($adId)){
                     flash('post_msg', 'Your ad has been deleted successfully!');
+                    $this->userModel->logActivity($_SESSION['user_id'], 'ItemAd deletion', 'Removed preowneditemAd from the platform');
                     redirect('ItemAds/index');
                 }
                 else{
