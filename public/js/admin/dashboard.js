@@ -1,10 +1,21 @@
+let toggle = document.querySelector('.dashboard-toggle');
+let sidenav = document.querySelector('.dashboard-sidenav');
+let main = document.querySelector('.dashboard-main');
+toggle.onclick = function(){
+    sidenav.classList.toggle('active');
+    main.classList.toggle('active');
+}
+
+
 let list = document.querySelectorAll('.dashboard-sidenav li');
 
 function activeLink() {
+    // Add the hovered class to the current item
     this.classList.add('hovered');
 }
 
 function inactiveLink() {
+    // Only remove the hovered class if the item hasn't been clicked
     if (!this.classList.contains('clicked')) {
         this.classList.remove('hovered');
     }
@@ -12,14 +23,13 @@ function inactiveLink() {
 
 function clickedLink() {
     list.forEach((item) => {
+        // Remove the clicked and hovered classes from other items
         if (item !== this) {
             item.classList.remove('clicked', 'hovered');
         }
     });
+    // Add the clicked class to the current item
     this.classList.add('clicked');
-
-    // Update the URL hash
-    location.hash = this.id;
 }
 
 list.forEach((item) => {
@@ -28,22 +38,6 @@ list.forEach((item) => {
     item.addEventListener('click', clickedLink);
 });
 
-// When the page is loaded or the hash changes, update the 'clicked' class
-window.addEventListener('load', updateClickedClass);
-window.addEventListener('hashchange', updateClickedClass);
-
-function updateClickedClass() {
-    // Remove the 'clicked' class from all tabs
-    list.forEach((item) => {
-        item.classList.remove('clicked');
-    });
-
-    // Add the 'clicked' class to the tab that matches the URL hash
-    let selectedTab = document.querySelector('.dashboard-sidenav li' + location.hash);
-    if (selectedTab) {
-        selectedTab.classList.add('clicked');
-    }
-}
 
 // Function to show the search bar
 function showSearchBar() {
