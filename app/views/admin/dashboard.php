@@ -228,7 +228,7 @@
                             ?>
                                 <tr>
                                     <td><?php echo $activity->user_id; ?></td>
-                                    <td><?php echo $activity->user_type; ?></td>
+                                    <td><span class="usertype <?php echo $activity->user_type ?>"><?php echo $activity->user_type ?></span></td>
                                     <td><?php echo $activity->action_type; ?></td>
                                     <td><?php echo $activity->action_details; ?></td>
                                     <td><?php echo $activity->timestamp; ?></td>
@@ -676,7 +676,7 @@
                                     <?php foreach ($data['recentActivities'] as $activity) : ?>
                                         <tr>
                                             <td><?php echo $activity->user_id; ?></td>
-                                            <td><?php echo $activity->user_type; ?></td>
+                                            <td><span class="usertype <?php echo $activity->user_type ?>"><?php echo $activity->user_type ?></span></td>
                                             <td><?php echo $activity->action_type; ?></td>
                                             <td><?php echo $activity->action_details; ?></td>
                                             <td><?php echo $activity->timestamp; ?></td>
