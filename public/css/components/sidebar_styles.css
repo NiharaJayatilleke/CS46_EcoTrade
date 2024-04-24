@@ -23,8 +23,8 @@
 }
 
 .sidebar .nav-links li{
-    list-style:none;
-    position:fixed;
+    /* list-style:none;
+    position:fixed; */
     font-size: 14px;
     margin-top: 0px;
     padding: 15px; 
