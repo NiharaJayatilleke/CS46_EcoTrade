@@ -6,11 +6,23 @@ const form = document.querySelector("form"),
 nextBtn.addEventListener("click", (event) => {
     event.preventDefault();
     let allRequiredFieldsFilled = true;
+    let errorMessage = 'Please fill all the required fields';
+
     allInput.forEach(input => {
         if (input.required && !input.readOnly && input.value === "") {
             allRequiredFieldsFilled = false;
         }
     });
+
+    if (allRequiredFieldsFilled) {
+        // Check if gender is selected
+        const genderSelect = document.getElementById('gender');
+        if (genderSelect.value === "") {
+            allRequiredFieldsFilled = false;
+            errorMessage = 'Please select a gender';
+        }
+    }
+
     console.log(allRequiredFieldsFilled);
     if (allRequiredFieldsFilled) {
         form.classList.add('secActive');
@@ -18,7 +30,7 @@ nextBtn.addEventListener("click", (event) => {
         form.classList.remove('secActive');
         Swal.fire({
             title: 'Error!',
-            text: 'Please fill all the required fields',
+            text: errorMessage,
             icon: 'error'
         });
     }
