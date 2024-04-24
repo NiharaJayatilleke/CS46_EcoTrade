@@ -106,14 +106,14 @@
                 <a href="#settings-content" id="settings-tab"></a>
                 <!-- userImg -->
                 <div class="dashboard-user">
-                    <img src="<?php echo URLROOT; ?>/img/admin/dashboard/3.jpeg">
-                    <!-- <?php
-                    if (isset($data['user']) && !empty($data['user'])) {
-                        echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['user'] . '>';
-                    } else {
-                        echo '<img src="' . URLROOT . '/public/img/profile.png>';
-                    }
-                    ?> -->
+                <?php
+                // if the user has uploaded an image display it . other wise display the default image
+                if (isset($_SESSION['user_image']) && !empty($_SESSION['user_image'])) {
+                    echo '<img src="' . URLROOT . '/public/img/profilepic/' . $_SESSION['user_image'] . '" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
+                } else {
+                    echo '<img src="' . URLROOT . '/public/img/profile.png" onClick="Myfunction()" alt="user" class="user" width="80" height="30">';
+                }
+                ?>
                 </div>
             </div>
 
