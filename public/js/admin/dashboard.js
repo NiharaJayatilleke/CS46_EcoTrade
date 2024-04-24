@@ -35,7 +35,10 @@ let clickedLink = (event) => {
     clickedTab.classList.add('clicked', 'hovered');
 
     // Navigate to the link's href
-    window.location.href = clickedTab.href;
+    let link = clickedTab.querySelector('a');
+    if (link) {
+        window.location.href = link.href;
+    }
 }
 
 list.forEach((item) => {
