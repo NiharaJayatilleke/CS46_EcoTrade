@@ -144,7 +144,7 @@
                 if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['model_err']) && empty($data['other_vehicle_err']) &&  empty($data['color_err']) && empty($data['districts_err'])){
                     // Register collector
                     
-                    if($this->recyclecenterModel->register($data)){
+                    if($this->recentersModel->register($data)){
                         // Create a flash message
                         flash('reg_flash', 'You are successfully registered as a center!');
 
