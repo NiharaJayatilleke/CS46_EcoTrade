@@ -387,6 +387,7 @@
                             if (move_uploaded_file($image['tmp_name'], $uploadDir . $filename)) {
                                 // Update the user's profile image path in the database
                                 $this->moderatorModel->updateProfileImage($_SESSION['user_id'], $filename);  
+                                $_SESSION['user_image']=$filename;
                             } 
                         }
                     }
