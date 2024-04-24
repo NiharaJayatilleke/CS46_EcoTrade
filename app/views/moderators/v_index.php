@@ -385,7 +385,7 @@
                                     <td><?php echo $ad->report_reason; ?></td>
                                     <td><?php echo $ad->report_comments; ?></td>
                                     <td><?php echo $ad->report_contact; ?></td>
-                                    <td><?php echo $ad->report_status; ?></td>
+                                    <td><span class="status <?php echo strtolower($ad->report_status); ?>"><?php echo $ad->report_status; ?></span></td>
                                     <td><?php echo $ad->report_created_at; ?></td>
                                     
                                     <td><button onclick="confirmDelete(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
