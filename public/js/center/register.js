@@ -3,26 +3,38 @@ const form = document.querySelector("form"),
         backBtn = form.querySelector(".backBtn"),
         allInput = form.querySelectorAll(".first input");
 
-nextBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    let allRequiredFieldsFilled = true;
-    allInput.forEach(input => {
-        if (input.required && !input.readOnly && input.value === "") {
-            allRequiredFieldsFilled = false;
-        }
-    });
-    console.log(allRequiredFieldsFilled);
-    if (allRequiredFieldsFilled) {
-        form.classList.add('secActive');
-    } else {
-        form.classList.remove('secActive');
-        Swal.fire({
-            title: 'Error!',
-            text: 'Please fill all the required fields',
-            icon: 'error'
+        nextBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            let allRequiredFieldsFilled = true;
+            let errorMessage = 'Please fill all the required fields';
+        
+            allInput.forEach(input => {
+                if (input.required && !input.readOnly && input.value === "") {
+                    allRequiredFieldsFilled = false;
+                }
+            });
+        
+            if (allRequiredFieldsFilled) {
+                // Check if gender is selected
+                const companySelect = document.getElementById('company_type');
+                if (companySelect.value === "") {
+                    allRequiredFieldsFilled = false;
+                    errorMessage = 'Please select a company type';
+                }
+            }
+        
+            console.log(allRequiredFieldsFilled);
+            if (allRequiredFieldsFilled) {
+                form.classList.add('secActive');
+            } else {
+                form.classList.remove('secActive');
+                Swal.fire({
+                    title: 'Error!',
+                    text: errorMessage,
+                    icon: 'error'
+                });
+            }
         });
-    }
-});
 
 form.addEventListener("submit", (event) => {
     if (!form.classList.contains('secActive')) {
