@@ -83,7 +83,7 @@ CREATE TABLE RecycleCenters (
     id INT AUTO_INCREMENT,
     nic VARCHAR(255),
     owner_name VARCHAR(255),
-    owner_address TEXT,
+    owner_address VARCHAR(255),
     com_name VARCHAR(255),
     com_email VARCHAR(255),
     com_address VARCHAR(255),
@@ -92,7 +92,6 @@ CREATE TABLE RecycleCenters (
     reg_number VARCHAR(255),
     website VARCHAR(255),
     operation_days VARCHAR(255),
-    other_input TEXT,
     FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 

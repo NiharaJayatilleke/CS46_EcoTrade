@@ -5,12 +5,13 @@
             $this->pagesModel =$this->model('M_Pages');
             $this->recentersModel = $this->model('M_Recenters'); 
             $this->categoryModel = $this->model('M_Categories'); 
+            $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads'); 
             
         }
 
         public function register(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
-                die('Collector registration');
+                // die('Collector registration');
                 // form is submitting
                 // Validate the data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -26,7 +27,6 @@
                     'reg_number' => trim($_POST['reg_number']),
                     'website' => trim($_POST['website']),
                     'company_type' => trim($_POST['company_type']),
-                    'other-input' => isset($_POST['other-input']) ? trim($_POST['other-input']) : '',
                     'com_address' => trim($_POST['com_address']),
                     'owner_name' => trim($_POST['owner_name']),
                     'nic' => trim($_POST['nic']),
@@ -45,8 +45,7 @@
                     'nic_err' => '',
                     'owner_address_err' => '',
                     'operation_days_err' => '',
-                    'categories_err' => '',
-                    'other-input_err' => ''
+                    'categories_err' => ''
                 ];
                 
                 
@@ -210,7 +209,6 @@
                         'owner_address' => '',
                         'operation_days' => '',
                         'categories' => [],
-                        'other-input' => '',
 
 
                         'com_tel_err' => '',
@@ -224,8 +222,7 @@
                         'nic_err' => '',
                         'owner_address_err' => '',
                         'operation_days_err' => '',
-                        'categories_err' => '',
-                        'other-input_err' => ''
+                        'categories_err' => ''
                     ];
                     // Guests or other user types should go to general user registration
                     redirect('Users/register');

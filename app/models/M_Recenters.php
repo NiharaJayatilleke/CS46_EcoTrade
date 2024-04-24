@@ -8,7 +8,7 @@
 
         public function register($data){
             // Insert into RecycleCenters table
-            $this->db->query('INSERT INTO RecycleCenters(nic, owner_name, owner_address, com_name, com_email, com_address, com_tel, company_type, reg_number, website, operation_days, other_input) VALUES(:nic, :owner_name, :owner_address, :com_name, :com_email, :com_address, :com_tel, :company_type, :reg_number, :website, :operation_days, :other_input)');
+            $this->db->query('INSERT INTO RecycleCenters(nic, owner_name, owner_address, com_name, com_email, com_address, com_tel, company_type, reg_number, website, operation_days) VALUES(:nic, :owner_name, :owner_address, :com_name, :com_email, :com_address, :com_tel, :company_type, :reg_number, :website, :operation_days)');
 
             // Bind values
             $this->db->bind(':nic', $data['nic']);
@@ -22,7 +22,6 @@
             $this->db->bind(':reg_number', $data['reg_number']);
             $this->db->bind(':website', $data['website']);
             $this->db->bind(':operation_days', $data['operation_days']);
-            $this->db->bind(':other_input', $data['other-input']);
 
             // Execute query
             if(!$this->db->execute()){

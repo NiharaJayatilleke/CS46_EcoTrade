@@ -80,13 +80,7 @@
                                 <option value="Government Agency">Government Agency</option>
                                 <option value="Community Organization">Community Organization</option>
                                 <option value="Waste Management Company">Waste Management Company</option>
-                                <option value="other">Other</option>
                             </select>
-                        </div>
-
-                        <div class="collector-input-field" id="other-input" style="display: none;">
-                            <label for="other">Please specify<span class="required">*</span></label>
-                            <input type="text" id="other" name="other">
                         </div>
 
                     </div>
