@@ -21,15 +21,21 @@ function inactiveLink() {
     }
 }
 
-function clickedLink() {
+let clickedLink = (event) => {
+    // Prevent the default behavior
+    event.preventDefault();
+
+    // Remove the 'clicked' and 'hovered' class from all tabs
     list.forEach((item) => {
-        // Remove the clicked and hovered classes from other items
-        if (item !== this) {
-            item.classList.remove('clicked', 'hovered');
-        }
+        item.classList.remove('clicked', 'hovered');
     });
-    // Add the clicked class to the current item
-    this.classList.add('clicked');
+
+    // Add the 'clicked' and 'hovered' class to the clicked tab
+    let clickedTab = event.currentTarget;
+    clickedTab.classList.add('clicked', 'hovered');
+
+    // Navigate to the link's href
+    window.location.href = clickedTab.href;
 }
 
 list.forEach((item) => {
