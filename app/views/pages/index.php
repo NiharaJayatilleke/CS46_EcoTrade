@@ -126,6 +126,7 @@
                             <p class="text">
                             "Embark on a journey with EcoTrade, where our passion intertwines with purpose. We are not just a platform; we are a movement, a community committed to shaping a sustainable tomorrow. Imagine a world where every act of recycling contributes to a greener canvas. At EcoTrade, we bring together buyers and collectors in a symphony of eco-conscious commerce. Our mission is to redefine waste as a resource, bridging the gap between individuals and businesses striving for a more sustainable future. Join us, not just as participants, but as guardians of our planet, as we weave a tapestry of change—one recyclable at a time. Together, let's turn the page to a new chapter, where responsibility meets innovation, and every action echoes in the rhythm of a thriving ecosystem."
                             </p>
+                            <a href="<?php echo URLROOT; ?>/Pages/about" class="explore-btn">Learn More</a>
                         </div>
                     </div>
 
