@@ -15,7 +15,7 @@ CREATE TABLE General_User (
     PRIMARY KEY(id)
 );
 
-INSERT INTO General_User(username, email,number, password, user_type) VALUES ('admin','admin@gmail.com','090192','$2y$10$46HNERR3yFUe.fLbfRjSBeCGqlpJS7h5krkDUbJjjXmV0M.Y/XZ6u','admin');
+INSERT INTO General_User(username, email,number, password, user_type) VALUES ('admin','admin@gmail.com','090192','$2y$10$46HNERR3yFUe.fLbfRjSBeCGqlpJS7h5krkDUbJjjXmV0M.Y/XZ6u','pBuyer');
 
 CREATE TABLE Collectors (
     id INT AUTO_INCREMENT,
@@ -24,7 +24,7 @@ CREATE TABLE Collectors (
     address TEXT,
     com_name VARCHAR(255),
     com_email VARCHAR(255),
-    com_address TEXT,
+    com_address VARCHAR(255),
     telephone VARCHAR(255),
     company_type VARCHAR(255),
     vehicle_type VARCHAR(255),
@@ -92,6 +92,7 @@ CREATE TABLE RecycleCenters (
     reg_number VARCHAR(255),
     website VARCHAR(255),
     operation_days VARCHAR(255),
+    other_input TEXT,
     FOREIGN KEY (id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
