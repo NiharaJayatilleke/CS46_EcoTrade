@@ -92,7 +92,7 @@
                                 Discover budget-friendly, sustainable second-hand marketplace.</h3>
                         </div>
 
-                        <a href="<?php echo URLROOT; ?>/Sechome/index">Explore Now</a>
+                        <a href="<?php echo URLROOT; ?>/Pages/sechome">Explore Now</a>
                     </div>
                 </div>
             </div>

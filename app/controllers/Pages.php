@@ -2,6 +2,7 @@
     class Pages extends Controller{
         public function __construct(){
             $this->pagesModel =$this->model('M_Pages');
+            $this->itemAdsModel = $this->model('M_Item_Ads');
         }
 
         public function index(){

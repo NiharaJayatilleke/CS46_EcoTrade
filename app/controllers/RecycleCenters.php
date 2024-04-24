@@ -9,8 +9,8 @@
         }
 
         public function register(){
-            // die('Collector registration');
             if($_SERVER['REQUEST_METHOD'] =='POST'){
+                die('Collector registration');
                 // form is submitting
                 // Validate the data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -140,8 +140,11 @@
                 // }
         
                 // Validation is completed and no error then register the user
+
+                // die('Registering collector');
                 if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['model_err']) && empty($data['other_vehicle_err']) &&  empty($data['color_err']) && empty($data['districts_err'])){
                     // Register collector
+                    
                     if($this->recyclecenterModel->register($data)){
                         // Create a flash message
                         flash('reg_flash', 'You are successfully registered as a center!');
