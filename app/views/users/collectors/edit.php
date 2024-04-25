@@ -180,8 +180,8 @@
                             <span class="btnText">Back</span>
                         </button>
 
-                        <button type="submit" class="submit" onclick="confirmTerms(event)">
-                            <span class="submit">Submit</span>
+                        <button type="submit" class="submit" onclick="confirmTermsUpdate(event)">
+                            <span class="submit">Update</span>
                             <i class="uil uil-navigator"></i>
                         </button>
                     </div>
@@ -192,4 +192,5 @@
 </div>
 
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/collectors/register.js"></script>
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/collectors/edit.js"></script>
  

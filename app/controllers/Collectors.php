@@ -111,6 +111,10 @@
 
                 // Update collector
                 if($this->collectorModel->edit($data)){
+
+                    // Update session data
+                    $_SESSION['user_data'] = $data;
+
                     // Create a flash message
                     flash('edit_flash', 'Your details have been updated successfully!');
 
