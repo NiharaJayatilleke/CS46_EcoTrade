@@ -72,6 +72,7 @@
                     if($this->recycleItemAdsModel->re_create($data)){
                         // create a flash message
                         flash('post_msg', 'Your ad has been posted successfully!');
+                        $this->usersModel->logActivity($_SESSION['user_id'], 'RecycleAd Creation', 'Posted a new RecycleitemAd for sale.');
                         redirect('pages/home');
                     }else{
                         die('Something went wrong');
