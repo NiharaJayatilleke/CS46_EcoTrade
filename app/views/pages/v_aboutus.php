@@ -38,30 +38,32 @@
                     <p class="carouselPara">
                         Recycle selling on EcoTrade links recyclers with buyers, including recycling centers and collectors, fostering sustainability and waste reduction.</p>
               
-                    <button class="btn carouselBtn">Explore </button>
+                        <a href="<?php echo URLROOT; ?>/Pages/recyclehome" class="btn carouselBtn">Explore</a>
                 </article>
             </div>
     
-            <div class="eachCarousel">
+            <div class="eachCarousel eachCarouselBorder">
+                <img src="../public/img/about/grocery-store.png" alt="">
+                <article class="carouselDesc">
+                    <h1 class="carouselTitle">Eco Market</h1>
+                    <p class="carouselPara">
+                        Eco market on EcoTrade facilitates the buying and selling of secondhand items, fostering sustainability and reducing waste through a shared e-commerce platform.</p>
+                    <!-- <button class="btn carouselBtn">Explore </button> -->
+                    <a href="<?php echo URLROOT; ?>/Pages/sechome" class="btn carouselBtn">Explore</a>
+                </article>
+            </div>
+
+            <div class="eachCarousel eachCarouselBorder">
                 <img src="../public/img/about/paper-bag.png" alt="">
                 <article class="carouselDesc">
                     <h1 class="carouselTitle">Recycle Buying</h1>
                     <p class="carouselPara">
                         Recycle buying on EcoTrade connects buyers with recyclers, including recycling centers and collectors, promoting sustainability and reducing waste.</p>
                   
-                    <button class="btn carouselBtn">Explore </button>
+                        <a href="<?php echo URLROOT; ?>/Pages/about" class="btn carouselBtn">Explore</a>
                 </article>
             </div>
     
-            <div class="eachCarousel">
-                <img src="../public/img/about/grocery-store.png" alt="">
-                <article class="carouselDesc">
-                    <h1 class="carouselTitle">Eco Market</h1>
-                    <p class="carouselPara">
-                        Eco market on EcoTrade facilitates the buying and selling of secondhand items, fostering sustainability and reducing waste through a shared e-commerce platform.</p>
-                    <button class="btn carouselBtn1">Explore </button>
-                </article>
-            </div>
     
         <div class="carouselIndicator">
             <div class="indicator activeIndicator" onclick="slideCarousel(0)"></div>
@@ -77,9 +79,9 @@
     <section class="gridSection">
         <div class="sectionDesc processessDesc">
             <h1 class="sectionHeader">Main Goal</h1>
-            <p class="sectionPara">We do not charge any fees and we do not require 
-              any registration. You keep your privacy and your 
-              coins.
+            <p class="sectionPara">At EcoTrade, our mission is clear: to pave the way towards a more sustainable future by championing environmental stewardship through innovative recycling solutions. We are committed to facilitating the seamless exchange of recyclable materials, fostering partnerships between recycling centers, businesses, and individuals, and ultimately, making a tangible impact on global sustainability efforts.
+
+
             </p>
             <div class="eachProcesses">
                 <img src="../public/img/about/handshake-icon-white-line.svg" alt="handshake">
