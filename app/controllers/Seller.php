@@ -9,7 +9,7 @@
 
             $sellerId = $_SESSION['user_id'];
 
-            $ads = $this->itemAdsModel->getAdsBySeller(3);
+            $ads = $this->itemAdsModel->getAdsBySeller($sellerId);
 
             $data = [
                 'ads' => $ads,

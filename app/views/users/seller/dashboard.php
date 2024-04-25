@@ -32,7 +32,7 @@
                     <!-- <a href=""> -->
                     <a href="#center-content" id="center-tab" onclick="showContent('center-content')">
                         <span class = "side-icon"><ion-icon name="leaf-outline"></ion-icon></span>
-                        <span class = "side-title">Recent Ads</span>
+                        <span class = "side-title">Secondhand Ads</span>
                     </a>
                 </li>
 
@@ -82,7 +82,7 @@
                         <div class="recentOrders">
                             <div class="cardHeader">
                                 <h2>Recent Secondhand Item Ads</h2>
-                                <a href="#" class="btn">View All</a>
+                                <a href="#" onclick="showContent('center-content')" class="btn">View All</a>
                             </div>
                             <table>
                                 <thead>
@@ -97,7 +97,11 @@
 
                                 <tbody>
                                 <!-- <php print_r($data['ads']); ?> -->
-                                <?php foreach($data['ads'] as $ad): ?>
+                                <?php
+                                $counter = 0;
+                                foreach($data['ads'] as $ad): 
+                                    if($counter == 8) break; 
+                                ?>
                                     <tr>
                                     <td><?= $ad->item_name ?></td>
                                     <td> <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Item Image" style="width: 70px; height: 60px;"></td>
@@ -105,7 +109,10 @@
                                     <td><?= $ad->created_at ?></td>
                                     <td><?= $ad->item_expiry ?></td>
                                     </tr>
-                                <?php endforeach; ?>
+                                <?php 
+                                    $counter++;
+                                    endforeach; 
+                                ?>
                                 </tbody>
                             </table>
                         </div>
@@ -122,8 +129,8 @@
             <div class="details" style=" display: block;">
                         <div class="recentOrders">
                             <div class="cardHeader">
-                                <h2>Recent Secondhand Item Ads</h2>
-                                <a href="#" class="btn">View All</a>
+                                <h2>Your Secondhand Item Ads</h2>
+                                <!-- <a href="#center-content"  class="btn">View All</a> -->
                             </div>
                             <table>
                                 <thead>

@@ -119,6 +119,8 @@ CREATE TABLE Item_Ads (
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS Secondhand_Ad_Images;
+
 CREATE TABLE Secondhand_Ad_Images (
     image_id INT AUTO_INCREMENT PRIMARY KEY,
     item_id INT,
