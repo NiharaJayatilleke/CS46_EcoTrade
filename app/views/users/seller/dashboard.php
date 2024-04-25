@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#recycle-content" id="recycle-tab" onclick="showContent('recycle-content')">
+                    <a href="#notif-content" id="recycle-tab" onclick="showContent('notif-content')">
                         <span class = "side-icon"><ion-icon name="pricetags"></ion-icon></span>
                         <span class = "side-title">Notifications</span>
                     </a>
@@ -30,9 +30,16 @@
 
                 <li>
                     <!-- <a href=""> -->
-                    <a href="#center-content" id="center-tab" onclick="showContent('center-content')">
+                    <a href="#sec-ad-content" id="center-tab" onclick="showContent('sec-ad-content')">
                         <span class = "side-icon"><ion-icon name="leaf-outline"></ion-icon></span>
                         <span class = "side-title">Secondhand Ads</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#rec-ad-content" id="center-tab" onclick="showContent('rec-ad-content')">
+                        <span class = "side-icon"><ion-icon name="leaf-outline"></ion-icon></span>
+                        <span class = "side-title">Recycle Ads</span>
                     </a>
                 </li>
 
@@ -120,11 +127,11 @@
             </div>
 
 
-            <div id="recycle-content" class="content-section">
-                <p>This is the content for the recycle tab.</p>
+            <div id="notif-content" class="content-section">
+                <p>This is the content for seller notifications.</p>
             </div>
 
-            <div id="center-content" class="content-section">
+            <div id="sec-ad-content" class="content-section">
             <!-- <p>This is the content for the secondhand item ads.</p>  -->
             <div class="details" style=" display: block;">
                         <div class="recentOrders">
@@ -157,6 +164,7 @@
                                 </tbody>
                             </table>
                         </div>
+            </div>
             </div>
 
             <div id="signout-content" class="content-section">
