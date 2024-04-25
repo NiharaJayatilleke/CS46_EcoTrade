@@ -166,7 +166,8 @@ var mod_options = {
         "username",
         "email",
         "number",
-        "created_at"
+        "created_at",
+        "status"
     ]
 };
 

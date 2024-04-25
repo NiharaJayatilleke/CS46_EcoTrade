@@ -12,6 +12,7 @@ CREATE TABLE General_User (
     user_type VARCHAR(255),
     profile_image VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status INT DEFAULT 1,
     PRIMARY KEY(id)
 );
 

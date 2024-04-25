@@ -67,6 +67,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                     }
                 }
                 else{
+                    $data['email_err'] = 'User not found or not allowed to login';
                     //Load view with errors
                     $this->view('users/login', $data);
                 }

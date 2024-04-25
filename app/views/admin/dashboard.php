@@ -304,7 +304,7 @@
                                     <td>Contact Number</td>
                                     <td>User Type</td>
                                     <td>Date Joined</td>
-                                    <!-- <td>Edit/Delete</td> -->
+                                    <td>Status</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -320,10 +320,15 @@
                                         <td><?php echo $user->number ?></td>
                                         <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
                                         <td><?php echo $user->created_at ?></td>
+                                        <td>
+                                            <label class="switch">
+                                                <input type="checkbox" onclick="toggleBan(this, '<?php echo $user->id ?>')" <?php echo $user->status == 1 ? 'checked' : '' ?>>
+                                                <span class="slider"></span>
+                                            </label>
+                                        </td>
                                         <!-- <td>
                                             <div class = "mod-control-btns">
-                                                <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                                <button onclick="confirmBan('<?php echo URLROOT?>/Admin/ban/<?php echo $user->id ?>')" class="ad-edit-btn"><i class="fas fa-ban"></i></button>
                                             </div>
                                         </td> -->
                                     </tr>
@@ -920,6 +925,19 @@
         var moderators = <?php echo json_encode($data['moderators']); ?>;
         var userCounts = <?php echo json_encode($data['userCounts']); ?>;
         var adCountsByCategory = <?php echo json_encode($data['adCountsByCategory']); ?>;
+
+        //admin banning the users
+        function toggleBan(checkbox, userId) {
+            var url;
+            if (checkbox.checked) {
+                url = '<?php echo URLROOT?>/Admin/unban/' + userId;
+            } else {
+                url = '<?php echo URLROOT?>/Admin/ban/' + userId;
+            }
+            if(confirm('Are you sure you want to change the status of this user')) {
+                window.location.href = url;
+            }
+        }
     </script> 
 
     <!-- Javascript for image upload -->
