@@ -5,7 +5,7 @@
     <div class="collector-container">
         <header>Collector Registration</header>
         
-        <form action="<?php echo URLROOT?>/Collectors/edit/<?php echo $data['id'];?>" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo URLROOT?>/Collectors/edit" method="POST" enctype="multipart/form-data">
             <div class="form first">
                 <div class="collector-details personal">
                     <span class="collector-title">Personal Details</span>
@@ -155,61 +155,8 @@
                             <label>Vehicle Color </label>
                             <input type="text" name="color" id="color" placeholder="Enter Vehicle Color" >
                         </div>
-
-                        <!-- <div class="collector-input-field">
-                            <label>Vehicle Insurance Details <span class="required">*</span></label>
-                            <input type="text" name="insurance" id="insurance" placeholder="Enter Vehicle Insurance Details" >
-                        </div> -->
-                        
-                        <!-- <div class="collector-input-field">
-                            <label>Vehicle Make<span class="required">*</span></label>
-                            <input type="text" name="make" id="make" placeholder="Enter Vehicle Make" >
-                        </div> -->
                     </div>
                 </div>
-
-                <!-- <div class="collector-details location">
-                    <span class="collector-title">Select Collecting Locations &emsp;<span class="form-invalid"><?php echo $data['districts_err']; ?></span></span>
-                    <div class="collector-fields districts">
-                        <div class="collector-input-field">
-                            <div class="districts-col">
-                                <label><input type="checkbox" name="district[]" value="Colombo"> Colombo</label>
-                                <label><input type="checkbox" name="district[]" value="Gampaha"> Gampaha</label>
-                                <label><input type="checkbox" name="district[]" value="Kalutara"> Kalutara</label>
-                                <label><input type="checkbox" name="district[]" value="Kandy"> Kandy</label>
-                                <label><input type="checkbox" name="district[]" value="Matale"> Matale</label>
-                            </div>
-                            <div class="districts-col">
-                                <label><input type="checkbox" name="district[]" value="Nuwara Eliya"> Nuwara Eliya</label>
-                                <label><input type="checkbox" name="district[]" value="Galle"> Galle</label>
-                                <label><input type="checkbox" name="district[]" value="Matara"> Matara</label>
-                                <label><input type="checkbox" name="district[]" value="Hambantota"> Hambantota</label>
-                                <label><input type="checkbox" name="district[]" value="Jaffna"> Jaffna</label>
-                            </div>
-                            <div class="districts-col">
-                                <label><input type="checkbox" name="district[]" value="Kilinochchi"> Kilinochchi</label>
-                                <label><input type="checkbox" name="district[]" value="Mannar"> Mannar</label>
-                                <label><input type="checkbox" name="district[]" value="Vavuniya"> Vavuniya</label>
-                                <label><input type="checkbox" name="district[]" value="Mullaitivu"> Mullaitivu</label>
-                                <label><input type="checkbox" name="district[]" value="Batticaloa"> Batticaloa</label>
-                            </div>
-                            <div class="districts-col">
-                                <label><input type="checkbox" name="district[]" value="Ampara"> Ampara</label>
-                                <label><input type="checkbox" name="district[]" value="Trincomalee"> Trincomalee</label>
-                                <label><input type="checkbox" name="district[]" value="Kurunegala"> Kurunegala</label>
-                                <label><input type="checkbox" name="district[]" value="Puttalam"> Puttalam</label>
-                                <label><input type="checkbox" name="district[]" value="Anuradhapura"> Anuradhapura</label>
-                            </div>
-                            <div class="districts-col">
-                                <label><input type="checkbox" name="district[]" value="Polonnaruwa"> Polonnaruwa</label>
-                                <label><input type="checkbox" name="district[]" value="Badulla"> Badulla</label>
-                                <label><input type="checkbox" name="district[]" value="Monaragala"> Monaragala</label>
-                                <label><input type="checkbox" name="district[]" value="Ratnapura"> Ratnapura</label>
-                                <label><input type="checkbox" name="district[]" value="Kegalle"> Kegalle</label>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
 
                 <div class="collector-details location">
                     <span class="collector-title">Select Collecting Locations<span class="required">*</span></span>
