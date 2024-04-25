@@ -929,14 +929,28 @@
         //admin banning the users
         function toggleBan(checkbox, userId) {
             var url;
+            var action;
             if (checkbox.checked) {
                 url = '<?php echo URLROOT?>/Admin/unban/' + userId;
+                action = "unban";
             } else {
                 url = '<?php echo URLROOT?>/Admin/ban/' + userId;
+                action = "ban";
             }
-            if(confirm('Are you sure you want to change the status of this user')) {
-                window.location.href = url;
-            }
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You are about to " + action + " this user.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, ' + action + ' user!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                }
+            })
         }
     </script> 
 

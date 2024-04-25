@@ -101,6 +101,8 @@ document.addEventListener('DOMContentLoaded', checkFragment);
 // Also check the state of the search bar when the hash changes
 window.addEventListener('hashchange', checkFragment);
 
+
+
 //search in users
 // The Fuse.js options
 var options = {
@@ -115,7 +117,8 @@ var options = {
         "email",
         "number",
         "user_type",
-        "created_at"
+        "created_at",
+        "status"
     ]
 };
 
@@ -232,6 +235,23 @@ function createRowUser(item) {
     var createdAtCell = document.createElement('td');
     createdAtCell.textContent = item.created_at;
     row.appendChild(createdAtCell);
+
+    
+    var toggleCell = document.createElement('td');
+    var label = document.createElement('label');
+    label.className = 'switch';
+    var input = document.createElement('input');
+    input.type = 'checkbox';
+    input.onclick = function() { toggleBan(this, item.id); };
+    if (item.status !== undefined) {
+        input.checked = item.status == 1;
+    }
+    var span = document.createElement('span');
+    span.className = 'slider';
+    label.appendChild(input);
+    label.appendChild(span);
+    toggleCell.appendChild(label);
+    row.appendChild(toggleCell);
 
     return row;
 }
