@@ -81,7 +81,7 @@
                     <div class="details" style=" display: block;">
                         <div class="recentOrders">
                             <div class="cardHeader">
-                                <h2>Recent Activities</h2>
+                                <h2>Recent Secondhand Item Ads</h2>
                                 <a href="#" class="btn">View All</a>
                             </div>
                             <table>
@@ -118,7 +118,38 @@
             </div>
 
             <div id="center-content" class="content-section">
-            <p>This is the content for the centers tab.</p> 
+            <!-- <p>This is the content for the secondhand item ads.</p>  -->
+            <div class="details" style=" display: block;">
+                        <div class="recentOrders">
+                            <div class="cardHeader">
+                                <h2>Recent Secondhand Item Ads</h2>
+                                <a href="#" class="btn">View All</a>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Image</td>
+                                        <td>Price</td>
+                                        <td>Posted on</td>
+                                        <td>Expired on</td>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                <!-- <php print_r($data['ads']); ?> -->
+                                <?php foreach($data['ads'] as $ad): ?>
+                                    <tr>
+                                    <td><?= $ad->item_name ?></td>
+                                    <td> <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Item Image" style="width: 70px; height: 60px;"></td>
+                                    <td>Rs. <?= $ad->item_price ?></td>
+                                    <td><?= $ad->created_at ?></td>
+                                    <td><?= $ad->item_expiry ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
             </div>
 
             <div id="signout-content" class="content-section">
