@@ -88,19 +88,24 @@
                                 <thead>
                                     <tr>
                                         <td>Name</td>
+                                        <td>Image</td>
                                         <td>Price</td>
-                                        <td>Payment</td>
-                                        <td>Status</td>
+                                        <td>Posted on</td>
+                                        <td>Expired on</td>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Refrigerator</td>
-                                    <td>Rs. 1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status inprogress">Delivered</span></td>
-                                </tr>
 
+                                <tbody>
+                                <!-- <php print_r($data['ads']); ?> -->
+                                <?php foreach($data['ads'] as $ad): ?>
+                                    <tr>
+                                    <td><?= $ad->item_name ?></td>
+                                    <td> <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Item Image" style="width: 70px; height: 60px;"></td>
+                                    <td>Rs. <?= $ad->item_price ?></td>
+                                    <td><?= $ad->created_at ?></td>
+                                    <td><?= $ad->item_expiry ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

@@ -2,12 +2,17 @@
     class Seller extends Controller{
         public function __construct(){
             $this->userModel = $this->model('M_Users');
+            $this->itemAdsModel = $this->model('M_Item_Ads');
         }
 
         public function index(){
-            // $ads = $this->recycleItemAdsModel->getAds();
+
+            $sellerId = $_SESSION['user_id'];
+
+            $ads = $this->itemAdsModel->getAdsBySeller(3);
+
             $data = [
-                // 'ads' => $ads,
+                'ads' => $ads,
             ];
 
             $this->view('users/seller/dashboard',$data);

@@ -59,7 +59,7 @@
                 'notif_id' => $jdata['notif_id'],
                 'response' => $jdata['response'],
                 'rejection_reason' => $jdata['rejection_reason']
-            ];
+            ]; 
         
             // Call the addBuyerResponse method of the model class, passing the data as an argument
             if ($this->notificationsModel->addBuyerResponse($data)) {
