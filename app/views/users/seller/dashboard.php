@@ -142,7 +142,23 @@
                                     </tr>
                                 </thead>
 
-                                
+                                <tbody>
+                                <?php foreach($data['re_ads'] as $re_ad): ?>
+                                    <tr>
+                                    <td><?= $re_ad->item_name ?></td>
+                                    <td> <img src="<?php echo URLROOT?>/public/img/items/<?php echo $re_ad->item_image ?>" alt="Item Image" style="width: 70px; height: 60px;"></td>
+                                    <!-- <td>Rs. <= $re_ad->item_price ?></td> -->
+                                    <td><?= $re_ad->created_at ?></td>
+                                    <!-- <td><= $re_ad->item_expiry ?></td> -->
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            <!-- following div is the end of dashboard content -->
+            </div> 
+
 
             <div id="notif-content" class="content-section">
                 <p>This is the content for seller notifications.</p>
