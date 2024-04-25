@@ -80,6 +80,7 @@
                         <span class = "side-title">Sign out</span>
                     </a>
                 </li>
+                </li>
             </ul>
         </div>
 

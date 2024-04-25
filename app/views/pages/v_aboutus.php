@@ -15,10 +15,10 @@
                 
 "EcoTrade is more than a platform; it's a movement. We unite buyers and collectors to transform waste into valuable resources. By connecting people with a shared vision of sustainability, we redefine recycling and contribute to a greener world. Join us in shaping a future where every eco-conscious action makes a difference. Together, let's create a sustainable tomorrow."
             </p>
-            <div class="btnContainer">
+            <!-- <div class="btnContainer">
                 <button class="btn btn110">Explore More</button>
                 
-            </div>
+            </div> -->
         </div>
         <div class="sectionPic bouncepic" id="sectionPic">
             <img src="../public/img/about/wepik-export-20240421085733kCr4.png" alt="">
@@ -38,30 +38,32 @@
                     <p class="carouselPara">
                         Recycle selling on EcoTrade links recyclers with buyers, including recycling centers and collectors, fostering sustainability and waste reduction.</p>
               
-                    <button class="btn carouselBtn">Explore </button>
+                        <a href="<?php echo URLROOT; ?>/Pages/recyclehome" class="btn carouselBtn">Explore</a>
                 </article>
             </div>
     
-            <div class="eachCarousel">
+            <div class="eachCarousel eachCarouselBorder">
+                <img src="../public/img/about/grocery-store.png" alt="">
+                <article class="carouselDesc">
+                    <h1 class="carouselTitle">Eco Market</h1>
+                    <p class="carouselPara">
+                        Eco market on EcoTrade facilitates the buying and selling of secondhand items, fostering sustainability and reducing waste through a shared e-commerce platform.</p>
+                    <!-- <button class="btn carouselBtn">Explore </button> -->
+                    <a href="<?php echo URLROOT; ?>/Pages/sechome" class="btn carouselBtn">Explore</a>
+                </article>
+            </div>
+
+            <div class="eachCarousel eachCarouselBorder">
                 <img src="../public/img/about/paper-bag.png" alt="">
                 <article class="carouselDesc">
                     <h1 class="carouselTitle">Recycle Buying</h1>
                     <p class="carouselPara">
                         Recycle buying on EcoTrade connects buyers with recyclers, including recycling centers and collectors, promoting sustainability and reducing waste.</p>
                   
-                    <button class="btn carouselBtn">Explore </button>
+                        <a href="<?php echo URLROOT; ?>/recyclecenters/about" class="btn carouselBtn">Explore</a>
                 </article>
             </div>
     
-            <div class="eachCarousel">
-                <img src="../public/img/about/grocery-store.png" alt="">
-                <article class="carouselDesc">
-                    <h1 class="carouselTitle">Eco Market</h1>
-                    <p class="carouselPara">
-                        Eco market on EcoTrade facilitates the buying and selling of secondhand items, fostering sustainability and reducing waste through a shared e-commerce platform.</p>
-                    <button class="btn carouselBtn1">Explore </button>
-                </article>
-            </div>
     
         <div class="carouselIndicator">
             <div class="b12indicator activeIndicator" onclick="slideCarousel(0)"></div>
@@ -77,9 +79,9 @@
     <section class="gridSection">
         <div class="sectionDesc processessDesc">
             <h1 class="sectionHeader">Main Goal</h1>
-            <p class="sectionPara">We do not charge any fees and we do not require 
-              any registration. You keep your privacy and your 
-              coins.
+            <p class="sectionPara">At EcoTrade, our mission is clear: to pave the way towards a more sustainable future by championing environmental stewardship through innovative recycling solutions. We are committed to facilitating the seamless exchange of recyclable materials, fostering partnerships between recycling centers, businesses, and individuals, and ultimately, making a tangible impact on global sustainability efforts.
+
+
             </p>
             <div class="eachProcesses">
                 <img src="../public/img/about/handshake-icon-white-line.svg" alt="handshake">
@@ -100,7 +102,7 @@
             </div>
         </div>
         <div class="sectionPic bouncepic processesPic" id="sectionPic">
-            <img src="/public/img/about/wepik-export-20240421093650W1dh.png" alt="">
+            <img src="../public/img/about/wepik-export-20240421093650W1dh.png" alt="">
         </div>
     </section>
 

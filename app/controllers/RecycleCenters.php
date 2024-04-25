@@ -5,60 +5,47 @@
             $this->pagesModel =$this->model('M_Pages');
             $this->recentersModel = $this->model('M_Recenters'); 
             $this->categoryModel = $this->model('M_Categories'); 
+            $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads'); 
             
         }
-        
+
         public function register(){
             if($_SERVER['REQUEST_METHOD'] =='POST'){
+                // die('Collector registration');
                 // form is submitting
                 // Validate the data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
                 $user = $this->userModel->getUserDetails($_SESSION['user_id']);
                 // Input data
+                
                 $data = [
-                    'nic' => trim($_POST['nic']),
-                    'gender' => trim($_POST['gender']),
-                    'address' => trim($_POST['address']),
-                    'com_name' => trim($_POST['com_name']),
-                    'com_email' => trim($_POST['com_email']),
+                    'com_tel' => trim($_POST['com_tel']),
                     'com_address' => trim($_POST['com_address']),
-                    'telephone' => trim($_POST['telephone']),
-                    'company_type' => trim($_POST['company_type']),
+                    'com_email' => trim($_POST['com_email']),
+                    'com_name' => trim($_POST['com_name']),
                     'reg_number' => trim($_POST['reg_number']),
-                    'vehicle_type' => trim($_POST['vehicle_type']),
-                    'vehicle_reg' => trim($_POST['vehicle_reg']),
-                    'make' => trim($_POST['make']),
-                    'model' => trim($_POST['model']),
-                    'insurance' => trim($_POST['insurance']),
-                    'color' => trim($_POST['color']),
-                    'district1' => trim($_POST['district1']),
-                    'district2' => trim($_POST['district2']),
-                    'district3' => trim($_POST['district3']),
-                    'district4' => trim($_POST['district4']),
-                    'district5' => trim($_POST['district5']),
+                    'website' => trim($_POST['website']),
+                    'company_type' => trim($_POST['company_type']),
+                    'com_address' => trim($_POST['com_address']),
+                    'owner_name' => trim($_POST['owner_name']),
+                    'nic' => trim($_POST['nic']),
+                    'owner_address' => trim($_POST['owner_address']),
+                    'operation_days' => trim($_POST['operation_days']),
+                    'categories' => isset($_POST['categories']) ? array_map('trim', $_POST['categories']) : [],
 
-                    'nic_err' => '',
-                    'gender_err' => '',
-                    'address_err' => '',
-                    'com_name_err' => '',
-                    'com_email_err' => '',
+                    'com_tel_err' => '',
                     'com_address_err' => '',
-                    'telephone_err' => '',
-                    'company_type_err' => '',
+                    'com_email_err' => '',
+                    'com_name_err' => '',
                     'reg_number_err' => '',
-                    'vehicle_type_err' => '',
-                    'vehicle_reg_err' => '',
-                    'make_err' => '',
-                    'model_err' => '',
-                    'insurance_err' => '',
-                    'color_err' => '',
-                    'district1_err' => '',
-                    'district2_err' => '',
-                    'district3_err' => '',
-                    'district4_err' => ''
-                    // 'district5_err' => ''
-                    // 'agree' => trim($_POST['agree']),
+                    'website_err' => '',
+                    'company_type_err' => '',
+                    'owner_name_err' => '',
+                    'nic_err' => '',
+                    'owner_address_err' => '',
+                    'operation_days_err' => '',
+                    'categories_err' => ''
                 ];
                 
                 
@@ -76,9 +63,9 @@
                 //     $data['nic_err'] = 'Invalid NIC';
                 // }
 
-                // // Validate gender
+                // Validate gender
                 // if (empty($data['gender'])){
-                //     $data['gender_err'] = 'Please enter gender';
+                //     $data['gender_err'] = 'Please select a gender';
                 // } else {
                 //     $data['gender_err'] = '';
                 // }
@@ -135,13 +122,16 @@
                 // }
                 
 
-                // // Validate district5
-                // if (empty($data['district1'])){
-                //     $data['district1_err'] = 'Please enter the collection district';
-                // } else {
-                //     $data['district1_err'] = '';
+                // if(empty($data['other_vehicle'])){
+                //     $data['other_vehicle_err'] = 'Please enter your other vehicle';
                 // }
 
+                // //Validate districts
+                // if (empty($data['districts'])){
+                //     $data['districts_err'] = 'Please select at least one district.';
+                // } else {
+                //     $data['districts_err'] = '';
+                // }
 
                 //Check if the user has agreed to the terms
                 // if (!isset($_POST['agree'])) {
@@ -149,23 +139,32 @@
                 // }
         
                 // Validation is completed and no error then register the user
-                if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['make_err']) && empty($data['model_err']) && empty($data['insurance_err']) && empty($data['color_err']) && empty($data['district1_err'])){
-                    // Register recyclecenter
-                    if($this->recyclecenterModel->register($data)){
+
+                // die('Registering collector');
+                if(empty($data['nic_err']) && empty($data['gender_err']) && empty($data['address_err']) && empty($data['com_name_err']) && empty($data['com_email_err']) && empty($data['com_address_err']) && empty($data['telephone_err']) && empty($data['company_type_err']) && empty($data['reg_number_err']) && empty($data['vehicle_type_err']) && empty($data['vehicle_reg_err']) && empty($data['model_err']) && empty($data['other_vehicle_err']) &&  empty($data['color_err']) && empty($data['districts_err'])){
+                    // Register collector
+                    
+                    if($this->recentersModel->register($data)){
                         // Create a flash message
+                        flash('reg_flash', 'You are successfully registered as a center!');
+
+                        // Get the current user type
+                        $userType = $_SESSION['userType'];
                         
-                        flash('reg_flash', 'You are successfully registered as a recyclecenter!');
-                        // Assuming $user is an instance of the class that contains the updateUserType method
-                        if ($this->userModel->updateUserType('center')) {
-                            echo 'User type updated successfully';
-                        } else {
-                            echo 'Failed to update user type';
+                        // Only update the user type if they are not a moderator or an admin or collector
+                        if ($userType != 'moderator' && $userType != 'admin' && $userType != 'collector') {
+                            if ($this->userModel->updateUserType('center')) {
+                                echo json_encode(['status' => 'success', 'message' => 'User type updated successfully']);
+                            } else {
+                                echo json_encode(['status' => 'error', 'message' => 'Failed to update user type']);
+                            }
                         }
                         session_destroy();
-                        redirect('Users/login');
+                        // redirect('Users/login');
                     }
                     else{
-                        die('Something went wrong');
+                        // die('Something went wrong');
+                        echo json_encode(['status' => 'error', 'message' => 'Something went wrong']);
                     }
                 }
                 else{
@@ -180,7 +179,7 @@
                     // If user is not logged in, redirect to login page
                     redirect('Users/login');
                 } else if($_SESSION['userType'] == 'center') {
-                    // If user is a recyclecenter, redirect to a different page (e.g., recyclecenter's dashboard)
+                    // If user is a collector, redirect to a different page (e.g., collector's dashboard)
                     redirect('recyclecenters/index');
                 }
                 else if(isset($_SESSION['user_id']) && isset($_SESSION['userType']) && ($_SESSION['userType'] != 'center'|| $_SESSION['userType'] != null)) {
@@ -191,59 +190,46 @@
                         'categories' => $recycle_categories
                     ];
         
-                    // Load recyclecenter registration view
+                    // Load collector registration view
                     $this->view('users/recyclecenters/register', $data);
                 }
                 else {
                     // Initial form data
                     $data = [
-                    'nic' => '',
-                    'gender' => '',
-                    'address' => '',
-                    'com_name' => '',
-                    'com_email' => '',
-                    'com_address' => '',
-                    'telephone' => '',
-                    'company_type' => '',
-                    'reg_number' => '',
-                    'vehicle_type' => '',
-                    'vehicle_reg' => '',
-                    'make' => '',
-                    'model' => '',
-                    'insurance' => '',
-                    'color' => '',
-                    'district1' => '',
-                    'district2' => '',
-                    'district3' => '',
-                    'district4' => '',
-                    'district5' => '',
-                    
-                    'nic_err' => '',
-                    'gender_err' => '',
-                    'address_err' => '',
-                    'com_name_err' => '',
-                    'com_email_err' => '',
-                    'com_address_err' => '',
-                    'telephone_err' => '',
-                    'company_type_err' => '',
-                    'reg_number_err' => '',
-                    'vehicle_type_err' => '',
-                    'vehicle_reg_err' => '',
-                    'make_err' => '',
-                    'model_err' => '',
-                    'insurance_err' => '',
-                    'color_err' => '',
-                    'district1_err' => '',
-                    'district2_err' => '',
-                    'district3_err' => '',
-                    'district4_err' => '',
-                    'district5_err' => ''
+                        'com_tel' => '',
+                        'com_address' => '',
+                        'com_email' => '',
+                        'com_name' => '',
+                        'reg_number' => '',
+                        'website' => '',
+                        'company_type' => '',
+                        'com_address' => '',
+                        'owner_name' => '',
+                        'nic' => '',
+                        'owner_address' => '',
+                        'operation_days' => '',
+                        'categories' => [],
+
+
+                        'com_tel_err' => '',
+                        'com_address_err' => '',
+                        'com_email_err' => '',
+                        'com_name_err' => '',
+                        'reg_number_err' => '',
+                        'website_err' => '',
+                        'company_type_err' => '',
+                        'owner_name_err' => '',
+                        'nic_err' => '',
+                        'owner_address_err' => '',
+                        'operation_days_err' => '',
+                        'categories_err' => ''
                     ];
                     // Guests or other user types should go to general user registration
                     redirect('Users/register');
                 }
             }
-        }
+        }       
+        
         
         public function index(){
             $data = [];

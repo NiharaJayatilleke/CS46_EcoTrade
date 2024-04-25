@@ -23,13 +23,13 @@ function checkSearch() {
     switch (fragment) {
         case '#users-content':
         case '#secondhand-content':
-        case '#activity-content':
         case '#secondhand-content':
         case '#recycle-content':
         case '#messages-content':
             showSearchBar();
             break;
         case '#dashboard-content':
+        case '#activity-content':
         case '#ad-report-content':
         case '#settings-content':
             hideSearchBar();

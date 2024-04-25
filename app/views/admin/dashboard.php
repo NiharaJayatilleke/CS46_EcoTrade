@@ -685,16 +685,13 @@
 
                                 </tbody>
                             </table>
-                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Ad Report -->
             <div id="reported-ads-content" class="content-section">
-                <div>
-                    <!-- logic here for ad report -->
-                    <div class="reported-ads-container">
+                <div class="reported-ads-container">
 
                     <h1>Reported Ads</h1>                  
                     <table class="reported-ads-table">
@@ -712,7 +709,6 @@
                             <th></th>
                             <th></th>
                         </tr>
-
                         <thead>
                         <?php if (!empty($data['reportedAds'])): ?>
                             <?php foreach ($data['reportedAds'] as $ad): ?>
@@ -740,7 +736,6 @@
                             </tr>
                         <?php endif; ?>
                     </table>
-                  </div>
                 </div>
             </div>
 

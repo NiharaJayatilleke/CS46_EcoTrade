@@ -487,3 +487,62 @@
             padding: 60px;
         }
     }
+
+
+    .explore-btn{
+        top: 18px;
+        display: inline-block;
+        text-decoration: none;
+        position: relative;
+        border: none;
+        font-size: 12px;
+        font-family: inherit;
+        cursor: pointer;
+        color: #fff;
+        width: 9em;
+        /* height: 5em; */
+        line-height: 2.5em;
+        text-align: center;
+        background: linear-gradient(90deg, #3a986e, #237116, #096709, #0b3e27);
+        background-size: 400%;
+        border-radius: 20px;
+        z-index: 1;
+    }
+
+    
+    .explore-btn:hover {
+    animation: ani 8s linear infinite;
+    border: none;
+    }
+    
+    @keyframes ani {
+    0% {
+        background-position: 0%;
+    }
+    
+    100% {
+        background-position: 400%;
+    }
+    }
+    
+    .explore-btn:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #3a986e, #237116, #096709, #0b3e27);
+    background-size: 400%;
+    border-radius: 30px;
+    transition: 1s;
+    }
+
+    .explore-btn:hover::before {
+    filter: blur(10px);
+    }
+    
+    .explore-btn:active {
+        background: linear-gradient(90deg, #3a986e, #237116, #096709, #0b3e27);
+    }

@@ -134,7 +134,6 @@
                                 <option value="Bicycle">Bicycle</option>
                                 <option value="Motorcycle">Motorcycle</option>
                                 <option value="Trailer">Trailer</option>
-                                <option value="Other">Other</option>
                             </select>
                         </div>
                         <!-- <div class="collector-input-field" id="otherField" style="display: none;">

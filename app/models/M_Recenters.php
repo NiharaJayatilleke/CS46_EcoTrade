@@ -7,25 +7,21 @@
         }
 
         public function register($data){
-            // Insert into Collectors table
-            $this->db->query('INSERT INTO RecycleCenters(id, nic, gender, address, com_name, com_email, com_address, telephone, company_type, reg_number, vehicle_type, vehicle_reg, model, color, other_vehicle) VALUES(:id, :nic, :gender, :address, :com_name, :com_email, :com_address, :telephone, :company_type, :reg_number, :vehicle_type, :vehicle_reg, :model, :color, :other_vehicle)');
+            // Insert into RecycleCenters table
+            $this->db->query('INSERT INTO RecycleCenters(nic, owner_name, owner_address, com_name, com_email, com_address, com_tel, company_type, reg_number, website, operation_days) VALUES(:nic, :owner_name, :owner_address, :com_name, :com_email, :com_address, :com_tel, :company_type, :reg_number, :website, :operation_days)');
 
             // Bind values
-            $this->db->bind(':id', $_SESSION['user_id']);
             $this->db->bind(':nic', $data['nic']);
-            $this->db->bind(':gender', $data['gender']);
-            $this->db->bind(':address', $data['address']);
+            $this->db->bind(':owner_name', $data['owner_name']);
+            $this->db->bind(':owner_address', $data['owner_address']);
             $this->db->bind(':com_name', $data['com_name']);
             $this->db->bind(':com_email', $data['com_email']);
             $this->db->bind(':com_address', $data['com_address']);
-            $this->db->bind(':telephone', $data['telephone']);
+            $this->db->bind(':com_tel', $data['com_tel']);
             $this->db->bind(':company_type', $data['company_type']);
             $this->db->bind(':reg_number', $data['reg_number']);
-            $this->db->bind(':vehicle_type', $data['vehicle_type']);
-            $this->db->bind(':vehicle_reg', $data['vehicle_reg']);
-            $this->db->bind(':model', $data['model']);
-            $this->db->bind(':color', $data['color']);
-            $this->db->bind(':other_vehicle', $data['other_vehicle']);
+            $this->db->bind(':website', $data['website']);
+            $this->db->bind(':operation_days', $data['operation_days']);
 
             // Execute query
             if(!$this->db->execute()){
@@ -35,10 +31,10 @@
             // Get the last inserted id
             $center_id = $this->db->lastInsertId();
 
-            // Check if districts are set and is an array
+            // Check if categories are set and is an array
             if(isset($data['categories']) && is_array($data['categories'])) {
-                // Insert selected districts into CollectorDistricts table
-                foreach($data['categories'] as $district_id) {
+                // Insert selected categories into RecycleCentersCategories table
+                foreach($data['categories'] as $category_id) {
                     $this->db->query('INSERT INTO RecycleCentersCategories(center_id, category_id) VALUES(:center_id, :category_id)');
                     $this->db->bind(':center_id', $center_id);
                     $this->db->bind(':category_id', $category_id);
@@ -58,8 +54,8 @@
             return $this->db->single();
         }
 
-     
-       public function getAds(){
+
+        public function getAds(){
             $this->db->query('SELECT * FROM Re_Centers');
             $results = $this->db->resultSet();
             return $results;
