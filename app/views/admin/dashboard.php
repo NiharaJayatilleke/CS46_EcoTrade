@@ -368,7 +368,7 @@
                                         <td>
                                             <div class = "mod-control-btns">
                                                 <a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                                <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -382,47 +382,7 @@
 
             <!-- Recycle Centers crud-->
             <div id="centers-content" class="content-section">
-                <div class="details">
-                    <div class="recentOrders">
-                        <div class="cardHeader">
-                            <h2>Moderators</h2>
-                            <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Add Moderator</a>
-                        </div>
-                        <table id="moderators-table">
-                            <thead>
-                                <tr>
-                                    <td>Username</td>
-                                    <td>Email</td>
-                                    <td>Contact Number</td>
-                                    <td>Date Joined</td>
-                                    <td>Edit/Delete</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if(empty($data['moderators'])): ?>
-                                    <tr>
-                                        <td colspan="5">No moderators found</td>
-                                    </tr>
-                                <?php else: ?>
-                                    <?php foreach($data['moderators'] as $moderator) : ?>
-                                    <tr>
-                                        <td><p><?php echo $moderator->username ?></p></td>
-                                        <td><?php echo $moderator->email ?></td>
-                                        <td><?php echo $moderator->number ?></td>
-                                        <td><?php echo $moderator->created_at ?></td>
-                                        <td>
-                                            <div class = "mod-control-btns">
-                                                <a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                //somec content
             </div>
 
             <!-- Second hand ads-->

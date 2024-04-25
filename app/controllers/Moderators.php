@@ -348,7 +348,6 @@
                 else{
                     die('Something went wrong');
                 }
-                       
         }
 
         public function index(){

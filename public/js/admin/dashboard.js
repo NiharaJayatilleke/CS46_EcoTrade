@@ -286,6 +286,29 @@ function createRowMod(item) {
     return row;
 }
 
+
+function confirmDeleteModerators(url) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "By deleting this moderator you will not be able to revert again!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete Moderator!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'The moderator has been deleted.',
+                'success'
+            ).then(() => {
+                window.location.href = url;
+            });
+        }
+    })
+}
+
 //   const ctx = document.getElementById('myChart');
 
 //   new Chart(ctx, {
