@@ -89,7 +89,7 @@
                         <div class="recentOrders">
                             <div class="cardHeader">
                                 <h2>Recent Secondhand Item Ads</h2>
-                                <a href="#" onclick="showContent('center-content')" class="btn">View All</a>
+                                <a href="#" onclick="showContent('sec-ad-content')" class="btn">View All</a>
                             </div>
                             <table>
                                 <thead>
@@ -107,7 +107,7 @@
                                 <?php
                                 $counter = 0;
                                 foreach($data['ads'] as $ad): 
-                                    if($counter == 8) break; 
+                                    if($counter == 5) break; 
                                 ?>
                                     <tr>
                                     <td><?= $ad->item_name ?></td>
@@ -129,7 +129,7 @@
                         <div class="recentOrders">
                             <div class="cardHeader">
                                 <h2>Your Recycle Item Ads</h2>
-                                <!-- <a href="#center-content"  class="btn">View All</a> -->
+                                <a href="#center-content"  class="btn">View All</a>
                             </div>
                             <table>
                                 <thead>
@@ -143,7 +143,11 @@
                                 </thead>
 
                                 <tbody>
-                                <?php foreach($data['re_ads'] as $re_ad): ?>
+                                <?php 
+                                $counter = 0; 
+                                foreach($data['re_ads'] as $re_ad): 
+                                if($counter == 5) break; 
+                                ?>
                                     <tr>
                                     <td><?= $re_ad->item_name ?></td>
                                     <td> <img src="<?php echo URLROOT?>/public/img/items/<?php echo $re_ad->item_image ?>" alt="Item Image" style="width: 70px; height: 60px;"></td>
@@ -151,7 +155,10 @@
                                     <td><?= $re_ad->created_at ?></td>
                                     <!-- <td><= $re_ad->item_expiry ?></td> -->
                                     </tr>
-                                <?php endforeach; ?>
+                                <?php 
+                                    $counter++;
+                                    endforeach; 
+                                ?>
                                 </tbody>
                             </table>
                         </div>
