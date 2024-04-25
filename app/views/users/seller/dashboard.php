@@ -124,8 +124,25 @@
                             </table>
                         </div>
                     </div> 
-            </div>
 
+                    <div class="details" style=" display: block;">
+                        <div class="recentOrders">
+                            <div class="cardHeader">
+                                <h2>Your Recycle Item Ads</h2>
+                                <!-- <a href="#center-content"  class="btn">View All</a> -->
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Image</td>
+                                        <td>Category</td>
+                                        <td>Posted on</td>
+                                        <td>Expired on</td>
+                                    </tr>
+                                </thead>
+
+                                
 
             <div id="notif-content" class="content-section">
                 <p>This is the content for seller notifications.</p>
