@@ -933,10 +933,22 @@
         var CURRENT_AD = "<?php echo $data['ad']->ad_id ?>";
     </script>
 
-    <!-- update moderator success message -->
+    <!-- register and update moderator success message -->
     <script>
     window.onload = function() {
         var urlParams = new URLSearchParams(window.location.search);
+
+        if (window.location.hash === '#moderators-content' && urlParams.get('registered') === 'true') {
+            Swal.fire(
+                'Registered!',
+                'The moderator has been registered.',
+                'success'
+            );
+
+            // Remove the 'registered' query parameter from the URL
+            urlParams.delete('registered');
+        }
+
         if (window.location.hash === '#moderators-content' && urlParams.get('updated') === 'true') {
             Swal.fire(
                 'Updated!',
@@ -946,9 +958,11 @@
 
             // Remove the 'updated' query parameter from the URL
             urlParams.delete('updated');
-            var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString() + window.location.hash;
-            history.replaceState(null, '', newUrl);
         }
+
+        // Update the URL without causing a page reload
+        var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString() + window.location.hash;
+        history.replaceState(null, '', newUrl);
     };
     </script>
 

@@ -25,9 +25,7 @@
                     'email_err' => '',
                     'number_err' => '',
                     'password_err' => '',
-                    'confirm_password_err' => '',
-                    'agree_err' => ''
-
+                    'confirm_password_err' => ''
                 ];
 
                 //Validate each inputs
@@ -71,13 +69,8 @@
                     }
                 }
 
-                // Check if the Moderator has agreed to the terms
-                if (!isset($_POST['agree'])) {
-                    $data['agree_err'] = 'You must agree to the terms and conditions.';
-                  }
-
                 //Validation is completed and no error then Register the Moderator
-                if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])&&empty($data['agree_err'])){
+                if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])){
 
 
                     //Hash password
@@ -87,7 +80,7 @@
                     if($this->userModel->insert_user($data)){
                         // create a flash message
                         flash('reg_flash', 'You are successfully registered!');
-                        redirect('Admin/moderators#moderators-content');//should redirect back to admin index
+                        redirect('Admin/moderators?registered=true#moderators-content');
                     }
                     else{
                         die('Something went wrong');

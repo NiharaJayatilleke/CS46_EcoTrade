@@ -55,19 +55,8 @@
                         <span class="form-invalid"><?php echo $data['confirm_password_err']; ?></span>
                     </div>
 
-                    <div class="terms-forgot">
-                        <label><input type="checkbox"name="agree" id="agree" value="yes"/> I agree to the
-                        <a href="<?php echo URLROOT; ?>/moderators/terms" title="term of services">terms & conditions</a>
-                    </div>
-                    <div>
-                        <span class="form-invalid"><?php echo $data['agree_err']; ?></span>
-                    </div>
-
                     <button type="submit" class = "register-btn">Register</button>
 
-                    <div class="registred-already">
-                        <p>Are you an already registered Moderator? <a href ="<?php echo URLROOT ?>/Moderators/login" > Login </a> </p>
-                    </div>
 
                     <!-- <input type="text" name="user_type" id="user_type" value="pBuyer" required="" hidden="" style="display: none;"> -->
                     <!-- <input type="text" name="user_type" id="user_type" value="moderator" required="" hidden="" style="display: none;"> -->
