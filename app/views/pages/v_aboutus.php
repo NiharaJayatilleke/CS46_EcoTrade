@@ -15,10 +15,10 @@
                 
 "EcoTrade is more than a platform; it's a movement. We unite buyers and collectors to transform waste into valuable resources. By connecting people with a shared vision of sustainability, we redefine recycling and contribute to a greener world. Join us in shaping a future where every eco-conscious action makes a difference. Together, let's create a sustainable tomorrow."
             </p>
-            <div class="btnContainer">
+            <!-- <div class="btnContainer">
                 <button class="btn btn110">Explore More</button>
                 
-            </div>
+            </div> -->
         </div>
         <div class="sectionPic bouncepic" id="sectionPic">
             <img src="../public/img/about/wepik-export-20240421085733kCr4.png" alt="">
@@ -60,7 +60,7 @@
                     <p class="carouselPara">
                         Recycle buying on EcoTrade connects buyers with recyclers, including recycling centers and collectors, promoting sustainability and reducing waste.</p>
                   
-                        <a href="<?php echo URLROOT; ?>/Pages/about" class="btn carouselBtn">Explore</a>
+                        <a href="<?php echo URLROOT; ?>/recyclecenters/about" class="btn carouselBtn">Explore</a>
                 </article>
             </div>
     
@@ -102,7 +102,7 @@
             </div>
         </div>
         <div class="sectionPic bouncepic processesPic" id="sectionPic">
-            <img src="/public/img/about/wepik-export-20240421093650W1dh.png" alt="">
+            <img src="../public/img/about/wepik-export-20240421093650W1dh.png" alt="">
         </div>
     </section>
 
