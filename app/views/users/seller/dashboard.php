@@ -85,6 +85,9 @@
                         <h2>Seller Dashboard</h2>
                     </div>
 
+
+                    
+
                     <div class="details" style=" display: block;">
                         <div class="recentOrders">
                             <div class="cardHeader">
@@ -128,8 +131,8 @@
                     <div class="details" style=" display: block;">
                         <div class="recentOrders">
                             <div class="cardHeader">
-                                <h2>Your Recycle Item Ads</h2>
-                                <a href="#center-content"  class="btn">View All</a>
+                                <h2>Recent Recycle Item Ads</h2>
+                                <a href="#center-content" onclick="showContent('rec-ad-content')" class="btn">View All</a>
                             </div>
                             <table>
                                 <thead>
