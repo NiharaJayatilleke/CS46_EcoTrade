@@ -51,6 +51,23 @@
             return true;
         }
 
+        public function edit($data){
+            // print_r($data);
+            $this->db->query('UPDATE General_User SET username = :username, number = :number, password = :password WHERE id = :id AND user_type = "collector"');
+            $this->db->bind(':id',$data['id']);
+            $this->db->bind(':username',$data['username']);
+            $this->db->bind(':number',$data['number']);
+            $this->db->bind(':password',$data['password']);  
+            // $this->db->bind(':userType', $data['user_type']);
+            
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
         public function getUserDetails($user_id) {
             $this->db->query('SELECT * FROM Collectors WHERE id = :user_id');
             $this->db->bind(':user_id', $user_id);

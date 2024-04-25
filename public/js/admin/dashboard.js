@@ -274,9 +274,7 @@ function createRowMod(item) {
     deleteButton.className = 'ad-edit-btn';
     deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
     deleteButton.onclick = function() {
-        if (confirm("Are you sure you want to delete this item?")) {
-            window.location.href = '/ecotrade/Moderators/delete/' + item.id; // Update this URL to match your application's URL structure
-        }
+        confirmDeleteModerators('/ecotrade/Moderators/delete/' + item.id); // Update this URL to match your application's URL structure
     };
     controlButtonsDiv.appendChild(deleteButton);
 

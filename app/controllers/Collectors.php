@@ -233,6 +233,143 @@
             }
         }
         
+        public function edit($colId){
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                // form is submitting
+                //Validate the data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                
+                $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+                // Input data
+                $data = [
+                    'id' => $colId,
+                    'nic' => trim($_POST['nic']),
+                    'gender' => trim($_POST['gender']),
+                    'address' => trim($_POST['address']),
+                    'com_name' => trim($_POST['com_name']),
+                    'com_email' => trim($_POST['com_email']),
+                    'com_address' => trim($_POST['com_address']),
+                    'telephone' => trim($_POST['telephone']),
+                    'company_type' => trim($_POST['company_type']),
+                    'reg_number' => trim($_POST['reg_number']),
+                    'vehicle_type' => trim($_POST['vehicle_type']),
+                    'vehicle_reg' => trim($_POST['vehicle_reg']),
+                    'model' => trim($_POST['model']),
+                    'color' => trim($_POST['color']),
+                    'districts' => isset($_POST['districts']) ? array_map('trim', $_POST['districts']) : [],
+
+
+                    'nic_err' => '',
+                    'gender_err' => '',
+                    'address_err' => '',
+                    'com_name_err' => '',
+                    'com_email_err' => '',
+                    'com_address_err' => '',
+                    'telephone_err' => '',
+                    'company_type_err' => '',
+                    'reg_number_err' => '',
+                    'vehicle_type_err' => '',
+                    'vehicle_reg_err' => '',
+                    'model_err' => '',
+                    'color_err' => '',
+                    'districts_err' => ''
+                    // 'agree' => trim($_POST['agree']),
+                ];
+
+                //Validate each inputs
+                //Validate username
+                if(empty($data['username'])){
+                    $data['username_err'] = 'Please enter a username';
+                }
+
+                // //Validate email
+
+                // if(empty($data['email'])){
+                //     $data['email_err'] = 'Please enter an email';
+                // }
+                // else{
+                //     //check email is already registered or not
+                //     if($this->moderatorModel->findModeratorByEmail($data['email'])){
+                //         $data['email_err'] = 'This email is already registered';
+                //     }
+                // }   
+
+                //Validate number
+                if(empty($data['number'])) {
+                    $data['number_err'] = 'Please enter a contact number';
+                }elseif (!ctype_digit($data['number']) || strlen($data['number']) < 9) {
+                    $data['number_err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
+                }
+
+                //validate password
+                if(empty($data['password'])){
+                    $data['password_err'] = 'Please enter a password';
+                }
+                else if(strlen($data['password'])<6){
+                        $data['password_err']='Password must be at least 6 characters';
+                    }
+                else{
+                    if(empty($data['confirm_password'])){
+                        $data['confirm_password_err']='Please confirm the password';
+                    }
+
+                    if($data['password']!=$data['confirm_password']){
+                            $data['confirm_password_err']='Passwords do not match';
+                    }
+                }
+
+                // Check if the Moderator has agreed to the terms
+                if (!isset($_POST['agree'])) {
+                    $data['agree_err'] = 'You must agree to the terms and conditions.';
+                  }
+
+                //Validation is completed and no error then Register the Moderator
+                if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])&&empty($data['agree_err'])){
+
+
+                    //Hash password
+                    $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
+
+                    //edit user
+                    if($this->collectorModel->edit($data)){
+                        // create a flash message
+                        flash('reg_flash', 'You are successfully registered!');
+                        redirect('Admin/moderators#moderators-content');
+                    }
+                    else{
+                        die('Something went wrong');
+                    }
+                }
+                else{
+                    //load view
+                    $this->view('collectors/edit', $data);
+                }
+            }
+            else {
+                $collector = $this->collectorModel->getModeratorById($colId);
+                // initial form
+                $data = [
+                    'id' => $colId,
+                    'username' => $moderator->username,
+                    'email' => $moderator->email,
+                    'number' => $moderator->number,
+                    'password' => '',
+                    'confirm_password' => '',
+
+                    'username_err' => '',
+                    'email_err' => '',
+                    'number_err' => '',
+                    'password_err' => '',
+                    'confirm_password_err' => '',
+                    'agree_err' => ''
+
+                ];
+
+                //load view
+                $this->view('collectors/edit', $data);
+            }
+        } 
 
         public function index(){
             $ads = $this->recycleItemAdsModel->getAds();

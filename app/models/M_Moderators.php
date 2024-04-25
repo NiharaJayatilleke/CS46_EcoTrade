@@ -22,7 +22,7 @@
         }
 
         public function edit($data){
-            print_r($data);
+            // print_r($data);
             $this->db->query('UPDATE General_User SET username = :username, number = :number, password = :password WHERE id = :id AND user_type = "moderator"');
             $this->db->bind(':id',$data['id']);
             $this->db->bind(':username',$data['username']);

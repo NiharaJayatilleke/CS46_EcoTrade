@@ -41,7 +41,7 @@
                 <li>
                     <a href="#centers-content" id="centers-tab" onclick="showContent('centers-content')">
                         <span class = "side-icon"><ion-icon name="business-outline"></ion-icon></span>
-                        <span class = "side-title">Recycle Centers</span>
+                        <span class = "side-title">Recycle Center</span>
                     </a>
                 </li>
 
@@ -367,7 +367,7 @@
                                         <td><?php echo $moderator->created_at ?></td>
                                         <td>
                                             <div class = "mod-control-btns">
-                                                <a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <a href="<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>?updated=true"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
                                                 <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
                                             </div>
                                         </td>
@@ -931,6 +931,25 @@
     <script type ="text/JavaScript">
         var URLROOT ="<?php echo URLROOT; ?>"
         var CURRENT_AD = "<?php echo $data['ad']->ad_id ?>";
+    </script>
+
+    <!-- update moderator success message -->
+    <script>
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        if (window.location.hash === '#moderators-content' && urlParams.get('updated') === 'true') {
+            Swal.fire(
+                'Updated!',
+                'The moderator has been updated.',
+                'success'
+            );
+
+            // Remove the 'updated' query parameter from the URL
+            urlParams.delete('updated');
+            var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString() + window.location.hash;
+            history.replaceState(null, '', newUrl);
+        }
+    };
     </script>
 
 
