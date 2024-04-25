@@ -101,6 +101,8 @@ document.addEventListener('DOMContentLoaded', checkFragment);
 // Also check the state of the search bar when the hash changes
 window.addEventListener('hashchange', checkFragment);
 
+
+
 //search in users
 // The Fuse.js options
 var options = {
@@ -115,7 +117,8 @@ var options = {
         "email",
         "number",
         "user_type",
-        "created_at"
+        "created_at",
+        "status"
     ]
 };
 
@@ -166,7 +169,8 @@ var mod_options = {
         "username",
         "email",
         "number",
-        "created_at"
+        "created_at",
+        "status"
     ]
 };
 
@@ -232,6 +236,23 @@ function createRowUser(item) {
     createdAtCell.textContent = item.created_at;
     row.appendChild(createdAtCell);
 
+    
+    var toggleCell = document.createElement('td');
+    var label = document.createElement('label');
+    label.className = 'switch';
+    var input = document.createElement('input');
+    input.type = 'checkbox';
+    input.onclick = function() { toggleBan(this, item.id); };
+    if (item.status !== undefined) {
+        input.checked = item.status == 1;
+    }
+    var span = document.createElement('span');
+    span.className = 'slider';
+    label.appendChild(input);
+    label.appendChild(span);
+    toggleCell.appendChild(label);
+    row.appendChild(toggleCell);
+
     return row;
 }
 
@@ -274,9 +295,7 @@ function createRowMod(item) {
     deleteButton.className = 'ad-edit-btn';
     deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
     deleteButton.onclick = function() {
-        if (confirm("Are you sure you want to delete this item?")) {
-            window.location.href = '/ecotrade/Moderators/delete/' + item.id; // Update this URL to match your application's URL structure
-        }
+        confirmDeleteModerators('/ecotrade/Moderators/delete/' + item.id); // Update this URL to match your application's URL structure
     };
     controlButtonsDiv.appendChild(deleteButton);
 
@@ -284,6 +303,29 @@ function createRowMod(item) {
     row.appendChild(controlButtonsCell);
 
     return row;
+}
+
+
+function confirmDeleteModerators(url) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "By deleting this moderator you will not be able to revert again!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete Moderator!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'The moderator has been deleted.',
+                'success'
+            ).then(() => {
+                window.location.href = url;
+            });
+        }
+    })
 }
 
 //   const ctx = document.getElementById('myChart');

@@ -25,9 +25,7 @@
                     'email_err' => '',
                     'number_err' => '',
                     'password_err' => '',
-                    'confirm_password_err' => '',
-                    'agree_err' => ''
-
+                    'confirm_password_err' => ''
                 ];
 
                 //Validate each inputs
@@ -71,13 +69,8 @@
                     }
                 }
 
-                // Check if the Moderator has agreed to the terms
-                if (!isset($_POST['agree'])) {
-                    $data['agree_err'] = 'You must agree to the terms and conditions.';
-                  }
-
                 //Validation is completed and no error then Register the Moderator
-                if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])&&empty($data['agree_err'])){
+                if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])){
 
 
                     //Hash password
@@ -87,7 +80,7 @@
                     if($this->userModel->insert_user($data)){
                         // create a flash message
                         flash('reg_flash', 'You are successfully registered!');
-                        redirect('Admin/moderators#moderators-content');//should redirect back to admin index
+                        redirect('Admin/moderators?registered=true#moderators-content');
                     }
                     else{
                         die('Something went wrong');
@@ -236,36 +229,22 @@
                     'confirm_password' => trim($_POST['confirm_password']),
 
                     'username_err' => '',
-                    'email_err' => '',
+                    // 'email_err' => '',
                     'number_err' => '',
                     'password_err' => '',
-                    'confirm_password_err' => '',
-                    'agree_err' => ''
-
+                    'confirm_password_err' => ''
                 ];
 
-                //Validate each inputs
                 //Validate username
                 if(empty($data['username'])){
                     $data['username_err'] = 'Please enter a username';
                 }
 
-                // //Validate email
-
-                // if(empty($data['email'])){
-                //     $data['email_err'] = 'Please enter an email';
-                // }
-                // else{
-                //     //check email is already registered or not
-                //     if($this->moderatorModel->findModeratorByEmail($data['email'])){
-                //         $data['email_err'] = 'This email is already registered';
-                //     }
-                // }   
-
                 //Validate number
                 if(empty($data['number'])) {
                     $data['number_err'] = 'Please enter a contact number';
-                }elseif (!ctype_digit($data['number']) || strlen($data['number']) < 9) {
+                }
+                elseif (!ctype_digit($data['number']) || strlen($data['number']) < 9) {
                     $data['number_err'] = 'Contact number requires at least 10 digits and must consist only of digits.';
                 }
 
@@ -286,13 +265,8 @@
                     }
                 }
 
-                // Check if the Moderator has agreed to the terms
-                if (!isset($_POST['agree'])) {
-                    $data['agree_err'] = 'You must agree to the terms and conditions.';
-                  }
-
                 //Validation is completed and no error then Register the Moderator
-                if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])&&empty($data['agree_err'])){
+                if(empty($data['username_err'])&&empty($data['email_err'])&&empty($data['password_err'])&&empty($data['confirm_password_err'])){
 
 
                     //Hash password
@@ -302,7 +276,7 @@
                     if($this->moderatorModel->edit($data)){
                         // create a flash message
                         flash('reg_flash', 'You are successfully registered!');
-                        redirect('Admin/moderators#moderators-content');
+                        redirect('Admin/moderators?updated=true#moderators-content');
                     }
                     else{
                         die('Something went wrong');
@@ -313,7 +287,7 @@
                     $this->view('moderators/edit', $data);
                 }
             }
-            else {
+            else{
                 $moderator = $this->moderatorModel->getModeratorById($modId);
                 // initial form
                 $data = [
@@ -328,9 +302,7 @@
                     'email_err' => '',
                     'number_err' => '',
                     'password_err' => '',
-                    'confirm_password_err' => '',
-                    'agree_err' => ''
-
+                    'confirm_password_err' => ''
                 ];
 
                 //load view
@@ -348,7 +320,6 @@
                 else{
                     die('Something went wrong');
                 }
-                       
         }
 
         public function index(){
@@ -430,7 +401,7 @@
         }
 
         public function hideAd($adId) {
-        $this->moderatorModel->hideAdById($adId);
+            $this->moderatorModel->hideAdById($adId);
         }
 
         public function edit_profile(){

@@ -41,7 +41,7 @@
                 <li>
                     <a href="#centers-content" id="centers-tab" onclick="showContent('centers-content')">
                         <span class = "side-icon"><ion-icon name="business-outline"></ion-icon></span>
-                        <span class = "side-title">Recycle Centers</span>
+                        <span class = "side-title">Recycle Center</span>
                     </a>
                 </li>
 
@@ -304,7 +304,7 @@
                                     <td>Contact Number</td>
                                     <td>User Type</td>
                                     <td>Date Joined</td>
-                                    <!-- <td>Edit/Delete</td> -->
+                                    <td>Status</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -320,10 +320,15 @@
                                         <td><?php echo $user->number ?></td>
                                         <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
                                         <td><?php echo $user->created_at ?></td>
+                                        <td>
+                                            <label class="switch">
+                                                <input type="checkbox" onclick="toggleBan(this, '<?php echo $user->id ?>')" <?php echo $user->status == 1 ? 'checked' : '' ?>>
+                                                <span class="slider"></span>
+                                            </label>
+                                        </td>
                                         <!-- <td>
                                             <div class = "mod-control-btns">
-                                                <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                                <button onclick="confirmBan('<?php echo URLROOT?>/Admin/ban/<?php echo $user->id ?>')" class="ad-edit-btn"><i class="fas fa-ban"></i></button>
                                             </div>
                                         </td> -->
                                     </tr>
@@ -367,8 +372,8 @@
                                         <td><?php echo $moderator->created_at ?></td>
                                         <td>
                                             <div class = "mod-control-btns">
-                                                <a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                                <a href="<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>?updated=true"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -382,47 +387,7 @@
 
             <!-- Recycle Centers crud-->
             <div id="centers-content" class="content-section">
-                <div class="details">
-                    <div class="recentOrders">
-                        <div class="cardHeader">
-                            <h2>Moderators</h2>
-                            <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Add Moderator</a>
-                        </div>
-                        <table id="moderators-table">
-                            <thead>
-                                <tr>
-                                    <td>Username</td>
-                                    <td>Email</td>
-                                    <td>Contact Number</td>
-                                    <td>Date Joined</td>
-                                    <td>Edit/Delete</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if(empty($data['moderators'])): ?>
-                                    <tr>
-                                        <td colspan="5">No moderators found</td>
-                                    </tr>
-                                <?php else: ?>
-                                    <?php foreach($data['moderators'] as $moderator) : ?>
-                                    <tr>
-                                        <td><p><?php echo $moderator->username ?></p></td>
-                                        <td><?php echo $moderator->email ?></td>
-                                        <td><?php echo $moderator->number ?></td>
-                                        <td><?php echo $moderator->created_at ?></td>
-                                        <td>
-                                            <div class = "mod-control-btns">
-                                                <a href = "<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                //somec content
             </div>
 
             <!-- Second hand ads-->
@@ -960,6 +925,33 @@
         var moderators = <?php echo json_encode($data['moderators']); ?>;
         var userCounts = <?php echo json_encode($data['userCounts']); ?>;
         var adCountsByCategory = <?php echo json_encode($data['adCountsByCategory']); ?>;
+
+        //admin banning the users
+        function toggleBan(checkbox, userId) {
+            var url;
+            var action;
+            if (checkbox.checked) {
+                url = '<?php echo URLROOT?>/Admin/unban/' + userId;
+                action = "unban";
+            } else {
+                url = '<?php echo URLROOT?>/Admin/ban/' + userId;
+                action = "ban";
+            }
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You are about to " + action + " this user.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, ' + action + ' user!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                }
+            })
+        }
     </script> 
 
     <!-- Javascript for image upload -->
@@ -971,6 +963,39 @@
     <script type ="text/JavaScript">
         var URLROOT ="<?php echo URLROOT; ?>"
         var CURRENT_AD = "<?php echo $data['ad']->ad_id ?>";
+    </script>
+
+    <!-- register and update moderator success message -->
+    <script>
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+
+        if (window.location.hash === '#moderators-content' && urlParams.get('registered') === 'true') {
+            Swal.fire(
+                'Registered!',
+                'The moderator has been registered.',
+                'success'
+            );
+
+            // Remove the 'registered' query parameter from the URL
+            urlParams.delete('registered');
+        }
+
+        if (window.location.hash === '#moderators-content' && urlParams.get('updated') === 'true') {
+            Swal.fire(
+                'Updated!',
+                'The moderator has been updated.',
+                'success'
+            );
+
+            // Remove the 'updated' query parameter from the URL
+            urlParams.delete('updated');
+        }
+
+        // Update the URL without causing a page reload
+        var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString() + window.location.hash;
+        history.replaceState(null, '', newUrl);
+    };
     </script>
 
 

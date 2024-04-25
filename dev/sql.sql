@@ -12,10 +12,11 @@ CREATE TABLE General_User (
     user_type VARCHAR(255),
     profile_image VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status INT DEFAULT 1,
     PRIMARY KEY(id)
 );
 
-INSERT INTO General_User(username, email,number, password, user_type) VALUES ('admin','admin@gmail.com','090192','$2y$10$46HNERR3yFUe.fLbfRjSBeCGqlpJS7h5krkDUbJjjXmV0M.Y/XZ6u','pBuyer');
+INSERT INTO General_User(username, email,number, password, user_type) VALUES ('admin','admin@gmail.com','090192','$2y$10$46HNERR3yFUe.fLbfRjSBeCGqlpJS7h5krkDUbJjjXmV0M.Y/XZ6u','moderator');
 
 CREATE TABLE Collectors (
     id INT AUTO_INCREMENT,
