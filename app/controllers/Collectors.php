@@ -43,7 +43,7 @@
                     $userType = $_SESSION['userType'];
                     
                     // Only update the user type if they are not a moderator or an admin
-                    if ($userType != 'moderator' && $userType != 'admin') {
+                    if ($userType != 'moderator' && $userType != 'admin' && $userType != 'center') {
                         if ($this->userModel->updateUserType('collector')) {
                             echo json_encode(['status' => 'success', 'message' => 'User type updated successfully']);
                         } else {
