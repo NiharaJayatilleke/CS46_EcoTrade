@@ -324,7 +324,7 @@
 
         public function index(){
 
-            if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator' && $_SESSION['userType'] != 'admin')){
+            if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator')){
 
                 $this->view('pages/forbidden');
             }

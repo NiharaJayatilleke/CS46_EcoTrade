@@ -67,6 +67,8 @@
                 $numCenters = count($centers);
                 $reportedAds = $this->moderatorModel->getReportedAds();
                 $recentActivities = $this->moderatorModel->getRecentActivities();
+                $useremail = $_SESSION['user_email'];
+                $userdetails = $this->moderatorModel->getuserdetails($useremail);
           
                 $data = [
                     'ads' => $ads,
@@ -82,7 +84,8 @@
                     'collectors_count' => $numCollectors,
                     'centers_count' => $numCenters,
                     'reportedAds' => $reportedAds,
-                    'recentActivities' => $recentActivities
+                    'recentActivities' => $recentActivities,
+                    'userdetails'=> $userdetails
                 ];
                 
                 $this->view('admin/dashboard', $data);
