@@ -472,37 +472,61 @@
 
 
 
-    <section id="product1" class="section-p1">
-        <h2>Featured Products</h2>
-        <p>Summer Collection</p>
-        <div class="pro-container">
-          <?php foreach($data['ads'] as $ad): ?>
-
+   <section id="product1" class="section-p1">
+    <h2>Featured Products</h2>
+    <p>Summer Collection</p>
+    <div class="pro-container">
+        <?php foreach($data['ads'] as $ad): ?>
             <div class="pro">
-              <?php
-              // print_r($data['ads']);
-              ?>
-                <!-- <img src="img/products/f1.jpg" alt=""> -->
                 <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="" />
-
                 <div class="des">
-                    <span>Adiddas</span>
-                    <h5>Cotton shirts pure cotton</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    <span><?php echo $ad->item_condition ?></span>
+                    <h5><?php echo $ad->item_name ?></h5>
+                    <div class="star" id="star-<?php echo $ad->ad_id ?>"></div> <!-- Add a unique ID for each ad's star container -->
                     <h4>$78</h4>
                 </div>
                 <a href="#" ><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
             </div>
-          <?php endforeach; ?>
+
+            <script>
+                // JavaScript code to fetch and render star ratings for each ad
+                fetchSellerRating(<?php echo $ad->seller_id ?>, <?php echo $ad->ad_id ?>);
+                
+                function fetchSellerRating(sellerId, adId) {
+                    fetch(URLROOT + "/ItemAds/getSellerRating/" + sellerId)
+                    .then(response => response.json())
+                    .then(data => {
+                        renderStars(data.rating, adId);
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation:', error);
+                    });
+                }
+                
+                function renderStars(rating, adId) {
+                    let starContainer = document.getElementById('star-' + adId);
+                    if (starContainer) {
+                        let starsHtml = '';
+                        for (let i = 1; i <= 5; i++) {
+                            if (i <= rating) {
+                                starsHtml += '<i class="fas fa-star"></i>';
+                            } else {
+                                starsHtml += '<i class="far fa-star"></i>';
+                            }
+                        }
+                        starContainer.innerHTML = starsHtml;
+                    } else {
+                        console.error('Star container not found for ad ID ' + adId);
+                    }
+                }
+            </script>
+        <?php endforeach; ?>
+    </div>
+</section>
 
 
-            <div class="pro">
+
+            <!-- <div class="pro">
                 <img src="img/products/f2.jpg" alt="">
                 <div class="des">
                     <span>Adiddas</span>
@@ -615,7 +639,7 @@
                 <a href="#" ><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
             </div>
             
-        </div>
+        </div> -->
 
     </section>
 
@@ -862,5 +886,35 @@
 
    </footer> -->
 
-    <script src="script.js"></script>
+    <script>
+      // Assuming you have fetched the seller's rating from the server and stored it in a variable called sellerRating
+
+// Convert the seller's rating into a star representation
+function renderStars(rating) {
+    let starsHtml = '';
+    for (let i = 1; i <= 5; i++) {
+        if (i <= rating) {
+            starsHtml += '<i class="fas fa-star"></i>';
+        } else {
+            starsHtml += '<i class="far fa-star"></i>';
+        }
+    }
+    return starsHtml;
+}
+
+// Assuming you have fetched the seller's rating from the server and stored it in a variable called sellerRating
+let sellerRating = 3; // Example rating, replace this with the actual fetched rating
+
+// Update the HTML content of the div with class "star"
+let starContainer = document.querySelector('.star');
+if (starContainer) {
+    starContainer.innerHTML = renderStars(sellerRating);
+} else {
+    console.error('Star container not found!');
+}
+  </script>
+ 
 </body>
+ <!-- <//?php require APPROOT . '/views/inc/components/footer.php'; ?>  -->
+
+
