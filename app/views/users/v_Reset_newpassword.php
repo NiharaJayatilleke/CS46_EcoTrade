@@ -18,8 +18,8 @@
     <span class="form-invalid"><?php echo isset($data['errors']['newPassword']) ? $data['errors']['newPassword'] : '';?></span>
 
     <br>
-    <div class="form-input-title">Repeat new password</div>
-    <input type="password" name="confirmPassword" placeholder="Repeat new password">
+    <div class="form-input-title">Confirm password</div>
+    <input type="password" name="confirmPassword" placeholder="Confirm password">
     <span class="form-invalid"><?php echo isset($data['errors']['confirmPassword']) ? $data['errors']['confirmPassword'] : '';?></span>
     <!-- <span class="form-invalid"><?php echo isset($errors['confirmPassword']) ? $errors['confirmPassword'] : '';?></span> -->
     <input type="submit" value="Reset Password" class="form-btn"> 
