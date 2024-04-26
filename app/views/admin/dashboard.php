@@ -950,7 +950,30 @@
             });
         }
 
+        const changepwd = document.getElementById('changePasswordForm');
+        
+        changepwd.onsubmit = function(event){
+            event.preventDefault();
 
+            fetch('<?php echo URLROOT; ?>/users/update',{
+                method: 'POST',
+                body: new FormData(changepwd)
+            })
+            .then(data =>{
+
+            })
+            .then(data => {
+                // Handle the response data as needed
+                //console.log(data);
+
+                window.location.reload();
+            })
+            
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+        
         let profilePic = document.getElementById("profile-pic");
         let inputFile = document.getElementById("upload-photo");
 
