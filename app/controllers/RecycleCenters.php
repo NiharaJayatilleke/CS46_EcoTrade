@@ -4,7 +4,7 @@
             $this->userModel = $this->model('M_Users');
             $this->pagesModel =$this->model('M_Pages');
             $this->moderatorModel = $this->model('M_Moderators');
-            $this->recentersModel = $this->model('M_Recenters'); 
+            $this->recycleCentersModel = $this->model('M_Recycle_Centers'); 
             $this->categoryModel = $this->model('M_Categories'); 
             $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads'); 
             
@@ -34,7 +34,7 @@
                 ];
 
                 // Register collector
-                if($this->recentersModel->register($data)){
+                if($this->recycleCentersModel->register($data)){
                     // Create a flash message
                     flash('reg_flash', 'You are successfully registered as a center!');
 
@@ -108,7 +108,7 @@
                 ];
 
                 // Update recycle center
-                if($this->recentersModel->edit($data)){
+                if($this->recycleCentersModel->edit($data)){
 
                     // Update session data
                     $_SESSION['user_data'] = $data;
@@ -204,6 +204,67 @@
             $data = [];
             $this->view('users/recyclecenters/about',$data);
         }
+
+        public function addRequirement(){ //recenters
+            
+            if($_SERVER['REQUEST_METHOD'] =='POST'){
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                //input data
+                $data = [
+                    'item_category' => trim($_POST['item_category']),
+                    'item_desc' => trim($_POST['item_desc']),
+                    'item_location' => trim($_POST['item_location']),
+                    'item_quantity' => trim($_POST['item_quantity']),
+
+                    'item_category_err' => '',
+                    'item_location_err' => '',
+                    'item_quantity_err' => '',
+                ];
+    
+                //Validate item_category
+                if(empty($data['item_category'])){
+                    $data['item_category_err'] = 'Please select a category for your item';
+                } 
+    
+                //validate item_location
+                if(empty($data['item_location'])){
+                    $data['item_location_err'] = 'Please enter the location of your item';
+                }
+    
+                //Validation is completed and no error then add item ad to the database
+                if(empty($data['item_category_err'])&&empty($data['item_location_err'])){
+                    //Add item ad to the database
+                    if($this->recycleCentersModel->re_create1($data)){
+                        // create a flash message
+                        flash('post_msg', 'Your ad has been posted successfully!');
+                        redirect('pages/home');
+                    }else{
+                        die('Something went wrong');
+                    }
+                }
+                else{
+                    //load view with errors
+                    $this->view('recenters/v_index', $data);
+                    show($data);
+                }
+            }
+            else {
+                // initial form
+                $data = [
+                    'item_category' => '',
+                    'item_desc' => '',
+                    'item_location' => '',
+                    
+                    'item_category_err' => '',
+                    'item_location_err' => '',
+                    'item_quantity_err' => '',
+                ];
+    
+                //load view
+                $this->view('recenters/v_index',$data);
+            }
+        } 
 
         // public function dashboard(){
         //     $data = [];

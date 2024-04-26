@@ -15,7 +15,7 @@
         <center><h2>Post Your Add Here</h2></center>
         </div>
 
-        <form action="<?php echo URLROOT?>/Recenters/recenters" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo URLROOT?>/RecycleCenters/addRequirement" method="POST" enctype="multipart/form-data">
 
             <!-- item_name -->
             <!-- <div class="ad-form-input-title">Item Name</div>

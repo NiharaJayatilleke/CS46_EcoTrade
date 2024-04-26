@@ -1,5 +1,5 @@
 <?PHP
-    class M_Recenters{
+    class M_Recycle_Centers{
         private $db;
 
         public function __construct(){

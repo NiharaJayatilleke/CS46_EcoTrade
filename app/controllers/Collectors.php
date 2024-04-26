@@ -7,7 +7,7 @@
             $this->pagesModel = $this->model('M_Pages');
             $this->districtModel = $this->model('M_Districts'); // Add this line
             $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads'); 
-            $this->recentersModel = $this->model('M_Recenters'); 
+            $this->recycleCentersModel = $this->model('M_Recycle_Centers'); 
         }
 
   
@@ -256,7 +256,7 @@
             }
             
             $ads = $this->recycleItemAdsModel->getAds();
-            $ads2= $this->recentersModel->getAds();
+            $ads2= $this->recycleCentersModel->getAds();
             $useremail = $_SESSION['user_email'];
             $userdetails = $this->moderatorModel->getuserdetails($useremail);
             $data = [
