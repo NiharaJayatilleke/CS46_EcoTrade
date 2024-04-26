@@ -622,6 +622,36 @@
             <!-- Recycle ads-->
             <div id="recycle-content" class="content-section">
                 <!-- centers should be fetched here -->
+
+                <div class="heading-dashboard">
+                    <h2>Recycle Item Ads</h2>
+                </div>
+
+                <div class="ad-right-container">
+                    <?php if (!empty($data['rec_ads'])) : ?>
+                        <div class="ads-container">
+                            <?php foreach($data['rec_ads'] as $ad): ?>
+                                <!-- <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id?>')"> -->
+                                    <div class="ad-index-container">
+                                        <div class="ad-header">
+                                            <div class="ad-body-image">
+                                                <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
+                                            </div>
+
+                                            <div class="ad-item-name"><h3><?php echo $ad->item_name ?></h3></div>
+                                            <div class="ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
+                                            <div class="ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
+                                        </div>
+
+                                        <div class="ad-body">
+                                            <div class="ad-body-desc"><?php echo $ad->item_desc ?></div>
+                                        </div>
+                                    </div>
+                                <!-- </a> -->
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
 
             <!-- activity -->
