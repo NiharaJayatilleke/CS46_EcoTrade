@@ -2,8 +2,9 @@ function showContent(section) {
 
     // Hide all content sections
     document.getElementById('dashboard-content').style.display = 'none';
-    document.getElementById('recycle-content').style.display = 'none';
-    document.getElementById('center-content').style.display = 'none';
+    document.getElementById('notif-content').style.display = 'none';
+    document.getElementById('sec-ad-content').style.display = 'none';
+    document.getElementById('rec-ad-content').style.display = 'none';
     document.getElementById('signout-content').style.display = 'none';
 
     // Show the selected content section
@@ -39,7 +40,7 @@ handleInitialSection();
     if (hash) {
         // Redirect to the current active section
         var section = hash.substring(1);
-        window.location.href = '<?php echo URLROOT; ?>/moderators/index' + hash;
+        window.location.href = '<?php echo URLROOT; ?>/seller/index' + hash;
         showContent(section);
     }
 }

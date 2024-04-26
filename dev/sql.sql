@@ -147,11 +147,14 @@ CREATE TABLE Item_Ads (
     item_location VARCHAR(255),
     selling_format VARCHAR(255),
     negotiable VARCHAR(255),
+    item_expiry INT,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(255),
     PRIMARY KEY(p_id),
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
+
+DROP TABLE IF EXISTS Secondhand_Ad_Images;
 
 CREATE TABLE Secondhand_Ad_Images (
     image_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -212,6 +215,7 @@ CREATE OR REPLACE VIEW v_ads AS
         Item_Ads.selling_format as selling_format,
         Item_Ads.negotiable as negotiable,
         Item_Ads.created_at as item_created_at,
+        Item_Ads.status as status,
         Featured_Ads.package as feature_package,
         Featured_Ads.duration as feature_duration,
         Featured_Ads.starting_time as feature_starting_time,
@@ -306,6 +310,17 @@ CREATE TABLE Notifications(
     FOREIGN KEY(ad_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS Buyer_Responses;
+
+CREATE TABLE Buyer_Responses (
+    response_id INT AUTO_INCREMENT,
+    notif_id INT,
+    response ENUM('Confirmed', 'Declined'),
+    rejection_reason TEXT,
+    PRIMARY KEY(response_id),
+    FOREIGN KEY(notif_id) REFERENCES Notifications(notif_id)
+);
+
 DROP TABLE IF EXISTS Bidding_Details;
 
 CREATE TABLE Bidding_Details(
@@ -367,3 +382,18 @@ CREATE OR REPLACE VIEW v_re_ads AS
     FROM Recycle_Item_Ads 
     JOIN General_User ON Recycle_Item_Ads.seller_id = General_User.id
     ORDER BY Recycle_Item_Ads.created_at DESC;
+
+CREATE OR REPLACE VIEW v_notifs AS
+SELECT
+    Notifications.notif_id as notif_id, 
+    Notifications.user_id as user_id, 
+    General_User.username as username,
+    Notifications.ad_id as ad_id,
+    Item_Ads.item_name as item_name,
+    Notifications.message as message,
+    Notifications.notif_created_at as notif_created_at,
+    Notifications.seen as seen
+FROM Notifications
+JOIN General_User ON Notifications.user_id = General_User.id
+JOIN Item_Ads ON Notifications.ad_id = Item_Ads.p_id
+ORDER BY Notifications.notif_created_at DESC;

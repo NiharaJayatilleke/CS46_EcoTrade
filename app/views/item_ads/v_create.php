@@ -68,7 +68,7 @@
             <input type="number" name="item_quantity" id="item_quantity" class="ad_item_quantity" value="<?php echo $data['item_quantity']; ?>" >
             <span class="ad-form-invalid"><?php echo $data['item_quantity_err']; ?></span>
 
-            <div class="ad-form-input-title">Upload Main Image</div>
+            <div class="ad-form-input-title">Upload Images (min:1, max:6)</div>
             <!-- item images -->
             <div class = "ad-form-drag-area" id="form-drag-area">
                 <div class = "ad-icon">
@@ -97,7 +97,7 @@
             </script>
 
             <!-- ADDITIONAL IMAGES -->
-            <div class="ad-form-input-title">Upload Additional Images</div>
+            <!-- <div class="ad-form-input-title">Upload Additional Images</div> -->
 
             <div class = "ad-additional-images">
             <!-- additional image 1 
@@ -197,6 +197,16 @@
             <input type="radio" name="negotiable" id="no" class="ad_negotiable" value="no" <?php if ($data['negotiable'] === 'no') { echo 'checked'; } ?>>
             <label for="no">No</label><br> 
             <span class="ad-form-invalid"><?php echo $data['negotiable_err']; ?></span><br>
+
+            <!-- ad expiry -->
+            <div class="ad-form-input-title">For how long do you wish to keep this ad?</div>
+            <select name="item_expiry" id="item_expiry" class="ad_item_expiry">
+            <option value="" <?php echo $data['item_expiry'] == '' ? 'selected' : ''; ?>>Select the duration</option>
+            <option value="1" <?php echo $data['item_expiry'] == '1 month' ? 'selected' : ''; ?>>1 month</option>
+            <option value="2" <?php echo $data['item_expiry'] == '2 months' ? 'selected' : ''; ?>>2 months</option>
+            <option value="3" <?php echo $data['item_expiry'] == '3 months' ? 'selected' : ''; ?>>3 months</option>
+            </select>
+            <span class="ad-form-invalid"><?php echo $data['item_expiry_err']; ?></span>
 
             <!-- submit button -->
             <input type="submit" value="Post Ad" class="ad-form-btn">

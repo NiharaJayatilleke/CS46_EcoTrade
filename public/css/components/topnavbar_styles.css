@@ -29,7 +29,7 @@
   width: auto;
   margin-left: 0.4rem;
   /* width: 2vh; */
-  /* margin-left: 20px; */
+  /* margin-left: 50px; */
   /* margin-right: 20px; */
   /* margin-top: 7px; */
   transition: all 0.3s ease-in-out;
@@ -44,6 +44,7 @@
   text-align: center;
   gap: 2rem;
   margin-right: 1rem;
+  /* margin-right: 100px; */
 }
 
 .topnav .items a {
@@ -109,7 +110,7 @@
   background: #729e7d;
 }
 
-.search-icon-index {
+.search-icon-index1 {
   height: 15px;
   position: relative;
   top: 2px;
@@ -177,9 +178,9 @@
   align-items: center;
   justify-content: center;
   text-align: center; 
-  font-size: 16px ;
-  height: 2.3rem;
-  width:90%;
+  font-size: 14px ;
+  height: 35px;
+  width:50%;
   z-index: 3;
 }
 
@@ -198,6 +199,7 @@
   text-align: center; 
   /* border-radius: 0 50% 50% 0; */
   border-radius:  0 5% 5%  0 ;
+  height: 35px;
 }
 
 .search-button-index:hover {
@@ -216,8 +218,9 @@
 
 .search-category-index {
   margin-left: 0px;
+  height: 35px;
   /* margin-top: 5px; */
-  padding:12px 1px;
+  /* padding:12px 1px; */
   background:#219657b5;
   border: 1px solid #117e3b; 
   cursor: pointer;
@@ -226,7 +229,10 @@
   text-align: center; 
   align-items: center;
   border-radius: 5% 0 0 5% ;
- 
+  width: 12%;
+  background-size: 15px; /*size of the arrow icon */
+  color: white; 
+  font-size: 12px;
 }
 
 .selectad-category option {
@@ -238,10 +244,7 @@
   color:brown;
 }
 
-.search-category-index {
-  background-size: 15px; /*size of the arrow icon */
-  color: white; /* text color to white */
-}
+
 
 @media screen and (max-width: 300px) {
   .search-container-index {

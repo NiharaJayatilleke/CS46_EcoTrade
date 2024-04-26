@@ -57,6 +57,11 @@
             </select>
             <span class="ad-form-invalid"><?php echo $data['item_condition_err']; ?></span>
 
+            <!-- quantity -->
+            <div class="ad-form-input-title">Quantity</div>
+            <input type="number" name="item_quantity" id="item_quantity" class="ad_item_quantity" value="<?php echo $data['item_quantity']; ?>" >
+            <span class="ad-form-invalid"><?php echo $data['item_quantity_err']; ?></span>
+
             <!-- item images -->
             <div class="ad-form-input-title">Upload an Image</div>
             <div class = "ad-form-drag-area" id="form-drag-area">

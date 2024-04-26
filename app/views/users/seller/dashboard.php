@@ -1,5 +1,7 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/seller/seller_dashboard.css">
+
     <div class="dashboard-container">
         <div class="dashboard-sidenav">
             <ul>
@@ -22,7 +24,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#recycle-content" id="recycle-tab" onclick="showContent('recycle-content')">
+                    <a href="#notif-content" id="recycle-tab" onclick="showContent('notif-content')">
                         <span class = "side-icon"><ion-icon name="pricetags"></ion-icon></span>
                         <span class = "side-title">Notifications</span>
                     </a>
@@ -30,9 +32,16 @@
 
                 <li>
                     <!-- <a href=""> -->
-                    <a href="#center-content" id="center-tab" onclick="showContent('center-content')">
+                    <a href="#sec-ad-content" id="center-tab" onclick="showContent('sec-ad-content')">
                         <span class = "side-icon"><ion-icon name="leaf-outline"></ion-icon></span>
-                        <span class = "side-title">Recent Ads</span>
+                        <span class = "side-title">Secondhand Ads</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#rec-ad-content" id="center-tab" onclick="showContent('rec-ad-content')">
+                        <span class = "side-icon"><ion-icon name="leaf-outline"></ion-icon></span>
+                        <span class = "side-title">Recycle Ads</span>
                     </a>
                 </li>
 
@@ -79,41 +88,313 @@
                     </div>
 
                     <div class="details" style=" display: block;">
+                    <div class="recentOrders">
+                    <!-- seller rating -->
+                    <div class="review-new-wrapper">
+                    <div class="review-info">
+                        <div class="review-info-left">
+                            <div class="review-info-rate">
+                                <span class="score"><?php echo $data['avg_rating']; ?></span>
+                                <span class="rating-tag-text">
+                                    <img class="white-star" src="//img.alicdn.com/imgextra/i3/O1CN01AvJLRr1gxlvS02Jss_!!6000000004209-2-tps-24-24.png" alt=""><?php echo $data['rating_word']; ?>
+                                </span>
+                            </div>
+                            <div class="star-box">
+                                <div class="container-star " style="width: 200px; height: 21.28px;">
+                                    <!-- Star images here -->
+                                    <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 21.28px; height: 21.28px;">
+                                    <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 21.28px; height: 21.28px;">
+                                    <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 21.28px; height: 21.28px;">
+                                    <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 21.28px; height: 21.28px;">
+                                    <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB16MwRdOqAXuNjy1XdXXaYcVXa-64-64.png" style="width: 21.28px; height: 21.28px;">
+                                </div>
+                            </div>
+                            <div class="rate-num"><?php echo $data['tot_rating']; ?> ratings</div>
+                        </div>
+                        <div class="review-info-right">
+                            <div class="detail">
+                                <ul>
+                                    <!-- List items here -->
+                                    <li>
+                                        <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                        </div>
+                                        <div class="progress-wrap">
+                                            <div class="pdp-review-progress-new">
+                                                <div class="bar bg"></div>
+                                                <div class="bar fg" style="width: <?php echo ($data['ratings'][5] / $data['tot_rating']) * 100; ?>%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="percent"><?php echo $data['ratings'][5] ?></span>
+                                    </li>
+                                    <li>
+                                        <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                        </div>
+                                        <div class="progress-wrap">
+                                            <div class="pdp-review-progress-new">
+                                                <div class="bar bg"></div>
+                                                <div class="bar fg" style="width: <?php echo ($data['ratings'][4] / $data['tot_rating']) * 100; ?>%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="percent"><?php echo $data['ratings'][4] ?></span>
+                                    </li>
+                                    <li>
+                                        <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                        </div>
+                                        <div class="progress-wrap">
+                                            <div class="pdp-review-progress-new">
+                                                <div class="bar bg"></div>
+                                                <div class="bar fg" style="width: <?php echo ($data['ratings'][3] / $data['tot_rating']) * 100; ?>%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="percent"><?php echo $data['ratings'][3] ?></span>
+                                    </li>
+                                    <li>
+                                        <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                        </div>
+                                        <div class="progress-wrap">
+                                            <div class="pdp-review-progress-new">
+                                                <div class="bar bg"></div>
+                                                <div class="bar fg" style="width: <?php echo ($data['ratings'][2] / $data['tot_rating']) * 100; ?>%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="percent"><?php echo $data['ratings'][2] ?></span>
+                                    </li>
+                                    
+                                    <li>
+                                        <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                        </div>
+                                        <div class="progress-wrap">
+                                            <div class="pdp-review-progress-new">
+                                                <div class="bar bg"></div>
+                                                <div class="bar fg" style="width: <?php echo ($data['ratings'][1] / $data['tot_rating']) * 100; ?>%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="percent"><?php echo $data['ratings'][1] ?></span>
+                                    </li>
+                                </ul>
+                            </div>    
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+                    <div class="details" style=" display: block;">
                         <div class="recentOrders">
                             <div class="cardHeader">
-                                <h2>Recent Activities</h2>
-                                <a href="#" class="btn">View All</a>
+                                <h2>Recent Secondhand Item Ads</h2>
+                                <a href="#" onclick="showContent('sec-ad-content')" class="btn">View All</a>
                             </div>
                             <table>
                                 <thead>
                                     <tr>
                                         <td>Name</td>
+                                        <td>Image</td>
                                         <td>Price</td>
-                                        <td>Payment</td>
-                                        <td>Status</td>
+                                        <td>Posted on</td>
+                                        <td>Expired on</td>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Refrigerator</td>
-                                    <td>Rs. 1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status inprogress">Delivered</span></td>
-                                </tr>
 
+                                <tbody>
+                                <!-- <php print_r($data['ads']); ?> -->
+                                <?php
+                                $counter = 0;
+                                foreach($data['ads'] as $ad): 
+                                    if($counter == 5) break; 
+                                ?>
+                                    <tr>
+                                    <td><?= $ad->item_name ?></td>
+                                    <td> <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Item Image" style="width: 70px; height: 60px;"></td>
+                                    <td>Rs. <?= $ad->item_price ?></td>
+                                    <td><?= $ad->created_at ?></td>
+                                    <td><?= $ad->item_expiry ?></td>
+                                    </tr>
+                                <?php 
+                                    $counter++;
+                                    endforeach; 
+                                ?>
                                 </tbody>
                             </table>
                         </div>
                     </div> 
+
+                    <div class="details" style=" display: block;">
+                        <div class="recentOrders">
+                            <div class="cardHeader">
+                                <h2>Recent Recycle Item Ads</h2>
+                                <a href="#center-content" onclick="showContent('rec-ad-content')" class="btn">View All</a>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Image</td>
+                                        <td>Category</td>
+                                        <td>Posted on</td>
+                                        <td>Expired on</td>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                <?php 
+                                $counter = 0; 
+                                foreach($data['re_ads'] as $re_ad): 
+                                if($counter == 5) break; 
+                                ?>
+                                    <tr>
+                                    <td><?= $re_ad->item_name ?></td>
+                                    <td> <img src="<?php echo URLROOT?>/public/img/items/<?php echo $re_ad->item_image ?>" alt="Item Image" style="width: 70px; height: 60px;"></td>
+                                    <!-- <td>Rs. <= $re_ad->item_price ?></td> -->
+                                    <td><?= $re_ad->created_at ?></td>
+                                    <!-- <td><= $re_ad->item_expiry ?></td> -->
+                                    </tr>
+                                <?php 
+                                    $counter++;
+                                    endforeach; 
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            <!-- following div is the end of dashboard content -->
+            </div> 
+
+
+            <div id="notif-content" class="content-section">
+                <!-- <p>This is the content for seller notifications.</p> -->
+                <div class="details" style=" display: block;">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Notifications</h2>
+                            <!-- <a href="#center-content"  class="btn">View All</a> -->
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Name of Ad</td>
+                                    <td>Message</td>
+                                    <td>Sent By</td>
+                                    <td>Received</td>
+                                    <td>Mark as read</td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            <?php foreach($data['notifs'] as $notif): ?>
+                                <tr>
+                                <td><?= $notif->item_name ?></td>
+                                <td><?= $notif->message ?></td>
+                                <td><?= $notif->username ?></td>
+                                <td><?php echo convertTime($notif->notif_created_at); ?></td>
+                                <td>
+                                    <label class="checkbox-container">
+                                        <input class="custom-checkbox" type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                                <!-- <td><= $re_ad->item_expiry ?></td> -->
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
+            <div id="sec-ad-content" class="content-section">
+            <!-- <p>This is the content for the secondhand item ads.</p>  -->
+            <div class="details" style=" display: block;">
+                        <div class="recentOrders">
+                            <div class="cardHeader">
+                                <h2>Your Secondhand Item Ads</h2>
+                                <!-- <a href="#center-content"  class="btn">View All</a> -->
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Image</td>
+                                        <td>Price</td>
+                                        <td>Posted on</td>
+                                        <td>Expired on</td>
+                                    </tr>
+                                </thead>
 
-            <div id="recycle-content" class="content-section">
-                <p>This is the content for the recycle tab.</p>
+                                <tbody>
+                                <!-- <php print_r($data['ads']); ?> -->
+                                <?php foreach($data['ads'] as $ad): ?>
+                                    <tr>
+                                    <td><?= $ad->item_name ?></td>
+                                    <td> <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Item Image" style="width: 70px; height: 60px;"></td>
+                                    <td>Rs. <?= $ad->item_price ?></td>
+                                    <td><?= $ad->created_at ?></td>
+                                    <td><?= $ad->item_expiry ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+            </div>
             </div>
 
-            <div id="center-content" class="content-section">
-            <p>This is the content for the centers tab.</p> 
+            <div id="rec-ad-content" class="content-section">
+                <div class="details" style=" display: block;">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Your Recycle Item Ads</h2>
+                            <!-- <a href="#center-content"  class="btn">View All</a> -->
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Image</td>
+                                    <td>Category</td>
+                                    <td>Posted on</td>
+                                    <td>Expired on</td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            <?php foreach($data['re_ads'] as $re_ad): ?>
+                                <tr>
+                                <td><?= $re_ad->item_name ?></td>
+                                <td> <img src="<?php echo URLROOT?>/public/img/items/<?php echo $re_ad->item_image ?>" alt="Item Image" style="width: 70px; height: 60px;"></td>
+                                <!-- <td>Rs. <= $re_ad->item_price ?></td> -->
+                                <td><?= $re_ad->created_at ?></td>
+                                <!-- <td><= $re_ad->item_expiry ?></td> -->
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
             <div id="signout-content" class="content-section">

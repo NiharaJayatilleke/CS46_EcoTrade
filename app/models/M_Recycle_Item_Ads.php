@@ -36,6 +36,13 @@
             return $row;
         }
 
+        public function getAdsBySeller($sellerId){
+            $this->db->query('SELECT * FROM Recycle_Item_Ads WHERE seller_id = :seller_id');
+            $this->db->bind(':seller_id',$sellerId);
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
         public function delete($adId){
             $this->db->query('DELETE FROM Recycle_Item_Ads WHERE r_id = :id');
             $this->db->bind(':id',$adId);
