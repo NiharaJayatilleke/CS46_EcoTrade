@@ -9,21 +9,21 @@
     display: none;
     top:0;
     right:0;
-    height:125px;
-    width:160px;
+    height:170px;
+    width:170px;
     /*background:rgba(18, 37, 6, 0.418);*/
-    background: linear-gradient(30deg , #175427, #30955a);
-    color: #fff;
+    background: linear-gradient(30deg , #fff, #fff);
+    color: #175427;
     /* margin-top: 60px; */
     margin-top: 54px;
     z-index: 999;
-    border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 10px;
     /* border-bottom-right-radius: 20px; */
    
 }
 
 .sidebar .nav-links li{
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 0px;
     padding: 15px; 
     transition: all 0.1s ease;
@@ -32,12 +32,12 @@
 .nav-links i {
     margin-left: 0px;
     margin-right: 20px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .sidebar .nav-links li i{
     text-align: center;
-    color: #fff;
+    color: #175427;
     
 }
 
@@ -55,7 +55,7 @@
 
 
 .sidebar .nav-links li a .link_name{
-    color:#fff;
+    color:#175427;
 }
 /* .sidebar .nav-links li a .link_name{
     color: #fff;
@@ -106,10 +106,8 @@
 } */
 
 /* Hover Styles */
-.nav-links li:hover
- {
-    background-color: rgba(18, 37, 6, 0.646); /* Darker background color on hover */
-    
+.nav-links li:hover {
+    background-color: rgba(18, 37, 6, 0.2); /* Lighter and more translucent background color on hover */
 }
 /* .sub-menu li:hover{
     background-color: rgb(151, 148, 148);
