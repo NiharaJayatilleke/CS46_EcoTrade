@@ -100,16 +100,17 @@
                     <div class="details" style=" display: block;">
                         <div class="recentOrders">
                             <div class="cardHeader">
-                                <h2>Recent Activities</h2>
+                                <h2>Recently Posted Requirements</h2>
                                 <a href="#" class="btn">View All</a>
                             </div>
                             <table>
                                 <thead>
                                     <tr>
-                                        <td>Name</td>
-                                        <td>Price</td>
-                                        <td>Payment</td>
-                                        <td>Status</td>
+                                        <td>Category</td>
+                                        <td>Description</td>
+                                        <td>Quantity</td>
+                                        <td>Posted</td>
+                                        <td>Edit/Delete</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -216,7 +217,7 @@
 
 
             <div id="recycle-content" class="content-section">
-                <div class="ad-right-container">
+                <!-- <div class="ad-right-container">
                     <?php if (!empty($data['ads'])) : ?>
                     <div class="ads-container">
                         <?php foreach($data['ads'] as $ad): ?>
@@ -237,7 +238,7 @@
                                                 <a href = "<php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
                                                 <a href = "<php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="ad-report-btn" title="report ad"><i class="fas fa-flag"></i></button></a> 
                                             </div>
-                                        <php endif; ?> -->
+                                        <php endif; ?> 
                                     <div class="ad-item-name"><h3><?php echo $ad->item_name ?></h3></div>
                                     <div class="ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
                                     <div class="ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
@@ -257,8 +258,8 @@
                                         <?php if($ad->selling_format == 'auction'): ?> 
                                         <a href=""><button class="ad-bid-btn">Bid</button></a>
                                         <?php endif; ?>
-                                        <!-- <a href = ""><button class="ad-wishlist-btn"><i class="fas fa-heart"></i></button></a> -->
-                                        <!-- <a href="#"><button class="ad-wishlist-btn"><img src="/img/icons/wishlist.png" alt="Wishlist Icon"></button></a> -->
+                                        <!-- <a href = ""><button class="ad-wishlist-btn"><i class="fas fa-heart"></i></button></a> 
+                                        <!-- <a href="#"><button class="ad-wishlist-btn"><img src="/img/icons/wishlist.png" alt="Wishlist Icon"></button></a> 
                                     </div>
                                 </div>  
                             </div>
@@ -274,7 +275,7 @@
                         <p>Try checking your spelling or use more general terms</p>
                     </div>
                     <?php endif; ?>
-                </div>
+                </div> -->
 
             
             </div>
