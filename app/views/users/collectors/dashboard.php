@@ -707,46 +707,10 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                                <!-- <form id="editProfileForm" action="<?php echo URLROOT; ?>/moderators/edit_profile" method="POST" > -->
-                                <div class="right-below">
-                                    <div class="right-left">
-                                        <div class="tab-pane fade active show" id="account-general">
-                                            <div class="card-body media align-items-center"></div>
-                                            <div class="card-body">
-                                                <!-- <form method="POST" action="<?php echo URLROOT; ?>/moderators/edit_profile"> -->
-                                                    <div class="form-group">
-                                                        <label class="form-label">Username</label>
-                                                        <input type="text" class="form-control input-field-box" name="newUsername" value="<?php echo $_SESSION['user_name']; ?>">
-                                                        <div class="form-invalid"><?php error('newUsername'); ?></div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="form-label">E-mail</label>
-                                                        <input type="text" class="form-control input-field-box" value="<?php echo $_SESSION['user_email']; ?>" disabled>
-                                                    </div>
-                                              
-                                            </div>
-                                          
-                                        </div>
-                                    </div>
-                                    <div class="right-right">
-                                    <div class="form-group">
-                                        <label class="form-label">Contact number</label>
-                                        <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
-                                        <div class="form-invalid abs-error"><?php error('newContactNumber'); ?></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">User-Type</label>
-                                        <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>" disabled>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div style="margin-top: 20px; ">
-                                    <?php flash('profile_edit'); ?>
-                                </div>
                                 <div class="profile-buttons">
                                     <button class="profile-updatebt" id="editProfileBtn">Edit profile</button>
                                 </div>
-                                <!-- </form> -->
+                                
 
                     </div>
 
@@ -879,6 +843,31 @@
         document.getElementById('editProfileBtn').addEventListener('click', function() {
         window.location.href = "<?php echo URLROOT . '/Collectors/edit/'; ?>";
          });
+
+         const changepwd = document.getElementById('changePasswordForm');
+        
+        changepwd.onsubmit = function(event){
+            event.preventDefault();
+
+            fetch('<?php echo URLROOT; ?>/users/update',{
+                method: 'POST',
+                body: new FormData(changepwd)
+            })
+            .then(data =>{
+
+            })
+            .then(data => {
+                // Handle the response data as needed
+                //console.log(data);
+
+                window.location.reload();
+            })
+            
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
 
         let profilePic = document.getElementById("profile-pic");
         let inputFile = document.getElementById("upload-photo");
