@@ -300,7 +300,7 @@
                                     <td>Name of Ad</td>
                                     <td>Message</td>
                                     <td>Sent By</td>
-                                    <td>Received on</td>
+                                    <td>Received</td>
                                     <td>Mark as read</td>
                                 </tr>
                             </thead>
@@ -310,8 +310,14 @@
                                 <tr>
                                 <td><?= $re_ad->item_name ?></td>
                                 <td><?= $notif->message ?></td>
-                                <!-- <td>Rs. <= $re_ad->item_price ?></td> -->
+                                <td></td>
                                 <td><?php echo convertTime($notif->notif_created_at); ?></td>
+                                <td>
+                                    <label class="checkbox-container">
+                                        <input class="custom-checkbox" type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
                                 <!-- <td><= $re_ad->item_expiry ?></td> -->
                                 </tr>
                             <?php endforeach; ?>
