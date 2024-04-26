@@ -192,10 +192,13 @@
 
             $useremail = $_SESSION['user_email'];
             $userdetails = $this->moderatorModel->getuserdetails($useremail);
+            $centerReqs = $this->recycleCentersModel->getCenterRequirements();
           
             $data = [
-                'userdetails'=> $userdetails
+                'userdetails'=> $userdetails,
+                'center_reqs'=> $centerReqs
             ];
+            
             $this->view('users/recyclecenters/dashboard',$data);
             }
         }

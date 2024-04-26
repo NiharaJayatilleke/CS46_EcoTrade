@@ -114,6 +114,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach($data['center_reqs'] as $req): ?>
+                                        <tr>
+                                            <td><?= $req->item_category ?></td>
+                                            <td><?= $req->item_desc ?></td>
+                                            <td><?= $req->item_quantity ?></td>
+                                            <td><?php echo convertTime($req->created_at); ?></td>
+                                            <td>
+                                                <div class = "mod-control-btns">
+                                                    <a href="<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>?updated=true"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                    <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+
                                 <!-- <tr>
                                     <td>Refrigerator</td>
                                     <td>Rs. 1200</td>
