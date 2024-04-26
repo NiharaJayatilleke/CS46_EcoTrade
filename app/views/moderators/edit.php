@@ -24,11 +24,18 @@
                         <!-- <span class="form-invalid"><?php echo $data['email_err']; ?></span> -->
                     </div>
 
+                    <div class="input-box-login">
+                        <span class="icon"><i class='bx bxs-contact' ></i></span>
+                        <input type="name" name = "username" id="username" class="username" value="<?php echo $data['username']; ?>">
+                        <label>Name</label>
+                        <!-- <span class="form-invalid"><?php echo $data['username_err']; ?></span> -->
+                    </div>
+
                      <div class="input-box-login">
                         <span class="icon"><i class='bx bxs-phone'></i></span>
                         <input type="tel" name = "number" id="number" class="number" >
                         <label>Contact Number</label>
-                        <!-- <span class="form-invalid"><?php echo $data['number_err']; ?></span> -->
+                        <span class="form-invalid"><?php echo $data['number_err']; ?></span>
                     </div>
 
                     <div class="input-box-login">
@@ -126,4 +133,7 @@
         </form>
     </div>
 
+
+
+    
 <?php require APPROOT.'/views/inc/components/footer.php'; ?> 

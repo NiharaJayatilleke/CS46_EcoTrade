@@ -85,17 +85,16 @@
         }
 
         // Login the user
-        public function login($email,$password){
-            $this->db->query('SELECT * FROM General_User WHERE email =:email');
-            $this->db->bind(':email',$email);
+        public function login($email, $password){
+            $this->db->query('SELECT * FROM General_User WHERE email = :email AND status = 1');
+            $this->db->bind(':email', $email);
 
             $row = $this->db->single();
 
             $hashed_password = $row->password;
-            if(password_verify($password,$hashed_password)){
+            if(password_verify($password, $hashed_password)){
                 return $row;
-            }
-            else{
+            } else {
                 return false;
             }
         }
@@ -129,6 +128,19 @@
             $this->db->query('SELECT * FROM General_User WHERE id = :user_id');
             $this->db->bind(':user_id', $user_id);
             return $this->db->single();
+        }
+
+        public function changeUserStatus($userId, $status){
+            $this->db->query('UPDATE General_User SET status = :status WHERE id = :id');
+            $this->db->bind(':status', $status);
+            $this->db->bind(':id', $userId);
+
+            // Execute
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
         }
 
         //here we get the users except the admin
