@@ -232,6 +232,12 @@
                                     <td><?php echo $activity->action_type; ?></td>
                                     <td><?php echo $activity->action_details; ?></td>
                                     <td><?php echo $activity->timestamp; ?></td>
+                                    <td>
+                                    <?php if ($activity->action_type == 'PreownedAd Creation' || $activity->action_type == 'RecycleAd Creation') : ?>
+                                    <div class="cardHeader">
+                                    <a class="btn" style="border: 1px solid white;">View Ad</a></div>
+                                    <?php endif; ?>
+                                    </td>
                                 </tr>
                             <?php 
                             $counter++;
@@ -645,6 +651,12 @@
                                             <td><?php echo $activity->action_type; ?></td>
                                             <td><?php echo $activity->action_details; ?></td>
                                             <td><?php echo $activity->timestamp; ?></td>
+                                            <td>
+                                            <?php if ($activity->action_type == 'PreownedAd Creation' || $activity->action_type == 'RecycleAd Creation') : ?>
+                                            <div class="cardHeader">
+                                            <a class="btn" style="border: 1px solid white;">View Ad</a></div>
+                                            <?php endif; ?>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
 
@@ -656,10 +668,12 @@
 
             <!-- Ad Report -->
             <div id="reported-ads-content" class="content-section">
-                <div class="reported-ads-container">
-
-                    <h1>Reported Ads</h1>                  
-                    <table class="reported-ads-table">
+            <div class="details">
+                    <div class="recentOrders">
+                            <div class="cardHeader">
+                                <h2>Reported Ads</h2>
+                            </div>                
+                    <table>
                         <thead>
                         <tr>
                             <!-- <th>Report ID</th> -->
@@ -686,7 +700,7 @@
                                     <td><?php echo $ad->report_reason; ?></td>
                                     <td><?php echo $ad->report_comments; ?></td>
                                     <td><?php echo $ad->report_contact; ?></td>
-                                    <td><?php echo $ad->report_status; ?></td>
+                                    <td><span class="status <?php echo strtolower($ad->report_status); ?>"><?php echo $ad->report_status; ?></span></td>
                                     <td><?php echo $ad->report_created_at; ?></td>
                                     
                                     <td><button onclick="confirmDelete(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
@@ -701,6 +715,7 @@
                             </tr>
                         <?php endif; ?>
                     </table>
+                    </div>
                 </div>
             </div>
 
@@ -925,6 +940,8 @@
         var moderators = <?php echo json_encode($data['moderators']); ?>;
         var userCounts = <?php echo json_encode($data['userCounts']); ?>;
         var adCountsByCategory = <?php echo json_encode($data['adCountsByCategory']); ?>;
+        var preowned = <?php echo json_encode($data['ads']); ?>;
+
 
         //admin banning the users
         function toggleBan(checkbox, userId) {
@@ -952,6 +969,7 @@
                 }
             })
         }
+
     </script> 
 
     <!-- Javascript for image upload -->

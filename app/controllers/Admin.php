@@ -31,7 +31,7 @@
                 $numCenters = count($centers);
                 $reportedAds = $this->moderatorModel->getReportedAds();
                 $recentActivities = $this->moderatorModel->getRecentActivities();
-                
+          
                 $data = [
                     'ads' => $ads,
                     'sec_ad_count' => $numSecAds,

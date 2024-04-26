@@ -301,7 +301,7 @@
                         flash('post_msg', 'Your ad has been posted successfully!');
                         $data['ad_id'] = $ad_id;
                         redirect('ItemAds/index');
-                        $this->usersModel->logActivity($_SESSION['user_id'], 'PreownedAd Creation', 'Posted a new preowneditemAd for sale.');
+                        $this->usersModel->logActivity($_SESSION['user_id'], 'Preowned-Ad Creation', 'Posted a new preowned-itemAd for sale.');
                     }else{
                         die('Something went wrong');
                     }
@@ -690,7 +690,7 @@
                 //send to the database
                 //die($reason.' '.$comments.' '.$contact);
                 $this->itemAdsModel->reportAd($data);
-                $this->userModel->logActivity($_SESSION['user_id'], 'Report ItemAd', 'Reporting Ad for violation or suspicious Activity');
+                $this->userModel->logActivity($_SESSION['user_id'], 'Report ItemAd', 'Reported Ad for violation or suspicious Activity');
                 echo 'Data received successfully.';
             } else {
                 echo 'Invalid request method.';
@@ -717,7 +717,7 @@
 
                 if($this->itemAdsModel->delete($adId)){
                     flash('post_msg', 'Your ad has been deleted successfully!');
-                    $this->userModel->logActivity($_SESSION['user_id'], 'ItemAd deletion', 'Removed preowneditemAd from the platform');
+                    $this->userModel->logActivity($_SESSION['user_id'], 'ItemAd deletion', 'Removed preowned-itemAd from the platform');
                     redirect('ItemAds/index');
                 }
                 else{
