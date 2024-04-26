@@ -25,12 +25,27 @@
 
             $avgRating = round($weightedSum / $totalRatings, 1);
 
+            $rating = $avgRating;
+
+            if ($rating >= 4.7) {
+                $ratingWord = 'Top rated';
+            } elseif ($rating >= 4.5) {
+                $ratingWord = 'Excellent';
+            } elseif ($rating >= 4.0) {
+                $ratingWord = 'Very good';
+            } elseif ($rating >= 3.5) {
+                $ratingWord = 'Good';
+            } else {
+                $ratingWord = 'Average';
+            }
+
             $data = [
                 'ads' => $ads,
                 're_ads' => $re_ads,
                 'notifs' => $notifs,
                 'ratings' => $ratings,
                 'tot_rating' => $totalRatings, 
+                'rating_word' => $ratingWord,
                 'avg_rating' => $avgRating
             ];
 

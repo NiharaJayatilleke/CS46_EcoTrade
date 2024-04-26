@@ -96,7 +96,7 @@
                             <div class="review-info-rate">
                                 <span class="score"><?php echo $data['avg_rating']; ?></span>
                                 <span class="rating-tag-text">
-                                    <img class="white-star" src="//img.alicdn.com/imgextra/i3/O1CN01AvJLRr1gxlvS02Jss_!!6000000004209-2-tps-24-24.png" alt="">Very Good
+                                    <img class="white-star" src="//img.alicdn.com/imgextra/i3/O1CN01AvJLRr1gxlvS02Jss_!!6000000004209-2-tps-24-24.png" alt=""><?php echo $data['rating_word']; ?>
                                 </span>
                             </div>
                             <div class="star-box">
@@ -126,10 +126,10 @@
                                         <div class="progress-wrap">
                                             <div class="pdp-review-progress-new">
                                                 <div class="bar bg"></div>
-                                                <div class="bar fg" style="width: 72.3756%;"></div>
+                                                <div class="bar fg" style="width: <?php echo ($data['ratings'][5] / $data['tot_rating']) * 100; ?>%;"></div>
                                             </div>
                                         </div>
-                                        <span class="percent">3068</span>
+                                        <span class="percent"><?php echo $data['ratings'][5] ?></span>
                                     </li>
                                     <li>
                                         <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
@@ -142,10 +142,10 @@
                                         <div class="progress-wrap">
                                             <div class="pdp-review-progress-new">
                                                 <div class="bar bg"></div>
-                                                <div class="bar fg" style="width: 10.7808%;"></div>
+                                                <div class="bar fg" style="width: <?php echo ($data['ratings'][4] / $data['tot_rating']) * 100; ?>%;"></div>
                                             </div>
                                         </div>
-                                        <span class="percent">457</span>
+                                        <span class="percent"><?php echo $data['ratings'][4] ?></span>
                                     </li>
                                     <li>
                                         <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
@@ -158,10 +158,10 @@
                                         <div class="progress-wrap">
                                             <div class="pdp-review-progress-new">
                                                 <div class="bar bg"></div>
-                                                <div class="bar fg" style="width: 100%;"></div>
+                                                <div class="bar fg" style="width: <?php echo ($data['ratings'][3] / $data['tot_rating']) * 100; ?>%;"></div>
                                             </div>
                                         </div>
-                                        <span class="percent">168</span>
+                                        <span class="percent"><?php echo $data['ratings'][3] ?></span>
                                     </li>
                                     <li>
                                         <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
@@ -174,10 +174,10 @@
                                         <div class="progress-wrap">
                                             <div class="pdp-review-progress-new">
                                                 <div class="bar bg"></div>
-                                                <div class="bar fg" style="width: 80%;"></div>
+                                                <div class="bar fg" style="width: <?php echo ($data['ratings'][2] / $data['tot_rating']) * 100; ?>%;"></div>
                                             </div>
                                         </div>
-                                        <span class="percent">99</span>
+                                        <span class="percent"><?php echo $data['ratings'][2] ?></span>
                                     </li>
                                     
                                     <li>
@@ -191,10 +191,10 @@
                                         <div class="progress-wrap">
                                             <div class="pdp-review-progress-new">
                                                 <div class="bar bg"></div>
-                                                <div class="bar fg" style="width: 10.5449%;"></div>
+                                                <div class="bar fg" style="width: <?php echo ($data['ratings'][1] / $data['tot_rating']) * 100; ?>%;"></div>
                                             </div>
                                         </div>
-                                        <span class="percent">447</span>
+                                        <span class="percent"><?php echo $data['ratings'][1] ?></span>
                                     </li>
                                 </ul>
                             </div>    
