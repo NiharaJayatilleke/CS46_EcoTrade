@@ -1,5 +1,7 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/seller/seller_dashboard.css">
+
     <div class="dashboard-container">
         <div class="dashboard-sidenav">
             <ul>
@@ -85,8 +87,118 @@
                         <h2>Seller Dashboard</h2>
                     </div>
 
-
-                    
+                    <!-- seller rating -->
+                    <div class="review-new-wrapper">
+                    <div class="review-info">
+                        <div class="review-info-left">
+                            <div class="review-info-rate">
+                                <span class="score">4.3</span>
+                                <span class="rating-tag-text">
+                                    <img class="white-star" src="//img.alicdn.com/imgextra/i3/O1CN01AvJLRr1gxlvS02Jss_!!6000000004209-2-tps-24-24.png" alt="">Very Good
+                                </span>
+                            </div>
+                            <div class="star-box">
+                                <div class="container-star " style="width: 200px; height: 21.28px;">
+                                    <!-- Star images here -->
+                                    <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 21.28px; height: 21.28px;">
+                                    <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 21.28px; height: 21.28px;">
+                                    <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 21.28px; height: 21.28px;">
+                                    <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 21.28px; height: 21.28px;">
+                                    <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB16MwRdOqAXuNjy1XdXXaYcVXa-64-64.png" style="width: 21.28px; height: 21.28px;">
+                                </div>
+                            </div>
+                            <div class="rate-num">4239 ratings</div>
+                        </div>
+                        <div class="review-info-right">
+                            <div class="detail">
+                                <ul>
+                                    <!-- List items here -->
+                                    <li>
+                                        <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                        </div>
+                                        <div class="progress-wrap">
+                                            <div class="pdp-review-progress-new">
+                                                <div class="bar bg"></div>
+                                                <div class="bar fg" style="width: 72.3756%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="percent">3068</span>
+                                    </li>
+                                    <li>
+                                        <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                        </div>
+                                        <div class="progress-wrap">
+                                            <div class="pdp-review-progress-new">
+                                                <div class="bar bg"></div>
+                                                <div class="bar fg" style="width: 10.7808%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="percent">457</span>
+                                    </li>
+                                    <li>
+                                        <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                        </div>
+                                        <div class="progress-wrap">
+                                            <div class="pdp-review-progress-new">
+                                                <div class="bar bg"></div>
+                                                <div class="bar fg" style="width: 100%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="percent">168</span>
+                                    </li>
+                                    <li>
+                                        <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                        </div>
+                                        <div class="progress-wrap">
+                                            <div class="pdp-review-progress-new">
+                                                <div class="bar bg"></div>
+                                                <div class="bar fg" style="width: 80%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="percent">99</span>
+                                    </li>
+                                    
+                                    <li>
+                                        <div class="container-star progress-title" style="width: 200px; height: 15.96px; margin-left: 50px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB19ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                            <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB18ZvEgfDH8KJjy1XcXXcpdXXa-64-64.png" style="width: 15.96px; height: 15.96px;">
+                                        </div>
+                                        <div class="progress-wrap">
+                                            <div class="pdp-review-progress-new">
+                                                <div class="bar bg"></div>
+                                                <div class="bar fg" style="width: 10.5449%;"></div>
+                                            </div>
+                                        </div>
+                                        <span class="percent">447</span>
+                                    </li>
+                                </ul>
+                            </div>    
+                        </div>
+                    </div>
+                    </div>
 
                     <div class="details" style=" display: block;">
                         <div class="recentOrders">
