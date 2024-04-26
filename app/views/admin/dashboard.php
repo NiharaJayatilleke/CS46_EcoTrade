@@ -950,7 +950,9 @@
         function toggleBan(checkbox, userId) {
             var url;
             var action;
-            if (checkbox.checked) {
+            var originalState = checkbox.checked; // Save the original state
+
+            if (originalState) {
                 url = '<?php echo URLROOT?>/Admin/unban/' + userId;
                 action = "unban";
             } else {
@@ -969,6 +971,8 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = url;
+                } else {
+                    checkbox.checked = !originalState; // Revert to the original state if the user cancels
                 }
             })
         }
