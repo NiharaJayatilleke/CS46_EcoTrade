@@ -235,10 +235,10 @@
                 //Validation is completed and no error then add item ad to the database
                 if(empty($data['item_category_err'])&&empty($data['item_location_err'])){
                     //Add item ad to the database
-                    if($this->recycleCentersModel->re_create1($data)){
+                    if($this->recycleCentersModel->addRequirement($data)){
                         // create a flash message
                         flash('post_msg', 'Your ad has been posted successfully!');
-                        redirect('pages/home');
+                        redirect('RecycleCenters/index');
                     }else{
                         die('Something went wrong');
                     }
