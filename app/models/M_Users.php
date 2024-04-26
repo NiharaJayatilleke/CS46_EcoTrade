@@ -86,7 +86,7 @@
 
         // Login the user
         public function login($email, $password){
-            $this->db->query('SELECT * FROM General_User WHERE email = :email AND status = 1');
+            $this->db->query('SELECT * FROM General_User WHERE email = :email');
             $this->db->bind(':email', $email);
 
             $row = $this->db->single();
