@@ -1,5 +1,5 @@
 function confirmDelete(adId) {
-    const swalWithBootstrapButtons = Swal.mixin({
+    const swalReportbtn = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success ',
             cancelButton: 'btn btn-danger'
@@ -7,7 +7,7 @@ function confirmDelete(adId) {
         buttonsStyling: false
     });
 
-    swalWithBootstrapButtons.fire({
+    swalReportbtn.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         icon: 'warning',
@@ -23,7 +23,7 @@ function confirmDelete(adId) {
                 method: 'POST'
             }).then(response => {
                 if (response.ok) {
-                    swalWithBootstrapButtons.fire(
+                    swalReportbtn.fire(
                         'Deleted!',
                         'Ad has been deleted.',
                         'success'
@@ -36,7 +36,7 @@ function confirmDelete(adId) {
                 }
             }).catch(error => {
                 console.error('Error:', error);
-                swalWithBootstrapButtons.fire(
+                swalReportbtn.fire(
                     'Error',
                     'Failed to delete ad.',
                     'error'
@@ -45,7 +45,7 @@ function confirmDelete(adId) {
         } else if (
             result.dismiss === Swal.DismissReason.cancel
         ) {
-            swalWithBootstrapButtons.fire(
+            swalReportbtn.fire(
                 'Cancelled',
                 'The Ad is safe :)',
                 'error'

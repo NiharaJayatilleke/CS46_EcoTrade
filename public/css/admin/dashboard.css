@@ -333,6 +333,7 @@
     background: var(--green);
     text-decoration: none;
     color: var(--white);
+    cursor:pointer;
     border-radius: 6px;
 }
 

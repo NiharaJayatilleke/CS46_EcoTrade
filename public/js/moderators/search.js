@@ -158,3 +158,54 @@ function createRowUser(item) {
 //   });
 
 
+
+function searchHandler(){
+    let pageHash=window.location.hash;
+    console.log(pageHash);
+
+}
+
+var choices_preowned = {
+    includeScore: true,
+    threshold: 0.3,
+    location: 0,
+    distance: 100,
+    maxPatternLength: 32,
+    minCharLength: 1,
+    keys: [
+        "item_price"
+    ]
+};
+
+
+
+var mod_preowned = new Fuse(preowned, choices_preowned);
+
+
+
+function preownedDashSearch() {
+    // Get the search query
+    var query = document.getElementById('preowned-dashboard-search').querySelector('input').value;
+
+    // Clear the table body
+    var tableBody = document.querySelector('#ads-container');
+    tableBody.innerHTML = '';
+
+    // If the search query is empty, repopulate the table with all users
+    if (!query) {
+        preowned.forEach(function(preowned) {
+            var row = createPreowned(preowned); // Assuming createRowUser is a function that creates a row for a user
+            tableBody.appendChild(row);
+        });
+        return;
+    }
+
+    // Perform the search
+    var results = mod_preowned.search(query);
+
+    // Add the results to the table body
+    results.forEach(function(result) {
+        var row = createPreowned(result.item);
+        tableBody.appendChild(row);
+    });
+}

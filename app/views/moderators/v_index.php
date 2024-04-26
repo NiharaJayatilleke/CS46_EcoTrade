@@ -216,9 +216,8 @@
                                         <td><?php echo $activity->timestamp; ?></td>
                                         <td>
                                             <?php if ($activity->action_type == 'PreownedAd Creation' || $activity->action_type == 'RecycleAd Creation') : ?>
-                                            <!-- Add your View Ad button here -->
                                             <div class="cardHeader">
-                                            <a class="btn">View Ad</a></div>
+                                            <a class="btn" style="border: 1px solid white;">View Ad</a></div>
                                            <?php endif; ?>
                                         </td>
                                     </tr>
@@ -353,8 +352,8 @@
                                             <td><?php echo $activity->timestamp; ?></td>
                                             <td>
                                             <?php if ($activity->action_type == 'PreownedAd Creation' || $activity->action_type == 'RecycleAd Creation') : ?>
-                                            <!-- Add your View Ad button here -->
-                                            <a class="view">View Ad</a>
+                                            <div class="cardHeader">
+                                            <a class="btn" style="border: 1px solid white;">View Ad</a></div>
                                             <?php endif; ?>
                                             </td>
                                         </tr>
