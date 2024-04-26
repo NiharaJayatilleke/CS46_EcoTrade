@@ -16,8 +16,13 @@
     font-family: Arial, sans-serif;
     text-align: center; /* Center align all text */
     font-weight: lighter;
-
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), #00000033), url('../../img/login/login.jpg');
+    background-size: cover; /* Cover the entire area of the div */
+    background-position: center; /* Center the background image */
 }
+
+
 .verification-message {
     background-color: #f0f8ff; /* Light blue background */
     border: 1px solid #b0e0e6; /* Light steel blue border */
@@ -27,6 +32,8 @@
     max-width: 500px; /* Limit the maximum width */
     overflow: hidden; /* Hide content overflow */
     margin-top: 100px;
+    position: relative;
+    z-index: 1;
 }
 
 
@@ -42,7 +49,7 @@
 }
 
 .resend-button {
-    background-color: #4077aa; /* Green */
+    background-color: #2f904f; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -90,5 +97,9 @@
     font-size: 16px; /* Font size for the button */
 }
 
-
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
+}
 
