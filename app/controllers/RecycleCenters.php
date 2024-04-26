@@ -3,6 +3,7 @@
         public function __construct(){
             $this->userModel = $this->model('M_Users');
             $this->pagesModel =$this->model('M_Pages');
+            $this->moderatorModel = $this->model('M_Moderators');
             $this->recentersModel = $this->model('M_Recenters'); 
             $this->categoryModel = $this->model('M_Categories'); 
             $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads'); 
@@ -147,8 +148,56 @@
         }
 
         public function index(){
-            $data = [];
+
+            if(!isset($_SESSION['userType']) || $_SESSION['userType'] != 'center'){
+                // die('admin index, user type: ' . $_SESSION['userType']);
+                $this->view('pages/forbidden');
+            } else{
+
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                    if (isset($_POST['delete_photo']) && $_POST['delete_photo'] == 1) {
+                        $userId = $_SESSION['user_id'];
+                        $this->moderatorModel->deleteProfileImage($userId);
+        
+                        // Redirect to the current page after deleting the image
+                        header('Location: ' . $_SERVER['HTTP_REFERER']);
+                        exit;
+                    }
+                else{
+                
+                // Handle the image upload
+                if (isset($_FILES['photo'])) {
+                    $image = $_FILES['photo'];
+            
+                    // Check if there was no file error
+                    if ($image['error'] === UPLOAD_ERR_OK) {
+                        // Define the directory to store the images
+                        $uploadDir = '../public/img/profilepic/';    
+                        // Generate a unique filename
+                        $user_id = $_SESSION['user_id'];
+                        $filename = $user_id . '' . time() . '' . $image['name'];
+            
+                        // Move the uploaded image to the upload directory
+                        if (move_uploaded_file($image['tmp_name'], $uploadDir . $filename)) {
+                            // Update the user's profile image path in the database
+                            $this->moderatorModel->updateProfileImage($_SESSION['user_id'], $filename);  
+                            $_SESSION['user_image']=$filename;
+                            
+                        } 
+                      }
+                     }
+                    }
+                }
+
+            $useremail = $_SESSION['user_email'];
+            $userdetails = $this->moderatorModel->getuserdetails($useremail);
+          
+            $data = [
+                'userdetails'=> $userdetails
+            ];
             $this->view('users/recyclecenters/dashboard',$data);
+            }
         }
 
         public function about(){
