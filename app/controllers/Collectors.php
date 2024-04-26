@@ -257,9 +257,12 @@
             
             $ads = $this->recycleItemAdsModel->getAds();
             $ads2= $this->recentersModel->getAds();
+            $useremail = $_SESSION['user_email'];
+            $userdetails = $this->moderatorModel->getuserdetails($useremail);
             $data = [
                 'ads' => $ads,
                 'ads2' => $ads2,
+                'userdetails'=> $userdetails,
             ];
             $this->view('users/collectors/dashboard',$data);
              }
