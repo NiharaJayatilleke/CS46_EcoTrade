@@ -287,7 +287,38 @@
 
 
             <div id="notif-content" class="content-section">
-                <p>This is the content for seller notifications.</p>
+                <!-- <p>This is the content for seller notifications.</p> -->
+                <div class="details" style=" display: block;">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Notifications</h2>
+                            <!-- <a href="#center-content"  class="btn">View All</a> -->
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>Name of Ad</td>
+                                    <td>Message</td>
+                                    <td>Sent By</td>
+                                    <td>Received on</td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            <?php foreach($data['re_ads'] as $re_ad): ?>
+                                <tr>
+                                <td><?= $re_ad->item_name ?></td>
+                                <td> <img src="<?php echo URLROOT?>/public/img/items/<?php echo $re_ad->item_image ?>" alt="Item Image" style="width: 70px; height: 60px;"></td>
+                                <!-- <td>Rs. <= $re_ad->item_price ?></td> -->
+                                <td><?= $re_ad->created_at ?></td>
+                                <!-- <td><= $re_ad->item_expiry ?></td> -->
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
             <div id="sec-ad-content" class="content-section">
