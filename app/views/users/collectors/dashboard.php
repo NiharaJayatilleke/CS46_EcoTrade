@@ -707,7 +707,7 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                                <form id="editProfileForm" action="<?php echo URLROOT; ?>/moderators/edit_profile" method="POST" >
+                                <!-- <form id="editProfileForm" action="<?php echo URLROOT; ?>/moderators/edit_profile" method="POST" > -->
                                 <div class="right-below">
                                     <div class="right-left">
                                         <div class="tab-pane fade active show" id="account-general">
@@ -744,9 +744,9 @@
                                     <?php flash('profile_edit'); ?>
                                 </div>
                                 <div class="profile-buttons">
-                                    <button class="profile-updatebt">Edit profile</button>
+                                    <button class="profile-updatebt" id="editProfileBtn">Edit profile</button>
                                 </div>
-                                </form>
+                                <!-- </form> -->
 
                     </div>
 
@@ -876,29 +876,10 @@
             showSection(sectionName);
         }
 
-        // Get Edit Form
-        const editForm = document.getElementById('editProfileForm');
-    
-        editForm.onsubmit = function(event){
-            event.preventDefault();
-        
-            fetch('<?php echo URLROOT; ?>/moderators/edit_profile', {
-                method: 'POST',
-                body: new FormData(editForm)
-            })
-            .then(data => {
-                // Handle the response data as needed
-                //console.log(data);
+        document.getElementById('editProfileBtn').addEventListener('click', function() {
+        window.location.href = "<?php echo URLROOT . '/Collectors/edit/'; ?>";
+         });
 
-                window.location.reload();
-            })
-            
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
-
-        
         let profilePic = document.getElementById("profile-pic");
         let inputFile = document.getElementById("upload-photo");
 
