@@ -1,4 +1,16 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/admin/dashboard.css">
+
+<!-- .dashboard-cardBox .dashboard-card {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+} -->
 
     <div class="dashboard-container">
         <div class="dashboard-sidenav">
@@ -81,6 +93,21 @@
                         <h2>Recycle Centers Dashboard</h2>
                     </div>
 
+                    <!-- Post Requirements Button -->
+                    <div class="dashboard-cardBox">
+                        <a href="<?php echo URLROOT ?>/Admin/index#recycle-content" style="text-decoration: none; color: inherit;">
+                            <div class="dashboard-card">
+                                <div>
+                                    <div class="dashboard-numbers"><?php echo $data['rec_ad_count'] ?></div> 
+                                    <div class="dashboard-cardName">Post Requirement</div>
+                                </div>
+                                <div class="dashboard-iconBx">  
+                                    <ion-icon name="leaf"></ion-icon>  
+                                </div>
+                            </div>1
+                        </a>        
+                    </div>
+
                     <div class="details" style=" display: block;">
                         <div class="recentOrders">
                             <div class="cardHeader">
@@ -97,7 +124,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
+                                <!-- <tr>
                                     <td>Refrigerator</td>
                                     <td>Rs. 1200</td>
                                     <td>Paid</td>
@@ -190,7 +217,7 @@
                                     <td>Rs. 300</td>
                                     <td>Due</td>
                                     <td><span class="status inprogress">In Progress</span></td>
-                                </tr>
+                                </tr>  -->
 
                                 </tbody>
                             </table>
