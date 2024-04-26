@@ -324,7 +324,7 @@
 
         public function index(){
 
-            if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator' && $_SESSION['userType'] != 'admin')){
+            if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator')){
 
                 $this->view('pages/forbidden');
             }
@@ -380,7 +380,7 @@
                 $numCollectors = count($collectors);
                 $centers = $this->userModel->getUsersByType('center');
                 $numCenters = count($centers);
-
+ 
                 $data = [
                     'ads' => $ads,
                     'sec_ad_count' => $numSecAds,

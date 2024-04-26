@@ -246,6 +246,86 @@
             </div>
 
             <div id="settings-content" class="content-section">
+                <div class="profile-settings-container">
+                    <div class="tabs-container">
+                        <!-- <button class="tab-link active" onclick="openTab(event, 'general')">General</button>
+                        <button class="tab-link" onclick="openTab(event, 'change-password')">Change Password</button>
+                        <button class="tab-link" onclick="openTab(event, 'notification')">Notification</button> -->
+                        <button class="tab-link active" onclick="openTab('general')" data-section="general">General</button>
+                        <button class="tab-link" onclick="openTab('change-password')" data-section="change-password">Change Password</button>
+                    </div>
+
+                    <div id="general" class="tab-content active"  data-section="general">
+                                <div class="col-md-3 pt-0">
+                                    <div class="profile_image">
+                                        <div class="image-container">
+                                            <?php
+                                            if (!empty($data['userdetails']->profile_image)) {
+                                                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['userdetails']->profile_image . '" alt="Profile Image" class="d-block ui-w-80" id="profile-pic">';
+                                            } else {
+                                                echo '<img src="' . URLROOT . '/public/img/profile.png" alt="Default Profile Image" class="d-block ui-w-80" id="profile-pic">';
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>  
+                                    <div class="dashboard-icons-container"> 
+                                        <form method="POST" action="<?php echo URLROOT; ?>/collectors/index#settings-content" enctype="multipart/form-data">               
+                                            <div class="">
+                                                <button type="button"><label for="upload-photo" title="Browse Photo"><i class="fas fa-edit"></i></label></botton>
+                                                <div class="file-upload">
+                                                    <input type="file" id="upload-photo" name="photo" accept="image/*">
+                                                </div>
+                                                <button class="savebutton"  type="submit" title="Save Photo"><i class="fas fa-bookmark"></i></button> 
+                                            </div>
+                                        </form>
+                                        <?php if (!empty($data['userdetails']->profile_image)) : ?>
+                                            <form method="POST" action="<?php echo URLROOT; ?>/collectors/index#settings-content">
+                                                <input type="hidden" name="delete_photo" value="1">
+                                                <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
+                                                <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')" class="" title="delete photo"><i class="fas fa-trash-alt"></i></button>
+                                            </form>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <div class="profile-buttons">
+                                    <button class="profile-updatebt" id="editProfileBtn">Edit profile</button>
+                                </div>
+                                
+
+                    </div>
+
+                    <div id="change-password" class="tab-content" data-section="change-password">
+                        <form id="changePasswordForm" action="<?php echo URLROOT; ?>/users/update" method="POST" >
+                            <div class="cp-container">
+                                <div class="form-cp"> 
+                                    <label class="form-label" for="oldPassword">Old Password</label>
+                                    <input type="password" id="oldPassword" name="oldPassword" class="form-control input-field-box" required> 
+                                        <div class="form-invalid"><?php error('oldPassword'); ?></div> 
+                                </div>
+                                <div class="form-cp">
+                                    <label class="form-label" for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword"   name="newPassword" class="form-control input-field-box" required>     
+                                        <div class="form-invalid"><?php error('newPassword'); ?></div>
+                                </div>
+                                <div class="form-cp">
+                                    <label class="form-label" for="confirmPassword">Confirm New Password</label>
+                                    <input type="password" id="confirmPassword"  name="confirmPassword" class="form-control input-field-box" required> 
+                                </div>
+                                <div class="profile-buttons"> 
+                                    <button class="profile-updatebt">Change Password</button> 
+                                </div>
+                                <div id="changePasswordMessage" class="form-invalid"></div> 
+                            </div>
+                            <div style="margin-top: 30px;">
+                            <?php flash('update_password'); ?>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="notification" class="tab-content" data-section="notification">
+                        <h3>Notification Settings</h3>
+                        <p>Customize your notification preferences here.</p>
+                    </div>
+                </div>
             </div>
                 
         </div>
@@ -345,7 +425,36 @@
             // Show the section
             showSection(sectionName);
         }
+
+        document.getElementById('editProfileBtn').addEventListener('click', function() {
+        window.location.href = "<?php echo URLROOT . '/Collectors/edit/'; ?>";
+         });
+
+         const changepwd = document.getElementById('changePasswordForm');
         
+        changepwd.onsubmit = function(event){
+            event.preventDefault();
+
+            fetch('<?php echo URLROOT; ?>/users/update',{
+                method: 'POST',
+                body: new FormData(changepwd)
+            })
+            .then(data =>{
+
+            })
+            .then(data => {
+                // Handle the response data as needed
+                //console.log(data);
+
+                window.location.reload();
+            })
+            
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+
         let profilePic = document.getElementById("profile-pic");
         let inputFile = document.getElementById("upload-photo");
 

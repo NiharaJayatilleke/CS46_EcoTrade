@@ -33,7 +33,7 @@
             <?php elseif (($_SESSION['userType'])=='seller'||'pSeller'||'rSeller') : ?>
                 <a href="<?php echo URLROOT ?>/seller/index#settings-content">
             <?php endif; ?>
-                    <i class='bx bxs-user-circle'></i>
+                    <i class='bx bxs-edit'></i>
                     <span class="link_name">Edit profile</span>
                 </a>
         </li>

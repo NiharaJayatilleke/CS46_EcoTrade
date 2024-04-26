@@ -182,15 +182,14 @@ require APPROOT.'/libraries/vendor/autoload.php';
                         // create a flash message
                         flash('reg_flash', ' A verification email has been sent to your email address.Please check');
 
-
-                        redirect('Users/login?message=' . urlencode('Please check your mail and verify.'));
-                        
                         // Send confirmation email to confirm
                         $this->send_email_confirmation($data['token'],$data['email']);
 
                         // Log user registration activity
                         $this->userModel->logActivity($_SESSION['user_id'], 'User Registration', 'New user signed up');
 
+                        // Redirect to the email verification page
+                        redirect('Users/emailVerification/' . $data['email']);
                     }
                     else{
                         // die('Something went wrong');
@@ -223,6 +222,89 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 //load view
                 $this->view('users/signup', $data);
             }
+        }
+
+
+        public function emailVerification($email) {
+            // Load the view with the email data
+            $this->view('users/v_emailver', ['email' => $email]);
+        }
+
+        public function send_email_confirmation($token, $usersEmail){
+            $url = "localhost/ecotrade/users/verify_email?token=$token";
+
+            $this->mail->isSMTP();
+            $this->mail->Host = 'smtp.gmail.com';
+            $this->mail->SMTPAuth = true;
+            $this->mail->SMTPSecure = 'tls';
+            $this->mail->Port = 587; // Use 587 for TLS, 465 for SSL
+            $this->mail->Username = 'ecotrade46@gmail.com';
+            $this->mail->Password = 'inua qsto hwfo seiy';
+
+            //Can Send Email Now
+            $subject = "Verify your email";
+            $message = "<p>Dear user,</p>";
+            // $message = "Dear {$data['username']},\n\n";
+            $message .= "<p></p>";
+            $message .= "<p>To verify your email, please click on the following link:</p>";
+            $message .= "<a href='".$url."'>Verify Email</a>";
+            $message .= "<p>This link is valid for a limited time only. If you do not reset your password within this time frame, you may need to request another reset link.</p>";
+            $message .= "<p>Thank you,</p>";
+            $message .= "<p>Best Regards,<br>The EcoTrade Team</p>";
+            // $message .= "<script>window.open('$url', '_blank');</script>";  // open the link in a new tab
+
+
+            $this->mail->setFrom('ecotrade46@gmail.com', $subject);
+            $this->mail->isHTML(true);
+            $this->mail->Subject = $subject;
+            $this->mail->Body = $message;
+            $this->mail->addAddress($usersEmail);
+            $this->mail->send();
+        }
+
+        public function resendEmailConfirmation() {
+            // Get the email and token from the request
+            $email = $_POST['email'];
+            $token = $_POST['token'];
+
+            // Call the send_email_confirmation function
+            $this->send_email_confirmation($token, $email);
+
+            // Return a success message
+            echo 'success';
+        }
+
+        public function verify_email(){
+            $token = $_GET['token'];
+            
+            // get user from the temp_user_table
+            $temp_user=$this->userModel->get_user_by_token($token);
+
+            if($temp_user){
+                // if user is not verified make a new one
+                if(!$temp_user->verified){
+                    $data['username']=$temp_user->username;
+                    $data['email']=$temp_user->email;
+                    $data['number']=$temp_user->number;
+                    $data['password']=$temp_user->password;
+                    $data['user_type']=$temp_user->user_type;
+
+                    // insert user into the user table
+                    $this->userModel->insert_user($data);
+                    $this->userModel->verify_user($temp_user->email);
+                    
+                }
+
+                // after verifying user and already veerified user
+                redirect('Users/login');
+                
+            }else{
+                // user not found
+                $this->view('pages/verified');
+            }
+            
+
+
         }
         
         public function terms(){
@@ -515,70 +597,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
         //     $this->view('users/v_Reset_newpassword'); // Load the 'v_Reset_newpassword.php' view
         // }
 
-        public function send_email_confirmation($token, $usersEmail){
-            $url = "localhost/ecotrade/users/verify_email?token=$token";
-
-            $this->mail->isSMTP();
-            $this->mail->Host = 'smtp.gmail.com';
-            $this->mail->SMTPAuth = true;
-            $this->mail->SMTPSecure = 'tls';
-            $this->mail->Port = 587; // Use 587 for TLS, 465 for SSL
-            $this->mail->Username = 'ecotrade46@gmail.com';
-            $this->mail->Password = 'inua qsto hwfo seiy';
-
-            //Can Send Email Now
-            $subject = "Verify your email";
-            $message = "<p>Dear user,</p>";
-            // $message = "Dear {$data['username']},\n\n";
-            $message .= "<p></p>";
-            $message .= "<p>To verify your email, please click on the following link:</p>";
-            $message .= "<a href='".$url."'>Verify Email</a>";
-            $message .= "<p>This link is valid for a limited time only. If you do not reset your password within this time frame, you may need to request another reset link.</p>";
-            $message .= "<p>Thank you,</p>";
-            $message .= "<p>Best Regards,<br>The EcoTrade Team</p>";
-            // $message .= "<script>window.open('$url', '_blank');</script>";  // open the link in a new tab
-
-
-            $this->mail->setFrom('ecotrade46@gmail.com', $subject);
-            $this->mail->isHTML(true);
-            $this->mail->Subject = $subject;
-            $this->mail->Body = $message;
-            $this->mail->addAddress($usersEmail);
-            $this->mail->send();
-        }
-
-        public function verify_email(){
-            $token = $_GET['token'];
-            
-            // get user from the temp_user_table
-            $temp_user=$this->userModel->get_user_by_token($token);
-
-            if($temp_user){
-                // if user is not verified make a new one
-                if(!$temp_user->verified){
-                    $data['username']=$temp_user->username;
-                    $data['email']=$temp_user->email;
-                    $data['number']=$temp_user->number;
-                    $data['password']=$temp_user->password;
-                    $data['user_type']=$temp_user->user_type;
-
-                    // insert user into the user table
-                    $this->userModel->insert_user($data);
-                    $this->userModel->verify_user($temp_user->email);
-                    
-                }
-
-                // after verifying user and already veerified user
-                redirect('Users/login');
-                
-            }else{
-                // user not found
-                $this->view('pages/verified');
-            }
-            
-
-
-        }
+        
 
         
     }

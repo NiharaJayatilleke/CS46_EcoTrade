@@ -773,7 +773,7 @@
                                         </div>
                                     </div>  
                                     <div class="dashboard-icons-container"> 
-                                         <form method="POST" action="<?php echo URLROOT; ?>/moderators/index?#settings-content" enctype="multipart/form-data">               
+                                         <form method="POST" action="<?php echo URLROOT; ?>/admin/index?#settings-content" enctype="multipart/form-data">               
                                             <div class="">
                                                 <button type="button"><label for="upload-photo" title="Browse Photo"><i class="fas fa-edit"></i></label></botton>
                                                 <div class="file-upload">
@@ -783,7 +783,7 @@
                                             </div>
                                         </form>
                                         <?php if (!empty($data['userdetails']->profile_image)) : ?>
-                                            <form method="POST" action="<?php echo URLROOT; ?>/moderators/index?#settings-content">
+                                            <form method="POST" action="<?php echo URLROOT; ?>/admin/index?#settings-content">
                                                 <input type="hidden" name="delete_photo" value="1">
                                                 <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
                                                 <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')" class="" title="delete photo"><i class="fas fa-trash-alt"></i></button>
@@ -1007,6 +1007,50 @@
 
             // Show the section
             showSection(sectionName);
+        }
+        const editForm = document.getElementById('editProfileForm');
+    
+        editForm.onsubmit = function(event){
+            event.preventDefault();
+        
+            fetch('<?php echo URLROOT; ?>/moderators/edit_profile', {
+                method: 'POST',
+                body: new FormData(editForm)
+            })
+            .then(data => {
+                // Handle the response data as needed
+                //console.log(data);
+
+                window.location.reload();
+            })
+            
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        const changepwd = document.getElementById('changePasswordForm');
+        
+        changepwd.onsubmit = function(event){
+            event.preventDefault();
+
+            fetch('<?php echo URLROOT; ?>/users/update',{
+                method: 'POST',
+                body: new FormData(changepwd)
+            })
+            .then(data =>{
+
+            })
+            .then(data => {
+                // Handle the response data as needed
+                //console.log(data);
+
+                window.location.reload();
+            })
+            
+            .catch(error => {
+                console.error('Error:', error);
+            });
         }
         
         let profilePic = document.getElementById("profile-pic");

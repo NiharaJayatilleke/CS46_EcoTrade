@@ -1,13 +1,12 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <!-- Top NAVIGATION -->
 <?php 
+if($_SESSION['user_type'] != 'moderator') {
     require APPROOT . '/views/inc/components/topnavbar.php';
+}
 ?>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/v_buyer_view.css">
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/seller_only_styles.css">
-<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/ad_index_page.css">
-<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/message_styles.css">
-
 
 <div class="sad-main-container1">
     <div class="sad-main2"></div>
@@ -211,7 +210,7 @@
         <div class="sad-buyer-messages">
             <div class="sad-buyer-msgs-title"><h2>Notifications</h2></div>
             <?php foreach ($data['buyer_notifications'] as $notification): ?>
-                <div class="sad-buyer-msg-container" id = "buyer-notif"  data-notif-id="<?php echo $notification->notif_id; ?>">
+                <div class="sad-buyer-msg-container" id = "buyer-notif">
                     <div class="sad-buyer-msg-content"><?php echo $notification->message; ?></div>
                     <div class="sad-buyer-msg-buttons">
                         <div class="sad-buyer-confirm-purchase-btn"><button type="button">Confirm Purchase</button></div>
@@ -258,20 +257,6 @@
 
 <div class="sad-main-container3-right">
     <div class="sad-more-ads-title"><h2>Explore more ads</h2></div>
-
-    <?php foreach($data['other_ads'] as $ad): ?>
-        <div class="ad-show-index-container">
-        <div class = "ad-header">
-            <div class = "ad-body-image">
-                <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
-            </div>
-            <div class = "ad-item-name"><h3><?php echo $ad->item_name ?><h3>
-        </div>
-        <div class = "ad-body">
-            <div class = "ad-price">Rs. <?php echo $ad->item_price ?></div>
-        </div>
-    <?php endforeach; ?>
-    <!-- <h3>hi</h3> -->
 
 </div>
 </div>
@@ -375,7 +360,7 @@
 
     
 </script>
-<!-- <?php require APPROOT.'/views/inc/components/footer.php'; ?> -->
+<?php require APPROOT.'/views/inc/components/footer.php'; ?>
 
 
     
