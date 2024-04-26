@@ -37,7 +37,7 @@
         }
         
         public function getNotifsBySeller($sellerId){
-            $this->db->query('SELECT * FROM Notifications WHERE user_id = :seller_id AND seen = 0 ORDER BY notif_id DESC');
+            $this->db->query('SELECT * FROM v_notifs WHERE user_id = :seller_id AND seen = 0 ORDER BY notif_id DESC');
             $this->db->bind(':seller_id', $sellerId);
             $results = $this->db->resultSet();
             return $results;

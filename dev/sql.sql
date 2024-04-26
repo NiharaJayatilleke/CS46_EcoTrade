@@ -347,3 +347,18 @@ CREATE OR REPLACE VIEW v_re_ads AS
     FROM Recycle_Item_Ads 
     JOIN General_User ON Recycle_Item_Ads.seller_id = General_User.id
     ORDER BY Recycle_Item_Ads.created_at DESC;
+
+CREATE OR REPLACE VIEW v_notifs AS
+SELECT
+    Notifications.notif_id as notif_id, 
+    Notifications.user_id as user_id, 
+    General_User.username as username,
+    Notifications.ad_id as ad_id,
+    Item_Ads.item_name as item_name,
+    Notifications.message as message,
+    Notifications.notif_created_at as notif_created_at,
+    Notifications.seen as seen
+FROM Notifications
+JOIN General_User ON Notifications.user_id = General_User.id
+JOIN Item_Ads ON Notifications.ad_id = Item_Ads.p_id
+ORDER BY Notifications.notif_created_at DESC;
