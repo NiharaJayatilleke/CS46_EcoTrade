@@ -308,9 +308,9 @@
                             <tbody>
                             <?php foreach($data['notifs'] as $notif): ?>
                                 <tr>
-                                <td><?= $re_ad->item_name ?></td>
+                                <td><?= $notif->item_name ?></td>
                                 <td><?= $notif->message ?></td>
-                                <td></td>
+                                <td><?= $notif->username ?></td>
                                 <td><?php echo convertTime($notif->notif_created_at); ?></td>
                                 <td>
                                     <label class="checkbox-container">
