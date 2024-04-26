@@ -21,7 +21,24 @@
                 </a>
        
         </li>
+        <li class="edit-profile-link">
+            <?php if (($_SESSION['userType'])=='admin') : ?>
+                <a href="<?php echo URLROOT ?>/admin/index?#settings-content">
+            <?php elseif (($_SESSION['userType'])=='moderator') : ?>
+                <a href="<?php echo URLROOT ?>/moderators/index#settings-content">
+            <?php elseif (($_SESSION['userType'])=='center') : ?>
+                <a href="<?php echo URLROOT ?>/RecycleCenters/index#settings-content">
+            <?php elseif (($_SESSION['userType'])=='collector') : ?>
+                <a href="<?php echo URLROOT ?>/collectors/index#settings-content">
+            <?php elseif (($_SESSION['userType'])=='seller'||'pSeller'||'rSeller') : ?>
+                <a href="<?php echo URLROOT ?>/seller/index#settings-content">
+            <?php endif; ?>
+                    <i class='bx bxs-user-circle'></i>
+                    <span class="link_name">Edit profile</span>
+                </a>
+        </li>
         <?php endif; ?>
+  
         <li class="logout-link">
             <a href="<?php echo URLROOT ?>/Users/logout">
                 <i class='bx bx-log-out'></i>
