@@ -14,6 +14,42 @@
                 $this->view('pages/forbidden');
             }
             else{
+
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                    if (isset($_POST['delete_photo']) && $_POST['delete_photo'] == 1) {
+                        $userId = $_SESSION['user_id'];
+                        $this->moderatorModel->deleteProfileImage($userId);
+        
+                        // Redirect to the current page after deleting the image
+                        header('Location: ' . $_SERVER['HTTP_REFERER']);
+                        exit;
+                    }
+                else{
+                
+                // Handle the image upload
+                if (isset($_FILES['photo'])) {
+                    $image = $_FILES['photo'];
+            
+                    // Check if there was no file error
+                    if ($image['error'] === UPLOAD_ERR_OK) {
+                        // Define the directory to store the images
+                        $uploadDir = '../public/img/profilepic/';    
+                        // Generate a unique filename
+                        $user_id = $_SESSION['user_id'];
+                        $filename = $user_id . '' . time() . '' . $image['name'];
+            
+                        // Move the uploaded image to the upload directory
+                        if (move_uploaded_file($image['tmp_name'], $uploadDir . $filename)) {
+                            // Update the user's profile image path in the database
+                            $this->moderatorModel->updateProfileImage($_SESSION['user_id'], $filename);  
+                            $_SESSION['user_image']=$filename;
+                            
+                        } 
+                      }
+                     }
+                    }
+                }
                 
                 $ads = $this->itemAdsModel->getAds();
                 $numSecAds = count($ads);
