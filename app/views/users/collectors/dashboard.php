@@ -699,7 +699,7 @@
                                             </div>
                                         </form>
                                         <?php if (!empty($data['userdetails']->profile_image)) : ?>
-                                            <form method="POST" action="<?php echo URLROOT; ?>/collectors/index?#settings-content">
+                                            <form method="POST" action="<?php echo URLROOT; ?>/collectors/index#settings-content">
                                                 <input type="hidden" name="delete_photo" value="1">
                                                 <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
                                                 <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')" class="" title="delete photo"><i class="fas fa-trash-alt"></i></button>
