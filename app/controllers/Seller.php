@@ -14,6 +14,7 @@
             $ads = $this->itemAdsModel->getAdsBySeller($sellerId);
             $re_ads = $this->recycleItemAdsModel->getAdsBySeller($sellerId);
             $notifs = $this->notificationsModel->getNotifsBySeller($sellerId);
+            $ratings = $this->itemAdsModel->getSellerRating($sellerId);
 
             $data = [
                 'ads' => $ads,

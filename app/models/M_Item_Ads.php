@@ -188,6 +188,20 @@
                 return false;
             }
         }
+
+        public function getSellerRating($sellerId){
+            $this->db->query('SELECT rating, COUNT(*) as count FROM Seller_Rating WHERE seller_id = :seller_id GROUP BY rating');
+            $this->db->bind(':seller_id', $sellerId);
+        
+            $rows = $this->db->resultSet();
+        
+            $ratings = [];
+            foreach ($rows as $row) {
+                $ratings[$row->rating] = $row->count;
+            }
+            
+            return $ratings;
+        }
     }
 
 ?>
