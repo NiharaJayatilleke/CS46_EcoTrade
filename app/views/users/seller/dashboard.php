@@ -94,7 +94,7 @@
                     <div class="review-info">
                         <div class="review-info-left">
                             <div class="review-info-rate">
-                                <span class="score">4.3</span>
+                                <span class="score"><?php echo $data['avg_rating']; ?></span>
                                 <span class="rating-tag-text">
                                     <img class="white-star" src="//img.alicdn.com/imgextra/i3/O1CN01AvJLRr1gxlvS02Jss_!!6000000004209-2-tps-24-24.png" alt="">Very Good
                                 </span>
@@ -109,7 +109,7 @@
                                     <img class="star" src="//laz-img-cdn.alicdn.com/tfs/TB16MwRdOqAXuNjy1XdXXaYcVXa-64-64.png" style="width: 21.28px; height: 21.28px;">
                                 </div>
                             </div>
-                            <div class="rate-num">4239 ratings</div>
+                            <div class="rate-num"><?php echo $data['tot_rating']; ?> ratings</div>
                         </div>
                         <div class="review-info-right">
                             <div class="detail">

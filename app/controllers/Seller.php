@@ -16,10 +16,22 @@
             $notifs = $this->notificationsModel->getNotifsBySeller($sellerId);
             $ratings = $this->itemAdsModel->getSellerRating($sellerId);
 
+            $totalRatings = array_sum($ratings);
+            $weightedSum = 0;
+
+            foreach ($ratings as $rating => $count) {
+                $weightedSum += $rating * $count;
+            }
+
+            $avgRating = round($weightedSum / $totalRatings, 1);
+
             $data = [
                 'ads' => $ads,
                 're_ads' => $re_ads,
                 'notifs' => $notifs,
+                'ratings' => $ratings,
+                'tot_rating' => $totalRatings, 
+                'avg_rating' => $avgRating
             ];
 
             $this->view('users/seller/dashboard',$data);
