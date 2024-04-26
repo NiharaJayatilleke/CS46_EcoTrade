@@ -9,14 +9,8 @@
                         <span class = "side-title">EcoTrade</span>
                     </a>
                 </li>
-                <!-- <li>
-                    <a href="<?php echo URLROOT ?>/Pages/index">
-                        <span class = "side-icon"><ion-icon name="home-outline"></ion-icon></span>
-                        <span class = "side-title">Home</span>
-                    </a>
-                </li> -->
+
                 <li>
-                    <!-- <a href="<?php echo URLROOT ?>/Admin/index"> -->
                     <a href="#dashboard-content" id="dashboard-tab" onclick="showContent('dashboard-content')">
                         <span class = "side-icon"><ion-icon name="grid-outline"></ion-icon></span>
                         <span class = "side-title">Dashboard</span>
@@ -24,41 +18,13 @@
                 </li>
 
                 <li>
-                    <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
-                    <a href="#users-content" id="users-tab" onclick="showContent('users-content')">
-
-                        <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
-                        <span class = "side-title">Users</span>
+                    <a href="#centers-content" id="centers-tab" onclick="showContent('centers-content')">
+                        <span class = "side-icon"><ion-icon name="business-outline"></ion-icon></span>
+                        <span class = "side-title">Recycle Center</span>
                     </a>
-                </li>
+                </li>                            
 
                 <li>
-                    <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
-                    <a href="#activity-content" id="activity-tab" onclick="showContent('activity-content')">
-
-                        <span class = "side-icon"><ion-icon name="globe-outline"></ion-icon></span>
-                        <span class = "side-title">Activity Log</span>
-                    </a>
-                </li>
-
-                <li>
-                    <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
-                    <a href="#reported-ads-content" id="reported-ads-tab" onclick="showContent('reported-ads-content')">
-
-                        <span class = "side-icon"><ion-icon name="alert-circle-outline"></ion-icon></span>
-                        
-                        <span class = "side-title">Reported Ads</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#secondhand-content" id="secondhand-tab" onclick="showContent('secondhand-content')">
-                        <span class = "side-icon"><ion-icon name="pricetags"></ion-icon></span>
-                        <span class = "side-title">Preowned Ads</span>
-                    </a>
-                </li>                               
-
-                <li>
-                    <!-- <a href=""> -->
                     <a href="#recycle-content" id="recycle-tab" onclick="showContent('recycle-content')">
                         <span class = "side-icon"><ion-icon name="leaf-outline"></ion-icon></span>
                         <span class = "side-title">Recycling Ads</span>
@@ -66,42 +32,46 @@
                 </li>
 
                 <li>
-                    <!-- <a href="#"> -->
+                    <a href="#reported-ads-content" id="reported-ads-tab" onclick="showContent('reported-ads-content')">
+                        <span class = "side-icon"><ion-icon name="remove-circle-outline"></ion-icon></span>
+                        <span class = "side-title">Reported ads</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="#settings-content" id="settings-tab" onclick="showContent('settings-content')">
                         <span class = "side-icon"><ion-icon name="cog-outline"></ion-icon></span>
                         <span class = "side-title">Settings</span>
                     </a>
                 </li>
-
-
                 <li>
-                    <a href="<?php echo URLROOT ?>/Users/logout" id="signout-tab" onclick="showContent('signout-content')">
+                <a href="<?php echo URLROOT ?>/Users/logout" id="signout-tab" onclick="showContent('signout-content')">
                         <span class = "side-icon"><ion-icon name="log-out-outline"></ion-icon></span> 
                         <span class = "side-title">Sign out</span>
                     </a>
                 </li>
-                </li>
             </ul>
         </div>
 
-        
-      
+
     <!-- main -->
         <div class="dashboard-main">
             <div class="dashboard-topbar">
                 <div class="dashboard-toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-
                 <!-- search -->
-                <div id="mod-dashboard-search" class="dashboard-search">
+                <div id="admin-dashboard-search" class="dashboard-search">
                     <label>
-                        <input id="searchInput" type="text" placeholder="Search here" oninput="handleSearch()">
+                        <input type="text" placeholder="Search here">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
+
+                <!-- tabs -->
+                <a href="#settings-content" id="settings-tab"></a>
                 <!-- userImg -->
-                <div class="dashboard-user">   
+                <div class="dashboard-user">
                 <?php
                 // if the user has uploaded an image display it . other wise display the default image
                 if (isset($_SESSION['user_image']) && !empty($_SESSION['user_image'])) {
@@ -112,28 +82,39 @@
                 ?>
                 </div>
             </div>
-                <!-- cards -->
-          
-            <div id="dashboard-content" class="content-section">
-            <div class="heading-dashboard">
-                        <h2>Moderators Dashboard</h2>
-                    </div>
-                    
-                    <div class="dashboard-cardBox">
-                        <a href="<?php echo URLROOT ?>/Moderators/users#users-content" style="text-decoration: none; color: inherit;">
-                            <div class="dashboard-card">
-                                <div>
-                                    <div class="dashboard-numbers"><?php echo $data['users_count'] ?></div> 
-                                    <div class="dashboard-cardName">Users</div>
-                                </div>
-                                <div class="dashboard-iconBx">   
-                                    <ion-icon name="people-outline"></ion-icon>     
-                                </div>
-                            </div>
-                        </a>
 
-                        <!-- <a href="<?php echo URLROOT ?>/Admin/moderators" style="text-decoration: none; color: inherit;"> -->
-                        <div class="dashboard-card" >
+            <!-- dashboard admin -->
+            <div id="dashboard-content" class="content-section">
+                <div class="heading-dashboard">
+                    <h2>Collector Dashboard</h2>
+                </div>
+                
+                <div class="dashboard-cardBox">
+                    <a href="<?php echo URLROOT ?>/Admin/index#users-content" style="text-decoration: none; color: inherit;">
+                        <div class="dashboard-card">
+                            <div>
+                                <div class="dashboard-numbers"><?php echo $data['users_count'] ?></div> 
+                                <div class="dashboard-cardName">Users</div>
+                            </div>
+                            <div class="dashboard-iconBx">   
+                                <ion-icon name="people-outline"></ion-icon>     
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="<?php echo URLROOT ?>/Admin/index#moderators-content" style="text-decoration: none; color: inherit;">
+                        <div class="dashboard-card">
+                            <div>
+                                <div class="dashboard-numbers" ><?php echo $data['moderators_count'] ?></div> 
+                                <div class="dashboard-cardName">Moderators</div>
+                            </div>
+                            <div class="dashboard-iconBx">  
+                                <ion-icon name="people-circle-outline"></ion-icon>     
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="dashboard-card" >
                             <div>
                                 <div class="dashboard-numbers" ><?php echo $data['collectors_count'] ?></div> 
                                 <div class="dashboard-cardName">Collectors</div>
@@ -141,10 +122,9 @@
                             <div class="dashboard-iconBx">  
                                 <ion-icon name="people-circle-outline"></ion-icon>     
                             </div>
-                        </div>
-                        <!-- </a> -->
+                    </div>
 
-                        <div class="dashboard-card" >
+                    <div class="dashboard-card" >
                                 <div>
                                     <div class="dashboard-numbers" ><?php echo $data['centers_count'] ?></div> 
                                     <div class="dashboard-cardName">Recycle centers</div>
@@ -152,8 +132,9 @@
                                 <div class="dashboard-iconBx">  
                                 <ion-icon name="business-outline"></ion-icon>
                                 </div>
-                        </div>
+                    </div>
 
+                    <a href="<?php echo URLROOT ?>/Admin/index#secondhand-content" style="text-decoration: none; color: inherit;">
                         <div class="dashboard-card">
                             <div>
                                 <div class="dashboard-numbers"><?php echo $data['sec_ad_count'] ?></div> 
@@ -163,121 +144,119 @@
                                 <ion-icon name="pricetags"></ion-icon>  
                             </div>
                         </div>
+                    </a>
 
-
+                    <a href="<?php echo URLROOT ?>/Admin/index#recycle-content" style="text-decoration: none; color: inherit;">
                         <div class="dashboard-card">
                             <div>
-                                <div class="dashboard-numbers">80</div> 
-                                <div class="dashboard-cardName">Recycling Ads</div>
+                                <div class="dashboard-numbers"><?php echo $data['rec_ad_count'] ?></div> 
+                                <div class="dashboard-cardName">Recycling Item Ads</div>
                             </div>
-                            <div class="dashboard-iconBx"> 
-                                <ion-icon name="leaf"></ion-icon>   
+                            <div class="dashboard-iconBx">  
+                                <ion-icon name="leaf"></ion-icon>  
                             </div>
                         </div>
+                    </a>
+                    
+                </div>
+
+                <div class="graphBox">
+                    <div class="box">
+                        <canvas id="myChart"></canvas>
                     </div>
-
-                    <div class="graphBox">
-                        <div class="box">
-                            <canvas id="myChart"></canvas>
-                        </div>
-                        <div class="box">
-                            <canvas id="ads"></canvas>
-                        </div>
+                    <div class="box">
+                        <canvas id="ads"></canvas>
                     </div>
+                </div>
 
-                    <div class="details" style=" display: block;">
-                        <div class="recentOrders">
-                            <div class="cardHeader">
-                                <h2>Recent Activities</h2>
-                                <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a>
-                            </div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <td>User ID</td>
-                                        <td>User Type</td>
-                                        <td>Action Type</td>
-                                        <td>Action Details</td>
-                                        <td>Date Time</td>
-                                        <!-- <td>Item Ad</td> -->
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <?php 
-                                $counter = 0;
-                                foreach($data['recentActivities'] as $activity) : 
-                                    if($counter == 5) break;
-                                ?>
-                                    <tr>
-                                        <td><?php echo $activity->user_id; ?></td>
-                                        <td><span class="usertype <?php echo $activity->user_type ?>"><?php echo $activity->user_type ?></span></td>
-                                        <td><?php echo $activity->action_type; ?></td>
-                                        <td><?php echo $activity->action_details; ?></td>
-                                        <td><?php echo $activity->timestamp; ?></td>
-                                        <td>
-                                            <?php if ($activity->action_type == 'PreownedAd Creation' || $activity->action_type == 'RecycleAd Creation') : ?>
-                                            <div class="cardHeader">
-                                            <a class="btn" style="border: 1px solid white;">View Ad</a></div>
-                                           <?php endif; ?>
-                                        </td>
-                                    </tr>
-                                <?php 
-                                $counter++;
-                                endforeach; 
-                                ?>
-                                </tbody>
-                            </table>
+                <div class="details" style=" display: block;" >
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Recent Activities</h2>
+                            <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a>
                         </div>
-
-                        <!-- New customers -->
-                        <div class="recentOrders">
-                            <div class="cardHeader">
-                                <h2>Users</h2>
-                                <a href="#users-content" class="btn" id="users-tab" onclick="showContent('users-content')">View All</a>
-                            </div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <td>Username</td>
-                                        <td>Email</td>
-                                        <td>Contact Number</td>
-                                        <td>User Type</td>
-                                        <td>Date Joined</td>
-                                        <!-- <td>Edit/Delete</td> -->
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <?php 
-                                $counter = 0;
-                                foreach($data['users'] as $user) : 
-                                    if($counter == 5) break;
-                                ?>
+                        <table>
+                            <thead>
                                 <tr>
-                                    <td><p><?php echo $user->username ?></p></td>
-                                    <td><?php echo $user->email ?></td>
-                                    <td><?php echo $user->number ?></td>
-                                    <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
-                                    <td><?php echo $user->created_at ?></td>
-                                    <!-- <td>
-                                        <div class = "mod-control-btns">
-                                            <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                            <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
-                                        </div>
-                                    </td> -->
+                                    <td>User ID</td>
+                                    <td>User Type</td>
+                                    <td>Action Type</td>
+                                    <td>Action Details</td>
+                                    <td>Date Time</td>
+                                    <!-- <td>Item Ad</td> -->
                                 </tr>
-                                <?php 
-                                $counter++;
-                                endforeach; 
-                                ?>
-                                </tbody>
-                            </table>
+                            </thead>
+                            <tbody>
+                            <?php 
+                            $counter = 0;
+                            foreach($data['recentActivities'] as $activity) : 
+                                if($counter == 5) break;
+                            ?>
+                                <tr>
+                                    <td><?php echo $activity->user_id; ?></td>
+                                    <td><span class="usertype <?php echo $activity->user_type ?>"><?php echo $activity->user_type ?></span></td>
+                                    <td><?php echo $activity->action_type; ?></td>
+                                    <td><?php echo $activity->action_details; ?></td>
+                                    <td><?php echo $activity->timestamp; ?></td>
+                                </tr>
+                            <?php 
+                            $counter++;
+                            endforeach; 
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- New customers -->
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Users</h2>
+                            <a href="#users-content" class="btn" id="users-tab" onclick="showContent('users-content')">View All</a>
                         </div>
-                    </div> 
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Username</td>
+                                    <td>Email</td>
+                                    <td>Contact Number</td>
+                                    <td>User Type</td>
+                                    <td>Date Joined</td>
+                                    <!-- <td>Edit/Delete</td> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php 
+                            $counter = 0;
+                            foreach($data['users'] as $user) : 
+                                if($counter == 5) break;
+                            ?>
+                            <tr>
+                                <td><p><?php echo $user->username ?></p></td>
+                                <td><?php echo $user->email ?></td>
+                                <td><?php echo $user->number ?></td>
+                                <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
+                                <td><?php echo $user->created_at ?></td>
+                                <!-- <td>
+                                    <div class = "mod-control-btns">
+                                        <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                        <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                    </div>
+                                </td> -->
+                            </tr>
+                            <?php 
+                            $counter++;
+                            endforeach; 
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
             </div>
 
-
+            <!-- User crud-->
             <div id="users-content" class="content-section">
-                    <div class="details">
+                <div class="details">
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Users</h2>
@@ -320,109 +299,70 @@
                         </table>
                     </div>
                 </div>
-
             </div>
-
-            <div id="activity-content" class="content-section">
+        
+            <!-- Moderators crud-->
+            <div id="moderators-content" class="content-section">
                 <div class="details">
                     <div class="recentOrders">
-                            <div class="cardHeader">
-                                <h2>Recent Activities</h2>
-                                <!-- <a href="#" class="btn">View All</a> -->
-                            </div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <td>User ID</td>
-                                        <td>User Type</td>
-                                        <td>Action Type</td>
-                                        <td>Action Details</td>
-                                        <td>Date Time</td>
-                                        <!-- <td>Item Ad</td> -->
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                  
-                                    <?php foreach ($data['recentActivities'] as $activity) : ?>
-                                        <tr>
-                                            <td><?php echo $activity->user_id; ?></td>
-                                            <td><span class="usertype <?php echo $activity->user_type ?>"><?php echo $activity->user_type ?></span></td>
-                                            <td><?php echo $activity->action_type; ?></td>
-                                            <td><?php echo $activity->action_details; ?></td>
-                                            <td><?php echo $activity->timestamp; ?></td>
-                                            <td>
-                                            <?php if ($activity->action_type == 'PreownedAd Creation' || $activity->action_type == 'RecycleAd Creation') : ?>
-                                            <div class="cardHeader">
-                                            <a class="btn" style="border: 1px solid white;">View Ad</a></div>
-                                            <?php endif; ?>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-
-                                </tbody>
-                            </table>
-                    </div>
-                </div>
-            </div>
-
-            <div id="reported-ads-content" class="content-section">
-                <div class="details">
-                    <div class="recentOrders">
-                            <div class="cardHeader">
-                                <h2>Reported Ads</h2>
-                            </div>
-                    <table >
-                        <thead>
-                        <tr>
-                            <!-- <th>Report ID</th> -->
-                            <td>Ad ID</td>
-                            <td>Item Name</td>
-                            <td>Reporter ID</td>
-                            <td>Report Reason</td>
-                            <td>Report Comments</td>
-                            <td>Report Contact</td>
-                            <td>Report Status</td>
-                            <td>Reported At</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <thead>
-                        <?php if (!empty($data['reportedAds'])): ?>
-                            <?php foreach ($data['reportedAds'] as $ad): ?>
-                            <tbody>
+                        <div class="cardHeader">
+                            <h2>Moderators</h2>
+                            <a href="<?php echo URLROOT ?>/moderators/register" class="btn">Add Moderator</a>
+                        </div>
+                        <table id="moderators-table">
+                            <thead>
                                 <tr>
-                                    <!-- <td><?php echo $ad->report_id; ?></td> -->
-                                    <td><?php echo $ad->ad_id; ?></td>
-                                    <td><?php echo $ad->ad_title; ?></td> 
-                                    <td><?php echo $ad->reporter_id; ?></td>
-                                    <td><?php echo $ad->report_reason; ?></td>
-                                    <td><?php echo $ad->report_comments; ?></td>
-                                    <td><?php echo $ad->report_contact; ?></td>
-                                    <td><span class="status <?php echo strtolower($ad->report_status); ?>"><?php echo $ad->report_status; ?></span></td>
-                                    <td><?php echo $ad->report_created_at; ?></td>
-                                    
-                                    <td><button onclick="confirmDelete(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
-                                    <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
-                                    
+                                    <td>Username</td>
+                                    <td>Email</td>
+                                    <td>Contact Number</td>
+                                    <td>Date Joined</td>
+                                    <td>Edit/Delete</td>
                                 </tr>
+                            </thead>
+                            <tbody>
+                                <?php if(empty($data['moderators'])): ?>
+                                    <tr>
+                                        <td colspan="5">No moderators found</td>
+                                    </tr>
+                                <?php else: ?>
+                                    <?php foreach($data['moderators'] as $moderator) : ?>
+                                    <tr>
+                                        <td><p><?php echo $moderator->username ?></p></td>
+                                        <td><?php echo $moderator->email ?></td>
+                                        <td><?php echo $moderator->number ?></td>
+                                        <td><?php echo $moderator->created_at ?></td>
+                                        <td>
+                                            <div class = "mod-control-btns">
+                                                <a href="<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>?updated=true"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </tbody>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <tr>
-                                <td colspan="8">No reported ads found.</td>
-                            </tr>
-                        <?php endif; ?>
-                    </table>
+                        </table>
                     </div>
                 </div>
             </div>
 
+            <!-- Recycle Centers crud-->
+            <div id="centers-content" class="content-section">
+                //somec content
+            </div>
+
+            <!-- Second hand ads-->
             <div id="secondhand-content" class="content-section">
+                <div class="heading-dashboard">
+                    <h2>Preowned Ads</h2>
+                </div>
+
                 <div class="ad-right-container">
                     <?php if (!empty($data['ads'])) : ?>
                     <div class="ads-container">
                         <?php foreach($data['ads'] as $ad): ?>
-                            <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id; ?>')">
+                        <!-- <a class="ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>"> -->
+                        <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id; ?>')">
                             <div class="ad-index-container"
                                 data-price="<?php echo $ad->item_price ?>"
                                 data-condition="<?php echo $ad->item_condition ?>"
@@ -437,7 +377,7 @@
                                             <div class = "post-control-btns">
                                                 <a href = "<php echo URLROOT?>/ItemAds/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn" title="edit ad"><i class="fas fa-edit"></i></button></a>
                                                 <a href = "<php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
-                                                <a href = "<php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="ad-report-btn" title="report ad"><i class="fas fa-flag"></i></button></a> 
+                                                <a href = "<php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="reported-ads-btn" title="report ad"><i class="fas fa-flag"></i></button></a> 
                                             </div>
                                         <php endif; ?> -->
                                     <div class="ad-item-name"><h3><?php echo $ad->item_name ?></h3></div>
@@ -477,8 +417,6 @@
                     </div>
                     <?php endif; ?>
                 </div>
-
-            
             </div>
 
             <!-- Secondhand Ad View -->
@@ -636,22 +574,110 @@
 
             </div>
 
-
+            <!-- Recycle ads-->
             <div id="recycle-content" class="content-section">
-            <p>This is the content for the Recycle tab.</p> 
+                <!-- centers should be fetched here -->
+            </div>
+
+            <!-- activity -->
+            <div id="activity-content" class="content-section">
+                <div class="details">
+                    <div class="recentOrders">
+                            <div class="cardHeader">
+                                <h2>Recent Activities</h2>
+                                <!-- <a href="#" class="btn">View All</a> -->
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>User ID</td>
+                                        <td>User Type</td>
+                                        <td>Action Type</td>
+                                        <td>Action Details</td>
+                                        <td>Date Time</td>
+                                        <!-- <td>Item Ad</td> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($data['recentActivities'] as $activity) : ?>
+                                        <tr>
+                                            <td><?php echo $activity->user_id; ?></td>
+                                            <td><span class="usertype <?php echo $activity->user_type ?>"><?php echo $activity->user_type ?></span></td>
+                                            <td><?php echo $activity->action_type; ?></td>
+                                            <td><?php echo $activity->action_details; ?></td>
+                                            <td><?php echo $activity->timestamp; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Report -->
+            <div id="reported-ads-content" class="content-section">
+                <div class="reported-ads-container">
+
+                    <h1>Reported Ads</h1>                  
+                    <table class="reported-ads-table">
+                        <thead>
+                        <tr>
+                            <!-- <th>Report ID</th> -->
+                            <th>Ad ID</th>
+                            <th>Item Name</th>
+                            <th>Reporter ID</th>
+                            <th>Report Reason</th>
+                            <th>Report Comments</th>
+                            <th>Report Contact</th>
+                            <th>Report Status</th>
+                            <th>Reported At</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <thead>
+                        <?php if (!empty($data['reportedAds'])): ?>
+                            <?php foreach ($data['reportedAds'] as $ad): ?>
+                            <tbody>
+                                <tr>
+                                    <!-- <td><?php echo $ad->report_id; ?></td> -->
+                                    <td><?php echo $ad->ad_id; ?></td>
+                                    <td><?php echo $ad->ad_title; ?></td> 
+                                    <td><?php echo $ad->reporter_id; ?></td>
+                                    <td><?php echo $ad->report_reason; ?></td>
+                                    <td><?php echo $ad->report_comments; ?></td>
+                                    <td><?php echo $ad->report_contact; ?></td>
+                                    <td><?php echo $ad->report_status; ?></td>
+                                    <td><?php echo $ad->report_created_at; ?></td>
+                                    
+                                    <td><button onclick="confirmDelete(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
+                                    <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
+                                    
+                                </tr>
+                            </tbody>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="8">No reported ads found.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </table>
+                </div>
             </div>
 
             <div id="settings-content" class="content-section">
                 <div class="profile-settings-container">
-                <div class="tabs-container">
-                <button class="tab-link active" onclick="openTab('general')" data-section="general">General</button>
-                <button class="tab-link" onclick="openTab('change-password')" data-section="change-password">Change Password</button>
-                <!-- <button class="tab-link" onclick="openTab(event, 'notification')" data-section="notification">Notification</button> -->
-            </div>
+                    <div class="tabs-container">
+                        <!-- <button class="tab-link active" onclick="openTab(event, 'general')">General</button>
+                        <button class="tab-link" onclick="openTab(event, 'change-password')">Change Password</button>
+                        <button class="tab-link" onclick="openTab(event, 'notification')">Notification</button> -->
+                        <button class="tab-link active" onclick="openTab('general')" data-section="general">General</button>
+                        <button class="tab-link" onclick="openTab('change-password')" data-section="change-password">Change Password</button>
+                    </div>
 
-                    <div id="general" class="tab-content active" data-section="general">
+                    <div id="general" class="tab-content active"  data-section="general">
                                 <div class="col-md-3 pt-0">
-                                    <div class="main-profile-img">
+                                    <div class="profile_image">
                                         <div class="image-container">
                                             <?php
                                             if (!empty($data['userdetails']->profile_image)) {
@@ -661,9 +687,8 @@
                                             }
                                             ?>
                                         </div>
-                                    </div> 
-                                    <div class="dashboard-icons-container"> 
-                                        <form method="POST" action="<?php echo URLROOT; ?>/moderators/index#settings-content" enctype="multipart/form-data">               
+                                    </div>  
+                                    <form method="POST" action="<?php echo URLROOT; ?>/moderators/index#settings-content" enctype="multipart/form-data">               
                                             <div class="">
                                                 <button type="button"><label for="upload-photo" title="Browse Photo"><i class="fas fa-edit"></i></label></botton>
                                                 <div class="file-upload">
@@ -672,14 +697,12 @@
                                                 <button class="savebutton"  type="submit" title="Save Photo"><i class="fas fa-bookmark"></i></button> 
                                             </div>
                                         </form>
-                                        <?php if (!empty($data['userdetails']->profile_image)) : ?>
-                                            <form method="POST" action="<?php echo URLROOT; ?>/moderators/index#settings-content">
-                                                <input type="hidden" name="delete_photo" value="1">
-                                                <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
-                                                <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')" class="" title="delete photo"><i class="fas fa-trash-alt"></i></button>
-                                            </form>
-                                        <?php endif; ?>
-                                    </div>
+                                <?php if (!empty($data['userdetails']->profile_image)) : ?>
+                                    <form method="POST" action="<?php echo URLROOT; ?>/users/remove_photo">
+                                        <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
+                                        <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')">Delete Photo</button>
+                                    </form>
+                                <?php endif; ?>
                                 </div>
                                 <form id="editProfileForm" action="<?php echo URLROOT; ?>/moderators/edit_profile" method="POST" >
                                 <div class="right-below">
@@ -723,8 +746,6 @@
                                 </form>
 
                     </div>
-                    
-                    
 
                     <div id="change-password" class="tab-content" data-section="change-password">
                         <form id="changePasswordForm" action="<?php echo URLROOT; ?>/users/update" method="POST" >
@@ -753,46 +774,36 @@
                             </div>
                         </form>
                     </div>
-
-
-                    <!-- <div id="notification" class="tab-content" data-section="notification">
+                    <div id="notification" class="tab-content" data-section="notification">
                         <h3>Notification Settings</h3>
                         <p>Customize your notification preferences here.</p>
-                    </div> -->
+                    </div>
                 </div>
             </div>
-
-
-            <div id="signout-content" class="content-section" >
-            <p>This is the content for the signout tab.</p>
-            </div>
-
+                
         </div>
-
-
-
     </div>
 
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/ad_view.js"></script>
-   
     <script>
     // Function to show/hide content sections based on the clicked tab
     function showContent(section) {
+        // event.preventDefault();
         // Hide all content sections
         document.getElementById('dashboard-content').style.display = 'none';
         document.getElementById('users-content').style.display = 'none';
-        document.getElementById('activity-content').style.display = 'none';
-        document.getElementById('reported-ads-content').style.display = 'none';
+        document.getElementById('moderators-content').style.display = 'none';
+        document.getElementById('centers-content').style.display = 'none';
         document.getElementById('secondhand-content').style.display = 'none';
         document.getElementById('secondhand-ad-view-content').style.display = 'none';
         document.getElementById('recycle-content').style.display = 'none';
+        document.getElementById('activity-content').style.display = 'none';
+        document.getElementById('reported-ads-content').style.display = 'none';
         document.getElementById('settings-content').style.display = 'none';
-        document.getElementById('signout-content').style.display = 'none';
 
         // Show the selected content section
         document.getElementById(section).style.display = 'block';
- 
-        // Select the sidebar element
+
+         // Select the sidebar element
         a_name=section.split("-content")[0]+'-tab';
         document.getElementById(a_name).parentElement.classList.add('hovered');
 
@@ -800,7 +811,7 @@
         window.location.hash = '#' + section;
     }
 
-    // Function to handle initial content section based on URL hash
+    // Function to redirect to the current active section
     function handleInitialSection() {
         var hash = window.location.hash;
         // console.log("hash" + hash);
@@ -827,64 +838,8 @@
     // Call the function when the page loads
     handleInitialSection(); 
     window.onload = handleInitialSection;
+
     
-    </script>
-
-    <!-- sweetalert remove ad pop up message -->
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/reportads.js"></script>
-    <script>
-    // Function to handle search input
-    function handleSearch() {
-        var searchInput = document.getElementById('searchInput').value.toLowerCase();
-        var currentSection = getCurrentSection(); // You can define this function to get the current active section
-
-        // Check which section is currently active and update the content based on the search query
-        switch (currentSection) {
-            case 'dashboard-content':
-                filterDashboardContent(searchInput);
-                break;
-            case 'users-content':
-                filterPlatformUsersContent(searchInput);
-                break;
-            case 'reported-ads-content':
-                filterReportedAdsContent(searchInput);
-                break;
-            case 'secondhand-content':
-                filterSecondHandContent(searchInput);
-                break;
-            case 'recycle-content':
-                filterRecycleContent(searchInput);
-                break;
-            default:
-                break;
-        }
-    }
-
-    // Example filter functions for different sections
-    function filterDashboardContent(query) {
-        // Implement filtering logic for dashboard content
-    }
-
-    function filterPlatformUsersContent(query) {
-        // Implement filtering logic for platform users content
-    }
-
-    function filterReportedAdsContent(query) {
-        // Implement filtering logic for reported ads content
-    }
-
-    function filterSecondHandContent(query) {
-        // Implement filtering logic for second hand content
-    }
-
-    function filterRecycleContent(query) {
-        // Implement filtering logic for recycle content
-    }
-    </script>
-
-    <!-- JS FOR settings content -->
-    <script>
-
         // Function to show a specific section based on the hash in the URL
         function showSection(sectionName) {
             var tabContent = document.getElementById(sectionName);
@@ -918,74 +873,36 @@
             showSection(sectionName);
         }
         
-            const changepwd = document.getElementById('changePasswordForm');
-        
-            changepwd.onsubmit = function(event){
-                event.preventDefault();
-
-                fetch('<?php echo URLROOT; ?>/users/update',{
-                    method: 'POST',
-                    body: new FormData(changepwd)
-                })
-                .then(data =>{
-
-                })
-                .then(data => {
-                    // Handle the response data as needed
-                    //console.log(data);
-
-                    window.location.reload();
-                })
-                
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            }
-
-            // Get Edit Form
-            const editForm = document.getElementById('editProfileForm');
-    
-            editForm.onsubmit = function(event){
-                event.preventDefault();
-            
-                fetch('<?php echo URLROOT; ?>/moderators/edit_profile', {
-                    method: 'POST',
-                    body: new FormData(editForm)
-                })
-                .then(data => {
-                    // Handle the response data as needed
-                    //console.log(data);
-
-                    window.location.reload();
-                })
-                
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            }
-        
-
         let profilePic = document.getElementById("profile-pic");
         let inputFile = document.getElementById("upload-photo");
 
         inputFile.onchange = function(){
-        profilePic.src = URL.createObjectURL(inputFile.files[0])
-        }
-
+        profilePic.src = URL.createObjectURL(inputFile.files[0])}
+    
     </script>
-
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
     <script>
-    var userCounts = <?php echo json_encode($data['userCounts']); ?>;
-    var adCountsByCategory = <?php echo json_encode($data['adCountsByCategory']); ?>;
+        var users = <?php echo json_encode($data['users']); ?>;
+        var moderators = <?php echo json_encode($data['moderators']); ?>;
+        var userCounts = <?php echo json_encode($data['userCounts']); ?>;
+        var adCountsByCategory = <?php echo json_encode($data['adCountsByCategory']); ?>;
     </script> 
+
     <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
-    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/dashboards/ad_view.js"></script> -->
-    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/search.js"></script> -->
-    
-    
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/alerts.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/ad_view.js"></script>
+
+    <script type ="text/JavaScript">
+        var URLROOT ="<?php echo URLROOT; ?>"
+        var CURRENT_AD = "<?php echo $data['ad']->ad_id ?>";
+    </script>
+
+
+    <!-- JS for other interactions -->
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/reportads.js"></script>
 
 
 

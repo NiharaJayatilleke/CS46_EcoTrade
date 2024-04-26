@@ -408,8 +408,8 @@
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/seller/dashboard_tabs.js"></script>
     
     <!-- Javascript for image upload -->
-    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script> -->
+    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script> -->
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
 
 
 

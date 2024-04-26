@@ -71,13 +71,17 @@
         }
 
         public function getAdContent($id){
+            
+            error_log('getAddContent function called with adId: ' . $id);
+
             $ad = $this->itemAdsModel->getAdById($id);
             $offers = $this->offersModel->getOffersByAd($id);
             $acceptedOffer = $this->offersModel->getAcceptedOfferByAd($id);
             $bidDetails = $this->auctionsModel->getBiddingDetailsByAd($id);
             $bids = $this->auctionsModel->getBidsByAd($id);
             $numBids = count($bids);
-            $seller = $this->usersModel->getUserDetails($ad->seller_id);
+            $sellerId = $ad->seller_id;
+            $seller = $this->usersModel->getUserDetails($sellerId);
             $number = $seller->number;
 
             if (isset($bidDetails->starting_time) && isset($bidDetails->auction_duration)) {

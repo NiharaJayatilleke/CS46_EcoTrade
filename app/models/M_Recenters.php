@@ -102,7 +102,7 @@
 
 
         public function getAds(){
-            $this->db->query('SELECT * FROM Re_Centers');
+            $this->db->query('SELECT * FROM Recycle_Center_Requirements');
             $results = $this->db->resultSet();
             return $results;
         }
@@ -116,7 +116,7 @@
         }
 
         public function delete($adId){
-            $this->db->query('DELETE FROM Re_Centers WHERE rad_id = :id');
+            $this->db->query('DELETE FROM Recycle_Center_Requirements WHERE rad_id = :id');
             $this->db->bind(':id',$adId);
 
             if($this->db->execute()){

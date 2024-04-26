@@ -407,7 +407,7 @@
                     <div class="ads-container">
                         <?php foreach($data['ads'] as $ad): ?>
                         <!-- <a class="ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>"> -->
-                        <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id; ?>')">
+                        <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id?>')">
                             <div class="ad-index-container"
                                 data-price="<?php echo $ad->item_price ?>"
                                 data-condition="<?php echo $ad->item_condition ?>"
@@ -622,6 +622,36 @@
             <!-- Recycle ads-->
             <div id="recycle-content" class="content-section">
                 <!-- centers should be fetched here -->
+
+                <div class="heading-dashboard">
+                    <h2>Recycle Item Ads</h2>
+                </div>
+
+                <div class="ad-right-container">
+                    <?php if (!empty($data['rec_ads'])) : ?>
+                        <div class="ads-container">
+                            <?php foreach($data['rec_ads'] as $ad): ?>
+                                <!-- <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id?>')"> -->
+                                    <div class="ad-index-container">
+                                        <div class="ad-header">
+                                            <div class="ad-body-image">
+                                                <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
+                                            </div>
+
+                                            <div class="ad-item-name"><h3><?php echo $ad->item_name ?></h3></div>
+                                            <div class="ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
+                                            <div class="ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
+                                        </div>
+
+                                        <div class="ad-body">
+                                            <div class="ad-body-desc"><?php echo $ad->item_desc ?></div>
+                                        </div>
+                                    </div>
+                                <!-- </a> -->
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
 
             <!-- activity -->
@@ -842,6 +872,55 @@
     </div>
 
     <script>
+
+    window.onload = function() {
+        var adId = sessionStorage.getItem('adId');
+        if (adId) {
+            // If there's an ad ID, fetch and display the ad data
+            showAdContent(adId);
+        }
+    };
+
+    function showAdContent(adId) {
+
+        sessionStorage.setItem('adId', adId);
+        // Send a POST request to the server
+        fetch(URLROOT + "/ItemAds/getAdContent/" + adId, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            // body: JSON.stringify({adId: adId})
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            console.log(data);
+
+            showContent('secondhand-ad-view-content');
+            // Use the data to display the ad content
+            document.querySelector('.sad-item-name h1').textContent = data.ad.item_name;
+            document.querySelector('.sad-p1 p').textContent = 'Posted on ' + data.ad.item_created_at;
+            document.querySelector('.sad-ad-img').src = URLROOT + '/public/img/items/' + data.ad.item_image;
+            document.querySelector('.sad-price h2').textContent = 'Rs. ' + data.ad.item_price;
+            document.querySelector('.sad-neg').textContent = data.ad.negotiable == 'yes' ? 'Negotiable' : 'Non-Negotiable';
+            document.querySelector('.sad-condition').textContent = 'Condition: ' + data.ad.item_condition;
+            document.querySelector('.sad-desP').textContent = data.ad.item_desc;
+            document.querySelector('.sad-b3-p1 p').textContent = 'Sold by ' + data.ad.seller_name;
+            document.querySelector('.sad-b3-p2 p').textContent = data.ad.item_location;
+            document.querySelector('#show-number').dataset.number = data.number;
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
     // Function to show/hide content sections based on the clicked tab
     function showContent(section) {
         // event.preventDefault();
@@ -862,7 +941,7 @@
 
          // Select the sidebar element
         a_name=section.split("-content")[0]+'-tab';
-        document.getElementById(a_name).parentElement.classList.add('hovered');
+        // document.getElementById(a_name).parentElement.classList.add('hovered'); //get an error
 
          // Update the URL hash to store the current section
         window.location.hash = '#' + section;
