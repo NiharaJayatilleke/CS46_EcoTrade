@@ -297,21 +297,21 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <td></td>
                                     <td>Name of Ad</td>
                                     <td>Message</td>
                                     <td>Sent By</td>
                                     <td>Received on</td>
+                                    <td>Mark as read</td>
                                 </tr>
                             </thead>
 
                             <tbody>
-                            <?php foreach($data['re_ads'] as $re_ad): ?>
+                            <?php foreach($data['notifs'] as $notif): ?>
                                 <tr>
                                 <td><?= $re_ad->item_name ?></td>
-                                <td> <img src="<?php echo URLROOT?>/public/img/items/<?php echo $re_ad->item_image ?>" alt="Item Image" style="width: 70px; height: 60px;"></td>
+                                <td><?= $notif->message ?></td>
                                 <!-- <td>Rs. <= $re_ad->item_price ?></td> -->
-                                <td><?= $re_ad->created_at ?></td>
+                                <td><?php echo convertTime($notif->notif_created_at); ?></td>
                                 <!-- <td><= $re_ad->item_expiry ?></td> -->
                                 </tr>
                             <?php endforeach; ?>
