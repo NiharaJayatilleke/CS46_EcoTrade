@@ -1,5 +1,5 @@
 .type-background{
-    background:linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)), url('../../img/itemAds/pillows.jpg') no-repeat;
+    background:linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)), url('../../img/itemAds/recycle.jpg') no-repeat;
     /* background:linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)), url('../../img/itemAds/plant.jpg') no-repeat; */
     background-size: cover;
     filter: blur(10px);
@@ -53,7 +53,8 @@
 }
 
 .type-input-type:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 #secondhand {
@@ -79,7 +80,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.6); /* White with 60% opacity */
+    /* background-color: rgba(255, 255, 255, 0.6); White with 60% opacity */
+    background-color: rgba(255, 255, 255, 0.9); 
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
     border-bottom-left-radius: 20px;
@@ -112,12 +114,12 @@
 
 #secondhand:hover {
     background-color: #fffefe; 
-    transform: scale(1.2);
+    transform: scale(1.03);
 }
 
 #recycle:hover {
     background-color: #90ee90; /* Light green */
-    transform: scale(1.2);
+    transform: scale(1.03);
 }
 
 /* .type-input-type-title {
