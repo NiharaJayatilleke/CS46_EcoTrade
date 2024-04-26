@@ -87,6 +87,8 @@
                         <h2>Seller Dashboard</h2>
                     </div>
 
+                    <div class="details" style=" display: block;">
+                    <div class="recentOrders">
                     <!-- seller rating -->
                     <div class="review-new-wrapper">
                     <div class="review-info">
@@ -197,6 +199,8 @@
                                 </ul>
                             </div>    
                         </div>
+                    </div>
+                    </div>
                     </div>
                     </div>
 
