@@ -41,7 +41,7 @@
                 <li>
                     <a href="#settings-content" id="settings-tab" onclick="showContent('settings-content')">
                         <span class = "side-icon"><ion-icon name="cog-outline"></ion-icon></span>
-                        <span class = "side-title">Settings</span>
+                        <span class = "side-title">Edit Profile</span>
                     </a>
                 </li>
                 <li>
@@ -114,9 +114,21 @@
                 </div>
 
                 <div class="details" style=" display: block;" >
+                    <!-- Recycle Item Ads -->
                     <div class="recentOrders">
                         <div class="cardHeader">
-                            <h2>Recent Activities</h2>
+                            <h2>Saved Recycle Item Ads</h2>
+                            <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a>
+                        </div>
+                        <table>
+
+                        </table>
+                    </div>
+
+                    <!-- Recycle Center Requirements -->
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Saved Recycle Center Requirements</h2>
                             <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a>
                         </div>
                         <table>
@@ -234,123 +246,16 @@
             </div>
 
             <div id="settings-content" class="content-section">
-                <div class="profile-settings-container">
-                    <div class="tabs-container">
-                        <!-- <button class="tab-link active" onclick="openTab(event, 'general')">General</button>
-                        <button class="tab-link" onclick="openTab(event, 'change-password')">Change Password</button>
-                        <button class="tab-link" onclick="openTab(event, 'notification')">Notification</button> -->
-                        <button class="tab-link active" onclick="openTab('general')" data-section="general">General</button>
-                        <button class="tab-link" onclick="openTab('change-password')" data-section="change-password">Change Password</button>
-                    </div>
-
-                    <div id="general" class="tab-content active"  data-section="general">
-                                <div class="col-md-3 pt-0">
-                                    <div class="profile_image">
-                                        <div class="image-container">
-                                            <?php
-                                            if (!empty($data['userdetails']->profile_image)) {
-                                                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['userdetails']->profile_image . '" alt="Profile Image" class="d-block ui-w-80" id="profile-pic">';
-                                            } else {
-                                                echo '<img src="' . URLROOT . '/public/img/profile.png" alt="Default Profile Image" class="d-block ui-w-80" id="profile-pic">';
-                                            }
-                                            ?>
-                                        </div>
-                                    </div>  
-                                    <form method="POST" action="<?php echo URLROOT; ?>/moderators/index#settings-content" enctype="multipart/form-data">               
-                                            <div class="">
-                                                <button type="button"><label for="upload-photo" title="Browse Photo"><i class="fas fa-edit"></i></label></botton>
-                                                <div class="file-upload">
-                                                    <input type="file" id="upload-photo" name="photo" accept="image/*">
-                                                </div>
-                                                <button class="savebutton"  type="submit" title="Save Photo"><i class="fas fa-bookmark"></i></button> 
-                                            </div>
-                                        </form>
-                                <?php if (!empty($data['userdetails']->profile_image)) : ?>
-                                    <form method="POST" action="<?php echo URLROOT; ?>/users/remove_photo">
-                                        <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
-                                        <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')">Delete Photo</button>
-                                    </form>
-                                <?php endif; ?>
-                                </div>
-                                <form id="editProfileForm" action="<?php echo URLROOT; ?>/moderators/edit_profile" method="POST" >
-                                <div class="right-below">
-                                    <div class="right-left">
-                                        <div class="tab-pane fade active show" id="account-general">
-                                            <div class="card-body media align-items-center"></div>
-                                            <div class="card-body">
-                                                <!-- <form method="POST" action="<?php echo URLROOT; ?>/moderators/edit_profile"> -->
-                                                    <div class="form-group">
-                                                        <label class="form-label">Username</label>
-                                                        <input type="text" class="form-control input-field-box" name="newUsername" value="<?php echo $_SESSION['user_name']; ?>">
-                                                        <div class="form-invalid"><?php error('newUsername'); ?></div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="form-label">E-mail</label>
-                                                        <input type="text" class="form-control input-field-box" value="<?php echo $_SESSION['user_email']; ?>" disabled>
-                                                    </div>
-                                              
-                                            </div>
-                                          
-                                        </div>
-                                    </div>
-                                    <div class="right-right">
-                                    <div class="form-group">
-                                        <label class="form-label">Contact number</label>
-                                        <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
-                                        <div class="form-invalid abs-error"><?php error('newContactNumber'); ?></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">User-Type</label>
-                                        <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>" disabled>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div style="margin-top: 20px; ">
-                                    <?php flash('profile_edit'); ?>
-                                </div>
-                                <div class="profile-buttons">
-                                    <button class="profile-updatebt">Edit profile</button>
-                                </div>
-                                </form>
-
-                    </div>
-
-                    <div id="change-password" class="tab-content" data-section="change-password">
-                        <form id="changePasswordForm" action="<?php echo URLROOT; ?>/users/update" method="POST" >
-                            <div class="cp-container">
-                                <div class="form-cp"> 
-                                    <label class="form-label" for="oldPassword">Old Password</label>
-                                    <input type="password" id="oldPassword" name="oldPassword" class="form-control input-field-box" required> 
-                                        <div class="form-invalid"><?php error('oldPassword'); ?></div> 
-                                </div>
-                                <div class="form-cp">
-                                    <label class="form-label" for="newPassword">New Password</label>
-                                    <input type="password" id="newPassword"   name="newPassword" class="form-control input-field-box" required>     
-                                        <div class="form-invalid"><?php error('newPassword'); ?></div>
-                                </div>
-                                <div class="form-cp">
-                                    <label class="form-label" for="confirmPassword">Confirm New Password</label>
-                                    <input type="password" id="confirmPassword"  name="confirmPassword" class="form-control input-field-box" required> 
-                                </div>
-                                <div class="profile-buttons"> 
-                                    <button class="profile-updatebt">Change Password</button> 
-                                </div>
-                                <div id="changePasswordMessage" class="form-invalid"></div> 
-                            </div>
-                            <div style="margin-top: 30px;">
-                            <?php flash('update_password'); ?>
-                            </div>
-                        </form>
-                    </div>
-                    <div id="notification" class="tab-content" data-section="notification">
-                        <h3>Notification Settings</h3>
-                        <p>Customize your notification preferences here.</p>
-                    </div>
-                </div>
             </div>
                 
         </div>
     </div>
+
+    <script>
+        document.getElementById('settings-content').addEventListener('click', function() {
+            window.location.href = "<?php echo URLROOT ?>/Collectors/edit/2"; 
+        });
+    </script>
 
     <script>
     // Function to show/hide content sections based on the clicked tab
