@@ -416,3 +416,10 @@ CREATE OR REPLACE VIEW v_re_reqs AS
     FROM Recycle_Center_Requirements
     JOIN General_User ON Recycle_Center_Requirements.center_id = General_User.id
     ORDER BY Recycle_Center_Requirements.created_at DESC;
+
+    CREATE TABLE Saved_Requirements(
+        collector_id INT,
+        req_id INT,
+        FOREIGN KEY(collector_id) REFERENCES General_User(id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY(req_id) REFERENCES Recycle_Center_Requirements(rad_id) ON UPDATE CASCADE ON DELETE CASCADE
+    );

@@ -278,6 +278,11 @@
             $this->view('users/collectors/about',$data);
         }
 
+        public function saveReq($reqId){
+            $collectorId = $_SESSION(['user_id']);
+            $this->collectorModel->saveReq($collectorId,$reqId);
+        }
+
         // public function dashboard(){
         //     $data = [];
         //     $this->view('users/collectors/dashboard',$data);
