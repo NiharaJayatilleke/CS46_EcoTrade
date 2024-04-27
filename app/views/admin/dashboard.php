@@ -481,7 +481,7 @@
                         <div class="sad-left-container">
                         
                             <div class="sad-big-photo">
-                                <a href="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" data-lightbox="sad-ad-img">
+                                <a href="#" data-lightbox="sad-ad-img">
                                     <img class="sad-ad-img" src="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" alt="Ad Image">
                                 </a>
                             </div>
