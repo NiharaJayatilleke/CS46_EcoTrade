@@ -3,7 +3,7 @@
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_sellerpro.css">
 
-    <div class="frame">
+    <!-- <div class="frame">
       <div class="image8"></div>
       <div class="rectangle"></div>
       <div class="image9"></div>
@@ -198,4 +198,143 @@
       <div class="verified-purchase6">Verified Purchase</div>
     </div>
   </body>
-</html>
+</html> -->
+
+
+
+
+<div class="editpro69">
+    <div class="website-structure">
+      <div class="frame-parent">
+        <div class="account-wrapper">
+          <div class="account">Account</div>
+        </div>
+        <div class="rokieophoto-0-wrapper">
+          <div class="rokieophoto-0">rokieophoto_0</div>
+        </div>
+        <div class="profile-picture"></div>
+        <div class="divider"></div>
+      </div>
+      <main class="navigation-panel">
+        <div class="account-navigation">
+        
+        </div>
+        <section class="frame-group">
+          <div class="frame-container">
+            <div class="parent">
+              <img class="icon" alt="" src="../public/img/profilepic/34625451.jpg" />
+
+              <div class="frame-child"></div>
+            </div>
+            <div class="action-divider"></div>
+            <div class="profile-actions">
+              <div class="action-buttons">
+                <div class="change-profile-picture">Change Profile Picture</div>
+                <div class="remove-profile-picture">Remove Profile Picture</div>
+              </div>
+            </div>
+          </div>
+          <div class="info-panel">
+            <div class="info-title-icons-parent">
+              <div class="info-title-icons"></div>
+              <div class="top-divider"></div>
+              <h1 class="personal-info">Personal info</h1>
+              <div class="preference-options-parent">
+                <div class="preference-options">
+                  <div class="rectangle"></div>
+                  <div class="rectangle1"></div>
+                </div>
+                <div class="frame-wrapper">
+                  <div class="username-parent">
+                    <label class="username"><strong>Username</strong></label>
+                      <input class="rokieophoto-01" type="text" placeholder="rokieophoto_0" />
+                
+                    <div class="edit">Edit</div>
+                  </div>
+                </div>
+                <div class="additional-info">
+                  <div class="preference-options1">
+                    <div class="rectangle3"></div>
+                  </div>
+                  <div class="account-type-info-wrapper">
+                    <div class="account-type-info">
+                      <div class="account-type"><strong>Account Type</strong></div>
+                      <div class="individual">Individual</div>
+                    </div>
+                  </div>
+                  <div class="cart-icon-area">
+                    <div class="rectangle4"></div>
+                    <div class="rectangle5"></div>
+                  </div>
+                  <div class="edit-phone-icon">
+                    <div class="contact-info-parent">
+                      <div class="contact-info"><strong>Contact Info</strong></div>
+                      <div class="username-settings">
+                        <div class="displayed-email-area">
+                          <div class="email-details-area">
+                            
+                            <label class="email-address">Email address</label>
+                      <input class="rclgmailcom" type="text" placeholder="rcl@gmail.com" />
+                          </div>
+                          <div class="edit1">Edit</div>
+                        </div>
+                        <div class="phone-number-input-area-parent">
+                          <div class="phone-number-input-area">
+                            <div class="phone-input-fields"></div>
+                            <div class="phone-input-fields1"></div>
+                          </div>
+                          <div class="phone-action-area-parent">
+                            <div class="phone-action-area">
+                              <label class="phone-number">Phone number</label>
+                              <input class="phone-number-input" type="text" placeholder="0717410586" />
+                            
+                            </div>
+                            <div class="edit2">Edit</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="password-input-fields-parent">
+                  <div class="password-input-fields"></div>
+                  <div class="new-password-inputs">
+                    <div class="password-inputs-area-parent">
+                      <div class="password-inputs-area">
+                        <div class="change-password-wrapper">
+                          <div class="change-password"><strong>Change Password</strong></div>
+                        </div>
+                        <div class="old-password">Old Password</div>
+                        <div class="password-input-fields1">
+                          <div class="new-password">New Password</div>
+                        </div>
+                        <div class="account-info">
+                          <div class="confirm-password">Confirm Password</div>
+                        </div>
+                        <div class="change">Change</div>
+                      </div>
+                      <div class="edit-email-icon">
+                        <div class="navigation">
+                          <div class="rectangle-parent">
+                            <div class="frame-item"></div>
+                            <div class="rusiru1wi">rusiru1wi</div>
+                          </div>
+                          <div class="rectangle-group">
+                            <div class="frame-inner"></div>
+                            <div class="rusiru1wi1">rusiru1wi</div>
+                          </div>
+                          <div class="rectangle-container">
+                            <div class="rectangle-div"></div>
+                            <div class="rusiru1wi2">rusiru1wi</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="page-divider"></div> -->
+            </div>
+          </div>
+        </section>
+</div>

@@ -1,4 +1,4 @@
-.image8,
+/* .image8,
 .rectangle {
   position: absolute;
   top: 90px;
@@ -1365,4 +1365,1179 @@
   font-family: var(--font-roboto);
 }
 
+ */
+
+
+
+ /* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Container styles 
+.main-container1 {
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-top: 3%;
+    padding: 2%;
+    border: 1px solid #D4E7F3;
+    background-color: #fff;
+}
+
+.main2 {
+    margin-top: 0;
+}
+
+/* Heading styles 
+.main-container1 h1 {
+    margin-left: 3%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 1%;
+    color: #333;
+}
+
+.main-container1 p {
+    color: #555;
+    font-size: 14px;
+    margin-left: 3%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 1%;
+}
+
+/* Container2 styles 
+.container2 {
+    display: flex;
+    width: 100%;
+    /* border: 1px solid #D4E7F3;
+    /* border: 1px solid #bdbdbd; 
+    background-color: #fff;
+    margin-top: 0px;
+}
+
+.left-container {
+    width: 60%;
+    padding: 2%;
+    margin-right: 30px;
+}
+
+.right-container {
+    width: 40%;
+    padding: 1%; 
+    border-left: 1px solid #D4E7F3;
+    background-color: #e3e3e33f;
+    margin-top: 15px;
+}
+
+/* Image styles 
+.small-images {
+    margin-top: 3%;
+}
+
+.big-photo {
+    border: 1px solid #D4E7F3;
+    height: 300px;
+    margin-left: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.small-images img {
+    width: 70px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.big-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Button styles 
+.b1 {
+    display: flex;
+    align-items: center;
+    width: 98%;
+    height: 40px;
+    cursor: pointer;
+    border-bottom:1px solid #bdbdbd;
+    background-color: #e3e3e33f;
+    padding: 1%;
+}
+
+.b1 p {
+    width: 100%;
+    margin-top: 2%;
+    /* background-color: #F5F5F5; 
+    font-size: 14px;
+}
+
+.b1 img {
+    height: 35px;
+    width: 35px;
+    margin-left: 5%;
+}
+
+.b3 {
+    display: flex;
+    align-items: center;
+    width: 98%;
+    height: 40px;
+    cursor: pointer;
+    border-bottom:1px solid #bdbdbd;
+    background-color: #e3e3e33f;
+    padding: 1%;
+}
+
+.b3 img {
+    height: 30px;
+    width: 30px;
+    margin-left: 5%;
+}
+
+.b1 h4 {
+    margin-bottom: 0;
+    margin-left: 10%;
+}
+
+.b2 {
+    margin-right: 0%;
+}
+
+/* Icon styles 
+.i1 {
+    padding-top: 10px 10px 10px 10px;
+    margin: 5px 5px 5px 5px; 
+}
+
+.i2 {
+    padding-top: 10px 10px 10px 10px;
+    margin: 5px 5px 5px 5px; 
+    height: 30px;
+    width: 30px;
+}
+
+/* Heading styles 
+.heading {
+    display: flex;
+    flex-direction: column;
+}
+
+.heading p {
+    margin-top: 4%;
+    margin-left: 3%;
+}
+
+/* Description styles 
+.description {
+    padding-top: 2%;
+    margin-left: 3%;
+    background-color: #F2F7FB;
+    border: 1px solid #D4E7F3;
+}
+
+.desHead,
+.desP {
+    padding-left: 3%;
+}
+
+/* Line styles 
+.line {
+    border: 1px solid #D4E7F3;
+    margin: 10px;
+    height: 5px;
+}
+
+/* Bottom section styles 
+.bottom {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.bottom .b1 img {
+    height: 20px;
+}
+
+.bottom .b1 p {
+    padding-top: 5px;
+    margin-top: 5%;
+}
+
+.bottom .b1 button {
+    width: 50px;
+}
+
+/* Responsive styles 
+@media screen and (max-width: 768px) {
+    .main-container1 {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .container2 {
+        flex-direction: column;
+    }
+
+    .left-container,
+    .right-container {
+        width: 100%;
+        border: none;
+        padding: 2%;
+    }
+
+    .b1,
+    .bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .b1 img {
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
+}
+ */
+
+
+ .editpro69
+.account {
+  flex: 1;
+  position: relative;
+  line-height: 32px;
+}
+.editpro69
+.account-wrapper {
+  width: 198px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 58px;
+  box-sizing: border-box;
+}
+.editpro69
+.rokieophoto-0 {
+  height: 28px;
+  width: 123px;
+  position: relative;
+  line-height: 21px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.editpro69
+.rokieophoto-0-wrapper {
+  align-self: stretch;
+  height: 27px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin-top: -1.5px;
+  text-align: right;
+  font-size: 14px;
+}
+.editpro69
+.profile-picture {
+  width: 197px;
+  height: 4px;
+  position: relative;
+  background-color: #3665f3;
+  margin-top: -1.5px;
+}
+.editpro69
+.divider {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  z-index: 1;
+}
+.editpro69
+.frame-parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 41px 312px 27px 354px;
+  position: relative;
+}
+.editpro69
+.additional-site-navigation {
+  margin: 0;
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  line-height: 21px;
+  font-weight: 400;
+  font-family: inherit;
+  flex-shrink: 0;
+
+}
+.editpro69
+.account-navigation {
+  margin-left: -10123px;
+  height: 844px;
+  width: 104px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 781px 0 0;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.editpro69
+.icon {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 191px;
+  height: 191px;
+  object-fit: cover;
+}
+.editpro69
+.frame-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.editpro69
+.parent {
+  align-self: stretch;
+  height: 223px;
+  position: relative;
+}
+.editpro69
+.action-divider {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  z-index: 1;
+}
+.editpro69
+.change-profile-picture,
+.editpro69 .remove-profile-picture {
+  align-self: stretch;
+  position: relative;
+}
+.editpro69
+.remove-profile-picture {
+  height: 22px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.editpro69
+.action-buttons {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 7px;
+}
+.editpro69
+.frame-container,
+.editpro69 .profile-actions {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+.editpro69
+.frame-container {
+  width: 250px;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 19px 19px 715px;
+  position: relative;
+}
+.editpro69
+.info-title-icons,
+.editpro69 .top-divider {
+  position: absolute;
+  top: 617px;
+  left: 41px;
+  background-color: #e5e5e5;
+  width: 910px;
+  height: 1px;
+  margin-top: -65px;
+}
+.editpro69
+.top-divider {
+  top: 617px;
+  left: 41px;
+  height: 1px;
+}
+.editpro69
+.personal-info {
+  margin: 0;
+  position: absolute;
+  top: 4px;
+  left: 42px;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  width: 256px;
+  height: 38px;
+}
+.editpro69
+.rectangle {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  background-color: #e5e5e5;
+  width: 1166px;
+  height: 2px;
+}
+.editpro69
+.rectangle1 {
+  position: absolute;
+  top: 0;
+  left: 1px;
+  width: 1165px;
+  height: 3px;
+  z-index: 1;
+}
+.editpro69
+.preference-options {
+  align-self: stretch;
+  height: 4px;
+  position: relative;
+}
+.editpro69
+.rokieophoto-01,
+.editpro69 .username {
+  position: relative;
+  display: inline-block;
+  
+}
+.editpro69
+.username {
+  width: 94px;
+  flex-shrink: 0;
+  font-weight: bold;
+}
+.editpro69
+.rokieophoto-01 {
+  width: 123px;
+  margin-left: -130px;
+}
+.editpro69
+.displayed-username-area {
+  width: 499px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 20px 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.editpro69
+.edit {
+  width: 33px;
+  position: relative;
+  font-size: 13px;
+  color: #3665f3;
+  text-align: center;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.editpro69
+.frame-wrapper,
+.editpro69 .username-parent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.editpro69
+.username-parent {
+  flex: 1;
+  justify-content: space-between;
+  gap: 20px;
+}
+.editpro69
+.frame-wrapper {
+  width: 1150px;
+  justify-content: flex-start;
+  padding: 0 1px 7px;
+  box-sizing: border-box;
+}
+.editpro69
+.rectangle2,
+.editpro69 .rectangle3 {
+  align-self: stretch;
+ 
+  position: relative;
+  top:8px;
+  left: 0px;
+}
+.editpro69
+.rectangle3 {
+  height: 1px;
+  background-color: #e5e5e5;
+}
+.editpro69
+.preference-options1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.editpro69
+.account-type,
+.editpro69 .individual {
+  width: 120px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.editpro69
+.individual {
+  width: 82px;
+}
+.editpro69
+.account-type-info,
+.editpro69 .account-type-info-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.editpro69
+.account-type-info {
+  flex: 1;
+  justify-content: space-between;
+  gap: 20px;
+}
+.editpro69
+.account-type-info-wrapper {
+  width: 439px;
+  justify-content: flex-start;
+  padding: 0 1px 6px;
+  box-sizing: border-box;
+}
+.editpro69
+.rectangle4,
+.editpro69 .rectangle5 {
+  align-self: stretch;
+  height: 2px;
+  position: relative;
+}
+.editpro69
+.rectangle5 {
+  height: 1px;
+  background-color: #e5e5e5;
+}
+.editpro69
+.cart-icon-area {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.editpro69
+.contact-info,
+.editpro69 .email-address {
+  position: relative;
+  display: inline-block;
+}
+.editpro69
+.contact-info {
+  width: 112px;
+  flex-shrink: 0;
+}
+.editpro69
+.email-address {
+  width: 120px;
+}
+.editpro69
+.rclgmailcom {
+  align-self: stretch;
+  position: relative;
+  font-size: 14px;
+  color: #191919;
+  white-space: nowrap;
+}
+.editpro69
+.email-details-area {
+  width: 135px;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+  margin-left: 150px;
+}
+.editpro69
+.edit1 {
+  width: 33px;
+  position: relative;
+  color: #3665f3;
+  text-align: center;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-right: 30px;
+}
+.editpro69
+.displayed-email-area {
+  width: 793px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 100%;
+}
+.editpro69
+.phone-input-fields {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  background-color: #e5e5e5;
+}
+.editpro69
+.phone-input-fields1 {
+  align-self: stretch;
+  height: 3px;
+  position: relative;
+}
+.editpro69
+.phone-number-input-area {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.editpro69
+.phone-number {
+  width: 125px;
+  position: relative;
+  display: inline-block;
+}
+.editpro69
+.phone-number-input {
+  align-self: stretch;
+  position: relative;
+  color: #191919;
+}
+.editpro69
+.phone-action-area {
+  width: 138px;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 23px;
+  margin-left: 150px;
+}
+.editpro69
+.edit2 {
+  width: 33px;
+  position: relative;
+  color: #3665f3;
+  text-align: center;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-right: 30px;
+}
+.editpro69
+.phone-action-area-parent {
+  width: 793px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 100%;
+}
+.editpro69
+.phone-number-input-area-parent {
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 28px;
+  margin-top: -14px;
+}
+.editpro69
+.contact-info-parent,
+.editpro69 .phone-number-input-area-parent,
+.editpro69 .username-settings {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.editpro69
+.username-settings {
+  width: 810px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 46px;
+  font-size: 13px;
+  color: #707070;
+}
+.editpro69
+.contact-info-parent {
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+.editpro69
+.additional-info,
+.editpro69 .edit-phone-icon {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.editpro69
+.edit-phone-icon {
+  flex-direction: row;
+  padding: 0 0 0 1px;
+  box-sizing: border-box;
+}
+.editpro69
+.additional-info {
+  flex-direction: column;
+  gap: 43px;
+}
+.editpro69
+.password-input-fields {
+  align-self: stretch;
+  height: 3px;
+  position: relative;
+  z-index: 1;
+}
+.editpro69
+.change-password {
+  width: 172px;
+  position: relative;
+  display: inline-block;
+}
+.editpro69
+.change-password-wrapper {
+  width: 227px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 6px 20px 0 0;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #191919;
+}
+.editpro69
+.old-password {
+  width: 125px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-left: 40px;
+}
+.editpro69
+.new-password {
+  align-self: stretch;
+  position: relative;
+  margin-left: 20px;
+}
+.editpro69
+.password-input-fields1 {
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 15px 0 0;
+  box-sizing: border-box;
+}
+.editpro69
+.confirm-password {
+  align-self: stretch;
+  position: relative;
+  margin-left: 35px;
+}
+.editpro69
+.account-info {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 15px 0 0;
+  box-sizing: border-box;
+}
+.editpro69
+.change {
+  width: 67px;
+  position: relative;
+  color: #3665f3;
+  text-align: center;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.editpro69
+.password-inputs-area {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.editpro69
+.frame-item {
+  height: 35px;
+  width: 174px;
+  position: relative;
+  border-radius: 10px;
+  background-color: #e2e8f0;
+  display: none;
+}
+.editpro69
+.rusiru1wi {
+  height: 18px;
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  border-radius: 0%;
+  background-color: #e2e8f0;
+  align-content: center;
+  font-size: 12px;
+
+}
+.editpro69
+.frame-inner,
+.editpro69 .rectangle-parent {
+  border-radius: 10px;
+  background-color: #e2e8f0;
+}
+.editpro69
+.rectangle-parent {
+  width: 160px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 8px 26px 9px;
+  box-sizing: border-box;
+}
+.editpro69
+.frame-inner {
+  height: 35px;
+  width: 195px;
+  position: relative;
+  display: none;
+}
+.editpro69
+.rusiru1wi1 {
+  height: 18px;
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  border-radius: 0%;
+  background-color: #e2e8f0;
+  align-content: center;
+  font-size: 12px;
+
+}
+.editpro69
+.rectangle-div,
+.editpro69 .rectangle-group {
+  border-radius: 10px;
+  background-color: #e2e8f0;
+}
+.editpro69
+.rectangle-group {
+  /* flex: 1; */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 8px 37px 9px;
+  box-sizing: border-box;
+  min-width: 170px;
+}
+.editpro69
+.rectangle-div {
+  height: 35px;
+  width: 195px;
+  position: relative;
+  display: none;
+}
+.editpro69
+.rusiru1wi2 {
+  height: 18px;
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  border-radius: 0%;
+  background-color: #e2e8f0;
+  align-content: center;
+  font-size: 12px;
+}
+.editpro69
+.edit-email-icon,
+.editpro69 .navigation,
+.editpro69 .rectangle-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.editpro69
+.rectangle-container {
+  /* flex: 1; */
+  border-radius: 10px;
+  background-color: #e2e8f0;
+  justify-content: flex-start;
+  padding: 8px 37px 9px;
+  box-sizing: border-box;
+  min-width: 170px;
+}
+.editpro69
+
+.navigation {
+  width: 679px;
+  justify-content: flex-start;
+  gap: 5.5px;
+  margin-left: 370px;
+}
+.editpro69
+.edit-email-icon {
+  width: 1049px;
+  justify-content: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 9px;
+  color: #191919;
+}
+.editpro69
+.new-password-inputs,
+.editpro69 .password-inputs-area-parent {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.editpro69
+.password-inputs-area-parent {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+.editpro69
+.new-password-inputs {
+  width: 1150px;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0 1px;
+  box-sizing: border-box;
+}
+.editpro69
+.password-input-fields-parent,
+.editpro69 .preference-options-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.editpro69
+.password-input-fields-parent {
+  align-self: stretch;
+  gap: 38px;
+  font-size: 13px;
+  color: #707070;
+}
+.editpro69
+.preference-options-parent {
+  position: absolute;
+  top: 89px;
+  left: 41px;
+  width: 1166px;
+  gap: 42px;
+  font-size: 14px;
+}
+.editpro69
+.page-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.editpro69
+.info-title-icons-parent {
+  align-self: stretch;
+  height: 896px;
+  position: relative;
+  max-width: 100%;
+}
+.editpro69
+.info-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 15px 0 0;
+  box-sizing: border-box;
+  max-width: calc(100% - 267px);
+  text-align: left;
+  font-size: 30px;
+  color: #191919;
+}
+.editpro69
+.frame-group,
+.editpro69 .navigation-panel,
+.editpro69 .website-structure {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-family: "Helvetica Neue";
+}
+.editpro69
+.frame-group {
+  width: 1628px;
+  flex-direction: row;
+  gap: 17px;
+  flex-shrink: 0;
+ 
+  max-width: 100%;
+  text-align: center;
+  font-size: 13px;
+  color: #3665f3;
+}
+.editpro69
+.navigation-panel,
+.editpro69 .website-structure {
+  box-sizing: border-box;
+  text-align: left;
+}
+.editpro69
+.navigation-panel {
+  width: 1874px;
+  flex-direction: row;
+  padding: 0 123px;
+  gap: 10019px;
+  max-width: 100%;
+  font-size: 21px;
+  color: #000;
+}
+.editpro69
+.website-structure {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+  flex-direction: column;
+  /* padding: 138px 0 12px; */
+  line-height: normal;
+  letter-spacing: normal;
+  font-size: 16px;
+  color: #3665f3;
+  margin-left: -60px;
+}
+
+
+
+/* Media query for screens smaller than 450px */
+@media screen and (max-width: 450px) {
+  .editpro69 .additional-site-navigation {
+    font-size: 17px;
+    line-height: 17px;
+  }
+  .editpro69 .account-navigation {
+    padding-top: 330px;
+    box-sizing: border-box;
+  }
+  .editpro69 .personal-info {
+    font-size: 18px;
+  }
+
+  /* Ensure content fits within the window */
+  .editpro69 .frame-parent,
+  .editpro69 .info-panel,
+  .editpro69 .navigation-panel {
+    overflow-x: auto; /* Enable horizontal scrolling if content overflows */
+    min-width: 100%; /* Ensure content occupies at least the full width of the viewport */
+  }
+}
+
+/* Media query for screens smaller than 450px */
+@media screen and (max-width: 450px) {
+  .editpro69 .account-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+  }
+  .editpro69 .rokieophoto-0 {
+    width: auto;
+    margin: 10px 0;
+  }
+  .editpro69.frame-parent {
+    padding: 20px;
+  }
+  .editpro69 .account-navigation {
+    margin-left: 0;
+    width: 100%;
+    padding-top: 20px;
+  }
+  .editpro69 .info-title-icons-parent {
+    height: auto;
+    padding: 20px;
+  }
+  .editpro69 .info-panel {
+    font-size: 20px;
+    text-align: center;
+  }
+  .editpro69 .navigation-panel {
+    padding: 20px;
+    gap: 20px;
+  }
+  .editpro69 .website-structure {
+    padding: 80px 10px 10px;
+  }
+}
 
