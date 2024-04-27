@@ -311,7 +311,7 @@
                         <div class="account-info">
                           <div class="confirm-password">Confirm Password</div>
                         </div>
-                        <div class="change">Change</div>
+                        <div class="change">Save</div>
                       </div>
                       <div class="edit-email-icon">
                         <div class="navigation">
