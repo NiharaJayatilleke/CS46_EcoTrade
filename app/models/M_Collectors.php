@@ -110,6 +110,15 @@
             $this->db->bind(':collector_id', $collectorId);
             $this->db->bind(':req_id', $reqId);
         }
+
+
+        public function getCollectorDistricts($collector_id) {
+            $this->db->query('SELECT district_id FROM CollectorDistricts WHERE collector_id = :collector_id');
+            $this->db->bind(':collector_id', $collector_id);
+            $rows = $this->db->resultSet();
+            return array_map(function($row) { return $row->district_id; }, $rows);
+        }
+
         
                 
     }

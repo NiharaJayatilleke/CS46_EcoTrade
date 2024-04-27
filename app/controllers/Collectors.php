@@ -136,10 +136,14 @@
                 } else if($_SESSION['userType'] == 'collector') {
                     $districts = $this->districtModel->getDistricts();
 
+                    // Fetch the selected districts for the collector
+                    $selected_districts = $this->collectorModel->getCollectorDistricts($_SESSION['user_id']);
+
                     $data = [
                         'collector' => $collector,
                         'user' => $user,
-                        'districts' => $districts
+                        'districts' => $districts,
+                        'selected_districts' => $selected_districts
                     ];
 
                     // Load collector edit view
