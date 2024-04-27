@@ -1,14 +1,14 @@
 <?php
-    class Recenters extends Controller{
+   /* class Recenters extends Controller{
         public function __construct() {
             $this->recentersModel = $this->model('M_Recenters');
 
             $this->recycleItemAdsModel =$this->model('M_Recycle_Item_Ads');
             $this->usersModel = $this->model('M_Users');
-        }
+        } 
 
 
-    public function recenters(){
+    /*public function recenters(){
         // show("Recenters");
         
         if($_SERVER['REQUEST_METHOD'] =='POST'){
@@ -114,4 +114,4 @@
     }    
 
 }
-?>
+?> */

@@ -12,10 +12,10 @@
     <div class="ad-container1">
         <div class="ad-form-header1">
         <!-- <center><h2>Fill up the form to post your ad</h2></center> -->
-        <center><h2>Post Your Add Here</h2></center>
+        <center><h2>Post Your Requirements Here</h2></center>
         </div>
 
-        <form action="<?php echo URLROOT?>/Recenters/recenters" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo URLROOT?>/RecycleCenters/addRequirement" method="POST" enctype="multipart/form-data">
 
             <!-- item_name -->
             <!-- <div class="ad-form-input-title">Item Name</div>
