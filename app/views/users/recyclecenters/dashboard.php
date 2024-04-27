@@ -108,7 +108,7 @@
                                     <tr>
                                         <td>Category</td>
                                         <td>Description</td>
-                                        <td>Quantity</td>
+                                        <td>Required Quantity</td>
                                         <td>Posted</td>
                                         <td>Edit/Delete</td>
                                     </tr>

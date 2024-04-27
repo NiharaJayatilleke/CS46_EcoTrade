@@ -1,4 +1,5 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/collectors/dashboard.css">
 
     <div class="dashboard-container">
         <div class="dashboard-sidenav">
@@ -9,7 +10,12 @@
                         <span class = "side-title">EcoTrade</span>
                     </a>
                 </li>
-
+                <li>
+                    <a href="<?php echo URLROOT ?>/Pages/index">
+                        <span class = "side-icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class = "side-title">Home</span>
+                    </a>
+                </li>
                 <li>
                     <a href="#dashboard-content" id="dashboard-tab" onclick="showContent('dashboard-content')">
                         <span class = "side-icon"><ion-icon name="grid-outline"></ion-icon></span>
@@ -228,7 +234,8 @@
                                     <td>Description</td>
                                     <td>Quantity</td>
                                     <td>Posted</td>
-                                    <td>Edit/Delete</td>
+                                    <td>Contact Center</td>
+                                    <td>Save for later</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -239,10 +246,14 @@
                                         <td><?= $req->item_quantity ?></td>
                                         <td><?php echo convertTime($req->created_at); ?></td>
                                         <td>
-                                            <div class = "mod-control-btns">
-                                                <a href="<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>?updated=true"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
-                                            </div>
+                                            <i class="fas fa-phone fa-lg"></i>
+                                        </td>
+                                        <td>
+                                            <label class="save-ad-container">
+                                                <input type="checkbox" checked="checked">
+                                                <svg class="save-regular" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"></path></svg>
+                                                <svg class="save-solid" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"></path></svg>
+                                            </label>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
