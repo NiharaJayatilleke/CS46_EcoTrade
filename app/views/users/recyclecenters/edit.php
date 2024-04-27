@@ -3,7 +3,7 @@
 
 <div class = "rcollector-body">
     <div class="collector-container">
-        <header>Recycle Center Registration</header>
+        <header>Edit Details</header>
         
         <form action="<?php echo URLROOT?>/Recyclecenters/edit" method="POST" enctype="multipart/form-data">
 
