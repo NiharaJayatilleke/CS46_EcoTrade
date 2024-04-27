@@ -246,16 +246,16 @@
                                     <tr>
                                         <td><?= $req->item_category ?></td>
                                         <td><?= $req->item_desc ?></td>
-                                        <td><?= $req->item_quantity ?></td>
+                                        <td><?= $req->item_quantity ?>kg</td>
                                         <td><?= $req->item_location ?></td>
                                         <td><?php echo convertTime($req->created_at); ?></td>
                                         <td>
-                                            <i class="fas fa-phone fa-lg dashboard-phone-icon"></i>
+                                            <i class="fas fa-phone fa-lg dashboard-phone-icon" id="show-cen-number" data-number="<?php echo $req->center_number?>"></i>
                                         </td>
                                         <td>
                                             <label class="save-ad-container">
                                                 <input type="checkbox" checked="checked">
-                                                <svg class="save-regular" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"></path></svg>
+                                                <div onclick="saveReq(<?= $req->rad_id ?>)"><svg class="save-regular" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"></path></svg></div>
                                                 <svg class="save-solid" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"></path></svg>
                                             </label>
                                         </td>
@@ -409,8 +409,8 @@
                 
         </div>
     </div>
-
-    <script>
+    
+    <script>   
         document.getElementById('settings-content').addEventListener('click', function() {
             window.location.href = "<?php echo URLROOT ?>/Collectors/edit/2"; 
         });
@@ -550,10 +550,10 @@
     </script> 
 
     <!-- Javascript for image upload -->
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
+    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script> -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/alerts.js"></script>
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/ad_view.js"></script>
+    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/ad_view.js"></script> -->
 
     <script type ="text/JavaScript">
         var URLROOT ="<?php echo URLROOT; ?>"
@@ -562,7 +562,8 @@
 
 
     <!-- JS for other interactions -->
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>
+    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script> -->
+    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/collectors/dashboard_interactions.js"></script> -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/reportads.js"></script>
 
 

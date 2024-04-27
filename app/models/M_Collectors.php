@@ -103,6 +103,13 @@
             $this->db->bind(':user_id', $user_id);
             return $this->db->single();
         }
+
+        public function saveReq($collectorId,$reqId){
+            $this->db->query('INSERT INTO Saved_Requirements(collector_id, req_id) VALUES (:collector_id, :req_id)');
+
+            $this->db->bind(':collector_id', $collectorId);
+            $this->db->bind(':req_id', $reqId);
+        }
         
                 
     }
