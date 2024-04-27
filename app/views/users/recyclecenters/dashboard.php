@@ -486,33 +486,48 @@
 
     // Function to handle initial content section based on URL hash
     function handleInitialSection() {
+    if (hash) {
+        var section = hash.substring(1);
+
         var hash = window.location.hash;
-        if (hash) {
-            // Extract the section name from the hash
-            var section = hash.substring(1); // Remove '#'
-            showContent(section);
-            currentSection = section;
+        if (['general', 'change-password'].includes(section)) {
+            console.log(section);
+            showContent('settings-content');
+            openTab(section)
         } else {
             // If no hash is present, default to the dashboard section
-            showContent('dashboard-content');
+            showContent(section);
+            currentSection = section;
+        }
+    }else{
+        showContent('dashboard-content');
             currentSection = 'dashboard-content';
         }
     }
-   handleInitialSection(); 
+    handleInitialSection(); 
     // Call the function when the page loads
     window.onload = handleInitialSection;
 
-    // Function to redirect to the current active section
-    function redirectToCurrentSection() {
-    // Get the current hash from the URL
-    var hash = window.location.hash;
-    if (hash) {
-        // Redirect to the current active section
-        var section = hash.substring(1);
-        window.location.href = '<?php echo URLROOT; ?>/moderators/index' + hash;
-        showContent(section);
-    }
-}
+    // Function to show a specific section based on the hash in the URL
+    function showSection(sectionName) {
+            var tabContent = document.getElementById(sectionName);
+            if (tabContent) {
+                // Hide all tab contents
+                var allTabs = document.querySelectorAll('.tab-content');
+                allTabs.forEach(tab => tab.style.display = 'none');
+
+                // Show the selected tab content
+                tabContent.style.display = 'block';
+
+                // Update tab styles if needed
+                var tabLinks = document.querySelectorAll('.tab-link');
+                tabLinks.forEach(link => link.classList.remove('active'));
+                var activeLink = document.querySelector('button[data-section="' + sectionName + '"]');
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        }
     
     </script>
 
