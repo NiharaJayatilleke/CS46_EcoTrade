@@ -128,6 +128,7 @@
             }
             else {
                 $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+                $collector = $this->collectorModel->getUserDetails($_SESSION['user_id']);
 
                 if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == null) {
                     // If user is not logged in, redirect to login page
@@ -136,6 +137,7 @@
                     $districts = $this->districtModel->getDistricts();
 
                     $data = [
+                        'collector' => $collector,
                         'user' => $user,
                         'districts' => $districts
                     ];
