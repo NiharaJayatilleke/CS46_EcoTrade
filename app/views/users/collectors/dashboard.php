@@ -83,7 +83,7 @@
                 </div>
             </div>
 
-            <!-- dashboard admin -->
+            <!-- dashboard-->
             <div id="dashboard-content" class="content-section">
                 <div class="heading-dashboard">
                     <h2>Collector Dashboard</h2>
@@ -114,10 +114,10 @@
                 </div>
 
                 <div class="details" style=" display: block;" >
-                    <!-- Recycle Item Ads -->
+                    <!-- Recycle Center Requirements -->
                     <div class="recentOrders">
                         <div class="cardHeader">
-                            <h2>Saved Recycle Item Ads</h2>
+                            <h2>Saved Recycle Center Requirements</h2>
                             <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a>
                         </div>
                         <table>
@@ -125,10 +125,10 @@
                         </table>
                     </div>
 
-                    <!-- Recycle Center Requirements -->
+                    <!-- Recycle Item Ads  -->
                     <div class="recentOrders">
                         <div class="cardHeader">
-                            <h2>Saved Recycle Center Requirements</h2>
+                            <h2>Saved Recycle Item Ads</h2>
                             <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a>
                         </div>
                         <table>
@@ -215,7 +215,41 @@
 
             <!-- Recycle Centers crud-->
             <div id="centers-content" class="content-section">
-                //somec content
+                <div class="details" style=" display: block;">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Posted Requirements</h2>
+                            <!-- <a href="#" class="btn">View All</a> -->
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Category</td>
+                                    <td>Description</td>
+                                    <td>Quantity</td>
+                                    <td>Posted</td>
+                                    <td>Edit/Delete</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($data['center_reqs'] as $req): ?>
+                                    <tr>
+                                        <td><?= $req->item_category ?></td>
+                                        <td><?= $req->item_desc ?></td>
+                                        <td><?= $req->item_quantity ?></td>
+                                        <td><?php echo convertTime($req->created_at); ?></td>
+                                        <td>
+                                            <div class = "mod-control-btns">
+                                                <a href="<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>?updated=true"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> 
             </div>
 
             <!-- Second hand ads-->
