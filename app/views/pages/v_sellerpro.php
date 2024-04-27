@@ -249,7 +249,8 @@
                     <label class="username"><strong>Username</strong></label>
                       <input class="rokieophoto-01" type="text" placeholder="rokieophoto_0" />
                 
-                    <div class="edit">Edit</div>
+                    <button class="edit">Edit</button>
+
                   </div>
                 </div>
                 <div class="additional-info">

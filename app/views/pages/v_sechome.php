@@ -482,8 +482,7 @@
                 <div class="des">
                     <span><?php echo $ad->item_condition ?></span>
                     <h5><?php echo $ad->item_name ?></h5>
-                    <div class="star" id="star-<?php echo $ad->ad_id ?>"></div> <!-- Add a unique ID for each ad's star container -->
-                    <h4>$78</h4>
+                    <h4>Rs.<?php echo $ad->item_price?></h4>
                 </div>
                 <a href="#" ><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
             </div>
