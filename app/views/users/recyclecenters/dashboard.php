@@ -257,8 +257,8 @@
                                         <td><?php echo convertTime($req->created_at); ?></td>
                                         <td>
                                             <div class = "mod-control-btns">
-                                                <a href="<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>?updated=true"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                                <a href=""><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <button onclick="" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -419,7 +419,7 @@
                                     <?php flash('profile_edit'); ?>
                                 </div> -->
                                 <div class="profile-buttons">
-                                    <button class="profile-updatebt" id="editProfileBtn">Edit profile</button>
+                                <a href="<?php echo URLROOT?>/Recyclecenters/edit"><button class="profile-updatebt" id="editProfileBtn">Edit profile</button></a>
                                 </div>
                                 <!-- </form> -->
 
@@ -460,7 +460,6 @@
             </div>
 
             <div id="signout-content" class="content-section">
-            <p>This is the content for the signout tab.</p>
             </div>
 
         <!-- </div> -->
@@ -543,9 +542,7 @@
             showSection(sectionName);
         }
 
-        document.getElementById('editProfileBtn').addEventListener('click', function() {
-        window.location.href = "<?php echo URLROOT . '/recyclecenters/edit/'; ?>";
-         });
+        
         const editForm = document.getElementById('editProfileForm');
     
         editForm.onsubmit = function(event){
@@ -599,13 +596,13 @@
 
       
     
-    </script>
-    </script>
+  
+
 
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
-    <script>var userCounts = <?php echo json_encode($data['userCounts']); ?>;
+    var userCounts = <?php echo json_encode($data['userCounts']); ?>;
 
-</script> 
+
         <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
