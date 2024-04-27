@@ -1870,7 +1870,14 @@
   text-align: center;
   display: inline-block;
   flex-shrink: 0;
+  cursor: pointer;
+  border: none;      /* Removes borders */
+  outline: none;     /* Ensures no outline when focused */
+    background: none;  /* Removes background color or gradient */
+  box-shadow: none;  /* Removes any shadow effects */
+  margin-right: 0px;
 }
+
 .editpro69
 .frame-wrapper,
 .editpro69 .username-parent {
@@ -2004,11 +2011,17 @@
 .edit1 {
   width: 33px;
   position: relative;
+  font-size: 13px;
   color: #3665f3;
   text-align: center;
   display: inline-block;
   flex-shrink: 0;
-  margin-right: 30px;
+  cursor: pointer;
+  border: none;      /* Removes borders */
+  outline: none;     /* Ensures no outline when focused */
+    background: none;  /* Removes background color or gradient */
+  box-shadow: none;  /* Removes any shadow effects */
+  margin-right: 10px;
 }
 .editpro69
 .displayed-email-area {
@@ -2068,11 +2081,17 @@
 .edit2 {
   width: 33px;
   position: relative;
+  font-size: 13px;
   color: #3665f3;
   text-align: center;
   display: inline-block;
   flex-shrink: 0;
-  margin-right: 30px;
+  cursor: pointer;
+  border: none;      /* Removes borders */
+  outline: none;     /* Ensures no outline when focused */
+    background: none;  /* Removes background color or gradient */
+  box-shadow: none;  /* Removes any shadow effects */
+  margin-right: 10px;
 }
 .editpro69
 .phone-action-area-parent {
@@ -2203,12 +2222,19 @@
 }
 .editpro69
 .change {
-  width: 67px;
+  width: 33px;
   position: relative;
+  font-size: 13px;
   color: #3665f3;
   text-align: center;
   display: inline-block;
   flex-shrink: 0;
+  cursor: pointer;
+  border: none;      /* Removes borders */
+  outline: none;     /* Ensures no outline when focused */
+    background: none;  /* Removes background color or gradient */
+  box-shadow: none;  /* Removes any shadow effects */
+  margin-right: 0px;
 }
 .editpro69
 .password-inputs-area {
