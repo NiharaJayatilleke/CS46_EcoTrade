@@ -474,7 +474,7 @@
 
                 <div class="sad-main-container1-in-dashboards">
                     <div class="sad-main2"></div>
-                        <div class = "sad-item-name"><h1><?php echo $data['ad']->item_name ?><h1></div>
+                        <div class = "sad-item-name"><h1> <?php if(isset($data['ad']->item_image)) { echo $data['ad']->item_name; }?><h1></div>
                         <div class = "sad-p1"><p>Posted on <?php echo $data['ad']->item_created_at ?></p></div>
 
                         <div class="sad-container2">
