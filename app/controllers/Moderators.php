@@ -4,6 +4,7 @@
             $this->moderatorModel = $this->model('M_Moderators');
             $this->itemAdsModel = $this->model('M_Item_Ads');
             $this->userModel = $this->model('M_Users');
+            $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads');
         }
 
         public function register(){
@@ -368,6 +369,8 @@
 
                 $ads = $this->itemAdsModel->getAds();
                 $numSecAds = count($ads);
+                $rec_ads = $this->recycleItemAdsModel->getAds();
+                $numRecAds = count($rec_ads);
                 $userCounts = $this->moderatorModel->getUserCounts();
                 $adCountsByCategory = $this->moderatorModel->getItemAdCountsByCategory();
                 $reportedAds = $this->moderatorModel->getReportedAds();
@@ -393,6 +396,7 @@
                     'users' => $users,
                     'collectors_count' => $numCollectors,
                     'centers_count' => $numCenters,
+                    'rec_ad_count' => $numRecAds
                 ];
 
                 $this->view('moderators/v_index', $data);

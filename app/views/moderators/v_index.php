@@ -165,15 +165,17 @@
                         </div>
 
 
+                        <a href="<?php echo URLROOT ?>/Moderators/index#recycle-content" style="text-decoration: none; color: inherit;">
                         <div class="dashboard-card">
                             <div>
-                                <div class="dashboard-numbers">80</div> 
-                                <div class="dashboard-cardName">Recycling Ads</div>
+                                <div class="dashboard-numbers"><?php echo $data['rec_ad_count'] ?></div> 
+                                <div class="dashboard-cardName">Recycling Item Ads</div>
                             </div>
-                            <div class="dashboard-iconBx"> 
-                                <ion-icon name="leaf"></ion-icon>   
+                            <div class="dashboard-iconBx">  
+                                <ion-icon name="leaf"></ion-icon>  
                             </div>
                         </div>
+                    </a>
                     </div>
 
                     <div class="graphBox">
@@ -283,7 +285,7 @@
                             <h2>Users</h2>
                             <!-- <a href="<?php echo URLROOT ?>/Users/register" class="btn">Add User</a> -->
                         </div>
-                        <table id="users-table">
+                        <table id="mod-table">
                             <thead>
                                 <tr>
                                     <td>Username</td>

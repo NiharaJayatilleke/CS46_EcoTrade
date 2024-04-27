@@ -23,14 +23,13 @@ function checkSearch() {
     switch (fragment) {
         case '#users-content':
         case '#secondhand-content':
-        case '#secondhand-content':
+        case '#secondhand-ad-view-content':
         case '#recycle-content':
-        case '#messages-content':
             showSearchBar();
             break;
         case '#dashboard-content':
         case '#activity-content':
-        case '#ad-report-content':
+        case '#reported-ads-content':
         case '#settings-content':
             hideSearchBar();
             break;
@@ -70,7 +69,7 @@ var choices = {
 };
 
 // Assuming 'users' is your data array
-var mod_fuse = new Fuse(users, choices);
+var mod_search = new Fuse(users, choices);
 
 // Function to perform search
 function modDashSearch() {
@@ -78,24 +77,24 @@ function modDashSearch() {
     var query = document.getElementById('mod-dashboard-search').querySelector('input').value;
 
     // Clear the table body
-    var tableBody = document.querySelector('#users-table tbody');
+    var tableBody = document.querySelector('#mod-table tbody');
     tableBody.innerHTML = '';
 
     // If the search query is empty, repopulate the table with all users
     if (!query) {
         users.forEach(function(user) {
-            var row = createRowUser(user); // Assuming createRowUser is a function that creates a row for a user
+            var row = createRowUsermodash(user); // Assuming createRowUsermodash is a function that creates a row for a user
             tableBody.appendChild(row);
         });
         return;
     }
 
     // Perform the search
-    var results = mod_fuse.search(query);
+    var resultsmod = mod_search.search(query);
 
-    // Add the results to the table body
-    results.forEach(function(result) {
-        var row = createRowUser(result.item);
+    // Add the resultsmod to the table body
+    resultsmod.forEach(function(result) {
+        var row = createRowUsermodash(result.item);
         tableBody.appendChild(row);
     });
 }
@@ -103,9 +102,8 @@ function modDashSearch() {
 // Attach the function to the oninput event of the search bar
 document.getElementById('mod-dashboard-search').querySelector('input').addEventListener('input', modDashSearch); 
 
-
 // Function to create a row for a user or moderator
-function createRowUser(item) {
+function createRowUsermodash(item) {
     var row = document.createElement('tr');
 
     var usernameCell = document.createElement('td');
@@ -194,17 +192,17 @@ function preownedDashSearch() {
     // If the search query is empty, repopulate the table with all users
     if (!query) {
         preowned.forEach(function(preowned) {
-            var row = createPreowned(preowned); // Assuming createRowUser is a function that creates a row for a user
+            var row = createPreowned(preowned); // Assuming createRowUsermodash is a function that creates a row for a user
             tableBody.appendChild(row);
         });
         return;
     }
 
     // Perform the search
-    var results = mod_preowned.search(query);
+    var resultsmod = mod_preowned.search(query);
 
-    // Add the results to the table body
-    results.forEach(function(result) {
+    // Add the resultsmod to the table body
+    resultsmod.forEach(function(result) {
         var row = createPreowned(result.item);
         tableBody.appendChild(row);
     });
