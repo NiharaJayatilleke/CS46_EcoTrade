@@ -125,6 +125,7 @@
             }
             else {
                 $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+                $center = $this->recycleCentersModel->getUserDetails($_SESSION['user_id']);
 
                 if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == null) {
                     // If user is not logged in, redirect to login page
@@ -132,9 +133,13 @@
                 } else if($_SESSION['userType'] == 'center') {
                     $recycle_categories = $this->categoryModel->getCategories();
 
+                    $selected_categories = $this->recycleCentersModel->getRecycleCentersCategories($_SESSION['user_id']);
+
                     $data = [
+                        'center' => $center,
                         'user' => $user,
-                        'categories' => $recycle_categories
+                        'categories' => $recycle_categories,
+                        'selected_categories' => $selected_categories
                     ];
 
                     // Load collector edit view

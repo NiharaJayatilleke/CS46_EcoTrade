@@ -1,5 +1,13 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var submitButton = document.querySelector('input[type="submit"]');
+    if (submitButton) {
+        submitButton.addEventListener('click', confirmTermsUpdate);
+    }
+});
+
 function confirmTermsUpdate(event) {
     event.preventDefault();
+    event.stopPropagation();
 
     var form = event.target.form;
 

@@ -12,7 +12,7 @@
         <div class="video-overlay header-text">
             <div class="caption">
                 <h6>Recycle, Earn</h6>
-                <h2>become <em>recycle center</em></h2>
+                <h2>become a <em>recycle center</em></h2>
                 <div class="main-button scroll-to-section">
                     <a href="<?php echo URLROOT ?>/Recyclecenters/register">register now</a>
                 </div>

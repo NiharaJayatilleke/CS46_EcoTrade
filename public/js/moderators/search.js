@@ -1,5 +1,5 @@
 // Function to show the search bar
-function showSearchBar() {
+function showModSearchBar() {
     var searchBar = document.getElementById('mod-dashboard-search');
     if (searchBar) {
         searchBar.style.display = 'block'; 
@@ -7,7 +7,7 @@ function showSearchBar() {
 }
 
 // Function to hide the search bar
-function hideSearchBar() {
+function hideModSearchBar() {
     var searchBar = document.getElementById('mod-dashboard-search');
     if (searchBar) {
         searchBar.style.display = 'none'; 
@@ -15,7 +15,7 @@ function hideSearchBar() {
 }
 
 // Function to check the URL fragment and show or hide the search bar accordingly
-function checkSearch() {
+function checkModSearch() {
     // Get the URL fragment
     var fragment = window.location.hash;
 
@@ -23,33 +23,31 @@ function checkSearch() {
     switch (fragment) {
         case '#users-content':
         case '#secondhand-content':
-        case '#secondhand-content':
         case '#recycle-content':
-        case '#messages-content':
-            showSearchBar();
+            showModSearchBar();
             break;
         case '#dashboard-content':
         case '#activity-content':
-        case '#ad-report-content':
+        case '#reported-ads-content':
         case '#settings-content':
-            hideSearchBar();
+            hideModSearchBar();
             break;
         default:
             // If there's no fragment or it doesn't match any of the cases, use the value from localStorage
             if (localStorage.getItem('searchBarVisible') === 'false') {
-                hideSearchBar();
+                hideModSearchBar();
             } else {
-                showSearchBar();
+                showModSearchBar();
             }
             break;
     }
 }
 
 // Check the state of the search bar when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', checkSearch);
+document.addEventListener('DOMContentLoaded', checkModSearch);
 
 // Also check the state of the search bar when the hash changes
-window.addEventListener('hashchange', checkSearch);
+window.addEventListener('hashchange', checkModSearch);
 
 //search in users
 // The Fuse.js options
@@ -70,7 +68,7 @@ var choices = {
 };
 
 // Assuming 'users' is your data array
-var mod_fuse = new Fuse(users, choices);
+var mod_search = new Fuse(users, choices);
 
 // Function to perform search
 function modDashSearch() {
@@ -78,24 +76,24 @@ function modDashSearch() {
     var query = document.getElementById('mod-dashboard-search').querySelector('input').value;
 
     // Clear the table body
-    var tableBody = document.querySelector('#users-table tbody');
+    var tableBody = document.querySelector('#mod-table tbody');
     tableBody.innerHTML = '';
 
     // If the search query is empty, repopulate the table with all users
     if (!query) {
         users.forEach(function(user) {
-            var row = createRowUser(user); // Assuming createRowUser is a function that creates a row for a user
+            var row = createRowUsermodash(user); // Assuming createRowUsermodash is a function that creates a row for a user
             tableBody.appendChild(row);
         });
         return;
     }
 
     // Perform the search
-    var results = mod_fuse.search(query);
+    var resultsmod = mod_search.search(query);
 
-    // Add the results to the table body
-    results.forEach(function(result) {
-        var row = createRowUser(result.item);
+    // Add the resultsmod to the table body
+    resultsmod.forEach(function(result) {
+        var row = createRowUsermodash(result.item);
         tableBody.appendChild(row);
     });
 }
@@ -103,9 +101,8 @@ function modDashSearch() {
 // Attach the function to the oninput event of the search bar
 document.getElementById('mod-dashboard-search').querySelector('input').addEventListener('input', modDashSearch); 
 
-
 // Function to create a row for a user or moderator
-function createRowUser(item) {
+function createRowUsermodash(item) {
     var row = document.createElement('tr');
 
     var usernameCell = document.createElement('td');
@@ -134,29 +131,6 @@ function createRowUser(item) {
 
     return row;
 }
-
-
-//   const ctx = document.getElementById('myChart');
-
-//   new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//       datasets: [{
-//         label: '# of Votes',
-//         data: [12, 19, 3, 5, 2, 3],
-//         borderWidth: 1
-//       }]
-//     },
-//     options: {
-//       scales: {
-//         y: {
-//           beginAtZero: true
-//         }
-//       }
-//     }
-//   });
-
 
 
 function searchHandler(){
@@ -194,17 +168,17 @@ function preownedDashSearch() {
     // If the search query is empty, repopulate the table with all users
     if (!query) {
         preowned.forEach(function(preowned) {
-            var row = createPreowned(preowned); // Assuming createRowUser is a function that creates a row for a user
+            var row = createPreowned(preowned); // Assuming createRowUsermodash is a function that creates a row for a user
             tableBody.appendChild(row);
         });
         return;
     }
 
     // Perform the search
-    var results = mod_preowned.search(query);
+    var resultsmod = mod_preowned.search(query);
 
-    // Add the results to the table body
-    results.forEach(function(result) {
+    // Add the resultsmod to the table body
+    resultsmod.forEach(function(result) {
         var row = createPreowned(result.item);
         tableBody.appendChild(row);
     });
