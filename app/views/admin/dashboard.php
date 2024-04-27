@@ -207,7 +207,8 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Recent Activities</h2>
-                            <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a>
+                            <!-- <a href="#users-content" class="btn" id="users-tab" onclick="showContent('users-content')">View All</a> -->
+                            <a href="<?php echo URLROOT; ?>/admin/index#activity-content" class="btn" id="activity-tab">View All</a>
                         </div>
                         <table>
                             <thead>
@@ -251,7 +252,8 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Users</h2>
-                            <a href="#users-content" class="btn" id="users-tab" onclick="showContent('users-content')">View All</a>
+                            <!-- <a href="#users-content" class="btn" id="users-tab" onclick="showContent('users-content')">View All</a> -->
+                            <a href="<?php echo URLROOT; ?>/admin/index#users-content" class="btn" id="activity-tab">View All</a>
                         </div>
                         <table>
                             <thead>
