@@ -51,6 +51,7 @@ function confirmTermsUpdate(event) {
         // Submit the form using AJAX
         var xhr = new XMLHttpRequest();
         xhr.open(form.method, form.action);
+
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 Swal.fire({
@@ -65,8 +66,23 @@ function confirmTermsUpdate(event) {
             } else if (xhr.readyState === 4) {
                 // Handle the error
                 console.error('Form submission failed:', xhr.status, xhr.statusText);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'There was a problem updating your details. Please try again.',
+                    icon: 'error'
+                });
             }
         };
+
+        xhr.onerror = function() {
+            console.error('Network error');
+            Swal.fire({
+                title: 'Error!',
+                text: 'There was a network error. Please check your connection and try again.',
+                icon: 'error'
+            });
+        };
+
         xhr.send(formData);
     }
 })

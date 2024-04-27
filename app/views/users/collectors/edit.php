@@ -67,45 +67,45 @@
                     <div class="collector-fields">
                         <div class="collector-input-field">
                             <label>Company Name</label>
-                            <input type="text" id="com_name" name="com_name" placeholder="Enter your Company Name" >
+                            <input type="text" id="com_name" name="com_name" placeholder="Enter your Company Name" value="<?php echo $data['collector']->com_name ?>" >
                         </div>
 
                         <div class="collector-input-field">
                             <label>Office Email</label>
-                            <input type="text" id="com_email" name="com_email" placeholder="Enter your Company Email" >
+                            <input type="text" id="com_email" name="com_email" placeholder="Enter your Company Email" value="<?php echo $data['collector']->com_email ?>">
                         </div>
 
                         <div class="collector-input-field">
                             <label>Address</label>
-                            <input type="text" id="com_address" name="com_address" placeholder="Enter Company Address" >
+                            <input type="text" id="com_address" name="com_address" placeholder="Enter Company Address" value="<?php echo $data['collector']->com_address ?>">
                         </div>
 
                         <div class="collector-input-field">
                             <label>Telephone Number</label>
-                            <input type="number" id="telephone" name="telephone" placeholder="Enter Company telephone number" >
+                            <input type="number" id="telephone" name="telephone" placeholder="Enter Company telephone number" value="<?php echo $data['collector']->telephone ?>">
                         </div>
 
                         <div class="collector-input-field">
                             <label for="gender">Type of the Company</label>
                             <select name="company_type" id="company_type">
                                 <option value="">Select...</option>
-                                <option value="Sole Proprietorship">Sole Proprietorship</option>
-                                <option value="Partnership">Partnership</option>
-                                <option value="Limited Liability Company (LLC)">Limited Liability Company (LLC)</option>
-                                <option value="Corporation">Corporation</option>
-                                <option value="Nonprofit Organization">Nonprofit Organization</option>
-                                <option value="Social Enterprise">Social Enterprise</option>
-                                <option value="Government Agency">Government Agency</option>
-                                <option value="Community Organization">Community Organization</option>
-                                <option value="Recycling Center">Recycling Center</option>
-                                <option value="Waste Management Company">Waste Management Company</option>
-                                <option value="other">Other</option>
+                                <option value="Sole Proprietorship" <?php echo $data['collector']->company_type == 'Sole Proprietorship' ? 'selected' : ''; ?>>Sole Proprietorship</option>
+                                <option value="Partnership" <?php echo $data['collector']->company_type == 'Partnership' ? 'selected' : ''; ?>>Partnership</option>
+                                <option value="Limited Liability Company (LLC)" <?php echo $data['collector']->company_type == 'Limited Liability Company (LLC)' ? 'selected' : ''; ?>>Limited Liability Company (LLC)</option>
+                                <option value="Corporation" <?php echo $data['collector']->company_type == 'Corporation' ? 'selected' : ''; ?>>Corporation</option>
+                                <option value="Nonprofit Organization" <?php echo $data['collector']->company_type == 'Nonprofit Organization' ? 'selected' : ''; ?>>Nonprofit Organization</option>
+                                <option value="Social Enterprise" <?php echo $data['collector']->company_type == 'Social Enterprise' ? 'selected' : ''; ?>>Social Enterprise</option>
+                                <option value="Government Agency" <?php echo $data['collector']->company_type == 'Government Agency' ? 'selected' : ''; ?>>Government Agency</option>
+                                <option value="Community Organization" <?php echo $data['collector']->company_type == 'Community Organization' ? 'selected' : ''; ?>>Community Organization</option>
+                                <option value="Recycling Center" <?php echo $data['collector']->company_type == 'Recycling Center' ? 'selected' : ''; ?>>Recycling Center</option>
+                                <option value="Waste Management Company" <?php echo $data['collector']->company_type == 'Waste Management Company' ? 'selected' : ''; ?>>Waste Management Company</option>
+                                <option value="other" <?php echo $data['collector']->company_type == 'other' ? 'selected' : ''; ?>>Other</option>
                             </select>
                         </div>
 
                         <div class="collector-input-field">
                             <label>Registration Number</label>
-                            <input type="text" id="reg_number" name="reg_number" placeholder="Enter the company registration no." >
+                            <input type="text" id="reg_number" name="reg_number" placeholder="Enter the company registration no." value="<?php echo $data['collector']->reg_number ?>">
                         </div>
                     </div>
                     <button class="nextBtn">
@@ -121,19 +121,25 @@
                     <span class="collector-title">Vehicle Details</span>
                     
                     <div class="collector-fields">
+
+                        <div class="collector-input-field">
+                            <label>Vehicle Registration No <span class="example">(e.g:KY 3456)</span></label>
+                            <input type="text" name="vehicle_reg" id="vehicle_reg" placeholder="Vehicle Registration No" value="<?php echo $data['collector']->vehicle_reg ?>" >
+                        </div>
+
                         <div class="collector-input-field">
                             <label for="Vehicle">Vehicle type<span class="required">*</span></label>
                             <select name="vehicle_type" id="vehicle_type" required>
                                 <option value="">Select...</option>
-                                <option value="Cart">Cart</option>
-                                <option value="Tuk">Tuk</option>
-                                <option value="Pickup Truck">Pickup Truck</option>
-                                <option value="Cargo Van">Cargo Van</option>
-                                <option value="Compact Car">Car</option>
-                                <option value="Electric Vehicle">Electric Vehicle</option>
-                                <option value="Bicycle">Bicycle</option>
-                                <option value="Motorcycle">Motorcycle</option>
-                                <option value="Trailer">Trailer</option>
+                                <option value="Cart" <?php echo $data['collector']->vehicle_type == 'Cart' ? 'selected' : ''; ?>>Cart</option>
+                                <option value="Tuk" <?php echo $data['collector']->vehicle_type == 'Tuk' ? 'selected' : ''; ?>>Tuk</option>
+                                <option value="Pickup Truck" <?php echo $data['collector']->vehicle_type == 'Pickup Truck' ? 'selected' : ''; ?>>Pickup Truck</option>
+                                <option value="Cargo Van" <?php echo $data['collector']->vehicle_type == 'Cargo Van' ? 'selected' : ''; ?>>Cargo Van</option>
+                                <option value="Compact Car" <?php echo $data['collector']->vehicle_type == 'Compact Car' ? 'selected' : ''; ?>>Car</option>
+                                <option value="Electric Vehicle" <?php echo $data['collector']->vehicle_type == 'Electric Vehicle' ? 'selected' : ''; ?>>Electric Vehicle</option>
+                                <option value="Bicycle" <?php echo $data['collector']->vehicle_type == 'Bicycle' ? 'selected' : ''; ?>>Bicycle</option>
+                                <option value="Motorcycle" <?php echo $data['collector']->vehicle_type == 'Motorcycle' ? 'selected' : ''; ?>>Motorcycle</option>
+                                <option value="Trailer" <?php echo $data['collector']->vehicle_type == 'Trailer' ? 'selected' : ''; ?>>Trailer</option>
                             </select>
                         </div>
                         <!-- <div class="collector-input-field" id="otherField" style="display: none;">
@@ -141,19 +147,16 @@
                             <input type="text" id="other_vehicle" name="other_vehicle">
                         </div> -->
 
-                        <div class="collector-input-field">
-                            <label>Vehicle Registration No <span class="example">(e.g:KY 3456)</span></label>
-                            <input type="text" name="vehicle_reg" id="vehicle_reg" placeholder="Vehicle Registration No" >
-                        </div>
+                        
 
                         <div class="collector-input-field">
                             <label>Vehicle Model</label>
-                            <input type="text" name="model" id="model" placeholder="Enter Vehicle Model" >
+                            <input type="text" name="model" id="model" placeholder="Enter Vehicle Model" value="<?php echo $data['collector']->model ?>">
                         </div>
 
                         <div class="collector-input-field">
                             <label>Vehicle Color </label>
-                            <input type="text" name="color" id="color" placeholder="Enter Vehicle Color" >
+                            <input type="text" name="color" id="color" placeholder="Enter Vehicle Color"value="<?php echo $data['collector']->color ?>" >
                         </div>
                     </div>
                 </div>
@@ -165,7 +168,8 @@
                         <div class="collector-input-field">
                             <?php foreach ($data['districts'] as $district): ?>
                                 <label>
-                                    <input type="checkbox" name="districts[]" value="<?= $district->id ?>" >
+                                    <input type="checkbox" name="districts[]" value="<?= $district->id ?>" 
+                                    <?php echo in_array($district->id, $data['selected_districts']) ? 'checked' : ''; ?>>
                                     <?= $district->name ?>
                                 </label>
                             <?php endforeach; ?>
