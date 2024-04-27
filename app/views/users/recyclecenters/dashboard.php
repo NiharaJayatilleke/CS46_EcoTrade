@@ -383,13 +383,13 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                                <form id="editProfileForm" action="<?php echo URLROOT; ?>/moderators/edit_profile" method="POST" >
+                                <!-- <form id="editProfileForm" action="<?php echo URLROOT; ?>/moderators/edit_profile" method="POST" >
                                 <div class="right-below">
                                     <div class="right-left">
                                         <div class="tab-pane fade active show" id="account-general">
                                             <div class="card-body media align-items-center"></div>
                                             <div class="card-body">
-                                                <!-- <form method="POST" action="<?php echo URLROOT; ?>/moderators/edit_profile"> -->
+                                               
                                                     <div class="form-group">
                                                         <label class="form-label">Username</label>
                                                         <input type="text" class="form-control input-field-box" name="newUsername" value="<?php echo $_SESSION['user_name']; ?>">
@@ -418,11 +418,11 @@
                                 </div>
                                 <div style="margin-top: 20px; ">
                                     <?php flash('profile_edit'); ?>
-                                </div>
+                                </div> -->
                                 <div class="profile-buttons">
-                                    <button class="profile-updatebt">Edit profile</button>
+                                    <button class="profile-updatebt" id="editProfileBtn">Edit profile</button>
                                 </div>
-                                </form>
+                                <!-- </form> -->
 
                     </div>
 
@@ -528,6 +528,10 @@
             // Show the section
             showSection(sectionName);
         }
+
+        document.getElementById('editProfileBtn').addEventListener('click', function() {
+        window.location.href = "<?php echo URLROOT . '/recyclecenters/edit/'; ?>";
+         });
         const editForm = document.getElementById('editProfileForm');
     
         editForm.onsubmit = function(event){
@@ -578,6 +582,8 @@
 
         inputFile.onchange = function(){
         profilePic.src = URL.createObjectURL(inputFile.files[0])}
+
+      
     
     </script>
     </script>
