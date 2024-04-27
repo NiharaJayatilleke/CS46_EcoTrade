@@ -482,7 +482,7 @@
                         
                             <div class="sad-big-photo">
                                 <a href="#" data-lightbox="sad-ad-img">
-                                    <img class="sad-ad-img" src="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" alt="Ad Image">
+                                    <img class="sad-ad-img" src="" alt="Ad Image">
                                 </a>
                             </div>
                             <div class="sad-small-images">
@@ -494,14 +494,14 @@
                             </div>
                             <div class="sad-desMain">
                                 <div class="sad-heading">
-                                    <div class = "sad-price"><h2>Rs. <?php echo $data['ad']->item_price ?></h2></div>
+                                    <div class = "sad-price"><h2>Rs. </h2></div>
                                     <div class = "sad-details">
-                                    <?php if ($data['ad']->negotiable == "yes") : ?>
+                                    <!-- <php if ($data['ad']->negotiable == "yes") : ?> -->
                                         <p class = "sad-neg">Negotiable</p>
-                                    <?php else : ?>
+                                    <!-- <php else : ?> -->
                                         <p class = "sad-neg">Non-Negotiable</p>
-                                    <?php endif; ?>
-                                    <div class = "sad-condition">Condition: <?php echo $data['ad']->item_condition ?></div>
+                                    <!-- <php endif; ?> -->
+                                    <div class = "sad-condition">Condition: </div>
                                     <p>Quantity: 1</p>
                                     <br>
                                     </div>
@@ -539,7 +539,7 @@
                         <div class="sad-b3">
                             <i class="fas fa-phone fa-lg"></i>
                             <div class="sad-b3-p3">
-                            <button id="show-number" class="sad-number" data-number="<?php echo $data['number']?>"> Contact Seller</button>
+                            <button id="show-number" class="sad-number" data-number=""> Contact Seller</button>
                             </div>
                         </div>
 
@@ -553,9 +553,9 @@
                         <?php endif; ?>
 
                         <!-- HTML for displaying offers-->
-                        <div class='offers-list'> 
-                        <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && empty($data['accepted_offer']) && $data['ad']->negotiable == "yes") : ?>
-                        <?php if (!empty($data['offers'])) : ?>
+                        <!-- <div class='offers-list'> 
+                        <php if ($_SESSION['user_id'] == $data['ad']->seller_id && empty($data['accepted_offer']) && $data['ad']->negotiable == "yes") : ?>
+                        <php if (!empty($data['offers'])) : ?>
                             <div class="offer-title"><h3>Highest Offers</h3></div>
                             <?php 
                             $count = 0;
@@ -568,12 +568,12 @@
                             <?php 
                                 $count++;
                             endforeach; ?>
-                        <?php endif; ?>
-                        <?php endif; ?>
-                        </div>
+                        <php endif; ?>
+                        <php endif; ?>
+                        </div> -->
 
                         <!-- HTML for displaying the bids -->
-                        <?php if ($data['ad']->selling_format == 'auction' && $_SESSION['user_id'] == $data['ad']->seller_id) : ?>
+                        <!-- <php if ($data['ad']->selling_format == 'auction' && $_SESSION['user_id'] == $data['ad']->seller_id) : ?>
                         <br>
                         <div class="offer-title"><h3>Bidding Overview</h3></div>
                         <div class="bid-info">
@@ -585,7 +585,7 @@
                                 <button id="reopenBidding">Reopen Bidding</button><br>
                             <?php endif; ?>
                         </div>
-                        <?php endif; ?>
+                        <php endif; ?> -->
                         
                         </div> <!-- seller's stuff -->
 
