@@ -78,7 +78,7 @@
             
             <!-- cards -->
             <div id="dashboard-content" class="content-section">
-                <div class="heading-dashboard">
+                    <div class="heading-dashboard">
                         <h2>Recycle Centers Dashboard</h2>
                     </div>
 
@@ -226,11 +226,11 @@
 
                                 </tbody>
                             </table>
-                        <!-- </div> -->
+                        </div>
                     </div> 
-            </div>
+        </div>
 
-
+            
             <div id="recycle-content" class="content-section">
 
                 <div class="details" style=" display: block;">
@@ -272,8 +272,8 @@
 
 
 
-
-                <!-- <div class="ad-right-container">
+<!-- 
+                <div class="ad-right-container">
                     <?php if (!empty($data['ads'])) : ?>
                     <div class="ads-container">
                         <?php foreach($data['ads'] as $ad): ?>
@@ -288,7 +288,7 @@
                                     <div class="ad-body-image">
                                         <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
                                     </div>
-                                    <!-- <php if($ad->seller_id == $_SESSION['user_id']): ?> 
+                                    <php if($ad->seller_id == $_SESSION['user_id']): ?> 
                                             <div class = "post-control-btns">
                                                 <a href = "<php echo URLROOT?>/ItemAds/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn" title="edit ad"><i class="fas fa-edit"></i></button></a>
                                                 <a href = "<php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
@@ -314,8 +314,8 @@
                                         <?php if($ad->selling_format == 'auction'): ?> 
                                         <a href=""><button class="ad-bid-btn">Bid</button></a>
                                         <?php endif; ?>
-                                        <!-- <a href = ""><button class="ad-wishlist-btn"><i class="fas fa-heart"></i></button></a> 
-                                        <!-- <a href="#"><button class="ad-wishlist-btn"><img src="/img/icons/wishlist.png" alt="Wishlist Icon"></button></a> 
+                                        <a href = ""><button class="ad-wishlist-btn"><i class="fas fa-heart"></i></button></a> 
+                                        <a href="#"><button class="ad-wishlist-btn"><img src="/img/icons/wishlist.png" alt="Wishlist Icon"></button></a> 
                                     </div>
                                 </div>  
                             </div>
@@ -331,14 +331,14 @@
                         <p>Try checking your spelling or use more general terms</p>
                     </div>
                     <?php endif; ?>
-                </div> -->
+                </div>
 
             
-            </div>
-
-            <!-- <div id="center-content" class="content-section">
-            <p>This is the content for the centers tab.</p> 
             </div> -->
+                        
+             <!-- <div id="center-content" class="content-section">
+            <p>This is the content for the centers tab.</p> 
+            </div>  -->
 
             <div id="settings-content" class="content-section">
                 <div class="profile-settings-container">
@@ -463,7 +463,7 @@
             <p>This is the content for the signout tab.</p>
             </div>
 
-        </div>
+        <!-- </div> -->
     </div>
 
     <script>
