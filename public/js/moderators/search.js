@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', checkModSearch);
 window.addEventListener('hashchange', checkModSearch);
 
 //search in users
-// The Fuse.js options
+// The Fuse.js choices
 var choices = {
     includeScore: true,
     threshold: 0.3,
@@ -67,11 +67,11 @@ var choices = {
     ]
 };
 
-// Assuming 'users' is your data array
-var mod_search = new Fuse(users, choices);
+// Assuming 'moderators' is your data array
+var fuseMod = new Fuse(moderators, choices);
 
 // Function to perform search
-function modDashSearch() {
+function performModSearch() {
     // Get the search query
     var query = document.getElementById('mod-dashboard-search').querySelector('input').value;
 
@@ -79,30 +79,30 @@ function modDashSearch() {
     var tableBody = document.querySelector('#mod-table tbody');
     tableBody.innerHTML = '';
 
-    // If the search query is empty, repopulate the table with all users
+    // If the search query is empty, repopulate the table with all moderators
     if (!query) {
-        users.forEach(function(user) {
-            var row = createRowUsermodash(user); // Assuming createRowUsermodash is a function that creates a row for a user
+        moderators.forEach(function(moderator) {
+            var row = createRowModerator(moderator); // Assuming createRowModerator is a function that creates a row for a moderator
             tableBody.appendChild(row);
         });
         return;
     }
 
     // Perform the search
-    var resultsmod = mod_search.search(query);
+    var results = fuseMod.search(query);
 
-    // Add the resultsmod to the table body
-    resultsmod.forEach(function(result) {
-        var row = createRowUsermodash(result.item);
+    // Add the results to the table body
+    results.forEach(function(result) {
+        var row = createRowModerator(result.item);
         tableBody.appendChild(row);
     });
 }
 
 // Attach the function to the oninput event of the search bar
-document.getElementById('mod-dashboard-search').querySelector('input').addEventListener('input', modDashSearch); 
+document.getElementById('mod-dashboard-search').querySelector('input').addEventListener('input', performModSearch); 
 
 // Function to create a row for a user or moderator
-function createRowUsermodash(item) {
+function createRowModerator(item) {
     var row = document.createElement('tr');
 
     var usernameCell = document.createElement('td');
@@ -133,53 +133,53 @@ function createRowUsermodash(item) {
 }
 
 
-function searchHandler(){
-    let pageHash=window.location.hash;
-    console.log(pageHash);
+// function searchHandler(){
+//     let pageHash=window.location.hash;
+//     console.log(pageHash);
 
-}
+// }
 
-var choices_preowned = {
-    includeScore: true,
-    threshold: 0.3,
-    location: 0,
-    distance: 100,
-    maxPatternLength: 32,
-    minCharLength: 1,
-    keys: [
-        "item_price"
-    ]
-};
-
-
-
-var mod_preowned = new Fuse(preowned, choices_preowned);
+// var choices_preowned = {
+//     includeScore: true,
+//     threshold: 0.3,
+//     location: 0,
+//     distance: 100,
+//     maxPatternLength: 32,
+//     minCharLength: 1,
+//     keys: [
+//         "item_price"
+//     ]
+// };
 
 
 
-function preownedDashSearch() {
-    // Get the search query
-    var query = document.getElementById('preowned-dashboard-search').querySelector('input').value;
+// var mod_preowned = new Fuse(preowned, choices_preowned);
 
-    // Clear the table body
-    var tableBody = document.querySelector('#ads-container');
-    tableBody.innerHTML = '';
 
-    // If the search query is empty, repopulate the table with all users
-    if (!query) {
-        preowned.forEach(function(preowned) {
-            var row = createPreowned(preowned); // Assuming createRowUsermodash is a function that creates a row for a user
-            tableBody.appendChild(row);
-        });
-        return;
-    }
 
-    // Perform the search
-    var resultsmod = mod_preowned.search(query);
+// function preownedDashSearch() {
+//     // Get the search query
+//     var query = document.getElementById('preowned-dashboard-search').querySelector('input').value;
 
-    // Add the resultsmod to the table body
-    resultsmod.forEach(function(result) {
-        var row = createPreowned(result.item);
-        tableBody.appendChild(row);
-    });
-}
+//     // Clear the table body
+//     var tableBody = document.querySelector('#ads-container');
+//     tableBody.innerHTML = '';
+
+//     // If the search query is empty, repopulate the table with all users
+//     if (!query) {
+//         preowned.forEach(function(preowned) {
+//             var row = createPreowned(preowned); // Assuming createRowUsermodash is a function that creates a row for a user
+//             tableBody.appendChild(row);
+//         });
+//         return;
+//     }
+
+//     // Perform the search
+//     var resultsmod = mod_preowned.search(query);
+
+//     // Add the resultsmod to the table body
+//     resultsmod.forEach(function(result) {
+//         var row = createPreowned(result.item);
+//         tableBody.appendChild(row);
+//     });
+// }

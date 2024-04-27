@@ -116,7 +116,7 @@
           
             <div id="dashboard-content" class="content-section">
                 <div class="heading-dashboard">
-                        <h2>Moderators Dashboard</h2>
+                        <h2>Moderator Dashboard</h2>
                     </div>
                     
                     <div class="dashboard-cardBox">
@@ -981,6 +981,7 @@
     </script> 
     <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/search.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
     <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/dashboards/ad_view.js"></script> -->
     <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/search.js"></script> -->
