@@ -1,48 +1,4 @@
 
-.clearfix:after {
-    content: ".";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    line-height: 0;
-    height: 0;
-  }
-  
-  .clearfix {
-    display: inline-block;
-  }
-  
-  html[xmlns] .clearfix {
-    display: block;
-  }
-  
-  * html .clearfix {
-    height: 1%;
-  }
-  
-  ul, li {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  
-  header, nav, section, article, aside, footer, hgroup {
-    display: block;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    background-color: #fff;
-    font-size: 16px;
-    -ms-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
   
   a {
     text-decoration: none !important;
@@ -63,42 +19,8 @@
     color: #7a7a7a;
   }
   
-  /* 
-  ---------------------------------------------
-  global styles
-  --------------------------------------------- 
-  */
-  html,
-  body {
-    background: #fff;
-    font-family: 'Poppins', sans-serif;
-  }
+
   
-  ::selection {
-    background: #ed563b;
-    color: #fff;
-  }
-  
-  ::-moz-selection {
-    background: #ed563b;
-    color: #fff;
-  }
-  
-  @media (max-width: 991px) {
-    html, body {
-      overflow-x: hidden;
-    }
-    .mobile-top-fix {
-      margin-top: 30px;
-      margin-bottom: 0px;
-    }
-    .mobile-bottom-fix {
-      margin-bottom: 30px;
-    }
-    .mobile-bottom-fix-big {
-      margin-bottom: 60px;
-    }
-  }
   
   .section-heading {
     text-align: center;
@@ -697,18 +619,14 @@
     margin: 15px 0px 25px 0px;
   }
   
-  .row {
+  /* .row {
     display: flex;
     gap: px;
     width: 90%;
     margin: 0 auto;
   }
-  
-  /*
-  --------------------------------------------
-  Our Classes
-  --------------------------------------------
-  */
+   */
+ 
   
   #our-classes {
     margin-bottom: 140px;
@@ -960,12 +878,7 @@
   }
   
   
-  /* 
-  ---------------------------------------------
-  contact
-  --------------------------------------------- 
-  */
-  
+
   #contact-us {
     margin-top: 140px;
   }
@@ -1044,37 +957,7 @@
   
   
   
-  /* 
-  ---------------------------------------------
-  footer
-  --------------------------------------------- 
-  */
-  footer {
-    text-align: center;
-    padding: 30px 0px;
-  }
-  
-  footer p {
-    color: #232d39;
-    font-size: 13px;
-  }
-  
-  footer p a {
-    cursor: pointer;
-    color: #ed563b;
-  }
-  
-  footer p a:hover {
-    color: #ed563b;
-  }
-  
-  
-  
-  /* 
-  ---------------------------------------------
-  preloader
-  --------------------------------------------- 
-  */
+
   
   .js-preloader {
       position: fixed;
@@ -1171,11 +1054,6 @@
   }
   
   
-  /* 
-  ---------------------------------------------
-  responsive
-  --------------------------------------------- 
-  */
   
   
   @media (max-width: 992px) {
@@ -1217,75 +1095,6 @@
 
   
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-
-header {
-    height: 300px;
-    position: relative;
-}
-
-header::before {
-    content: ' ';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(./office.jpg);
-    background-position: bottom;
-    background-size: cover;
-    opacity: 0.8;
-    z-index: -1;
-}
-
-header::after {
-    content: ' ';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.6;
-    background-size: cover;
-    background-color: black;
-    background-position: bottom;
-}
-
-.navbar {
-    color: #fff;
-    padding: 1rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.navbar ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-}
-
-.navbar .responsive {
-    display: none;
-}
-
-.navbar ul li {
-    padding: 8px 12px;
-}
-
-.navbar ul li a {
-    z-index: 2;
-    color: #fff;
-    position: relative;
-    text-decoration: none;
-}
 
 #hamBurger {
     display: none;
@@ -1522,11 +1331,6 @@ header::after {
 
 .team-item img {
     width: 80px;
-}
-
-footer {
-    padding: 1rem 0;
-    text-align: center;
 }
 
 @media screen and (max-width: 784px) {

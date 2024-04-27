@@ -209,5 +209,4 @@
 <!-- Javascript for image upload -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/recycle/home.js"></script>
 
-</body>
-</html>
+<?php require APPROOT.'/views/inc/components/footer.php'; ?>
