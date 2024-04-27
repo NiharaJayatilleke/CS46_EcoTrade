@@ -237,9 +237,6 @@
     });
 </script>
 
-<!--  <php require APPROOT.'/views/inc/components/footer.php'; ?>  -->
 
-</body>
-</html>
 
 

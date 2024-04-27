@@ -262,7 +262,6 @@ if($_SESSION['user_type'] != 'moderator') {
 </div>
 
 
-
 <!-- jQuery -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
@@ -360,9 +359,8 @@ if($_SESSION['user_type'] != 'moderator') {
 
     
 </script>
+
 <?php require APPROOT.'/views/inc/components/footer.php'; ?>
-
-
     
 
 
