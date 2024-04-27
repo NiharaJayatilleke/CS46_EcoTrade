@@ -187,15 +187,19 @@ CREATE TABLE Recycle_Item_Ads (
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS Recycle_Center_Requirements;
+
 CREATE TABLE Recycle_Center_Requirements (
     rad_id INT AUTO_INCREMENT,
+    center_id INT,
     item_category VARCHAR(255),
     item_desc TEXT,
     item_location VARCHAR(255),
     item_quantity INT,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(255),
-    PRIMARY KEY(rad_id)
+    PRIMARY KEY(rad_id),
+    FOREIGN KEY (center_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
 CREATE OR REPLACE VIEW v_ads AS

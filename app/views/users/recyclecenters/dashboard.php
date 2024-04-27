@@ -10,12 +10,12 @@
                         <span class = "side-title">EcoTrade</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="<?php echo URLROOT ?>/Pages/index">
                         <span class = "side-icon"><ion-icon name="home-outline"></ion-icon></span>
                         <span class = "side-title">Home</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="#dashboard-content" id="dashboard-tab" onclick="showContent('dashboard-content')">
                         <span class = "side-icon"><ion-icon name="grid-outline"></ion-icon></span>
@@ -108,7 +108,7 @@
                                     <tr>
                                         <td>Category</td>
                                         <td>Description</td>
-                                        <td>Quantity</td>
+                                        <td>Required Quantity</td>
                                         <td>Posted</td>
                                         <td>Edit/Delete</td>
                                     </tr>

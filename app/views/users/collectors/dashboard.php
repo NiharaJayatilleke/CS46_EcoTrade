@@ -1,4 +1,5 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/collectors/dashboard.css">
 
     <div class="dashboard-container">
         <div class="dashboard-sidenav">
@@ -9,7 +10,12 @@
                         <span class = "side-title">EcoTrade</span>
                     </a>
                 </li>
-
+                <li>
+                    <a href="<?php echo URLROOT ?>/Pages/index">
+                        <span class = "side-icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class = "side-title">Home</span>
+                    </a>
+                </li>
                 <li>
                     <a href="#dashboard-content" id="dashboard-tab" onclick="showContent('dashboard-content')">
                         <span class = "side-icon"><ion-icon name="grid-outline"></ion-icon></span>
@@ -31,12 +37,12 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="#reported-ads-content" id="reported-ads-tab" onclick="showContent('reported-ads-content')">
                         <span class = "side-icon"><ion-icon name="remove-circle-outline"></ion-icon></span>
                         <span class = "side-title">Reported ads</span>
                     </a>
-                </li>
+                </li> -->
 
                 <li>
                     <a href="#settings-content" id="settings-tab" onclick="showContent('settings-content')">
@@ -83,24 +89,26 @@
                 </div>
             </div>
 
-            <!-- dashboard admin -->
+            <!-- dashboard-->
             <div id="dashboard-content" class="content-section">
                 <div class="heading-dashboard">
                     <h2>Collector Dashboard</h2>
                 </div>
                 
                 <div class="dashboard-cardBox">
+                    <a href="<?php echo URLROOT ?>/Collectors/index#centers-content" style="text-decoration: none; color: inherit;">
                     <div class="dashboard-card" >
                                 <div>
                                     <div class="dashboard-numbers" ><?php echo $data['centers_count'] ?></div> 
-                                    <div class="dashboard-cardName">Recycle centers</div>
+                                    <div class="dashboard-cardName">Recycle Center Requirements</div>
                                 </div>
                                 <div class="dashboard-iconBx">  
                                 <ion-icon name="business-outline"></ion-icon>
                                 </div>
                     </div>
+                    </a> 
 
-                    <a href="<?php echo URLROOT ?>/Admin/index#recycle-content" style="text-decoration: none; color: inherit;">
+                    <a href="<?php echo URLROOT ?>/Collectors/index#recycle-content" style="text-decoration: none; color: inherit;">
                         <div class="dashboard-card">
                             <div>
                                 <div class="dashboard-numbers"><?php echo $data['rec_ad_count'] ?></div> 
@@ -114,22 +122,22 @@
                 </div>
 
                 <div class="details" style=" display: block;" >
-                    <!-- Recycle Item Ads -->
+                    <!-- Recycle Center Requirements -->
                     <div class="recentOrders">
                         <div class="cardHeader">
-                            <h2>Saved Recycle Item Ads</h2>
-                            <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a>
+                            <h2>Saved Recycle Center Requirements</h2>
+                            <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('centers-content')">View All</a>
                         </div>
                         <table>
 
                         </table>
                     </div>
 
-                    <!-- Recycle Center Requirements -->
+                    <!-- Recycle Item Ads  -->
                     <div class="recentOrders">
                         <div class="cardHeader">
-                            <h2>Saved Recycle Center Requirements</h2>
-                            <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a>
+                            <h2>Saved Recycle Item Ads</h2>
+                            <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('recycle-content')">View All</a>
                         </div>
                         <table>
 
@@ -137,7 +145,7 @@
                     </div>
 
                     <!-- New customers -->
-                    <div class="recentOrders">
+                    <!-- <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Users</h2>
                             <a href="#users-content" class="btn" id="users-tab" onclick="showContent('users-content')">View All</a>
@@ -150,7 +158,7 @@
                                     <td>Contact Number</td>
                                     <td>User Type</td>
                                     <td>Date Joined</td>
-                                    <!-- <td>Edit/Delete</td> -->
+                                    <!-- <td>Edit/Delete</td> 
                                 </tr>
                             </thead>
                             <tbody>
@@ -170,7 +178,7 @@
                                         <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
                                         <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
                                     </div>
-                                </td> -->
+                                </td> 
                             </tr>
                             <?php 
                             $counter++;
@@ -178,7 +186,7 @@
                             ?>
                             </tbody>
                         </table>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
@@ -215,7 +223,48 @@
 
             <!-- Recycle Centers crud-->
             <div id="centers-content" class="content-section">
-                //somec content
+                <div class="details" style=" display: block;">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Posted Requirements</h2>
+                            <!-- <a href="#" class="btn">View All</a> -->
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Category</td>
+                                    <td>Description</td>
+                                    <td>Quantity</td>
+                                    <td>Location</td>
+                                    <td>Posted</td>
+                                    <td>Contact Center</td>
+                                    <td>Save for later</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($data['center_reqs'] as $req): ?>
+                                    <tr>
+                                        <td><?= $req->item_category ?></td>
+                                        <td><?= $req->item_desc ?></td>
+                                        <td><?= $req->item_quantity ?></td>
+                                        <td><?= $req->item_location ?></td>
+                                        <td><?php echo convertTime($req->created_at); ?></td>
+                                        <td>
+                                            <i class="fas fa-phone fa-lg dashboard-phone-icon"></i>
+                                        </td>
+                                        <td>
+                                            <label class="save-ad-container">
+                                                <input type="checkbox" checked="checked">
+                                                <svg class="save-regular" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"></path></svg>
+                                                <svg class="save-solid" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"></path></svg>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> 
             </div>
 
             <!-- Second hand ads-->
@@ -233,7 +282,37 @@
 
             <!-- Recycle ads-->
             <div id="recycle-content" class="content-section">
-                <!-- centers should be fetched here -->
+                <!-- recycle item ads should be fetched here -->
+
+                <div class="heading-dashboard">
+                    <h2>Recycle Item Ads</h2>
+                </div>
+
+                <div class="ad-right-container">
+                    <?php if (!empty($data['rec_ads'])) : ?>
+                        <div class="ads-container">
+                            <?php foreach($data['rec_ads'] as $ad): ?>
+                                <!-- <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id?>')"> -->
+                                    <div class="ad-index-container">
+                                        <div class="ad-header">
+                                            <div class="ad-body-image">
+                                                <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
+                                            </div>
+
+                                            <div class="ad-item-name"><h3><?php echo $ad->item_name ?></h3></div>
+                                            <div class="ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
+                                            <div class="ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
+                                        </div>
+
+                                        <div class="ad-body">
+                                            <div class="ad-body-desc"><?php echo $ad->item_desc ?></div>
+                                        </div>
+                                    </div>
+                                <!-- </a> -->
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
 
             <!-- activity -->

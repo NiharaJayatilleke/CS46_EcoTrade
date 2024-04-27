@@ -198,7 +198,7 @@
                 'userdetails'=> $userdetails,
                 'center_reqs'=> $centerReqs
             ];
-            
+
             $this->view('users/recyclecenters/dashboard',$data);
             }
         }
