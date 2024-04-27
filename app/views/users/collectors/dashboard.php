@@ -409,12 +409,6 @@
                 
         </div>
     </div>
-    
-    <script>   
-        document.getElementById('settings-content').addEventListener('click', function() {
-            window.location.href = "<?php echo URLROOT ?>/Collectors/edit/"; 
-        });
-    </script>
 
     <script>
     // Function to show/hide content sections based on the clicked tab
@@ -505,9 +499,7 @@
             showSection(sectionName);
         }
 
-        document.getElementById('editProfileBtn').addEventListener('click', function() {
-        window.location.href = "<?php echo URLROOT . '/Collectors/edit/'; ?>";
-         });
+       
 
          const changepwd = document.getElementById('changePasswordForm');
         
