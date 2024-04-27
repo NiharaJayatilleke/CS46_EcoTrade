@@ -7,11 +7,10 @@ function showSearchBar() {
 }
 
 // Function to hide the search bar
-function hideModSearchBar() {
-    var searchBar = document.getElementById('mod-dashboard-search');
+function hideSearchBar() {
+    var searchBar = document.getElementById('admin-dashboard-search');
     if (searchBar) {
         searchBar.style.display = 'none'; 
-        localStorage.setItem('searchBarVisible', 'false');
     }
 }
 
