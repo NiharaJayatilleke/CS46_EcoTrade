@@ -973,6 +973,13 @@
                 showContent(section);
                 currentSection = section;
             }
+
+            // Highlight the current tab
+            var tabName = section.split("-content")[0] + '-tab';
+            var currentTab = document.getElementById(tabName);
+            if (currentTab) {
+                currentTab.parentElement.classList.add('hovered');
+            }
             
         } else {
             // If no hash is present, default to the dashboard section

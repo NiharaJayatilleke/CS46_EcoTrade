@@ -15,8 +15,8 @@ function activeLink() {
 }
 
 function inactiveLink() {
-    // Only remove the hovered class if the item hasn't been clicked
-    if (!this.classList.contains('clicked')) {
+    // Only remove the hovered class if the item hasn't been clicked and it's not the current tab
+    if (!this.classList.contains('clicked') && window.location.href !== this.querySelector('a').href) {
         this.classList.remove('hovered');
     }
 }
