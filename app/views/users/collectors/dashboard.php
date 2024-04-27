@@ -412,7 +412,7 @@
     
     <script>   
         document.getElementById('settings-content').addEventListener('click', function() {
-            window.location.href = "<?php echo URLROOT ?>/Collectors/edit/2"; 
+            window.location.href = "<?php echo URLROOT ?>/Collectors/edit/"; 
         });
     </script>
 

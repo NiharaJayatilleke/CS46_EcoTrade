@@ -232,7 +232,7 @@
 
 
             <div id="recycle-content" class="content-section">
-<!-- 
+
                 <div class="details" style=" display: block;">
                     <div class="recentOrders">
                         <div class="cardHeader">
@@ -266,7 +266,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>  -->
+                </div> 
             </div>
 
 
