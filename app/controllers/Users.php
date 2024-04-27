@@ -242,7 +242,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
             $this->mail->Password = 'inua qsto hwfo seiy';
 
             //Can Send Email Now
-            $subject = "Verify your email";
+            $subject = "Ecotrade - Verify your email";
             $message = "<p>Dear user,</p>";
             // $message = "Dear {$data['username']},\n\n";
             $message .= "<p></p>";
