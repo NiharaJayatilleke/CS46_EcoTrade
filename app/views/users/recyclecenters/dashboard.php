@@ -404,7 +404,7 @@
                                           
                                         </div>
                                     </div>
-                                    <div class="right-right">
+                                    <div class="right-right"> 
                                     <div class="form-group">
                                         <label class="form-label">Contact number</label>
                                         <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
