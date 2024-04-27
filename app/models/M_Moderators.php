@@ -120,7 +120,7 @@
             FROM
                 Item_Ads
             WHERE
-                status IS NULL
+                status = 'active'
             GROUP BY
                 item_category
         ");

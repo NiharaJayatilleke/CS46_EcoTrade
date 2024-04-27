@@ -94,7 +94,7 @@
                 <div class="dashboard-toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-                <!-- search -->
+                <!-- search -->                                                   
                 <div id="admin-dashboard-search" class="dashboard-search">
                     <label>
                         <input type="text" placeholder="Search here">
@@ -407,8 +407,10 @@
                     <div class="ads-container">
                         <?php foreach($data['ads'] as $ad): ?>
                         <!-- <a class="ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>"> -->
-                        <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id?>')">
-                            <div class="ad-index-container"
+
+                        <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id; ?>')">
+                            <div class="ad-index-container" data-ad-id="<?php echo $ad->ad_id ?>"
+
                                 data-price="<?php echo $ad->item_price ?>"
                                 data-condition="<?php echo $ad->item_condition ?>"
                                 data-category="<?php echo $ad->item_category ?>"
