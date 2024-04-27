@@ -121,13 +121,13 @@
         }
 
         public function getCenterRequirements(){
-            $this->db->query('SELECT * FROM Recycle_Center_Requirements');
+            $this->db->query('SELECT * FROM v_re_reqs');
             $results = $this->db->resultSet();
             return $results;
         }
 
-        public function getAds(){ //Requirements
-            $this->db->query('SELECT * FROM v_re_reqs');
+        public function getAds(){
+            $this->db->query('SELECT * FROM Recycle_Center_Requirements');
             $results = $this->db->resultSet();
             return $results;
         }

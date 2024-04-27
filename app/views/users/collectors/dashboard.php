@@ -250,7 +250,7 @@
                                         <td><?= $req->item_location ?></td>
                                         <td><?php echo convertTime($req->created_at); ?></td>
                                         <td>
-                                            <i class="fas fa-phone fa-lg dashboard-phone-icon"></i>
+                                            <i class="fas fa-phone fa-lg dashboard-phone-icon" id="show-cen-number" data-number="<?php echo $req->center_number?>"></i>
                                         </td>
                                         <td>
                                             <label class="save-ad-container">
@@ -562,7 +562,8 @@
 
 
     <!-- JS for other interactions -->
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>
+    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script> -->
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/collectors/dashboard_interactions.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/reportads.js"></script>
 
 
