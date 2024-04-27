@@ -258,6 +258,7 @@
                     'item_category' => '',
                     'item_desc' => '',
                     'item_location' => '',
+                    'item_quantity' => '',
                     
                     'item_category_err' => '',
                     'item_location_err' => '',
