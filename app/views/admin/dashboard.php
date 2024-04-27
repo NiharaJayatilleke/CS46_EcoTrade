@@ -1106,6 +1106,7 @@
 
     <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/search.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/searchbar.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/alerts.js"></script>

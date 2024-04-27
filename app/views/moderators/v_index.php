@@ -115,7 +115,7 @@
                 <!-- cards -->
           
             <div id="dashboard-content" class="content-section">
-            <div class="heading-dashboard">
+                <div class="heading-dashboard">
                         <h2>Moderators Dashboard</h2>
                     </div>
                     
@@ -786,10 +786,8 @@
         document.getElementById('activity-content').style.display = 'none';
         document.getElementById('reported-ads-content').style.display = 'none';
         document.getElementById('secondhand-content').style.display = 'none';
-        document.getElementById('secondhand-ad-view-content').style.display = 'none';
         document.getElementById('recycle-content').style.display = 'none';
         document.getElementById('settings-content').style.display = 'none';
-        document.getElementById('signout-content').style.display = 'none';
 
         // Show the selected content section
         document.getElementById(section).style.display = 'block';

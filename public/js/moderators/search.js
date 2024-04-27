@@ -15,7 +15,7 @@ function hideSearchBar() {
 }
 
 // Function to check the URL fragment and show or hide the search bar accordingly
-function checkSearch() {
+function checkModSearch() {
     // Get the URL fragment
     var fragment = window.location.hash;
 
@@ -23,7 +23,6 @@ function checkSearch() {
     switch (fragment) {
         case '#users-content':
         case '#secondhand-content':
-        case '#secondhand-ad-view-content':
         case '#recycle-content':
             showSearchBar();
             break;
@@ -45,10 +44,10 @@ function checkSearch() {
 }
 
 // Check the state of the search bar when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', checkSearch);
+document.addEventListener('DOMContentLoaded', checkModSearch);
 
 // Also check the state of the search bar when the hash changes
-window.addEventListener('hashchange', checkSearch);
+window.addEventListener('hashchange', checkModSearch);
 
 //search in users
 // The Fuse.js options
