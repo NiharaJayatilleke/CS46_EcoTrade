@@ -3,7 +3,7 @@
 
 <div class = "collector-body">
     <div class="collector-container">
-        <header>Collector Registration</header>
+        <header>Edit Details</header>
         
         <form action="<?php echo URLROOT?>/Collectors/edit" method="POST" enctype="multipart/form-data">
             <div class="form first">
@@ -29,22 +29,22 @@
                         
                         <div class="collector-input-field">
                             <label>NIC/Passport No.<span class="required">*</span></label>
-                            <input type="text" name="nic" id="nic" placeholder="NIC/Passport No." required>
+                            <input type="text" name="nic" id="nic" placeholder="NIC/Passport No." value="<?php echo $data['collector']->nic ?>" required >
                         </div>
                         
                         <div class="collector-input-field">
                             <label for="gender">Gender<span class="required">*</span></label>
                             <select id="gender" name="gender" required>
                                 <option value="">Select...</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
+                                <option value="male" <?php echo $data['collector']->gender == 'male' ? 'selected' : ''; ?>>Male</option>
+                                <option value="female" <?php echo $data['collector']->gender == 'female' ? 'selected' : ''; ?>>Female</option>
+                                <option value="other" <?php echo $data['collector']->gender == 'other' ? 'selected' : ''; ?>>Other</option>
                             </select>
                         </div>
 
                         <div class="collector-input-field">
                             <label>Address<span class="required">*</span></label>
-                            <input type="text" id="address" name="address" placeholder="Enter your Address" required>
+                            <input type="text" id="address" name="address" placeholder="Enter your Address" value="<?php echo $data['collector']->address ?>" required>
                         </div>
 
 

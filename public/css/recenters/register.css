@@ -267,7 +267,7 @@ input[type="text"][readonly]:placeholder-shown, input[type="tel"][readonly]:plac
 
 /* the responsive media query is not working */
 
-/* @media screen and (max-width: 750px) {
+@media screen and (max-width: 750px) {
     .collector-container form {
         overflow-y: scroll;
     }
@@ -288,12 +288,5 @@ input[type="text"][readonly]:placeholder-shown, input[type="tel"][readonly]:plac
     form .collector-fields .collector-input-field {
         width: 100%;
     }
-} */
-
-
-
-@media screen and (max-width: 720px){
-    .collector-body{
-        background-color: brown;
-    }
 }
+

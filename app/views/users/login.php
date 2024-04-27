@@ -32,10 +32,10 @@
                     </div>
 
                     <div class="remember-me">
-                        <label>
+                        <!-- <label>
                             <input type="checkbox" name="remember_me" id="remember_me" value="1" />
                             Remember me
-                        </label>
+                        </label> -->
                         <a href="<?php echo URLROOT; ?>/users/forgot_password" title="Forgot Password">Forgot Password?</a>
                     </div>
 

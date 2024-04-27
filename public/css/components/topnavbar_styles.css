@@ -70,7 +70,6 @@
 }
 
 
-
 @media screen and (max-width: 600px) {
   .topnav .items {
     flex-direction: column;
@@ -94,7 +93,7 @@
   }
 
   .topnav .items .item:hover {
-    /* text-decoration: none; */
+    text-decoration: none;
     font-size: 14px;
     transform: none;
     box-shadow: none;

@@ -34,7 +34,7 @@
 
                     <div class="input-box">
                         <span class="icon"><i class='bx bxs-envelope'></i></span>
-                        <input type="email" name = "email" id="email" value="<?php echo $data['email']; ?>" >
+                        <input type="name" name = "email" id="email" value="<?php echo $data['email']; ?>" >
                         <label>Email</label>
                         <span class="form-invalid"><?php echo $data['email_err']; ?></span>
 
@@ -82,8 +82,7 @@
         </div>
     </div>             
 
-            <!-- Javascript for image upload -->
-            <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/signup.js"></script>
+<!-- Javascript for image upload -->
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/signup.js"></script>
 
-</body>
-</html>
+<?php require APPROOT.'/views/inc/components/footer.php'; ?> 
