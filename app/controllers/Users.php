@@ -224,10 +224,10 @@ require APPROOT.'/libraries/vendor/autoload.php';
             }
         }
 
-
+ 
         public function emailVerification($email) {
             // Load the view with the email data
-            $this->view('users/v_emailver', ['email' => $email]);
+            $this->view('users/v_emailver', ['email' => $email,'token'=>$token]);
         }
 
         public function send_email_confirmation($token, $usersEmail){

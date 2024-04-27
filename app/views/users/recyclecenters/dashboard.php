@@ -101,7 +101,7 @@
                         <div class="recentOrders">
                             <div class="cardHeader">
                                 <h2>Recently Posted Requirements</h2>
-                                <a href="#" onclick="showContent('recycle-content')" class="btn">View All</a>
+                                <a href="#recycle-content" onclick="showContent('recycle-content')" class="btn">View All</a>
                             </div>
                             <table>
                                 <thead>
@@ -122,8 +122,8 @@
                                             <td><?php echo convertTime($req->created_at); ?></td>
                                             <td>
                                                 <div class = "mod-control-btns">
-                                                    <a href="<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>?updated=true"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                    <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                                    <a href=""><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                    <button onclick="" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -232,17 +232,16 @@
 
 
             <div id="recycle-content" class="content-section">
-
+<!-- 
                 <div class="details" style=" display: block;">
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Posted Requirements</h2>
-                            <!-- <a href="#" class="btn">View All</a> -->
                         </div>
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Category</td>
+                                    <td>Categoryfgvhbjn</td>
                                     <td>Description</td>
                                     <td>Quantity</td>
                                     <td>Posted</td>
@@ -267,7 +266,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div> 
+                </div>  -->
             </div>
 
 
