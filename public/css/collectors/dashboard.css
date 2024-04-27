@@ -62,3 +62,9 @@
       transform: scaleY(1.2);
     }
   }
+
+  /* phone icon */
+  .dashboard-phone-icon {
+    color: #a5a5b0;
+    margin-left: 40px;
+}

@@ -260,12 +260,14 @@
             $useremail = $_SESSION['user_email'];
             $userdetails = $this->moderatorModel->getuserdetails($useremail);
             $centerReqs = $this->recycleCentersModel->getCenterRequirements();
+            $rec_ads = $this->recycleItemAdsModel->getAds();
 
             $data = [
                 'ads' => $ads,
                 'ads2' => $ads2,
                 'userdetails'=> $userdetails,
                 'center_reqs'=> $centerReqs,
+                'rec_ads' => $rec_ads,
             ];
             $this->view('users/collectors/dashboard',$data);
              }
