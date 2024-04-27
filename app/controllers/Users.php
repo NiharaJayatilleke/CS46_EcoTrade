@@ -419,7 +419,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
             ];
            
             // Load the profile view
-            $this->view('users/profile/v_create', $data);
+            $this->view('pages/v_seller', $data);
         }
 
         public function delete(){
