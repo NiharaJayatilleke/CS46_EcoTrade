@@ -21,9 +21,12 @@
                 </a>
        
         </li>
+    <?php endif; ?>
         <li class="edit-profile-link">
             <?php if (($_SESSION['userType'])=='admin') : ?>
                 <a href="<?php echo URLROOT ?>/admin/index?#settings-content">
+            <?php elseif (($_SESSION['userType'])=='pBuyer') : ?>
+                <a href="<?php echo URLROOT ?>/users/profile">
             <?php elseif (($_SESSION['userType'])=='moderator') : ?>
                 <a href="<?php echo URLROOT ?>/moderators/index#settings-content">
             <?php elseif (($_SESSION['userType'])=='center') : ?>
@@ -37,7 +40,7 @@
                     <span class="link_name">Edit profile</span>
                 </a>
         </li>
-        <?php endif; ?>
+        
   
         <li class="logout-link">
             <a href="<?php echo URLROOT ?>/Users/logout">
