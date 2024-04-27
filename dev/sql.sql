@@ -401,3 +401,18 @@ FROM Notifications
 JOIN General_User ON Notifications.user_id = General_User.id
 JOIN Item_Ads ON Notifications.ad_id = Item_Ads.p_id
 ORDER BY Notifications.notif_created_at DESC;
+
+CREATE OR REPLACE VIEW v_re_reqs AS
+    SELECT
+        Recycle_Center_Requirements.rad_id as rad_id,
+        Recycle_Center_Requirements.center_id as center_id,
+        General_User.number as center_number,
+        Recycle_Center_Requirements.item_category as item_category,
+        Recycle_Center_Requirements.item_desc as item_desc,
+        Recycle_Center_Requirements.item_location as item_location,
+        Recycle_Center_Requirements.item_quantity as item_quantity,
+        Recycle_Center_Requirements.created_at as created_at,
+        Recycle_Center_Requirements.status as status
+    FROM Recycle_Center_Requirements
+    JOIN General_User ON Recycle_Center_Requirements.center_id = General_User.id
+    ORDER BY Recycle_Center_Requirements.created_at DESC;

@@ -246,7 +246,7 @@
                                     <tr>
                                         <td><?= $req->item_category ?></td>
                                         <td><?= $req->item_desc ?></td>
-                                        <td><?= $req->item_quantity ?></td>
+                                        <td><?= $req->item_quantity ?>kg</td>
                                         <td><?= $req->item_location ?></td>
                                         <td><?php echo convertTime($req->created_at); ?></td>
                                         <td>
