@@ -418,17 +418,17 @@
   
 
     <section id="hero">
-        <h4>Trade in Offer</h4>
-        <h2>Super Value Deals</h2>
-        <h1>On all products</h1>
-        <p>Lorem ipsum dolor</p>
+        <h4>Explore curated finds</h4>
+        <h2>Quality secondhand</h2>
+        <h1>just a click away.</h1>
+        <p>Elevate your style, reduce your footprint.</p>
         <button>Shop Now</button>
         <a href="#" class="to-top">
             <p class="to-top--title">BACK <br> TO TOP</p>
         </a>
     </section>
 
-    <section id="feature" class="section-p1">
+    <!-- <section id="feature" class="section-p1">
         <div class="fe-box">
             <img src="img/features/f1.png" alt="">
             <h6>Lorem, ipsum.</h6>
@@ -453,7 +453,7 @@
             <img src="img/features/f6.png" alt="">
             <h6>Lorem, ipsum.</h6>
         </div>
-    </section>
+    </section> -->
 
 
     <!-- <h2 class="title">Latest Products</h2>
@@ -474,7 +474,7 @@
 
    <section id="product1" class="section-p1">
     <h2>Featured Products</h2>
-    <p>Summer Collection</p>
+    <p>Elevate Your Everyday Style</p>
     <div class="pro-container">
         <?php foreach($data['ads'] as $ad): ?>
             <div class="pro">
@@ -489,36 +489,7 @@
             </div>
 
             <script>
-                // JavaScript code to fetch and render star ratings for each ad
-                fetchSellerRating(<?php echo $ad->seller_id ?>, <?php echo $ad->ad_id ?>);
-                
-                function fetchSellerRating(sellerId, adId) {
-                    fetch(URLROOT + "/ItemAds/getSellerRating/" + sellerId)
-                    .then(response => response.json())
-                    .then(data => {
-                        renderStars(data.rating, adId);
-                    })
-                    .catch(error => {
-                        console.error('There was a problem with the fetch operation:', error);
-                    });
-                }
-                
-                function renderStars(rating, adId) {
-                    let starContainer = document.getElementById('star-' + adId);
-                    if (starContainer) {
-                        let starsHtml = '';
-                        for (let i = 1; i <= 5; i++) {
-                            if (i <= rating) {
-                                starsHtml += '<i class="fas fa-star"></i>';
-                            } else {
-                                starsHtml += '<i class="far fa-star"></i>';
-                            }
-                        }
-                        starContainer.innerHTML = starsHtml;
-                    } else {
-                        console.error('Star container not found for ad ID ' + adId);
-                    }
-                }
+    
             </script>
         <?php endforeach; ?>
     </div>
@@ -644,8 +615,8 @@
     </section>
 
     <section id="banner" class="section-m1">
-        <h4>Repair Services</h4>
-        <h2>Upto <span>70% Off</span>- All T-shirts & Accessories</h2>
+        <h4>Secondhand Market</h4>
+        <h2>Sustainable <span>Shopping </span> -Shared Value.</h2>
         <button class="normal">Explore More</button>
     </section>
 
@@ -786,7 +757,7 @@
 
     </section>
 
-    <section id="sm-banner" class="section-p1">
+    <!-- <section id="sm-banner" class="section-p1">
         <div class="banner-box ">
             <h4>Crazy Deals</h4>
             <h2>buy 1 get 1 free</h2>
@@ -817,7 +788,7 @@
             <h2> SALE</h2>
             <h3>Winter Collection</h3>
         </div>
-    </section>
+    </section> -->
 
     <!-- <section id="newsletter" class="section-p1 section-m1">
         <div class="newstext">
@@ -887,31 +858,7 @@
    </footer> -->
 
     <script>
-      // Assuming you have fetched the seller's rating from the server and stored it in a variable called sellerRating
 
-// Convert the seller's rating into a star representation
-function renderStars(rating) {
-    let starsHtml = '';
-    for (let i = 1; i <= 5; i++) {
-        if (i <= rating) {
-            starsHtml += '<i class="fas fa-star"></i>';
-        } else {
-            starsHtml += '<i class="far fa-star"></i>';
-        }
-    }
-    return starsHtml;
-}
-
-// Assuming you have fetched the seller's rating from the server and stored it in a variable called sellerRating
-let sellerRating = 3; // Example rating, replace this with the actual fetched rating
-
-// Update the HTML content of the div with class "star"
-let starContainer = document.querySelector('.star');
-if (starContainer) {
-    starContainer.innerHTML = renderStars(sellerRating);
-} else {
-    console.error('Star container not found!');
-}
   </script>
  
 </body>

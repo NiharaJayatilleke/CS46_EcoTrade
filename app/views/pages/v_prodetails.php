@@ -1,9 +1,9 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
-<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_prodetails.css">
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/item_Ads/v_prodetails.css">
 
-
+<!-- 
 <div class="main-container1">
     <div class="main2"></div>
         <h1>LAND ROVER</h1>
@@ -14,13 +14,13 @@
             <div class="big-photo">
                 <img id="bigImage" src="../public/img/prodetails/productDetails1.png" alt="Small Image 1">
             </div>
-            <div class="small-images">
+            <div class="small-images"> -->
                 <!-- <img id="s1" src="productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')"> -->
-                <img id="s1" src="../public/img/prodetails/productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')">
+                <!-- <img id="s1" src="../public/img/prodetails/productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')"> -->
 
-                <img id="s2" src="../public/img/prodetails/productDetails2.jpeg" alt="Small Image 2" onclick="displayBigImage('/pics/productDetails2.jpeg')">
+                <!-- <img id="s2" src="../public/img/prodetails/productDetails2.jpeg" alt="Small Image 2" onclick="displayBigImage('/pics/productDetails2.jpeg')"> -->
                 <!-- Add more small images as needed -->
-            </div>
+            <!-- </div>
             <div class="desMain">
                 <div class="heading">
                     <h1>Rs 7,600,000</h1>
@@ -87,4 +87,4 @@
     
 
 
-
+ -->

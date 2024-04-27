@@ -60,5 +60,11 @@
 
         }
 
+        public function sellerpro(){
+            $data = [];
+            $this->view('pages/v_sellerpro',$data);
+
+        }
+
     }
 ?>
