@@ -115,7 +115,7 @@
                                 </thead>
                                 <tbody>
                                     <?php foreach($data['center_reqs'] as $req): ?>
-                                        <tr>
+                                        <tr> 
                                             <td><?= $req->item_category ?></td>
                                             <td><?= $req->item_desc ?></td>
                                             <td><?= $req->item_quantity ?></td>

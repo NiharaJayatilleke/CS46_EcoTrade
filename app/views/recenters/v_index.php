@@ -81,7 +81,7 @@
             <div class="ad-form-input-title1">Quantity</div>
             <input type="text" name="item_quantity" id="item_quantity" class="ad_item_quantity1" value="<?php echo $data['item_quantity']; ?>" >
             <span class="ad-form-invalid"><?php echo $data['item_quantity_err']; ?></span>
-
+ 
             <!-- <br>
             <p>Upon examination of your recyclable items, our dedicated collector will determine a fair and suitable price, taking into consideration the condition and value of the products.</p> -->
 
