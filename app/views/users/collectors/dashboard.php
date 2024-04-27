@@ -367,7 +367,7 @@
                                     </div>
                                 </div>
                                 <div class="profile-buttons">
-                                    <button class="profile-updatebt" id="editProfileBtn">Edit profile</button>
+                                    <a href="<?php echo URLROOT?>/Collectors/edit"><button class="profile-updatebt" id="editProfileBtn">Edit profile</button></a>
                                 </div>
                                 
 
