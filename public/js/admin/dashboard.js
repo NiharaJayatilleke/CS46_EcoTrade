@@ -78,7 +78,7 @@ function checkFragment() {
         case '#recycle-content':
         case '#activity-content':
             showSearchBar();
-            break;
+            break; 
         case '#dashboard-content':
         case '#reported-ads-content':
         case '#settings-content':
@@ -205,8 +205,6 @@ function performModSearch() {
     });
 }
 
-// Attach the function to the oninput event of the search bar
-document.getElementById('admin-dashboard-search').querySelector('input').addEventListener('input', searchHandler); 
 
 // Function to create a row for a user or moderator
 function createRowUser(item) {
@@ -351,17 +349,9 @@ function confirmDeleteModerators(url) {
 
 
 
-
 //----------------------------------------------------------------------------------------------
+// Attach the function to the oninput event of the search bar
 
-function searchHandler(){
-    let pageHash=window.location.hash;
-    if (pageHash==="#secondhand-content"){
-        preownedDashSearch();
-    }else{
-        performModSearch();
-    }
-}
 
 var choices_preowned = {
     includeScore: true,
@@ -376,15 +366,12 @@ var choices_preowned = {
     ]
 };
 
-
 var mod_preowned = new Fuse(preowned, choices_preowned);
-
-
 
 function preownedDashSearch() {
     // Get the search query
-    var query = document.getElementById('preowned-dashboard-search').querySelector('input').value;
-
+    // var query = document.getElementById('preowned-dashboard-search').querySelector('input').value;
+    var query = document.getElementById('admin-dashboard-search').querySelector('input').value;
     // Clear the table body
     var tableBody = document.querySelector('#ads-container');
     tableBody.innerHTML = '';
@@ -392,7 +379,7 @@ function preownedDashSearch() {
     // If the search query is empty, repopulate the table with all users
     if (!query) {
         preowned.forEach(function(preowned) {
-            var row = createPreowned(preowned); // Assuming createRowUser is a function that creates a row for a user
+            var row = createPreowned(preowned);
             tableBody.appendChild(row);
         });
         return;
@@ -406,8 +393,58 @@ function preownedDashSearch() {
         var row = createPreowned(result.item);
         tableBody.appendChild(row);
     });
-}
+    }
 
 function createPreowned(item) {
     console.log(item);
+    var adContainer = document.createElement('div');
+    adContainer.className = 'ad-index-container';
+    adContainer.dataset.adId = item.ad_id; 
+
+    // Create and populate ad content based on item properties
+    var adHeader = document.createElement('div');
+    adHeader.className = 'ad-header';
+    adHeader.innerHTML = `
+        <div class="ad-body-image">
+            <img src="<?php echo URLROOT ?>/public/img/items/${item.item_image}" alt="Ad Image" width="100" height="80">
+        </div>
+        <div class="ad-item-name"><h3>${item.item_name}</h3></div>
+        <div class="ad-user-name">Seller: ${item.seller_name}</div>
+        <div class="ad-created-at">${convertTime(item.item_created_at)}</div>
+    `;
+
+    var adBody = document.createElement('div');
+    adBody.className = 'ad-body';
+    adBody.innerHTML = `
+        <div class="ad-body-desc">${item.item_desc}</div>
+        <div class="ad-price">Rs. ${item.item_price}</div>
+    `;
+
+    var adFooter = document.createElement('div');
+    adFooter.className = 'ad-footer';
+    adFooter.innerHTML = `
+        <div>
+            <a href="#"><button class="ad-contact-btn">Contact Seller</button></a>
+            ${item.negotiable === 'yes' ? `<a href="#"><button class="ad-offer-btn">Make Offer</button></a>` : ''}
+            ${item.selling_format === 'auction' ? `<a href="#"><button class="ad-bid-btn">Bid</button></a>` : ''}
+        </div>
+    `;
+
+    adContainer.appendChild(adHeader);
+    adContainer.appendChild(adBody);
+    adContainer.appendChild(adFooter);
+
+    return adContainer;
+
 }
+
+function searchHandler(){
+   
+    let pageHash=window.location.hash;
+    if (pageHash==="#secondhand-content"){
+        preownedDashSearch();
+    }else{
+        performModSearch();
+    }
+}
+document.getElementById('admin-dashboard-search').querySelector('input').addEventListener('input', searchHandler); 
