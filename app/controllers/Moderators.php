@@ -323,6 +323,30 @@
                 }
         }
 
+        public function ban($userId){
+            $user = $this->userModel->getUserDetails($userId);
+
+            if($this->userModel->changeUserStatus($userId, 0)){
+                flash('post_msg', 'The user has been banned successfully!');
+                redirect('Admin/moderators#moderators-content');
+            }
+            else{
+                die('Something went wrong');
+            }
+        }
+
+        public function unban($userId){
+            $user = $this->userModel->getUserDetails($userId);
+
+            if($this->userModel->changeUserStatus($userId, 1)){
+                flash('post_msg', 'The user has been unbanned successfully!');
+                redirect('Admin/moderators#moderators-content');
+            }
+            else{
+                die('Something went wrong');
+            }
+        }
+
         public function index(){
 
             if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator')){

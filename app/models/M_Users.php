@@ -72,16 +72,16 @@
 
         // Find the nonverifieduser
         public function findNonVerifiedUserByEmail($email){
-        $this->db->query('SELECT * FROM Non_Verified_Users WHERE email =:email AND verified=0');
-        $this->db->bind(':email',$email);
+            $this->db->query('SELECT * FROM Non_Verified_Users WHERE email =:email AND verified=0');
+            $this->db->bind(':email',$email);
 
-        $row = $this->db->single();
-        if($this->db->rowCount() > 0){
-            return $row->id;
-        }
-        else{
-            return false;
-        }
+            $row = $this->db->single();
+            if($this->db->rowCount() > 0){
+                return $row->id;
+            }
+            else{
+                return false;
+            }
         }
 
         // Login the user

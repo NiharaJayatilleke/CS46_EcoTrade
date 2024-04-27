@@ -361,7 +361,8 @@
                                     <td>Email</td>
                                     <td>Contact Number</td>
                                     <td>Date Joined</td>
-                                    <td>Edit/Delete</td>
+                                    <td>Edit</td>
+                                    <td>Status</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -379,8 +380,14 @@
                                         <td>
                                             <div class = "mod-control-btns">
                                                 <a href="<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>?updated=true"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                                <!-- <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button> -->
                                             </div>
+                                        </td>
+                                        <td>
+                                            <label class="switch">
+                                                <input type="checkbox" onclick="toggleBanModerator(this, '<?php echo $moderator->id ?>')" <?php echo $moderator->status == 1 ? 'checked' : '' ?>>
+                                                <span class="slider"></span>
+                                            </label>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
@@ -1082,6 +1089,36 @@
                 action = "unban";
             } else {
                 url = '<?php echo URLROOT?>/Admin/ban/' + userId;
+                action = "ban";
+            }
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You are about to " + action + " this user.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, ' + action + ' user!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                } else {
+                    checkbox.checked = !originalState; // Revert to the original state if the user cancels
+                }
+            })
+        }
+
+        function toggleBanModerator(checkbox, userId) {
+            var url;
+            var action;
+            var originalState = checkbox.checked; // Save the original state
+
+            if (originalState) {
+                url = '<?php echo URLROOT?>/Moderators/unban/' + userId;
+                action = "unban";
+            } else {
+                url = '<?php echo URLROOT?>/Moderators/ban/' + userId;
                 action = "ban";
             }
 
