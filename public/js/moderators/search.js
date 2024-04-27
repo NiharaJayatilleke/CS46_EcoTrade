@@ -1,5 +1,5 @@
 // Function to show the search bar
-function showSearchBar() {
+function showModSearchBar() {
     var searchBar = document.getElementById('mod-dashboard-search');
     if (searchBar) {
         searchBar.style.display = 'block'; 
@@ -7,7 +7,7 @@ function showSearchBar() {
 }
 
 // Function to hide the search bar
-function hideSearchBar() {
+function hideModSearchBar() {
     var searchBar = document.getElementById('mod-dashboard-search');
     if (searchBar) {
         searchBar.style.display = 'none'; 
@@ -24,20 +24,20 @@ function checkModSearch() {
         case '#users-content':
         case '#secondhand-content':
         case '#recycle-content':
-            showSearchBar();
+            showModSearchBar();
             break;
         case '#dashboard-content':
         case '#activity-content':
         case '#reported-ads-content':
         case '#settings-content':
-            hideSearchBar();
+            hideModSearchBar();
             break;
         default:
             // If there's no fragment or it doesn't match any of the cases, use the value from localStorage
             if (localStorage.getItem('searchBarVisible') === 'false') {
-                hideSearchBar();
+                hideModSearchBar();
             } else {
-                showSearchBar();
+                showModSearchBar();
             }
             break;
     }
@@ -131,29 +131,6 @@ function createRowUsermodash(item) {
 
     return row;
 }
-
-
-//   const ctx = document.getElementById('myChart');
-
-//   new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//       datasets: [{
-//         label: '# of Votes',
-//         data: [12, 19, 3, 5, 2, 3],
-//         borderWidth: 1
-//       }]
-//     },
-//     options: {
-//       scales: {
-//         y: {
-//           beginAtZero: true
-//         }
-//       }
-//     }
-//   });
-
 
 
 function searchHandler(){
