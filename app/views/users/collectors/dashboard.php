@@ -99,7 +99,7 @@
                     <a href="<?php echo URLROOT ?>/Collectors/index#centers-content" style="text-decoration: none; color: inherit;">
                     <div class="dashboard-card" >
                                 <div>
-                                    <div class="dashboard-numbers" ><?php echo $data['centers_count'] ?></div> 
+                                    <div class="dashboard-numbers" ></div> 
                                     <div class="dashboard-cardName">Recycle Center Requirements</div>
                                 </div>
                                 <div class="dashboard-iconBx">  
@@ -111,7 +111,7 @@
                     <a href="<?php echo URLROOT ?>/Collectors/index#recycle-content" style="text-decoration: none; color: inherit;">
                         <div class="dashboard-card">
                             <div>
-                                <div class="dashboard-numbers"><?php echo $data['rec_ad_count'] ?></div> 
+                                <div class="dashboard-numbers"></div> 
                                 <div class="dashboard-cardName">Recycling Item Ads</div>
                             </div>
                             <div class="dashboard-iconBx">  
