@@ -32,7 +32,7 @@
                         <p>Join us in collecting recyclable items and earn extra income while making a positive impact on the environment! </p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="con-row">
                 <div class="col-lg-6">
                     <ul class="features-items">
                         <li class="feature-item">
@@ -111,7 +111,7 @@
     <!-- <section class="section" id="call-to-action" style="background-image: url('../public/img/collectors/images/cta-bg.jpg');">
     <div class="overlay23">
         <div class="container455">
-            <div class="row">
+            <div class="con-row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
                         <h2>Don’t <em>think</em>, begin <em>today</em>!</h2>
@@ -138,3 +138,6 @@
         </div>
         </div>
     </section>
+
+
+    <?php require APPROOT.'/views/inc/components/footer.php'; ?>

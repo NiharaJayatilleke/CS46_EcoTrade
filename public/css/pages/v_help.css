@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap'); */
 
 
 
@@ -39,7 +39,7 @@
 
 .sectionDesc{
     order: 1;
-    margin-top: 1em;
+    margin-top: 7em;
 }
 
 @media screen and (min-width:800px) {
@@ -257,7 +257,7 @@ filter: blur(10px);
 
 .eachProcesses{
     display: flex;
-    margin-bottom: 2em;
+    margin-bottom: 7em;
 }
 
 .eachProcesses img{
@@ -291,17 +291,17 @@ filter: blur(10px);
  
 /* common styles */
 .b110 section{
-    width: 95%;
+    width: 100%;
     max-width: 1200px;
     margin: auto;
-    margin-top: 2em;
+    /* margin-top: 2em; */
 }
 
 .b110 .gridSection{
     display: grid;
     align-items: center;
     gap: 40px;
-    margin-bottom: 5em;
+    /* margin-top: 5em; */
 }
 
 #sectionPic{

@@ -245,4 +245,5 @@
 </div>
 
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/collectors/register.js"></script>
- 
+
+<?php require APPROOT.'/views/inc/components/footer.php'; ?>

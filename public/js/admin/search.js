@@ -51,6 +51,54 @@ function performSearch() {
 // Attach the function to the oninput event of the search bar
 document.getElementById('admin-dashboard-search').querySelector('input').addEventListener('input', performSearch); 
 
+// Function to create a row for a user or moderator
+function createRowUser(item) {
+    var row = document.createElement('tr');
+
+    var usernameCell = document.createElement('td');
+    usernameCell.textContent = item.username;
+    row.appendChild(usernameCell);
+
+    var emailCell = document.createElement('td');
+    emailCell.textContent = item.email;
+    row.appendChild(emailCell);
+
+    var numberCell = document.createElement('td');
+    numberCell.textContent = item.number;
+    row.appendChild(numberCell);
+
+    var userTypeCell = document.createElement('td');
+    var userTypeSpan = document.createElement('span');
+    userTypeSpan.classList.add('usertype'); // Add the 'usertype' class
+    userTypeSpan.classList.add(item.user_type); // Add the user type as a class
+    userTypeSpan.textContent = item.user_type;
+    userTypeCell.appendChild(userTypeSpan);
+    row.appendChild(userTypeCell);
+
+    var createdAtCell = document.createElement('td');
+    createdAtCell.textContent = item.created_at;
+    row.appendChild(createdAtCell);
+
+    
+    var toggleCell = document.createElement('td');
+    var label = document.createElement('label');
+    label.className = 'switch';
+    var input = document.createElement('input');
+    input.type = 'checkbox';
+    input.onclick = function() { toggleBan(this, item.id); };
+    if (item.status !== undefined) {
+        input.checked = item.status == 1;
+    }
+    var span = document.createElement('span');
+    span.className = 'slider';
+    label.appendChild(input);
+    label.appendChild(span);
+    toggleCell.appendChild(label);
+    row.appendChild(toggleCell);
+
+    return row;
+}
+
 //moderator search
 // The Fuse.js options
 var mod_options = {
@@ -98,55 +146,6 @@ function performModSearch() {
         var row = createRowMod(result.item);
         tableBody.appendChild(row);
     });
-}
-
-
-// Function to create a row for a user or moderator
-function createRowUser(item) {
-    var row = document.createElement('tr');
-
-    var usernameCell = document.createElement('td');
-    usernameCell.textContent = item.username;
-    row.appendChild(usernameCell);
-
-    var emailCell = document.createElement('td');
-    emailCell.textContent = item.email;
-    row.appendChild(emailCell);
-
-    var numberCell = document.createElement('td');
-    numberCell.textContent = item.number;
-    row.appendChild(numberCell);
-
-    var userTypeCell = document.createElement('td');
-    var userTypeSpan = document.createElement('span');
-    userTypeSpan.classList.add('usertype'); // Add the 'usertype' class
-    userTypeSpan.classList.add(item.user_type); // Add the user type as a class
-    userTypeSpan.textContent = item.user_type;
-    userTypeCell.appendChild(userTypeSpan);
-    row.appendChild(userTypeCell);
-
-    var createdAtCell = document.createElement('td');
-    createdAtCell.textContent = item.created_at;
-    row.appendChild(createdAtCell);
-
-    
-    var toggleCell = document.createElement('td');
-    var label = document.createElement('label');
-    label.className = 'switch';
-    var input = document.createElement('input');
-    input.type = 'checkbox';
-    input.onclick = function() { toggleBan(this, item.id); };
-    if (item.status !== undefined) {
-        input.checked = item.status == 1;
-    }
-    var span = document.createElement('span');
-    span.className = 'slider';
-    label.appendChild(input);
-    label.appendChild(span);
-    toggleCell.appendChild(label);
-    row.appendChild(toggleCell);
-
-    return row;
 }
 
 // Function to create a row for a user or moderator

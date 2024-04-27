@@ -2,7 +2,7 @@
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
-<body class="b110">
+<div class="b110">
 
        
  
@@ -13,7 +13,7 @@
             </h1>
             <p class="sub-headline">
                 
-"EcoTrade is more than a platform; it's a movement. We unite buyers and collectors to transform waste into valuable resources. By connecting people with a shared vision of sustainability, we redefine recycling and contribute to a greener world. Join us in shaping a future where every eco-conscious action makes a difference. Together, let's create a sustainable tomorrow."
+            "EcoTrade is more than a platform; it's a movement. We unite buyers and collectors to transform waste into valuable resources. By connecting people with a shared vision of sustainability, we redefine recycling and contribute to a greener world. Join us in shaping a future where every eco-conscious action makes a difference. Together, let's create a sustainable tomorrow."
             </p>
             <!-- <div class="btnContainer">
                 <button class="btn btn110">Explore More</button>
@@ -105,5 +105,6 @@
             <img src="../public/img/about/wepik-export-20240421093650W1dh.png" alt="">
         </div>
     </section>
+</div>
 
     <?php require APPROOT.'/views/inc/components/footer.php'; ?>

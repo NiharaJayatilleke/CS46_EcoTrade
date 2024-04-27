@@ -407,7 +407,7 @@
         display: flex;
         background-color: #01332A;
         overflow: hidden;
-        padding: 150px 100px;
+        padding: 160px 100px;
     }
     
     .about-image {
@@ -439,20 +439,30 @@
             float: none;
         }
     }
+
+    @media screen and (min-aspect-ratio: 16/9) {
+        .about-section {
+            padding: 70px 110px; /* Increase side padding */
+        }
+
+        .inner-container {
+            line-height: 1.6; /* Increase line height */
+        }
+    }
     
     .inner-container h1{
         margin-bottom: 30px;
-        font-size: 30px;
+        font-size: 80px;
         /* font-weight: 900; */
         color: green;
     }
     
     .text{
-        font-size: 12.5px;
+        font-size: 13px;
         color: #545454;
-        line-height: 25px;
+        line-height: 30px;
         text-align: justify;
-        padding: 0;
+        padding-bottom: 10px;
 
     }
     
@@ -489,11 +499,12 @@
     }
 
 
-    .explore-btn{
+    .explore-btn {
         top: 18px;
         display: inline-block;
         text-decoration: none;
         position: relative;
+        z-index: 1000; /* Keep this line */
         border: none;
         font-size: 12px;
         font-family: inherit;
@@ -506,7 +517,7 @@
         background: linear-gradient(90deg, #3a986e, #237116, #096709, #0b3e27);
         background-size: 400%;
         border-radius: 20px;
-        z-index: 1;
+        /* z-index: 1; Remove this line */
     }
 
     
@@ -526,17 +537,18 @@
     }
     
     .explore-btn:before {
-    content: "";
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    z-index: -1;
-    background: linear-gradient(90deg, #3a986e, #237116, #096709, #0b3e27);
-    background-size: 400%;
-    border-radius: 30px;
-    transition: 1s;
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        z-index: -1;
+        background: linear-gradient(90deg, #3a986e, #237116, #096709, #0b3e27);
+        background-size: 400%;
+        border-radius: 30px;
+        transition: 1s;
+        pointer-events: none; /* Add this line */
     }
 
     .explore-btn:hover::before {
