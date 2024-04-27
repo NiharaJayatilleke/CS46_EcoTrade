@@ -982,6 +982,7 @@
     <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
+    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/dashboards/ad_view.js"></script> -->
     <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/search.js"></script> -->
     
     

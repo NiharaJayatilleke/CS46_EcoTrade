@@ -1,5 +1,5 @@
 <?PHP
-    class M_Recenters{
+    class M_Recycle_Centers{
         private $db;
 
         public function __construct(){
@@ -100,9 +100,33 @@
             return $this->db->single();
         }
 
+        public function addRequirement($data){
+            $this->db->query('INSERT INTO Recycle_Center_Requirements(rad_id,item_category,item_desc,item_location,item_quantity,status) VALUES (:rad_id, :item_category, :item_desc, :item_location, :item_quantity, :status)');
+        
+            $this->db->bind(':rad_id',$data['ad_id']);         
+            $this->db->bind(':item_category',$data['item_category']);
+            $this->db->bind(':item_desc',$data['item_desc']);  
+            $this->db->bind(':item_location',$data['item_location']);
+            $this->db->bind(':item_quantity',$data['item_quantity']);
+            $this->db->bind(':status',"active");
+            
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function getCenterRequirements(){
+            $this->db->query('SELECT * FROM Recycle_Center_Requirements');
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
 
         public function getAds(){
-            $this->db->query('SELECT * FROM Re_Centers');
+            $this->db->query('SELECT * FROM Recycle_Center_Requirements');
             $results = $this->db->resultSet();
             return $results;
         }
@@ -116,7 +140,7 @@
         }
 
         public function delete($adId){
-            $this->db->query('DELETE FROM Re_Centers WHERE rad_id = :id');
+            $this->db->query('DELETE FROM Recycle_Center_Requirements WHERE rad_id = :id');
             $this->db->bind(':id',$adId);
 
             if($this->db->execute()){

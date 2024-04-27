@@ -1,4 +1,5 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/admin/dashboard.css">
 
     <div class="dashboard-container">
         <div class="dashboard-sidenav">
@@ -30,7 +31,7 @@
 
                 <li>
                     <!-- <a href=""> -->
-                    <a href="#center-content" id="center-tab" onclick="showContent('center-content')">
+                    <a href="#settings-content" id="center-tab" onclick="showContent('center-content')">
                         <span class = "side-icon"><ion-icon name="leaf-outline"></ion-icon></span>
                         <span class = "side-title">Your account</span>
                     </a>
@@ -81,23 +82,54 @@
                         <h2>Recycle Centers Dashboard</h2>
                     </div>
 
+                    <!-- Post Requirements Button -->
+                    <div class="dashboard-cardBox">
+                        <a href="<?php echo URLROOT ?>/RecycleCenters/addRequirement" style="text-decoration: none; color: inherit;">
+                            <div class="dashboard-card">
+                                <div>
+                                    <!-- <div class="dashboard-numbers"><?php echo $data['rec_ad_count'] ?></div>  -->
+                                    <div class="dashboard-cardName"><h3>Post Requirement<h3></div>
+                                </div>
+                                <div class="dashboard-iconBx">  
+                                    <ion-icon name="leaf"></ion-icon>  
+                                </div>
+                            </div>
+                        </a>        
+                    </div>
+
                     <div class="details" style=" display: block;">
                         <div class="recentOrders">
                             <div class="cardHeader">
-                                <h2>Recent Activities</h2>
-                                <a href="#" class="btn">View All</a>
+                                <h2>Recently Posted Requirements</h2>
+                                <a href="#" onclick="showContent('recycle-content')" class="btn">View All</a>
                             </div>
                             <table>
                                 <thead>
                                     <tr>
-                                        <td>Name</td>
-                                        <td>Price</td>
-                                        <td>Payment</td>
-                                        <td>Status</td>
+                                        <td>Category</td>
+                                        <td>Description</td>
+                                        <td>Quantity</td>
+                                        <td>Posted</td>
+                                        <td>Edit/Delete</td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
+                                    <?php foreach($data['center_reqs'] as $req): ?>
+                                        <tr>
+                                            <td><?= $req->item_category ?></td>
+                                            <td><?= $req->item_desc ?></td>
+                                            <td><?= $req->item_quantity ?></td>
+                                            <td><?php echo convertTime($req->created_at); ?></td>
+                                            <td>
+                                                <div class = "mod-control-btns">
+                                                    <a href="<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>?updated=true"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                    <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+
+                                <!-- <tr>
                                     <td>Refrigerator</td>
                                     <td>Rs. 1200</td>
                                     <td>Paid</td>
@@ -190,7 +222,7 @@
                                     <td>Rs. 300</td>
                                     <td>Due</td>
                                     <td><span class="status inprogress">In Progress</span></td>
-                                </tr>
+                                </tr>  -->
 
                                 </tbody>
                             </table>
@@ -200,7 +232,49 @@
 
 
             <div id="recycle-content" class="content-section">
-                <div class="ad-right-container">
+
+                <div class="details" style=" display: block;">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Posted Requirements</h2>
+                            <!-- <a href="#" class="btn">View All</a> -->
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Category</td>
+                                    <td>Description</td>
+                                    <td>Quantity</td>
+                                    <td>Posted</td>
+                                    <td>Edit/Delete</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($data['center_reqs'] as $req): ?>
+                                    <tr>
+                                        <td><?= $req->item_category ?></td>
+                                        <td><?= $req->item_desc ?></td>
+                                        <td><?= $req->item_quantity ?></td>
+                                        <td><?php echo convertTime($req->created_at); ?></td>
+                                        <td>
+                                            <div class = "mod-control-btns">
+                                                <a href="<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>?updated=true"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> 
+            </div>
+
+
+
+
+
+                <!-- <div class="ad-right-container">
                     <?php if (!empty($data['ads'])) : ?>
                     <div class="ads-container">
                         <?php foreach($data['ads'] as $ad): ?>
@@ -221,7 +295,7 @@
                                                 <a href = "<php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
                                                 <a href = "<php echo URLROOT?>/ItemAds/report/<?php echo $ad->ad_id?>"><button class="ad-report-btn" title="report ad"><i class="fas fa-flag"></i></button></a> 
                                             </div>
-                                        <php endif; ?> -->
+                                        <php endif; ?> 
                                     <div class="ad-item-name"><h3><?php echo $ad->item_name ?></h3></div>
                                     <div class="ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
                                     <div class="ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
@@ -241,8 +315,8 @@
                                         <?php if($ad->selling_format == 'auction'): ?> 
                                         <a href=""><button class="ad-bid-btn">Bid</button></a>
                                         <?php endif; ?>
-                                        <!-- <a href = ""><button class="ad-wishlist-btn"><i class="fas fa-heart"></i></button></a> -->
-                                        <!-- <a href="#"><button class="ad-wishlist-btn"><img src="/img/icons/wishlist.png" alt="Wishlist Icon"></button></a> -->
+                                        <!-- <a href = ""><button class="ad-wishlist-btn"><i class="fas fa-heart"></i></button></a> 
+                                        <!-- <a href="#"><button class="ad-wishlist-btn"><img src="/img/icons/wishlist.png" alt="Wishlist Icon"></button></a> 
                                     </div>
                                 </div>  
                             </div>
@@ -258,13 +332,132 @@
                         <p>Try checking your spelling or use more general terms</p>
                     </div>
                     <?php endif; ?>
-                </div>
+                </div> -->
 
             
             </div>
 
             <div id="center-content" class="content-section">
             <p>This is the content for the centers tab.</p> 
+            </div>
+
+            <div id="settings-content" class="content-section">
+                <div class="profile-settings-container">
+                    <div class="tabs-container">
+                        <!-- <button class="tab-link active" onclick="openTab(event, 'general')">General</button>
+                        <button class="tab-link" onclick="openTab(event, 'change-password')">Change Password</button>
+                        <button class="tab-link" onclick="openTab(event, 'notification')">Notification</button> -->
+                        <button class="tab-link active" onclick="openTab('general')" data-section="general">General</button>
+                        <button class="tab-link" onclick="openTab('change-password')" data-section="change-password">Change Password</button>
+                    </div>
+
+                    <div id="general" class="tab-content active"  data-section="general">
+                                <div class="col-md-3 pt-0">
+                                    <div class="profile_image">
+                                        <div class="image-container">
+                                            <?php
+                                            if (!empty($data['userdetails']->profile_image)) {
+                                                echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['userdetails']->profile_image . '" alt="Profile Image" class="d-block ui-w-80" id="profile-pic">';
+                                            } else {
+                                                echo '<img src="' . URLROOT . '/public/img/profile.png" alt="Default Profile Image" class="d-block ui-w-80" id="profile-pic">';
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>  
+                                    <div class="dashboard-icons-container"> 
+                                         <form method="POST" action="<?php echo URLROOT; ?>/admin/index?#settings-content" enctype="multipart/form-data">               
+                                            <div class="">
+                                                <button type="button"><label for="upload-photo" title="Browse Photo"><i class="fas fa-edit"></i></label></botton>
+                                                <div class="file-upload">
+                                                    <input type="file" id="upload-photo" name="photo" accept="image/*">
+                                                </div>
+                                                <button class="savebutton"  type="submit" title="Save Photo"><i class="fas fa-bookmark"></i></button> 
+                                            </div>
+                                        </form>
+                                        <?php if (!empty($data['userdetails']->profile_image)) : ?>
+                                            <form method="POST" action="<?php echo URLROOT; ?>/admin/index?#settings-content">
+                                                <input type="hidden" name="delete_photo" value="1">
+                                                <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
+                                                <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')" class="" title="delete photo"><i class="fas fa-trash-alt"></i></button>
+                                            </form>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <form id="editProfileForm" action="<?php echo URLROOT; ?>/moderators/edit_profile" method="POST" >
+                                <div class="right-below">
+                                    <div class="right-left">
+                                        <div class="tab-pane fade active show" id="account-general">
+                                            <div class="card-body media align-items-center"></div>
+                                            <div class="card-body">
+                                                <!-- <form method="POST" action="<?php echo URLROOT; ?>/moderators/edit_profile"> -->
+                                                    <div class="form-group">
+                                                        <label class="form-label">Username</label>
+                                                        <input type="text" class="form-control input-field-box" name="newUsername" value="<?php echo $_SESSION['user_name']; ?>">
+                                                        <div class="form-invalid"><?php error('newUsername'); ?></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-label">E-mail</label>
+                                                        <input type="text" class="form-control input-field-box" value="<?php echo $_SESSION['user_email']; ?>" disabled>
+                                                    </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                    <div class="right-right">
+                                    <div class="form-group">
+                                        <label class="form-label">Contact number</label>
+                                        <input type="text" class="form-control input-field-box" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
+                                        <div class="form-invalid abs-error"><?php error('newContactNumber'); ?></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">User-Type</label>
+                                        <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>" disabled>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 20px; ">
+                                    <?php flash('profile_edit'); ?>
+                                </div>
+                                <div class="profile-buttons">
+                                    <button class="profile-updatebt">Edit profile</button>
+                                </div>
+                                </form>
+
+                    </div>
+
+                    <div id="change-password" class="tab-content" data-section="change-password">
+                        <form id="changePasswordForm" action="<?php echo URLROOT; ?>/users/update" method="POST" >
+                            <div class="cp-container">
+                                <div class="form-cp"> 
+                                    <label class="form-label" for="oldPassword">Old Password</label>
+                                    <input type="password" id="oldPassword" name="oldPassword" class="form-control input-field-box" required> 
+                                        <div class="form-invalid"><?php error('oldPassword'); ?></div> 
+                                </div>
+                                <div class="form-cp">
+                                    <label class="form-label" for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword"   name="newPassword" class="form-control input-field-box" required>     
+                                        <div class="form-invalid"><?php error('newPassword'); ?></div>
+                                </div>
+                                <div class="form-cp">
+                                    <label class="form-label" for="confirmPassword">Confirm New Password</label>
+                                    <input type="password" id="confirmPassword"  name="confirmPassword" class="form-control input-field-box" required> 
+                                </div>
+                                <div class="profile-buttons"> 
+                                    <button class="profile-updatebt">Change Password</button> 
+                                </div>
+                                <div id="changePasswordMessage" class="form-invalid"></div> 
+                            </div>
+                            <div style="margin-top: 30px;">
+                            <?php flash('update_password'); ?>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="notification" class="tab-content" data-section="notification">
+                        <h3>Notification Settings</h3>
+                        <p>Customize your notification preferences here.</p>
+                    </div>
+                </div>
             </div>
 
             <div id="signout-content" class="content-section">
@@ -322,6 +515,73 @@
 }
     
     </script>
+
+    <script>
+        // Function to handle opening horizontal tabs and updating URL hash
+        function openTab(tabName) {
+            var sectionName = document.getElementById(tabName).getAttribute('data-section');
+            console.log('Active section:', sectionName);
+
+            // Update the URL hash
+            window.location.hash = '#' + sectionName;
+
+            // Show the section
+            showSection(sectionName);
+        }
+        const editForm = document.getElementById('editProfileForm');
+    
+        editForm.onsubmit = function(event){
+            event.preventDefault();
+        
+            fetch('<?php echo URLROOT; ?>/moderators/edit_profile', {
+                method: 'POST',
+                body: new FormData(editForm)
+            })
+            .then(data => {
+                // Handle the response data as needed
+                //console.log(data);
+
+                window.location.reload();
+            })
+            
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        const changepwd = document.getElementById('changePasswordForm');
+        
+        changepwd.onsubmit = function(event){
+            event.preventDefault();
+
+            fetch('<?php echo URLROOT; ?>/users/update',{
+                method: 'POST',
+                body: new FormData(changepwd)
+            })
+            .then(data =>{
+
+            })
+            .then(data => {
+                // Handle the response data as needed
+                //console.log(data);
+
+                window.location.reload();
+            })
+            
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+        
+        let profilePic = document.getElementById("profile-pic");
+        let inputFile = document.getElementById("upload-photo");
+
+        inputFile.onchange = function(){
+        profilePic.src = URL.createObjectURL(inputFile.files[0])}
+    
+    </script>
+    </script>
+
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
     <script>var userCounts = <?php echo json_encode($data['userCounts']); ?>;
 

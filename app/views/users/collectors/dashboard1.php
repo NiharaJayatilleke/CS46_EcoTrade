@@ -10,13 +10,6 @@
                     </a>
                 </li>
 
-                <!-- <li>
-                    <a href="<?php echo URLROOT ?>/Pages/index">
-                        <span class = "side-icon"><ion-icon name="home-outline"></ion-icon></span>
-                        <span class = "side-title">Home</span>
-                    </a>
-                </li> -->
-
                 <li>
                     <a href="#dashboard-content" id="dashboard-tab" onclick="showContent('dashboard-content')">
                         <span class = "side-icon"><ion-icon name="grid-outline"></ion-icon></span>
@@ -25,33 +18,11 @@
                 </li>
 
                 <li>
-                    <a href="#users-content" id="users-tab" onclick="showContent('users-content')">
-                        <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
-                        <span class = "side-title">Users</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#moderators-content" id="moderators-tab" onclick="showContent('moderators-content')">
-                        <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
-                        <span class = "side-title">Moderators</span>
-                    </a>
-                </li>
-
-                <li>
                     <a href="#centers-content" id="centers-tab" onclick="showContent('centers-content')">
                         <span class = "side-icon"><ion-icon name="business-outline"></ion-icon></span>
                         <span class = "side-title">Recycle Center</span>
                     </a>
-                </li>
-
-
-                <li>
-                    <a href="#secondhand-content" id="secondhand-tab" onclick="showContent('secondhand-content')">
-                        <span class = "side-icon"><ion-icon name="pricetags"></ion-icon></span>
-                        <span class = "side-title">Preowned Ads</span>
-                    </a>
-                </li>                               
+                </li>                            
 
                 <li>
                     <a href="#recycle-content" id="recycle-tab" onclick="showContent('recycle-content')">
@@ -61,17 +32,12 @@
                 </li>
 
                 <li>
-                    <a href="#activity-content" id="activity-tab" onclick="showContent('activity-content')">
-                        <span class = "side-icon"><ion-icon name="globe-outline"></ion-icon></span>
-                        <span class = "side-title">Activity Log</span>
-                    </a>
-                </li>
-                <li>
                     <a href="#reported-ads-content" id="reported-ads-tab" onclick="showContent('reported-ads-content')">
                         <span class = "side-icon"><ion-icon name="remove-circle-outline"></ion-icon></span>
                         <span class = "side-title">Reported ads</span>
                     </a>
                 </li>
+
                 <li>
                     <a href="#settings-content" id="settings-tab" onclick="showContent('settings-content')">
                         <span class = "side-icon"><ion-icon name="cog-outline"></ion-icon></span>
@@ -94,7 +60,7 @@
                 <div class="dashboard-toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-                <!-- search -->                                                   
+                <!-- search -->
                 <div id="admin-dashboard-search" class="dashboard-search">
                     <label>
                         <input type="text" placeholder="Search here">
@@ -120,7 +86,7 @@
             <!-- dashboard admin -->
             <div id="dashboard-content" class="content-section">
                 <div class="heading-dashboard">
-                    <h2>Admin Dashboard</h2>
+                    <h2>Collector Dashboard</h2>
                 </div>
                 
                 <div class="dashboard-cardBox">
@@ -232,12 +198,6 @@
                                     <td><?php echo $activity->action_type; ?></td>
                                     <td><?php echo $activity->action_details; ?></td>
                                     <td><?php echo $activity->timestamp; ?></td>
-                                    <td>
-                                    <?php if ($activity->action_type == 'PreownedAd Creation' || $activity->action_type == 'RecycleAd Creation') : ?>
-                                    <div class="cardHeader">
-                                    <a class="btn" style="border: 1px solid white;">View Ad</a></div>
-                                    <?php endif; ?>
-                                    </td>
                                 </tr>
                             <?php 
                             $counter++;
@@ -310,7 +270,7 @@
                                     <td>Contact Number</td>
                                     <td>User Type</td>
                                     <td>Date Joined</td>
-                                    <td>Status</td>
+                                    <!-- <td>Edit/Delete</td> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -326,15 +286,10 @@
                                         <td><?php echo $user->number ?></td>
                                         <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
                                         <td><?php echo $user->created_at ?></td>
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox" onclick="toggleBan(this, '<?php echo $user->id ?>')" <?php echo $user->status == 1 ? 'checked' : '' ?>>
-                                                <span class="slider"></span>
-                                            </label>
-                                        </td>
                                         <!-- <td>
                                             <div class = "mod-control-btns">
-                                                <button onclick="confirmBan('<?php echo URLROOT?>/Admin/ban/<?php echo $user->id ?>')" class="ad-edit-btn"><i class="fas fa-ban"></i></button>
+                                                <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
                                             </div>
                                         </td> -->
                                     </tr>
@@ -407,10 +362,8 @@
                     <div class="ads-container">
                         <?php foreach($data['ads'] as $ad): ?>
                         <!-- <a class="ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>"> -->
-
                         <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id; ?>')">
-                            <div class="ad-index-container" data-ad-id="<?php echo $ad->ad_id ?>"
-
+                            <div class="ad-index-container"
                                 data-price="<?php echo $ad->item_price ?>"
                                 data-condition="<?php echo $ad->item_condition ?>"
                                 data-category="<?php echo $ad->item_category ?>"
@@ -624,36 +577,6 @@
             <!-- Recycle ads-->
             <div id="recycle-content" class="content-section">
                 <!-- centers should be fetched here -->
-
-                <div class="heading-dashboard">
-                    <h2>Recycle Item Ads</h2>
-                </div>
-
-                <div class="ad-right-container">
-                    <?php if (!empty($data['rec_ads'])) : ?>
-                        <div class="ads-container">
-                            <?php foreach($data['rec_ads'] as $ad): ?>
-                                <!-- <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id?>')"> -->
-                                    <div class="ad-index-container">
-                                        <div class="ad-header">
-                                            <div class="ad-body-image">
-                                                <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
-                                            </div>
-
-                                            <div class="ad-item-name"><h3><?php echo $ad->item_name ?></h3></div>
-                                            <div class="ad-user-name">Seller: <?php echo $ad->seller_name ?></div>
-                                            <div class="ad-created-at"><?php echo convertTime($ad->item_created_at); ?></div>
-                                        </div>
-
-                                        <div class="ad-body">
-                                            <div class="ad-body-desc"><?php echo $ad->item_desc ?></div>
-                                        </div>
-                                    </div>
-                                <!-- </a> -->
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
             </div>
 
             <!-- activity -->
@@ -683,12 +606,6 @@
                                             <td><?php echo $activity->action_type; ?></td>
                                             <td><?php echo $activity->action_details; ?></td>
                                             <td><?php echo $activity->timestamp; ?></td>
-                                            <td>
-                                            <?php if ($activity->action_type == 'PreownedAd Creation' || $activity->action_type == 'RecycleAd Creation') : ?>
-                                            <div class="cardHeader">
-                                            <a class="btn" style="border: 1px solid white;">View Ad</a></div>
-                                            <?php endif; ?>
-                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
 
@@ -700,12 +617,10 @@
 
             <!-- Ad Report -->
             <div id="reported-ads-content" class="content-section">
-            <div class="details">
-                    <div class="recentOrders">
-                            <div class="cardHeader">
-                                <h2>Reported Ads</h2>
-                            </div>                
-                    <table>
+                <div class="reported-ads-container">
+
+                    <h1>Reported Ads</h1>                  
+                    <table class="reported-ads-table">
                         <thead>
                         <tr>
                             <!-- <th>Report ID</th> -->
@@ -732,7 +647,7 @@
                                     <td><?php echo $ad->report_reason; ?></td>
                                     <td><?php echo $ad->report_comments; ?></td>
                                     <td><?php echo $ad->report_contact; ?></td>
-                                    <td><span class="status <?php echo strtolower($ad->report_status); ?>"><?php echo $ad->report_status; ?></span></td>
+                                    <td><?php echo $ad->report_status; ?></td>
                                     <td><?php echo $ad->report_created_at; ?></td>
                                     
                                     <td><button onclick="confirmDelete(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
@@ -747,7 +662,6 @@
                             </tr>
                         <?php endif; ?>
                     </table>
-                    </div>
                 </div>
             </div>
 
@@ -774,8 +688,7 @@
                                             ?>
                                         </div>
                                     </div>  
-                                    <div class="dashboard-icons-container"> 
-                                         <form method="POST" action="<?php echo URLROOT; ?>/admin/index?#settings-content" enctype="multipart/form-data">               
+                                    <form method="POST" action="<?php echo URLROOT; ?>/moderators/index#settings-content" enctype="multipart/form-data">               
                                             <div class="">
                                                 <button type="button"><label for="upload-photo" title="Browse Photo"><i class="fas fa-edit"></i></label></botton>
                                                 <div class="file-upload">
@@ -784,14 +697,12 @@
                                                 <button class="savebutton"  type="submit" title="Save Photo"><i class="fas fa-bookmark"></i></button> 
                                             </div>
                                         </form>
-                                        <?php if (!empty($data['userdetails']->profile_image)) : ?>
-                                            <form method="POST" action="<?php echo URLROOT; ?>/admin/index?#settings-content">
-                                                <input type="hidden" name="delete_photo" value="1">
-                                                <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
-                                                <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')" class="" title="delete photo"><i class="fas fa-trash-alt"></i></button>
-                                            </form>
-                                        <?php endif; ?>
-                                    </div>
+                                <?php if (!empty($data['userdetails']->profile_image)) : ?>
+                                    <form method="POST" action="<?php echo URLROOT; ?>/users/remove_photo">
+                                        <input type="hidden" name="photo_id" value="<?php echo $data['userdetails']->id; ?>">
+                                        <button type="submit" onclick="return confirm('Are you sure you want to delete this photo?')">Delete Photo</button>
+                                    </form>
+                                <?php endif; ?>
                                 </div>
                                 <form id="editProfileForm" action="<?php echo URLROOT; ?>/moderators/edit_profile" method="POST" >
                                 <div class="right-below">
@@ -874,55 +785,6 @@
     </div>
 
     <script>
-
-    window.onload = function() {
-        var adId = sessionStorage.getItem('adId');
-        if (adId) {
-            // If there's an ad ID, fetch and display the ad data
-            showAdContent(adId);
-        }
-    };
-
-    function showAdContent(adId) {
-
-        sessionStorage.setItem('adId', adId);
-        // Send a POST request to the server
-        fetch(URLROOT + "/ItemAds/getAdContent/" + adId, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            // body: JSON.stringify({adId: adId})
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("HTTP error " + response.status);
-            }
-            return response.json();
-        })
-        .then(data => {
-
-            console.log(data);
-
-            showContent('secondhand-ad-view-content');
-            // Use the data to display the ad content
-            document.querySelector('.sad-item-name h1').textContent = data.ad.item_name;
-            document.querySelector('.sad-p1 p').textContent = 'Posted on ' + data.ad.item_created_at;
-            document.querySelector('.sad-ad-img').src = URLROOT + '/public/img/items/' + data.ad.item_image;
-            document.querySelector('.sad-price h2').textContent = 'Rs. ' + data.ad.item_price;
-            document.querySelector('.sad-neg').textContent = data.ad.negotiable == 'yes' ? 'Negotiable' : 'Non-Negotiable';
-            document.querySelector('.sad-condition').textContent = 'Condition: ' + data.ad.item_condition;
-            document.querySelector('.sad-desP').textContent = data.ad.item_desc;
-            document.querySelector('.sad-b3-p1 p').textContent = 'Sold by ' + data.ad.seller_name;
-            document.querySelector('.sad-b3-p2 p').textContent = data.ad.item_location;
-            document.querySelector('#show-number').dataset.number = data.number;
-
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
-
     // Function to show/hide content sections based on the clicked tab
     function showContent(section) {
         // event.preventDefault();
@@ -943,7 +805,7 @@
 
          // Select the sidebar element
         a_name=section.split("-content")[0]+'-tab';
-        // document.getElementById(a_name).parentElement.classList.add('hovered'); //get an error
+        document.getElementById(a_name).parentElement.classList.add('hovered');
 
          // Update the URL hash to store the current section
         window.location.hash = '#' + section;
@@ -1010,50 +872,6 @@
             // Show the section
             showSection(sectionName);
         }
-        const editForm = document.getElementById('editProfileForm');
-    
-        editForm.onsubmit = function(event){
-            event.preventDefault();
-        
-            fetch('<?php echo URLROOT; ?>/moderators/edit_profile', {
-                method: 'POST',
-                body: new FormData(editForm)
-            })
-            .then(data => {
-                // Handle the response data as needed
-                //console.log(data);
-
-                window.location.reload();
-            })
-            
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
-
-        const changepwd = document.getElementById('changePasswordForm');
-        
-        changepwd.onsubmit = function(event){
-            event.preventDefault();
-
-            fetch('<?php echo URLROOT; ?>/users/update',{
-                method: 'POST',
-                body: new FormData(changepwd)
-            })
-            .then(data =>{
-
-            })
-            .then(data => {
-                // Handle the response data as needed
-                //console.log(data);
-
-                window.location.reload();
-            })
-            
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
         
         let profilePic = document.getElementById("profile-pic");
         let inputFile = document.getElementById("upload-photo");
@@ -1068,98 +886,19 @@
         var moderators = <?php echo json_encode($data['moderators']); ?>;
         var userCounts = <?php echo json_encode($data['userCounts']); ?>;
         var adCountsByCategory = <?php echo json_encode($data['adCountsByCategory']); ?>;
-        var preowned = <?php echo json_encode($data['ads']); ?>;
-
-
-        //admin banning the users
-        function toggleBan(checkbox, userId) {
-            var url;
-            var action;
-            var originalState = checkbox.checked; // Save the original state
-
-            if (originalState) {
-                url = '<?php echo URLROOT?>/Admin/unban/' + userId;
-                action = "unban";
-            } else {
-                url = '<?php echo URLROOT?>/Admin/ban/' + userId;
-                action = "ban";
-            }
-
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You are about to " + action + " this user.",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, ' + action + ' user!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = url;
-                } else {
-                    checkbox.checked = !originalState; // Revert to the original state if the user cancels
-                }
-            })
-        }
-
     </script> 
 
     <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/alerts.js"></script>
-    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/ad_view.js"></script> -->
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/ad_view.js"></script>
 
     <script type ="text/JavaScript">
         var URLROOT ="<?php echo URLROOT; ?>"
         var CURRENT_AD = "<?php echo $data['ad']->ad_id ?>";
     </script>
 
-    <!-- register and update moderator success message -->
-    <script>
-    window.onload = function() {
-        var urlParams = new URLSearchParams(window.location.search);
-
-        if (window.location.hash === '#moderators-content' && urlParams.get('registered') === 'true') {
-            Swal.fire(
-                'Registered!',
-                'The moderator has been registered.',
-                'success'
-            );
-
-            // Remove the 'registered' query parameter from the URL
-            urlParams.delete('registered');
-        }
-
-        if (window.location.hash === '#moderators-content' && urlParams.get('updated') === 'true') {
-            Swal.fire(
-                'Updated!',
-                'The moderator has been updated.',
-                'success'
-            );
-
-            // Remove the 'updated' query parameter from the URL
-            urlParams.delete('updated');
-        }
-
-        // Update the URL without causing a page reload
-        var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString() + window.location.hash;
-        history.replaceState(null, '', newUrl);
-    };
-    </script>
-
-
-    <!-- JS for messages -->
-    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/message_load.js"></script> -->
-
-    <!-- JS for buyer messages/notifications -->
-    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/buyer_notifs.js"></script> -->
-
-    <!-- JS for Offers -->
-    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/offers.js"></script> -->
-
-    <!-- JS for Bids -->
-    <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/bids.js"></script> -->
 
     <!-- JS for other interactions -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/other_interactions.js"></script>

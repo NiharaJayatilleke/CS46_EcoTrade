@@ -187,7 +187,7 @@ CREATE TABLE Recycle_Item_Ads (
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
-CREATE TABLE Re_Centers (
+CREATE TABLE Recycle_Center_Requirements (
     rad_id INT AUTO_INCREMENT,
     item_category VARCHAR(255),
     item_desc TEXT,
