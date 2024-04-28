@@ -147,12 +147,21 @@ CREATE TABLE Item_Ads (
     item_location VARCHAR(255),
     selling_format VARCHAR(255),
     negotiable VARCHAR(255),
-    item_expiry INT,
+    item_expiry DATETIME,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(255),
     PRIMARY KEY(p_id),
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
+
+ALTER TABLE Item_Ads
+DROP COLUMN item_expiry;
+
+ALTER TABLE Item_Ads
+ADD COLUMN item_expiry DATETIME;
+
+ALTER TABLE Item_Ads
+MODIFY COLUMN item_expiry DATETIME;
 
 DROP TABLE IF EXISTS Secondhand_Ad_Images;
 
@@ -423,3 +432,20 @@ CREATE OR REPLACE VIEW v_re_reqs AS
         FOREIGN KEY(collector_id) REFERENCES General_User(id) ON UPDATE CASCADE ON DELETE CASCADE,
         FOREIGN KEY(req_id) REFERENCES Recycle_Center_Requirements(rad_id) ON UPDATE CASCADE ON DELETE CASCADE
     );
+
+CREATE OR REPLACE VIEW v_saved_re_reqs AS
+SELECT
+    Saved_Requirements.collector_id as collector_id,
+    Recycle_Center_Requirements.rad_id as rad_id,
+    Recycle_Center_Requirements.center_id as center_id,
+    General_User.number as center_number,
+    Recycle_Center_Requirements.item_category as item_category,
+    Recycle_Center_Requirements.item_desc as item_desc,
+    Recycle_Center_Requirements.item_location as item_location,
+    Recycle_Center_Requirements.item_quantity as item_quantity,
+    Recycle_Center_Requirements.created_at as created_at,
+    Recycle_Center_Requirements.status as status
+FROM Recycle_Center_Requirements
+JOIN General_User ON Recycle_Center_Requirements.center_id = General_User.id
+JOIN Saved_Requirements ON Recycle_Center_Requirements.rad_id = Saved_Requirements.req_id
+ORDER BY Recycle_Center_Requirements.created_at DESC;

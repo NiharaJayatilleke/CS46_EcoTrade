@@ -18,12 +18,13 @@
     position: absolute;
     animation: keyframes-fill .5s;
     transform-origin: top;
+    justify-content: center;
   }
   
   .save-ad-container .save-solid {
     position: absolute;
     animation: keyframes-fill .5s;
-    display: none;
+    /* display: none; */
     transform-origin: top;
   }
   
@@ -34,6 +35,8 @@
     margin-top: initial;
     height: initial;
   }
+
+  /* style="fill: black; width: 24px; height: 24px;" */
   
   .save-ad-container input:checked ~ .save-solid {
     display: block;
