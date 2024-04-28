@@ -23,9 +23,14 @@
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 // var_dump($_POST);
 
+                if (isset($_POST['item_expiry']) && is_numeric($_POST['item_expiry'])) {
                 $expiryMonths = trim($_POST['item_expiry']);
                 $expiryDate = new DateTime();
                 $expiryDate->add(new DateInterval("P{$expiryMonths}M"));
+                } else {
+                    // Handle the error case here. For example, you could set $expiryDate to null:
+                    $expiryDate = null;
+                }
 
                 //input data
                 $data = [
@@ -41,7 +46,8 @@
 
                     'item_location' => trim($_POST['item_location']),
                     'item_district' => trim($_POST['item_district']),
-                    'item_expiry' => $expiryDate->format('Y-m-d H:i:s'),
+                    // 'item_expiry' => $expiryDate->format('Y-m-d H:i:s'),
+                    'item_expiry' => $expiryDate ? $expiryDate->format('Y-m-d H:i:s') : null,
 
                     'item_name_err' => '',
                     'item_category_err' => '',
@@ -99,7 +105,7 @@
 
                 //validate item_district
                 if(empty($data['item_district'])){
-                    $data['item_district_err'] = 'Please enter the district of your item';
+                    $data['item_district_err'] = 'Please select a district';
                 }
 
                 //validate expiry

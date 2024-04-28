@@ -174,9 +174,14 @@
                 //Validate the data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+                if (isset($_POST['item_expiry']) && is_numeric($_POST['item_expiry'])) {
                 $expiryMonths = trim($_POST['item_expiry']);
                 $expiryDate = new DateTime();
                 $expiryDate->add(new DateInterval("P{$expiryMonths}M"));
+                } else {
+                    // Handle the error case here. For example, you could set $expiryDate to null:
+                    $expiryDate = null;
+                }
 
                 //input data
                 $data = [
@@ -199,7 +204,7 @@
                     'starting_bid' => trim($_POST['starting_bid']),
                     'negotiable' => trim($_POST['negotiable']),
                     // 'item_expiry' => trim($_POST['item_expiry']),
-                    'item_expiry' => $expiryDate->format('Y-m-d H:i:s'),
+                    'item_expiry' => $expiryDate ? $expiryDate->format('Y-m-d H:i:s') : null,
 
                     'item_name_err' => '',
                     'item_category_err' => '',
@@ -672,7 +677,7 @@
             }
         }
 
-        public function payment(){
+        public function payment($adId){
 
             $ad = $this->itemAdsModel->getAdById($adId);
 

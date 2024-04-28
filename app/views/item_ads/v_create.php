@@ -11,12 +11,12 @@
         <form action="<?php echo URLROOT?>/ItemAds/itemAd" method="POST" enctype="multipart/form-data">
 
             <!-- item_name -->
-            <div class="ad-form-input-title">Item Name</div>
+            <div class="ad-form-input-title">Item Name<span class="required-field">*</span></div>
             <input type="text" name="item_name" id="item_name" class="ad_item_name" value="<?php echo $data['item_name']; ?>">
             <span class="ad-form-invalid"><?php echo $data['item_name_err']; ?></span>
 
             <!-- item_category -->
-            <div class="ad-form-input-title">Category</div>
+            <div class="ad-form-input-title">Category<span class="required-field">*</span></div>
             <!-- <label for="item_category">Item Category  </label> -->
             <select name="item_category" id="item_category" class="ad_item_category">
             <option value="" <?php echo $data['item_category'] == '' ? 'selected' : ''; ?>>Select a category</option>
@@ -50,7 +50,7 @@
             <!-- "Eg: The coffee table, used for three years, showcases minor scratches but remains sturdy and fully functional, has a convenient lower shelf. Crafted from solid wood with regular cleaning, it's sold as is." -->
 
             <!-- item_condition -->
-            <div class="ad-form-input-title">Condition</div>
+            <div class="ad-form-input-title">Condition<span class="required-field">*</span></div>
             <!-- <input type="text" name="item_condition" id="item_condition" class="ad_item_condition" value="<?php echo $data['item_condition']; ?>"> -->
             <select name="item_condition" id="item_condition" class="ad_item_condition">
             <option value="" <?php echo $data['item_condition'] == '' ? 'selected' : ''; ?>>Select the condition</option>
@@ -64,11 +64,11 @@
             <span class="ad-form-invalid"><?php echo $data['item_condition_err']; ?></span>
 
             <!-- quantity -->
-            <div class="ad-form-input-title">Quantity</div>
+            <div class="ad-form-input-title">Quantity<span class="required-field">*</span></div>
             <input type="number" name="item_quantity" id="item_quantity" class="ad_item_quantity" value="<?php echo $data['item_quantity']; ?>" >
             <span class="ad-form-invalid"><?php echo $data['item_quantity_err']; ?></span>
 
-            <div class="ad-form-input-title">Upload Images (min:1, max:6)</div>
+            <div class="ad-form-input-title">Upload Images (min:1, max:6)<span class="required-field">*</span></div>
             <!-- item images -->
             <div class = "ad-form-drag-area" id="form-drag-area">
                 <div class = "ad-icon">
@@ -150,17 +150,17 @@
             </div>
 
             <!-- price -->
-            <div class="ad-form-input-title">Price in LKR</div>
+            <div class="ad-form-input-title">Price in LKR<span class="required-field">*</span></div>
             <input type="number" name="item_price" id="item_price" class="ad_item_price" value="<?php echo $data['item_price']; ?>" >
             <span class="ad-form-invalid"><?php echo $data['item_price_err']; ?></span>
 
             <!-- location -->
-            <div class="ad-form-input-title">Location</div>
-            <input type="text" name="item_location" id="item_location" class="ad_item_location" value="<?php echo $data['item_location']; ?>" >
+            <div class="ad-form-input-title">Location<span class="required-field">*</span></div>
+            <input type="text" name="item_location" id="item_location" class="ad_item_location" placeholder = "Street Address" value="<?php echo $data['item_location']; ?>" >
             <span class="ad-form-invalid"><?php echo $data['item_location_err']; ?></span>
 
             <!-- selling_format -->
-            <div class="ad-form-input-title">Preferred way of selling</div>
+            <div class="ad-form-input-title">Preferred way of selling<span class="required-field">*</span></div>
             <input type="radio" name="selling_format" id="auction" class="ad_selling_format" value="auction" <?php if ($data['selling_format'] === 'auction') { echo 'checked'; } ?>>
             <label for="auction">Auction</label>
             <input type="radio" name="selling_format" id="buy_now" class="ad_selling_format" value="buy_now" <?php if ($data['selling_format'] === 'buy_now') { echo 'checked'; } ?>>
@@ -170,7 +170,7 @@
             <!-- Hidden form for auction details -->
                 <div id="auction_details" style="display: <?php echo ($data['selling_format'] === 'auction' || $data['show_auction_fields']) ? 'block' : 'none'; ?>;">
                 <!-- <div id="auction_details" style="display: block;"> -->
-                    <br><br><label for="duration"><p class = "ad_auction_duration">Auction Duration:</p></label>
+                    <br><br><label for="duration"><p class = "ad_auction_duration">Auction Duration<span class="required-field">*</span></p></label>
                     <select id="duration" name="duration" class="ad_duration">
                         <option value="">Select the duration</option>
                         <option value="1">1 day</option>
@@ -183,7 +183,7 @@
                     <span class="ad-form-invalid"><?php echo $data['duration_err']; ?></span><br><br>
                     <!-- <label for="end_time">Auction End Time:</label>
                     <input type="datetime-local" id="end_time" name="end_time"><br> -->
-                    <label for="starting_bid"><p class="ad_auction_starting_bid">Starting Bid:</p></label>
+                    <label for="starting_bid"><p class="ad_auction_starting_bid">Starting Bid<span class="required-field">*</span></p></label>
                     <input type="number" id="starting_bid" name="starting_bid" class="ad_starting_bid"><br>
                     <span class="ad-form-invalid"><?php echo $data['starting_bid_err']; ?></span><br>
                 </div>
@@ -191,7 +191,7 @@
 
             <!-- negotiable -->
             <!-- <div class="ad-form-input-title">Is the price negotiable? </div> -->
-            <div class="ad-form-input-title">Do you wish to accept offers? </div>
+            <div class="ad-form-input-title">Do you wish to accept offers for this item?<span class="required-field">*</span> </div>
             <input type="radio" name="negotiable" id="yes" class="ad_negotiable" value="yes" <?php if ($data['negotiable'] === 'yes') { echo 'checked'; } ?>>
             <label for="yes">Yes</label>
             <input type="radio" name="negotiable" id="no" class="ad_negotiable" value="no" <?php if ($data['negotiable'] === 'no') { echo 'checked'; } ?>>
@@ -199,7 +199,7 @@
             <span class="ad-form-invalid"><?php echo $data['negotiable_err']; ?></span><br>
 
             <!-- ad expiry -->
-            <div class="ad-form-input-title">For how long do you wish to keep this ad?</div>
+            <div class="ad-form-input-title">For how long do you wish to keep this ad?<span class="required-field">*</span></div>
             <select name="item_expiry" id="item_expiry" class="ad_item_expiry">
             <option value="" <?php echo $data['item_expiry'] == '' ? 'selected' : ''; ?>>Select the duration</option>
             <option value="1" <?php echo $data['item_expiry'] == '1 month' ? 'selected' : ''; ?>>1 month</option>

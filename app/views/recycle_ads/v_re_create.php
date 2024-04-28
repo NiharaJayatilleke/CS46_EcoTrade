@@ -17,7 +17,7 @@
             <span class="form-invalid"><?php echo $data['item_name_err']; ?></span>
 
             <!-- item_category -->
-            <div class="ad-form-input-title">Category</div>
+            <div class="ad-form-input-title">Category<span class="required-field">*</span></div>
             <!-- <label for="item_category">Item Category  </label> -->
             <select name="item_category" id="item_category" class="ad_item_category">
             <option value="">Select a category</option>
@@ -63,7 +63,7 @@
             </div> -->
 
             <!-- item images -->
-            <div class="ad-form-input-title">Upload Images (min:1, max:6)</div>
+            <div class="ad-form-input-title">Upload Images (min:1, max:6)<span class="required-field">*</span></div>
 
             <div class = "ad-form-drag-area" id="form-drag-area">
                 <div class = "ad-icon">
@@ -97,13 +97,13 @@
             <span class="form-invalid"><?php echo $data['item_price_err']; ?></span>  -->
 
             <!-- location -->
-            <div class="ad-form-input-title">Location</div>
-            <input type="text" name="item_location" id="item_location" class="ad_item_location" value="<?php echo $data['item_location']; ?>" >
+            <div class="ad-form-input-title">Location<span class="required-field">*</span></div>
+            <input type="text" name="item_location" id="item_location" class="ad_item_location" placeholder = "Street Address" value="<?php echo $data['item_location']; ?>" >
             <span class="ad-form-invalid"><?php echo $data['item_location_err']; ?></span>
 
             <!-- District -->
             <!-- <label>Select District <span class="required">*</span></label> -->
-            <div class="ad-form-input-title">District</div>                            
+            <div class="ad-form-input-title">District<span class="required-field">*</span></div>                            
                 <select name="item_district" id="item_district" class="ad_item_district" >
                     <option value="">Select the district</option>
                     <option value="Colombo">Colombo</option>
@@ -132,9 +132,11 @@
                     <option value="Ratnapura">Ratnapura</option>
                     <option value="Kegalle">Kegalle</option>
                 </select>
+
+            <span class="ad-form-invalid"><?php echo $data['item_district_err']; ?></span>
             
             <!-- ad expiry -->
-            <div class="ad-form-input-title">For how long do you wish to keep this ad?</div>
+            <div class="ad-form-input-title">For how long do you wish to keep this ad?<span class="required-field">*</span></div>
             <select name="item_expiry" id="item_expiry" class="ad_item_expiry">
             <option value="" <?php echo $data['item_expiry'] == '' ? 'selected' : ''; ?>>Select the duration</option>
             <option value="1" <?php echo $data['item_expiry'] == '1 month' ? 'selected' : ''; ?>>1 month</option>
@@ -144,7 +146,7 @@
             <span class="ad-form-invalid"><?php echo $data['item_expiry_err']; ?></span>
 
             <br>
-            <p>Upon examination of your recyclable items, our dedicated collector will determine a fair and suitable price, taking into consideration the condition and value of the products.</p>
+            <p class = "info-msg" >Upon examination of your recyclable items, our dedicated collector will determine a fair and suitable price, taking into consideration the condition and value of the products.</p>
 
             <!-- submit button -->
             <input type="submit" value="Post Ad" class="ad-form-btn">
