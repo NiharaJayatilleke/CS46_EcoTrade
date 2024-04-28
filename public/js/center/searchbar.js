@@ -1,6 +1,6 @@
 // Function to show the search bar
 function showSearchBar() {
-    var searchBar = document.getElementById('admin-dashboard-search');
+    var searchBar = document.getElementById('center-dashboard-search');
     if (searchBar) {
         searchBar.style.display = 'block'; 
     }
@@ -8,7 +8,7 @@ function showSearchBar() {
 
 // Function to hide the search bar
 function hideSearchBar() {
-    var searchBar = document.getElementById('admin-dashboard-search');
+    var searchBar = document.getElementById('center-dashboard-search');
     if (searchBar) {
         searchBar.style.display = 'none'; 
     }
@@ -22,15 +22,11 @@ function checkFragment() {
     // Show or hide the search bar based on the URL fragment
     switch (fragment) {
 
-        case '#centers-content':
-        case '#secondhand-content':
         case '#recycle-content':
             showSearchBar();
             break; 
         case '#dashboard-content':
-        case '#reported-ads-content':
         case '#settings-content':
-        case '#secondhand-ad-view-content':
             hideSearchBar();
             break;
         default:

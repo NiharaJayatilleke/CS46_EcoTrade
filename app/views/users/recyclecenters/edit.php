@@ -157,4 +157,4 @@
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/center/register.js"></script>
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/center/edit.js"></script>
  
- 
+<?php require APPROOT.'/views/inc/components/footer.php'; ?>

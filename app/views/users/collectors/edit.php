@@ -198,3 +198,5 @@
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/collectors/register.js"></script>
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/collectors/edit.js"></script>
  
+
+<?php require APPROOT.'/views/inc/components/footer.php'; ?>

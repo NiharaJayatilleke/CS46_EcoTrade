@@ -10,12 +10,12 @@
                         <span class = "side-title">EcoTrade</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="<?php echo URLROOT ?>/Pages/index">
                         <span class = "side-icon"><ion-icon name="home-outline"></ion-icon></span>
                         <span class = "side-title">Home</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="#dashboard-content" id="dashboard-tab" onclick="showContent('dashboard-content')">
                         <span class = "side-icon"><ion-icon name="grid-outline"></ion-icon></span>
@@ -67,7 +67,7 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
                 <!-- search -->
-                <div id="admin-dashboard-search" class="dashboard-search">
+                <div id="collector-dashboard-search" class="dashboard-search">
                     <label>
                         <input type="text" placeholder="Search here">
                         <ion-icon name="search-outline"></ion-icon>
@@ -158,7 +158,7 @@
                                     <td>Contact Number</td>
                                     <td>User Type</td>
                                     <td>Date Joined</td>
-                                    <!-- <td>Edit/Delete</td> 
+                                    <td>Edit/Delete</td> 
                                 </tr>
                             </thead>
                             <tbody>
@@ -173,7 +173,7 @@
                                 <td><?php echo $user->number ?></td>
                                 <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
                                 <td><?php echo $user->created_at ?></td>
-                                <!-- <td>
+
                                     <div class = "mod-control-btns">
                                         <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
                                         <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
@@ -544,6 +544,7 @@
     <!-- Javascript for image upload -->
     <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script> -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/collectors/searchbar.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/alerts.js"></script>
     <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/ad_view.js"></script> -->
 
