@@ -7,7 +7,7 @@
     <!-- list Items -->
     <div class="list">
         <div class="item active">
-            <img src="../public/img/Recyclehome/image/3627611.png">
+        <img src="../public/img/Recyclehome/image/img1.jpg">
             <div class="content">
                 <div class="welcome">
                 <h2 id="content1">Welcome</h2>
@@ -30,7 +30,8 @@
             </div>
         </div>
         <div class="item">
-            <img src="../public/img/Recyclehome/image/img1.jpg">
+        <img src="../public/img/Recyclehome/image/3627611.png">
+      
             <div class="content">
                 <p></p>
                 <h2></h2>
@@ -147,6 +148,16 @@
         <img src="../public/img/Recyclehome/image/recycling-waste-is-very-necessary-environment.jpg" alt="">
     </div>
 </div>
+<div class="recenter96">
+<section id="banner96" class="section-m196">
+    <div class="text96">
+        <h4>Recycle Center</h4>
+        <h2>Recycle <span>Center </span> -Shared Value.</h2>
+        <a href="<?php echo URLROOT; ?>/recyclecenters/#dashboard-content" class="explore-btn">Sign Up</a>
+</div>
+    </section>
+    </div>
+
 <!-- <div class="cards">
     <div class="container">
         <div class="rec-card">

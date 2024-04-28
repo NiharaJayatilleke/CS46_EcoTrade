@@ -229,8 +229,9 @@
             <div class="action-divider"></div>
             <div class="profile-actions">
               <div class="action-buttons">
-                <div class="change-profile-picture">Change Profile Picture</div>
-                <div class="remove-profile-picture">Remove Profile Picture</div>
+                <a href = <button class="ad-edit-btn" title="edit ad"><i class="fas fa-edit"></i></button></a>
+                <a href = <button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
+
               </div>
             </div>
           </div>
