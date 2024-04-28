@@ -422,7 +422,9 @@
         <h2>Quality secondhand</h2>
         <h1>just a click away.</h1>
         <p>Elevate your style, reduce your footprint.</p>
-        <button>Shop Now</button>
+        <a href = <?php echo URLROOT ."/ItemAds/index" ?>>
+          <button>Shop Now</button>
+        </a>
         <a href="#" class="to-top">
             <p class="to-top--title">BACK <br> TO TOP</p>
         </a>
@@ -476,7 +478,7 @@
     <h2>Featured Products</h2>
     <p>Elevate Your Everyday Style</p>
     <div class="pro-container">
-        <?php foreach($data['ads'] as $ad): ?>
+        <?php foreach($data['pv_ads'] as $ad): ?>
             <div class="pro">
                 <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="" />
                 <div class="des">
@@ -616,14 +618,36 @@
     <section id="banner" class="section-m1">
         <h4>Secondhand Market</h4>
         <h2>Sustainable <span>Shopping </span> -Shared Value.</h2>
+        <a href = <?php echo URLROOT ."/ItemAds/index" ?>>
         <button class="normal">Explore More</button>
+        </a>
     </section>
 
     <section id="product1" class="section-p1">
         <h2>New Arrivals</h2>
         <p>Hot products here!</p>
         <div class="pro-container">
+
+        <div class="pro-container">
+        <?php foreach($data['unique_ads'] as $ad): ?>
             <div class="pro">
+                <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="" />
+                <div class="des">
+                    <span><?php echo $ad->item_condition ?></span>
+                    <h5><?php echo $ad->item_name ?></h5>
+                    <h4>Rs.<?php echo $ad->item_price?></h4>
+                </div>
+                <a href="#" ><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
+            </div>
+
+            <script>
+    
+            </script>
+        <?php endforeach; ?>
+    </div>
+    </section> 
+
+            <!-- <div class="pro">
                 <img src="img/products/n1.jpg" alt="">
                 <div class="des">
                     <span>Adiddas</span>
@@ -750,11 +774,11 @@
                     <h4>$78</h4>
                 </div>
                 <a href="#" ><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
-            </div>
+            </div> 
             
         </div>
 
-    </section>
+    </section> -->
 
     <!-- <section id="sm-banner" class="section-p1">
         <div class="banner-box ">

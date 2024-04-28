@@ -145,14 +145,18 @@ CREATE TABLE Item_Ads (
     item_image VARCHAR(255),
     item_price DOUBLE,
     item_location VARCHAR(255),
+    item_district VARCHAR(255),
     selling_format VARCHAR(255),
     negotiable VARCHAR(255),
-    item_expiry DATETIME,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    item_expiry DATETIME,
     status VARCHAR(255),
     PRIMARY KEY(p_id),
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
+
+ALTER TABLE Item_Ads
+ADD COLUMN item_district VARCHAR(255);
 
 ALTER TABLE Item_Ads
 DROP COLUMN item_expiry;
@@ -166,6 +170,13 @@ MODIFY COLUMN item_expiry DATETIME;
 DROP TABLE IF EXISTS Secondhand_Ad_Images;
 
 CREATE TABLE Secondhand_Ad_Images (
+    image_id INT AUTO_INCREMENT PRIMARY KEY,
+    item_id INT,
+    image_name VARCHAR(255),
+    FOREIGN KEY (item_id) REFERENCES Recycle_Item_Ads(_id) ON DELETE CASCADE
+);
+
+CREATE TABLE Recycle_Ad_Images (
     image_id INT AUTO_INCREMENT PRIMARY KEY,
     item_id INT,
     image_name VARCHAR(255),
@@ -190,7 +201,9 @@ CREATE TABLE Recycle_Item_Ads (
     item_desc TEXT,
     item_image VARCHAR(255),
     item_location VARCHAR(255),
+    item_district VARCHAR(255),
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    item_expiry DATETIME,
     status VARCHAR(255),
     PRIMARY KEY(r_id),
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE

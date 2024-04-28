@@ -12,7 +12,7 @@
         <form action="<?php echo URLROOT?>/RecycleItemAds/recycleItemAd" method="POST" enctype="multipart/form-data">
 
             <!-- item_name -->
-            <div class="ad-form-input-title">Item Name</div>
+            <div class="ad-form-input-title">Item Name<span class="required-field">*</span></div>
             <input type="text" name="item_name" id="item_name" class="ad_item_name" value="<?php echo $data['item_name']; ?>">
             <span class="form-invalid"><?php echo $data['item_name_err']; ?></span>
 
@@ -46,8 +46,8 @@
             <div class="ad-form-input-title">Description</div>
             <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="ad_item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?></textarea>
 
-            <div class="ad-form-input-title">Upload an Image</div>
-            <!-- item images -->
+            <!-- <div class="ad-form-input-title">Upload an Image</div>
+            <!-- item images
             <div class = "ad-form-drag-area" id="form-drag-area">
                 <div class = "ad-icon">
                     <img id = "item_img_placeholder" src = "<?php echo URLROOT;?>/public/img/itemAds/placeholder.png" alt="placeholder" width = "40px" height = "40px"></img>
@@ -60,7 +60,36 @@
                 <div class="ad-form-validation">
                     <span class="ad-form-invalid"><?php echo $data['item_images_err']; ?></span>
                 </div>
+            </div> -->
+
+            <!-- item images -->
+            <div class="ad-form-input-title">Upload Images (min:1, max:6)</div>
+
+            <div class = "ad-form-drag-area" id="form-drag-area">
+                <div class = "ad-icon">
+                    <div id="image_container"></div> <!-- New image container -->
+                    <img id = "item_img_placeholder" src = "" alt="placeholder"><i id = "item_img_placeholder_icon" class="fas fa-image fa-5x"></i></img>
+                    <!-- <i id = "item_img_placeholder" class="fas fa-image fa-5x"></i> -->
+                </div> 
+                <div class="ad-form-drag-area-text">Drag and drop files here</div>
+                <div class="ad-form-drag-area-or">or</div>
+                <div class="ad-form-drag-area-btn">Browse Files</div>
+                    <!-- <input type="file" name="item_images" id="item_images" class="ad_item_images" style ="display:none"> -->
+                    <input type="file" name="item_images[]" id="item_images" class="ad_item_images" style ="display:none" multiple>
+                
+                <div class="ad-form-validation">
+                    <span class="ad-form-invalid"><?php echo $data['item_images_err']; ?></span>
+                </div>
             </div>
+
+            <script>
+                document.getElementById('item_images').addEventListener('change', function() {
+                    if (this.files.length > 6) {
+                        alert('You can only upload a maximum of 6 files');
+                        this.value = '';
+                    }
+                });
+            </script>
 
             <!-- price -->
             <!-- <div class="form-input-title">Price</div> 
@@ -71,6 +100,48 @@
             <div class="ad-form-input-title">Location</div>
             <input type="text" name="item_location" id="item_location" class="ad_item_location" value="<?php echo $data['item_location']; ?>" >
             <span class="ad-form-invalid"><?php echo $data['item_location_err']; ?></span>
+
+            <!-- District -->
+            <!-- <label>Select District <span class="required">*</span></label> -->
+            <div class="ad-form-input-title">District</div>                            
+                <select name="item_district" id="item_district" class="ad_item_district" >
+                    <option value="">Select the district</option>
+                    <option value="Colombo">Colombo</option>
+                    <option value="Gampaha">Gampaha</option>
+                    <option value="Kalutara">Kalutara</option>
+                    <option value="Kandy">Kandy</option>
+                    <option value="Matale">Matale</option>
+                    <option value="Nuwara Eliya">Nuwara Eliya</option>
+                    <option value="Galle">Galle</option>
+                    <option value="Matara">Matara</option>
+                    <option value="Hambantota">Hambantota</option>
+                    <option value="Jaffna">Jaffna</option>
+                    <option value="Kilinochchi">Kilinochchi</option>
+                    <option value="Mannar">Mannar</option>
+                    <option value="Vavuniya">Vavuniya</option>
+                    <option value="Mullaitivu">Mullaitivu</option>
+                    <option value="Batticaloa">Batticaloa</option>
+                    <option value="Ampara">Ampara</option>
+                    <option value="Trincomalee">Trincomalee</option>
+                    <option value="Kurunegala">Kurunegala</option>
+                    <option value="Puttalam">Puttalam</option>
+                    <option value="Anuradhapura">Anuradhapura</option>
+                    <option value="Polonnaruwa">Polonnaruwa</option>
+                    <option value="Badulla">Badulla</option>
+                    <option value="Monaragala">Monaragala</option>
+                    <option value="Ratnapura">Ratnapura</option>
+                    <option value="Kegalle">Kegalle</option>
+                </select>
+            
+            <!-- ad expiry -->
+            <div class="ad-form-input-title">For how long do you wish to keep this ad?</div>
+            <select name="item_expiry" id="item_expiry" class="ad_item_expiry">
+            <option value="" <?php echo $data['item_expiry'] == '' ? 'selected' : ''; ?>>Select the duration</option>
+            <option value="1" <?php echo $data['item_expiry'] == '1 month' ? 'selected' : ''; ?>>1 month</option>
+            <option value="2" <?php echo $data['item_expiry'] == '2 months' ? 'selected' : ''; ?>>2 months</option>
+            <option value="3" <?php echo $data['item_expiry'] == '3 months' ? 'selected' : ''; ?>>3 months</option>
+            </select>
+            <span class="ad-form-invalid"><?php echo $data['item_expiry_err']; ?></span>
 
             <br>
             <p>Upon examination of your recyclable items, our dedicated collector will determine a fair and suitable price, taking into consideration the condition and value of the products.</p>

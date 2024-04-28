@@ -23,7 +23,8 @@
                 $weightedSum += $rating * $count;
             }
 
-            $avgRating = round($weightedSum / $totalRatings, 1);
+            // $avgRating = round($weightedSum / $totalRatings, 1);
+            $avgRating = $totalRatings != 0 ? round($weightedSum / $totalRatings, 1) : 0;
 
             $rating = $avgRating;
 

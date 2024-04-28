@@ -73,6 +73,7 @@
 .ad_item_images,
 .ad_item_price,
 .ad_item_expiry,
+.ad_item_district,
 .ad_item_location {
     width: 100%;
     height: 40px;
@@ -120,6 +121,7 @@
 .ad_item_images input:focus,
 .ad_item_price input:focus,
 .ad_item_location input:focus,
+.ad_item_district input:focus,
 .ad_selling_format input:focus,
 .ad_duration input:focus,
 .ad_item_expiry input:focus,
