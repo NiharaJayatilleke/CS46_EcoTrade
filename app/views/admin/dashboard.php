@@ -334,7 +334,7 @@
                                                 <span class="slider"></span>
                                             </label>
                                         </td>
-                                        <!-- <td>
+                                        <!-- <td> 
                                             <div class = "mod-control-btns">
                                                 <button onclick="confirmBan('<?php echo URLROOT?>/Admin/ban/<?php echo $user->id ?>')" class="ad-edit-btn"><i class="fas fa-ban"></i></button>
                                             </div>

@@ -81,6 +81,7 @@
                     if($this->userModel->insert_user($data)){
                         // create a flash message
                         flash('reg_flash', 'You are successfully registered!');
+                        $this->userModel->logActivity($_SESSION['user_id'], 'Moderator edit', 'A Moderator is added or changed');
                         redirect('Admin/moderators?registered=true#moderators-content');
                     }
                     else{
@@ -316,6 +317,7 @@
 
                 if($this->moderatorModel->delete($modId)){
                     flash('post_msg', 'Your moderator has been deleted successfully!');
+                    $this->userModel->logActivity($_SESSION['user_id'], 'Moderator Deletion', 'Moderator has removed successfully');
                     redirect('Admin/moderators#moderators-content');
                 }
                 else{
@@ -328,6 +330,7 @@
 
             if($this->userModel->changeUserStatus($userId, 0)){
                 flash('post_msg', 'The user has been banned successfully!');
+                $this->userModel->logActivity($_SESSION['user_id'], 'User banned', 'A User has been banned');
                 redirect('Admin/moderators#moderators-content');
             }
             else{
@@ -340,6 +343,7 @@
 
             if($this->userModel->changeUserStatus($userId, 1)){
                 flash('post_msg', 'The user has been unbanned successfully!');
+                $this->userModel->logActivity($_SESSION['user_id'], 'User banned', 'A User has been banned');
                 redirect('Admin/moderators#moderators-content');
             }
             else{
@@ -431,6 +435,11 @@
         public function hideAd($adId) {
             $this->moderatorModel->hideAdById($adId);
         }
+
+        public function DeleteAd($adId) {
+            $this->moderatorModel->DeleteAdById($adId);
+        }
+
 
         public function edit_profile(){
         

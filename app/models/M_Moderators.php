@@ -167,6 +167,7 @@
     }
     
     }  
+    
     public function getRecentActivities() {
         $this->db->query("
             SELECT al.user_id, gu.user_type, al.action_type, al.action_details, al.timestamp
@@ -222,6 +223,19 @@
         return $this->db->execute();
     }
 
+    public function DeleteAdById($adId) {
+        // Prepare and execute the SQL query to delete the ad
+        $sql = "DELETE FROM Item_Ads WHERE p_id = :adId";
+        $this->db->query($sql);
+        $this->db->bind(':adId', $adId);
+    
+        if ($this->db->execute()) {
+            return true; // Deletion successful
+        } else {
+            return false; 
+        }
+    }
+    
 }
 
 ?>

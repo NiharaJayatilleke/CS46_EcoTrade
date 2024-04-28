@@ -1,4 +1,4 @@
-function confirmDelete(adId) {
+function confirmDeleteReportedad(adId) {
     const swalReportbtn = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success ',
@@ -18,7 +18,7 @@ function confirmDelete(adId) {
     }).then((result) => {
         if (result.isConfirmed) {
             // Handle deletion using fetch 
-            fetch(`http://localhost/ecotrade/Moderators/hideAd/${adId}`, {
+            fetch(`http://localhost/ecotrade/Moderators/DeleteAd/${adId}`, {
                 // method: 'PUT'
                 method: 'POST'
             }).then(response => {
