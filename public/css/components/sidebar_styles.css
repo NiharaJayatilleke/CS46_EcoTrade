@@ -9,7 +9,7 @@
     display: none;
     top:0;
     right:0;
-    height:170px;
+    height:auto;
     width:170px;
     /*background:rgba(18, 37, 6, 0.418);*/
     background: linear-gradient(30deg , #fff, #fff);

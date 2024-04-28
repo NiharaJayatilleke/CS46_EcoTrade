@@ -21,12 +21,10 @@ function checkFragment() {
 
     // Show or hide the search bar based on the URL fragment
     switch (fragment) {
-        case '#users-content':
-        case '#moderators-content':
+
         case '#centers-content':
         case '#secondhand-content':
         case '#recycle-content':
-        case '#activity-content':
             showSearchBar();
             break; 
         case '#dashboard-content':
