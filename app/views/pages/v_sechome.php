@@ -621,7 +621,7 @@
 
     <section id="product1" class="section-p1">
         <h2>New Arrivals</h2>
-        <p>Summer Collection</p>
+        <p>Hot products here!</p>
         <div class="pro-container">
             <div class="pro">
                 <img src="img/products/n1.jpg" alt="">
