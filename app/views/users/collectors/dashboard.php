@@ -469,14 +469,8 @@
         // event.preventDefault();
         // Hide all content sections
         document.getElementById('dashboard-content').style.display = 'none';
-        document.getElementById('users-content').style.display = 'none';
-        document.getElementById('moderators-content').style.display = 'none';
         document.getElementById('centers-content').style.display = 'none';
-        document.getElementById('secondhand-content').style.display = 'none';
-        document.getElementById('secondhand-ad-view-content').style.display = 'none';
         document.getElementById('recycle-content').style.display = 'none';
-        document.getElementById('activity-content').style.display = 'none';
-        document.getElementById('reported-ads-content').style.display = 'none';
         document.getElementById('settings-content').style.display = 'none';
 
         // Show the selected content section
@@ -484,7 +478,7 @@
 
          // Select the sidebar element
         a_name=section.split("-content")[0]+'-tab';
-        document.getElementById(a_name).parentElement.classList.add('hovered');
+        // document.getElementById(a_name).parentElement.classList.add('hovered');
 
          // Update the URL hash to store the current section
         window.location.hash = '#' + section;
@@ -506,6 +500,13 @@
             }else{
                 showContent(section);
                 currentSection = section;
+            }
+
+            // Highlight the current tab
+            var tabName = section.split("-content")[0] + '-tab';
+            var currentTab = document.getElementById(tabName);
+            if (currentTab) {
+                currentTab.parentElement.classList.add('hovered');
             }
             
         } else {

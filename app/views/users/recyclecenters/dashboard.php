@@ -102,7 +102,8 @@
                         <div class="recentOrders">
                             <div class="cardHeader">
                                 <h2>Recently Posted Requirements</h2>
-                                <a href="#recycle-content" onclick="showContent('recycle-content')" class="btn">View All</a>
+                                <!-- <a href="#recycle-content" onclick="showContent('recycle-content')" class="btn">View All</a> -->
+                                <a href="<?php echo URLROOT; ?>/RecycleCenters/index#recycle-content" class="btn" id="recycle-tab">View All</a>
                             </div>
                             <table>
                                 <thead>
@@ -129,102 +130,6 @@
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
-
-                                <!-- <tr>
-                                    <td>Refrigerator</td>
-                                    <td>Rs. 1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status inprogress">Delivered</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Denim Shirts</td>
-                                    <td>Rs. 110</td>
-                                    <td>Due</td>
-                                    <td><span class="status inprogress">In Progress</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Casual Shoes</td>
-                                    <td>Rs. 575</td>
-                                    <td>Paid</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Wall Fan</td>
-                                    <td>Rs. 110</td>
-                                    <td>Paid</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Jeans</td>
-                                    <td>Rs. 1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status delivered">Delivered</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Sweaters</td>
-                                    <td>Rs. 700</td>
-                                    <td>Due</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Skirts</td>
-                                    <td>Rs. 600</td>
-                                    <td>Paid</td>
-                                    <td><span class="status delivered">Delivered</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Formal Shoes</td>
-                                    <td>Rs. 2000</td>
-                                    <td>Due</td>
-                                    <td><span class="status inprogress">In Progress</span></td>
-                                </tr>
-
-
-                                <tr>
-                                    <td>Sunglasses</td>
-                                    <td>Rs. 800</td>
-                                    <td>Due</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Hoodies</td>
-                                    <td>Rs. 900</td>
-                                    <td>Due</td>
-                                    <td><span class="status inprogress">In Progress</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Denim Shirts</td>
-                                    <td>Rs. 110</td>
-                                    <td>Due</td>
-                                    <td><span class="status inprogress">In Progress</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Checked Dresses</td>
-                                    <td>Rs. 1500</td>
-                                    <td>Paid</td>
-                                    <td><span class="status delivered">Delivered</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Sports Shoes</td>
-                                    <td>Rs. 2500</td>
-                                    <td>Due</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td>T-shirts</td>
-                                    <td>Rs. 300</td>
-                                    <td>Due</td>
-                                    <td><span class="status inprogress">In Progress</span></td>
-                                </tr>  -->
-
                                 </tbody>
                             </table>
                         </div>
@@ -606,16 +511,13 @@
         let inputFile = document.getElementById("upload-photo");
 
         inputFile.onchange = function(){
-        profilePic.src = URL.createObjectURL(inputFile.files[0])}
+        profilePic.src = URL.createObjectURL(inputFile.files[0])
+        }
 
-      
-    
-  
-
-
-    <!-- Get the user counts data from PHP and convert it to JavaScript object -->
-    var userCounts = <?php echo json_encode($data['userCounts']); ?>;
-
+    </script>
+    <script>
+    //    Get the user counts data from PHP and convert it to JavaScript object
+        var userCounts = <?php echo json_encode($data['userCounts']); ?>;
     </script>
         <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
