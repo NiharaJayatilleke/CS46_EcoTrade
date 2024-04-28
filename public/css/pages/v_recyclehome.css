@@ -4,6 +4,8 @@
     width: 100%;
     height: 40vh;
     margin-top: -200px;
+    background-image: url(../../public/img/Recyclehome/image/pikaso_texttoimage_35mm-film-photography-Detailed-shot-capturing-the.jpeg); /* Background image */
+
   }
   
   /* This layer creates the blurred background */
@@ -14,8 +16,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(../../public/img/Recyclehome/image/pikaso_texttoimage_35mm-film-photography-Detailed-shot-capturing-the.jpeg); /* Background image */
     background-size: cover;  /* Ensures background covers the whole area */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay to create the fade */
     background-position: 70% 30%; /* Manual position of the background */
     filter: blur(3px); /* Applies the blur effect to this layer */
     z-index: 0; /* This should be below the text content */
