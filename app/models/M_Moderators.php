@@ -149,25 +149,29 @@
         return $this->db->resultSet();
     }
     
+
     public function hideAdById($adId) {
-        // Update the status of the ad to 'hidden'
-        $query = "UPDATE Item_Ads SET status = 'hidden' WHERE p_id = :ad_id";
-        $this->db->query($query);
+      
+        $currentStatusQuery = "SELECT status FROM Item_Ads WHERE p_id = :ad_id";
+        $this->db->query($currentStatusQuery);
+        $this->db->bind(':ad_id', $adId);
+        $currentStatus = $this->db->single()['status']; 
+        
+        $newStatus = ($currentStatus === 'active') ? 'hidden' : 'active';
+    
+        $updateQuery = "UPDATE Item_Ads SET status = :new_status WHERE p_id = :ad_id";
+        $this->db->query($updateQuery);
+        $this->db->bind(':new_status', $newStatus);
         $this->db->bind(':ad_id', $adId);
     
         if ($this->db->execute()) {
-            // Delete the reported ad related to this ad
-            $this->db->query("DELETE FROM Reported_Ads WHERE ad_id = :ad_id");
-            $this->db->bind(':ad_id', $adId);
-            $this->db->execute();
-    
-            return true;  
+            return true; // Update successful
         } else {
             return false; 
+        }
     }
     
-    }  
-    
+
     public function getRecentActivities() {
         $this->db->query("
             SELECT al.user_id, gu.user_type, al.action_type, al.action_details, al.timestamp

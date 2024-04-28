@@ -1,0 +1,86 @@
+.profile-container {
+    max-width: 1000px;
+    margin: 20px auto; /* Added margin to create space */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .profile-container .profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-container .top-section {
+    margin-bottom: 20px;
+  }
+  
+  .profile-container .top-section h2 {
+    margin: 0;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+  }
+  
+  .profile-container .profile-info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .profile-container .profile-picture {
+    flex: 0 0 200px;
+    margin-right: 40px;
+    margin-left: 40px;
+    align-items: center;
+  }
+  
+  .profile-container .profile-image {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Create a circular profile picture */
+    overflow: hidden; /* Hide overflow for perfect circle */
+  }
+  
+  .profile-container .user-details {
+    flex: 1;
+  }
+  
+  .profile-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .profile-container .buyerimage-buttons {
+    align-items: center;
+    margin-top: 1vh;
+  }
+  
+  .profile-container input {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width:80%;
+  }
+  
+  .profile-container button {
+    padding: 8px 16px;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .profile-container button.edit-button {
+    background-color: #ffc107;
+  }
+  
+  .profile-container button.save-button {
+    background-color: #28a745;
+  }
+  
+  .profile-container .divider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  

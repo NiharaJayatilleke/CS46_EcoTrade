@@ -1605,7 +1605,7 @@
  */
 
 
- .editpro69
+ /* .editpro69
 .account {
   flex: 1;
   position: relative;
@@ -1860,7 +1860,7 @@
   padding: 0 20px 0 0;
   box-sizing: border-box;
   max-width: 100%;
-}
+} */
 .editpro69
 .edit {
   width: 33px;
@@ -1877,7 +1877,7 @@
   box-shadow: none;  /* Removes any shadow effects */
   margin-right: 0px;
 }
-
+/* 
 .editpro69
 .frame-wrapper,
 .editpro69 .username-parent {
@@ -1996,7 +1996,7 @@
   font-size: 14px;
   color: #191919;
   white-space: nowrap;
-}
+} */
 .editpro69
 .email-details-area {
   width: 135px;
@@ -2023,7 +2023,7 @@
   box-shadow: none;  /* Removes any shadow effects */
   margin-right: 10px;
 }
-.editpro69
+/* .editpro69
 .displayed-email-area {
   width: 793px;
   display: flex;
@@ -2066,7 +2066,7 @@
   align-self: stretch;
   position: relative;
   color: #191919;
-}
+} */
 .editpro69
 .phone-action-area {
   width: 138px;
@@ -2093,7 +2093,7 @@
   box-shadow: none;  /* Removes any shadow effects */
   margin-right: 10px;
 }
-.editpro69
+/* .editpro69
 .phone-action-area-parent {
   width: 793px;
   display: flex;
@@ -2219,7 +2219,7 @@
   justify-content: flex-start;
   padding: 0 15px 0 0;
   box-sizing: border-box;
-}
+} */
 .editpro69
 .change {
   width: 33px;
@@ -2236,7 +2236,7 @@
   box-shadow: none;  /* Removes any shadow effects */
   margin-right: 0px;
 }
-.editpro69
+/* .editpro69
 .password-inputs-area {
   align-self: stretch;
   display: flex;
@@ -2308,10 +2308,9 @@
 .editpro69 .rectangle-group {
   border-radius: 10px;
   background-color: #e2e8f0;
-}
-.editpro69
+} */
+/* .editpro69
 .rectangle-group {
-  /* flex: 1; */
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -2349,15 +2348,14 @@
 }
 .editpro69
 .rectangle-container {
-  /* flex: 1; */
   border-radius: 10px;
   background-color: #e2e8f0;
   justify-content: flex-start;
   padding: 8px 37px 9px;
   box-sizing: border-box;
   min-width: 170px;
-}
-.editpro69
+} */
+/* .editpro69
 
 .navigation {
   width: 679px;
@@ -2497,18 +2495,17 @@
   background-color: #fff;
   overflow: hidden;
   flex-direction: column;
-  /* padding: 138px 0 12px; */
   line-height: normal;
   letter-spacing: normal;
   font-size: 16px;
   color: #3665f3;
   margin-left: -60px;
-}
+} */
 
 
 
 /* Media query for screens smaller than 450px */
-@media screen and (max-width: 450px) {
+/* @media screen and (max-width: 450px) {
   .editpro69 .additional-site-navigation {
     font-size: 17px;
     line-height: 17px;
@@ -2521,17 +2518,17 @@
     font-size: 18px;
   }
 
-  /* Ensure content fits within the window */
+ 
   .editpro69 .frame-parent,
   .editpro69 .info-panel,
   .editpro69 .navigation-panel {
-    overflow-x: auto; /* Enable horizontal scrolling if content overflows */
-    min-width: 100%; /* Ensure content occupies at least the full width of the viewport */
+    overflow-x: auto; 
+    min-width: 100%;
   }
-}
+} */
 
 /* Media query for screens smaller than 450px */
-@media screen and (max-width: 450px) {
+/* @media screen and (max-width: 450px) {
   .editpro69 .account-wrapper {
     flex-direction: column;
     align-items: center;
@@ -2566,4 +2563,4 @@
     padding: 80px 10px 10px;
   }
 }
-
+ */
