@@ -105,6 +105,14 @@
             }
         }
 
+        public function deleteExpiredAds(){
+            $this->db->query('DELETE FROM Item_Ads WHERE item_expiry < NOW()');
+            if(!$this->db->execute()){
+                return false;
+            }
+            return true;
+        }
+
         public function adFeature($data){
             $this->db->query('INSERT INTO Featured_Ads(p_id,package,duration) VALUES(:p_id, :package, :duration)');
             $this->db->bind(':p_id',$data['ad_id']);

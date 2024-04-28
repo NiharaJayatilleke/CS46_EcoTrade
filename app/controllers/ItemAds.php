@@ -172,6 +172,10 @@
                 //Validate the data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+                $expiryMonths = trim($_POST['item_expiry']);
+                $expiryDate = new DateTime();
+                $expiryDate->add(new DateInterval("P{$expiryMonths}M"));
+
                 //input data
                 $data = [
                     'item_name' => trim($_POST['item_name']),
@@ -192,7 +196,8 @@
                     'duration' => trim($_POST['duration']),
                     'starting_bid' => trim($_POST['starting_bid']),
                     'negotiable' => trim($_POST['negotiable']),
-                    'item_expiry' => trim($_POST['item_expiry']),
+                    // 'item_expiry' => trim($_POST['item_expiry']),
+                    'item_expiry' => $expiryDate->format('Y-m-d H:i:s'),
 
                     'item_name_err' => '',
                     'item_category_err' => '',
@@ -306,6 +311,9 @@
                     //Add item ad to the database
                     $ad_id = $this->itemAdsModel->create($data);
                     // var_dump($data); var_dump($ad_id);
+
+                    //delete expired ads
+                    $this->itemAdsModel->deleteExpiredAds();
 
                     if($ad_id){
                         // create a flash message

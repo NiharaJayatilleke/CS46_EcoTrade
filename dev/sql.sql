@@ -147,12 +147,21 @@ CREATE TABLE Item_Ads (
     item_location VARCHAR(255),
     selling_format VARCHAR(255),
     negotiable VARCHAR(255),
-    item_expiry INT,
+    item_expiry DATETIME,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(255),
     PRIMARY KEY(p_id),
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
+
+ALTER TABLE Item_Ads
+DROP COLUMN item_expiry;
+
+ALTER TABLE Item_Ads
+ADD COLUMN item_expiry DATETIME;
+
+ALTER TABLE Item_Ads
+MODIFY COLUMN item_expiry DATETIME;
 
 DROP TABLE IF EXISTS Secondhand_Ad_Images;
 
