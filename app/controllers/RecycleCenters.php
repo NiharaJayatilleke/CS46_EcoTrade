@@ -280,7 +280,11 @@
         }
 
         public function deleteAd($adId){
-
+            if ($this->recycleCentersModel->delete($adId)) {
+                redirect('RecycleCenters/index');
+            } else {
+                die('Something went wrong');
+            }
         }
 
         // public function dashboard(){
