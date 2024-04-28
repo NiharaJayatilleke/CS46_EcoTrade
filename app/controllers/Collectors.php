@@ -295,6 +295,17 @@
             }
         }
 
+        public function unsaveReq($reqId){
+            $collectorId = $_SESSION['user_id'];
+            $result = $this->collectorModel->unsaveReq($collectorId,$reqId);
+
+            if($result) {
+                echo json_encode(["status" => "success", "message" => "Request saved successfully"]);
+            } else {
+                echo json_encode(["status" => "error", "message" => "Failed to save request"]);
+            }
+        }
+
         // public function dashboard(){
         //     $data = [];
         //     $this->view('users/collectors/dashboard',$data);

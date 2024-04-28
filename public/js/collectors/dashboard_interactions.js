@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             // If the request was successful, hide the save-regular SVG and show the save-solid SVG
             if (data.status === "success") {
                 element.style.display = "none"; 
-                element.nextElementSibling.style.display = "inline"; 
+                element.previousElementSibling.style.display = "inline"; 
             }
         })
         .catch((error) => {
