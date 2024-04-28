@@ -1,4 +1,4 @@
-function confirmDelete(adId) {
+function confirmDeleteReportedad(adId) {
     const swalReportbtn = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success ',

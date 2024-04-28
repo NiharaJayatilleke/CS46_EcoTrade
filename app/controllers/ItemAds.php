@@ -320,6 +320,7 @@
                     if($ad_id){
                         // create a flash message
                         flash('post_msg', 'Your ad has been posted successfully!');
+                        $this->usersModel->logActivity($_SESSION['user_id'], 'PreownedAd Creation', 'Posted a new Preowned itemAd for sale.');
                         $data['ad_id'] = $ad_id;
                         redirect('ItemAds/index');
                     }else{
@@ -510,6 +511,7 @@
                 else{
                     //load view with errors
                     $this->view('item_ads/v_edit', $data);
+                    $this->usersModel->logActivity($_SESSION['user_id'], 'Ad Edit', 'Preowned ad Edited ');
                 }
             }
             else {
@@ -739,7 +741,7 @@
 
                 if($this->itemAdsModel->delete($adId)){
                     flash('post_msg', 'Your ad has been deleted successfully!');
-                    $this->userModel->logActivity($_SESSION['user_id'], 'Ad Deletion', 'Preowned ad  deleted ');
+                    $this->usersModel->logActivity($_SESSION['user_id'], 'Ad Deletion', 'Preowned ad  deleted ');
                     redirect('ItemAds/index');
                 }
                 else{

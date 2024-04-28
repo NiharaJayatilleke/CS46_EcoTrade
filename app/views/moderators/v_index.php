@@ -385,6 +385,7 @@
                             <td>Report Contact</td>
                             <td>Report Status</td>
                             <td>Reported At</td>
+                            <td>Ban Ad</td>
                             <td></td>
                             <td></td>
                         </tr>
@@ -402,8 +403,13 @@
                                     <td><?php echo $ad->report_contact; ?></td>
                                     <td><span class="status <?php echo strtolower($ad->report_status); ?>"><?php echo $ad->report_status; ?></span></td>
                                     <td><?php echo $ad->report_created_at; ?></td>
-                                    
-                                    <td><button onclick="confirmDelete(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
+                                    <td>
+                                    <label class="switch">
+                                        <input type="" onclick="">
+                                        <span class="slider"></span>
+                                    </label>
+                                    </td>
+                                    <td><button onclick="confirmDeleteReportedad(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
                                     <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
                                     
                                 </tr>

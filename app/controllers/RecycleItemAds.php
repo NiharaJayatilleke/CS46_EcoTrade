@@ -138,7 +138,7 @@
 
             if($this->RecycleItemAdsModel->delete($adId)){
                 flash('post_msg', 'Your ad has been deleted successfully!');
-                $this->userModel->logActivity($_SESSION['user_id'], 'Ad deletion', 'Recycle Ad deleted ');
+                $this->usersModel->logActivity($_SESSION['user_id'], 'Ad deletion', 'Recycle Ad deleted ');
                 redirect('ItemAds/index');
             }
             else{
