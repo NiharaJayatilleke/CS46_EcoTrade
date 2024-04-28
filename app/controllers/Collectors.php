@@ -258,7 +258,7 @@
                         } 
                     }
                 }
-            }
+            } 
             }
             
             $ads = $this->recycleItemAdsModel->getAds();
