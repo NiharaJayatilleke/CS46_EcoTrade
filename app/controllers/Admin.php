@@ -97,6 +97,7 @@
 
             if($this->userModel->changeUserStatus($userId, 0)){
                 flash('post_msg', 'The user has been banned successfully!');
+                $this->userModel->logActivity($_SESSION['user_id'], 'User ban', 'User banned successfully');
                 redirect('Admin/users#users-content');
             }
             else{
@@ -109,6 +110,7 @@
 
             if($this->userModel->changeUserStatus($userId, 1)){
                 flash('post_msg', 'The user has been unbanned successfully!');
+                $this->userModel->logActivity($_SESSION['user_id'], 'User Unbanned', 'user unbanned successfully');
                 redirect('Admin/users#users-content');
             }
             else{
