@@ -268,6 +268,7 @@
             $centerReqs = $this->recycleCentersModel->getCenterRequirements();
             $rec_ads = $this->recycleItemAdsModel->getAds();
             $savedReqsByCollector = $this->collectorModel->getSavedReqsByCollector($_SESSION['user_id']);
+            $allSavedReqsByCollector = $this->collectorModel->getAllSavedReqslByCollector($_SESSION['user_id']);
 
             // echo '<pre>' . print_r($savedReqsByCollector, true) . '</pre>';
 
@@ -278,6 +279,7 @@
                 'center_reqs'=> $centerReqs,
                 'rec_ads' => $rec_ads,
                 'saved_reqs' => $savedReqsByCollector,
+                'all_saved_reqs' => $allSavedReqsByCollector,
             ];
 
             $this->view('users/collectors/dashboard',$data);
