@@ -253,7 +253,7 @@
                         <div class="cardHeader">
                             <h2>Users</h2>
                             <!-- <a href="#users-content" class="btn" id="users-tab" onclick="showContent('users-content')">View All</a> -->
-                            <a href="<?php echo URLROOT; ?>/admin/index#users-content" class="btn" id="activity-tab">View All</a>
+                            <a href="<?php echo URLROOT; ?>/admin/index#users-content" class="btn" id="users-tab">View All</a>
                         </div>
                         <table>
                             <thead>
@@ -1026,6 +1026,7 @@
             // Show the section
             showSection(sectionName);
         }
+        
         const editForm = document.getElementById('editProfileForm');
     
         editForm.onsubmit = function(event){
