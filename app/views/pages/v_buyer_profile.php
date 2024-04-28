@@ -382,6 +382,7 @@
       </div>
       <hr class="divider" />
       <div class="password-section">
+        <form method="POST" action="<?php echo URLROOT; ?>/users/changepassword">
         <label for="old-password">Old Password</label>
         <input id="old-password" type="password" />
         <label for="new-password">New Password</label>
@@ -389,6 +390,7 @@
         <label for="confirm-password">Confirm Password</label>
         <input id="confirm-password" type="password" />
         <button class="save-button">Save</button>
+        </form>
       </div>
     </div>
   </div>
