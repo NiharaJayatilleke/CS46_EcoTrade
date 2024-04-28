@@ -114,7 +114,6 @@ INSERT INTO Categories (name) VALUES
 ('Metal'),
 ('Electronics (e-waste)'),
 ('Batteries'),
-('Other');
 
 CREATE TABLE RecycleCentersCategories (
     center_id INT,
