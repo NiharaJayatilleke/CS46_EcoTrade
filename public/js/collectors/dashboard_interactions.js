@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function saveReq(reqId) {
         console.log("saving ad");
         // Send a request to the server to save the ad
-        fetch(URLROOT +"/Collectors/savReq/"+ reqId, { 
+        fetch(URLROOT +"/Collectors/saveReq/"+ reqId, { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             body: JSON.stringify({ reqId: reqId })
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        
         .catch((error) => {
           console.error('Error:', error);
         });

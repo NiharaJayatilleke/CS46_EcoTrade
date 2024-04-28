@@ -109,6 +109,13 @@
 
             $this->db->bind(':collector_id', $collectorId);
             $this->db->bind(':req_id', $reqId);
+
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
 
 

@@ -285,8 +285,14 @@
         }
 
         public function saveReq($reqId){
-            $collectorId = $_SESSION(['user_id']);
-            $this->collectorModel->saveReq($collectorId,$reqId);
+            $collectorId = $_SESSION['user_id'];
+            $result = $this->collectorModel->saveReq($collectorId,$reqId);
+
+            if($result) {
+                echo json_encode(["status" => "success", "message" => "Request saved successfully"]);
+            } else {
+                echo json_encode(["status" => "error", "message" => "Failed to save request"]);
+            }
         }
 
         // public function dashboard(){
