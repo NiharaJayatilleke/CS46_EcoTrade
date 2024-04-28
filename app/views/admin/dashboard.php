@@ -66,12 +66,12 @@
                         <span class = "side-title">Activity Log</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#reported-ads-content" id="reported-ads-tab" onclick="showContent('reported-ads-content')">
                         <span class = "side-icon"><ion-icon name="remove-circle-outline"></ion-icon></span>
                         <span class = "side-title">Reported ads</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="#settings-content" id="settings-tab" onclick="showContent('settings-content')">
                         <span class = "side-icon"><ion-icon name="cog-outline"></ion-icon></span>
@@ -708,7 +708,7 @@
             </div>
 
             <!-- Ad Report -->
-            <div id="reported-ads-content" class="content-section">
+            <!-- <div id="reported-ads-content" class="content-section">
             <div class="details">
                     <div class="recentOrders">
                             <div class="cardHeader">
@@ -716,9 +716,9 @@
                             </div>                
                     <table>
                         <thead>
-                        <tr>
+                        <tr> -->
                             <!-- <th>Report ID</th> -->
-                            <th>Ad ID</th>
+                            <!-- <th>Ad ID</th>
                             <th>Item Name</th>
                             <th>Reporter ID</th>
                             <th>Report Reason</th>
@@ -727,15 +727,15 @@
                             <th>Report Status</th>
                             <th>Reported At</th>
                             <th></th>
-                            <th></th>
-                        </tr>
+                            <th></th> -->
+                        <!-- </tr>
                         <thead>
                         <?php if (!empty($data['reportedAds'])): ?>
-                            <?php foreach ($data['reportedAds'] as $ad): ?>
-                            <tbody>
-                                <tr>
+                            <?php foreach ($data['reportedAds'] as $ad): ?> -->
+                            <!-- <tbody>
+                                <tr> -->
                                     <!-- <td><?php echo $ad->report_id; ?></td> -->
-                                    <td><?php echo $ad->ad_id; ?></td>
+                                    <!-- <td><?php echo $ad->ad_id; ?></td>
                                     <td><?php echo $ad->ad_title; ?></td> 
                                     <td><?php echo $ad->reporter_id; ?></td>
                                     <td><?php echo $ad->report_reason; ?></td>
@@ -758,7 +758,7 @@
                     </table>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div id="settings-content" class="content-section">
                 <div class="profile-settings-container">
@@ -944,7 +944,7 @@
         document.getElementById('secondhand-ad-view-content').style.display = 'none';
         document.getElementById('recycle-content').style.display = 'none';
         document.getElementById('activity-content').style.display = 'none';
-        document.getElementById('reported-ads-content').style.display = 'none';
+        // document.getElementById('reported-ads-content').style.display = 'none';
         document.getElementById('settings-content').style.display = 'none';
 
         // Show the selected content section
