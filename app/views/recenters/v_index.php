@@ -73,14 +73,47 @@
             <input type="number" name="item_price" id="item_price" class="item_price" value="<?php echo $data['item_price']; ?>" >
             <span class="form-invalid"><?php echo $data['item_price_err']; ?></span>  -->
 
+            <!-- Quantity -->
+            <div class="ad-form-input-title1">Quantity</div>
+            <input type="number" name="item_quantity" id="item_quantity" class="ad_item_quantity" value="<?php echo $data['item_quantity']; ?>" >
+            <span class="ad-form-invalid"><?php echo $data['item_quantity_err']; ?></span>
+
             <!-- location -->
             <div class="ad-form-input-title1">Location</div>
             <input type="text" name="item_location" id="item_location" class="ad_item_location1" value="<?php echo $data['item_location']; ?>" >
             <span class="ad-form-invalid"><?php echo $data['item_location_err']; ?></span>
 
-            <div class="ad-form-input-title1">Quantity</div>
-            <input type="text" name="item_quantity" id="item_quantity" class="ad_item_quantity1" value="<?php echo $data['item_quantity']; ?>" >
-            <span class="ad-form-invalid"><?php echo $data['item_quantity_err']; ?></span>
+            <!-- District -->
+            <!-- <label>Select District <span class="required">*</span></label> -->
+            <div class="ad-form-input-title">District</div>                            
+                <select name="item_district" id="item_district" class="ad_item_district" >
+                    <option value="">Select the district</option>
+                    <option value="Colombo">Colombo</option>
+                    <option value="Gampaha">Gampaha</option>
+                    <option value="Kalutara">Kalutara</option>
+                    <option value="Kandy">Kandy</option>
+                    <option value="Matale">Matale</option>
+                    <option value="Nuwara Eliya">Nuwara Eliya</option>
+                    <option value="Galle">Galle</option>
+                    <option value="Matara">Matara</option>
+                    <option value="Hambantota">Hambantota</option>
+                    <option value="Jaffna">Jaffna</option>
+                    <option value="Kilinochchi">Kilinochchi</option>
+                    <option value="Mannar">Mannar</option>
+                    <option value="Vavuniya">Vavuniya</option>
+                    <option value="Mullaitivu">Mullaitivu</option>
+                    <option value="Batticaloa">Batticaloa</option>
+                    <option value="Ampara">Ampara</option>
+                    <option value="Trincomalee">Trincomalee</option>
+                    <option value="Kurunegala">Kurunegala</option>
+                    <option value="Puttalam">Puttalam</option>
+                    <option value="Anuradhapura">Anuradhapura</option>
+                    <option value="Polonnaruwa">Polonnaruwa</option>
+                    <option value="Badulla">Badulla</option>
+                    <option value="Monaragala">Monaragala</option>
+                    <option value="Ratnapura">Ratnapura</option>
+                    <option value="Kegalle">Kegalle</option>
+                </select>
  
             <!-- <br>
             <p>Upon examination of your recyclable items, our dedicated collector will determine a fair and suitable price, taking into consideration the condition and value of the products.</p> -->
