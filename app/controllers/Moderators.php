@@ -394,9 +394,9 @@
                     }
                 }
                 }
-
-                $ads = $this->itemAdsModel->getAds();
-                $numSecAds = count($ads);
+                $ads = $this->itemAdsModel->getEveryAd();
+                $ad = $this->itemAdsModel->getAds();
+                $numSecAds = count($ad);
                 $rec_ads = $this->recycleItemAdsModel->getAds();
                 $numRecAds = count($rec_ads);
                 $userCounts = $this->moderatorModel->getUserCounts();
@@ -413,6 +413,7 @@
                 $numCenters = count($centers);
                 
                 $data = [
+                    'ad' => $ad,
                     'ads' => $ads,
                     'sec_ad_count' => $numSecAds,
                     'userCounts' => $userCounts,

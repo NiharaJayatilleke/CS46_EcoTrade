@@ -411,7 +411,7 @@
                                 
                                     <td>
                                         <label class="switch">
-                                            <input type="checkbox" onclick="toggleHideAd(this, '<?php echo $ad->ad_id ?>')" <?php echo $ad->status == "hidden" ? 'checked' : '' ?>>
+                                            <input type="checkbox" onclick="toggleHideAd(this, '<?php echo $ads->ad_id ?>')" <?php echo $ads->status == "active" ? 'checked' : '' ?>>
                                             <span class="slider"></span>
                                         </label>
                                     </td>

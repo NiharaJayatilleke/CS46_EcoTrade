@@ -12,11 +12,13 @@
             return $results;
         }
 
+
         public function getEveryAd(){
-            $this->db->query('SELECT * FROM v_ads WHERE status = "active"');
+            $this->db->query('SELECT * FROM v_ads');
             $results = $this->db->resultSet();
             return $results;
         }
+
 
         public function getAdById($adId){
             $this->db->query('SELECT * FROM v_ads WHERE ad_id = :id');
