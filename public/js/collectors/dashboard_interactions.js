@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
     });
 
-    function saveReq(reqId) {
-        console.log("saving ad");
+    function saveReq(reqId,element) {
+        console.log("saving req");
         // Send a request to the server to save the ad
         fetch(URLROOT +"/Collectors/saveReq/"+ reqId, { 
             method: 'POST',
@@ -35,7 +35,38 @@ document.addEventListener('DOMContentLoaded', (event) => {
             body: JSON.stringify({ reqId: reqId })
         })
         .then(response => response.json())
-        
+        .then(data => {
+            console.log(data);
+            // If the request was successful, hide the save-regular SVG and show the save-solid SVG
+            if (data.status === "success") {
+                element.style.display = "none"; // Hide the save-regular SVG
+                element.nextElementSibling.style.display = "inline"; // Show the save-solid SVG
+            }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+
+    function unsaveReq(reqId,element) {
+        console.log("unsaving req");
+        // Send a request to the server to save the ad
+        fetch(URLROOT +"/Collectors/unsaveReq/"+ reqId, { 
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ reqId: reqId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // If the request was successful, hide the save-regular SVG and show the save-solid SVG
+            if (data.status === "success") {
+                element.style.display = "none"; 
+                element.nextElementSibling.style.display = "inline"; 
+            }
+        })
         .catch((error) => {
           console.error('Error:', error);
         });
