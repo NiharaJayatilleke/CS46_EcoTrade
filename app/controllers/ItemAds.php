@@ -561,51 +561,7 @@
             }
         }
 
-        public function promote($adId){
-
-            $ad = $this->itemAdsModel->getAdById($adId);
-
-            if(!isset($_SESSION['userType'])){
-                redirect('users/login');
-            
-            }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
-            
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-                $json = file_get_contents('php://input');
         
-                $data = json_decode($json, true);
-
-                $packageType = $data['packageType'];
-                $timeInDays = $data['timeInDays'];
-                $adId = $data['adId'];
-
-                $packageData = [
-                    'package' => $packageType,
-                    'duration' => $timeInDays,
-                    'ad_id' => $adId
-                ];
-        
-                $this->itemAdsModel->adFeature($packageData);
-
-                header('Content-Type: application/json');
-                echo json_encode(['success' => true]);
-
-            } else {
-                    
-            $ad = $this->itemAdsModel->getAdById($adId);
-            
-            $data = [
-                'ad' => $ad,
-            ];
-
-            $this->view('item_ads/v_promote',$data);
-
-            }
-            }else{
-                $this->view('pages/forbidden');
-            }
-        }
 
         public function packageExists($adId) {
 
@@ -672,21 +628,6 @@
             }
         }
 
-        public function payment(){
-
-            $ad = $this->itemAdsModel->getAdById($adId);
-
-            if(!isset($_SESSION['userType'])){
-                redirect('users/login');
-            
-            }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
-            
-            $this->view('item_ads/v_paymentportal');
-            
-            }else{
-                $this->view('pages/forbidden');
-            }
-        }
 
         public function report($adId){
 
@@ -827,5 +768,122 @@
                 }
             }
         }
+
+        public function promote($adId){
+
+            $ad = $this->itemAdsModel->getAdById($adId);
+
+            if(!isset($_SESSION['userType'])){
+                redirect('users/login');
+            
+            }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
+            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                $json = file_get_contents('php://input');
+        
+                $data = json_decode($json, true);
+
+                $packageType = $data['packageType'];
+                $timeInDays = $data['timeInDays'];
+                $adId = $data['adId'];
+
+                $packageData = [
+                    'package' => $packageType,
+                    'duration' => $timeInDays,
+                    'ad_id' => $adId
+                ];
+        
+                $this->itemAdsModel->adFeature($packageData);
+
+                header('Content-Type: application/json');
+                echo json_encode(['success' => true]);
+
+            } else {
+                    
+            $ad = $this->itemAdsModel->getAdById($adId);
+            
+            $data = [
+                'ad' => $ad,
+            ];
+
+            $this->view('item_ads/v_promote',$data);
+
+            }
+            }else{
+                $this->view('pages/forbidden');
+            }
+        }
+
+        public function payment(){
+
+            $ad = $this->itemAdsModel->getAdById($adId);
+
+            if(!isset($_SESSION['userType'])){
+                redirect('users/login');
+            
+            }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
+            
+            $this->view('item_ads/v_paymentportal');
+            
+            }else{
+                $this->view('pages/forbidden');
+            }
+        }
+
+
+        public function paymentportal(){
+            // Check if the request is an AJAX request
+        
+            if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                // echo "Hi, server side!";
+                // exit; // Important: stop further script execution
+                $user = $this->usersModel->getUserDetails($_SESSION['user_id']);
+
+
+                $amount = 3000;
+                $merchant_id = '1226588';
+                $order_id = uniqid();
+                $merchant_secret = "NzA1MDAxMDQzMjEzODY5NDY2MzQwMTg3NDcwNDYzNzY0NjgwMw==";
+                $currency = "LKR";
+
+                $hash = strtoupper(
+                    md5(
+                        $merchant_id . 
+                        $order_id . 
+                        number_format($amount, 2, '.', '') . 
+                        $currency .  
+                        strtoupper(md5($merchant_secret)) 
+                    ) 
+                );
+
+                $array = [];
+
+                $array["first_name"] = "John";
+                $array["last_name"] = "Doe";
+                $array["email"] = $user->email;
+                $array["phone"] = "0719803979";
+                $array["address"] = "No 1 Galle Road";
+                $array["city"] = $amount;
+                $array["amount"] = $amount;
+                $array["merchant_id"] = $merchant_id;
+                $array["order_id"] = $order_id;
+                $array["currency"] = $currency;
+                $array["hash"] = $hash;
+                
+                $jsonObj = json_encode($array);
+                echo $jsonObj;
+
+            } else {
+                $user = $this->usersModel->getUserDetails($_SESSION['user_id']);
+                $data = [
+                    'user' => $user
+                ];
+                $this->view('item_ads/v_paymentportal',$data);
+            }
+        }
+
+
+
     }
 ?>
