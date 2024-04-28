@@ -234,7 +234,7 @@
                         <!-- New customers -->
                         <div class="recentOrders">
                             <div class="cardHeader">
-                                <h2>Users</h2>
+                                <h2>Reported  Ads</h2>
                                 <!-- <a href="#users-content" class="btn" id="users-tab" onclick="showContent('reported-ads-content')">View All</a> -->
                                 <a href="<?php echo URLROOT; ?>/moderators/index#reported-ads-content" class="btn" id="reported-ads-tab">View All</a>
                             </div>
@@ -250,8 +250,8 @@
                                         <td>Report Status</td>
                                         <td>Reported At</td>
                                         <td>Ban Ad</td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>Remove</td>
+                                        <td>View</td>
                                     </tr>
                                 </thead>
                                 <?php if (!empty($data['reportedAds'])): ?>
@@ -280,13 +280,6 @@
                                         </tbody>
                                         <?php $count++; ?>
                                     <?php endforeach; ?>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="11">
-                                                <button onclick="location.href = '<?php echo URLROOT . '/reported-ads-tab';?>';" class="btn btn-primary">View All</button>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
                                 <?php else: ?>
                                     <tr>
                                         <td colspan="8">No reported ads found.</td>
@@ -398,8 +391,8 @@
                             <td>Report Status</td>
                             <td>Reported At</td>
                             <td>Ban Ad</td>
-                            <td></td>
-                            <td></td>
+                            <td>Remove</td>
+                            <td>View</td>
                         </tr>
                         <thead>
                         <?php if (!empty($data['reportedAds'])): ?>
@@ -415,11 +408,13 @@
                                     <td><?php echo $ad->report_contact; ?></td>
                                     <td><span class="status <?php echo strtolower($ad->report_status); ?>"><?php echo $ad->report_status; ?></span></td>
                                     <td><?php echo $ad->report_created_at; ?></td>
+                                
                                     <td>
-                                    <label class="switch">
-                                        <input type="" onclick="">
-                                        <span class="slider"></span>
-                                    </label>
+                                        <label class="switch">
+                                            <input type="checkbox" onclick="toggleHideAd(this, '<?php echo $ad->ad_id ?>')" <?php echo $ad->status == "hidden" ? 'checked' : '' ?>>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </td>
                                     </td>
                                     <td><button onclick="confirmDeleteReportedad(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
                                     <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
@@ -897,6 +892,37 @@
     <!-- sweetalert remove ad pop up message -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/reportads.js"></script>
     <script>
+
+function toggleHideAd(checkbox, adId) {
+            var url;
+            var action;
+            var originalState = checkbox.checked; // Save the original state
+
+            if (originalState) {
+                url = '<?php echo URLROOT?>/Moderators/showAd/' + adId;
+                action = "showAd";
+            } else {
+                url = '<?php echo URLROOT?>/Moderators/hideAd/' + adId;
+                action = "hideAd";
+            }
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You are about to " + action + " this ad.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, ' + action + ' ad!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                } else {
+                    checkbox.checked = !originalState; // Revert to the original state if the ad cancels
+                }
+            })
+        }
+
     // Function to handle search input
     function handleSearch() {
         var searchInput = document.getElementById('searchInput').value.toLowerCase();
