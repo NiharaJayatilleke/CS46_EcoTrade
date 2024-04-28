@@ -52,7 +52,19 @@
         public function sechome(){
             $ads = $this->itemAdsModel->getAds();
 
-            
+            usort($ads, function($a, $b) {
+                if ($a->feature_package == $b->feature_package) {
+                    return 0;
+                }
+                return ($a->feature_package == 'PV' ? -1 : 1);
+            });
+
+            $uniqueAds = array_unique($ads, SORT_REGULAR);
+
+            $pvAds = array_filter($uniqueAds, function($ad) {
+                // return $ad->feature_package == 'PV';
+                return $ad->feature_package == 'PV' && $ad->is_package_over != 1;
+            });
             
             $data = [
                 'ads' => $ads,
