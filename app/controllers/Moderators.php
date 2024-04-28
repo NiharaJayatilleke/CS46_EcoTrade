@@ -407,7 +407,7 @@
                 $numCollectors = count($collectors);
                 $centers = $this->userModel->getUsersByType('center');
                 $numCenters = count($centers);
- 
+                
                 $data = [
                     'ads' => $ads,
                     'sec_ad_count' => $numSecAds,

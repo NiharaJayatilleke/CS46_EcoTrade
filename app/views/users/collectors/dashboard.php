@@ -338,7 +338,7 @@
                 <!-- recycle item ads should be fetched here -->
 
                 <div class="heading-dashboard">
-                    <h2>Recycle Item Ads</h2>
+                    <h2>Recycle Item Ads</h2> 
                 </div>
 
                 <div class="ad-right-container">
