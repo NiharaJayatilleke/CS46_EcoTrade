@@ -191,7 +191,7 @@ DROP TABLE IF EXISTS Recycle_Center_Requirements;
 
 CREATE TABLE Recycle_Center_Requirements (
     rad_id INT AUTO_INCREMENT,
-    center_id INT,
+    center_id INT, 
     item_category VARCHAR(255),
     item_desc TEXT,
     item_location VARCHAR(255),
@@ -409,7 +409,7 @@ CREATE OR REPLACE VIEW v_re_reqs AS
         General_User.number as center_number,
         Recycle_Center_Requirements.item_category as item_category,
         Recycle_Center_Requirements.item_desc as item_desc,
-        Recycle_Center_Requirements.item_location as item_location,
+        Recycle_Center_Requirements.item_location as item_location, 
         Recycle_Center_Requirements.item_quantity as item_quantity,
         Recycle_Center_Requirements.created_at as created_at,
         Recycle_Center_Requirements.status as status

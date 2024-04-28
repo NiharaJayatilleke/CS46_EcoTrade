@@ -274,6 +274,71 @@
                 $this->view('recenters/v_index',$data);
             }
         } 
+        
+        public function editAd($adId) {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Process form data and update the ad in the database only if there are no validation errors
+                if ($this->validateEditAdForm()) {
+                    $this->recycleCentersModel->updateAd($adId);
+                    redirect('RecycleCenters/index');
+                } else {
+                    // Validation failed, reload the edit form with errors
+                    $ad = $this->recycleCentersModel->getAdById($adId);
+                    $data = [
+                        'ad_id' => $adId,
+                        'item_category' => $ad->item_category,
+                        'item_desc' => $ad->item_desc,
+                        'item_location' => $ad->item_location,
+                        'item_quantity' => $ad->item_quantity,
+                        'item_location_err' => $this->itemLocationErr, // Pass error messages back to the form
+                        'item_quantity_err' => $this->itemQuantityErr
+                    ];
+                    $this->view('recenters/v_editad', $data);
+                }
+            } else {
+                // Get ad details for editing
+                $ad = $this->recycleCentersModel->getAdById($adId);
+                $data = [
+                    'ad_id' => $adId,
+                    'item_category' => $ad->item_category,
+                    'item_desc' => $ad->item_desc,
+                    'item_location' => $ad->item_location,
+                    'item_quantity' => $ad->item_quantity,
+                    'item_location_err' => '', // No errors initially
+                    'item_quantity_err' => ''
+                ];
+                $this->view('recenters/v_editad', $data);
+            }
+        }
+        
+        private function validateEditAdForm() {
+            // Perform validation checks here
+            $isValid = true;
+        
+            if (empty($_POST['item_location'])) {
+                $this->itemLocationErr = 'Please enter the location of your item';
+                $isValid = false;
+            } else {
+                $this->itemLocationErr = ''; // Reset error if valid
+            }
+        
+            if (empty($_POST['item_quantity'])) {
+                $this->itemQuantityErr = 'Please enter the quantity of your item';
+                $isValid = false;
+            } else {
+                $this->itemQuantityErr = ''; // Reset error if valid
+            }
+        
+            return $isValid;
+        }
+        
+        public function deleteAd($adId){
+            if ($this->recycleCentersModel->delete($adId)) {
+                redirect('RecycleCenters/index');
+            } else {
+                die('Something went wrong');
+            }
+        }
 
         // public function dashboard(){
         //     $data = [];
