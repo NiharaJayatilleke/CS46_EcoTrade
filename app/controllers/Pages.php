@@ -51,9 +51,13 @@
 
         public function sechome(){
             $ads = $this->itemAdsModel->getAds();
+
+            
             
             $data = [
                 'ads' => $ads,
+                'unique_ads' => $uniqueAds, 
+                'pv_ads' => $pvAds
             ];
 
             $this->view('pages/v_sechome',$data);
