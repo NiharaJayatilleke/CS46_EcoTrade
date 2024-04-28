@@ -24,7 +24,7 @@
   .save-ad-container .save-solid {
     position: absolute;
     animation: keyframes-fill .5s;
-    display: none;
+    /* display: none; */
     transform-origin: top;
   }
   

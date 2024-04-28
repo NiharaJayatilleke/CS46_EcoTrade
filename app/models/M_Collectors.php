@@ -118,6 +118,13 @@
             }
         }
 
+        public function getSavedReqsByCollector($collectorId){
+            $this->db->query('SELECT * FROM Saved_Requirements WHERE collector_id = :collector_id');
+            $this->db->bind(':collector_id',$collectorId);
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
         public function unsaveReq($collectorId,$reqId){
             $this->db->query('DELETE FROM Saved_Requirements WHERE collector_id = :collector_id AND req_id = :req_id');
             $this->db->bind(':collector_id',$collectorId);
