@@ -7,13 +7,14 @@
         }
 
         public function re_create($data) {
-            $this->db->query('INSERT INTO Recycle_Item_Ads(seller_id,item_name,item_category,item_desc,item_image,item_location,item_expiry,status) VALUES(:seller_id, :item_name, :item_category, :item_desc, :item_image, :item_location, :item_expiry, :status)'); 
+            $this->db->query('INSERT INTO Recycle_Item_Ads(seller_id,item_name,item_category,item_desc,item_image,item_location,item_district,item_expiry,status) VALUES(:seller_id, :item_name, :item_category, :item_desc, :item_image, :item_location, :item_district, :item_expiry, :status)'); 
             $this->db->bind(':seller_id',$_SESSION['user_id']);         
             $this->db->bind(':item_name',$data['item_name']);
             $this->db->bind(':item_category',$data['item_category']);
             $this->db->bind(':item_desc',$data['item_desc']);  
-            $this->db->bind(':item_image',$data['item_img_name']);
+            $this->db->bind(':item_image',$data['item_img_name'][0]);
             $this->db->bind(':item_location',$data['item_location']);
+            $this->db->bind(':item_district',$data['item_district']);
             $this->db->bind(':item_expiry',$data['item_expiry']);
             $this->db->bind(':status',"active");
             

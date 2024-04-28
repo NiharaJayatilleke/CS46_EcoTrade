@@ -74,6 +74,7 @@
                 }else{
                     $data['item_image'] = null;
                 }*/
+                
                 if (empty($_FILES['item_images']['name'][0])) {
                     $data['item_images_err'] = 'Please upload at least one image.';
                 } else {
@@ -117,7 +118,7 @@
                     }else{
                         die('Something went wrong');
                     }
-
+                    
                     //SET USER TYPE
                     $userId = $_SESSION['user_id'];
                     $userType = $this->usersModel->getUserTypeById($userId);
