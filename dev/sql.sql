@@ -191,7 +191,7 @@ DROP TABLE IF EXISTS Recycle_Center_Requirements;
 
 CREATE TABLE Recycle_Center_Requirements (
     rad_id INT AUTO_INCREMENT,
-    center_id INT,
+    center_id INT, 
     item_category VARCHAR(255),
     item_desc TEXT,
     item_location VARCHAR(255),

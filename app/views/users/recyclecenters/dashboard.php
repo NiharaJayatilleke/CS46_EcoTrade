@@ -122,8 +122,8 @@
                                             <td><?php echo convertTime($req->created_at); ?></td>
                                             <td>
                                                 <div class = "mod-control-btns">
-                                                    <a href=""><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                    <button onclick="" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                                    <a href="<?php echo URLROOT ?>/RecycleCenters/editAd/<?php echo $req->r_id ?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                    <button onclick="confirmDeleteRecycleAd('<?php echo URLROOT ?>/RecycleCenters/deleteAd/<?php echo $req->r_id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -606,6 +606,7 @@
         <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/recyclecenters/addelete.js"></script>
    
     
 

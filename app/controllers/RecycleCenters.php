@@ -275,6 +275,14 @@
             }
         } 
 
+        public function editAd($adId){
+
+        }
+
+        public function deleteAd($adId){
+
+        }
+
         // public function dashboard(){
         //     $data = [];
         //     $this->view('users/recyclecenters/dashboard',$data);
