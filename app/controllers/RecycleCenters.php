@@ -246,6 +246,7 @@
                     if($this->recycleCentersModel->addRequirement($data)){
                         // create a flash message
                         flash('post_msg', 'Your ad has been posted successfully!');
+                        $this->userModel->logActivity($_SESSION['user_id'], 'Requirements posted', 'Recyclecenter requirements posted');
                         redirect('RecycleCenters/index');
                     }else{
                         die('Something went wrong');
@@ -280,6 +281,7 @@
                 // Process form data and update the ad in the database only if there are no validation errors
                 if ($this->validateEditAdForm()) {
                     $this->recycleCentersModel->updateAd($adId);
+                    $this->userModel->logActivity($_SESSION['user_id'], 'Edit Requirements', ' Recyclecenter Requirement edited');
                     redirect('RecycleCenters/index');
                 } else {
                     // Validation failed, reload the edit form with errors
@@ -334,6 +336,7 @@
         
         public function deleteAd($adId){
             if ($this->recycleCentersModel->delete($adId)) {
+                $this->userModel->logActivity($_SESSION['user_id'], 'Requirements deleted', 'Recyclecenter Requirements removed');
                 redirect('RecycleCenters/index');
             } else {
                 die('Something went wrong');
