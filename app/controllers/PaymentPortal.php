@@ -6,7 +6,7 @@
 
         public function index(){
             $data = [];
-            $this->view('pages/v_paymentportal',$data);
+            $this->view('item_ads/v_paymentportal',$data);
 
         }
     }
