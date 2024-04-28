@@ -825,5 +825,20 @@
                 }
             }
         }
+
+
+        public function paymentportal(){
+            // Check if the request is an AJAX request
+            if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                echo "Hi, server side!";
+                exit; // Important: stop further script execution
+            } else {
+                $data = [];
+                $this->view('item_ads/v_paymentportal',$data);
+            }
+        }
+
+
+
     }
 ?>

@@ -80,8 +80,14 @@
         </div>
 
         <input type="submit" value="Proceed to Checkout" class="payment-submit-btn">
+        <div>
+            <button onclick="paymentGateway(event)">Pay Here</button>
+        </div>
 
     </form>
 
 </div>    
+
+<script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/payment.js"></script>
+
 <?php require APPROOT . '/views/inc/components/footer.php';?>
