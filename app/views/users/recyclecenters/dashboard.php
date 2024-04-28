@@ -57,7 +57,7 @@
                 </div>
 
                 <!-- search -->
-                <div class="dashboard-search">
+                <div id="center-dashboard-search" class="dashboard-search">
                     <label>
                         <input type="text" placeholder="Search here">
                         <ion-icon name="search-outline"></ion-icon>
@@ -478,32 +478,47 @@
         // Show the selected content section
         document.getElementById(section).style.display = 'block';
 
+        // Select the sidebar element
+        a_name=section.split("-content")[0]+'-tab';
+        // document.getElementById(a_name).parentElement.classList.add('hovered'); //get an error
+
          // Update the URL hash to store the current section
         window.location.hash = '#' + section;
     }
 
     // Function to handle initial content section based on URL hash
     function handleInitialSection() {
-    if (hash) {
-        var section = hash.substring(1);
-
         var hash = window.location.hash;
-        if (['general', 'change-password'].includes(section)) {
-            console.log(section);
-            showContent('settings-content');
-            openTab(section)
+        // console.log("hash" + hash);
+        if (hash) {
+            // Extract the section name from the hash
+            var section = hash.substring(1); // Remove '#'
+
+            // handle the settings hash
+            if (['general', 'change-password'].includes(section)) {
+                console.log(section);
+                showContent('settings-content');
+                openTab(section)
+            }else{
+                showContent(section);
+                currentSection = section;
+            }
+
+            // Highlight the current tab
+            var tabName = section.split("-content")[0] + '-tab';
+            var currentTab = document.getElementById(tabName);
+            if (currentTab) {
+                currentTab.parentElement.classList.add('hovered');
+            }
+            
         } else {
             // If no hash is present, default to the dashboard section
-            showContent(section);
-            currentSection = section;
-        }
-    }else{
-        showContent('dashboard-content');
+            showContent('dashboard-content');
             currentSection = 'dashboard-content';
         }
     }
-    handleInitialSection(); 
     // Call the function when the page loads
+    handleInitialSection(); 
     window.onload = handleInitialSection;
 
     // Function to show a specific section based on the hash in the URL
@@ -527,9 +542,7 @@
             }
         }
     
-    </script>
 
-    <script>
         // Function to handle opening horizontal tabs and updating URL hash
         function openTab(tabName) {
             var sectionName = document.getElementById(tabName).getAttribute('data-section');
@@ -602,10 +615,11 @@
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
     var userCounts = <?php echo json_encode($data['userCounts']); ?>;
 
-
+    </script>
         <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/center/searchbar.js"></script>
    
     
 
