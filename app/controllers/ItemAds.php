@@ -129,6 +129,7 @@
                 'duration' => '',
                 'starting_bid' => '',
                 'negotiable' => '',
+                'item_expiry' => '',
 
                 'item_name_err' => '',
                 'item_category_err' => '',
@@ -141,6 +142,7 @@
                 'duration_err' => '',
                 'starting_bid_err' => '',
                 'negotiable_err' => '',
+                'item_expiry_err' => '',
             ];
 
             // Redirect based on the item type
