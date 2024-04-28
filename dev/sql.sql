@@ -180,6 +180,8 @@ CREATE TABLE Featured_Ads (
     FOREIGN KEY (p_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
 );
 
+
+
 CREATE TABLE Recycle_Item_Ads (
     r_id INT AUTO_INCREMENT,
     seller_id INT,

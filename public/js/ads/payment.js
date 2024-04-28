@@ -5,6 +5,7 @@ function paymentGateway(event) {
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState === 4 && xhttp.status === 200) {
             alert(xhttp.responseText);
+            var obj = JSON.parse(xhttp.responseText);
 
             // Payment completed. It can be a successful failure.
             payhere.onCompleted = function onCompleted(orderId) {
@@ -27,21 +28,21 @@ function paymentGateway(event) {
             // Put the payment variables here
             var payment = {
                 "sandbox": true,
-                "merchant_id": "121XXXX",    // Replace your Merchant ID
-                "return_url": undefined,     // Important
-                "cancel_url": undefined,     // Important
+                "merchant_id": "1226588",    // Replace your Merchant ID
+                "return_url": "http://localhost/ecotrade/itemads/paymentportal",   
+                "cancel_url": "http://localhost/ecotrade/itemads/paymentportal",     // Important
                 "notify_url": "http://sample.com/notify",
-                "order_id": "ItemNo12345",
-                "items": "Door bell wireles",
-                "amount": "1000.00",
-                "currency": "LKR",
-                "hash": "45D3CBA93E9F2189BD630ADFE19AA6DC", // *Replace with generated hash retrieved from backend
-                "first_name": "Saman",
-                "last_name": "Perera",
-                "email": "samanp@gmail.com",
-                "phone": "0771234567",
-                "address": "No.1, Galle Road",
-                "city": "Colombo",
+                "order_id": obj["order_id"],
+                "items": obj,
+                "amount": obj["amount"],
+                "currency": obj["currency"],
+                "hash": obj["hash"], // *Replace with generated hash retrieved from backend
+                "first_name": obj["first_name"],
+                "last_name": obj["last_name"],
+                "email": obj["email"],
+                "phone": obj["phone"],
+                "address": obj["address"],
+                "city": obj["city"],
                 "country": "Sri Lanka",
                 "delivery_address": "No. 46, Galle road, Kalutara South",
                 "delivery_city": "Kalutara",
@@ -57,3 +58,7 @@ function paymentGateway(event) {
     xhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest"); 
     xhttp.send();
 }
+
+
+
+// NzA1MDAxMDQzMjEzODY5NDY2MzQwMTg3NDcwNDYzNzY0NjgwMw==

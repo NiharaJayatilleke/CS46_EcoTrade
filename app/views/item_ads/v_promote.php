@@ -132,7 +132,7 @@
             <div class="divv-80">Pay online</div>
             <img loading="lazy" src="<?php echo URLROOT?>/public/img/payment/images/Untitled design (1).png" class="img-400" />
         </div>
-        <a class = "cont-link" href="<?php echo URLROOT ?>/PaymentPortal/index">
+        <a class = "cont-link" href="<?php echo URLROOT ?>/ItemAds/paymentportal">
             <div class="divv-84" id = "packageContinue">Continue</div> 
         </a>
     </div>
