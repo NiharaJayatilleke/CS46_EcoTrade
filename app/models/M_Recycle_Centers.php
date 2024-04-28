@@ -100,6 +100,13 @@
             return $this->db->single();
         }
 
+        public function getRecycleCentersCategories($center_id) {
+            $this->db->query('SELECT category_id FROM RecycleCentersCategories WHERE center_id = :center_id');
+            $this->db->bind(':center_id', $center_id);
+            $rows = $this->db->resultSet();
+            return array_map(function($row) { return $row->category_id; }, $rows);
+        }
+
         public function addRequirement($data){
             // die(print_r($_SESSION['user_id']));
             $this->db->query('INSERT INTO Recycle_Center_Requirements(rad_id,center_id,item_category,item_desc,item_location,item_quantity,status) VALUES (:rad_id, :center_id, :item_category, :item_desc, :item_location, :item_quantity, :status)');
@@ -134,10 +141,32 @@
 
 
         public function getAdById($adId){
-            $this->db->query('SELECT * FROM v_recenter_ads WHERE ad_id = :id');
+            $this->db->query('SELECT * FROM Recycle_Center_Requirements WHERE rad_id = :id');
             $this->db->bind(':id',$adId);
             $row = $this->db->single();
             return $row;
+        }
+
+        public function updateAd($adId) {
+            // Assuming $_POST['item_desc'], $_POST['item_location'], $_POST['item_quantity'] are submitted from the form
+            $data = [
+                'ad_id' => $adId,
+                'item_desc' => $_POST['item_desc'],
+                'item_location' => $_POST['item_location'],
+                'item_quantity' => $_POST['item_quantity'],
+            ];
+        
+            $this->db->query('UPDATE Recycle_Center_Requirements SET item_desc = :item_desc, item_location = :item_location, item_quantity = :item_quantity WHERE rad_id = :ad_id');
+            $this->db->bind(':ad_id', $data['ad_id']);
+            $this->db->bind(':item_desc', $data['item_desc']);
+            $this->db->bind(':item_location', $data['item_location']);
+            $this->db->bind(':item_quantity', $data['item_quantity']);
+        
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         public function delete($adId){

@@ -57,7 +57,7 @@
                 </div>
 
                 <!-- search -->
-                <div class="dashboard-search">
+                <div id="center-dashboard-search" class="dashboard-search">
                     <label>
                         <input type="text" placeholder="Search here">
                         <ion-icon name="search-outline"></ion-icon>
@@ -78,7 +78,7 @@
             
             <!-- cards -->
             <div id="dashboard-content" class="content-section">
-                <div class="heading-dashboard">
+                    <div class="heading-dashboard">
                         <h2>Recycle Centers Dashboard</h2>
                     </div>
 
@@ -122,8 +122,8 @@
                                             <td><?php echo convertTime($req->created_at); ?></td>
                                             <td>
                                                 <div class = "mod-control-btns">
-                                                    <a href=""><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                    <button onclick="" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                                    <a href="<?php echo URLROOT ?>/RecycleCenters/editAd/<?php echo $req->rad_id ?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                    <button onclick="confirmDeleteRecycleAd('<?php echo URLROOT ?>/RecycleCenters/deleteAd/<?php echo $req->rad_id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -226,13 +226,13 @@
 
                                 </tbody>
                             </table>
-                        <!-- </div> -->
+                        </div>
                     </div> 
-            </div>
+        </div>
 
-
+            
             <div id="recycle-content" class="content-section">
-<!-- 
+
                 <div class="details" style=" display: block;">
                     <div class="recentOrders">
                         <div class="cardHeader">
@@ -241,7 +241,7 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Categoryfgvhbjn</td>
+                                    <td>Category</td>
                                     <td>Description</td>
                                     <td>Quantity</td>
                                     <td>Posted</td>
@@ -257,8 +257,8 @@
                                         <td><?php echo convertTime($req->created_at); ?></td>
                                         <td>
                                             <div class = "mod-control-btns">
-                                                <a href="<?php echo URLROOT?>/Moderators/edit/<?php echo $moderator->id?>?updated=true"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                <button onclick="confirmDeleteModerators('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
+                                                <a href=""><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                <button onclick="confirmDeleteRecycleAd('<?php echo URLROOT ?>/RecycleCenters/deleteAd/<?php echo $req->rad_id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -266,14 +266,14 @@
                             </tbody>
                         </table>
                     </div>
-                </div>  -->
+                </div> 
             </div>
 
 
 
 
-
-                <!-- <div class="ad-right-container">
+<!-- 
+                <div class="ad-right-container">
                     <?php if (!empty($data['ads'])) : ?>
                     <div class="ads-container">
                         <?php foreach($data['ads'] as $ad): ?>
@@ -288,7 +288,7 @@
                                     <div class="ad-body-image">
                                         <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
                                     </div>
-                                    <!-- <php if($ad->seller_id == $_SESSION['user_id']): ?> 
+                                    <php if($ad->seller_id == $_SESSION['user_id']): ?> 
                                             <div class = "post-control-btns">
                                                 <a href = "<php echo URLROOT?>/ItemAds/edit/<?php echo $ad->ad_id?>"><button class="ad-edit-btn" title="edit ad"><i class="fas fa-edit"></i></button></a>
                                                 <a href = "<php echo URLROOT?>/ItemAds/delete/<?php echo $ad->ad_id?>"><button class="ad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i></button></a>
@@ -314,8 +314,8 @@
                                         <?php if($ad->selling_format == 'auction'): ?> 
                                         <a href=""><button class="ad-bid-btn">Bid</button></a>
                                         <?php endif; ?>
-                                        <!-- <a href = ""><button class="ad-wishlist-btn"><i class="fas fa-heart"></i></button></a> 
-                                        <!-- <a href="#"><button class="ad-wishlist-btn"><img src="/img/icons/wishlist.png" alt="Wishlist Icon"></button></a> 
+                                        <a href = ""><button class="ad-wishlist-btn"><i class="fas fa-heart"></i></button></a> 
+                                        <a href="#"><button class="ad-wishlist-btn"><img src="/img/icons/wishlist.png" alt="Wishlist Icon"></button></a> 
                                     </div>
                                 </div>  
                             </div>
@@ -331,14 +331,14 @@
                         <p>Try checking your spelling or use more general terms</p>
                     </div>
                     <?php endif; ?>
-                </div> -->
+                </div>
 
             
-            </div>
-
-            <!-- <div id="center-content" class="content-section">
-            <p>This is the content for the centers tab.</p> 
             </div> -->
+                        
+             <!-- <div id="center-content" class="content-section">
+            <p>This is the content for the centers tab.</p> 
+            </div>  -->
 
             <div id="settings-content" class="content-section">
                 <div class="profile-settings-container">
@@ -419,7 +419,7 @@
                                     <?php flash('profile_edit'); ?>
                                 </div> -->
                                 <div class="profile-buttons">
-                                    <button class="profile-updatebt" id="editProfileBtn">Edit profile</button>
+                                <a href="<?php echo URLROOT?>/Recyclecenters/edit"><button class="profile-updatebt" id="editProfileBtn">Edit profile</button></a>
                                 </div>
                                 <!-- </form> -->
 
@@ -460,10 +460,9 @@
             </div>
 
             <div id="signout-content" class="content-section">
-            <p>This is the content for the signout tab.</p>
             </div>
 
-        </div>
+        <!-- </div> -->
     </div>
 
     <script>
@@ -479,32 +478,47 @@
         // Show the selected content section
         document.getElementById(section).style.display = 'block';
 
+        // Select the sidebar element
+        a_name=section.split("-content")[0]+'-tab';
+        // document.getElementById(a_name).parentElement.classList.add('hovered'); //get an error
+
          // Update the URL hash to store the current section
         window.location.hash = '#' + section;
     }
 
     // Function to handle initial content section based on URL hash
     function handleInitialSection() {
-    if (hash) {
-        var section = hash.substring(1);
-
         var hash = window.location.hash;
-        if (['general', 'change-password'].includes(section)) {
-            console.log(section);
-            showContent('settings-content');
-            openTab(section)
+        // console.log("hash" + hash);
+        if (hash) {
+            // Extract the section name from the hash
+            var section = hash.substring(1); // Remove '#'
+
+            // handle the settings hash
+            if (['general', 'change-password'].includes(section)) {
+                console.log(section);
+                showContent('settings-content');
+                openTab(section)
+            }else{
+                showContent(section);
+                currentSection = section;
+            }
+
+            // Highlight the current tab
+            var tabName = section.split("-content")[0] + '-tab';
+            var currentTab = document.getElementById(tabName);
+            if (currentTab) {
+                currentTab.parentElement.classList.add('hovered');
+            }
+            
         } else {
             // If no hash is present, default to the dashboard section
-            showContent(section);
-            currentSection = section;
-        }
-    }else{
-        showContent('dashboard-content');
+            showContent('dashboard-content');
             currentSection = 'dashboard-content';
         }
     }
-    handleInitialSection(); 
     // Call the function when the page loads
+    handleInitialSection(); 
     window.onload = handleInitialSection;
 
     // Function to show a specific section based on the hash in the URL
@@ -528,9 +542,7 @@
             }
         }
     
-    </script>
 
-    <script>
         // Function to handle opening horizontal tabs and updating URL hash
         function openTab(tabName) {
             var sectionName = document.getElementById(tabName).getAttribute('data-section');
@@ -543,9 +555,7 @@
             showSection(sectionName);
         }
 
-        document.getElementById('editProfileBtn').addEventListener('click', function() {
-        window.location.href = "<?php echo URLROOT . '/recyclecenters/edit/'; ?>";
-         });
+        
         const editForm = document.getElementById('editProfileForm');
     
         editForm.onsubmit = function(event){
@@ -599,16 +609,19 @@
 
       
     
-    </script>
-    </script>
+  
+
 
     <!-- Get the user counts data from PHP and convert it to JavaScript object -->
-    <script>var userCounts = <?php echo json_encode($data['userCounts']); ?>;
+    var userCounts = <?php echo json_encode($data['userCounts']); ?>;
 
-</script> 
+    </script>
         <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/center/searchbar.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/center/addelete.js"></script>
+
    
     
 

@@ -413,7 +413,7 @@
 
 
 
-    <body class= "b234">
+<div class= "b234">
    
   
 
@@ -854,11 +854,13 @@
         <p>c 2022, With ❤ Bhandary ,  Ecommerce Website Template</p>
     </div>
 
-   </footer> -->
 
     <script>
 
   </script>
  
+
 </body>
  <?php require APPROOT . '/views/inc/components/footer.php'; ?> 
+
+

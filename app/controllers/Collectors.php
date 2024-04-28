@@ -267,6 +267,10 @@
             $userdetails = $this->moderatorModel->getuserdetails($useremail);
             $centerReqs = $this->recycleCentersModel->getCenterRequirements();
             $rec_ads = $this->recycleItemAdsModel->getAds();
+            $savedReqsByCollector = $this->collectorModel->getSavedReqsByCollector($_SESSION['user_id']);
+            $allSavedReqsByCollector = $this->collectorModel->getAllSavedReqslByCollector($_SESSION['user_id']);
+
+            // echo '<pre>' . print_r($savedReqsByCollector, true) . '</pre>';
 
             $data = [
                 'ads' => $ads,
@@ -274,7 +278,10 @@
                 'userdetails'=> $userdetails,
                 'center_reqs'=> $centerReqs,
                 'rec_ads' => $rec_ads,
+                'saved_reqs' => $savedReqsByCollector,
+                'all_saved_reqs' => $allSavedReqsByCollector,
             ];
+
             $this->view('users/collectors/dashboard',$data);
              }
         }
@@ -285,8 +292,25 @@
         }
 
         public function saveReq($reqId){
-            $collectorId = $_SESSION(['user_id']);
-            $this->collectorModel->saveReq($collectorId,$reqId);
+            $collectorId = $_SESSION['user_id'];
+            $result = $this->collectorModel->saveReq($collectorId,$reqId);
+
+            if($result) {
+                echo json_encode(["status" => "success", "message" => "Request saved successfully"]);
+            } else {
+                echo json_encode(["status" => "error", "message" => "Failed to save request"]);
+            }
+        }
+
+        public function unsaveReq($reqId){
+            $collectorId = $_SESSION['user_id'];
+            $result = $this->collectorModel->unsaveReq($collectorId,$reqId);
+
+            if($result) {
+                echo json_encode(["status" => "success", "message" => "Request saved successfully"]);
+            } else {
+                echo json_encode(["status" => "error", "message" => "Failed to save request"]);
+            }
         }
 
         // public function dashboard(){

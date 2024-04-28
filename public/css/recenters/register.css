@@ -145,7 +145,7 @@ form.secActive .form.first{
 }
 
 .collector-container form .collector-fields .collector-input-field {
-    padding-top: 10px;
+    padding-top: 5px;
     display: flex;
     width: calc(100% / 3 - 15px);
     flex-direction: column;

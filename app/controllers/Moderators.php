@@ -4,6 +4,7 @@
             $this->moderatorModel = $this->model('M_Moderators');
             $this->itemAdsModel = $this->model('M_Item_Ads');
             $this->userModel = $this->model('M_Users');
+            $this->recycleItemAdsModel = $this->model('M_Recycle_Item_Ads');
         }
 
         public function register(){
@@ -322,6 +323,30 @@
                 }
         }
 
+        public function ban($userId){
+            $user = $this->userModel->getUserDetails($userId);
+
+            if($this->userModel->changeUserStatus($userId, 0)){
+                flash('post_msg', 'The user has been banned successfully!');
+                redirect('Admin/moderators#moderators-content');
+            }
+            else{
+                die('Something went wrong');
+            }
+        }
+
+        public function unban($userId){
+            $user = $this->userModel->getUserDetails($userId);
+
+            if($this->userModel->changeUserStatus($userId, 1)){
+                flash('post_msg', 'The user has been unbanned successfully!');
+                redirect('Admin/moderators#moderators-content');
+            }
+            else{
+                die('Something went wrong');
+            }
+        }
+
         public function index(){
 
             if(!isset($_SESSION['userType']) || ($_SESSION['userType'] != 'moderator')){
@@ -368,6 +393,8 @@
 
                 $ads = $this->itemAdsModel->getAds();
                 $numSecAds = count($ads);
+                $rec_ads = $this->recycleItemAdsModel->getAds();
+                $numRecAds = count($rec_ads);
                 $userCounts = $this->moderatorModel->getUserCounts();
                 $adCountsByCategory = $this->moderatorModel->getItemAdCountsByCategory();
                 $reportedAds = $this->moderatorModel->getReportedAds();
@@ -393,6 +420,7 @@
                     'users' => $users,
                     'collectors_count' => $numCollectors,
                     'centers_count' => $numCenters,
+                    'rec_ad_count' => $numRecAds
                 ];
 
                 $this->view('moderators/v_index', $data);

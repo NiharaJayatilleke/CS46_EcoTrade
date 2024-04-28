@@ -54,16 +54,17 @@
 
 <div class="row">
 <ul>
-<li><a href="#">About Us</a></li>
-<li><a href="#">Log In</a></li>
-<li><a href="#">SecondHand Market</a></li>
-<li><a href="#">Recycle Market</a></li>
-<li><a href="#">Privacy Policy</a></li>
+<li><a href="<?php echo URLROOT; ?>/Pages/about">About Us</a></li>
+<li><a href="<?php echo URLROOT; ?>/Users/login">Log In</a></li>
+<li><a href="<?php echo URLROOT; ?>/Pages/sechome">SecondHand Market</a></li>
+<li><a href="<?php echo URLROOT; ?>/Pages/recyclehome">Recycle Market</a></li>
+<li><a href="<?php echo URLROOT; ?>/Collectors/about">Be a Collector</a></li>
+<li><a href="<?php echo URLROOT; ?>/recyclecenters/about">Join as a Recycle Center</a></li>
 </ul>
 </div>
 
 <div class="row">
-  EcoTrade Copyright © 2021 EcoTrade - All rights reserved    
+  EcoTrade Copyright © 2024 EcoTrade - All rights reserved    
 </div>
 </div>
 </footer>

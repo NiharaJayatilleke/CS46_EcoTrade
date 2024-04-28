@@ -101,6 +101,6 @@
     });
 </script>
 
-<!-- <?php require APPROOT.'/views/inc/components/footer.php'; ?>  -->
 <!-- </body>
 </html> -->
+<?php require APPROOT.'/views/inc/components/footer.php'; ?> 

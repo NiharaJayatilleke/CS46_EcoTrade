@@ -109,8 +109,41 @@
 
             $this->db->bind(':collector_id', $collectorId);
             $this->db->bind(':req_id', $reqId);
+
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
 
+        public function getSavedReqsByCollector($collectorId){
+            $this->db->query('SELECT * FROM Saved_Requirements WHERE collector_id = :collector_id');
+            $this->db->bind(':collector_id',$collectorId);
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
+        public function unsaveReq($collectorId,$reqId){
+            $this->db->query('DELETE FROM Saved_Requirements WHERE collector_id = :collector_id AND req_id = :req_id');
+            $this->db->bind(':collector_id',$collectorId);
+            $this->db->bind(':req_id',$reqId);
+
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function getAllSavedReqslByCollector($collectorId){
+            $this->db->query('SELECT * FROM v_saved_re_reqs WHERE collector_id = :collector_id');
+            $this->db->bind(':collector_id',$collectorId);
+            $results = $this->db->resultSet();
+            return $results;
+        }
 
         public function getCollectorDistricts($collector_id) {
             $this->db->query('SELECT district_id FROM CollectorDistricts WHERE collector_id = :collector_id');

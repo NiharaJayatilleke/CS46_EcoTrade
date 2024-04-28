@@ -115,8 +115,8 @@
                 <!-- cards -->
           
             <div id="dashboard-content" class="content-section">
-            <div class="heading-dashboard">
-                        <h2>Moderators Dashboard</h2>
+                <div class="heading-dashboard">
+                        <h2>Moderator Dashboard</h2>
                     </div>
                     
                     <div class="dashboard-cardBox">
@@ -165,15 +165,17 @@
                         </div>
 
 
+                        <a href="<?php echo URLROOT ?>/Moderators/index#recycle-content" style="text-decoration: none; color: inherit;">
                         <div class="dashboard-card">
                             <div>
-                                <div class="dashboard-numbers">80</div> 
-                                <div class="dashboard-cardName">Recycling Ads</div>
+                                <div class="dashboard-numbers"><?php echo $data['rec_ad_count'] ?></div> 
+                                <div class="dashboard-cardName">Recycling Item Ads</div>
                             </div>
-                            <div class="dashboard-iconBx"> 
-                                <ion-icon name="leaf"></ion-icon>   
+                            <div class="dashboard-iconBx">  
+                                <ion-icon name="leaf"></ion-icon>  
                             </div>
                         </div>
+                    </a>
                     </div>
 
                     <div class="graphBox">
@@ -283,7 +285,7 @@
                             <h2>Users</h2>
                             <!-- <a href="<?php echo URLROOT ?>/Users/register" class="btn">Add User</a> -->
                         </div>
-                        <table id="users-table">
+                        <table id="mod-table">
                             <thead>
                                 <tr>
                                     <td>Username</td>
@@ -784,10 +786,8 @@
         document.getElementById('activity-content').style.display = 'none';
         document.getElementById('reported-ads-content').style.display = 'none';
         document.getElementById('secondhand-content').style.display = 'none';
-        document.getElementById('secondhand-ad-view-content').style.display = 'none';
         document.getElementById('recycle-content').style.display = 'none';
         document.getElementById('settings-content').style.display = 'none';
-        document.getElementById('signout-content').style.display = 'none';
 
         // Show the selected content section
         document.getElementById(section).style.display = 'block';
@@ -981,11 +981,12 @@
     </script> 
     <!-- Javascript for image upload -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/search.js"></script>
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/dashboard.js"></script>
     <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/dashboards/ad_view.js"></script> -->
     <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/search.js"></script> -->
     
-    
+
 
 
 

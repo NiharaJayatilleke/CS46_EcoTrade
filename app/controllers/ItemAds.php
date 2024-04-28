@@ -172,6 +172,10 @@
                 //Validate the data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
+                $expiryMonths = trim($_POST['item_expiry']);
+                $expiryDate = new DateTime();
+                $expiryDate->add(new DateInterval("P{$expiryMonths}M"));
+
                 //input data
                 $data = [
                     'item_name' => trim($_POST['item_name']),
@@ -192,6 +196,8 @@
                     'duration' => trim($_POST['duration']),
                     'starting_bid' => trim($_POST['starting_bid']),
                     'negotiable' => trim($_POST['negotiable']),
+                    // 'item_expiry' => trim($_POST['item_expiry']),
+                    'item_expiry' => $expiryDate->format('Y-m-d H:i:s'),
 
                     'item_name_err' => '',
                     'item_category_err' => '',
@@ -204,6 +210,7 @@
                     'duration_err' => '',
                     'starting_bid_err' => '',
                     'negotiable_err' => '',
+                    'item_expiry_err' => '',
                 ];
 
                 // die(print_r($data['item_img_name']));
@@ -293,12 +300,20 @@
                     $data['negotiable_err'] = 'Please select an option';
                 }
 
+                //validate expiry
+                if(empty($data['item_expiry'])){
+                    $data['item_expiry_err'] = 'Please select the duration';
+                }
+
                 //Validation is completed and no error then add item ad to the database
-                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_condition_err'])&&empty($data['item_quantity_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])&&empty($data['item_images_err'])){
+                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_condition_err'])&&empty($data['item_quantity_err'])&&empty($data['item_price_err'])&&empty($data['item_location_err'])&&empty($data['selling_format_err'])&&empty($data['negotiable_err'])&&empty($data['item_images_err'])&&empty($data['item_expiry_err'])){
                     // var_dump($data);
                     //Add item ad to the database
                     $ad_id = $this->itemAdsModel->create($data);
                     // var_dump($data); var_dump($ad_id);
+
+                    //delete expired ads
+                    $this->itemAdsModel->deleteExpiredAds();
 
                     if($ad_id){
                         // create a flash message
@@ -354,6 +369,7 @@
                     'duration' => '',
                     'starting_bid' => '',
                     'negotiable' => '',
+                    'item_expiry' => '',
 
                     'item_name_err' => '',
                     'item_category_err' => '',
@@ -366,6 +382,7 @@
                     'duration_err' => '',
                     'starting_bid_err' => '',
                     'negotiable_err' => '',
+                    'item_expiry_err' => '',
 
                     // 'show_auction_fields' => true
                 ];
