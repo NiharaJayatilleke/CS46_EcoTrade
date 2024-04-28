@@ -46,8 +46,8 @@
             <div class="ad-form-input-title">Description</div>
             <textarea name="item_desc" placeholder="Your item's story, your sale's success!" id="item_desc" class="ad_item_desc" rows = "10" cols = "59"><?php echo $data['item_desc']; ?></textarea>
 
-            <div class="ad-form-input-title">Upload an Image</div>
-            <!-- item images -->
+            <!-- <div class="ad-form-input-title">Upload an Image</div>
+            <!-- item images
             <div class = "ad-form-drag-area" id="form-drag-area">
                 <div class = "ad-icon">
                     <img id = "item_img_placeholder" src = "<?php echo URLROOT;?>/public/img/itemAds/placeholder.png" alt="placeholder" width = "40px" height = "40px"></img>
@@ -60,7 +60,36 @@
                 <div class="ad-form-validation">
                     <span class="ad-form-invalid"><?php echo $data['item_images_err']; ?></span>
                 </div>
+            </div> -->
+
+            <!-- item images -->
+            <div class="ad-form-input-title">Upload Images (min:1, max:6)</div>
+
+            <div class = "ad-form-drag-area" id="form-drag-area">
+                <div class = "ad-icon">
+                    <div id="image_container"></div> <!-- New image container -->
+                    <img id = "item_img_placeholder" src = "" alt="placeholder"><i id = "item_img_placeholder_icon" class="fas fa-image fa-5x"></i></img>
+                    <!-- <i id = "item_img_placeholder" class="fas fa-image fa-5x"></i> -->
+                </div> 
+                <div class="ad-form-drag-area-text">Drag and drop files here</div>
+                <div class="ad-form-drag-area-or">or</div>
+                <div class="ad-form-drag-area-btn">Browse Files</div>
+                    <!-- <input type="file" name="item_images" id="item_images" class="ad_item_images" style ="display:none"> -->
+                    <input type="file" name="item_images[]" id="item_images" class="ad_item_images" style ="display:none" multiple>
+                
+                <div class="ad-form-validation">
+                    <span class="ad-form-invalid"><?php echo $data['item_images_err']; ?></span>
+                </div>
             </div>
+
+            <script>
+                document.getElementById('item_images').addEventListener('change', function() {
+                    if (this.files.length > 6) {
+                        alert('You can only upload a maximum of 6 files');
+                        this.value = '';
+                    }
+                });
+            </script>
 
             <!-- price -->
             <!-- <div class="form-input-title">Price</div> 
