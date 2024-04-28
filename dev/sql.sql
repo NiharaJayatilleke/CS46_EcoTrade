@@ -125,7 +125,6 @@ CREATE TABLE RecycleCentersCategories (
 );
 
 
-
 CREATE TABLE forgot_password (
     pwdResetid INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     pwdResetemail TEXT NOT NULL,
