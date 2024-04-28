@@ -12,7 +12,7 @@
         <form action="<?php echo URLROOT?>/RecycleItemAds/recycleItemAd" method="POST" enctype="multipart/form-data">
 
             <!-- item_name -->
-            <div class="ad-form-input-title">Item Name</div>
+            <div class="ad-form-input-title">Item Name<span class="required-field">*</span></div>
             <input type="text" name="item_name" id="item_name" class="ad_item_name" value="<?php echo $data['item_name']; ?>">
             <span class="form-invalid"><?php echo $data['item_name_err']; ?></span>
 

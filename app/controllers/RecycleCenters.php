@@ -223,10 +223,12 @@
                     'item_category' => trim($_POST['item_category']),
                     'item_desc' => trim($_POST['item_desc']),
                     'item_location' => trim($_POST['item_location']),
+                    'item_district' => trim($_POST['item_district']),
                     'item_quantity' => trim($_POST['item_quantity']),
 
                     'item_category_err' => '',
                     'item_location_err' => '',
+                    'item_district_err' => '',
                     'item_quantity_err' => '',
                 ];
     
@@ -235,13 +237,23 @@
                     $data['item_category_err'] = 'Please select a category for your item';
                 } 
     
+                //validate item_quantity
+                if(empty($data['item_quantity'])){
+                    $data['item_quantity_err'] = 'Please enter the quantity of your item';
+                }
+    
                 //validate item_location
                 if(empty($data['item_location'])){
-                    $data['item_location_err'] = 'Please enter the location of your item';
+                    $data['item_location_err'] = 'Please enter the location';
+                }
+
+                //validate item_district
+                if(empty($data['item_district'])){
+                    $data['item_district_err'] = 'Please select the district';
                 }
     
                 //Validation is completed and no error then add item ad to the database
-                if(empty($data['item_category_err'])&&empty($data['item_location_err'])){
+                if(empty($data['item_category_err'])&&empty($data['item_location_err'])&&empty($data['item_district_err'])&&empty($data['item_quantity_err'])){
                     //Add item ad to the database
                     if($this->recycleCentersModel->addRequirement($data)){
                         // create a flash message
@@ -263,10 +275,12 @@
                     'item_category' => '',
                     'item_desc' => '',
                     'item_location' => '',
+                    'item_district' => '',
                     'item_quantity' => '',
                     
                     'item_category_err' => '',
                     'item_location_err' => '',
+                    'item_district_err' => '',
                     'item_quantity_err' => '',
                 ];
     
