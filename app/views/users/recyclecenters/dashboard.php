@@ -122,7 +122,7 @@
                                             <td><?php echo convertTime($req->created_at); ?></td>
                                             <td>
                                                 <div class = "mod-control-btns">
-                                                    <a href="<?php echo URLROOT ?>/RecycleCenters/editAd/<?php echo $req->r_id ?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
+                                                    <a href="<?php echo URLROOT ?>/RecycleCenters/editAd/<?php echo $req->rad_id ?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
                                                     <button onclick="confirmDeleteRecycleAd('<?php echo URLROOT ?>/RecycleCenters/deleteAd/<?php echo $req->rad_id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
                                                 </div>
                                             </td>
