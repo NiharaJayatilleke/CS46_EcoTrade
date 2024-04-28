@@ -31,11 +31,13 @@
                     'item_img' => $_FILES['item_images'],
                     'item_img_name' => time().'_'.$_FILES['item_images']['name'],
                     'item_location' => trim($_POST['item_location']),
+                    'item_district' => trim($_POST['item_district']),
 
                     'item_name_err' => '',
                     'item_category_err' => '',
                     'item_images_err' => '',
                     'item_location_err' => '',
+                    'item_district_err' => '',
 
                 ];
 
@@ -53,7 +55,7 @@
                 //item image
                 if(empty($data['item_image']['size'] > 0)){
                     if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
-                        echo 'Image uploaded';
+                        // echo 'Image uploaded';
                     }else {
                         $data['item_images_err'] = 'Image upload unsuccessful';
                     }
@@ -66,8 +68,13 @@
                     $data['item_location_err'] = 'Please enter the location of your item';
                 }
 
+                //validate item_district
+                if(empty($data['item_district'])){
+                    $data['item_district_err'] = 'Please enter the district of your item';
+                }
+
                 //Validation is completed and no error then add item ad to the database
-                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_location_err'])&&empty($data['item_images_err'])){
+                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_location_err'])&&empty($data['item_district_err'])){ //&&empty($data['item_images_err'])
                     //Add item ad to the database
                     if($this->recycleItemAdsModel->re_create($data)){
                         // create a flash message
@@ -103,11 +110,13 @@
                     'item_img' => '',
                     'item_img_name' => '',
                     'item_location' => '',
+                    'item_district' => '',
 
                     'item_name_err' => '',
                     'item_category_err' => '',
                     'item_images_err' => '',
                     'item_location_err' => '',
+                    'item_district_err' => '',
                 ];
 
                 //load view

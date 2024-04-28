@@ -103,7 +103,7 @@
                     <option value="Ratnapura">Ratnapura</option>
                     <option value="Kegalle">Kegalle</option>
                 </select>
-            </div>
+            
 
             <br>
             <p>Upon examination of your recyclable items, our dedicated collector will determine a fair and suitable price, taking into consideration the condition and value of the products.</p>

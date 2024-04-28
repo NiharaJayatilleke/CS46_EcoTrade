@@ -145,6 +145,7 @@ CREATE TABLE Item_Ads (
     item_image VARCHAR(255),
     item_price DOUBLE,
     item_location VARCHAR(255),
+    item_district VARCHAR(255),
     selling_format VARCHAR(255),
     negotiable VARCHAR(255),
     item_expiry DATETIME,
@@ -153,6 +154,9 @@ CREATE TABLE Item_Ads (
     PRIMARY KEY(p_id),
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
+
+ALTER TABLE Item_Ads
+ADD COLUMN item_district VARCHAR(255);
 
 ALTER TABLE Item_Ads
 DROP COLUMN item_expiry;
