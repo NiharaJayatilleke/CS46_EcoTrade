@@ -21,7 +21,7 @@
             <!-- <label for="item_category">Item Category  </label> -->
             <select name="item_category" id="item_category" class="ad_item_category">
             <option value="">Select a category</option>
-                <option value="cardboard">Carboard</option>
+                <option value="cardboard">Cardboard</option>
                 <option value="paper">Paper</option>
                 <option value="electronics">Electronics</option>
                 <option value="glass">Glass</option>
