@@ -23,21 +23,32 @@
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 // var_dump($_POST);
 
+                $expiryMonths = trim($_POST['item_expiry']);
+                $expiryDate = new DateTime();
+                $expiryDate->add(new DateInterval("P{$expiryMonths}M"));
+
                 //input data
                 $data = [
                     'item_name' => trim($_POST['item_name']),
                     'item_category' => trim($_POST['item_category']),
                     'item_desc' => trim($_POST['item_desc']),
                     'item_img' => $_FILES['item_images'],
-                    'item_img_name' => time().'_'.$_FILES['item_images']['name'],
+                    // 'item_img_name' => time().'_'.$_FILES['item_images']['name'],
+
+                    'item_img_name' => array_map(function($filename) {
+                        return time().'_'.$filename;
+                    }, $_FILES['item_images']['name']),
+
                     'item_location' => trim($_POST['item_location']),
                     'item_district' => trim($_POST['item_district']),
+                    'item_expiry' => $expiryDate->format('Y-m-d H:i:s'),
 
                     'item_name_err' => '',
                     'item_category_err' => '',
                     'item_images_err' => '',
                     'item_location_err' => '',
                     'item_district_err' => '',
+                    'item_expiry_err' => '',
 
                 ];
 
@@ -53,7 +64,8 @@
                 } 
 
                 //item image
-                if(empty($data['item_image']['size'] > 0)){
+
+                /*if(empty($data['item_image']['size'] > 0)){
                     if(uploadImage($data['item_img']['tmp_name'], $data['item_img_name'], '/img/items/')){
                         // echo 'Image uploaded';
                     }else {
@@ -61,6 +73,22 @@
                     }
                 }else{
                     $data['item_image'] = null;
+                }*/
+                if (empty($_FILES['item_images']['name'][0])) {
+                    $data['item_images_err'] = 'Please upload at least one image.';
+                } else {
+                    if(isset($_FILES['item_images']) && count($_FILES['item_images']['size']) > 0){
+                    for($i = 0; $i < count($_FILES['item_images']['name']); $i++) {
+                        $new_name = time() . '_' . $_FILES['item_images']['name'][$i];
+                        if(uploadImage($_FILES['item_images']['tmp_name'][$i], $new_name, '/img/items/')){
+                            //echo 'Image uploaded';
+                        }else {
+                            $data['item_images_err'] = 'Image upload unsuccessful';
+                        }
+                    }
+                    }else{
+                        $data['item_image'] = null;
+                    }
                 }
 
                 //validate item_location
@@ -73,8 +101,13 @@
                     $data['item_district_err'] = 'Please enter the district of your item';
                 }
 
+                //validate expiry
+                if(empty($data['item_expiry'])){
+                    $data['item_expiry_err'] = 'Please select the duration';
+                }
+
                 //Validation is completed and no error then add item ad to the database
-                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_location_err'])&&empty($data['item_district_err'])){ //&&empty($data['item_images_err'])
+                if(empty($data['item_name_err'])&&empty($data['item_category_err'])&&empty($data['item_images_err'])&&empty($data['item_location_err'])&&empty($data['item_district_err'])&&empty($data['item_expiry_err'])){ //&&empty($data['item_images_err'])
                     //Add item ad to the database
                     if($this->recycleItemAdsModel->re_create($data)){
                         // create a flash message
@@ -111,12 +144,14 @@
                     'item_img_name' => '',
                     'item_location' => '',
                     'item_district' => '',
+                    'item_expiry' => '',
 
                     'item_name_err' => '',
                     'item_category_err' => '',
                     'item_images_err' => '',
                     'item_location_err' => '',
                     'item_district_err' => '',
+                    'item_expiry_err' => '',
                 ];
 
                 //load view
