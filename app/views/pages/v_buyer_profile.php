@@ -382,16 +382,45 @@
       </div>
       <hr class="divider" />
       <div class="password-section">
-        <form method="POST" action="<?php echo URLROOT; ?>/users/changepassword">
-        <label for="old-password">Old Password</label>
-        <input id="old-password" type="password" />
-        <label for="new-password">New Password</label>
-        <input id="new-password" type="password" />
-        <label for="confirm-password">Confirm Password</label>
-        <input id="confirm-password" type="password" />
-        <button class="save-button">Save</button>
+        <form id="changePasswordForm" method="POST" action="<?php echo URLROOT; ?>/users/changepassword">
+          <label for="old-password">Old Password</label>
+          <input id="old-password" type="password" name="oldPassword" required>
+          <div class="form-invalid"><?php error('oldPassword'); ?></div> 
+          <label for="new-password">New Password</label>
+          <input id="new-password" type="password" name="newPassword" required>
+          <div class="form-invalid"><?php error('newPassword'); ?></div>
+          <label for="confirm-password">Confirm Password</label>
+          <input id="confirm-password" type="password" name="confirmPassword" required>
+          <div class="form-invalid"><?php error('confirmPassword'); ?></div>
+          <button class="save-button">Save</button>
         </form>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+const changepwd = document.getElementById('changePasswordForm');
+        
+  changepwd.onsubmit = function(event){
+      event.preventDefault();
+
+      fetch('<?php echo URLROOT; ?>/users/changepassword',{
+          method: 'POST',
+          body: new FormData(changepwd)
+      })
+      .then(data =>{
+
+      })
+      .then(data => {
+          // Handle the response data as needed
+          //console.log(data);
+
+          window.location.reload();
+      })
+      
+      .catch(error => {
+          console.error('Error:', error);
+      });
+  }
+</script>

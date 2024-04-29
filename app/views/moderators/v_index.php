@@ -778,9 +778,10 @@
                                 <div class="form-cp">
                                     <label class="form-label" for="confirmPassword">Confirm New Password</label>
                                     <input type="password" id="confirmPassword"  name="confirmPassword" class="form-control input-field-box" required> 
+                                    <div class="form-invalid"><?php error('confirmPassword'); ?></div>
                                 </div>
                                 <div class="profile-buttons"> 
-                                    <button class="profile-updatebt">Change Password</button> 
+                                    <button class="profile-updatebt">Change Password</button>  
                                 </div>
                                 <div id="changePasswordMessage" class="form-invalid"></div> 
                             </div>
