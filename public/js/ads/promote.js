@@ -122,10 +122,14 @@ function updateTotal() {
 function submitPackage(packageType, timeInDays, adId) {
     console.log('Submitting package');
 
+    updateTotal();
+    var totalAmount = document.getElementById('totalPayment').innerText.replace('Rs. ', '');
+
     var data = {
         packageType: packageType,
         timeInDays: timeInDays,
-        adId: adId
+        adId: adId,
+        totalAmount: totalAmount
     };
 
     // The POST request

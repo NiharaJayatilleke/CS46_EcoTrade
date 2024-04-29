@@ -191,6 +191,13 @@ CREATE TABLE Featured_Ads (
     FOREIGN KEY (p_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
 );
 
+CREATE TABLE unpaidFeatureAds (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    p_id INT NOT NULL,
+    package INT NOT NULL,
+    duration INT NOT NULL,
+    total_amount INT NOT NULL
+);
 
 
 CREATE TABLE Recycle_Item_Ads (

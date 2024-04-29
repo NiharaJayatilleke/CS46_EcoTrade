@@ -136,10 +136,11 @@
         }
 
         public function addUnpaidFeatureAd($data){
-            $this->db->query('INSERT INTO unpaidFeatureAds(p_id, package, duration) VALUES(:p_id, :package, :duration)');
+            $this->db->query('INSERT INTO unpaidFeatureAds(p_id, package, duration,total_amount) VALUES(:p_id, :package, :duration, :total_amount)');
             $this->db->bind(':p_id', $data['ad_id']);
             $this->db->bind(':package', $data['package']);
             $this->db->bind(':duration', $data['duration']);
+            $this->db->bind(':total_amount', $data['total_amount']);
     
             if($this->db->execute()){
                 return true;
@@ -147,6 +148,13 @@
             else{
                 return false;
             }
+        }
+
+        public function getUnpaidFeatureAd($adId){
+            $this->db->query('SELECT * FROM unpaidFeatureAds WHERE p_id = :id');
+            $this->db->bind(':id',$adId);
+            $results = $this->db->resultSet();
+            return $results;
         }
 
 
