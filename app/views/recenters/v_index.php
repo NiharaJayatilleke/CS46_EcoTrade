@@ -3,7 +3,6 @@
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 <div class="bgrc">
 <img
-                  loading="lazy"
                   src="../public/img/recenters/laptop-1205256_1280.jpg"
                   class="img-765"
                 />
@@ -85,7 +84,7 @@
 
             <!-- District -->
             <!-- <label>Select District <span class="required">*</span></label> -->
-            <div class="ad-form-input-title">District</div>                            
+            <div class="ad-form-input-title1">District</div>                            
                 <select name="item_district" id="item_district" class="ad_item_district" >
                     <option value="">Select the district</option>
                     <option value="Colombo">Colombo</option>

@@ -2,9 +2,8 @@
     <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
-    <div class="bgrc">
-        <img loading="lazy" src="../public/img/recenters/laptop-1205256_1280.jpg" class="img-765" />
-        <div class="ad-background1">
+    <div class="bgrc1">
+    <div class="ad-background1">
             <div class="ad-container1">
                 <div class="ad-form-header1">
                     <center><h2>Edit Your Ad</h2></center>
@@ -25,8 +24,8 @@
                     <span class="ad-form-invalid"><?php echo $data['item_location_err']; ?></span>
 
                     <!-- Quantity -->
-                    <div class="ad-form-input-title1">Quantity</div>
-                    <input type="text" name="item_quantity" id="item_quantity" class="ad_item_quantity1" value="<?php echo $data['item_quantity']; ?>" >
+                    <div class="ad-form-input-title1">Quantity (kg)</div>
+                    <input type="number" name="item_quantity" id="item_quantity" class="ad_item_quantity" value="<?php echo $data['item_quantity']; ?>" >
                     <span class="ad-form-invalid"><?php echo $data['item_quantity_err']; ?></span>
 
                     <!-- submit button -->
@@ -36,4 +35,6 @@
         </div>
     </div>
 
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/ads.js"></script>
+    
 <?php require APPROOT.'/views/inc/components/footer.php'; ?> 
