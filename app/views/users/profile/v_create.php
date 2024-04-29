@@ -61,7 +61,7 @@
                                                 <?php if (!empty($data['errors']['newUsername'])) : ?>
                                                 <div class="form-invalid"><?php echo $data['errors']['newUsername']; ?></div>
                                             <?php endif; ?>
-                                            </div>
+                                            </div> 
                                             <div class="form-group">
                                                 <label class="form-label">E-mail</label>
                                                 <input type="text" class="form-control input-field-box" value="<?php echo $_SESSION['user_email']; ?>"disabled>

@@ -139,7 +139,7 @@
                 }
                 
                 if (!empty($bindings)) {
-                $query .= ' WHERE p_id = :p_id';
+                $query .= ' WHERE ad_id = :p_id';
                 $bindings[':p_id'] = $data['p_id'];
                 
                 $this->db->query($query);
@@ -210,7 +210,7 @@
         }
 
 
-
+ 
 
         // public function adFeature($data){
         //     $this->db->query('INSERT INTO Featured_Ads(p_id, package, duration, status) VALUES(:p_id, :package, :duration, :status)');

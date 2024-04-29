@@ -13,7 +13,7 @@
     user-select: none;
     fill: var(--color);
   }
-  
+   
   .save-ad-container .save-regular {
     position: absolute;
     animation: keyframes-fill .5s;

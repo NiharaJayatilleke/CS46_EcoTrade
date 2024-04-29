@@ -695,7 +695,7 @@
                                             } else {
                                                 echo '<img src="' . URLROOT . '/public/img/profile.png" alt="Default Profile Image" class="d-block ui-w-80" id="profile-pic">';
                                             }
-                                            ?>
+                                            ?> 
                                         </div>
                                     </div> 
                                     <div class="dashboard-icons-container"> 

@@ -51,7 +51,7 @@
 
                     'item_name_err' => '',
                     'item_category_err' => '',
-                    'item_images_err' => '',
+                    'item_images_err' => '', 
                     'item_location_err' => '',
                     'item_district_err' => '',
                     'item_expiry_err' => '',
