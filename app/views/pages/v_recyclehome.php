@@ -158,6 +158,36 @@
     </section>
     </div>
 
+
+
+
+
+
+<div class="b111">
+
+       
+ 
+<section class="hero gridSection">
+    <div class="sectionDesc">
+        <h1 class="headline">
+            What is <span class="cryptoText">RECYCLE CENTER</span>.
+        </h1>
+        <p class="sub-headline">
+            
+        A recycle center integrated into a recycling item buying and selling website serves as a pivotal hub for environmentally conscious consumers. At this center, users can responsibly dispose of their recyclable materials, contributing to the global effort to reduce waste. By offering a convenient platform to exchange items for recycle points or credits, the website incentivizes sustainable behavior and fosters a culture of recycling. This holistic approach not only encourages users to participate actively in recycling but also facilitates the transition towards a greener lifestyle. With each transaction at the recycle center, individuals play a vital role in preserving the planet for future generations, making every effort count towards a more sustainable future.        </p>
+        <!-- <div class="btnContainer">
+            <button class="btn btn110">Explore More</button>
+            
+        </div> -->
+    </div>
+    <div class="sectionPic bouncepic" id="sectionPic">
+        <img src="../public/img/Recyclehome/image/2210.i032.009.S.m005.c13.isometric_recycling_isolated-removebg.png" alt="">
+    </div>
+</section>
+
+
+
+
 <!-- <div class="cards">
     <div class="container">
         <div class="rec-card">

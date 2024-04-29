@@ -126,7 +126,7 @@
     </section> -->
 
 
-        <section id="workFlow">
+        <!-- <section id="workFlow">
         <div class="overlay43">
         <h2 class="heading"> Grow Up Your Workflow Speed. </h2>
         <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, commodi sint. <br>Ipsam molestias
@@ -137,7 +137,7 @@
             <div class="num-item1"><span>70,592 <br>Downloads</span></div>
         </div>
         </div>
-    </section>
+    </section> -->
 
 
     <?php require APPROOT.'/views/inc/components/footer.php'; ?>
