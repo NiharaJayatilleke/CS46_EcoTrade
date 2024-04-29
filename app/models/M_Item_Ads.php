@@ -14,7 +14,7 @@
 
 
         public function getEveryAd(){
-            $this->db->query('SELECT * FROM v_ads');
+            $this->db->query('SELECT * FROM Item_Ads');
             $results = $this->db->resultSet();
             return $results;
         }

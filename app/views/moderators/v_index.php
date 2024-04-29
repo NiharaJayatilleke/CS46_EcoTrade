@@ -397,30 +397,38 @@
                         <thead>
                         <?php if (!empty($data['reportedAds'])): ?>
                             <?php foreach ($data['reportedAds'] as $ad): ?>
-                            <tbody>
-                                <tr>
-                                    <!-- <td><?php echo $ad->report_id; ?></td> -->
-                                    <td><?php echo $ad->ad_id; ?></td>
-                                    <td><?php echo $ad->ad_title; ?></td> 
-                                    <td><?php echo $ad->reporter_id; ?></td>
-                                    <td><?php echo $ad->report_reason; ?></td>
-                                    <td><?php echo $ad->report_comments; ?></td>
-                                    <td><?php echo $ad->report_contact; ?></td>
-                                    <td><span class="status <?php echo strtolower($ad->report_status); ?>"><?php echo $ad->report_status; ?></span></td>
-                                    <td><?php echo $ad->report_created_at; ?></td>
-                                
-                                    <td>
-                                        <label class="switch">
-                                            <input type="checkbox" onclick="toggleHideAd(this, '<?php echo $ads->ad_id ?>')" <?php echo $ads->status == "active" ? 'checked' : '' ?>>
-                                            <span class="slider"></span>
-                                        </label>
-                                    </td>
-                                    </td>
-                                    <td><button onclick="confirmDeleteReportedad(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
-                                    <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
+                                <?php 
+                                    $selectedAd = null;
+                                    foreach ($data['ads'] as $ads) {
+                                        if ($ads->p_id == $ad->ad_id) {
+                                            $selectedAd = $ads;
+                                            break;
+                                        }
+                                    }
+                                ?>
+                                <tbody>
+                                    <tr>
+                                        <!-- <td><?php echo $ad->report_id; ?></td> -->
+                                        <td><?php echo $ad->ad_id; ?></td>
+                                        <td><?php echo $ad->ad_title; ?></td> 
+                                        <td><?php echo $ad->reporter_id; ?></td>
+                                        <td><?php echo $ad->report_reason; ?></td>
+                                        <td><?php echo $ad->report_comments; ?></td>
+                                        <td><?php echo $ad->report_contact; ?></td>
+                                        <td><span class="status <?php echo strtolower($ad->report_status); ?>"><?php echo $ad->report_status; ?></span></td>
+                                        <td><?php echo $ad->report_created_at; ?></td>
                                     
-                                </tr>
-                            </tbody>
+                                        <td>
+                                            <label class="switch">
+                                                <input type="checkbox" onclick="toggleHideAd(this, '<?php echo $selectedAd->p_id ?>')" <?php echo $selectedAd->status == "active" ? 'checked' : '' ?>>
+                                                <span class="slider"></span>
+                                            </label>
+                                        </td>
+                                        <td><button onclick="confirmDeleteReportedad(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
+                                        <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
+                                        
+                                    </tr>
+                                </tbody>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
