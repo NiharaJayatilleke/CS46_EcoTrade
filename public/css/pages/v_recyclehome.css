@@ -548,9 +548,11 @@
 
 /* .btn{
   border: 1px solid #fff;
-   border-radius: 50px;
-     background-color: transparent;
+  border-radius: 50px;
+  background-color: transparent;
   color: var(--white);
   font-size: 1.1rem;
+  padding: .7em 1.5em;
+  cursor: pointer;
 
 } */
