@@ -257,6 +257,15 @@
                                 <?php if (!empty($data['reportedAds'])): ?>
                                     <?php $count = 0; ?>
                                     <?php foreach ($data['reportedAds'] as $ad): ?>
+                                        <?php 
+                                            $selectedAd = null;
+                                            foreach ($data['ads'] as $ads) {
+                                                if ($ads->p_id == $ad->ad_id) {
+                                                    $selectedAd = $ads;
+                                                    break;
+                                                }
+                                            }
+                                        ?>
                                         <?php if ($count == 5) break; ?>
                                         <tbody>
                                             <tr>
@@ -270,7 +279,7 @@
                                                 <td><?php echo $ad->report_created_at; ?></td>
                                                 <td>
                                                     <label class="switch">
-                                                        <input type="" onclick="">
+                                                        <input type="checkbox" onclick="toggleHideAd(this, '<?php echo $selectedAd->p_id ?>')" <?php echo $selectedAd->status == "active" ? 'checked' : '' ?>>
                                                         <span class="slider"></span>
                                                     </label>
                                                 </td>
