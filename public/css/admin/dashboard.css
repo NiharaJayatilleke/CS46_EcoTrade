@@ -965,8 +965,8 @@ input:checked + .slider:before {
 
 
 .noselect {
-    width: 100px; /* Adjusted */
-    height: 30px; /* Adjusted */
+    width: 80px; /* Adjusted */
+    height: 30px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -982,25 +982,26 @@ input:checked + .slider:before {
 }
 
 .noselect .text {
-    transform: translateX(20px); /* Adjusted */
+    transform: translateX(16px); /* Adjusted */
     color: white;
     font-weight: bold;
-    font-size: 10px; /* Adjusted */
+    font-size: 10px;
+    padding-top: 10px;
 }
 
 .noselect .icon {
     position: absolute;
     border-left: 1px solid #c41b1b;
-    transform: translateX(70px); /* Adjusted */
-    height: 20px; /* Adjusted */
-    width: 20px; /* Adjusted */
+    transform: translateX(56px); /* Adjusted */
+    height: 20px;
+    width: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .noselect svg {
-    width: 10px; /* Adjusted */
+    width: 10px;
     fill: #eee;
 }
 
@@ -1013,7 +1014,7 @@ input:checked + .slider:before {
 }
 
 .noselect:hover .icon {
-    width: 100px; /* Adjusted */
+    width: 80px; /* Adjusted */
     border-left: none;
     transform: translateX(0);
 }
@@ -1024,4 +1025,15 @@ input:checked + .slider:before {
 
 .noselect:active .icon svg {
     transform: scale(0.8);
+}
+
+.recentOrders .btn {
+    position: relative;
+    padding:  10px;
+    /* top: 10px; */
+    background: var(--green);
+    text-decoration: none;
+    color: var(--white);
+    cursor:pointer;
+    border-radius: 6px;
 }
