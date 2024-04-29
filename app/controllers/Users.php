@@ -506,7 +506,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 }
 
                 // Check if there are any validation errors
-                if (empty($errors)) {
+                if (!$flag) {
                     if ($this->userModel->updatePassword($_SESSION['user_id'], $oldPassword, $newPassword)) {
                         flash('update_password', 'New password updated successfully');
                   
@@ -514,16 +514,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                         // Error occurred during password update
                         die('Something went wrong while updating the password');
                     }
-                } else {
-                    // There are validation errors, re-display the form with error messages
-                    $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-                    $data = [
-                        'user' => $user,
-                        'errors' => $errors
-                    ];
-                    $this->view('admin/dashboard', $data);
-                    $this->view('moderators/v_index', $data);
-                }
+                } 
             } else {
                 // Display the password update form
                 $user = $this->userModel->getUserDetails($_SESSION['user_id']);
@@ -550,7 +541,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 $newPassword = trim($_POST['newPassword']);
                 // $confirmPassword = trim($_POST['confirmPassword']);
                 $confirmPassword = isset($_POST['confirmPassword']) ? trim($_POST['confirmPassword']) : '';
-                $errors = [];
+
                 $flag=false;
 
                 // Validate the old password
@@ -580,7 +571,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 }
 
                 // Check if there are any validation errors
-                if (!($flag)) {
+                if (!$flag) {
                     if ($this->userModel->updatePassword($_SESSION['user_id'], $oldPassword, $newPassword)) {
                         flash('update_password', 'New password updated successfully');
                   
@@ -588,21 +579,12 @@ require APPROOT.'/libraries/vendor/autoload.php';
                         // Error occurred during password update
                         die('Something went wrong while updating the password');
                     }
-                } else {
-                    // There are validation errors, re-display the form with error messages
-                    $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-                    $data = [
-                        'user' => $user,
-                        'errors' => $errors
-                    ];
-                    $this->view('pages/v_buyer_profile', $data);
                 }
             } else { 
                 // Display the password update form
                 $user = $this->userModel->getUserDetails($_SESSION['user_id']);
                 $data = [
-                    'user' => $user,
-                    'errors' => $errors
+                    'user' => $user
                 ];
                 $this->view('pages/v_buyer_profile', $data);
             }
