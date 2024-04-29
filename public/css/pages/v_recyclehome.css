@@ -583,7 +583,9 @@
 
 @media screen and (min-width:800px) {
  
-
+  .b111 section{
+    width: 100%;
+}   
 
 
 
