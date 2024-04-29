@@ -571,8 +571,8 @@
                     'item_price' => $ad->item_price,
                     'item_location' => $ad->item_location,
                     'selling_format' => $ad->selling_format,
-                    'duration' =>  $auctionDetails->duration,
-                    'starting_bid' =>  $auctionDetails->starting_bid,
+                    // 'duration' =>  $auctionDetails->auction_duration,
+                    // 'starting_bid' =>  $auctionDetails->starting_bid,
                     'negotiable' => $ad->negotiable,
 
                     'item_name_err' => '',
@@ -587,6 +587,14 @@
                     'starting_bid_err' => '',
                     'negotiable_err' => '',
                 ];
+
+                if (isset($auctionDetails->auction_duration)) {
+                    $data['duration'] = $auctionDetails->auction_duration;
+                }
+                
+                if (isset($auctionDetails->starting_bid)) {
+                    $data['starting_bid'] = $auctionDetails->starting_bid;
+                }
 
                 //load view
                 $this->view('item_ads/v_edit', $data);
