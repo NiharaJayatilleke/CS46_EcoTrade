@@ -72,7 +72,20 @@
         }
 
         public function edit($data) {        
-            $this->db->query('UPDATE Item_Ads SET item_name = :item_name, item_category = :item_category, item_desc = :item_desc, item_condition = :item_condition, item_quantity = :item_quantity, item_image = :item_image, item_price = :item_price, item_location = :item_location, selling_format = :selling_format, negotiable = :negotiable WHERE p_id = :p_id');
+            // $this->db->query('UPDATE Item_Ads SET item_name = :item_name, item_category = :item_category, item_desc = :item_desc, item_condition = :item_condition, item_quantity = :item_quantity, item_image = :item_image, item_price = :item_price, item_location = :item_location, selling_format = :selling_format, negotiable = :negotiable WHERE p_id = :p_id');
+            
+            $query = 'UPDATE Item_Ads SET item_name = :item_name, item_category = :item_category, item_desc = :item_desc, item_condition = :item_condition, item_quantity = :item_quantity, item_image = :item_image, item_price = :item_price, item_location = :item_location, selling_format = :selling_format, negotiable = :negotiable WHERE p_id = :p_id';
+    
+            // if (isset($data['duration'])) {
+            //     $query .= ', duration = :duration';
+            // }
+        
+            // if (isset($data['starting_bid'])) {
+            //     $query .= ', starting_bid = :starting_bid';
+            // }
+        
+            $this->db->query($query); //binding later to prevent sql injections
+
             $this->db->bind(':p_id',$data['p_id']);   
             $this->db->bind(':item_name',$data['item_name']);
             $this->db->bind(':item_category',$data['item_category']);
@@ -84,9 +97,17 @@
             $this->db->bind(':item_price',$data['item_price']);
             $this->db->bind(':item_location',$data['item_location']);
             $this->db->bind(':selling_format',$data['selling_format']);
-            $this->db->bind(':duration',$data['duration']);
-            $this->db->bind(':starting_bid',$data['starting_bid']);
+            // $this->db->bind(':duration',$data['duration']);
+            // $this->db->bind(':starting_bid',$data['starting_bid']);
             $this->db->bind(':negotiable',$data['negotiable']);
+
+            // if (isset($data['duration'])) {
+            //     $this->db->bind(':duration', $data['duration']);
+            // }
+        
+            // if (isset($data['starting_bid'])) {
+            //     $this->db->bind(':starting_bid', $data['starting_bid']);
+            // }
     
             if($this->db->execute()){
 
@@ -106,9 +127,34 @@
                 // } 
         
                 // return $item_id;
-                return true;
-            }
-            else{
+                // return true;
+                
+                $query = 'UPDATE Bidding_Details SET ';
+                $bindings = [];
+
+                if (isset($data['auction_duration']) && isset($data['starting_bid'])) {
+                    $query .= 'auction_duration = :auction_duration, starting_bid = :starting_bid, starting_time = NOW() ';
+                    $bindings[':auction_duration'] = $data['auction_duration'];
+                    $bindings[':starting_bid'] = $data['starting_bid'];
+                }
+                
+                $query .= ' WHERE p_id = :p_id';
+                $bindings[':p_id'] = $data['p_id'];
+                
+                $this->db->query($query);
+                
+                foreach ($bindings as $key => $value) {
+                    $this->db->bind($key, $value);
+                }
+                
+                if($this->db->execute()){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                
+            }else{
                 return false;
             }
         }
