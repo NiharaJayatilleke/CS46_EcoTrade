@@ -965,8 +965,8 @@ input:checked + .slider:before {
 
 
 .noselect {
-    width: 70px;
-    height: 21px;
+    width: 100px; /* Adjusted */
+    height: 30px; /* Adjusted */
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -975,54 +975,53 @@ input:checked + .slider:before {
     border-radius: 5px;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
     background: #e62222;
-   }
-   
-   .noselect, .noselect span {
+}
+
+.noselect, .noselect span {
     transition: 200ms;
-   }
-   
-   .noselect .text {
-    transform: translateX(35px);
+}
+
+.noselect .text {
+    transform: translateX(20px); /* Adjusted */
     color: white;
     font-weight: bold;
-    margin-left: -20px;
-    margin-bottom: -10px;
-   }
-   
-   .noselect .icon {
+    font-size: 10px; /* Adjusted */
+}
+
+.noselect .icon {
     position: absolute;
     border-left: 1px solid #c41b1b;
-    transform: translateX(110px);
-    height: 30px;
-    width: 30px;
+    transform: translateX(70px); /* Adjusted */
+    height: 20px; /* Adjusted */
+    width: 20px; /* Adjusted */
     display: flex;
     align-items: center;
     justify-content: center;
-   }
-   
-   .noselect svg {
-    width: 15px;
+}
+
+.noselect svg {
+    width: 10px; /* Adjusted */
     fill: #eee;
-   }
-   
-   .noselect:hover {
+}
+
+.noselect:hover {
     background: #ff3636;
-   }
-   
-   .noselect:hover .text {
+}
+
+.noselect:hover .text {
     color: transparent;
-   }
-   
-   .noselect:hover .icon {
-    width: 150px;
+}
+
+.noselect:hover .icon {
+    width: 100px; /* Adjusted */
     border-left: none;
     transform: translateX(0);
-   }
-   
-   .noselect:focus {
+}
+
+.noselect:focus {
     outline: none;
-   }
-   
-   .noselect:active .icon svg {
+}
+
+.noselect:active .icon svg {
     transform: scale(0.8);
-   }
+}
