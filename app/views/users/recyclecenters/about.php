@@ -61,7 +61,7 @@
                             </div>
                             <div class="right-content">
                                 <h4>Job Creation</h4>
-                                <p>Recycling centers create employment opportunities within the local community. From collection and sorting to processing and administration, various roles are needed to operate and maintain the facility. This contributes to economic growth and stability by providing jobs and supporting livelihoods.</p>
+                                <p>Recycling centers create opportunities within the community. From collection and sorting to processing and administration, various roles are needed to operate and maintain the facility. This contributes to economic growth and stability by providing jobs and supporting livelihoods.</p>
                                 <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
@@ -75,7 +75,7 @@
                             </div>
                             <div class="right-content">
                                 <h4>Resource Conservation</h4>
-                                <p>By recycling materials such as paper, plastics, glass, and metals, recycling centers help conserve valuable resources and reduce the need for virgin raw materials. This contributes to sustainability by extending the lifespan of finite resources and minimizing the environmental footprint of resource extraction and processing.</p>
+                                <p>By recycling materials such as paper, plastics and metals, recycling centers help conserve valuable resources and reduce the need for raw materials. This contributes to sustainability by extending the lifespan of resources and minimizing the environmental footprint of resource extraction.</p>
                                 <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="right-content">
                                 <h4>Promotion of Circular Economy</h4>
-                                <p>Recycling centers are integral to the concept of a circular economy, where resources are reused, recycled, and repurposed in a closed-loop system. By facilitating the recycling process, they promote sustainable consumption and production patterns, leading to a more resilient and efficient economy.</p>
+                                <p>Recycling centers are integral to the concept of a circular economy, where resources are reused, recycled, and repurposed in a closed-loop system. By facilitating the recycling process, they promote sustainable consumption, leading to a more resilient and efficient economy.</p>
                                 <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
