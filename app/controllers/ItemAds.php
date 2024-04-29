@@ -806,11 +806,11 @@
                 ];
         
                 $this->itemAdsModel->addUnpaidFeatureAd($unpaidPackageData);
-
-                header('Content-Type: application/json');
-                echo json_encode(['success' => true]);
-                redirect('ItemAds/payment/' . $unpaidPackageData);
-
+                
+                // Removed the header function
+                // header('Location: ' . URLROOT . '/ItemAds/payment/' . $unpaidPackageData['ad_id']);                
+                // exit;
+                // redirect('ItemAds/payment/' . $unpaidPackageData['ad_id']);
 
             } else {
                     
@@ -828,75 +828,78 @@
             }
         }
 
-        // public function payment(){
+        public function payment(){
+            $this->view('item_ads/v_paymentportal');
 
-        //     $ad = $this->itemAdsModel->getAdById($adId);
+            $ad = $this->itemAdsModel->getAdById($adId);
 
-        //     if(!isset($_SESSION['userType'])){
-        //         redirect('users/login');
+            if(!isset($_SESSION['userType'])){
+                redirect('users/login');
             
-        //     }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
+            }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
             
-        //     $this->view('item_ads/v_paymentportal');
+            $this->view('item_ads/v_paymentportal');
             
-        //     }else{
-        //         $this->view('pages/forbidden');
-        //     }
-        // }
-
-
-        public function payment($adId){
-            // Check if the request is an AJAX request
-        
-            if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-                // echo "Hi, server side!";
-                // exit; // Important: stop further script execution
-                $user = $this->usersModel->getUserDetails($_SESSION['user_id']);
-                $ad = $this->itemAdsModel->getUnpaidFeatureAd($adId);
-                
-
-
-                $amount = $ad->total_amount;
-                $merchant_id = '1226588';
-                $order_id = uniqid();
-                $merchant_secret = "NzA1MDAxMDQzMjEzODY5NDY2MzQwMTg3NDcwNDYzNzY0NjgwMw==";
-                $currency = "LKR";
-
-                $hash = strtoupper(
-                    md5(
-                        $merchant_id . 
-                        $order_id . 
-                        number_format($amount, 2, '.', '') . 
-                        $currency .  
-                        strtoupper(md5($merchant_secret)) 
-                    ) 
-                );
-
-                $array = [];
-
-                $array["first_name"] = "John";
-                $array["last_name"] = "Doe";
-                $array["email"] = $user->email;
-                $array["phone"] = "0719803979";
-                $array["address"] = "No 1 Galle Road";
-                $array["city"] = $amount;
-                $array["amount"] = $amount;
-                $array["merchant_id"] = $merchant_id;
-                $array["order_id"] = $order_id;
-                $array["currency"] = $currency;
-                $array["hash"] = $hash;
-                
-                $jsonObj = json_encode($array);
-                echo $jsonObj;
-
-            } else {
-                $user = $this->usersModel->getUserDetails($_SESSION['user_id']);
-                $data = [
-                    'user' => $user
-                ];
-                $this->view('item_ads/v_paymentportal',$data);
+            }else{
+                $this->view('pages/forbidden');
             }
         }
+
+
+        // public function payment($adId){
+
+        //     $this->view('item_ads/v_paymentportal');
+        //     // Check if the request is an AJAX request
+        
+        //     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        //         // echo "Hi, server side!";
+        //         // exit; // Important: stop further script execution
+        //         $user = $this->usersModel->getUserDetails($_SESSION['user_id']);
+        //         $ad = $this->itemAdsModel->getUnpaidFeatureAd($adId);
+                
+
+
+        //         $amount = $ad->total_amount;
+        //         $merchant_id = '1226588';
+        //         $order_id = uniqid();
+        //         $merchant_secret = "NzA1MDAxMDQzMjEzODY5NDY2MzQwMTg3NDcwNDYzNzY0NjgwMw==";
+        //         $currency = "LKR";
+
+        //         $hash = strtoupper(
+        //             md5(
+        //                 $merchant_id . 
+        //                 $order_id . 
+        //                 number_format($amount, 2, '.', '') . 
+        //                 $currency .  
+        //                 strtoupper(md5($merchant_secret)) 
+        //             ) 
+        //         );
+
+        //         $array = [];
+
+        //         $array["first_name"] = "John";
+        //         $array["last_name"] = "Doe";
+        //         $array["email"] = $user->email;
+        //         $array["phone"] = "0719803979";
+        //         $array["address"] = "No 1 Galle Road";
+        //         $array["city"] = $amount;
+        //         $array["amount"] = $amount;
+        //         $array["merchant_id"] = $merchant_id;
+        //         $array["order_id"] = $order_id;
+        //         $array["currency"] = $currency;
+        //         $array["hash"] = $hash;
+                
+        //         $jsonObj = json_encode($array);
+        //         echo $jsonObj;
+
+        //     } else {
+        //         $user = $this->usersModel->getUserDetails($_SESSION['user_id']);
+        //         $data = [
+        //             'user' => $user
+        //         ];
+        //         $this->view('item_ads/v_paymentportal',$data);
+        //     }
+        // }
 
 
 

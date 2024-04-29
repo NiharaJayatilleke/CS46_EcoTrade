@@ -192,11 +192,14 @@ CREATE TABLE Featured_Ads (
 );
 
 CREATE TABLE unpaidFeatureAds (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    p_id INT NOT NULL,
-    package INT NOT NULL,
-    duration INT NOT NULL,
-    total_amount INT NOT NULL
+    f_id INT AUTO_INCREMENT,
+    p_id INT ,
+    package VARCHAR(255),
+    duration VARCHAR(255),
+    total_amount INT NOT NULL,
+    PRIMARY KEY(f_id),
+    starting_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (p_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
 );
 
 
