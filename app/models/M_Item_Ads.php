@@ -145,6 +145,39 @@
             }
         }
 
+        public function addUnpaidFeatureAd($data){
+            $this->db->query('INSERT INTO unpaidFeatureAds(p_id, package, duration) VALUES(:p_id, :package, :duration)');
+            $this->db->bind(':p_id', $data['ad_id']);
+            $this->db->bind(':package', $data['package']);
+            $this->db->bind(':duration', $data['duration']);
+    
+            if($this->db->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+
+
+
+        // public function adFeature($data){
+        //     $this->db->query('INSERT INTO Featured_Ads(p_id, package, duration, status) VALUES(:p_id, :package, :duration, :status)');
+        //     $this->db->bind(':p_id', $data['ad_id']);
+        //     $this->db->bind(':package', $data['package']);
+        //     $this->db->bind(':duration', $data['duration']);
+        //     $this->db->bind(':status', $data['status']); // Bind the status
+
+        //     if($this->db->execute()){
+        //         return true;
+        //     }
+        //     else{
+        //         return false;
+        //     }
+        // }
+
+
         public function packageExists($adId){
             $this->db->query('SELECT * FROM Featured_Ads WHERE p_id = :id');
             $this->db->bind(':id',$adId);

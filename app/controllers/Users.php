@@ -419,7 +419,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
             ];
            
             // Load the profile view
-            $this->view('pages/v_sellerpro', $data);
+            $this->view('pages/v_buyer_profile', $data);
         }
 
         public function delete(){
@@ -535,6 +535,77 @@ require APPROOT.'/libraries/vendor/autoload.php';
             }
         }
 
+        public function changepassword(){
+            if (!$this->isLoggedIn()) {
+                // Redirect the user to the login page if they are not logged in
+                redirect('Users/login');
+            }
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                // Form submission, update user password
+                $oldPassword = trim($_POST['oldPassword']);
+                $newPassword = trim($_POST['newPassword']);
+                // $confirmPassword = trim($_POST['confirmPassword']);
+                $confirmPassword = isset($_POST['confirmPassword']) ? trim($_POST['confirmPassword']) : '';
+
+                $flag=false;
+
+                // Validate the old password
+                if (empty($oldPassword)) {
+                    $flag=true;
+                    error('oldPassword','Please enter your old password.');
+                } elseif (!$this->userModel->verifyOldPassword($_SESSION['user_id'], $oldPassword)) {
+                    $flag=true;
+                    error('oldPassword','Incorrect old password.');
+                }
+
+                // Validate the new password and confirm password
+                if (empty($newPassword)) {
+                    $flag=true;
+                    error('newPassword','New password cannot be empty.');
+                } elseif (strlen($newPassword) < 6) {
+                    $flag=true;
+                    error('newPassword','New password must be at least 6 characters.');
+                }
+
+                if (empty($confirmPassword)) {
+                    $flag=true;
+                    error('confirmPassword','Please confirm your new password.');
+                } elseif ($newPassword !== $confirmPassword) {
+                    $flag=true;
+                    error('confirmPassword','New password and confirm password do not match.');
+                }
+
+                // Check if there are any validation errors
+                if (empty($errors)) {
+                    if ($this->userModel->updatePassword($_SESSION['user_id'], $oldPassword, $newPassword)) {
+                        flash('update_password', 'New password updated successfully');
+                  
+                    } else {
+                        // Error occurred during password update
+                        die('Something went wrong while updating the password');
+                    }
+                } else {
+                    // There are validation errors, re-display the form with error messages
+                    $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+                    $data = [
+                        'user' => $user,
+                        'errors' => $errors
+                    ];
+                    $this->view('pages/v_buyer_profile', $data);
+                }
+            } else { 
+                // Display the password update form
+                $user = $this->userModel->getUserDetails($_SESSION['user_id']);
+                $data = [
+                    'user' => $user
+                ];
+                $this->view('pages/v_buyer_profile', $data);
+            }
+        }
 
         public function edit_profile(){
 

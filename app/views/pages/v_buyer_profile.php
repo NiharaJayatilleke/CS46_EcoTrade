@@ -1,7 +1,7 @@
 <?php require APPROOT.'/views/inc/header.php'; ?>
 <!-- Top NAVIGATION -->
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
-<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_sellerpro.css">
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_buyer_profile.css">
 
     <!-- <div class="frame">
       <div class="image8"></div>
@@ -203,7 +203,7 @@
 
 
 
-<div class="editpro69">
+<!-- <div class="editpro69">
     <div class="website-structure">
       <div class="frame-parent">
         <div class="account-wrapper">
@@ -334,9 +334,93 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- <div class="page-divider"></div> -->
-            </div>
+            <!-- </div>
           </div>
         </section>
+</div> -->
+
+<div class="profile-container">
+  <div class="profile-header">
+    <h1>Profile</h1>
+  </div>
+  <div class="top-section">
+    <h2>Profile Info</h2>
+  </div>
+  <div class="profile-info">
+    <div class="profile-picture">
+      <?php
+      if (!empty($data['user']->profile_image)) {
+          echo '<img src="' . URLROOT . '/public/img/profilepic/' . $data['user']->profile_image . '" alt="Profile Image" class="profile-image">';
+      } else {
+          echo '<img src="' . URLROOT . '/public/img/profile.png" alt="Default Profile Image" class="profile-image">';
+      }
+      ?>
+      <div class="buyerimage-buttons" style="margin-left:35%;">
+        <a href="#" class="ad-edit-btn" title="Edit Ad"><i class="fas fa-edit"></i></a>
+        <a href="#" class="ad-delete-btn" title="Delete Ad"><i class="fas fa-trash-alt"></i></a>
+      </div>
+    </div>
+    
+    <div class="user-details">
+      <div class="username-section input-with-button">
+        <label for="username">Username</label>
+        <input id="username" type="text" placeholder="rokieophoto_0" />
+        <button class="edit-button">Edit</button>
+      </div>
+      <hr class="divider" />
+      <div class="contact-section input-with-button">
+        <label for="email">Email address</label>
+        <input id="email" type="email" placeholder="rcl@gmail.com" />
+        <button class="edit-button">Edit</button>
+      </div>
+      <div class="contact-section input-with-button">
+        <label for="phone">Phone number</label>
+        <input id="phone" type="tel" placeholder="0717410586" />
+        <button class="edit-button">Edit</button>
+      </div>
+      <hr class="divider" />
+      <div class="password-section">
+        <form id="changePasswordForm" method="POST" action="<?php echo URLROOT; ?>/users/changepassword">
+          <label for="old-password">Old Password</label>
+          <input id="old-password" type="password" name="oldPassword" required>
+          <div class="form-invalid"><?php error('oldPassword'); ?></div> 
+          <label for="new-password">New Password</label>
+          <input id="new-password" type="password" name="newPassword" required>
+          <div class="form-invalid"><?php error('newPassword'); ?></div>
+          <label for="confirm-password">Confirm Password</label>
+          <input id="confirm-password" type="password" name="confirmPassword" required>
+          <div class="form-invalid"><?php error('confirmPassword'); ?></div>
+          <button class="save-button">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+const changepwd = document.getElementById('changePasswordForm');
+        
+  changepwd.onsubmit = function(event){
+      event.preventDefault();
+
+      fetch('<?php echo URLROOT; ?>/users/changepassword',{
+          method: 'POST',
+          body: new FormData(changepwd)
+      })
+      .then(data =>{
+
+      })
+      .then(data => {
+          // Handle the response data as needed
+          //console.log(data);
+
+          window.location.reload();
+      })
+      
+      .catch(error => {
+          console.error('Error:', error);
+      });
+  }
+</script>

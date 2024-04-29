@@ -436,10 +436,6 @@
             $this->moderatorModel->hideAdById($adId);
         }
 
-        public function DeleteAd($adId) {
-            $this->moderatorModel->DeleteAdById($adId);
-        }
-
 
         public function edit_profile(){
         

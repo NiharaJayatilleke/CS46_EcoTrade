@@ -114,7 +114,6 @@ INSERT INTO Categories (name) VALUES
 ('Metal'),
 ('Electronics (e-waste)'),
 ('Batteries'),
-('Other');
 
 CREATE TABLE RecycleCentersCategories (
     center_id INT,
@@ -123,7 +122,6 @@ CREATE TABLE RecycleCentersCategories (
     FOREIGN KEY (category_id) REFERENCES Categories(id) ON DELETE CASCADE,
     PRIMARY KEY (center_id, category_id)
 );
-
 
 
 CREATE TABLE forgot_password (
@@ -192,6 +190,8 @@ CREATE TABLE Featured_Ads (
     starting_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (p_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
 );
+
+
 
 CREATE TABLE Recycle_Item_Ads (
     r_id INT AUTO_INCREMENT,
@@ -462,3 +462,5 @@ FROM Recycle_Center_Requirements
 JOIN General_User ON Recycle_Center_Requirements.center_id = General_User.id
 JOIN Saved_Requirements ON Recycle_Center_Requirements.rad_id = Saved_Requirements.req_id
 ORDER BY Recycle_Center_Requirements.created_at DESC;
+
+

@@ -4,9 +4,9 @@
 <body id="profile-body">
     <!-- <div class="hero2"> -->
     <div class="profile_container">
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/components/profile_styles.css">
-            <div class="row no-gutters row-bordered row-border-light">
-                <div class="col-md-3 pt-0">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/buyer_profilestyles.css">
+            <!-- <div class="row no-gutters row-bordered row-border-light">
+                <div class="col-md-3 pt-0"> -->
                     <div class="profile_image">
                         <div class="image-container">
                             <?php
@@ -27,7 +27,7 @@
                             <button type="submit">Save</button> 
                         </div>
                     </form>
-                    <div class="list-group list-group-flush account-settings-links">
+                    <!-- <div class="list-group list-group-flush account-settings-links">
 
                         <div class="nav-elements">
                             <a class="list-group-item list-group-item-action active" onclick="loadContent('general')">General</a>
@@ -36,16 +36,16 @@
                             <a class="list-group-item list-group-item-action" onclick="loadContent('security')">Security</a>
                             <a class="list-group-item list-group-item-action" onclick="loadContent('notifications')">Notifications</a>
                         </div>
-                    </div>
-                </div>
+                    </div> -->
+                <!-- </div> -->
                 <div class="all-sections">
                     <div id="general" class="col-md-9">
-                        <div class="as_name">
+                        <!-- <div class="as_name">
                             <h4 class="font-weight-bold py-3 mb-4" style="color: Black;">
                             Account settings
                             </h4>
                             <hr>
-                        </div>
+                        </div> -->
                     
                         <div class="right-below">
                             <div class="tab-content">
@@ -91,31 +91,31 @@
                                     </div>           
                                 </div>              
                             </div>         
-                            <div class="right-right">
+                            <!-- <div class="right-right"> -->
                                 <div class="form-group">
                                     <label class="form-label">User-type</label>
                                     <input type="text" class="form-control input-field-box " value="<?php echo $_SESSION['userType']; ?>"disabled>
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <button class="home-back" style=" margin-top:200px; margin-left: 300px; padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                                     Back to Home
                                     </button>                      
-                                </div>
+                                </div> -->
                       </div>
                     </div>
                     </div>
 
 
                     <div id="change-password" class="col-md-9">
-                        <div class="as_name">
+                        <!-- <div class="as_name">
                         <h4 class="font-weight-bold py-3 mb-4">
                         Password settings
                         </h4>
                         <hr>
-                        </div>
+                        </div> -->
                         
                         <div class="right-below">
-                        
+                         
                             <div class="tab-content">
                             <form id="changePasswordForm" method="POST" action="<?php echo URLROOT; ?>/users/update#change-password">
                                 <div class="tab-pane fade active show" id="account-change-password">
@@ -238,12 +238,12 @@
 
                 
                     <div id="delete-profile" class="col-md-9">
-                        <div class="as_name">
+                        <!-- <div class="as_name">
                         <h4 class="font-weight-bold py-3 mb-4">
                         Account deletion
                         </h4>
                         <hr>
-                        </div>
+                        </div> -->
                     
                         <div class="right-below">
                             <div class="delete-container">
@@ -283,9 +283,9 @@
                                     
                                  
                                 </div>
-                                <button class="home-back" style=" margin-top:20px; margin-right: 0px;padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
+                                <!-- <button class="home-back" style=" margin-top:20px; margin-right: 0px;padding: 10px 30px; background-color: #7bd664; border: 1px; border-color: #7bd664;" onclick="redirectToHome()">
                                                 Back to Home
-                                                </button>
+                                                </button> -->
                            
                             </div>
                             <div>
@@ -413,11 +413,11 @@
 function loadContent(section) {
 
     // Hide all sections
-    document.getElementById('general').style.display = 'none';
-    document.getElementById('change-password').style.display = 'none';
-    document.getElementById('delete-profile').style.display = 'none';
-    document.getElementById('security').style.display = 'none';
-    document.getElementById('notifications').style.display = 'none';
+    // document.getElementById('general').style.display = 'none';
+    // document.getElementById('change-password').style.display = 'none';
+    // document.getElementById('delete-profile').style.display = 'none';
+    // document.getElementById('security').style.display = 'none';
+    // document.getElementById('notifications').style.display = 'none';
 
     // Show the selected section
     document.getElementById(section ).style.display = 'block';
