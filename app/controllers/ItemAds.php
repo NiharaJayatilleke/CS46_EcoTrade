@@ -548,6 +548,7 @@
             }
             else {
                 $ad = $this->itemAdsModel->getAdById($adId);
+                $auctionDetails = $this->auctionsModel->getBiddingDetailsByAd($adId);
 
                 //check for owner as a security measure to prevent editing through url
                 if($ad->seller_id != $_SESSION['user_id']){
@@ -570,8 +571,8 @@
                     'item_price' => $ad->item_price,
                     'item_location' => $ad->item_location,
                     'selling_format' => $ad->selling_format,
-                    'duration' => $ad->duration,
-                    'starting_bid' => $ad->starting_bid,
+                    'duration' =>  $auctionDetails->duration,
+                    'starting_bid' =>  $auctionDetails->starting_bid,
                     'negotiable' => $ad->negotiable,
 
                     'item_name_err' => '',
