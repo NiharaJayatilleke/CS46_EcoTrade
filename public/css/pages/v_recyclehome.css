@@ -573,4 +573,5 @@
 .b111 .sectionHeader{
   color: var(--white);
   font-size: 2rem;
+  margin-bottom: .7em;
 }
