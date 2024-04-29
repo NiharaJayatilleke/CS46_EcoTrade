@@ -151,19 +151,23 @@
     
 
     public function hideAdById($adId) {
-      
-        $currentStatusQuery = "SELECT status FROM Item_Ads WHERE p_id = :ad_id";
-        $this->db->query($currentStatusQuery);
-        $this->db->bind(':ad_id', $adId);
-        $currentStatus = $this->db->single()['status']; 
-        
-        $newStatus = ($currentStatus === 'active') ? 'hidden' : 'active';
-    
-        $updateQuery = "UPDATE Item_Ads SET status = :new_status WHERE p_id = :ad_id";
+        $updateQuery = "UPDATE Item_Ads SET status = 'hidden' WHERE p_id = :ad_id";
         $this->db->query($updateQuery);
-        $this->db->bind(':new_status', $newStatus);
         $this->db->bind(':ad_id', $adId);
-    
+
+        if ($this->db->execute()) {
+            return true; // Update successful
+        } else {
+            return false; 
+        }
+    }
+
+
+    public function showAdById($adId) {
+        $updateQuery = "UPDATE Item_Ads SET status = 'active' WHERE p_id = :ad_id";
+        $this->db->query($updateQuery);
+        $this->db->bind(':ad_id', $adId);
+
         if ($this->db->execute()) {
             return true; // Update successful
         } else {

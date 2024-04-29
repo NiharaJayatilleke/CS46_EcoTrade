@@ -122,10 +122,14 @@ function updateTotal() {
 function submitPackage(packageType, timeInDays, adId) {
     console.log('Submitting package');
 
+    updateTotal();
+    var totalAmount = document.getElementById('totalPayment').innerText.replace('Rs. ', '');
+
     var data = {
         packageType: packageType,
         timeInDays: timeInDays,
-        adId: adId
+        adId: adId,
+        totalAmount: totalAmount
     };
 
     // The POST request
@@ -139,7 +143,7 @@ function submitPackage(packageType, timeInDays, adId) {
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
-        window.location.href = URLROOT + "/itemAds/payment";
+        // Removed the redirection part
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -149,7 +153,7 @@ function submitPackage(packageType, timeInDays, adId) {
 var continueButton = document.getElementById('packageContinue');
 
 continueButton.addEventListener('click', function(event) {
-    event.preventDefault();
+    // event.preventDefault();
     console.log('Continue button clicked');
 
     var packageType1 = document.querySelector('.divv-71').innerText.split(' - ')[0];

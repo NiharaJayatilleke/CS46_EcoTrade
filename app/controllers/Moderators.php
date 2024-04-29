@@ -394,9 +394,9 @@
                     }
                 }
                 }
-
-                $ads = $this->itemAdsModel->getAds();
-                $numSecAds = count($ads);
+                $ads = $this->itemAdsModel->getEveryAd();
+                $ad = $this->itemAdsModel->getAds();
+                $numSecAds = count($ad);
                 $rec_ads = $this->recycleItemAdsModel->getAds();
                 $numRecAds = count($rec_ads);
                 $userCounts = $this->moderatorModel->getUserCounts();
@@ -413,6 +413,7 @@
                 $numCenters = count($centers);
                 
                 $data = [
+                    'ad' => $ad,
                     'ads' => $ads,
                     'sec_ad_count' => $numSecAds,
                     'userCounts' => $userCounts,
@@ -432,10 +433,30 @@
             }
         }
 
+
         public function hideAd($adId) {
-            $this->moderatorModel->hideAdById($adId);
+            if ($this->moderatorModel->hideAdById($adId)) {
+                // Redirect to the dashboard with a success message
+                flash('ad_message', 'Ad has been hidden successfully');
+                redirect('moderators/index?#reported-ads-content');
+            } else {
+                // Redirect to the dashboard with an error message
+                flash('ad_message', 'Something went wrong. Please try again.', 'alert alert-danger');
+                redirect('moderators/index?#reported-ads-content');
+            }
         }
 
+        public function showAd($adId) {
+            if ($this->moderatorModel->showAdById($adId)) {
+                // Redirect to the dashboard with a success message
+                flash('ad_message', 'Ad has been shown successfully');
+                redirect('moderators/index?#reported-ads-content');
+            } else {
+                // Redirect to the dashboard with an error message
+                flash('ad_message', 'Something went wrong. Please try again.', 'alert alert-danger');
+                redirect('moderators/index?#reported-ads-content');
+            }
+        }
 
         public function edit_profile(){
         
