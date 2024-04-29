@@ -151,15 +151,7 @@
                     <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
                     <div class="main-button">
                         <a href="#">View Schedule</a>
-                    </div>
-                  </article>
-                  <article id='tabs-2'>
-                    <img src="assets/images/training-image-02.jpg" alt="Second Training">
-                    <h4>Second Training Class</h4>
-                    <p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <div class="main-button">
-                        <a href="#">View Schedule</a>
-                    </div>
+                   
                   </article>
                   <article id='tabs-3'>
                     <img src="assets/images/training-image-03.jpg" alt="Third Class">
