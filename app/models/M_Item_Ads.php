@@ -132,7 +132,7 @@
                 $query = 'UPDATE Bidding_Details SET ';
                 $bindings = [];
 
-                if (isset($data['auction_duration']) && isset($data['starting_bid'])) {
+                if (isset($data['duration']) && isset($data['starting_bid'])) {
                     $query .= 'auction_duration = :auction_duration, starting_bid = :starting_bid, starting_time = NOW() ';
                     $bindings[':auction_duration'] = $data['duration'];
                     $bindings[':starting_bid'] = $data['starting_bid'];
