@@ -540,3 +540,8 @@
 /* p{
   color: var(--lightgrey);
 } */
+
+.b111 .darkPara{
+  color: var(--darkText);
+  font-weight: 500;
+}
