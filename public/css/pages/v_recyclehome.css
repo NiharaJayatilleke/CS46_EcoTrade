@@ -521,4 +521,5 @@
 .b111 #sectionPic{
   width: 100%;
   max-width: 550px;
+  margin: auto;
 }
