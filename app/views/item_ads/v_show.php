@@ -255,7 +255,11 @@
 </div>
 
 <div class="sad-main-container3-right">
-    <div class="sad-more-ads-title"><h2>Explore more ads</h2></div>
+    <a href = "<?php echo URLROOT ."/ItemAds/index" ?>" class = "sad-more-ads-title-a">
+        <div class="sad-more-ads-title">
+            <h2>Click for more ads..</h2>
+        </div>
+    </a>
 
 </div>
 </div>

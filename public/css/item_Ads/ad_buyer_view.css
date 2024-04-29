@@ -484,7 +484,7 @@
 }
 
 
-.sad-main-container3-right {
+.sad-main-container2 .sad-main-container3-right {
     flex: 1;
     /* margin-left: 67%;*/
     /* margin-right: 11%;  */
@@ -494,7 +494,7 @@
     padding: 2%;
     background-color: #fff;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-    z-index: -1;
+    /* z-index: -1; */
     overflow: auto;
 }
 

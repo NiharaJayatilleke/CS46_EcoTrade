@@ -38,7 +38,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
-    <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
+    <!-- <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script> -->
     
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
