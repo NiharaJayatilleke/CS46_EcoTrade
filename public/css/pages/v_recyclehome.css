@@ -510,3 +510,12 @@
   /* margin-top: 2em; */
 }
 
+.b111 .gridSection{
+  display: grid;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+  margin-bottom: -730px;
+}
+
+
