@@ -570,7 +570,7 @@
                     'item_price' => $ad->item_price,
                     'item_location' => $ad->item_location,
                     'selling_format' => $ad->selling_format,
-                    'duration' => $ad->auction_duration,
+                    'duration' => $ad->duration,
                     'starting_bid' => $ad->starting_bid,
                     'negotiable' => $ad->negotiable,
 
@@ -677,7 +677,7 @@
                 $this->view('pages/forbidden');
             }
         }*/
-        
+
         public function report($adId){
 
             if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator' || $_SESSION['userType'] == 'center' )){      
