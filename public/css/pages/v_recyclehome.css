@@ -578,5 +578,11 @@
 
 .b111 .sectionPara{
   font-size: 1.1rem;
- 
+  margin-bottom: 3em;
+}
+
+@media screen and (min-width:800px) {
+  .b111 section{
+      width: 100%;
+  }   
 }
