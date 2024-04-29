@@ -559,7 +559,7 @@
 
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    
-  }
+  0% {transform:translateY(-30px);}
+  50% {transform:translateY(30px);}
+  
 }
