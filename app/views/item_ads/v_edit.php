@@ -85,14 +85,14 @@
                 </div>
             </div>
 
-            <script>
+            <!-- <script>
                 document.getElementById('item_images').addEventListener('change', function() {
                     if (this.files.length > 6) {
                         alert('You can only upload a maximum of 6 files');
                         this.value = '';
                     }
                 });
-            </script>
+            </script> -->
 
             <!-- price -->
             <div class="ad-form-input-title">Price</div>
