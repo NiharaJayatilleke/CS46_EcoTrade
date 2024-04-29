@@ -565,5 +565,6 @@
 }
 
 .bouncepic img{
-  animation: bounce 2s infinite;
- }
+  animation: bounce 15s infinite;    
+
+}
