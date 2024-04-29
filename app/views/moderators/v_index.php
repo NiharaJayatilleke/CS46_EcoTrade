@@ -23,14 +23,13 @@
                     </a>
                 </li>
 
-                <li>
-                    <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
+                <!-- <li>
                     <a href="#users-content" id="users-tab" onclick="showContent('users-content')">
 
                         <span class = "side-icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class = "side-title">Users</span>
                     </a>
-                </li>
+                </li> -->
 
                 <li>
                     <!-- <a href="<?php echo URLROOT ?>/Admin/moderators"> -->
@@ -120,7 +119,7 @@
                     </div>
                     
                     <div class="dashboard-cardBox">
-                        <a href="<?php echo URLROOT ?>/Moderators/users#users-content" style="text-decoration: none; color: inherit;">
+                        <!-- <a href="<?php echo URLROOT ?>/Moderators/users#users-content" style="text-decoration: none; color: inherit;">
                             <div class="dashboard-card">
                                 <div>
                                     <div class="dashboard-numbers"><?php echo $data['users_count'] ?></div> 
@@ -130,7 +129,7 @@
                                     <ion-icon name="people-outline"></ion-icon>     
                                 </div>
                             </div>
-                        </a>
+                        </a> -->
 
                         <!-- <a href="<?php echo URLROOT ?>/Admin/moderators" style="text-decoration: none; color: inherit;"> -->
                         <div class="dashboard-card" >
@@ -191,7 +190,8 @@
                         <div class="recentOrders">
                             <div class="cardHeader">
                                 <h2>Recent Activities</h2>
-                                <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a>
+                                <!-- <a href="#activity-content" class="btn" id="activity-tab" onclick="showContent('activity-content')">View All</a> -->
+                                <a href="<?php echo URLROOT; ?>/moderators/index#activity-content" class="btn" id="activity-tab">View All</a>
                             </div>
                             <table>
                                 <thead>
@@ -234,56 +234,82 @@
                         <!-- New customers -->
                         <div class="recentOrders">
                             <div class="cardHeader">
-                                <h2>Users</h2>
-                                <a href="#users-content" class="btn" id="users-tab" onclick="showContent('users-content')">View All</a>
+                                <h2>Reported  Ads</h2>
+                                <!-- <a href="#users-content" class="btn" id="users-tab" onclick="showContent('reported-ads-content')">View All</a> -->
+                                <a href="<?php echo URLROOT; ?>/moderators/index#reported-ads-content" class="btn" id="reported-ads-tab">View All</a>
                             </div>
                             <table>
                                 <thead>
                                     <tr>
-                                        <td>Username</td>
-                                        <td>Email</td>
-                                        <td>Contact Number</td>
-                                        <td>User Type</td>
-                                        <td>Date Joined</td>
-                                        <!-- <td>Edit/Delete</td> -->
+                                        <td>Ad ID</td>
+                                        <td>Item Name</td>
+                                        <td>Reporter ID</td>
+                                        <td>Report Reason</td>
+                                        <td>Report Comments</td>
+                                        <td>Report Contact</td>
+                                        <td>Report Status</td>
+                                        <td>Reported At</td>
+                                        <td>Ban Ad</td>
+                                        <td>Remove</td>
+                                        <td>View</td>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                <?php 
-                                $counter = 0;
-                                foreach($data['users'] as $user) : 
-                                    if($counter == 5) break;
-                                ?>
-                                <tr>
-                                    <td><p><?php echo $user->username ?></p></td>
-                                    <td><?php echo $user->email ?></td>
-                                    <td><?php echo $user->number ?></td>
-                                    <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
-                                    <td><?php echo $user->created_at ?></td>
-                                    <!-- <td>
-                                        <div class = "mod-control-btns">
-                                            <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                            <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
-                                        </div>
-                                    </td> -->
-                                </tr>
-                                <?php 
-                                $counter++;
-                                endforeach; 
-                                ?>
-                                </tbody>
+                                <?php if (!empty($data['reportedAds'])): ?>
+                                    <?php $count = 0; ?>
+                                    <?php foreach ($data['reportedAds'] as $ad): ?>
+                                        <?php 
+                                            $selectedAd = null;
+                                            foreach ($data['ads'] as $ads) {
+                                                if ($ads->p_id == $ad->ad_id) {
+                                                    $selectedAd = $ads;
+                                                    break;
+                                                }
+                                            }
+                                        ?>
+                                        <?php if ($count == 5) break; ?>
+                                        <tbody>
+                                            <tr>
+                                                <td><?php echo $ad->ad_id; ?></td>
+                                                <td><?php echo $ad->ad_title; ?></td> 
+                                                <td><?php echo $ad->reporter_id; ?></td>
+                                                <td><?php echo $ad->report_reason; ?></td>
+                                                <td><?php echo $ad->report_comments; ?></td>
+                                                <td><?php echo $ad->report_contact; ?></td>
+                                                <td><span class="status <?php echo strtolower($ad->report_status); ?>"><?php echo $ad->report_status; ?></span></td>
+                                                <td><?php echo $ad->report_created_at; ?></td>
+                                                <td>
+                                                    <label class="switch">
+                                                        <input type="checkbox" onclick="toggleHideAd(this, '<?php echo $selectedAd->p_id ?>')" <?php echo $selectedAd->status == "active" ? 'checked' : '' ?>>
+                                                        <span class="slider"></span>
+                                                    </label>
+                                                </td>
+                                                <!-- <td><button onclick="confirmDeleteReportedad(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td> -->
+                                                <td>
+                                                    <button class="delete-button" onclick="confirmDeleteReportedad(<?php echo $ad->ad_id; ?>);" id="removeadbtn">
+                                                        <svg viewBox="0 0 448 512" class="svgIcon"><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg>
+                                                    </button>
+                                                </td>
+                                                <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
+                                            </tr>
+                                        </tbody>
+                                        <?php $count++; ?>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <tr>
+                                        <td colspan="8">No reported ads found.</td>
+                                    </tr>
+                                <?php endif; ?>
                             </table>
                         </div>
                     </div> 
             </div>
 
 
-            <div id="users-content" class="content-section">
+            <!-- <div id="users-content" class="content-section">
                     <div class="details">
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Users</h2>
-                            <!-- <a href="<?php echo URLROOT ?>/Users/register" class="btn">Add User</a> -->
                         </div>
                         <table id="mod-table">
                             <thead>
@@ -293,7 +319,6 @@
                                     <td>Contact Number</td>
                                     <td>User Type</td>
                                     <td>Date Joined</td>
-                                    <!-- <td>Edit/Delete</td> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -309,12 +334,6 @@
                                         <td><?php echo $user->number ?></td>
                                         <td><span class="usertype <?php echo $user->user_type ?>"><?php echo $user->user_type ?></span></td>
                                         <td><?php echo $user->created_at ?></td>
-                                        <!-- <td>
-                                            <div class = "mod-control-btns">
-                                                <a href = "<?php echo URLROOT?>/Users/edit/<?php echo $moderator->id?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
-                                                <button onclick="confirmDelete('<?php echo URLROOT?>/Moderators/delete/<?php echo $moderator->id ?>')" class="ad-edit-btn"><i class="fas fa-trash-alt"></i></button>
-                                            </div>
-                                        </td> -->
                                     </tr>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
@@ -323,7 +342,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
 
             <div id="activity-content" class="content-section">
                 <div class="details">
@@ -386,34 +405,44 @@
                             <td>Report Status</td>
                             <td>Reported At</td>
                             <td>Ban Ad</td>
-                            <td></td>
-                            <td></td>
+                            <td>Remove</td>
+                            <td>View</td>
                         </tr>
                         <thead>
                         <?php if (!empty($data['reportedAds'])): ?>
                             <?php foreach ($data['reportedAds'] as $ad): ?>
-                            <tbody>
-                                <tr>
-                                    <!-- <td><?php echo $ad->report_id; ?></td> -->
-                                    <td><?php echo $ad->ad_id; ?></td>
-                                    <td><?php echo $ad->ad_title; ?></td> 
-                                    <td><?php echo $ad->reporter_id; ?></td>
-                                    <td><?php echo $ad->report_reason; ?></td>
-                                    <td><?php echo $ad->report_comments; ?></td>
-                                    <td><?php echo $ad->report_contact; ?></td>
-                                    <td><span class="status <?php echo strtolower($ad->report_status); ?>"><?php echo $ad->report_status; ?></span></td>
-                                    <td><?php echo $ad->report_created_at; ?></td>
-                                    <td>
-                                    <label class="switch">
-                                        <input type="" onclick="">
-                                        <span class="slider"></span>
-                                    </label>
-                                    </td>
-                                    <td><button onclick="confirmDeleteReportedad(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
-                                    <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
+                                <?php 
+                                    $selectedAd = null;
+                                    foreach ($data['ads'] as $ads) {
+                                        if ($ads->p_id == $ad->ad_id) {
+                                            $selectedAd = $ads;
+                                            break;
+                                        }
+                                    }
+                                ?>
+                                <tbody>
+                                    <tr>
+                                        <!-- <td><?php echo $ad->report_id; ?></td> -->
+                                        <td><?php echo $ad->ad_id; ?></td>
+                                        <td><?php echo $ad->ad_title; ?></td> 
+                                        <td><?php echo $ad->reporter_id; ?></td>
+                                        <td><?php echo $ad->report_reason; ?></td>
+                                        <td><?php echo $ad->report_comments; ?></td>
+                                        <td><?php echo $ad->report_contact; ?></td>
+                                        <td><span class="status <?php echo strtolower($ad->report_status); ?>"><?php echo $ad->report_status; ?></span></td>
+                                        <td><?php echo $ad->report_created_at; ?></td>
                                     
-                                </tr>
-                            </tbody>
+                                        <td>
+                                            <label class="switch">
+                                                <input type="checkbox" onclick="toggleHideAd(this, '<?php echo $selectedAd->p_id ?>')" <?php echo $selectedAd->status == "active" ? 'checked' : '' ?>>
+                                                <span class="slider"></span>
+                                            </label>
+                                        </td>
+                                        <td><button onclick="confirmDeleteReportedad(<?php echo $ad->ad_id; ?>);" class="btn btn-danger" id="removeadbtn">Remove AD</button></td>
+                                        <td><button onclick="location.href = '<?php echo URLROOT . '/ItemAds/show/' . $ad->ad_id;?>';" class="btn btn-success" id="viewadbtn">View Ad</button></td>
+                                        
+                                    </tr>
+                                </tbody>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr>
@@ -695,7 +724,7 @@
                                             } else {
                                                 echo '<img src="' . URLROOT . '/public/img/profile.png" alt="Default Profile Image" class="d-block ui-w-80" id="profile-pic">';
                                             }
-                                            ?>
+                                            ?> 
                                         </div>
                                     </div> 
                                     <div class="dashboard-icons-container"> 
@@ -813,11 +842,12 @@
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/ad_view.js"></script>
    
     <script>
+        
     // Function to show/hide content sections based on the clicked tab
     function showContent(section) {
         // Hide all content sections
         document.getElementById('dashboard-content').style.display = 'none';
-        document.getElementById('users-content').style.display = 'none';
+        // document.getElementById('users-content').style.display = 'none';
         document.getElementById('activity-content').style.display = 'none';
         document.getElementById('reported-ads-content').style.display = 'none';
         document.getElementById('secondhand-content').style.display = 'none';
@@ -852,6 +882,13 @@
                 showContent(section);
                 currentSection = section;
             }
+
+            // Highlight the current tab
+            var tabName = section.split("-content")[0] + '-tab';
+            var currentTab = document.getElementById(tabName);
+            if (currentTab) {
+                currentTab.parentElement.classList.add('hovered');
+            }
             
         } else {
             // If no hash is present, default to the dashboard section
@@ -859,15 +896,56 @@
             currentSection = 'dashboard-content';
         }
     }
+    
     // Call the function when the page loads
     handleInitialSection(); 
     window.onload = handleInitialSection;
+
+    window.onload = function() {
+    var urlParams = new URLSearchParams(window.location.search);
+
+    // Update the URL without causing a page reload
+    var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString() + window.location.hash;
+    history.replaceState(null, '', newUrl);
+    };
+
     
     </script>
 
     <!-- sweetalert remove ad pop up message -->
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/reportads.js"></script>
     <script>
+
+function toggleHideAd(checkbox, adId) {
+            var url;
+            var action;
+            var originalState = checkbox.checked; // Save the original state
+
+            if (originalState) {
+                url = '<?php echo URLROOT?>/Moderators/showAd/' + adId;
+                action = "showAd";
+            } else {
+                url = '<?php echo URLROOT?>/Moderators/hideAd/' + adId;
+                action = "hideAd";
+            }
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You are about to " + action + " this ad.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, ' + action + ' ad!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                } else {
+                    checkbox.checked = !originalState; // Revert to the original state if the ad cancels
+                }
+            })
+        }
+
     // Function to handle search input
     function handleSearch() {
         var searchInput = document.getElementById('searchInput').value.toLowerCase();
@@ -915,10 +993,7 @@
     function filterRecycleContent(query) {
         // Implement filtering logic for recycle content
     }
-    </script>
-
-    <!-- JS FOR settings content -->
-    <script>
+    
 
         // Function to show a specific section based on the hash in the URL
         function showSection(sectionName) {

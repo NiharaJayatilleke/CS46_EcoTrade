@@ -1,15 +1,43 @@
 /* Add this CSS in your external style sheet or within a <style> tag in your HTML */
-.bgrc {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
+/* .bgrc {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     overflow: hidden;
+} */
+.bgrc1 {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.img-765{
+.bgrc1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../img/recenters/laptop-1205256_1280.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(3px);
+  opacity: 0.9; 
+  z-index: -1;
+}
+
+/* .img-765{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(3px); 
+            opacity: 0.9; 
+} */
+
+.img-766{
             width: 100%;
             height: 100%;
             object-fit: cover;

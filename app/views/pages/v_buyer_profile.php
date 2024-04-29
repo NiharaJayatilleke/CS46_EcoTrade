@@ -358,27 +358,39 @@
       }
       ?>
       <div class="buyerimage-buttons" style="margin-left:35%;">
+      <form method="POST" enctype="multipart/form-data">   
         <a href="#" class="ad-edit-btn" title="Edit Ad"><i class="fas fa-edit"></i></a>
         <a href="#" class="ad-delete-btn" title="Delete Ad"><i class="fas fa-trash-alt"></i></a>
+      </form>
       </div>
     </div>
     
     <div class="user-details">
       <div class="username-section input-with-button">
+      <form method="POST" action="<?php echo URLROOT; ?>/users/edit_username">
         <label for="username">Username</label>
-        <input id="username" type="text" placeholder="rokieophoto_0" />
+        <input type="text"  name="newUsername" value="<?php echo $_SESSION['user_name']; ?>">
+        <?php if (!empty($data['errors']['newUsername'])) : ?>
+            <div class="form-invalid"><?php echo $data['errors']['newUsername']; ?></div>
+        <?php endif; ?>
         <button class="edit-button">Edit</button>
+      </form>
       </div>
       <hr class="divider" />
       <div class="contact-section input-with-button">
         <label for="email">Email address</label>
-        <input id="email" type="email" placeholder="rcl@gmail.com" />
-        <button class="edit-button">Edit</button>
+        <input type="text" value="<?php echo $_SESSION['user_email']; ?>"disabled>
       </div>
       <div class="contact-section input-with-button">
+      <form method="POST" action="<?php echo URLROOT; ?>/users/edit_number">
         <label for="phone">Phone number</label>
-        <input id="phone" type="tel" placeholder="0717410586" />
+        <input type="text" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
+        <?php if (!empty($data['errors']['newContactNumber'])) : ?>
+            <div class="form-invalid"><?php echo $data['errors']['newContactNumber']; ?></div>
+        <?php endif; ?>
         <button class="edit-button">Edit</button>
+
+      </form>
       </div>
       <hr class="divider" />
       <div class="password-section">
@@ -399,8 +411,8 @@
           <div style="margin-top: 30px;">
           <?php flash('update_password'); ?>
           </div>
-        </form>
-      </div>
+          </div>
+        </form>     
     </div>
   </div>
 </div>

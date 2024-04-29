@@ -12,6 +12,14 @@
             return $results;
         }
 
+
+        public function getEveryAd(){
+            $this->db->query('SELECT * FROM Item_Ads');
+            $results = $this->db->resultSet();
+            return $results;
+        }
+
+
         public function getAdById($adId){
             $this->db->query('SELECT * FROM v_ads WHERE ad_id = :id');
             $this->db->bind(':id',$adId);
@@ -124,7 +132,7 @@
                 //         print_r($this->db->errorInfo());
                 //     }
                 // }
-                // }
+                // } 
         
                 // return $item_id;
                 // return true;
@@ -139,7 +147,9 @@
                 }
                 
                 if (!empty($bindings)) {
-                $query .= ' WHERE adfir_id = :p_id';
+
+                $query .= ' WHERE ad_id = :p_id';
+
                 $bindings[':p_id'] = $data['p_id'];
                 
                 $this->db->query($query);
@@ -196,10 +206,11 @@
         }
 
         public function addUnpaidFeatureAd($data){
-            $this->db->query('INSERT INTO unpaidFeatureAds(p_id, package, duration) VALUES(:p_id, :package, :duration)');
+            $this->db->query('INSERT INTO unpaidFeatureAds(p_id, package, duration,total_amount) VALUES(:p_id, :package, :duration, :total_amount)');
             $this->db->bind(':p_id', $data['ad_id']);
             $this->db->bind(':package', $data['package']);
             $this->db->bind(':duration', $data['duration']);
+            $this->db->bind(':total_amount', $data['total_amount']);
     
             if($this->db->execute()){
                 return true;
@@ -209,8 +220,15 @@
             }
         }
 
+        public function getUnpaidFeatureAd($adId){
+            $this->db->query('SELECT * FROM unpaidFeatureAds WHERE p_id = :id');
+            $this->db->bind(':id',$adId);
+            $results = $this->db->resultSet();
+            return $results;
+        }
 
 
+ 
 
         // public function adFeature($data){
         //     $this->db->query('INSERT INTO Featured_Ads(p_id, package, duration, status) VALUES(:p_id, :package, :duration, :status)');

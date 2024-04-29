@@ -865,17 +865,30 @@
                 $packageType = $data['packageType'];
                 $timeInDays = $data['timeInDays'];
                 $adId = $data['adId'];
+                $totalAmount = $data['totalAmount'];
 
                 $packageData = [
                     'package' => $packageType,
                     'duration' => $timeInDays,
                     'ad_id' => $adId
                 ];
-        
+
+                //calling the feature ads model to update here the package
                 $this->itemAdsModel->adFeature($packageData);
 
-                header('Content-Type: application/json');
-                echo json_encode(['success' => true]);
+                $unpaidPackageData = [
+                    'package' => $packageType,
+                    'duration' => $timeInDays,
+                    'ad_id' => $adId,
+                    'total_amount' => $totalAmount
+                ];
+        
+                $this->itemAdsModel->addUnpaidFeatureAd($unpaidPackageData);
+                
+                // Removed the header function
+                // header('Location: ' . URLROOT . '/ItemAds/payment/' . $unpaidPackageData['ad_id']);                
+                // exit;
+                // redirect('ItemAds/payment/' . $unpaidPackageData['ad_id']);
 
             } else {
                     
@@ -893,33 +906,38 @@
             }
         }
 
-        public function payment(){
+        // public function payment(){
+        //     $this->view('item_ads/v_paymentportal');
 
-            $ad = $this->itemAdsModel->getAdById($adId);
+        //     $ad = $this->itemAdsModel->getAdById($adId);
 
-            if(!isset($_SESSION['userType'])){
-                redirect('users/login');
+        //     if(!isset($_SESSION['userType'])){
+        //         redirect('users/login');
             
-            }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
+        //     }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
             
+        //     $this->view('item_ads/v_paymentportal');
+            
+        //     }else{
+        //         $this->view('pages/forbidden');
+        //     }
+        // }
+
+
+        public function payment($adId){
+
             $this->view('item_ads/v_paymentportal');
-            
-            }else{
-                $this->view('pages/forbidden');
-            }
-        }
-
-
-        public function paymentportal(){
             // Check if the request is an AJAX request
         
             if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
                 // echo "Hi, server side!";
                 // exit; // Important: stop further script execution
                 $user = $this->usersModel->getUserDetails($_SESSION['user_id']);
+                $ad = $this->itemAdsModel->getUnpaidFeatureAd($adId);
+                
 
 
-                $amount = 3000;
+                $amount = $ad->total_amount;
                 $merchant_id = '1226588';
                 $order_id = uniqid();
                 $merchant_secret = "NzA1MDAxMDQzMjEzODY5NDY2MzQwMTg3NDcwNDYzNzY0NjgwMw==";

@@ -48,3 +48,10 @@ list.forEach((item) => {
 });
 
 
+// window.onload = function() {
+//     var urlParams = new URLSearchParams(window.location.search);
+
+//     // Update the URL without causing a page reload
+//     var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString() + window.location.hash;
+//     history.replaceState(null, '', newUrl);
+// };

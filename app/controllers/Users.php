@@ -506,7 +506,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 }
 
                 // Check if there are any validation errors
-                if (empty($errors)) {
+                if (!$flag) {
                     if ($this->userModel->updatePassword($_SESSION['user_id'], $oldPassword, $newPassword)) {
                         flash('update_password', 'New password updated successfully');
                   
@@ -514,16 +514,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                         // Error occurred during password update
                         die('Something went wrong while updating the password');
                     }
-                } else {
-                    // There are validation errors, re-display the form with error messages
-                    $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-                    $data = [
-                        'user' => $user,
-                        'errors' => $errors
-                    ];
-                    $this->view('admin/dashboard', $data);
-                    $this->view('moderators/v_index', $data);
-                }
+                } 
             } else {
                 // Display the password update form
                 $user = $this->userModel->getUserDetails($_SESSION['user_id']);
@@ -550,7 +541,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 $newPassword = trim($_POST['newPassword']);
                 // $confirmPassword = trim($_POST['confirmPassword']);
                 $confirmPassword = isset($_POST['confirmPassword']) ? trim($_POST['confirmPassword']) : '';
-                $errors = [];
+
                 $flag=false;
 
                 // Validate the old password
@@ -580,7 +571,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 }
 
                 // Check if there are any validation errors
-                if (!($flag)) {
+                if (!$flag) {
                     if ($this->userModel->updatePassword($_SESSION['user_id'], $oldPassword, $newPassword)) {
                         flash('update_password', 'New password updated successfully');
                   
@@ -588,70 +579,91 @@ require APPROOT.'/libraries/vendor/autoload.php';
                         // Error occurred during password update
                         die('Something went wrong while updating the password');
                     }
-                } else {
-                    // There are validation errors, re-display the form with error messages
-                    $user = $this->userModel->getUserDetails($_SESSION['user_id']);
-                    $data = [
-                        'user' => $user,
-                        'errors' => $errors
-                    ];
-                    $this->view('pages/v_buyer_profile', $data);
                 }
             } else { 
                 // Display the password update form
                 $user = $this->userModel->getUserDetails($_SESSION['user_id']);
                 $data = [
-                    'user' => $user,
-                    'errors' => $errors
+                    'user' => $user
                 ];
                 $this->view('pages/v_buyer_profile', $data);
             }
         }
 
-        public function edit_profile(){
-
-            if (!$this->isLoggedIn()) {
-                // Redirect the user to the login page if they are not logged in
-                redirect('Users/login');
+        public function edit_username(){
+            if(!$this->isLoggedIn()) {
+                redirect('Users/login'); 
             }
-        
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                
-                // Form submission, update user info
-                $newUsername = trim($_POST['newUsername']);
-                $newContactNumber = trim($_POST['newContactNumber']);
-        
-                // Initialize an array to store validation errors
-                $errors = [];
-        
-                // Validate the new username
-                if (empty($newUsername)) {
-                    $errors['newUsername'] = 'username cannot be empty.';
+            $data =[
+                'newUsername'=>'',
+                'newUsername_err'=>'',
+            ];
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $data['newUsername'] = trim($_POST['newUsername']);
+
+                if(empty($data['newUsername'])){
+                    $data['newUsername_err']='Username cannot be empty.';
                 }
-        
-                
-                // Validate the new contact number
-                if (empty($newContactNumber)) {
-                    $errors['newContactNumber'] = 'contact number cannot be empty.';
-                } elseif (!ctype_digit($newContactNumber) || strlen($newContactNumber) < 9) {
-                    $errors['newContactNumber'] = 'Contact number must have at least 10 digits.';   
-                }
-        
-                // Check if there are any validation errors
-                if (empty($errors)) {
-                    // Call the updateUserInfo method in your model to update the user's information
-                    if ($this->userModel->updateUserInfo($newUsername, $newContactNumber)) {
-                        // User information updated successfully
+                if(empty($data['newUsername_err'])){
+
+                    if ($this->userModel->updateUsername($data['newUsername'])) {
+
                         flash('profile_edit', 'Your profile has been updated successfully');
-                        
-                        // update the session
-                        $_SESSION['user_name']=$newUsername;
+                        $_SESSION['user_name'] = $data['newUsername'];
+                        $this->view('pages/v_buyer_profile');
+                        return; 
+
+                    } else{
+
+                    $data['newUsername_err'] = 'Error updating username. Please try again.';   
                     }
                 }
             }
 
-                    
+            $this->view('pages/v_buyer_profile',$data);
         }
+
+        public function edit_number(){
+        if (!$this->isLoggedIn()) {
+            redirect('Users/login');
+        }
+
+        $data = [
+            'newContactNumber' => '',
+            'newContactNumber_err' => '', 
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+         
+            $data['newContactNumber'] = trim($_POST['newContactNumber']);
+
+          
+            if (empty($data['newContactNumber'])) {
+                $data['newContactNumber_err'] = 'Contact number cannot be empty.';
+            } elseif (!ctype_digit($data['newContactNumber']) || strlen($data['newContactNumber']) < 9) {
+                $data['newContactNumber_err'] = 'Contact number must have at least 10 digits.';
+            }
+
+            if (empty($data['newContactNumber_err'])) {
+                if ($this->userModel->updateUsernumber($data['newContactNumber'])) {
+                   
+                    flash('profile_edit', 'Your profile has been updated successfully');
+
+                    $_SESSION['user_number'] = $data['newContactNumber'];
+                    $this->view('pages/v_buyer_profile');
+                    return; 
+                } else {
+                    $data['newContactNumber_err'] = 'Error updating contact number. Please try again.';
+                }
+            }
+        }
+
+        $this->view('pages/v_buyer_profile',$data);
+    }
+
+
+        
 
         // public function profileimage(){
         //     if(isset($_SESSION['user_id'])) {

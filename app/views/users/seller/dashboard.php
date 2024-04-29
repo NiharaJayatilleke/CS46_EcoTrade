@@ -406,7 +406,20 @@
     </div>
 
     <!-- JS for switching tabs -->
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/seller/dashboard_tabs.js"></script>
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/seller/dashboard_tabs.js">
+    </script>
+
+    <script>
+     window.onload = function() {
+    var urlParams = new URLSearchParams(window.location.search);
+
+    // Update the URL without causing a page reload
+    var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString() + window.location.hash;
+    history.replaceState(null, '', newUrl);
+    };
+
+    </script>
+
     
     <!-- Javascript for image upload -->
     <!-- <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/moderators/chart.js"></script> -->
