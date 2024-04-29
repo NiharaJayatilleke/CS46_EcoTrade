@@ -556,3 +556,40 @@
   cursor: pointer;
 
 } */
+
+
+@keyframes bounce {
+  0% {transform:translateY(-30px);}
+  50% {transform:translateY(30px);}
+  100% { transform:translateY(-30px)}
+}
+
+.bouncepic img{
+  animation: bounce 15s infinite;    
+
+}
+
+
+.b111 .sectionHeader{
+  color: var(--white);
+  font-size: 2rem;
+  margin-bottom: .7em;
+}
+
+.b111 .sectionPara{
+  font-size: 1.1rem;
+  margin-bottom: 3em;
+}
+
+@media screen and (min-width:800px) {
+ 
+  .b111 section{
+    width: 100%;
+}   
+
+.gridSection{
+  grid-template-columns: 3fr 3fr;
+}
+
+
+}
