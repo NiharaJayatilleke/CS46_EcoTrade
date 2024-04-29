@@ -638,72 +638,6 @@
 }
 
 
-
-
-/* report ads css on moderator dashboard */
-
-
-#removeadbtn ,.btn.btn-success{
-    background: #FF4742;
-    border: 1px solid #FF4742;
-    border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 16px;
-    min-height: 40px;
-    outline: 0;
-    padding: 12px 14px;
-    text-align: center;
-    text-rendering: geometricprecision;
-    text-transform: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: middle;
-    z-index: 5000;
-}
-
-.reported-ads-table button:hover,
-.reported-ads-table button:active {
-    background-color: initial;
-    background-position: 0 0;
-    color: #FF4742;
-}
-
-
-#viewadbtn ,.btn.btn-danger{
-    background: #28a745; 
-    border: 1px solid #28a745;
-    border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 16px;
-    min-height: 40px;
-    outline: 0;
-    padding: 12px 14px;
-    text-align: center;
-    text-rendering: geometricprecision;
-    text-transform: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: middle;
-    z-index: 5000;
-    margin-right: 0.5rem;
-}
-
 /* CSS for Profile Settings Content */
 .profile-settings-container {
     /* margin: 2% 5%; */
@@ -965,3 +899,141 @@ input:checked + .slider:before {
 }
 
 
+/* report ads css on moderator dashboard */
+
+
+/* #removeadbtn ,.btn.btn-success{
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 10px;
+    min-height: 20px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    z-index: 5000;
+}
+
+.reported-ads-table button:hover,
+.reported-ads-table button:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+}
+
+
+#viewadbtn ,.btn.btn-danger{
+    background: #28a745; 
+    border: 1px solid #28a745;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    z-index: 5000;
+    margin-right: 0.5rem;
+} */
+
+
+.noselect {
+    width: 80px; /* Adjusted */
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #e62222;
+}
+
+.noselect, .noselect span {
+    transition: 200ms;
+}
+
+.noselect .text {
+    transform: translateX(16px); /* Adjusted */
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+    padding-top: 10px;
+}
+
+.noselect .icon {
+    position: absolute;
+    border-left: 1px solid #c41b1b;
+    transform: translateX(56px); /* Adjusted */
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.noselect svg {
+    width: 10px;
+    fill: #eee;
+}
+
+.noselect:hover {
+    background: #ff3636;
+}
+
+.noselect:hover .text {
+    color: transparent;
+}
+
+.noselect:hover .icon {
+    width: 80px; /* Adjusted */
+    border-left: none;
+    transform: translateX(0);
+}
+
+.noselect:focus {
+    outline: none;
+}
+
+.noselect:active .icon svg {
+    transform: scale(0.8);
+}
+
+.recentOrders .btn {
+    position: relative;
+    padding:  10px;
+    /* top: 10px; */
+    background: var(--green);
+    text-decoration: none;
+    color: var(--white);
+    cursor:pointer;
+    border-radius: 6px;
+}

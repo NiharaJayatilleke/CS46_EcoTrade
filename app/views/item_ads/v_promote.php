@@ -3,7 +3,8 @@
 <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/pages/v_addpayment.css">
-
+<form action="<?php echo URLROOT ?>/ItemAds/promote" method="post">
+    <input type="hidden" name="adId" value="<?php echo $adId; ?>">
 <div class="main">
     <div class="divv">
         <div class="divv-2">
@@ -132,12 +133,11 @@
             <div class="divv-80">Pay online</div>
             <img loading="lazy" src="<?php echo URLROOT?>/public/img/payment/images/Untitled design (1).png" class="img-400" />
         </div>
-        <a class = "cont-link" href="<?php echo URLROOT ?>/ItemAds/payment">
-            <div class="divv-84" id = "packageContinue">Continue</div> 
-        </a>
+        <button type="submit" class="divv-84" id="packageContinue">Continue</button>
     </div>
 </div>
 </div>
+</form>
 
 <!-- JS for getting payment summary of selected packages -->
 <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/ads/promote.js"></script>

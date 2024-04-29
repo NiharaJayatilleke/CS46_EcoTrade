@@ -134,16 +134,17 @@ function submitPackage(packageType, timeInDays, adId) {
 
     // The POST request
     fetch(URLROOT +"/itemAds/promote/"+ CURRENT_AD, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
     })
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
-        // Removed the redirection part
+        // Redirect to the URL returned from the server
+        window.location.href = data.redirect;
     })
     .catch((error) => {
         console.error('Error:', error);

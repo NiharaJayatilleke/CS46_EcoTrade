@@ -35,11 +35,11 @@ p {
 global styles
 --------------------------------------------- 
 */
-html,
+/* html,
 body {
   background: #fff;
   font-family: 'Poppins', sans-serif;
-}
+} */
 
 ::selection {
   background: #ed563b;
@@ -596,8 +596,11 @@ features
 }
 
 .feature-item {
-  display: inline-block;
+  /* display: inline-block; */
   margin-bottom: 60px;
+  margin-left: 240px;
+  margin-right: 260px;
+  padding: 20px;
 }
 
 .feature-item .left-icon img {
@@ -664,12 +667,12 @@ subscribe
   margin: 15px 0px 25px 0px;
 }
 
-.con-row {
+/* .con-row {
   display: flex;
-  gap: px;
+  gap: 10px;
   width: 90%;
   margin: 0 auto;
-}
+} */
 
 /*
 --------------------------------------------

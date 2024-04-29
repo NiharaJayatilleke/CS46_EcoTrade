@@ -29,7 +29,7 @@
                     <div class="section-heading">
                         <h2>Beneficts of being a <em>Recycle Center</em></h2>
                         <img src="../public/img/collectors/images/line-dec.png" alt="waves">
-                        <p>Join us in collecting recyclable items and earn extra income while making a positive impact on the environment! </p>
+                        <p>Join us in becoming a recycle center and earn extra income while making a positive impact on the environment! </p>
                     </div>
                 </div>
                 <div class="con-row">
@@ -40,9 +40,9 @@
                                 <img src="../public/img/collectors/images/11.jpg" alt="First One">
                             </div>
                             <div class="right-content">
-                                <h4>Extra Income Stream</h4>
-                                <p>Collecting recyclables offers individuals an additional source of income.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <h4>Environmental Impact</h4>
+                                <p>By operating a recycling center, you play a crucial role in diverting waste from landfills and reducing the strain on natural resources. Recycling helps conserve energy, minimize pollution, and mitigate the environmental impact of resource extraction and production processes.</p>
+                                <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
                         <li class="feature-item">
@@ -50,9 +50,9 @@
                                 <img src="../public/img/collectors/images/11.jpg" alt="second one">
                             </div>
                             <div class="right-content">
-                                <h4>Low Startup Costs</h4>
-                                <p>If you wish to support TemplateMo website via PayPal, please feel free to contact us. We appreciate it a lot.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <h4>Income Generation</h4>
+                                <p>Recycling centers can generate revenue through the collection, processing, and sale of recyclable materials. Depending on market demand and the volume of materials processed, this can provide a steady income stream and potentially lucrative business opportunities.</p>
+                                <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
                         <li class="feature-item">
@@ -60,9 +60,9 @@
                                 <img src="../public/img/collectors/images/11.jpg" alt="third gym training">
                             </div>
                             <div class="right-content">
-                                <h4>Scalable Income Potential</h4>
-                                <p>There's a steady demand for recyclable materials, ensuring a reliable income stream.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <h4>Job Creation</h4>
+                                <p>Recycling centers create opportunities within the community. From collection and sorting to processing and administration, various roles are needed to operate and maintain the facility. This contributes to economic growth and stability by providing jobs and supporting livelihoods.</p>
+                                <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
                     </ul>
@@ -74,9 +74,9 @@
                                 <img src="../public/img/collectors/images/11.jpg" alt="fourth muscle">
                             </div>
                             <div class="right-content">
-                                <h4>Consistent Demand</h4>
-                                <p>There's a steady demand for recyclable materials, ensuring a reliable income stream.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <h4>Resource Conservation</h4>
+                                <p>By recycling materials such as paper, plastics and metals, recycling centers help conserve valuable resources and reduce the need for raw materials. This contributes to sustainability by extending the lifespan of resources and minimizing the environmental footprint of resource extraction.</p>
+                                <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
                         <li class="feature-item">
@@ -84,9 +84,9 @@
                                 <img src="../public/img/collectors/images/11.jpg" alt="training fifth">
                             </div>
                             <div class="right-content">
-                                <h4>Incentive Programs</h4>
-                                <p>Some platforms offer bonuses and incentive programs to boost collector earnings.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <h4>Promotion of Circular Economy</h4>
+                                <p>Recycling centers are integral to the concept of a circular economy, where resources are reused, recycled, and repurposed in a closed-loop system. By facilitating the recycling process, they promote sustainable consumption, leading to a more resilient and efficient economy.</p>
+                                <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
                         <li class="feature-item">
@@ -96,7 +96,7 @@
                             <div class="right-content">
                                 <h4>Market Value Opportunities</h4>
                                 <p>The market value of recyclable materials provides opportunities for profit.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
                     </ul>
@@ -128,14 +128,19 @@
 
         <!-- <section id="workFlow">
         <div class="overlay43">
-        <h2 class="heading"> Grow Up Your Workflow Speed. </h2>
-        <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, commodi sint. <br>Ipsam molestias
-            nemovel laboriosam consequatur, perferendis<br> minima soluta? Natus necessitatibus autem suscipit!</p>
-        <div class="num-container">
+        <h2 class="heading"> Join with us!</h2>
+        <p class="para">Establishing a recycling center in ecotrade offers various benefits.<br>
+                        It plays a vital role in environmental conservation by diverting waste from landfills and preserving resources.<br>
+                        Recycling centers generate income, create jobs, and engage communities in eco-friendly initiatives.<br>
+                        They support local industry, conserve resources, and promote a circular economy.<br>
+                        Overall, recycling centers contribute to a more sustainable future while complying with waste management regulations.</p>
+
+
+        <!-- <div class="num-container">
             <div class="num-item1"><span>27,882 <br>Customers</span></div>
             <div class="num-item1"><span>90% <br>Action Plans</span></div>
             <div class="num-item1"><span>70,592 <br>Downloads</span></div>
-        </div>
+        </div> -->
         </div>
     </section> -->
 

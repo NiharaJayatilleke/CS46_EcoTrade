@@ -847,61 +847,50 @@
             }
         }
 
+
         public function promote($adId){
 
             $ad = $this->itemAdsModel->getAdById($adId);
 
             if(!isset($_SESSION['userType'])){
                 redirect('users/login');
-            
-            }else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
-            
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            } else if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $ad->seller_id) {
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-                $json = file_get_contents('php://input');
-        
-                $data = json_decode($json, true);
+                    $json = file_get_contents('php://input');
+                    $data = json_decode($json, true);
 
-                $packageType = $data['packageType'];
-                $timeInDays = $data['timeInDays'];
-                $adId = $data['adId'];
-                $totalAmount = $data['totalAmount'];
+                    $packageType = $data['packageType'];
+                    $timeInDays = $data['timeInDays'];
+                    $adId = $data['adId'];
+                    $totalAmount = $data['totalAmount'];
 
-                $packageData = [
-                    'package' => $packageType,
-                    'duration' => $timeInDays,
-                    'ad_id' => $adId
-                ];
+                    $packageData = [
+                        'package' => $packageType,
+                        'duration' => $timeInDays,
+                        'ad_id' => $adId
+                    ];
 
-                //calling the feature ads model to update here the package
-                $this->itemAdsModel->adFeature($packageData);
+                    //calling the feature ads model to update here the package
+                    $this->itemAdsModel->adFeature($packageData);
 
-                $unpaidPackageData = [
-                    'package' => $packageType,
-                    'duration' => $timeInDays,
-                    'ad_id' => $adId,
-                    'total_amount' => $totalAmount
-                ];
-        
-                $this->itemAdsModel->addUnpaidFeatureAd($unpaidPackageData);
-                
-                // Removed the header function
-                // header('Location: ' . URLROOT . '/ItemAds/payment/' . $unpaidPackageData['ad_id']);                
-                // exit;
-                // redirect('ItemAds/payment/' . $unpaidPackageData['ad_id']);
+                    $unpaidPackageData = [
+                        'package' => $packageType,
+                        'duration' => $timeInDays,
+                        'ad_id' => $adId,
+                        'total_amount' => $totalAmount
+                    ];
 
+                    $this->itemAdsModel->addUnpaidFeatureAd($unpaidPackageData);
+
+                    // Return a JSON response instead of using header
+                    // echo json_encode(['redirect' => '/ItemAds/payment/' . $unpaidPackageData['ad_id']]);
+                } else {
+                    $ad = $this->itemAdsModel->getAdById($adId);
+                    $data = ['ad' => $ad];
+                    $this->view('item_ads/v_promote',$data);
+                }
             } else {
-                    
-            $ad = $this->itemAdsModel->getAdById($adId);
-            
-            $data = [
-                'ad' => $ad,
-            ];
-
-            $this->view('item_ads/v_promote',$data);
-
-            }
-            }else{
                 $this->view('pages/forbidden');
             }
         }
