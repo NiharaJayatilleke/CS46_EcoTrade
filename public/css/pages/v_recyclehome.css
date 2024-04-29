@@ -529,3 +529,7 @@
 .b111 .sectionPic img{
   width: 100%;
 }
+
+.b111 .cryptoText {
+  -webkit-text-fill-color: transparent;
+}
