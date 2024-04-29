@@ -383,6 +383,7 @@
       <hr class="divider" />
       <div class="password-section">
         <form id="changePasswordForm" method="POST" action="<?php echo URLROOT; ?>/users/changepassword">
+        <div>
           <label for="old-password">Old Password</label>
           <input id="old-password" type="password" name="oldPassword" required>
           <div class="form-invalid"><?php error('oldPassword'); ?></div> 
@@ -393,6 +394,11 @@
           <input id="confirm-password" type="password" name="confirmPassword" required>
           <div class="form-invalid"><?php error('confirmPassword'); ?></div>
           <button class="save-button">Save</button>
+          <div id="changePasswordMessage" class="form-invalid"></div> 
+          </div>
+          <div style="margin-top: 30px;">
+          <?php flash('update_password'); ?>
+          </div>
         </form>
       </div>
     </div>

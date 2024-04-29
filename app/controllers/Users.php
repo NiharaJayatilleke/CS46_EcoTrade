@@ -550,7 +550,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 $newPassword = trim($_POST['newPassword']);
                 // $confirmPassword = trim($_POST['confirmPassword']);
                 $confirmPassword = isset($_POST['confirmPassword']) ? trim($_POST['confirmPassword']) : '';
-
+                $errors = [];
                 $flag=false;
 
                 // Validate the old password
@@ -580,7 +580,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 }
 
                 // Check if there are any validation errors
-                if (empty($errors)) {
+                if (!($flag)) {
                     if ($this->userModel->updatePassword($_SESSION['user_id'], $oldPassword, $newPassword)) {
                         flash('update_password', 'New password updated successfully');
                   
@@ -601,7 +601,8 @@ require APPROOT.'/libraries/vendor/autoload.php';
                 // Display the password update form
                 $user = $this->userModel->getUserDetails($_SESSION['user_id']);
                 $data = [
-                    'user' => $user
+                    'user' => $user,
+                    'errors' => $errors
                 ];
                 $this->view('pages/v_buyer_profile', $data);
             }
