@@ -50,19 +50,24 @@
 }
 
 .ad-form-header h2 {
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 550;
     color: rgb(83, 127, 56);
     font-family: Arial, Helvetica, sans-serif; 
 }
 
 .ad-form-input-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     margin-top: 15px;
     /* color:  rgb(83, 127, 56); */
     color: #4e4e4e;
     font: bold;
+}
+
+.required-field{
+    /* color: #d9534f; */
+    color: #e5433e;
 }
 
 .ad_item_name,
@@ -100,6 +105,7 @@
     color:  rgb(83, 127, 56);
     /* font: bold; */
 }
+
 .ad_item_other_category{
     width: 62%;
     height: 40px;

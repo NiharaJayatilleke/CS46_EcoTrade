@@ -70,7 +70,6 @@
                         <!-- <php var_dump($data['item_img_name']); ?>  -->
                         <img id = "item_img_placeholder01" class = "item_img_placeholder1" name = "item_images" src = "<?php echo URLROOT; ?>/img/items/<?php echo $data['item_img_name']; ?>" alt="Item Image" ></img>
                         <?php elseif($data['item_img_name'] === false): ?>
-                                hi
                         <?php else: ?> 
                         <!-- <img id = "item_img_placeholder" src = "php echo URLROOT; ?>/img/items/placeholder.png" alt="placeholder" width = "40px" height = "40px"></img> -->
                         <img id = "item_img_placeholder02" src = "" alt="placeholder"><i id = "item_img_placeholder_icon" class="fas fa-image fa-5x"></i>
@@ -85,6 +84,15 @@
                     <span class="ad-form-invalid"><?php echo $data['item_images_err']; ?></span>
                 </div>
             </div>
+
+            <script>
+                document.getElementById('item_images').addEventListener('change', function() {
+                    if (this.files.length > 6) {
+                        alert('You can only upload a maximum of 6 files');
+                        this.value = '';
+                    }
+                });
+            </script>
 
             <!-- price -->
             <div class="ad-form-input-title">Price</div>

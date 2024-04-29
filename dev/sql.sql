@@ -153,17 +153,17 @@ CREATE TABLE Item_Ads (
     FOREIGN KEY (seller_id) REFERENCES General_User(id) ON DELETE CASCADE
 );
 
-ALTER TABLE Item_Ads
-ADD COLUMN item_district VARCHAR(255);
+-- ALTER TABLE Item_Ads
+-- ADD COLUMN item_district VARCHAR(255);
 
-ALTER TABLE Item_Ads
-DROP COLUMN item_expiry;
+-- ALTER TABLE Item_Ads
+-- DROP COLUMN item_expiry;
 
-ALTER TABLE Item_Ads
-ADD COLUMN item_expiry DATETIME;
+-- ALTER TABLE Item_Ads
+-- ADD COLUMN item_expiry DATETIME;
 
-ALTER TABLE Item_Ads
-MODIFY COLUMN item_expiry DATETIME;
+-- ALTER TABLE Item_Ads
+-- MODIFY COLUMN item_expiry DATETIME;
 
 DROP TABLE IF EXISTS Secondhand_Ad_Images;
 
@@ -171,14 +171,14 @@ CREATE TABLE Secondhand_Ad_Images (
     image_id INT AUTO_INCREMENT PRIMARY KEY,
     item_id INT,
     image_name VARCHAR(255),
-    FOREIGN KEY (item_id) REFERENCES Recycle_Item_Ads(_id) ON DELETE CASCADE
+    FOREIGN KEY (item_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Recycle_Ad_Images (
     image_id INT AUTO_INCREMENT PRIMARY KEY,
     item_id INT,
     image_name VARCHAR(255),
-    FOREIGN KEY (item_id) REFERENCES Item_Ads(p_id) ON DELETE CASCADE
+    FOREIGN KEY (item_id) REFERENCES Recycle_Item_Ads(r_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Featured_Ads (
