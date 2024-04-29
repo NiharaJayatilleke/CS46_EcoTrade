@@ -56,14 +56,14 @@
             <div class="sad-line"></div>
 
             <div class="sad-bottom">
-            <!-- <a class="sad-b1" href="#"> -->
-                <button class="sad-b1" id = "rateBtn">
-                    <!-- <img src="<php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
-                    <!-- <i class="fas fa-ad"></i> Ad icon -->
-                    <i class="fas fa-star"></i>
-                    <p>Rate this Seller</p>
-                </button>
-            <!-- </a> -->
+                <!-- <a class="sad-b1" href="#"> -->
+                    <button class="sad-b1" id = "rateBtn">
+                        <!-- <img src="<php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
+                        <!-- <i class="fas fa-ad"></i> Ad icon -->
+                        <i class="fas fa-star"></i>
+                        <p>Rate this Seller</p>
+                    </button>
+                <!-- </a> -->
                 <button class="sad-b1" onclick="reportAd()">
                     <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/report.png" alt="report"> -->
                     <i class="fas fa-flag"></i>
@@ -228,42 +228,69 @@
 
 <!-- <br> -->
 <div class="sad-main-container2">
-<div class="sad-main-container3-left">
-<!-- Message Sellers (Q&A) -->
-<form method="post">
-    <div class = "message-seller-container">
-        <div class = "message-header">
-            <h3>Message Seller</h3>
-        </div>
+    <div class="sad-main-container3-left">
+    <!-- Message Sellers (Q&A) -->
+        <form method="post">
+            <div class = "message-seller-container">
+                <div class = "message-header">
+                    <h3>Message Seller</h3>
+                </div>
 
-        <!-- Message Input -->
-        <div class = "message-input">
-            <input type = "text" class = "message-input-field" name = "send-message" id = "send-message" placeholder = "Type your message here...">
-            <!-- <button class = "message-btn" id = "message-btn" type = "submit">Send</button> -->
-            <input type="submit" value="Send" class = "message-btn" id = "message-btn"> 
-        </div>
+                <!-- Message Input -->
+                <div class = "message-input">
+                    <input type = "text" class = "message-input-field" name = "send-message" id = "send-message" placeholder = "Type your message here...">
+                    <!-- <button class = "message-btn" id = "message-btn" type = "submit">Send</button> -->
+                    <input type="submit" value="Send" class = "message-btn" id = "message-btn"> 
+                </div>
+            </div>  
+        </form>
+            <!-- Testing -->
+            <!-- <div id = "test"></div> -->
 
-        <!-- Testing -->
-        <!-- <div id = "test"></div> -->
+            <!-- Message Thread -->
+            <div id = "results"></div>
 
-        <!-- Message Thread -->
-        <div id = "results"></div>
+<!-- </form> -->
+    </div>
 
-    </div>  
+    <div class="sad-main-container3-right">
+        <a href = "<?php echo URLROOT ."/ItemAds/index" ?>" class = "sad-more-ads-title-a">
+            <div class="sad-more-ads-title">
+                <h2>Explore More</h2>
+            </div>
+        </a>
+        <?php 
+            $counter = 0;
+            foreach($data['other_ads'] as $ad): 
+            if($counter == 1) break; 
+        ?>
+            <div class="ad-show-index-container">
+                <div class = "ad-header">
+                    <div class = "ad-body-image">
+                        <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
+                    </div>
+                    <div class = "ad-item-name"><h3><?php echo $ad->item_name ?><h3>
+                </div>
+                <div class = "ad-body">
+                <div class = "ad-price">Rs. <?php echo $ad->item_price ?></div>
+            </div>
+        <?php 
+            $counter++;
+            endforeach; 
+        ?>
 
-</form>
+    </div>
 </div>
 
-<div class="sad-main-container3-right">
-    <a href = "<?php echo URLROOT ."/ItemAds/index" ?>" class = "sad-more-ads-title-a">
-        <div class="sad-more-ads-title">
-            <h2>Click for more ads..</h2>
-        </div>
-    </a>
+<script>
+window.onload = function() {
+    var leftContainer = document.querySelector('.sad-main-container3-left');
+    var rightContainer = document.querySelector('.sad-main-container3-right');
 
-</div>
-</div>
-
+    rightContainer.style.maxHeight = getComputedStyle(leftContainer).height;
+    rightContainer.style.overflowY = 'auto';
+}
+</script>
 
 <!-- jQuery -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
@@ -363,7 +390,7 @@
     
 </script>
 
-<?php require APPROOT.'/views/inc/components/footer.php'; ?>
+<!-- <php require APPROOT.'/views/inc/components/footer.php'; ?> -->
     
 
 
