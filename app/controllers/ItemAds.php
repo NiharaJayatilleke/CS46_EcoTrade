@@ -49,6 +49,10 @@
                 $remainingTimeString = $this->auctionsModel->calculateRemainingTime($startTime, $duration);
             }
             
+            $ads = $this->itemAdsModel->getAds();
+            $otherAds = array_filter($ads, function($ad) use ($id) {
+                return $ad->id != $id;
+            });
             
             $data = [
                 'number' => $number,
@@ -57,6 +61,7 @@
                 'bids' => $bids,
                 'bid_count' => $numBids,
                 'ad' => $ad,
+                'other_ads' => $otherAds,
                 'offers' => $offers,
                 'accepted_offer' => $acceptedOffer,
                 'buyer_notifications' => $buyerNotifications,
@@ -345,8 +350,22 @@
                     // $userId = $_SESSION['user_id'];
                     // $userType = $this->usersModel->getUserTypeById($userId);
                     // $userType = $userType->user_type;
-                    $userId = $_SESSION['userType'];
+                    // $userType = $_SESSION['userType'];
                     
+                    // if ($userType == 'rSeller') {
+                    //     $this->usersModel->setUserTypeById($userId, 'seller');
+                    //     $_SESSION['userType']='seller';
+                    // } else if ($userType == 'pBuyer') {
+                    //     $this->usersModel->setUserTypeById($userId, 'pSeller');
+                    //     $_SESSION['userType']='pSeller';
+                    // }
+
+
+                    //SET USER TYPE
+                    $userId = $_SESSION['user_id'];
+                    $userType = $this->usersModel->getUserTypeById($userId);
+                    $userType = $userType->user_type;
+
                     if ($userType == 'rSeller') {
                         $this->usersModel->setUserTypeById($userId, 'seller');
                         $_SESSION['userType']='seller';

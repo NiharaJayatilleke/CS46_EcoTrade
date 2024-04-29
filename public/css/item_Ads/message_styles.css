@@ -8,15 +8,16 @@
     margin-bottom: 3%;
     display: flex;
     justify-content: space-between;
-    height: 500px;
-    /* flex-direction: row; */
-    /* padding: 2%; */
-    /* background-color: #fff; */
+    /* height: 500px; 
+    /* flex-direction: row; 
+    /* padding: 2%; 
+    /* background-color: #fff; 
     /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); */
-}
+    align-items: stretch;
+} 
 
 .sad-main-container3-left {
-    flex: 1;
+    /* flex: 1; */
     margin-right: 1.5%;
     /* margin-left: 0px; 
     margin-right: 35%; 
@@ -26,6 +27,35 @@
     width: 62%;
     background-color: #fff;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    /* height: 0; */
+}
+
+.sad-main-container2 .sad-main-container3-right {
+    flex: 1;
+    /* margin-left: 67%;*/
+    /* margin-right: 11%;  */
+    /* margin-left: 2%; */
+    /* margin-top: 1%; */
+    /* margin-bottom: 3%; */
+    padding: 2%;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    /* z-index: -1; */
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.sad-more-ads-title h2{
+    margin-top: 20px;
+    font-size: 16px;
+    text-decoration: none; 
+    cursor: pointer;
+    color: var(--green); 
+    margin-bottom: 20px;
+}
+
+.sad-more-ads-title-a{
+    text-decoration: none; 
 }
 
 /* To have other ads size match the size of the messages */

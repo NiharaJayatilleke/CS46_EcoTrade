@@ -479,6 +479,7 @@
     <p>Elevate Your Everyday Style</p>
     <div class="pro-container">
         <?php foreach($data['pv_ads'] as $ad): ?>
+          <a class = "ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
             <div class="pro">
                 <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="" />
                 <div class="des">
@@ -492,6 +493,7 @@
             <script>
     
             </script>
+            </a>
         <?php endforeach; ?>
     </div>
 </section>
@@ -630,6 +632,7 @@
 
         <div class="pro-container">
         <?php foreach($data['unique_ads'] as $ad): ?>
+          <a class = "ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
             <div class="pro">
                 <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="" />
                 <div class="des">
@@ -643,6 +646,7 @@
             <script>
     
             </script>
+             </a>
         <?php endforeach; ?>
     </div>
     </section> 

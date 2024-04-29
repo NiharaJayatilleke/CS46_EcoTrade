@@ -147,7 +147,9 @@
                 }
                 
                 if (!empty($bindings)) {
+
                 $query .= ' WHERE ad_id = :p_id';
+
                 $bindings[':p_id'] = $data['p_id'];
                 
                 $this->db->query($query);
