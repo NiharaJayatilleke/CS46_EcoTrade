@@ -597,7 +597,7 @@ require APPROOT.'/libraries/vendor/autoload.php';
                     ];
                     $this->view('pages/v_buyer_profile', $data);
                 }
-            } else {
+            } else { 
                 // Display the password update form
                 $user = $this->userModel->getUserDetails($_SESSION['user_id']);
                 $data = [
