@@ -428,11 +428,11 @@
                     'item_condition' => trim($_POST['item_condition']),
                     'item_quantity' => trim($_POST['item_quantity']),
                     'item_img' => $_FILES['item_images'],
-                    // 'item_img_name' => time().'_'.$_FILES['item_images']['name'], /**/ 
+                    'item_img_name' => time().'_'.$_FILES['item_images']['name'], /**/ 
                     
-                    'item_img_name' => array_map(function($filename) {
-                        return time().'_'.$filename;
-                    }, $_FILES['item_images']['name']),
+                    // 'item_img_name' => array_map(function($filename) {
+                    //     return time().'_'.$filename;
+                    // }, $_FILES['item_images']['name']),
 
                     'item_price' => trim($_POST['item_price']),
                     'item_location' => trim($_POST['item_location']),
