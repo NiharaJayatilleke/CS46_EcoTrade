@@ -510,3 +510,49 @@
   /* margin-top: 2em; */
 }
 
+.b111 .gridSection{
+  display: grid;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+  margin-bottom: -730px;
+}
+
+.b111 #sectionPic{
+  width: 100%;
+  max-width: 550px;
+  margin: auto;
+}
+
+
+
+.b111 .sectionPic img{
+  width: 100%;
+}
+
+.b111 .cryptoText {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #166013;
+}
+
+
+
+/* p{
+  color: var(--lightgrey);
+} */
+
+.b111 .darkPara{
+  color: var(--darkText);
+  font-weight: 500;
+}
+
+/* .btn{
+  border: 1px solid #fff;
+  border-radius: 50px;
+  background-color: transparent;
+  color: var(--white);
+  font-size: 1.1rem;
+  padding: .7em 1.5em;
+  cursor: pointer;
+
+} */
