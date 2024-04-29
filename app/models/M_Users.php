@@ -175,9 +175,20 @@
         }
         
         // update username and contact number
-        public function updateUserInfo($newUsername, $newContactNumber) {
-            $this->db->query('UPDATE General_User SET username = :newUsername, number = :newContactNumber WHERE id = :user_id');
+        public function updateUsername($newUsername) {
+            $this->db->query('UPDATE General_User SET username = :newUsername WHERE id = :user_id');
             $this->db->bind(':newUsername', $newUsername);
+            $this->db->bind(':user_id', $_SESSION['user_id']); // You need to have the user's ID available
+        
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public function updateUsernumber($newContactNumber) {
+            $this->db->query('UPDATE General_User SET number = :newContactNumber WHERE id = :user_id');
             $this->db->bind(':newContactNumber', $newContactNumber);
             $this->db->bind(':user_id', $_SESSION['user_id']); // You need to have the user's ID available
         
