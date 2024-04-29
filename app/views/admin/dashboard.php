@@ -1024,6 +1024,50 @@
     <script>
 
     window.onload = function() {
+        var recycleAdId = sessionStorage.getItem('recycleAdId');
+        if (recycleAdId) {
+            // If there's a recycle ad ID, fetch and display the ad data
+            showRecycleAdContent(recycleAdId);
+        }
+    };
+
+    function showRecycleAdContent(recycleAdId) {
+
+        sessionStorage.setItem('recycleAdId', recycleAdId);
+        // Send a POST request to the server
+        fetch(URLROOT + "/RecycleItemAds/getRecycleAdContent/" + recycleAdId, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            console.log(data);
+
+            showContent('recycle-ad-view-content');
+
+            document.querySelector('.rad-item-name h1').textContent = data.ad.item_name;
+            document.querySelector('.rad-p1 p').textContent = 'Posted on ' + data.ad.item_created_at;
+            document.querySelector('.rad-ad-img').src = URLROOT + '/public/img/items/' + data.ad.item_image;
+            document.querySelector('.rad-desP').textContent = data.ad.item_desc;
+            document.querySelector('.rad-b3-p1 p').textContent = 'Sold by ' + data.ad.seller_name;
+            document.querySelector('.rad-b3-p2 p').textContent = data.ad.item_location;
+            document.querySelector('#rshow-number').dataset.number = data.number;
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    window.onload = function() {
         var adId = sessionStorage.getItem('adId');
         if (adId) {
             // If there's an ad ID, fetch and display the ad data
