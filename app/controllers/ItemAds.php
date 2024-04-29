@@ -494,7 +494,8 @@
                 $ad = $this->itemAdsModel->getAdById($adId);
                 $oldImage = PUBROOT.'/img/items/'.$ad->item_image;
 
-                if($_POST['intentionally_removed'] == 'removed'){
+                // if($_POST['intentionally_removed'] == 'removed'){
+                if (isset($_POST['intentionally_removed']) && $_POST['intentionally_removed'] == 'removed') {
                     //Delete old image
                     deleteImage($oldImage);
                     $data['item_img_name'] = null;
