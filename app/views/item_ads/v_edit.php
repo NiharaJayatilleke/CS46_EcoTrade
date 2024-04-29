@@ -113,7 +113,8 @@
             <span class="ad-form-invalid"><?php echo $data['selling_format_err']; ?></span>
 
             <!-- Hidden form for auction details -->
-            <div id="auction_details" style="display: <?php echo ($data['selling_format'] === 'auction' || $data['show_auction_fields']) ? 'block' : 'none'; ?>;">
+            <!-- <div id="auction_details" style="display: <?php echo ($data['selling_format'] === 'auction' || $data['show_auction_fields']) ? 'block' : 'none'; ?>;"> -->
+            <div id="auction_details" style="display: <?php echo ($data['selling_format'] === 'auction') ? 'block' : 'none'; ?>;">
                 <!-- <div id="auction_details" style="display: block;"> -->
                     <br><br><label for="duration"><p class = "ad_auction_duration">Auction Duration:</p></label>
                     <select id="duration" name="duration" class="ad_duration">
