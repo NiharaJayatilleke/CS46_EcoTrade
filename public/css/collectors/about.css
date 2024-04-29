@@ -35,11 +35,11 @@ p {
 global styles
 --------------------------------------------- 
 */
-html,
+/* html,
 body {
   background: #fff;
   font-family: 'Poppins', sans-serif;
-}
+} */
 
 ::selection {
   background: #ed563b;
@@ -596,8 +596,11 @@ features
 }
 
 .feature-item {
-  display: inline-block;
+  /* display: inline-block; */
   margin-bottom: 60px;
+  margin-left: 250px;
+  margin-right: 300px;
+  padding: 20px;
 }
 
 .feature-item .left-icon img {

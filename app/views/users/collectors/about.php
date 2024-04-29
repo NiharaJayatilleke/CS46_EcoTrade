@@ -40,9 +40,9 @@
                                 <img src="../public/img/collectors/images/11.jpg" alt="First One">
                             </div>
                             <div class="right-content">
-                                <h4>Extra Income Stream</h4>
-                                <p>Collecting recyclables offers individuals an additional source of income.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <h4>Environmental Impact</h4>
+                                <p>By collecting recyclable materials, you actively contribute to reducing waste in the environment. Recycling helps conserve natural resources, reduces pollution, and minimizes the energy required for production, compared to extracting raw materials.</p>
+                                <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
                         <li class="feature-item">
@@ -50,9 +50,9 @@
                                 <img src="../public/img/collectors/images/11.jpg" alt="second one">
                             </div>
                             <div class="right-content">
-                                <h4>Low Startup Costs</h4>
-                                <p>If you wish to support TemplateMo website via PayPal, please feel free to contact us. We appreciate it a lot.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <h4>Contribution to Circular Economy</h4>
+                                <p>Participating in ecotrade supports the concept of a circular economy, where resources are reused, recycled, and repurposed to minimize waste and environmental impact. By closing the loop on material flows, you help create a more sustainable and resilient economic system.</p>
+                                <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
                         <li class="feature-item">
@@ -60,43 +60,19 @@
                                 <img src="../public/img/collectors/images/11.jpg" alt="third gym training">
                             </div>
                             <div class="right-content">
-                                <h4>Scalable Income Potential</h4>
-                                <p>There's a steady demand for recyclable materials, ensuring a reliable income stream.</p>
-                                <a href="#" class="text-button">Discover More</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-6">
-                    <ul class="features-items">
-                        <li class="feature-item">
-                            <div class="left-icon">
-                                <img src="../public/img/collectors/images/11.jpg" alt="fourth muscle">
-                            </div>
-                            <div class="right-content">
-                                <h4>Consistent Demand</h4>
-                                <p>There's a steady demand for recyclable materials, ensuring a reliable income stream.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <h4>Sense of Fulfillment</h4>
+                                <p>Knowing that you are playing a part in environmental conservation and resource preservation can bring a profound sense of fulfillment and purpose. Whether it's seeing tangible results in cleaner streets and reduced landfill waste or knowing that you're making a difference on a larger scale, the satisfaction derived from ecotrade activities can be deeply rewarding.</p>
+                                <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="../public/img/collectors/images/11.jpg" alt="training fifth">
+                                <img src="../public/img/collectors/images/11.jpg" alt="third gym training">
                             </div>
                             <div class="right-content">
-                                <h4>Incentive Programs</h4>
-                                <p>Some platforms offer bonuses and incentive programs to boost collector earnings.</p>
-                                <a href="#" class="text-button">Discover More</a>
-                            </div>
-                        </li>
-                        <li class="feature-item">
-                            <div class="left-icon">
-                                <img src="../public/img/collectors/images/11.jpg" alt="gym training">
-                            </div>
-                            <div class="right-content">
-                                <h4>Market Value Opportunities</h4>
-                                <p>The market value of recyclable materials provides opportunities for profit.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <h4>Community Engagement</h4>
+                                <p>Engaging in ecotrade often involves interacting with your local community. It can foster a sense of camaraderie and cooperation among neighbors, as well as promote environmental awareness and activism. This communal aspect can be personally rewarding and create a positive impact on society.</p>
+                                <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
                     </ul>
@@ -128,14 +104,19 @@
 
         <section id="workFlow">
         <div class="overlay43">
-        <h2 class="heading"> Grow Up Your Workflow Speed. </h2>
-        <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, commodi sint. <br>Ipsam molestias
-            nemovel laboriosam consequatur, perferendis<br> minima soluta? Natus necessitatibus autem suscipit!</p>
-        <div class="num-container">
+        <h2 class="heading"> Join with us! </h2>
+        <p class="para">Becoming an ecotrade collector offers various benefits.<br>
+                        Collecting recyclables reduces waste and preserves resources, while also providing income opportunities.<br>
+                        It fosters community engagement and awareness about environmental issues.<br>
+                        Additionally, it's an educational experience, promoting sustainable practices.<br>
+                        Collectors enjoy flexibility in their involvement and contribute to a circular economy.<br>
+                        Ultimately, it brings a sense of fulfillment through meaningful environmental impact.</p>
+
+        <!-- <div class="num-container">
             <div class="num-item1"><span>27,882 <br>Customers</span></div>
             <div class="num-item1"><span>90% <br>Action Plans</span></div>
             <div class="num-item1"><span>70,592 <br>Downloads</span></div>
-        </div>
+        </div> -->
         </div>
     </section>
     <!-- ***** Call to Action End ***** -->
