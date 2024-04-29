@@ -38,12 +38,12 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="#centers-content" id="centers-tab" onclick="showContent('centers-content')">
                         <span class = "side-icon"><ion-icon name="business-outline"></ion-icon></span>
                         <span class = "side-title">Recycle Center</span>
                     </a>
-                </li>
+                </li> -->
 
 
                 <li>
@@ -402,7 +402,7 @@
 
             <!-- Recycle Centers crud-->
             <div id="centers-content" class="content-section">
-                //somec content
+                <!-- //some content -->
             </div>
 
             <!-- Second hand ads-->
@@ -640,12 +640,12 @@
 
                 <div class="ad-right-container">
                     <?php if (!empty($data['rec_ads'])) : ?>
-                        <div class="ads-container">
+                        <div class="ads-container-rdb">
                             <?php foreach($data['rec_ads'] as $ad): ?>
-                                <!-- <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id?>')"> -->
-                                    <div class="ad-index-container">
+                                 <a class="ad-show-link-rdb" onclick="showRecycleAdContent('<?php echo $ad->r_id?>')">
+                                    <div class="ad-index-container-rdb">
                                         <div class="ad-header">
-                                            <div class="ad-body-image">
+                                            <div class="rad-body-image">
                                                 <img src="<?php echo URLROOT?>/public/img/items/<?php echo $ad->item_image ?>" alt="Ad Image" width="100" height="80">
                                             </div>
 
@@ -658,12 +658,150 @@
                                             <div class="ad-body-desc"><?php echo $ad->item_desc ?></div>
                                         </div>
                                     </div>
-                                <!-- </a> -->
+                                </a>
                             <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
                 </div>
             </div>
+
+
+<div id="recycle-ad-view-content" class="content-section">
+    <div class="sad-main-container1-in-dashboards">
+    <div class="sad-main2"></div>
+        <div class = "rad-item-name"><h1><h1></div>
+        <div class = "rad-p1"><p>Posted on </p></div>
+
+        <div class="sad-container2">
+        <div class="sad-left-container">
+        
+            <div class="sad-big-photo">
+                <!-- <img class="sad-ad-img" src="<php echo URLROOT?>/public/img/items/<php echo $data['ad']->item_image ?>" alt="Ad Image"> -->
+                <a href="" data-lightbox="sad-ad-img">
+                    <img class="rad-ad-img" src="<?php echo URLROOT?>/public/img/items/<?php echo $data['ad']->item_image ?>" alt="Ad Image">
+                </a>
+            </div>
+            <div class="sad-small-images">
+                <!-- <img id="s1" src="productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')"> -->
+                <!-- <img id="s1" src="<php echo URLROOT?>/public/img/prodetails/productDetails1.png" alt="Small Image 1" onclick="displayBigImage('productDetails1.png')">
+
+                <img id="s2" src="<php echo URLROOT?>/public/img/prodetails/productDetails2.jpeg" alt="Small Image 2" onclick="displayBigImage('/pics/productDetails2.jpeg')"> -->
+                <!-- Add more small images as needed -->
+            </div>
+            <div class="sad-desMain">
+                <div class="sad-heading">
+                    <!-- <div class = "sad-price"><h2>Rs. <php echo $data['ad']->item_price ?></h2></div> -->
+                    <!-- <div class = "sad-details">
+                    <!-- <div class = "sad-condition">Condition: <php echo $data['ad']->item_condition ?></div> 
+                    <p>Quantity: 1</p>
+                    <br>
+                    </div> -->
+                </div>
+
+                <div class="sad-description">
+                    <div class="sad-desHead">
+                        <h3> Product Description</h1>
+                    </div>
+                    <div class="rad-desP">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="sad-line"></div>
+
+            <div class="sad-bottom">
+            <!-- <a class="sad-b1" href="#"> -->
+                <button class="sad-b1" id = "rateBtn">
+                    <!-- <img src="<php echo URLROOT?>/public/img/prodetails/promote.png" alt="promote"> -->
+                    <!-- <i class="fas fa-ad"></i> Ad icon -->
+                    <i class="fas fa-star"></i>
+                    <p>Rate this Seller</p>
+                </button>
+            <!-- </a> -->
+                <button class="sad-b1" onclick="reportAd()">
+                    <!-- <img src="<?php echo URLROOT?>/public/img/prodetails/report.png" alt="report"> -->
+                    <i class="fas fa-flag"></i>
+                    <p>Report this Ad</p>
+                </button>
+                <button class="sad-b1" id="saveAdBtn" >
+                    <i class="fas fa-heart" ></i>
+                    <p>Save this Ad</p>
+                </button>
+                
+            </div>
+        
+    </div>
+
+    <div class="sad-right-container">
+        <div class="sad-b3">
+            <!-- <img class="sad-i1" src="<?php echo URLROOT?>/public/img/prodetails/merchant.png" alt="merchant"> -->
+            <i class="fas fa-store fa-lg"></i>
+            <div class="rad-b3-p1">
+            <p></p>
+            </div>
+        </div>
+
+        <div class="sad-b3">
+            <!-- <img class="i1" src="<?php echo URLROOT?>/public/img/prodetails/location1.png" alt="location"> -->
+            <!-- <i class="fas fa-map-pin"></i> -->
+            <i class="fas fa-map-marker-alt fa-lg"></i>
+            <div class="rad-b3-p2">
+            <p></p>
+            </div>
+        </div>
+
+        <div class="sad-b3">
+            <!-- <img class="sad-b3-i" src="<php echo URLROOT?>/public/img/prodetails/tel.png" alt="telephone"> -->
+            <i class="fas fa-phone fa-lg"></i>
+            <div class="sad-b3-p">
+            <!-- <button id="show-number" class="number" data-number="php echo $data['ad']->number?>"> Click to show phone number</button> -->
+            <button id="rshow-number" class="sad-number" data-number=""> Contact Seller</button>
+            <!-- <script>console.log(document.querySelector('#show-number').dataset.number);</script> -->
+            </div>
+        </div>
+
+        <!-- Update Ad, Remove Ad -->
+        <?php if ($_SESSION['user_id'] == $data['ad']->seller_id) : ?>
+        <div class="sad-edit-delete">
+            <a href = "<?php echo URLROOT?>/RecycleItemAds/edit/<?php echo $data['ad']->ad_id?>"><button class="sad-edit-btn" title="edit ad"><i class="fas fa-edit"></i><p>Update Ad</p></button></a>
+            <button onclick="confirmDelete('<?php echo URLROOT?>/RecycleItemAds/delete/<?php echo $data['ad']->ad_id ?>')" class="sad-delete-btn" title="delete ad"><i class="fas fa-trash-alt"></i><p>Remove Ad</p></button></a>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>
+</div>
+
+<!-- <br> -->
+<div class="sad-main-container2">
+<div class="sad-main-container3-left-in-dashboards">
+<!-- Message Sellers (Q&A) -->
+<form method="post">
+    <div class = "message-seller-container">
+        <div class = "message-header">
+            <h3>Message Seller</h3>
+        </div>
+
+        <!-- Message Input -->
+        <div class = "message-input">
+            <input type = "text" class = "message-input-field" name = "send-message" id = "send-message" placeholder = "Type your message here...">
+            <!-- <button class = "message-btn" id = "message-btn" type = "submit">Send</button> -->
+            <input type="submit" value="Send" class = "message-btn" id = "message-btn"> 
+        </div>
+
+        <!-- Testing -->
+        <!-- <div id = "test"></div> -->
+
+        <!-- Message Thread -->
+        <!-- <div id = "results"></div> -->
+
+    </div>  
+
+</form>
+</div>
+
+</div>
+        </div>
 
             <!-- activity -->
             <div id="activity-content" class="content-section">
@@ -943,6 +1081,7 @@
         document.getElementById('centers-content').style.display = 'none';
         document.getElementById('secondhand-content').style.display = 'none';
         document.getElementById('secondhand-ad-view-content').style.display = 'none';
+        document.getElementById('recycle-ad-view-content').style.display = 'none';
         document.getElementById('recycle-content').style.display = 'none';
         document.getElementById('activity-content').style.display = 'none';
         // document.getElementById('reported-ads-content').style.display = 'none';

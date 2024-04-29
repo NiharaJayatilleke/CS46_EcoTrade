@@ -1,4 +1,46 @@
+.ads-container-rdb {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap:20px;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 50px;
+}
 
+.ad-show-link-rdb {
+    text-decoration: none;
+}
+
+.ad-index-container-rdb:hover {
+    background: rgba(255, 255, 255, 0.532);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01);
+    transition: 300ms ease-in;
+    border-radius: 5px;
+}
+/* 
+.ad-index-container-rdb {
+    width: 28%; 
+    background: #ffffff27; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    margin-left: 40px;
+    /* padding: 10px;  
+    padding: 1px;
+    border-radius: 5px;
+    text-align: center;
+    transition: 300ms ease-in;
+} */
+
+.rad-body-image img {
+    /* width: 98%; */
+    width: 290px;
+    /* height: auto; */
+    border: 1px solid #ccc;
+    height: 170px;
+    object-fit: cover;
+}
 
 .sad-main-container1 {
     margin-left: 11%;
@@ -29,7 +71,8 @@
 }
 
 /* .sad-main-container1 h1 { */
-.sad-main-container1 .sad-item-name{
+.sad-main-container1 .sad-item-name,
+.ad-main-container1 .rad-item-name{
     margin-left: 3%;
     margin-top: 0;
     margin-bottom: 0;
@@ -90,7 +133,7 @@
     /* background-color: #313131; */
 }
 
-.sad-big-photo  .sad-ad-img {
+.sad-big-photo  .sad-ad-img, .sad-big-photo  .rad-ad-img  {
     width: 100%;
     height: 100%;
     /* object-fit: fill; */
@@ -187,7 +230,7 @@
     margin-bottom: 10px;
 }
 
-.sad-desP {
+.sad-desP, .rad-desP {
     font-size: 15px;
     color: #666;
     line-height: 1.5;
@@ -377,7 +420,8 @@
     font-size: 14px;
 }
 
-.sad-b3-p1, .sad-b3-p2, .sad-b3-p3 {
+.sad-b3-p1, .sad-b3-p2, .sad-b3-p3, 
+.rad-b3-p1, .rad-b3-p2, .rad-b3-p3  {
     margin-right: 0%;
     margin-top: 2px;
     color: #313131;
