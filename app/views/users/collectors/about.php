@@ -61,7 +61,7 @@
                             </div>
                             <div class="right-content">
                                 <h4>Sense of Fulfillment</h4>
-                                <p>Knowing that you are playing a part in environmental conservation and resource preservation can bring a profound sense of fulfillment and purpose. Whether it's seeing tangible results in cleaner streets and reduced landfill waste or knowing that you're making a difference on a larger scale, the satisfaction derived from ecotrade activities can be deeply rewarding.</p>
+                                <p>Knowing that you are playing a part in environmental conservation can bring a profound sense of purpose. Whether it's seeing results in cleaner streets and reduced landfill waste or knowing that you're making a difference on a larger scale, the satisfaction derived from can be rewarding.</p>
                                 <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
@@ -71,7 +71,7 @@
                             </div>
                             <div class="right-content">
                                 <h4>Community Engagement</h4>
-                                <p>Engaging in ecotrade often involves interacting with your local community. It can foster a sense of camaraderie and cooperation among neighbors, as well as promote environmental awareness and activism. This communal aspect can be personally rewarding and create a positive impact on society.</p>
+                                <p>Engaging in ecotrade often involves interacting with your community. It can foster a sense of cooperation among neighbors, as well as promote environmental awareness and activism. This communal aspect can be personally rewarding and create a positive impact on society.</p>
                                 <!-- <a href="#" class="text-button">Discover More</a> -->
                             </div>
                         </li>
