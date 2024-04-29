@@ -29,8 +29,8 @@ function paymentGateway(event) {
             var payment = {
                 "sandbox": true,
                 "merchant_id": "1226588",    // Replace your Merchant ID
-                "return_url": "http://localhost/ecotrade/itemads/paymentportal",   
-                "cancel_url": "http://localhost/ecotrade/itemads/paymentportal",     // Important
+                "return_url": "http://localhost/ecotrade/itemads/payment",   
+                "cancel_url": "http://localhost/ecotrade/itemads/payment",     // Important
                 "notify_url": "http://sample.com/notify",
                 "order_id": obj["order_id"],
                 "items": obj,
@@ -54,7 +54,7 @@ function paymentGateway(event) {
             payhere.startPayment(payment);
         }
     };
-    xhttp.open("GET", "/ecotrade/ItemAds/paymentportal", true);
+    xhttp.open("GET", "/ecotrade/ItemAds/payment", true);
     xhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest"); 
     xhttp.send();
 }
