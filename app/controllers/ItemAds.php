@@ -662,7 +662,7 @@
             }
         }
 
-        public function payment($adId){
+        /*public function payment($adId){
 
             $ad = $this->itemAdsModel->getAdById($adId);
 
@@ -676,8 +676,8 @@
             }else{
                 $this->view('pages/forbidden');
             }
-        }
-
+        }*/
+        
         public function report($adId){
 
             if(isset($_SESSION['userType']) && ($_SESSION['userType'] == 'admin' || $_SESSION['userType'] == 'moderator' || $_SESSION['userType'] == 'center' )){      
