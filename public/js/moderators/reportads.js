@@ -28,7 +28,11 @@ function confirmDeleteReportedad(adId) {
                     swalReportbtn.fire(
                         'Deleted!',
                         'Ad has been deleted.',
-                        'success'
+                        'success',
+                        {
+                            confirmButtonColor: '#3085d6', // Added
+                            cancelButtonColor: '#d33' // Added
+                        }
                     ).then(() => {
                         // reload the page or perform other actions after deletion
                         location.reload();
@@ -41,7 +45,11 @@ function confirmDeleteReportedad(adId) {
                 swalReportbtn.fire(
                     'Error',
                     'Failed to delete ad.',
-                    'error'
+                    'error',
+                    {
+                        confirmButtonColor: '#3085d6', // Added
+                        cancelButtonColor: '#d33' // Added
+                    }
                 );
             });
         } else if (
@@ -50,7 +58,11 @@ function confirmDeleteReportedad(adId) {
             swalReportbtn.fire(
                 'Cancelled',
                 'The Ad is safe :)',
-                'error'
+                'error',
+                {
+                    confirmButtonColor: '#3085d6', // Added
+                    cancelButtonColor: '#d33' // Added
+                }
             );
         }
     });
