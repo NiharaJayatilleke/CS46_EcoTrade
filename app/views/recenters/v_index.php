@@ -2,10 +2,6 @@
     <!-- Top NAVIGATION -->
     <?php require APPROOT . '/views/inc/components/topnavbar.php';?>
 <div class="bgrc">
-<img
-                  src="../public/img/recenters/laptop-1205256_1280.jpg"
-                  class="img-765"
-                />
     <div class="ad-background1">
     
     <div class="ad-container1">
