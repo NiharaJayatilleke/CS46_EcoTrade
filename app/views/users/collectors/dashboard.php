@@ -439,7 +439,7 @@
                                     <input type="password" id="newPassword"   name="newPassword" class="form-control input-field-box" required>     
                                         <div class="form-invalid"><?php error('newPassword'); ?></div>
                                 </div>
-                                <div class="form-cp">
+                                <div class="form-cp"> 
                                     <label class="form-label" for="confirmPassword">Confirm New Password</label>
                                     <input type="password" id="confirmPassword"  name="confirmPassword" class="form-control input-field-box" required> 
                                     <div class="form-invalid"><?php error('confirmPassword'); ?></div>

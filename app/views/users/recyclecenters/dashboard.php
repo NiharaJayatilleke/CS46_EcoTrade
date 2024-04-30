@@ -351,7 +351,7 @@
                                 </div>
                                 <div class="profile-buttons"> 
                                     <button class="profile-updatebt">Change Password</button> 
-                                </div>
+                                </div> 
                                 <div id="changePasswordMessage" class="form-invalid"></div> 
                             </div>
                             <div style="margin-top: 30px;">
