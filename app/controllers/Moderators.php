@@ -416,6 +416,7 @@
                     'ad' => $ad,
                     'ads' => $ads,
                     'sec_ad_count' => $numSecAds,
+                    'rec_ads' => $rec_ads,
                     'userCounts' => $userCounts,
                     'adCountsByCategory' => $adCountsByCategory,
                     'reportedAds' => $reportedAds,
