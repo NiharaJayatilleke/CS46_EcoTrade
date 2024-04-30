@@ -53,7 +53,7 @@ $(document).ready(function() {
                                 document.getElementById('offer-price').value
                             ]
                         },
-                    
+                        showCloseButton: true,
                         confirmButtonText: 'Submit',
                         showLoaderOnConfirm: true,
                         allowOutsideClick: () => !Swal.isLoading()

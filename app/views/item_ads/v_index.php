@@ -71,6 +71,7 @@
             // return $b_has_pv - $a_has_pv;
             $a_has_pv = isset($a->feature_package) && $a->feature_package == 'PV' && $a->remaining_time > 0;
             $b_has_pv = isset($b->feature_package) && $b->feature_package == 'PV' && $b->remaining_time > 0;
+            
 
             // If both ads have a 'PV' feature that is not over, compare their remaining time
             if ($a_has_pv && $b_has_pv) {
@@ -90,6 +91,44 @@
         $uniqueIds = array_unique(array_column($data['ads'], 'ad_id'));
         // print_r($uniqueIds);
         $uniqueAds = array_intersect_key($data['ads'], $uniqueIds);
+
+        // usort($data['ads'], function($a, $b) {
+        //     $a_has_pv = isset($a->feature_package) && $a->feature_package == 'PV' && $a->remaining_time > 0;
+        //     $b_has_pv = isset($b->feature_package) && $b->feature_package == 'PV' && $b->remaining_time > 0;
+        //     $a_has_ag = isset($a->feature_package) && $a->feature_package == 'AG';
+        //     $b_has_ag = isset($b->feature_package) && $b->feature_package == 'AG';
+        
+        //     // If both ads have an 'AG' feature, compare their 'PV' features
+        //     if ($a_has_ag && $b_has_ag) {
+        //         if ($a_has_pv && $b_has_pv) {
+        //             return $a->remaining_time <=> $b->remaining_time;
+        //         }
+        //         if ($a_has_pv) return -1;
+        //         if ($b_has_pv) return 1;
+        //     }
+        
+        //     // If only one ad has an 'AG' feature, that ad should come first
+        //     if ($a_has_ag) return -1;
+        //     if ($b_has_ag) return 1;
+        
+        //     // If neither ad has an 'AG' feature, compare their 'PV' features
+        //     if ($a_has_pv && $b_has_pv) {
+        //         return $a->remaining_time <=> $b->remaining_time;
+        //     }
+        //     if ($a_has_pv) return -1;
+        //     if ($b_has_pv) return 1;
+        
+        //     // If neither ad has a 'PV' feature, their order doesn't matter
+        //     return 0;
+        // });
+
+        // $uniqueAds = [];
+        // foreach ($data['ads'] as $ad) {
+        //     $uniqueKey = $ad->ad_id . '-' . $ad->feature_package;
+        //     $uniqueAds[$uniqueKey] = $ad;
+        // }
+        // $data['ads'] = array_values($uniqueAds);
+        //>
 
         foreach($uniqueAds as $ad): ?>
         <!-- foreach($data['ads'] as $ad): > -->
@@ -113,7 +152,7 @@
                         <php endif; ?> -->
                         <div class = "ad-item-name"><h3><?php echo $ad->item_name ?><h3>
                         <?php if (isset($ad->feature_package) && $ad->feature_package == 'AG'): ?>
-                            <img src="<?php echo URLROOT?>/public/img/itemAds/hot.jpeg" alt="AG Marker" class="ad-ag-marker">
+                            <img src="<?php echo URLROOT?>/public/img/itemAds/hot.jpeg" alt="AG Marker" class="ad-ag-marker";>
                         <?php endif; ?>
                         </div>
 

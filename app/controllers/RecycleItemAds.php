@@ -178,6 +178,24 @@
             $this->view('recycle_ads/v_re_show',$data);
         }
 
+        public function getRecycleAdContent($id){
+            
+            error_log('getAddContent function called with adId: ' . $id);
+
+            $ad = $this->recycleItemAdsModel->getAdById($id);
+            $sellerId = $ad->seller_id;
+            $seller = $this->usersModel->getUserDetails($sellerId);
+            $number = $seller->number;
+
+            $data = [
+                'number' => $number,
+                'ad' => $ad,
+                'user_id' => $_SESSION['user_id']
+            ];
+
+            echo json_encode($data);
+        }
+
         public function edit(){
 
         }

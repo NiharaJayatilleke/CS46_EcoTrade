@@ -51,7 +51,7 @@
             
             $ads = $this->itemAdsModel->getAds();
             $otherAds = array_filter($ads, function($ad) use ($id) {
-                return $ad->id != $id;
+                return $ad->ad_id != $id;
             });
             
             $data = [

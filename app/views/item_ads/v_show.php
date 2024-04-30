@@ -144,7 +144,7 @@
             <!-- php $acceptedOffer = array_search('accepted', array_column($data['offers'], 'offer_status')); ?>  -->
         <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && empty($data['accepted_offer']) && $data['ad']->negotiable == "yes") : ?>
         <?php if (!empty($data['offers'])) : ?>
-            <div class="offer-title"><h3>Highest Offers</h3></div>
+            <div class="offer-title"><h3 style="margin-bottom:10px;">Highest Offers</h3></div>
             <?php 
             $count = 0;
             foreach ($data['offers'] as $offer) : 
@@ -184,7 +184,7 @@
         <div ul class="bid-list">
         <?php if ($_SESSION['user_id'] == $data['ad']->seller_id && $data['ad']->selling_format == "auction") : ?>
         <?php if (count($data['bids']) > 0): ?>
-            <div class="offer-title"><h3>Highest Bids</h3></div>
+            <div class="offer-title"><h3 style="margin-bottom:10px;">Highest Bids</h3></div>
             <?php $count = 0;
             foreach ($data['bids'] as $bid) : 
                 if ($count == 3) break;
@@ -264,6 +264,7 @@
             foreach($data['other_ads'] as $ad): 
             if($counter == 1) break; 
         ?>
+        <a class = "ad-show-link" href="<?php echo URLROOT;?>/ItemAds/show/<?php echo $ad->ad_id?>">
             <div class="ad-show-index-container">
                 <div class = "ad-header">
                     <div class = "ad-body-image">
@@ -274,6 +275,7 @@
                 <div class = "ad-body">
                 <div class = "ad-price">Rs. <?php echo $ad->item_price ?></div>
             </div>
+        </a>
         <?php 
             $counter++;
             endforeach; 

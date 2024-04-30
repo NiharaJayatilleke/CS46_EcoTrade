@@ -56,12 +56,12 @@ if (placeBidButton) {
                     title: 'Place your bid',
                     html: `
                         <p> Current Bid: Rs. ${currentHighestBid} </p>
-                        <p>${data.numBids} ${data.numBids === 1 ? 'bid' : 'bids'} ·  <span id="displayTime"> ${displayTime} left</p>
-                        <button onclick="confirmBid(${nextBid1})"> Bid Rs. ${nextBid1} </button> 
-                        <button onclick="confirmBid(${nextBid2})"> Bid Rs. ${nextBid2} </button> 
-                        <button onclick="confirmBid(${nextBid3})"> Bid Rs. ${nextBid3} </button>  
+                        <p style="margin-bottom:10px; margin-top:5px;"> ${data.numBids} ${data.numBids === 1 ? 'bid' : 'bids'} ·  <span id="displayTime"> ${displayTime} left</p>
+                        <button style="padding: 3px 10px; font-size: 16px; border-radius: 5px; margin:5px; cursor: pointer;" onclick="confirmBid(${nextBid1})"> Bid Rs. ${nextBid1} </button> 
+                        <button style="padding: 3px 10px; font-size: 16px; border-radius: 5px; margin:5px; cursor: pointer;" onclick="confirmBid(${nextBid2})"> Bid Rs. ${nextBid2} </button> 
+                        <button style="padding: 3px 10px; font-size: 16px; border-radius: 5px; margin:5px; cursor: pointer;" onclick="confirmBid(${nextBid3})"> Bid Rs. ${nextBid3} </button>  
                         <p>Your max bid</p>
-                        <input type="number" id="max-bid" min="${nextBid1}" step="${bidIncrement}" placeholder="Enter a value greater than Rs. ${currentHighestBid}.">
+                        <input type="number" id="max-bid" min="${nextBid1}" step="${bidIncrement}" placeholder="Enter a value greater than Rs. ${currentHighestBid}." style="padding: 3px 10px; font-size: 16px; border-radius: 5px; margin:5px; margin-bottom:20px;">
                         <p>By selecting Bid, you are committing to buy this item if you are the winning bidder.</p>
                     `,
                     confirmButtonText: 'Bid',
