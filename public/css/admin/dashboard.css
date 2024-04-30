@@ -689,17 +689,17 @@
     border-radius: 50%;
     margin-top: 20px;
     margin-left: 20px;
-}
+} */
 
 .profile_image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-} */
+    /* object-fit: cover; */
+}
 
 .image-container {
     width: 160px; /* Set the desired width for the profile image */
-    height: 160px; /* Set the desired height for the profile image */
+    height: 160px; 
     overflow: hidden;
     border-radius: 50%; /* To make the image circular, you can adjust the border-radius as needed */
     position: relative;
