@@ -591,5 +591,11 @@
   grid-template-columns: 3fr 3fr;
 }
 
+@media screen and (min-width:1000px){
+  .b111 .sectionHeader{
+      font-size: 3em;
+  }
+}
+
 
 }
