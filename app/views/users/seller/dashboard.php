@@ -406,9 +406,8 @@
     </div>
 
     <!-- JS for switching tabs -->
-    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/seller/dashboard_tabs.js">
-    </script>
-
+    <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/seller/dashboard_tabs.js"></script>
+    
     <script>
      window.onload = function() {
     var urlParams = new URLSearchParams(window.location.search);
