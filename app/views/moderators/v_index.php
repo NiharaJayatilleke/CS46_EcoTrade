@@ -456,9 +456,9 @@
 
             <div id="secondhand-content" class="content-section">
                 <div class="ad-right-container">
-                    <?php if (!empty($data['ads'])) : ?>
+                    <?php if (!empty($data['ad'])) : ?>
                     <div class="ads-container">
-                        <?php foreach($data['ads'] as $ad): ?>
+                        <?php foreach($data['ad'] as $ad): ?>
                             <a class="ad-show-link" onclick="showAdContent('<?php echo $ad->ad_id; ?>')">
                             <div class="ad-index-container"
                                 data-price="<?php echo $ad->item_price ?>"
@@ -526,7 +526,7 @@
 
                 <div class="sad-main-container1-in-dashboards">
                     <div class="sad-main2"></div>
-                        <div class = "sad-item-name"><h1><?php echo $data['ad']->item_name ?><h1></div>
+                        <div class = "sad-item-name"><h1><h1></div>
                         <div class = "sad-p1"><p>Posted on <?php echo $data['ad']->item_created_at ?></p></div>
 
                         <div class="sad-container2">
@@ -842,6 +842,98 @@
     <script type="text/JavaScript" src="<?php echo URLROOT; ?>/js/admin/ad_view.js"></script>
    
     <script>
+
+window.onload = function() {
+        var recycleAdId = sessionStorage.getItem('recycleAdId');
+        if (recycleAdId) {
+            // If there's a recycle ad ID, fetch and display the ad data
+            showRecycleAdContent(recycleAdId);
+        }
+    };
+
+    function showRecycleAdContent(recycleAdId) {
+
+        sessionStorage.setItem('recycleAdId', recycleAdId);
+        // Send a POST request to the server
+        fetch(URLROOT + "/RecycleItemAds/getRecycleAdContent/" + recycleAdId, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            console.log(data);
+
+            showContent('recycle-ad-view-content');
+
+            document.querySelector('.rad-item-name h1').textContent = data.ad.item_name;
+            document.querySelector('.rad-p1 p').textContent = 'Posted on ' + data.ad.item_created_at;
+            document.querySelector('.rad-ad-img').src = URLROOT + '/public/img/items/' + data.ad.item_image;
+            document.querySelector('.rad-desP').textContent = data.ad.item_desc;
+            document.querySelector('.rad-b3-p1 p').textContent = 'Sold by ' + data.ad.seller_name;
+            document.querySelector('.rad-b3-p2 p').textContent = data.ad.item_location;
+            document.querySelector('#rshow-number').dataset.number = data.number;
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    window.onload = function() {
+        var adId = sessionStorage.getItem('adId');
+        if (adId) {
+            // If there's an ad ID, fetch and display the ad data
+            showAdContent(adId);
+        }
+    };
+
+    function showAdContent(adId) {
+
+        sessionStorage.setItem('adId', adId);
+        // Send a POST request to the server
+        fetch(URLROOT + "/ItemAds/getAdContent/" + adId, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            // body: JSON.stringify({adId: adId})
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            console.log(data);
+
+            showContent('secondhand-ad-view-content');
+            // Use the data to display the ad content
+            document.querySelector('.sad-item-name h1').textContent = data.ad.item_name;
+            document.querySelector('.sad-p1 p').textContent = 'Posted on ' + data.ad.item_created_at;
+            document.querySelector('.sad-ad-img').src = URLROOT + '/public/img/items/' + data.ad.item_image;
+            document.querySelector('.sad-price h2').textContent = 'Rs. ' + data.ad.item_price;
+            document.querySelector('.sad-neg').textContent = data.ad.negotiable == 'yes' ? 'Negotiable' : 'Non-Negotiable';
+            document.querySelector('.sad-condition').textContent = 'Condition: ' + data.ad.item_condition;
+            document.querySelector('.sad-desP').textContent = data.ad.item_desc;
+            document.querySelector('.sad-b3-p1 p').textContent = 'Sold by ' + data.ad.seller_name;
+            document.querySelector('.sad-b3-p2 p').textContent = data.ad.item_location;
+            document.querySelector('#show-number').dataset.number = data.number;
+
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
         
     // Function to show/hide content sections based on the clicked tab
     function showContent(section) {
@@ -851,6 +943,7 @@
         document.getElementById('activity-content').style.display = 'none';
         document.getElementById('reported-ads-content').style.display = 'none';
         document.getElementById('secondhand-content').style.display = 'none';
+        document.getElementById('secondhand-ad-view-content').style.display = 'none';
         document.getElementById('recycle-content').style.display = 'none';
         document.getElementById('settings-content').style.display = 'none';
 
@@ -859,7 +952,13 @@
  
         // Select the sidebar element
         a_name=section.split("-content")[0]+'-tab';
-        document.getElementById(a_name).parentElement.classList.add('hovered');
+        // document.getElementById(a_name).parentElement.classList.add('hovered');
+        var element = document.getElementById(a_name);
+        if (element) {
+            element.parentElement.classList.add('hovered');
+        } else {
+            console.warn('Element with ID ' + a_name + ' not found');
+        }
 
          // Update the URL hash to store the current section
         window.location.hash = '#' + section;
