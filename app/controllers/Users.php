@@ -227,11 +227,13 @@ require APPROOT.'/libraries/vendor/autoload.php';
  
         public function emailVerification($email) {
             // Load the view with the email data
-            $this->view('users/v_emailver', ['email' => $email,'token'=>$token]);
+            $this->view('users/v_emailver', ['token'=>$token,'email' => $email]);
         }
 
         public function send_email_confirmation($token, $usersEmail){
             $url = "localhost/ecotrade/users/verify_email?token=$token";
+            // 1 hour from now
+            // $expirationTime = time() + (60 * 60); 
 
             $this->mail->isSMTP();
             $this->mail->Host = 'smtp.gmail.com';
