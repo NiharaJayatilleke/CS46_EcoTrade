@@ -370,8 +370,8 @@
       <form method="POST" action="<?php echo URLROOT; ?>/users/edit_username">
         <label for="username">Username</label>
         <input type="text"  name="newUsername" value="<?php echo $_SESSION['user_name']; ?>">
-        <?php if (!empty($data['errors']['newUsername'])) : ?>
-            <div class="form-invalid"><?php echo $data['errors']['newUsername']; ?></div>
+        <?php if (!empty($data['newUsername_err'])) : ?>
+            <div class="form-invalid"><?php echo $data['newUsername_err']; ?></div>
         <?php endif; ?>
         <button class="edit-button">Edit</button>
       </form>
@@ -385,8 +385,8 @@
       <form method="POST" action="<?php echo URLROOT; ?>/users/edit_number">
         <label for="phone">Phone number</label>
         <input type="text" name="newContactNumber" value="<?php echo $_SESSION['user_number']; ?>">
-        <?php if (!empty($data['errors']['newContactNumber'])) : ?>
-            <div class="form-invalid"><?php echo $data['errors']['newContactNumber']; ?></div>
+        <?php if (!empty($data['newContactNumber_err'])) : ?>
+            <div class="form-invalid"><?php echo $data['newContactNumber_err']; ?></div>
         <?php endif; ?>
         <button class="edit-button">Edit</button>
 
