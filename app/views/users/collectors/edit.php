@@ -162,7 +162,7 @@
                 </div>
 
                 <div class="collector-details location">
-                    <span class="collector-title">Select Collecting Locations<span class="required">*</span></span>
+                    <span class="collector-title">Select Collecting and Distributing Locations<span class="required">*</span></span>
                     <div class="collector-fields districts">
                         <!-- Checkbox fields -->
                         <div class="collector-input-field">
