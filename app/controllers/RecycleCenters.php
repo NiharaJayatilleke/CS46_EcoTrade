@@ -220,18 +220,26 @@
     
                 //input data
                 $data = [
+                 
                     'item_category' => trim($_POST['item_category']),
+                    'item_required_date' => trim($_POST['item_required_date']),
                     'item_desc' => trim($_POST['item_desc']),
                     'item_location' => trim($_POST['item_location']),
                     'item_district' => trim($_POST['item_district']),
                     'item_quantity' => trim($_POST['item_quantity']),
-
+                  
+                    // 'item_required_date_err' => '',
                     'item_category_err' => '',
                     'item_location_err' => '',
                     'item_district_err' => '',
                     'item_quantity_err' => '',
                 ];
-    
+                
+                //Validate item_required_date
+                // if(empty($data['item_required_date'])){
+                //     $data['item_required_date_err'] = 'Please enter a deadline';
+                // }
+
                 //Validate item_category
                 if(empty($data['item_category'])){
                     $data['item_category_err'] = 'Please select a category for your item';
@@ -273,12 +281,16 @@
             else {
                 // initial form
                 $data = [
+                    
+                    'item_required_date' => '',
                     'item_category' => '',
                     'item_desc' => '',
                     'item_location' => '',
                     'item_district' => '',
                     'item_quantity' => '',
                     
+                    
+                    // 'item_required_date_err' => '',
                     'item_category_err' => '',
                     'item_location_err' => '',
                     'item_district_err' => '',
@@ -290,72 +302,7 @@
             }
         } 
         
-        public function editAd($adId) {
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                // Process form data and update the ad in the database only if there are no validation errors
-                if ($this->validateEditAdForm()) {
-                    $this->recycleCentersModel->updateAd($adId);
-                    $this->userModel->logActivity($_SESSION['user_id'], 'Edit Requirements', ' Recyclecenter Requirement edited');
-                    redirect('RecycleCenters/index');
-                } else {
-                    // Validation failed, reload the edit form with errors
-                    $ad = $this->recycleCentersModel->getAdById($adId);
-                    $data = [
-                        'ad_id' => $adId,
-                        'item_category' => $ad->item_category,
-                        'item_desc' => $ad->item_desc,
-                        'item_location' => $ad->item_location,
-                        'item_quantity' => $ad->item_quantity,
-                        'item_location_err' => $this->itemLocationErr, // Pass error messages back to the form
-                        'item_quantity_err' => $this->itemQuantityErr
-                    ];
-                    $this->view('recenters/v_editad', $data);
-                }
-            } else {
-                // Get ad details for editing
-                $ad = $this->recycleCentersModel->getAdById($adId);
-                $data = [
-                    'ad_id' => $adId,
-                    'item_category' => $ad->item_category,
-                    'item_desc' => $ad->item_desc,
-                    'item_location' => $ad->item_location,
-                    'item_quantity' => $ad->item_quantity,
-                    'item_location_err' => '', // No errors initially
-                    'item_quantity_err' => ''
-                ];
-                $this->view('recenters/v_editad', $data);
-            }
-        }
-        
-        private function validateEditAdForm() {
-            // Perform validation checks here
-            $isValid = true;
-        
-            if (empty($_POST['item_location'])) {
-                $this->itemLocationErr = 'Please enter the location of your item';
-                $isValid = false;
-            } else {
-                $this->itemLocationErr = ''; // Reset error if valid
-            }
-        
-            if (empty($_POST['item_quantity'])) {
-                $this->itemQuantityErr = 'Please enter the quantity of your item';
-                $isValid = false;
-            } else {
-                $this->itemQuantityErr = ''; // Reset error if valid
-            }
-        
-            return $isValid;
-        }
-        
-        public function deleteAd($adId){
-            if ($this->recycleCentersModel->delete($adId)) {
-                $this->userModel->logActivity($_SESSION['user_id'], 'Requirements deleted', 'Recyclecenter Requirements removed');
-                redirect('RecycleCenters/index');
-            } else {
-                die('Something went wrong');
-            }
-        }
+      
 
         // public function dashboard(){
         //     $data = [];

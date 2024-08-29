@@ -112,7 +112,9 @@
                                         <td>Description</td>
                                         <td>Required Quantity</td>
                                         <td>Posted</td>
+                                        <td>Date Required</td>
                                         <td>Edit/Delete</td>
+                                   
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -122,6 +124,7 @@
                                             <td><?= $req->item_desc ?></td>
                                             <td><?= $req->item_quantity ?></td>
                                             <td><?php echo convertTime($req->created_at); ?></td>
+                                            <td><?= $req->item_required_date ?></td>
                                             <td>
                                                 <div class = "mod-control-btns">
                                                     <a href="<?php echo URLROOT ?>/RecycleCenters/editAd/<?php echo $req->rad_id ?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>
@@ -151,6 +154,8 @@
                                     <td>Description</td>
                                     <td>Quantity</td>
                                     <td>Posted</td>
+                                  
+                                    <td>Date Required</td>
                                     <td>Edit/Delete</td>
                                 </tr>
                             </thead>
@@ -161,6 +166,7 @@
                                         <td><?= $req->item_desc ?></td>
                                         <td><?= $req->item_quantity ?></td>
                                         <td><?php echo convertTime($req->created_at); ?></td>
+                                        <td><?= $req->item_required_date ?></td>
                                         <td>
                                             <div class = "mod-control-btns">
                                                 <a href="<?php echo URLROOT ?>/RecycleCenters/editAd/<?php echo $req->rad_id ?>"><button class="ad-edit-btn"><i class="fas fa-edit"></i></button></a>

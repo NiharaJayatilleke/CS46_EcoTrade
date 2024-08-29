@@ -17,6 +17,19 @@
             <input type="text" name="item_name" id="item_name" class="ad_item_name" value="<?php echo $data['item_name']; ?>">
             <span class="form-invalid"><?php //echo $data['item_name_err']; ?></span> -->
 
+
+            <!-- <div class="ad-form-input-title1">Required Date</div> -->
+            <!-- <textarea name="item_desc" placeholder="Enter a deadline" id="item_required_date" class="ad_item_quantity" rows = "10" cols = "59"><?php echo $data['item_required_date']; ?></textarea> -->
+            <!-- <span class="ad-form-invalid"></?php echo $data['item_required_date_err']; ?></span> -->
+
+
+            <div class="ad-form-input-title1">Required Date</div>
+            <input type="number" name="item_required_date" id="item_required_date" class="ad_item_quantity" value="<?php echo $data['item_required_date']; ?>" >
+
+
+
+
+
             <!-- item_category -->
             <div class="ad-form-input-title1">Category</div>
             <!-- <label for="item_category">Item Category  </label> -->

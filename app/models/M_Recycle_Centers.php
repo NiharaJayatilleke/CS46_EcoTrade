@@ -109,10 +109,10 @@
 
         public function addRequirement($data){
             // die(print_r($_SESSION['user_id']));
-            $this->db->query('INSERT INTO Recycle_Center_Requirements(rad_id,center_id,item_category,item_desc,item_location,item_quantity,status) VALUES (:rad_id, :center_id, :item_category, :item_desc, :item_location, :item_quantity, :status)');
-        
+            $this->db->query('INSERT INTO Recycle_Center_Requirements(rad_id,center_id, item_required_date, item_category,item_desc,item_location,item_quantity,status) VALUES (:rad_id, :center_id, :item_required_date,  :item_category, :item_desc, :item_location, :item_quantity, :status)');
             $this->db->bind(':rad_id',$data['ad_id']);   
-            $this->db->bind(':center_id',$_SESSION['user_id']);              
+            $this->db->bind(':center_id',$_SESSION['user_id']);     
+            $this->db->bind(':item_required_date',$data['item_required_date']);         
             $this->db->bind(':item_category',$data['item_category']);
             $this->db->bind(':item_desc',$data['item_desc']);  
             $this->db->bind(':item_location',$data['item_location']);
